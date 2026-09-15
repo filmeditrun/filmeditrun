@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Services - Filmeditrun.co.uk">
+    <Navbar />
+
+    <main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-accentBlue font-bold tracking-widest uppercase text-sm">Cinematic Offerings</span>
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight">Our Services</h1>
+            <p class="text-mutedText text-lg">Professional filming, post-production, color grading, and immersive sound design tailored for high-impact brands.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 space-y-4">
+                <span class="text-accentBlue text-xs font-bold uppercase tracking-widest">Filming & Production</span>
+                <h3 class="text-2xl font-bold">Commercial & Brand Filming</h3>
+                <p class="text-mutedText">High-impact cinematic commercials tailored for TV and digital campaigns with full lighting and 8K camera packages.</p>
+                <div class="pt-4">
+                    <a href="/contact" class="text-accentBlue font-bold text-sm hover:underline">Book Service &rarr;</a>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 space-y-4">
+                <span class="text-accentBlue text-xs font-bold uppercase tracking-widest">Post-Production</span>
+                <h3 class="text-2xl font-bold">Offline & Online Editing</h3>
+                <p class="text-mutedText">Precise timeline curation, narrative pacing, proxy workflows, and final conform in Premiere Pro and DaVinci Resolve.</p>
+                <div class="pt-4">
+                    <a href="/contact" class="text-accentBlue font-bold text-sm hover:underline">Book Service &rarr;</a>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 space-y-4">
+                <span class="text-accentBlue text-xs font-bold uppercase tracking-widest">Color & Sound</span>
+                <h3 class="text-2xl font-bold">Hollywood Color Grading</h3>
+                <p class="text-mutedText">DaVinci Resolve professional color grading, custom LUT creation, skin tone balancing, and cinematic mood styling.</p>
+                <div class="pt-4">
+                    <a href="/contact" class="text-accentBlue font-bold text-sm hover:underline">Book Service &rarr;</a>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 space-y-4">
+                <span class="text-accentBlue text-xs font-bold uppercase tracking-widest">Color & Sound</span>
+                <h3 class="text-2xl font-bold">Immersive Sound Design</h3>
+                <p class="text-mutedText">Professional dialog cleanup, ADR, custom Foley sound effects, and Dolby Atmos cinematic sound mixing.</p>
+                <div class="pt-4">
+                    <a href="/contact" class="text-accentBlue font-bold text-sm hover:underline">Book Service &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
