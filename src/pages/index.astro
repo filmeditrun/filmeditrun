@@ -1,11 +1,77 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// ==========================================
+// EASY-EDIT SETTINGS FOR NOVICES
+// Change your text and links right here!
+// ==========================================
+const brandName = "FILM.EDIT.RUN";
+const tagline = "Premium multi-camera event video coverage, conference filming, broadcast editing, and creative corporate animation pipelines across London, Cambridge, and the UK.";
+const locations = "London • Cambridge • UK Wide";
+
+const expertiseList = [
+  "Conference Filming",
+  "Multi-Camera Events",
+  "Corporate Video",
+  "Motion Design"
+];
+// ==========================================
+
+// 1. IMPORT YOUR GLOBAL LAYOUT COMPONENTS CLEANLY
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "FilmEditRun | Corporate Video Production London & Cambridge";
+const description = "Professional multi-camera event video coverage, conference filming, broadcast editing, and creative corporate animation pipelines across London, Cambridge, and the UK.";
 ---
 
-<Layout>
-	<Welcome />
+<!-- 2. WRAP EVERYTHING IN YOUR CENTRAL LAYOUT -->
+<Layout title={title} description={description}>
+
+  <!-- Cinematic Hero Section with Native Autoplay Video Background -->
+  <header class="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    
+    <!-- Video Container Wrapper -->
+    <div class="absolute inset-0 w-full h-full z-0 bg-neutral-950 pointer-events-none overflow-hidden">
+      <!-- Lighter Contrast Gradient Overlay Layer -->
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/10 via-neutral-950/40 to-neutral-950/80 z-10"></div>
+      
+      <!-- Native HTML5 Video Element (Brighter Opacity) -->
+      <video 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover opacity-80"
+      >
+        <source src="/showreel.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Hero Copy Context -->
+    <div class="relative z-20 max-w-4xl mx-auto px-6 text-center">
+      <span class="text-xs uppercase tracking-[0.3em] text-amber-500 font-mono font-bold block mb-4">London & Cambridge Production Agency</span>
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-none mb-6">
+        We Capture, Create, and <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Produce.</span>
+      </h1>
+      <p class="text-neutral-400 max-w-xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed mb-10">
+        Premium single & multi-camera event video coverage, corporate event capturing, bespoke animation, and high-impact design pipelines.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/contact" class="w-full sm:w-auto bg-amber-500 text-neutral-950 font-bold px-8 py-4 rounded-xl text-md hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/10 hover:scale-[1.02]">
+          Contact Us Today
+        </a>
+        <a href="/services" class="w-full sm:w-auto border border-neutral-700 bg-neutral-900/30 text-neutral-300 font-medium px-8 py-4 rounded-xl text-md hover:bg-neutral-800 hover:text-white transition-all">
+          Explore Our Services
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Brief Introduction Section -->
+  <section class="max-w-5xl mx-auto px-6 pb-32 text-center border-t border-neutral-900 pt-24">
+    <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-6">Corporate Media Without Compromise.</h2>
+    <p class="text-neutral-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+      From massive commercial conference panels to sleek, customized brand motion design graphics, we supply professional workflows ensuring your corporate events translate beautifully across digital streams and highlight edits.
+    </p>
+  </section>
+
 </Layout>

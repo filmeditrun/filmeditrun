@@ -1,0 +1,219 @@
+---
+// =====================================================================
+// EASY QUESTION MANAGER BLOCK
+// To change, add, or remove questions, just edit this list below!
+// =====================================================================
+const formSteps = [
+  {
+    id: "name",
+    type: "text",
+    tag: "01 ➔ Introduce Yourself",
+    title: "What is your first and surname? *",
+    inputType: "text",
+    nameAttr: "name",
+    placeholder: "Type your full name here...",
+    required: true
+  },
+  {
+    id: "service",
+    type: "radio",
+    tag: "02 ➔ Project Requirement",
+    title: "What service do you need? *",
+    options: [
+      { label: "Filming", value: "Filming" },
+      { label: "Editing", value: "Editing" },
+      { label: "Filming and Editing", value: "Filming and Editing" }
+    ]
+  },
+  {
+    id: "email",
+    type: "text",
+    tag: "03 ➔ Reachable Contact",
+    title: "What is your contact email address? *",
+    inputType: "email",
+    nameAttr: "email",
+    placeholder: "name@company.com",
+    required: true
+  },
+  {
+    id: "message",
+    type: "textarea",
+    tag: "04 ➔ Project Brief",
+    title: "How can we help? *",
+    nameAttr: "message",
+    placeholder: "Tell us about your event, dates, or visual goals...",
+    required: true
+  },
+  {
+    id: "verification",
+    type: "final",
+    tag: "05 ➔ Verification & Consent",
+    title: "Final Step *",
+    gdprText: "I consent to having this website store my submitted information so they can respond to my inquiry.",
+    turnstileSiteKey: "YOUR_TURNSTILE_SITE_KEY"
+  }
+];
+
+// 1. CHOOSE GLOBAL LAYOUT TO PREVENT NAVIGATION COLLISION
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Start Your Project | FilmEditRun" description="Get a tailored media production brief response.">
+  <head>
+    <!-- Keep third-party scripts scoped cleanly -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  </head>
+
+  <!-- 2. STRETCHABLE COMPACT WRAPPER FOR SAFE MOBILE BOUNDS -->
+  <div class="min-h-[calc(100vh-5rem)] w-full flex items-center justify-center px-4 py-8 md:px-6 relative">
+    
+    <!-- form container needs dedicated height to allow child elements to position absolute safely -->
+    <form id="typeform" action="https://formtorch.com/f/YOUR_FORMTORCH_KEY" method="POST" class="w-full max-w-2xl min-h-[400px] flex items-center relative">
+      
+      {formSteps.map((step, index) => (
+        <div class={`step transition-all duration-500 absolute w-full left-0 right-0 flex flex-col justify-center ${index === 0 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+          <label class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold mb-2 block">{step.tag}</label>
+          <h2 class="text-2xl md:text-4xl font-bold text-white mb-6 pr-4 leading-tight">{step.title}</h2>
+
+          {step.type === "text" && (
+            <>
+              <input 
+                type={step.inputType} 
+                name={step.nameAttr} 
+                required={step.required} 
+                placeholder={step.placeholder} 
+                class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-xl md:text-3xl py-3 outline-none text-white transition-colors" 
+              />
+              {step.nameAttr === 'name' && <p class="text-xs text-neutral-500 mt-4 font-mono hidden sm:block">Press ENTER or click Next</p>}
+            </>
+          )}
+
+          {step.type === "radio" && (
+            <div class="grid grid-cols-1 gap-3 max-h-[50vh] overflow-y-auto pr-1">
+              {step.options.map((opt, optIdx) => (
+                <label class="border border-neutral-800 rounded-xl p-3 sm:p-4 flex items-center gap-3 cursor-pointer hover:border-amber-500/50 bg-neutral-900/30 transition-colors">
+                  <input type="radio" name="required_service" value={opt.value} required={optIdx === 0} class="accent-amber-500 w-5 h-5 flex-shrink-0" />
+                  <span class="text-base sm:text-lg text-neutral-200">{opt.label}</span>
+                </label>
+              ))}
+            </div>
+          )}
+
+          {step.type === "textarea" && (
+            <textarea 
+              name={step.nameAttr} 
+              required={step.required} 
+              rows="3" 
+              placeholder={step.placeholder} 
+              class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-lg md:text-2xl py-2 outline-none text-white transition-colors resize-none"
+            ></textarea>
+          )}
+
+          {step.type === "final" && (
+            <div class="space-y-4">
+              <label class="flex items-start gap-3 p-3 border border-neutral-800 rounded-xl bg-neutral-900/20 cursor-pointer hover:border-neutral-700 transition-colors">
+                <input type="checkbox" name="gdpr_consent" required class="accent-amber-500 w-5 h-5 mt-0.5 flex-shrink-0" />
+                <span class="text-neutral-400 text-xs sm:text-sm leading-relaxed">{step.gdprText}</span>
+              </label>
+
+              <div class="cf-turnstile scale-90 origin-left" data-theme="dark" data-sitekey={step.turnstileSiteKey}></div>
+
+              <button type="submit" class="w-full sm:w-auto bg-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-md hover:bg-amber-400 transition-colors shadow-xl shadow-amber-500/10">
+                Submit Brief
+              </button>
+            </div>
+          )}
+        </div>
+      ))}
+
+      <!-- Fixed Mobile-Adaptive Step Controls -->
+      <div class="fixed bottom-6 right-6 sm:bottom-12 sm:right-12 flex gap-3 z-40">
+        <button type="button" id="prevBtn" class="bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white px-4 py-3 sm:p-4 rounded-xl opacity-50 cursor-not-allowed transition-all text-sm sm:text-base">
+          ← Back
+        </button>
+        <button type="button" id="nextBtn" class="bg-amber-500 text-neutral-950 font-bold px-5 py-3 sm:px-6 sm:py-4 rounded-xl hover:bg-amber-400 transition-all text-sm sm:text-base">
+          Next →
+        </button>
+      </div>
+    </form>
+  </div>
+</Layout>
+
+<!-- Multi-Step Interactivity (Safe for View Transitions) -->
+<script>
+  function initForm() {
+    let currentStep = 0;
+    const steps = document.querySelectorAll('.step');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const form = document.getElementById('typeform');
+
+    if (!form || steps.length === 0) return;
+
+    function updateForm() {
+      steps.forEach((step, index) => {
+        if (index === currentStep) {
+          step.classList.remove('opacity-0', 'pointer-events-none');
+          step.classList.add('opacity-100', 'pointer-events-auto');
+          const inputs = step.querySelectorAll('input[type="text"], input[type="email"], textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+          if(inputs.length > 0) inputs[0].focus();
+        } else {
+          step.classList.remove('opacity-100', 'pointer-events-auto');
+          step.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+
+      if (currentStep === 0) {
+        prevBtn?.classList.add('opacity-50', 'cursor-not-allowed');
+        (prevBtn as HTMLButtonElement).disabled = true;
+      } else {
+        prevBtn?.classList.remove('opacity-50', 'cursor-not-allowed');
+        (prevBtn as HTMLButtonElement).disabled = false;
+      }
+
+      if (currentStep === steps.length - 1) {
+        if (nextBtn) nextBtn.style.display = 'none';
+      } else {
+        if (nextBtn) nextBtn.style.display = 'block';
+      }
+    }
+
+    nextBtn?.addEventListener('click', () => {
+      const activeFields = steps[currentStep].querySelectorAll('input, textarea');
+      let isValid = true;
+      
+      activeFields.forEach(field => {
+        if (!(field as HTMLInputElement).checkValidity()) {
+          (field as HTMLInputElement).reportValidity();
+          isValid = false;
+        }
+      });
+
+      if (!isValid) return;
+
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateForm();
+      }
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      if (currentStep > 0) {
+        currentStep--;
+        updateForm();
+      }
+    });
+
+    form.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && (e.target as HTMLElement).tagName !== 'TEXTAREA' && currentStep < steps.length - 1) {
+        e.preventDefault();
+        nextBtn?.click();
+      }
+    });
+
+    updateForm();
+  }
+
+  // Hook into client router lifecycle cleanly
+  document.addEventListener('astro:page-load', initForm);
+</script>

@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout title="Selected Portfolio | FILM.EDIT.RUN" description="Explore high-impact video production, corporate events, and cinematic brand narratives in full screen.">
+  
+  <!-- Ambient Deep Radian Shadow Mesh Background Overlay -->
+  <div class="fixed inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(245,158,11,0.03),transparent_60%)] pointer-events-none z-0"></div>
+
+  <!-- Fullscreen Parallax Capture Container -->
+  <main class="w-full relative z-10 bg-neutral-950">
+    
+    {projects.map((project, index) => (
+      <section 
+        class="h-[calc(100vh-5rem)] w-full snap-start relative flex items-end p-6 sm:p-16 overflow-hidden border-b border-neutral-900/40 select-none"
+      >
+        <!-- AUTOMATED BACKDROP MANAGER LAYER -->
+        <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none w-full h-full overflow-hidden">
+          
+          <!-- Cinematic Dark Vignette Shadow Gradient (Fades softly behind white text layouts) -->
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/30 to-neutral-950/10 z-20"></div>
+          <div class="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-neutral-950/40 to-transparent z-20 hidden md:block"></div>
+
+          {/* OPTION A: RENDER MOVING CINEMA VIDEO BACKDROP */}
+          {project.backgroundStyle === "video" && (
+            <iframe 
+              src={`${project.videoUrl}&background=1&autoplay=1&loop=1&muted=1&dnt=1`}
+              class:list={[
+                "absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none z-10 transition-all duration-500",
+                // Dynamic Filter Matrix: If set to bright, execute browser core hardware tuning overrides
+                project.brightnessStyle === "bright" 
+                  ? "opacity-60 sm:opacity-70 brightness-[1.35] contrast-[1.05] saturate-[1.10]" 
+                  : "opacity-35 sm:opacity-40 brightness-100 contrast-100"
+              ]}
+              allow="autoplay; fullscreen" 
+              referrerpolicy="strict-origin-when-cross-origin"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          )}
+
+          {/* OPTION B: RENDER STATIC PHOTOGRAPH BACKDROP */}
+          {project.backgroundStyle === "image" && (
+            <img 
+              src={project.thumbnail} 
+              alt={project.title} 
+              loading={index === 0 ? "eager" : "lazy"} 
+              class="w-full h-full object-cover opacity-35 sm:opacity-40 z-10" 
+            />
+          )}
+        </div>
+
+        <!-- CORNER LAYOUT TECHNICAL DETAILS -->
+        <div class="absolute top-6 left-6 font-mono text-[10px] text-neutral-500 tracking-widest z-30 hidden sm:block">
+          PRJ_0{index + 1} // {project.client.toUpperCase()}
+        </div>
+        <div class="absolute top-6 right-6 font-mono text-[10px] text-neutral-500 tracking-widest z-30 hidden sm:block">
+          ASPECT // 16:9
+        </div>
+
+        <!-- TEXT CONTENT PRESENTATION BAY -->
+        <div class="relative z-30 max-w-3xl space-y-4 w-full text-left">
+          
+          <!-- Category and Run Time Badges -->
+          <div class="flex items-center gap-3">
+            <span class="text-[10px] tracking-[0.2em] uppercase font-mono text-amber-500 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md">
+              {project.category}
+            </span>
+            <span class="text-[10px] font-mono text-neutral-400 bg-neutral-900/60 backdrop-blur px-2.5 py-0.5 rounded border border-neutral-800/40">
+              TRT {project.runtime}
+            </span>
+          </div>
+
+          <!-- Project Title Layer -->
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none max-w-2xl">
+            {project.title}
+          </h2>
+
+          <!-- Description Block -->
+          <p class="text-neutral-300 text-sm sm:text-base leading-relaxed max-w-xl line-clamp-3 sm:line-clamp-2 pt-1 opacity-80">
+            {project.description}
+          </p>
+
+          <!-- Native HTML5 Dialog Control Trigger -->
+          <button 
+            onclick={`document.getElementById('dialog-modal-${project.id}').showModal()`}
+            class="pt-4 flex items-center gap-3 font-mono text-xs text-amber-500 tracking-wider hover:text-amber-400 transition-colors cursor-pointer group outline-none z-40 relative"
+          >
+            <div class="w-10 h-10 rounded-full bg-amber-500 text-neutral-950 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-amber-400 transition-all duration-300">
+              <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="group-hover:translate-x-1 transition-transform duration-300">
+              {project.backgroundStyle === "video" ? "EXPAND SOUND & VIDEO ➔" : "WATCH PROJECT REEL ➔"}
+            </span>
+          </button>
+
+        </div>
+
+        <!-- BOTTOM SCROLL INDICATOR BAR -->
+        {index === 0 && (
+          <div class="absolute bottom-6 right-6 font-mono text-[10px] text-neutral-500 tracking-widest hidden md:flex items-center gap-2 animate-bounce z-30">
+            <span>SCROLL TO EXPLORE</span>
+            <span>↓</span>
+          </div>
+        )}
+
+      </section>
+
+      <!-- SCOPED NATIVE DIALOG COMPONENT BOX -->
+      <dialog 
+        id={`dialog-modal-${project.id}`} 
+        class="fixed inset-0 m-auto w-full max-w-5xl aspect-video rounded-2xl bg-transparent p-4 backdrop:bg-neutral-950/98 backdrop:backdrop-blur-2xl outline-none border-none overflow-visible open:animate-fadeIn"
+      >
+        <div class="relative w-full h-full">
+          <!-- Native Close Trigger -->
+          <form method="dialog" class="absolute -top-14 right-0">
+            <button class="text-neutral-400 hover:text-white text-xs font-mono flex items-center gap-2 bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-xl transition-colors cursor-pointer shadow-2xl">
+              ESC ✕ CLOSE
+            </button>
+          </form>
+          
+          <!-- Presentation Player with normal controls and full audio track unmuted -->
+          <iframe 
+            src={`${project.videoUrl}&autoplay=1&muted=0&dnt=1`} 
+            class="w-full h-full rounded-2xl border border-neutral-800/60 shadow-[0_0_100px_rgba(0,0,0,0.9)] bg-black" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="lazy"
+            allowfullscreen
+          />
+        </div>
+      </dialog>
+    ))}
+  </main>
+</Layout>
+
+<!-- Hardware-accelerated fading animation via pure Tailwind/CSS keyframes -->
+<style is:global>
+  @keyframes theaterFadeIn {
+    from { transform: scale(0.96); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .open\:animate-fadeIn[open] {
+    animation: theaterFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>

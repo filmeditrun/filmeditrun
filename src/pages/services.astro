@@ -1,0 +1,133 @@
+---
+// =====================================================================
+// EASY QUESTION MANAGER BLOCK - CHOOSE ANY COMBINATION!
+// displayAs options: "local-video" | "link-video" | "image"
+// =====================================================================
+const pageTitle = "Our Services | FilmEditRun";
+const pageHeaderTag = "Expert Production Solutions";
+const pageHeading = "What We Do.";
+const pageDescription = "High-impact video production, corporate event coverage, and premium creative post-production tailored for brands and global conferences.";
+
+const services = [
+  {
+    id: "01",
+    title: "Single & Multi-Camera Event Coverage",
+    description: "Full-scale dynamic coverage for live corporate operations, keynotes, panel discussions, and premium visual archiving.",
+    tag: "Multi-Cam Capable",
+    link: "/services/event-coverage",
+    
+    // Choose how to show this background: "local-video", "link-video", or "image"
+    displayAs: "local-video", 
+    
+    localVideoPath: "/showreel.mp4",
+    cloudVideoUrl: "https://your-link.mp4",
+    imagePath: "/images/event-photo.jpg", // Also acts as the video loading placeholder
+  },
+  {
+    id: "02",
+    title: "Corporate & Conference Production",
+    description: "End-to-end management for high-stakes business conferences, internal streams, and B2B visual assets.",
+    tag: "Scaleable Broadcast",
+    link: "/services/conference-production",
+    
+    displayAs: "local-video",
+    
+    localVideoPath: "/showreel.mp4",
+    cloudVideoUrl: "https://your-link.mp4",
+    imagePath: "/images/conference-photo.jpg",
+  },
+  {
+    id: "03",
+    title: "Animation & Motion Design",
+    description: "Custom 2D/3D brand graphics, functional overlay templates, transitions, and immersive opening showreels.",
+    tag: "Visual Effects",
+    link: "/services/animation-design",
+    
+    displayAs: "image", // Setting this to "image" means it won't load a video loop
+    
+    localVideoPath: "/showreel.mp4",
+    cloudVideoUrl: "https://your-link.mp4",
+    imagePath: "/og-image.jpg",
+  },
+  {
+    id: "04",
+    title: "Creative Post-Production",
+    description: "Precision pacing, premium color grading, spatial sound design, and master delivery optimization.",
+    tag: "Final Polish",
+    link: "/services/post-production",
+    
+    displayAs: "local-video",
+    
+    localVideoPath: "/showreel.mp4",
+    cloudVideoUrl: "https://your-link.mp4",
+    imagePath: "/images/post-photo.jpg",
+  }
+];
+// =====================================================================
+
+// Central layout handles the mobile-responsive header and footer automatically
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  
+  <!-- Header Section -->
+  <header class="max-w-5xl mx-auto px-6 pt-12 pb-16 text-center md:text-left">
+    <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">{pageHeaderTag}</span>
+    <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-4">{pageHeading}</h1>
+    <p class="text-neutral-400 max-w-xl text-lg leading-relaxed">{pageDescription}</p>
+  </header>
+
+  <!-- Uniform Clean Grid Section -->
+  <section class="max-w-7xl mx-auto px-6 pb-28">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      {services.map((service) => (
+        <a 
+          href={service.link} 
+          class="group relative rounded-2xl border border-neutral-800 bg-neutral-900 p-6 sm:p-8 flex flex-col justify-between min-h-[340px] sm:h-[380px] overflow-hidden transition-all duration-300 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1"
+        >
+          <!-- Automated Media Background Layer -->
+          <div class="absolute inset-0 w-full h-full z-0 bg-black">
+            <!-- Protective Text Contrast Overlay Layer -->
+            <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-t from-neutral-950/95 via-neutral-950/70 to-neutral-950/40"></div>
+            
+            {/* OPTION 1: LOCAL VIDEO SETUP */}
+            {service.displayAs === "local-video" && (
+              <video autoplay loop muted playsinline preload="none" poster={service.imagePath} class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700">
+                <source src={service.localVideoPath} type="video/mp4" />
+              </video>
+            )}
+
+            {/* OPTION 2: EXTERNAL CLOUD LINK SETUP */}
+            {service.displayAs === "link-video" && (
+              <video autoplay loop muted playsinline preload="none" poster={service.imagePath} class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700">
+                <source src={service.cloudVideoUrl} type="video/mp4" />
+              </video>
+            )}
+
+            {/* OPTION 3: PLAIN IMAGE SETUP */}
+            {service.displayAs === "image" && (
+              <img src={service.imagePath} alt={service.title} loading="lazy" class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" />
+            )}
+          </div>
+
+          <!-- Top Tag Layer -->
+          <div class="relative z-20 flex justify-between items-start">
+            <span class="text-[11px] font-mono text-amber-500 uppercase tracking-widest bg-neutral-950/60 backdrop-blur px-3 py-1 rounded-full border border-neutral-800">
+              {service.id} &bull; {service.tag}
+            </span>
+            <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">&nearr;</span>
+          </div>
+
+          <!-- Content Presentation Layer -->
+          <div class="relative z-20 pointer-events-none w-full mt-12 sm:mt-0">
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors">{service.title}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed line-clamp-3 sm:line-clamp-2">{service.description}</p>
+          </div>
+        </a>
+      ))}
+
+    </div>
+  </section>
+</Layout>
