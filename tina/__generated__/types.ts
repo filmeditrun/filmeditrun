@@ -350,10 +350,14 @@ export type WorkPage = Node & Document & {
   headerTag: Scalars['String']['output'];
   heading: Scalars['String']['output'];
   description: Scalars['String']['output'];
-  aspectBadge: Scalars['String']['output'];
+  aspectBadge?: Maybe<Scalars['String']['output']>;
   videoButtonLabel: Scalars['String']['output'];
   imageButtonLabel: Scalars['String']['output'];
   scrollIndicatorText: Scalars['String']['output'];
+  archiveTag: Scalars['String']['output'];
+  archiveHeading: Scalars['String']['output'];
+  archiveDescription: Scalars['String']['output'];
+  filterAllLabel: Scalars['String']['output'];
   closeModalLabel: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -370,6 +374,10 @@ export type WorkPageFilter = {
   videoButtonLabel?: InputMaybe<StringFilter>;
   imageButtonLabel?: InputMaybe<StringFilter>;
   scrollIndicatorText?: InputMaybe<StringFilter>;
+  archiveTag?: InputMaybe<StringFilter>;
+  archiveHeading?: InputMaybe<StringFilter>;
+  archiveDescription?: InputMaybe<StringFilter>;
+  filterAllLabel?: InputMaybe<StringFilter>;
   closeModalLabel?: InputMaybe<StringFilter>;
 };
 
@@ -547,20 +555,45 @@ export type ProjectConnection = Connection & {
   edges?: Maybe<Array<Maybe<ProjectConnectionEdges>>>;
 };
 
+export type ServiceDeliverables = {
+  __typename?: 'ServiceDeliverables';
+  tag: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+};
+
 export type Service = Node & Document & {
   __typename?: 'Service';
   order: Scalars['String']['output'];
   title: Scalars['String']['output'];
   tag: Scalars['String']['output'];
   description: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
   link: Scalars['String']['output'];
+  seoTitle: Scalars['String']['output'];
+  seoDescription: Scalars['String']['output'];
+  heroTag: Scalars['String']['output'];
+  heroHeading: Scalars['String']['output'];
+  heroLead: Scalars['String']['output'];
+  breakdownHeading?: Maybe<Scalars['String']['output']>;
+  breakdownBody?: Maybe<Scalars['String']['output']>;
   displayAs: Scalars['String']['output'];
   localVideoPath?: Maybe<Scalars['String']['output']>;
   cloudVideoUrl?: Maybe<Scalars['String']['output']>;
   imagePath: Scalars['String']['output'];
+  deliverables?: Maybe<Array<Maybe<ServiceDeliverables>>>;
+  ctaHeading: Scalars['String']['output'];
+  ctaDescription: Scalars['String']['output'];
+  ctaButtonLabel: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
+};
+
+export type ServiceDeliverablesFilter = {
+  tag?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
 };
 
 export type ServiceFilter = {
@@ -568,11 +601,23 @@ export type ServiceFilter = {
   title?: InputMaybe<StringFilter>;
   tag?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  slug?: InputMaybe<StringFilter>;
   link?: InputMaybe<StringFilter>;
+  seoTitle?: InputMaybe<StringFilter>;
+  seoDescription?: InputMaybe<StringFilter>;
+  heroTag?: InputMaybe<StringFilter>;
+  heroHeading?: InputMaybe<StringFilter>;
+  heroLead?: InputMaybe<StringFilter>;
+  breakdownHeading?: InputMaybe<StringFilter>;
+  breakdownBody?: InputMaybe<StringFilter>;
   displayAs?: InputMaybe<StringFilter>;
   localVideoPath?: InputMaybe<StringFilter>;
   cloudVideoUrl?: InputMaybe<StringFilter>;
   imagePath?: InputMaybe<ImageFilter>;
+  deliverables?: InputMaybe<ServiceDeliverablesFilter>;
+  ctaHeading?: InputMaybe<StringFilter>;
+  ctaDescription?: InputMaybe<StringFilter>;
+  ctaButtonLabel?: InputMaybe<StringFilter>;
 };
 
 export type ServiceConnectionEdges = {
@@ -817,6 +862,10 @@ export type WorkPageMutation = {
   videoButtonLabel?: InputMaybe<Scalars['String']['input']>;
   imageButtonLabel?: InputMaybe<Scalars['String']['input']>;
   scrollIndicatorText?: InputMaybe<Scalars['String']['input']>;
+  archiveTag?: InputMaybe<Scalars['String']['input']>;
+  archiveHeading?: InputMaybe<Scalars['String']['input']>;
+  archiveDescription?: InputMaybe<Scalars['String']['input']>;
+  filterAllLabel?: InputMaybe<Scalars['String']['input']>;
   closeModalLabel?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -871,16 +920,34 @@ export type ProjectMutation = {
   brightnessStyle?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ServiceDeliverablesMutation = {
+  tag?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ServiceMutation = {
   order?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   tag?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
   link?: InputMaybe<Scalars['String']['input']>;
+  seoTitle?: InputMaybe<Scalars['String']['input']>;
+  seoDescription?: InputMaybe<Scalars['String']['input']>;
+  heroTag?: InputMaybe<Scalars['String']['input']>;
+  heroHeading?: InputMaybe<Scalars['String']['input']>;
+  heroLead?: InputMaybe<Scalars['String']['input']>;
+  breakdownHeading?: InputMaybe<Scalars['String']['input']>;
+  breakdownBody?: InputMaybe<Scalars['String']['input']>;
   displayAs?: InputMaybe<Scalars['String']['input']>;
   localVideoPath?: InputMaybe<Scalars['String']['input']>;
   cloudVideoUrl?: InputMaybe<Scalars['String']['input']>;
   imagePath?: InputMaybe<Scalars['String']['input']>;
+  deliverables?: InputMaybe<Array<InputMaybe<ServiceDeliverablesMutation>>>;
+  ctaHeading?: InputMaybe<Scalars['String']['input']>;
+  ctaDescription?: InputMaybe<Scalars['String']['input']>;
+  ctaButtonLabel?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SiteSettingsMutation = {
@@ -929,6 +996,10 @@ export type WorkPageFilter = {
   videoButtonLabel?: StringFilter | null | undefined;
   imageButtonLabel?: StringFilter | null | undefined;
   scrollIndicatorText?: StringFilter | null | undefined;
+  archiveTag?: StringFilter | null | undefined;
+  archiveHeading?: StringFilter | null | undefined;
+  archiveDescription?: StringFilter | null | undefined;
+  filterAllLabel?: StringFilter | null | undefined;
   closeModalLabel?: StringFilter | null | undefined;
 };
 
@@ -990,16 +1061,34 @@ export type ProjectFilter = {
   brightnessStyle?: StringFilter | null | undefined;
 };
 
+export type ServiceDeliverablesFilter = {
+  tag?: StringFilter | null | undefined;
+  title?: StringFilter | null | undefined;
+  description?: StringFilter | null | undefined;
+};
+
 export type ServiceFilter = {
   order?: StringFilter | null | undefined;
   title?: StringFilter | null | undefined;
   tag?: StringFilter | null | undefined;
   description?: StringFilter | null | undefined;
+  slug?: StringFilter | null | undefined;
   link?: StringFilter | null | undefined;
+  seoTitle?: StringFilter | null | undefined;
+  seoDescription?: StringFilter | null | undefined;
+  heroTag?: StringFilter | null | undefined;
+  heroHeading?: StringFilter | null | undefined;
+  heroLead?: StringFilter | null | undefined;
+  breakdownHeading?: StringFilter | null | undefined;
+  breakdownBody?: StringFilter | null | undefined;
   displayAs?: StringFilter | null | undefined;
   localVideoPath?: StringFilter | null | undefined;
   cloudVideoUrl?: StringFilter | null | undefined;
   imagePath?: ImageFilter | null | undefined;
+  deliverables?: ServiceDeliverablesFilter | null | undefined;
+  ctaHeading?: StringFilter | null | undefined;
+  ctaDescription?: StringFilter | null | undefined;
+  ctaButtonLabel?: StringFilter | null | undefined;
 };
 
 export type BooleanFilter = {
@@ -1016,7 +1105,7 @@ export type SiteSettingsFilter = {
 
 export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string };
 
-export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, closeModalLabel: string };
+export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string };
 
 export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: string, headerTag: string, heading: string, description: string };
 
@@ -1024,7 +1113,7 @@ export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle
 
 export type ProjectPartsFragment = { __typename: 'Project', order: string, title: string, client: string, category: string, runtime: string, description: string, backgroundStyle: string, videoUrl: string, thumbnail: string, brightnessStyle: string };
 
-export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string, description: string, link: string, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string };
+export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
 
 export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null };
 
@@ -1052,7 +1141,7 @@ export type WorkPageQueryVariables = Exact<{
 }>;
 
 
-export type WorkPageQuery = { workPage: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type WorkPageQuery = { workPage: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type WorkPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1064,7 +1153,7 @@ export type WorkPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type WorkPageConnectionQuery = { workPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type WorkPageConnectionQuery = { workPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type ServicesPageQueryVariables = Exact<{
   relativePath: string;
@@ -1128,7 +1217,7 @@ export type ServiceQueryVariables = Exact<{
 }>;
 
 
-export type ServiceQuery = { service: { __typename: 'Service', id: string, order: string, title: string, tag: string, description: string, link: string, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ServiceQuery = { service: { __typename: 'Service', id: string, order: string, title: string, tag: string, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } };
 
 export type ServiceConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1140,7 +1229,7 @@ export type ServiceConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ServiceConnectionQuery = { serviceConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Service', id: string, order: string, title: string, tag: string, description: string, link: string, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ServiceConnectionQuery = { serviceConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Service', id: string, order: string, title: string, tag: string, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } | null } | null> | null } };
 
 export type SiteSettingsQueryVariables = Exact<{
   relativePath: string;
@@ -1197,6 +1286,10 @@ export const WorkPagePartsFragmentDoc = gql`
   videoButtonLabel
   imageButtonLabel
   scrollIndicatorText
+  archiveTag
+  archiveHeading
+  archiveDescription
+  filterAllLabel
   closeModalLabel
 }
     `;
@@ -1263,11 +1356,28 @@ export const ServicePartsFragmentDoc = gql`
   title
   tag
   description
+  slug
   link
+  seoTitle
+  seoDescription
+  heroTag
+  heroHeading
+  heroLead
+  breakdownHeading
+  breakdownBody
   displayAs
   localVideoPath
   cloudVideoUrl
   imagePath
+  deliverables {
+    __typename
+    tag
+    title
+    description
+  }
+  ctaHeading
+  ctaDescription
+  ctaButtonLabel
 }
     `;
 export const SiteSettingsPartsFragmentDoc = gql`

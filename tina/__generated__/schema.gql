@@ -179,10 +179,14 @@ type WorkPage implements Node & Document {
   headerTag: String!
   heading: String!
   description: String!
-  aspectBadge: String!
+  aspectBadge: String
   videoButtonLabel: String!
   imageButtonLabel: String!
   scrollIndicatorText: String!
+  archiveTag: String!
+  archiveHeading: String!
+  archiveDescription: String!
+  filterAllLabel: String!
   closeModalLabel: String!
   id: ID!
   _sys: SystemInfo!
@@ -199,6 +203,10 @@ input WorkPageFilter {
   videoButtonLabel: StringFilter
   imageButtonLabel: StringFilter
   scrollIndicatorText: StringFilter
+  archiveTag: StringFilter
+  archiveHeading: StringFilter
+  archiveDescription: StringFilter
+  filterAllLabel: StringFilter
   closeModalLabel: StringFilter
 }
 
@@ -364,19 +372,43 @@ type ProjectConnection implements Connection {
   edges: [ProjectConnectionEdges]
 }
 
+type ServiceDeliverables {
+  tag: String!
+  title: String!
+  description: String!
+}
+
 type Service implements Node & Document {
   order: String!
   title: String!
   tag: String!
   description: String!
+  slug: String!
   link: String!
+  seoTitle: String!
+  seoDescription: String!
+  heroTag: String!
+  heroHeading: String!
+  heroLead: String!
+  breakdownHeading: String
+  breakdownBody: String
   displayAs: String!
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String!
+  deliverables: [ServiceDeliverables]
+  ctaHeading: String!
+  ctaDescription: String!
+  ctaButtonLabel: String!
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input ServiceDeliverablesFilter {
+  tag: StringFilter
+  title: StringFilter
+  description: StringFilter
 }
 
 input ServiceFilter {
@@ -384,11 +416,23 @@ input ServiceFilter {
   title: StringFilter
   tag: StringFilter
   description: StringFilter
+  slug: StringFilter
   link: StringFilter
+  seoTitle: StringFilter
+  seoDescription: StringFilter
+  heroTag: StringFilter
+  heroHeading: StringFilter
+  heroLead: StringFilter
+  breakdownHeading: StringFilter
+  breakdownBody: StringFilter
   displayAs: StringFilter
   localVideoPath: StringFilter
   cloudVideoUrl: StringFilter
   imagePath: ImageFilter
+  deliverables: ServiceDeliverablesFilter
+  ctaHeading: StringFilter
+  ctaDescription: StringFilter
+  ctaButtonLabel: StringFilter
 }
 
 type ServiceConnectionEdges {
@@ -510,6 +554,10 @@ input WorkPageMutation {
   videoButtonLabel: String
   imageButtonLabel: String
   scrollIndicatorText: String
+  archiveTag: String
+  archiveHeading: String
+  archiveDescription: String
+  filterAllLabel: String
   closeModalLabel: String
 }
 
@@ -564,16 +612,34 @@ input ProjectMutation {
   brightnessStyle: String
 }
 
+input ServiceDeliverablesMutation {
+  tag: String
+  title: String
+  description: String
+}
+
 input ServiceMutation {
   order: String
   title: String
   tag: String
   description: String
+  slug: String
   link: String
+  seoTitle: String
+  seoDescription: String
+  heroTag: String
+  heroHeading: String
+  heroLead: String
+  breakdownHeading: String
+  breakdownBody: String
   displayAs: String
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  deliverables: [ServiceDeliverablesMutation]
+  ctaHeading: String
+  ctaDescription: String
+  ctaButtonLabel: String
 }
 
 input SiteSettingsMutation {

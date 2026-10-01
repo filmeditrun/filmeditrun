@@ -41,6 +41,10 @@ export const WorkPagePartsFragmentDoc = gql`
   videoButtonLabel
   imageButtonLabel
   scrollIndicatorText
+  archiveTag
+  archiveHeading
+  archiveDescription
+  filterAllLabel
   closeModalLabel
 }
     `;
@@ -107,11 +111,28 @@ export const ServicePartsFragmentDoc = gql`
   title
   tag
   description
+  slug
   link
+  seoTitle
+  seoDescription
+  heroTag
+  heroHeading
+  heroLead
+  breakdownHeading
+  breakdownBody
   displayAs
   localVideoPath
   cloudVideoUrl
   imagePath
+  deliverables {
+    __typename
+    tag
+    title
+    description
+  }
+  ctaHeading
+  ctaDescription
+  ctaButtonLabel
 }
     `;
 export const SiteSettingsPartsFragmentDoc = gql`

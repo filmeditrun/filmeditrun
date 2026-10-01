@@ -1,12 +1,12 @@
 {
   "order": "01",
-  "title": "FilmEditRun - Showreel",
-  "client": "Various",
-  "category": "Commercial / Filming",
+  "title": "FilmEditRun — 2025 Showreel",
+  "client": "Studio Showcase",
+  "category": "Commercials",
   "runtime": "0:45",
   "description": "High-octane commercial production capturing dynamic night driving sequences across downtown Tokyo.",
   "videoUrl": "https://player.vimeo.com/video/828757840",
-  "thumbnail": "/images/confetti.png",
+  "thumbnail": "/og-image.jpg",
   "backgroundStyle": "video",
   "brightnessStyle": "bright"
 }

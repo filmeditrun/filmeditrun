@@ -84,6 +84,10 @@ const services = Object.values(serviceFiles)
           <div class="relative z-20 pointer-events-none w-full mt-12 sm:mt-0">
             <h3 class="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors">{service.title}</h3>
             <p class="text-neutral-400 text-sm leading-relaxed line-clamp-3 sm:line-clamp-2">{service.description}</p>
+            <div class="pt-4 flex items-center gap-1.5 text-xs font-mono text-amber-500 font-medium group-hover:translate-x-1 transition-transform">
+              <span>Explore Pipeline</span>
+              <span>&rarr;</span>
+            </div>
           </div>
         </a>
       ))}

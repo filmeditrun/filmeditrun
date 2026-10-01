@@ -32,6 +32,10 @@ fragment WorkPageParts on WorkPage {
   videoButtonLabel
   imageButtonLabel
   scrollIndicatorText
+  archiveTag
+  archiveHeading
+  archiveDescription
+  filterAllLabel
   closeModalLabel
 }
 
@@ -94,11 +98,28 @@ fragment ServiceParts on Service {
   title
   tag
   description
+  slug
   link
+  seoTitle
+  seoDescription
+  heroTag
+  heroHeading
+  heroLead
+  breakdownHeading
+  breakdownBody
   displayAs
   localVideoPath
   cloudVideoUrl
   imagePath
+  deliverables {
+    __typename
+    tag
+    title
+    description
+  }
+  ctaHeading
+  ctaDescription
+  ctaButtonLabel
 }
 
 fragment SiteSettingsParts on SiteSettings {

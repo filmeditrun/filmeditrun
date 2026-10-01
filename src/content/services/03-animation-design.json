@@ -1,11 +1,44 @@
 {
   "order": "03",
+  "slug": "animation-design",
   "title": "Animation & Motion Design",
-  "description": "Custom 2D/3D brand graphics, functional overlay templates, transitions, and immersive opening showreels.",
   "tag": "Visual Effects",
   "link": "/services/animation-design",
   "displayAs": "image",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
-  "imagePath": "/og-image.jpg"
+  "imagePath": "/og-image.jpg",
+  "description": "Custom 2D/3D brand graphics, functional overlay templates, transitions, and immersive opening showreels.",
+  "seoTitle": "Corporate Motion Design & 2D/3D Animation UK | FILM.EDIT.RUN",
+  "seoDescription": "Bespoke corporate 2D/3D animation, kinetic typography, brand motion identity systems, and event title sequences designed in London & Cambridge.",
+  "heroTag": "Motion Identity System",
+  "heroHeading": "Bespoke Motion Design & Animation That Elevates Your Brand Story.",
+  "heroLead": "We bring static brand identities to life with kinetic typography, 3D product visualizations, conference title sequences, and modular motion toolkits tailored for modern digital ecosystems.",
+  "breakdownHeading": "Kinetic Visual Systems That Articulate Complex Ideas.",
+  "breakdownBody": "Motion is the catalyst that transforms intricate technical propositions into clear, engaging visual narratives. We engineer bespoke 2D and 3D motion design systems, conference openers, and interface animations built to elevate your brand's digital identity.",
+  "deliverables": [
+    {
+      "tag": "Opening Impact",
+      "title": "Conference & Event Title Openers",
+      "description": "High-octane visual show-openers and countdown bumpers that immediately set an electric tone for live and virtual audiences."
+    },
+    {
+      "tag": "Product Demo",
+      "title": "SaaS & Technical Explainer Videos",
+      "description": "Clear, visually stimulating product walkthroughs that translate complex software features or hardware engineering into simple, elegant motion."
+    },
+    {
+      "tag": "Design System",
+      "title": "Brand Motion Guidelines & Toolkits",
+      "description": "Comprehensive motion identity assets including animated logo bugs, lower-thirds, interstitial wipes, and title cards."
+    },
+    {
+      "tag": "Data In Motion",
+      "title": "Infographics & Investor Pitch Graphics",
+      "description": "Dynamic financial chart visualizations and statistical storytelling designed to maintain executive attention during investor presentations."
+    }
+  ],
+  "ctaHeading": "Need Custom Motion Graphics for Your Next Campaign?",
+  "ctaDescription": "Whether you need a high-impact conference title sequence, a SaaS product explainer, or a full brand motion system, let's create something extraordinary.",
+  "ctaButtonLabel": "Start a Motion Design Brief"
 }

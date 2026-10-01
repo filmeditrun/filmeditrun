@@ -218,29 +218,59 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "aspectBadge",
-            label: "Top-Right Technical Aspect Badge",
+            label: "Technical Aspect Badge (Optional)",
             description: "e.g. ASPECT // 16:9",
-            required: true
+            required: false
           },
           {
             type: "string",
             name: "videoButtonLabel",
-            label: "Play Button Label (Video Backdrop Projects)",
-            description: "e.g. EXPAND SOUND & VIDEO \u2794",
+            label: "Hero Play Button Label",
+            description: "e.g. WATCH FEATURED FILM \u2794",
             required: true
           },
           {
             type: "string",
             name: "imageButtonLabel",
-            label: "Play Button Label (Image Backdrop Projects)",
+            label: "Archive Card Play Button Label",
             description: "e.g. WATCH PROJECT REEL \u2794",
             required: true
           },
           {
             type: "string",
             name: "scrollIndicatorText",
-            label: "Bottom Scroll Indicator Text",
-            description: "e.g. SCROLL TO EXPLORE",
+            label: "Hero Scroll Indicator Text",
+            description: "e.g. EXPLORE ALL PRODUCTIONS",
+            required: true
+          },
+          {
+            type: "string",
+            name: "archiveTag",
+            label: "Archive Section Amber Tag",
+            description: "e.g. Production Archive",
+            required: true
+          },
+          {
+            type: "string",
+            name: "archiveHeading",
+            label: "Archive Section Main Heading",
+            description: "e.g. Selected Works & Case Studies",
+            required: true
+          },
+          {
+            type: "string",
+            name: "archiveDescription",
+            label: "Archive Section Subtitle",
+            ui: {
+              component: "textarea"
+            },
+            required: true
+          },
+          {
+            type: "string",
+            name: "filterAllLabel",
+            label: "Filter 'All' Button Label",
+            description: "e.g. All Productions",
             required: true
           },
           {
@@ -611,10 +641,70 @@ var config_default = defineConfig({
           },
           {
             type: "string",
+            name: "slug",
+            label: "URL Slug",
+            description: "e.g. event-coverage, conference-production",
+            required: true
+          },
+          {
+            type: "string",
             name: "link",
             label: "Target Page Link",
-            description: "e.g. /services/event-coverage or /contact",
+            description: "e.g. /services/event-coverage",
             required: true
+          },
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "SEO Page Title",
+            required: true
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "SEO Meta Description",
+            ui: {
+              component: "textarea"
+            },
+            required: true
+          },
+          {
+            type: "string",
+            name: "heroTag",
+            label: "Subpage Hero Tag",
+            description: "e.g. Live Production Pipeline",
+            required: true
+          },
+          {
+            type: "string",
+            name: "heroHeading",
+            label: "Subpage Hero Heading",
+            description: "e.g. Dynamic Multi-Camera Coverage for High-Stakes Events.",
+            required: true
+          },
+          {
+            type: "string",
+            name: "heroLead",
+            label: "Subpage Hero Value Proposition",
+            ui: {
+              component: "textarea"
+            },
+            required: true
+          },
+          {
+            type: "string",
+            name: "breakdownHeading",
+            label: "Breakdown Section Heading",
+            description: "Editorial subheadline explaining the service execution approach"
+          },
+          {
+            type: "string",
+            name: "breakdownBody",
+            label: "Breakdown Section Paragraph",
+            description: "Crisp paragraph explaining how we approach and execute this service",
+            ui: {
+              component: "textarea"
+            }
           },
           {
             type: "string",
@@ -643,6 +733,61 @@ var config_default = defineConfig({
             type: "image",
             name: "imagePath",
             label: "Poster / Fallback Image",
+            required: true
+          },
+          {
+            type: "object",
+            list: true,
+            name: "deliverables",
+            label: "Service Deliverables",
+            ui: {
+              itemProps: (item) => ({
+                label: item?.title || "Deliverable"
+              })
+            },
+            fields: [
+              {
+                type: "string",
+                name: "tag",
+                label: "Deliverable Badge Tag",
+                required: true
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Deliverable Title",
+                required: true
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Deliverable Description",
+                ui: {
+                  component: "textarea"
+                },
+                required: true
+              }
+            ]
+          },
+          {
+            type: "string",
+            name: "ctaHeading",
+            label: "Bottom CTA Heading",
+            required: true
+          },
+          {
+            type: "string",
+            name: "ctaDescription",
+            label: "Bottom CTA Description",
+            ui: {
+              component: "textarea"
+            },
+            required: true
+          },
+          {
+            type: "string",
+            name: "ctaButtonLabel",
+            label: "Bottom CTA Button Text",
             required: true
           }
         ]

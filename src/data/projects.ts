@@ -21,8 +21,9 @@ const projectFiles = import.meta.glob<Omit<Project, "id">>(
 );
 
 export const projects: Project[] = Object.entries(projectFiles)
+  .filter(([_, data]) => Boolean(data && typeof data === "object" && data.title))
   .map(([filePath, data], idx) => ({
     ...data,
     id: `project-${data.order || idx + 1}-${filePath.split("/").pop()?.replace(".json", "")}`,
   }))
-  .sort((a, b) => a.order.localeCompare(b.order, undefined, { numeric: true }));
+  .sort((a, b) => (a.order || "").localeCompare(b.order || "", undefined, { numeric: true }));

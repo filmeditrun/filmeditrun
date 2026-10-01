@@ -2,11 +2,11 @@
   "order": "02",
   "title": "Echoes of Silence — Short Film",
   "client": "Independent",
-  "category": "Narrative / Editing",
+  "category": "Narrative",
   "runtime": "8:12",
   "description": "Atmospheric psychological drama focused on pacing, sound design, and rhythm-driven cuts.",
-  "videoUrl": "https://vimeo.com",
-  "thumbnail": "/images/audience.png",
+  "videoUrl": "https://player.vimeo.com/video/828757840",
+  "thumbnail": "/og-image.jpg",
   "backgroundStyle": "image",
   "brightnessStyle": "normal"
 }

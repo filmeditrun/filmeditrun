@@ -1,12 +1,16 @@
 {
   "seoTitle": "Selected Portfolio | FILM.EDIT.RUN",
   "seoDescription": "Explore high-impact video production, corporate events, and cinematic brand narratives in full screen.",
-  "headerTag": "Selected Portfolio",
+  "headerTag": "Featured Showcase",
   "heading": "Our Work.",
-  "description": "Explore high-impact video production, corporate events, and cinematic brand narratives in full screen.",
+  "description": "Explore high-impact commercial productions, cinematic brand narratives, and multi-camera live events.",
   "aspectBadge": "ASPECT // 16:9",
-  "videoButtonLabel": "EXPAND SOUND & VIDEO ➔",
+  "videoButtonLabel": "WATCH FEATURED FILM ➔",
   "imageButtonLabel": "WATCH PROJECT REEL ➔",
-  "scrollIndicatorText": "SCROLL TO EXPLORE",
+  "scrollIndicatorText": "EXPLORE ALL PRODUCTIONS",
+  "archiveTag": "Production Archive",
+  "archiveHeading": "Selected Works & Case Studies",
+  "archiveDescription": "Filter through commercial campaigns, narrative films, and multi-camera event productions.",
+  "filterAllLabel": "All Productions",
   "closeModalLabel": "ESC ✕ CLOSE"
 }

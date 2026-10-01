@@ -9,6 +9,26 @@ const buildVimeoUrl = (baseUrl: string, params: Record<string, string>) => {
   const separator = baseUrl.includes('?') ? (baseUrl.endsWith('?') ? '' : '&') : '?';
   return `${baseUrl}${separator}${new URLSearchParams(params).toString()}`;
 };
+
+// Featured hero project is the primary showreel (first project in order)
+const featuredProject = projects[0] || {
+  id: "featured",
+  title: "Featured Production Reel",
+  client: "FilmEditRun",
+  category: "Commercials",
+  runtime: "0:45",
+  description: "High-octane commercial production and cinematic visual storytelling.",
+  videoUrl: "https://player.vimeo.com/video/828757840",
+  thumbnail: "/og-image.jpg",
+  backgroundStyle: "video",
+  brightnessStyle: "bright",
+};
+
+// Archive projects feed into the scalable Bento Grid
+const archiveProjects = projects;
+
+// Extract unique categories dynamically for filtering pills
+const categories = Array.from(new Set(archiveProjects.map((p) => p.category).filter(Boolean)));
 ---
 
 <Layout title={workPage.seoTitle} description={workPage.seoDescription} fullBleed={true}>
@@ -21,111 +41,238 @@ const buildVimeoUrl = (baseUrl: string, params: Record<string, string>) => {
   <div class="fixed inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(245,158,11,0.03),transparent_60%)] pointer-events-none z-0"></div>
 
   <!-- Fullscreen Parallax Capture Container -->
-  <div class="w-full relative z-10 bg-ink pt-20">
-
-    <!-- Work Page Intro Header -->
-    <header class="max-w-7xl mx-auto px-6 pt-12 pb-16 text-center md:text-left border-b border-neutral-900/60">
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">{workPage.headerTag}</span>
-      <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-4">{workPage.heading}</h1>
-      <p class="text-neutral-400 max-w-xl text-lg leading-relaxed mx-auto md:mx-0">{workPage.description}</p>
-    </header>
+  <div class="w-full relative z-10 bg-ink">
     
-    {projects.map((project, index) => (
-      <section 
-        class="h-[calc(100dvh-5rem)] min-h-[540px] w-full snap-start relative flex items-end p-6 sm:p-16 overflow-hidden border-b border-neutral-900/40 select-none"
-      >
-        <!-- AUTOMATED BACKDROP MANAGER LAYER -->
-        <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none w-full h-full overflow-hidden">
-          
-          <!-- Cinematic Dark Vignette Shadow Gradient (Fades softly behind white text layouts) -->
-          <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/30 to-neutral-950/10 z-20"></div>
-          <div class="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-neutral-950/40 to-transparent z-20 hidden md:block"></div>
+    <!-- ============================================================== -->
+    <!-- 1. FEATURED SHOWREEL HERO SECTION (MATCHES HOMEPAGE HEIGHT)    -->
+    <!-- ============================================================== -->
+    <section 
+      class="relative w-full min-h-[100dvh] pt-20 flex flex-col justify-between p-6 sm:p-12 lg:p-16 overflow-hidden border-b border-neutral-900/60 select-none"
+    >
+      <!-- Automated Backdrop Manager Layer (Full-bleed 100vh behind navbar) -->
+      <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none w-full h-full overflow-hidden">
+        <!-- Cinematic Soft Edge Gradients -->
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent z-20 pointer-events-none"></div>
+        <div class="absolute inset-x-0 top-0 h-36 sm:h-48 bg-gradient-to-b from-neutral-950/80 to-transparent z-20 pointer-events-none"></div>
+        <div class="absolute inset-y-0 left-0 w-full sm:w-1/2 bg-gradient-to-r from-neutral-950/60 to-transparent z-20 pointer-events-none hidden sm:block"></div>
 
-          {/* Always render lightweight poster image as instant fallback */}
-          <img 
-            src={project.thumbnail} 
-            alt={project.title} 
-            loading={index === 0 ? "eager" : "lazy"} 
-            fetchpriority={index === 0 ? "high" : "auto"}
-            class="absolute inset-0 w-full h-full object-cover opacity-35 sm:opacity-40 z-0" 
+        {/* Video Backdrop: Full-bleed cover, zero spurious image bleeding */}
+        {featuredProject.videoUrl.endsWith('.mp4') || featuredProject.videoUrl.startsWith('/') ? (
+          <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-95 sm:opacity-100"
+          >
+            <source src={featuredProject.videoUrl} type="video/mp4" />
+          </video>
+        ) : featuredProject.backgroundStyle === "video" && isEmbeddableVideo(featuredProject.videoUrl) ? (
+          <iframe 
+            src={buildVimeoUrl(featuredProject.videoUrl, { background: "1", autoplay: "1", loop: "1", muted: "1", dnt: "1" })}
+            title={`${featuredProject.title} background reel`}
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full object-cover pointer-events-none z-10 opacity-95 sm:opacity-100 transition-all duration-500"
+            allow="autoplay; fullscreen" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="eager"
           />
+        ) : (
+          <img 
+            src={featuredProject.thumbnail} 
+            alt={featuredProject.title} 
+            loading="eager" 
+            fetchpriority="high"
+            class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-90 z-0" 
+          />
+        )}
+      </div>
 
-          {/* OPTION A: RENDER MOVING CINEMA VIDEO BACKDROP (WHEN VALID VIMEO PLAYER URL) */}
-          {project.backgroundStyle === "video" && isEmbeddableVideo(project.videoUrl) && (
-            <iframe 
-              src={buildVimeoUrl(project.videoUrl, { background: "1", autoplay: "1", loop: "1", muted: "1", dnt: "1" })}
-              title={`${project.title} background reel`}
-              class:list={[
-                "absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none z-10 transition-all duration-500",
-                // Dynamic Filter Matrix: If set to bright, execute browser core hardware tuning overrides
-                project.brightnessStyle === "bright" 
-                  ? "opacity-60 sm:opacity-70 brightness-[1.35] contrast-[1.05] saturate-[1.10]" 
-                  : "opacity-35 sm:opacity-40 brightness-100 contrast-100"
-              ]}
-              allow="autoplay; fullscreen" 
-              referrerpolicy="strict-origin-when-cross-origin"
-              loading={index === 0 ? "eager" : "lazy"}
-            />
-          )}
+      <!-- Top Floating HUD / Page Header Overlay -->
+      <header class="relative z-30 max-w-xl text-left pt-4 sm:pt-8 pointer-events-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-950/80 border border-white/10 backdrop-blur-md mb-2 sm:mb-3 shadow-2xl">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-amber-500 font-mono font-bold">
+            {workPage.headerTag}
+          </span>
         </div>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+          {workPage.heading}
+        </h1>
+        <p class="text-neutral-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg mt-2 sm:mt-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] opacity-90 line-clamp-2 hidden sm:block">
+          {workPage.description}
+        </p>
+      </header>
 
-        <!-- CORNER LAYOUT TECHNICAL DETAILS -->
-        <div class="absolute top-6 left-6 font-mono text-[10px] text-neutral-500 tracking-widest z-30 hidden sm:block">
-          PRJ_0{index + 1} // {project.client.toUpperCase()}
-        </div>
-        <div class="absolute top-6 right-6 font-mono text-[10px] text-neutral-500 tracking-widest z-30 hidden sm:block">
-          {workPage.aspectBadge}
-        </div>
-
-        <!-- TEXT CONTENT PRESENTATION BAY -->
-        <div class="relative z-30 max-w-3xl space-y-4 w-full text-left">
-          
-          <!-- Category and Run Time Badges -->
+      <!-- Bottom Layout Bar (Project Details + Scroll Cue) -->
+      <div class="relative z-30 flex flex-col md:flex-row md:items-end justify-between gap-6 w-full pb-2 sm:pb-6">
+        <!-- Featured Project Presentation Bay (Bottom-Left) -->
+        <div class="max-w-2xl space-y-3 sm:space-y-4 text-left">
+          <!-- Category & TRT -->
           <div class="flex items-center gap-3">
             <span class="text-[10px] tracking-[0.2em] uppercase font-mono text-amber-500 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md">
-              {project.category}
+              {featuredProject.category}
             </span>
             <span class="text-[10px] font-mono text-neutral-400 bg-neutral-900/60 backdrop-blur px-2.5 py-0.5 rounded border border-neutral-800/40">
-              TRT {project.runtime}
+              TRT {featuredProject.runtime}
             </span>
           </div>
 
-          <!-- Project Title Layer -->
-          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none max-w-2xl">
-            {project.title}
+          <!-- Title -->
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none max-w-2xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+            {featuredProject.title}
           </h2>
 
-          <!-- Description Block -->
-          <p class="text-neutral-300 text-sm sm:text-base leading-relaxed max-w-xl line-clamp-3 sm:line-clamp-2 pt-1 opacity-80">
-            {project.description}
+          <!-- Description -->
+          <p class="text-neutral-300 text-xs sm:text-sm sm:text-base leading-relaxed max-w-xl line-clamp-2 pt-1 opacity-90 drop-shadow">
+            {featuredProject.description}
           </p>
 
           <!-- Native HTML5 Dialog Control Trigger -->
           <button 
-            data-open-dialog={`dialog-modal-${project.id}`}
-            class="pt-4 flex items-center gap-3 font-mono text-xs text-amber-500 tracking-wider hover:text-amber-400 transition-colors cursor-pointer group outline-none z-40 relative"
+            data-open-dialog={`dialog-modal-${featuredProject.id}`}
+            class="pt-3 sm:pt-4 flex items-center gap-3 font-mono text-xs text-amber-500 tracking-wider hover:text-amber-400 transition-colors cursor-pointer group outline-none z-40 relative"
           >
             <div class="w-10 h-10 rounded-full bg-amber-500 text-neutral-950 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-amber-400 transition-all duration-300">
               <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
             <span class="group-hover:translate-x-1 transition-transform duration-300">
-              {project.backgroundStyle === "video" ? workPage.videoButtonLabel : workPage.imageButtonLabel}
+              {workPage.videoButtonLabel}
             </span>
           </button>
-
         </div>
 
-        <!-- BOTTOM SCROLL INDICATOR BAR -->
-        {index === 0 && (
-          <div class="absolute bottom-6 right-6 font-mono text-[10px] text-neutral-500 tracking-widest hidden md:flex items-center gap-2 animate-bounce z-30">
-            <span>{workPage.scrollIndicatorText}</span>
-            <span>↓</span>
-          </div>
-        )}
+        <!-- Smooth Scroll Indicator Link to Archive Section -->
+        <a 
+          href="#archive"
+          class="font-mono text-[10px] text-neutral-400 tracking-[0.2em] hidden md:flex items-center gap-2.5 bg-neutral-950/70 border border-white/10 px-4 py-2 rounded-full backdrop-blur-md hover:border-amber-500/50 hover:text-white transition-all shadow-lg self-start md:self-end"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>{workPage.scrollIndicatorText}</span>
+          <span class="animate-bounce text-amber-500 font-bold">↓</span>
+        </a>
+      </div>
+    </section>
 
-      </section>
+    <!-- ============================================================== -->
+    <!-- 2. SCALABLE BENTO GRID ARCHIVE & CATEGORY FILTER SECTION       -->
+    <!-- ============================================================== -->
+    <section id="archive" class="max-w-7xl mx-auto px-6 py-24 sm:py-32 scroll-mt-20">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/10">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-amber-500 font-mono font-bold block mb-3">
+            {workPage.archiveTag}
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+            {workPage.archiveHeading}
+          </h2>
+        </div>
+        <p class="text-neutral-400 max-w-md text-sm sm:text-base leading-relaxed">
+          {workPage.archiveDescription}
+        </p>
+      </div>
 
-      <!-- SCOPED NATIVE DIALOG COMPONENT BOX -->
+      <!-- Category Filter Tabs / Pills -->
+      <div class="flex flex-wrap items-center gap-2.5 pt-8 pb-12" id="filter-bar">
+        <button 
+          type="button"
+          data-filter="all"
+          class="filter-btn active px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer bg-amber-500 text-neutral-950 font-bold shadow-lg shadow-amber-500/20"
+        >
+          {workPage.filterAllLabel}
+        </button>
+        {categories.map((category) => (
+          <button 
+            type="button"
+            data-filter={category}
+            class="filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer bg-neutral-900/80 text-neutral-400 hover:text-white hover:bg-neutral-800 border border-white/10"
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Bento Grid Archive Container -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8">
+        {archiveProjects.map((project, index) => {
+          // Visual Rhythm: alternate wide (7-col) and compact (5-col) bento cards
+          const isWide = (index % 4 === 0 || index % 4 === 3);
+          const colSpanClass = isWide ? "lg:col-span-7" : "lg:col-span-5";
+
+          return (
+            <article 
+              data-project-card
+              data-category={project.category}
+              data-open-dialog={`dialog-modal-${project.id}`}
+              class:list={[
+                "project-card group relative rounded-2xl overflow-hidden bg-neutral-950 border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[380px] sm:min-h-[440px] shadow-xl hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1",
+                colSpanClass
+              ]}
+            >
+              <!-- Card Background Media Layer -->
+              <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <img 
+                  src={project.thumbnail} 
+                  alt={project.title} 
+                  loading="lazy"
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-75 group-hover:opacity-90" 
+                />
+                <!-- Cinematic Card Vignettes -->
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-neutral-950/15 group-hover:via-neutral-950/40 transition-all duration-500"></div>
+                <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-neutral-950/80 to-transparent"></div>
+              </div>
+
+              <!-- Card Top Header (Clean Minimal Category & TRT) -->
+              <div class="relative z-10 p-6 flex items-center justify-between gap-4">
+                <span class="text-[10px] uppercase font-mono tracking-widest text-amber-500 bg-neutral-950/80 border border-amber-500/20 px-3 py-1 rounded-full backdrop-blur-md">
+                  {project.category}
+                </span>
+                <span class="text-[10px] font-mono text-neutral-400 bg-neutral-950/80 border border-white/10 px-2.5 py-1 rounded-full backdrop-blur-md">
+                  TRT {project.runtime}
+                </span>
+              </div>
+
+              <!-- Center Hover-Reveal Play Cue -->
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                <div class="w-14 h-14 rounded-full bg-amber-500 text-neutral-950 flex items-center justify-center shadow-2xl opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out">
+                  <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+
+              <!-- Card Bottom Details Bay -->
+              <div class="relative z-10 p-6 sm:p-8 space-y-2">
+                <span class="text-[11px] font-mono text-neutral-400 uppercase tracking-widest block">
+                  {project.client}
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-tight">
+                  {project.title}
+                </h3>
+                <p class="text-xs sm:text-sm text-neutral-300 line-clamp-2 leading-relaxed opacity-85 group-hover:opacity-100 transition-opacity">
+                  {project.description}
+                </p>
+                <div class="pt-2 flex items-center gap-2 font-mono text-xs text-amber-500 tracking-wider group-hover:translate-x-1 transition-transform">
+                  <span>{workPage.imageButtonLabel}</span>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <!-- Empty State for Filters -->
+      <div id="no-projects-msg" class="hidden text-center py-20">
+        <p class="text-neutral-400 font-mono text-sm uppercase tracking-widest">
+          No projects found in this category.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 3. NATIVE HTML5 THEATER MODAL DIALOGS                          -->
+    <!-- ============================================================== -->
+    {archiveProjects.map((project) => (
       <dialog 
         id={`dialog-modal-${project.id}`} 
         class="fixed inset-0 m-auto w-full max-w-5xl aspect-video rounded-2xl bg-transparent p-4 pt-14 sm:pt-4 backdrop:bg-neutral-950/98 backdrop:backdrop-blur-2xl outline-none border-none overflow-visible open:animate-theater-in"
@@ -154,9 +301,57 @@ const buildVimeoUrl = (baseUrl: string, params: Record<string, string>) => {
 </Layout>
 
 <script>
-  document.querySelectorAll<HTMLButtonElement>('[data-open-dialog]').forEach((btn) => {
+  // ==========================================
+  // CATEGORY FILTER CONTROLLER
+  // ==========================================
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const projectCards = document.querySelectorAll<HTMLElement>('[data-project-card]');
+  const noProjectsMsg = document.getElementById('no-projects-msg');
+
+  filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const dialogId = btn.dataset.openDialog;
+      const selectedFilter = btn.dataset.filter || 'all';
+
+      // Update button visual state
+      filterButtons.forEach((b) => {
+        b.classList.remove('active', 'bg-amber-500', 'text-neutral-950', 'font-bold', 'shadow-lg', 'shadow-amber-500/20');
+        b.classList.add('bg-neutral-900/80', 'text-neutral-400', 'hover:text-white', 'hover:bg-neutral-800', 'border', 'border-white/10');
+      });
+
+      btn.classList.add('active', 'bg-amber-500', 'text-neutral-950', 'font-bold', 'shadow-lg', 'shadow-amber-500/20');
+      btn.classList.remove('bg-neutral-900/80', 'text-neutral-400', 'hover:text-white', 'hover:bg-neutral-800', 'border', 'border-white/10');
+
+      let visibleCount = 0;
+
+      // Filter cards
+      projectCards.forEach((card) => {
+        const category = card.dataset.category;
+        const matches = selectedFilter === 'all' || category === selectedFilter;
+
+        if (matches) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (noProjectsMsg) {
+        if (visibleCount === 0) {
+          noProjectsMsg.classList.remove('hidden');
+        } else {
+          noProjectsMsg.classList.add('hidden');
+        }
+      }
+    });
+  });
+
+  // ==========================================
+  // DIALOG MODAL CONTROLLER
+  // ==========================================
+  document.querySelectorAll<HTMLElement>('[data-open-dialog]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const dialogId = trigger.dataset.openDialog;
       if (!dialogId) return;
       const dialog = document.getElementById(dialogId) as HTMLDialogElement | null;
       const iframe = dialog?.querySelector('iframe');

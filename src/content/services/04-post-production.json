@@ -1,11 +1,44 @@
 {
   "order": "04",
+  "slug": "post-production",
   "title": "Creative Post-Production",
-  "description": "Precision pacing, premium color grading, spatial sound design, and master delivery optimization.",
   "tag": "Final Polish",
   "link": "/services/post-production",
   "displayAs": "local-video",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
-  "imagePath": "/images/post-photo.jpg"
+  "imagePath": "/og-image.jpg",
+  "description": "Precision pacing, premium color grading, spatial sound design, and master delivery optimization.",
+  "seoTitle": "Video Post-Production & Color Grading London & Cambridge | FILM.EDIT.RUN",
+  "seoDescription": "Broadcast editing, DaVinci Resolve color grading, audio sweetening, and multi-platform master delivery for corporate and commercial films.",
+  "heroTag": "Editorial Suite",
+  "heroHeading": "Meticulous Post-Production, Cinematic Color & Spatial Sound.",
+  "heroLead": "Raw footage is only the beginning. Our post-production pipeline combines rhythmic offline editing, DaVinci Resolve color grading, dialogue restoration, and spatial sound design into a broadcast-ready master.",
+  "breakdownHeading": "Rhythmic Editorial, Color Science, and Spatial Mastering.",
+  "breakdownBody": "Raw footage becomes cinema in the edit suite. Our post-production pipeline combines story-driven narrative cutting, calibrated DaVinci Resolve color grading, dialogue acoustic restoration, and broadcast loudness normalization for multi-platform delivery.",
+  "deliverables": [
+    {
+      "tag": "Offline Editorial",
+      "title": "Story-Driven Narrative Assembly",
+      "description": "Ruthless editorial trimming, tempo control, and pacing that grabs audience attention in the first three seconds and never lets go."
+    },
+    {
+      "tag": "Color Science",
+      "title": "DaVinci Resolve Cinema Color Grading",
+      "description": "Custom color look creation, skin tone balancing, dynamic range expansion, and shot-to-shot consistency calibrated for modern displays."
+    },
+    {
+      "tag": "Audio Architecture",
+      "title": "Dialogue Repair & Sound Design",
+      "description": "Spectral de-noising of tricky venue room echo, layered foley, cinematic whooshes, and bespoke music bed ducking."
+    },
+    {
+      "tag": "Multi-Channel Master",
+      "title": "Omnichannel Versioning & Subtitles",
+      "description": "Exporting clean 16:9 4K widescreen, 9:16 vertical TikTok/Reels, 1:1 square feeds, with burnt-in and sidecar SRT subtitle files."
+    }
+  ],
+  "ctaHeading": "Have Existing Footage That Needs Professional Polish?",
+  "ctaDescription": "Send us your raw drives or cloud storage link. Our post-production team will evaluate your material and provide a detailed edit schedule and quote.",
+  "ctaButtonLabel": "Book an Editorial Suite Consultation"
 }

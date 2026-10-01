@@ -1,0 +1,294 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export interface ServiceData {
+  order: string;
+  slug: string;
+  title: string;
+  tag: string;
+  link: string;
+  displayAs: "local-video" | "link-video" | "image";
+  localVideoPath?: string;
+  cloudVideoUrl?: string;
+  imagePath: string;
+  description: string;
+  seoTitle: string;
+  seoDescription: string;
+  heroTag: string;
+  heroHeading: string;
+  heroLead: string;
+  breakdownHeading?: string;
+  breakdownBody?: string;
+  deliverables?: Array<{ tag: string; title: string; description: string }>;
+  ctaHeading: string;
+  ctaDescription: string;
+  ctaButtonLabel: string;
+}
+
+export async function getStaticPaths() {
+  const serviceFiles = import.meta.glob<ServiceData>('../../content/services/*.json', {
+    eager: true,
+    import: 'default',
+  });
+
+  const allServices = Object.values(serviceFiles).sort((a, b) =>
+    a.order.localeCompare(b.order, undefined, { numeric: true })
+  );
+
+  return allServices.map((service, index) => {
+    const slug = service.slug || service.link?.replace(/^\/services\//, '').replace(/\/$/, '') || `service-${index + 1}`;
+    return {
+      params: { slug },
+      props: {
+        service,
+        allServices,
+      },
+    };
+  });
+}
+
+interface Props {
+  service: ServiceData;
+  allServices: ServiceData[];
+}
+
+const { service, allServices } = Astro.props;
+
+// Filter out current service for cross-navigation
+const otherServices = allServices.filter((s) => s.slug !== service.slug);
+
+// Canonical and OpenGraph URL
+const siteUrl = "https://filmeditrun.com";
+const canonicalUrl = `${siteUrl}${service.link}`;
+const ogImage = service.imagePath.startsWith("http") ? service.imagePath : `${siteUrl}${service.imagePath}`;
+
+// Structured JSON-LD Service Schema
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.title,
+  "description": service.description,
+  "url": canonicalUrl,
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "FILM.EDIT.RUN",
+    "url": siteUrl,
+    "logo": `${siteUrl}/logo.svg`,
+    "areaServed": [
+      { "@type": "City", "name": "London" },
+      { "@type": "City", "name": "Cambridge" },
+      { "@type": "Country", "name": "United Kingdom" }
+    ],
+    "serviceType": service.tag
+  }
+};
+---
+
+<Layout title={service.seoTitle} description={service.seoDescription} fullBleed={true}>
+  <Fragment slot="head">
+    <!-- SEO & OpenGraph Meta Tags -->
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={service.seoTitle} />
+    <meta property="og:description" content={service.seoDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="FILM.EDIT.RUN" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={service.seoTitle} />
+    <meta name="twitter:description" content={service.seoDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Service Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <div class="w-full relative z-10 bg-ink min-h-screen">
+
+    <!-- ============================================================== -->
+    <!-- 1. CINEMATIC HERO BANNER (Matches Work Page Lighting & Opacity)-->
+    <!-- ============================================================== -->
+    <header class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
+      
+      <!-- Video / Photo Media Backdrop Layer (Vibrant, work-page style) -->
+      <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
+        <!-- Cinematic Soft Edge Gradients matching work.astro -->
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent z-10"></div>
+        <div class="absolute inset-x-0 top-0 h-36 sm:h-48 bg-gradient-to-b from-neutral-950/80 to-transparent z-10"></div>
+        <div class="absolute inset-y-0 left-0 w-full sm:w-3/5 bg-gradient-to-r from-neutral-950/85 via-neutral-950/40 to-transparent z-10 hidden sm:block"></div>
+
+        {/* Video Background (High visibility, matching work page opacity) */}
+        {(service.displayAs === "local-video" || service.displayAs === "link-video") && (
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="absolute inset-0 w-full h-full object-cover opacity-95 sm:opacity-100 z-0"
+          >
+            <source
+              src={service.displayAs === "local-video" ? (service.localVideoPath || "/showreel.mp4") : (service.cloudVideoUrl || "/showreel.mp4")}
+              type="video/mp4"
+            />
+          </video>
+        )}
+
+        {/* Static Image Background */}
+        {service.displayAs === "image" && (
+          <img
+            src={service.imagePath}
+            alt={service.title}
+            loading="eager"
+            fetchpriority="high"
+            class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
+          />
+        )}
+      </div>
+
+      <!-- Main Banner Content -->
+      <div class="relative z-20 max-w-6xl mx-auto px-6">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6 drop-shadow">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span class="text-neutral-600">/</span>
+          <a href="/services" class="hover:text-white transition-colors">Services</a>
+          <span class="text-neutral-600">/</span>
+          <span class="text-amber-500 font-semibold">{service.title}</span>
+        </nav>
+
+        <!-- Large Title with High-Contrast Work-Page Drop Shadow -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] mb-6 max-w-4xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+          {service.heroHeading || service.title}
+        </h1>
+
+        <!-- Value Proposition / Introductory Paragraph -->
+        <p class="text-lg sm:text-xl lg:text-2xl text-neutral-200 font-light leading-relaxed max-w-3xl mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+          {service.heroLead || service.description}
+        </p>
+
+        <!-- Primary Action -->
+        <div>
+          <a
+            href="/contact"
+            class="inline-block bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-colors shadow-xl shadow-amber-500/20 text-center"
+          >
+            Start a Project Brief &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- ============================================================== -->
+    <!-- 2. APPROACH & CAPABILITIES (Sequential Editorial Flow)         -->
+    <!-- ============================================================== -->
+    <section class="max-w-6xl mx-auto px-6 py-24 sm:py-32">
+      
+      <!-- Top Tier: Approach Narrative (Left) & Production Still (Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        
+        <!-- Left: Approach & Philosophy -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
+            {service.heroTag || service.tag || "Production Scope"}
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12]">
+            {service.breakdownHeading || "Engineered for Precision & Impact."}
+          </h2>
+          <p class="text-neutral-300 text-base sm:text-lg leading-relaxed font-light">
+            {service.breakdownBody || service.description}
+          </p>
+        </div>
+
+        <!-- Right: Production Still / Reference Image -->
+        {service.imagePath && (
+          <div class="lg:col-span-6">
+            <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <img
+                src={service.imagePath}
+                alt={service.title}
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/40 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+        )}
+
+      </div>
+
+      <!-- Bottom Tier: 3 Core Capabilities Row -->
+      {service.deliverables && service.deliverables.length > 0 && (
+        <div class="border-t border-white/10 pt-16 sm:pt-20 mt-16 sm:mt-24">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+            {service.deliverables.slice(0, 3).map((item) => (
+              <div class="space-y-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  {item.title}
+                </h3>
+                <p class="text-neutral-400 text-sm sm:text-base leading-relaxed font-light">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 3. OTHER SERVICES NAVIGATION                                   -->
+    <!-- ============================================================== -->
+    <section class="max-w-6xl mx-auto px-6 mb-24 border-t border-white/10 pt-16">
+      <div class="flex items-center justify-between mb-8">
+        <h3 class="text-xs uppercase tracking-widest font-mono text-neutral-400">Other Services</h3>
+        <a href="/services" class="text-xs font-mono uppercase tracking-widest text-amber-500 hover:text-amber-400 transition-colors">
+          View All Services &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+        {otherServices.map((other) => (
+          <a
+            href={other.link}
+            class="group block border-t border-white/10 pt-4 hover:border-white/30 transition-colors"
+          >
+            <h4 class="text-base font-semibold text-white group-hover:text-amber-400 transition-colors mb-1.5">
+              {other.title} &rarr;
+            </h4>
+            <p class="text-neutral-400 text-xs sm:text-sm line-clamp-2 leading-relaxed">
+              {other.description}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 4. DIRECT CTA                                                  -->
+    <!-- ============================================================== -->
+    <section class="border-t border-white/10 py-24 sm:py-32 bg-neutral-950">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+          {service.ctaHeading || "Ready to Start Your Project?"}
+        </h2>
+        <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
+          {service.ctaDescription || "Get in touch to discuss your project brief, timeline, and production requirements."}
+        </p>
+        <a
+          href="/contact"
+          class="inline-block bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-colors shadow-lg shadow-amber-500/10 text-center"
+        >
+          {service.ctaButtonLabel || "Start a Project Brief"} &rarr;
+        </a>
+      </div>
+    </section>
+
+  </div>
+</Layout>
+
