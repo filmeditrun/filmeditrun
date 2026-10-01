@@ -1,0 +1,11 @@
+{
+  "order": "02",
+  "title": "Corporate & Conference Production",
+  "description": "End-to-end management for high-stakes business conferences, internal streams, and B2B visual assets.",
+  "tag": "Scaleable Broadcast",
+  "link": "/services/conference-production",
+  "displayAs": "local-video",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "https://your-link.mp4",
+  "imagePath": "/images/conference-photo.jpg"
+}

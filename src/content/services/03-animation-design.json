@@ -1,0 +1,11 @@
+{
+  "order": "03",
+  "title": "Animation & Motion Design",
+  "description": "Custom 2D/3D brand graphics, functional overlay templates, transitions, and immersive opening showreels.",
+  "tag": "Visual Effects",
+  "link": "/services/animation-design",
+  "displayAs": "image",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "https://your-link.mp4",
+  "imagePath": "/og-image.jpg"
+}

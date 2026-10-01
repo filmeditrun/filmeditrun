@@ -1,19 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { projects } from '../data/projects';
+import workPage from '../content/pages/work.json';
+
+const isEmbeddableVideo = (url: string) => url.includes('player.vimeo.com/video/');
+
+const buildVimeoUrl = (baseUrl: string, params: Record<string, string>) => {
+  const separator = baseUrl.includes('?') ? (baseUrl.endsWith('?') ? '' : '&') : '?';
+  return `${baseUrl}${separator}${new URLSearchParams(params).toString()}`;
+};
 ---
 
-<Layout title="Selected Portfolio | FILM.EDIT.RUN" description="Explore high-impact video production, corporate events, and cinematic brand narratives in full screen.">
+<Layout title={workPage.seoTitle} description={workPage.seoDescription} fullBleed={true}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://player.vimeo.com" />
+    <link rel="preconnect" href="https://i.vimeocdn.com" />
+  </Fragment>
   
   <!-- Ambient Deep Radian Shadow Mesh Background Overlay -->
   <div class="fixed inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(245,158,11,0.03),transparent_60%)] pointer-events-none z-0"></div>
 
   <!-- Fullscreen Parallax Capture Container -->
-  <main class="w-full relative z-10 bg-neutral-950">
+  <div class="w-full relative z-10 bg-ink pt-20">
+
+    <!-- Work Page Intro Header -->
+    <header class="max-w-7xl mx-auto px-6 pt-12 pb-16 text-center md:text-left border-b border-neutral-900/60">
+      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">{workPage.headerTag}</span>
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-4">{workPage.heading}</h1>
+      <p class="text-neutral-400 max-w-xl text-lg leading-relaxed mx-auto md:mx-0">{workPage.description}</p>
+    </header>
     
     {projects.map((project, index) => (
       <section 
-        class="h-[calc(100vh-5rem)] w-full snap-start relative flex items-end p-6 sm:p-16 overflow-hidden border-b border-neutral-900/40 select-none"
+        class="h-[calc(100dvh-5rem)] min-h-[540px] w-full snap-start relative flex items-end p-6 sm:p-16 overflow-hidden border-b border-neutral-900/40 select-none"
       >
         <!-- AUTOMATED BACKDROP MANAGER LAYER -->
         <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none w-full h-full overflow-hidden">
@@ -22,10 +41,20 @@ import { projects } from '../data/projects';
           <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/30 to-neutral-950/10 z-20"></div>
           <div class="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-neutral-950/40 to-transparent z-20 hidden md:block"></div>
 
-          {/* OPTION A: RENDER MOVING CINEMA VIDEO BACKDROP */}
-          {project.backgroundStyle === "video" && (
+          {/* Always render lightweight poster image as instant fallback */}
+          <img 
+            src={project.thumbnail} 
+            alt={project.title} 
+            loading={index === 0 ? "eager" : "lazy"} 
+            fetchpriority={index === 0 ? "high" : "auto"}
+            class="absolute inset-0 w-full h-full object-cover opacity-35 sm:opacity-40 z-0" 
+          />
+
+          {/* OPTION A: RENDER MOVING CINEMA VIDEO BACKDROP (WHEN VALID VIMEO PLAYER URL) */}
+          {project.backgroundStyle === "video" && isEmbeddableVideo(project.videoUrl) && (
             <iframe 
-              src={`${project.videoUrl}&background=1&autoplay=1&loop=1&muted=1&dnt=1`}
+              src={buildVimeoUrl(project.videoUrl, { background: "1", autoplay: "1", loop: "1", muted: "1", dnt: "1" })}
+              title={`${project.title} background reel`}
               class:list={[
                 "absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none z-10 transition-all duration-500",
                 // Dynamic Filter Matrix: If set to bright, execute browser core hardware tuning overrides
@@ -38,16 +67,6 @@ import { projects } from '../data/projects';
               loading={index === 0 ? "eager" : "lazy"}
             />
           )}
-
-          {/* OPTION B: RENDER STATIC PHOTOGRAPH BACKDROP */}
-          {project.backgroundStyle === "image" && (
-            <img 
-              src={project.thumbnail} 
-              alt={project.title} 
-              loading={index === 0 ? "eager" : "lazy"} 
-              class="w-full h-full object-cover opacity-35 sm:opacity-40 z-10" 
-            />
-          )}
         </div>
 
         <!-- CORNER LAYOUT TECHNICAL DETAILS -->
@@ -55,7 +74,7 @@ import { projects } from '../data/projects';
           PRJ_0{index + 1} // {project.client.toUpperCase()}
         </div>
         <div class="absolute top-6 right-6 font-mono text-[10px] text-neutral-500 tracking-widest z-30 hidden sm:block">
-          ASPECT // 16:9
+          {workPage.aspectBadge}
         </div>
 
         <!-- TEXT CONTENT PRESENTATION BAY -->
@@ -83,14 +102,14 @@ import { projects } from '../data/projects';
 
           <!-- Native HTML5 Dialog Control Trigger -->
           <button 
-            onclick={`document.getElementById('dialog-modal-${project.id}').showModal()`}
+            data-open-dialog={`dialog-modal-${project.id}`}
             class="pt-4 flex items-center gap-3 font-mono text-xs text-amber-500 tracking-wider hover:text-amber-400 transition-colors cursor-pointer group outline-none z-40 relative"
           >
             <div class="w-10 h-10 rounded-full bg-amber-500 text-neutral-950 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-amber-400 transition-all duration-300">
               <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
             <span class="group-hover:translate-x-1 transition-transform duration-300">
-              {project.backgroundStyle === "video" ? "EXPAND SOUND & VIDEO ➔" : "WATCH PROJECT REEL ➔"}
+              {project.backgroundStyle === "video" ? workPage.videoButtonLabel : workPage.imageButtonLabel}
             </span>
           </button>
 
@@ -99,7 +118,7 @@ import { projects } from '../data/projects';
         <!-- BOTTOM SCROLL INDICATOR BAR -->
         {index === 0 && (
           <div class="absolute bottom-6 right-6 font-mono text-[10px] text-neutral-500 tracking-widest hidden md:flex items-center gap-2 animate-bounce z-30">
-            <span>SCROLL TO EXPLORE</span>
+            <span>{workPage.scrollIndicatorText}</span>
             <span>↓</span>
           </div>
         )}
@@ -109,38 +128,49 @@ import { projects } from '../data/projects';
       <!-- SCOPED NATIVE DIALOG COMPONENT BOX -->
       <dialog 
         id={`dialog-modal-${project.id}`} 
-        class="fixed inset-0 m-auto w-full max-w-5xl aspect-video rounded-2xl bg-transparent p-4 backdrop:bg-neutral-950/98 backdrop:backdrop-blur-2xl outline-none border-none overflow-visible open:animate-fadeIn"
+        class="fixed inset-0 m-auto w-full max-w-5xl aspect-video rounded-2xl bg-transparent p-4 pt-14 sm:pt-4 backdrop:bg-neutral-950/98 backdrop:backdrop-blur-2xl outline-none border-none overflow-visible open:animate-theater-in"
       >
         <div class="relative w-full h-full">
           <!-- Native Close Trigger -->
-          <form method="dialog" class="absolute -top-14 right-0">
+          <form method="dialog" class="absolute -top-12 sm:-top-14 right-0 z-10">
             <button class="text-neutral-400 hover:text-white text-xs font-mono flex items-center gap-2 bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-xl transition-colors cursor-pointer shadow-2xl">
-              ESC ✕ CLOSE
+              {workPage.closeModalLabel}
             </button>
           </form>
           
           <!-- Presentation Player with normal controls and full audio track unmuted -->
           <iframe 
-            src={`${project.videoUrl}&autoplay=1&muted=0&dnt=1`} 
+            data-src={isEmbeddableVideo(project.videoUrl) ? buildVimeoUrl(project.videoUrl, { autoplay: "1", muted: "0", dnt: "1" }) : ""}
+            title={`${project.title} full player`}
             class="w-full h-full rounded-2xl border border-neutral-800/60 shadow-[0_0_100px_rgba(0,0,0,0.9)] bg-black" 
             allow="autoplay; fullscreen; picture-in-picture" 
             referrerpolicy="strict-origin-when-cross-origin"
-            loading="lazy"
             allowfullscreen
           />
         </div>
       </dialog>
     ))}
-  </main>
+  </div>
 </Layout>
 
-<!-- Hardware-accelerated fading animation via pure Tailwind/CSS keyframes -->
-<style is:global>
-  @keyframes theaterFadeIn {
-    from { transform: scale(0.96); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  .open\:animate-fadeIn[open] {
-    animation: theaterFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-</style>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-open-dialog]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const dialogId = btn.dataset.openDialog;
+      if (!dialogId) return;
+      const dialog = document.getElementById(dialogId) as HTMLDialogElement | null;
+      const iframe = dialog?.querySelector('iframe');
+      if (iframe && iframe.dataset.src && !iframe.src) {
+        iframe.src = iframe.dataset.src;
+      }
+      dialog?.showModal();
+    });
+  });
+
+  document.querySelectorAll<HTMLDialogElement>('dialog').forEach((dialog) => {
+    dialog.addEventListener('close', () => {
+      const iframe = dialog.querySelector('iframe');
+      if (iframe) iframe.removeAttribute('src');
+    });
+  });
+</script>

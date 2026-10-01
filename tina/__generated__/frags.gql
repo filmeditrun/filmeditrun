@@ -1,0 +1,110 @@
+fragment HomepageParts on Homepage {
+  __typename
+  seoTitle
+  seoDescription
+  locations
+  heroHeadingPrefix
+  heroHeadingHighlight
+  tagline
+  heroVideoPath
+  primaryCtaLabel
+  primaryCtaLink
+  secondaryCtaLabel
+  secondaryCtaLink
+  brandName
+  expertiseList
+  introHeading
+  introBody
+  introPrimaryLinkLabel
+  introPrimaryLinkHref
+  introSecondaryLinkLabel
+  introSecondaryLinkHref
+}
+
+fragment WorkPageParts on WorkPage {
+  __typename
+  seoTitle
+  seoDescription
+  headerTag
+  heading
+  description
+  aspectBadge
+  videoButtonLabel
+  imageButtonLabel
+  scrollIndicatorText
+  closeModalLabel
+}
+
+fragment ServicesPageParts on ServicesPage {
+  __typename
+  seoTitle
+  headerTag
+  heading
+  description
+}
+
+fragment CambridgePageParts on CambridgePage {
+  __typename
+  seoTitle
+  seoDescription
+  canonicalURL
+  heroTag
+  heroHeadingPrefix
+  heroHeadingHighlight
+  heroSubtitle
+  heroCtaLabel
+  heroCtaLink
+  expertiseTag
+  expertiseHeading
+  expertiseDescription
+  expertiseBullets
+  cardTitle
+  cardBody
+  cardLinkLabel
+  cardLinkHref
+  faqHeading
+  faqs {
+    __typename
+    question
+    answer
+  }
+  bottomCtaHeading
+  bottomCtaBody
+  bottomCtaLabel
+  bottomCtaLink
+}
+
+fragment ProjectParts on Project {
+  __typename
+  order
+  title
+  client
+  category
+  runtime
+  description
+  backgroundStyle
+  videoUrl
+  thumbnail
+  brightnessStyle
+}
+
+fragment ServiceParts on Service {
+  __typename
+  order
+  title
+  tag
+  description
+  link
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+}
+
+fragment SiteSettingsParts on SiteSettings {
+  __typename
+  siteName
+  logoText
+  useImageLogo
+  logoImagePath
+}

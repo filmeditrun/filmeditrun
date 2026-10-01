@@ -1,81 +1,41 @@
 ---
 // =====================================================================
-// EASY QUESTION MANAGER BLOCK - CHOOSE ANY COMBINATION!
-// displayAs options: "local-video" | "link-video" | "image"
+// SERVICES PAGE (Page copy in src/content/pages/services.json;
+// Service items in src/content/services/*.json)
 // =====================================================================
-const pageTitle = "Our Services | FilmEditRun";
-const pageHeaderTag = "Expert Production Solutions";
-const pageHeading = "What We Do.";
-const pageDescription = "High-impact video production, corporate event coverage, and premium creative post-production tailored for brands and global conferences.";
-
-const services = [
-  {
-    id: "01",
-    title: "Single & Multi-Camera Event Coverage",
-    description: "Full-scale dynamic coverage for live corporate operations, keynotes, panel discussions, and premium visual archiving.",
-    tag: "Multi-Cam Capable",
-    link: "/services/event-coverage",
-    
-    // Choose how to show this background: "local-video", "link-video", or "image"
-    displayAs: "local-video", 
-    
-    localVideoPath: "/showreel.mp4",
-    cloudVideoUrl: "https://your-link.mp4",
-    imagePath: "/images/event-photo.jpg", // Also acts as the video loading placeholder
-  },
-  {
-    id: "02",
-    title: "Corporate & Conference Production",
-    description: "End-to-end management for high-stakes business conferences, internal streams, and B2B visual assets.",
-    tag: "Scaleable Broadcast",
-    link: "/services/conference-production",
-    
-    displayAs: "local-video",
-    
-    localVideoPath: "/showreel.mp4",
-    cloudVideoUrl: "https://your-link.mp4",
-    imagePath: "/images/conference-photo.jpg",
-  },
-  {
-    id: "03",
-    title: "Animation & Motion Design",
-    description: "Custom 2D/3D brand graphics, functional overlay templates, transitions, and immersive opening showreels.",
-    tag: "Visual Effects",
-    link: "/services/animation-design",
-    
-    displayAs: "image", // Setting this to "image" means it won't load a video loop
-    
-    localVideoPath: "/showreel.mp4",
-    cloudVideoUrl: "https://your-link.mp4",
-    imagePath: "/og-image.jpg",
-  },
-  {
-    id: "04",
-    title: "Creative Post-Production",
-    description: "Precision pacing, premium color grading, spatial sound design, and master delivery optimization.",
-    tag: "Final Polish",
-    link: "/services/post-production",
-    
-    displayAs: "local-video",
-    
-    localVideoPath: "/showreel.mp4",
-    cloudVideoUrl: "https://your-link.mp4",
-    imagePath: "/images/post-photo.jpg",
-  }
-];
-// =====================================================================
-
-// Central layout handles the mobile-responsive header and footer automatically
 import Layout from '../layouts/Layout.astro';
+import servicesPage from '../content/pages/services.json';
+
+interface ServiceCard {
+  order: string;
+  title: string;
+  description: string;
+  tag: string;
+  link: string;
+  displayAs: "local-video" | "link-video" | "image";
+  localVideoPath?: string;
+  cloudVideoUrl?: string;
+  imagePath: string;
+}
+
+const serviceFiles = import.meta.glob<ServiceCard>("../content/services/*.json", {
+  eager: true,
+  import: "default",
+});
+
+const services = Object.values(serviceFiles)
+  .map((s) => ({ ...s, id: s.order }))
+  .sort((a, b) => a.order.localeCompare(b.order, undefined, { numeric: true }));
+// =====================================================================
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={servicesPage.seoTitle} description={servicesPage.description}>
   
   <!-- Header Section -->
-  <header class="max-w-5xl mx-auto px-6 pt-12 pb-16 text-center md:text-left">
-    <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">{pageHeaderTag}</span>
-    <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-4">{pageHeading}</h1>
-    <p class="text-neutral-400 max-w-xl text-lg leading-relaxed">{pageDescription}</p>
+  <header class="max-w-7xl mx-auto px-6 pt-12 pb-16 text-center md:text-left">
+    <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">{servicesPage.headerTag}</span>
+    <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-4">{servicesPage.heading}</h1>
+    <p class="text-neutral-400 max-w-xl text-lg leading-relaxed mx-auto md:mx-0">{servicesPage.description}</p>
   </header>
 
   <!-- Uniform Clean Grid Section -->
@@ -92,17 +52,17 @@ import Layout from '../layouts/Layout.astro';
             <!-- Protective Text Contrast Overlay Layer -->
             <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-t from-neutral-950/95 via-neutral-950/70 to-neutral-950/40"></div>
             
-            {/* OPTION 1: LOCAL VIDEO SETUP */}
-            {service.displayAs === "local-video" && (
-              <video autoplay loop muted playsinline preload="none" poster={service.imagePath} class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700">
-                <source src={service.localVideoPath} type="video/mp4" />
-              </video>
-            )}
-
-            {/* OPTION 2: EXTERNAL CLOUD LINK SETUP */}
-            {service.displayAs === "link-video" && (
-              <video autoplay loop muted playsinline preload="none" poster={service.imagePath} class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700">
-                <source src={service.cloudVideoUrl} type="video/mp4" />
+            {/* OPTION 1 & 2: DEFERRED VIDEO LOOP SETUP (LOCAL OR CLOUD) */}
+            {(service.displayAs === "local-video" || service.displayAs === "link-video") && (
+              <video
+                loop
+                muted
+                playsinline
+                preload="none"
+                poster={service.imagePath}
+                data-video-src={service.displayAs === "local-video" ? service.localVideoPath : service.cloudVideoUrl}
+                class="service-preview-video w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
+              >
               </video>
             )}
 
@@ -131,3 +91,35 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 </Layout>
+
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion) {
+    const videos = document.querySelectorAll<HTMLVideoElement>('video.service-preview-video');
+
+    const loadVideo = (video: HTMLVideoElement) => {
+      const src = video.dataset.videoSrc;
+      if (src && !video.src) {
+        video.src = src;
+        video.load();
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            loadVideo(video);
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: '100px 0px', threshold: 0.25 }
+    );
+
+    videos.forEach((video) => observer.observe(video));
+  }
+</script>

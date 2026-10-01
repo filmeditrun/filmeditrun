@@ -22,7 +22,8 @@ const formSteps = [
     options: [
       { label: "Filming", value: "Filming" },
       { label: "Editing", value: "Editing" },
-      { label: "Filming and Editing", value: "Filming and Editing" }
+      { label: "Filming & Editing (Full Production)", value: "Filming and Editing" },
+      { label: "Animation & Motion Design", value: "Animation and Motion Design" }
     ]
   },
   {
@@ -59,20 +60,21 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Start Your Project | FilmEditRun" description="Get a tailored media production brief response.">
-  <head>
+  <Fragment slot="head">
     <!-- Keep third-party scripts scoped cleanly -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  </head>
+  </Fragment>
 
   <!-- 2. STRETCHABLE COMPACT WRAPPER FOR SAFE MOBILE BOUNDS -->
-  <div class="min-h-[calc(100vh-5rem)] w-full flex items-center justify-center px-4 py-8 md:px-6 relative">
+  <div class="min-h-[calc(100dvh-5rem)] w-full flex items-center justify-center px-6 py-12 relative">
     
-    <!-- form container needs dedicated height to allow child elements to position absolute safely -->
-    <form id="typeform" action="https://formtorch.com/f/YOUR_FORMTORCH_KEY" method="POST" class="w-full max-w-2xl min-h-[400px] flex items-center relative">
+    <!-- Grid overlay container lets steps crossfade while respecting natural mobile height -->
+    <form id="typeform" action="https://formtorch.com/f/YOUR_FORMTORCH_KEY" method="POST" class="w-full max-w-2xl flex flex-col justify-between gap-10">
+      <div class="grid grid-cols-1 items-center min-h-[280px]">
       
       {formSteps.map((step, index) => (
-        <div class={`step transition-all duration-500 absolute w-full left-0 right-0 flex flex-col justify-center ${index === 0 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-          <label class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold mb-2 block">{step.tag}</label>
+        <div class={`step col-start-1 row-start-1 transition-opacity duration-300 w-full flex flex-col justify-center ${index === 0 ? 'opacity-100 pointer-events-auto z-10' : 'opacity-0 pointer-events-none z-0'}`}>
+          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold mb-2 block">{step.tag}</span>
           <h2 class="text-2xl md:text-4xl font-bold text-white mb-6 pr-4 leading-tight">{step.title}</h2>
 
           {step.type === "text" && (
@@ -89,9 +91,9 @@ import Layout from '../layouts/Layout.astro';
           )}
 
           {step.type === "radio" && (
-            <div class="grid grid-cols-1 gap-3 max-h-[50vh] overflow-y-auto pr-1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {step.options.map((opt, optIdx) => (
-                <label class="border border-neutral-800 rounded-xl p-3 sm:p-4 flex items-center gap-3 cursor-pointer hover:border-amber-500/50 bg-neutral-900/30 transition-colors">
+                <label class="border border-neutral-800 rounded-xl p-4 flex items-center gap-3 cursor-pointer hover:border-amber-500/50 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-500/10 bg-neutral-900/30 transition-colors">
                   <input type="radio" name="required_service" value={opt.value} required={optIdx === 0} class="accent-amber-500 w-5 h-5 flex-shrink-0" />
                   <span class="text-base sm:text-lg text-neutral-200">{opt.label}</span>
                 </label>
@@ -118,22 +120,28 @@ import Layout from '../layouts/Layout.astro';
 
               <div class="cf-turnstile scale-90 origin-left" data-theme="dark" data-sitekey={step.turnstileSiteKey}></div>
 
-              <button type="submit" class="w-full sm:w-auto bg-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-md hover:bg-amber-400 transition-colors shadow-xl shadow-amber-500/10">
+              <button type="submit" class="w-full sm:w-auto bg-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base hover:bg-amber-400 transition-colors shadow-xl shadow-amber-500/10">
                 Submit Brief
               </button>
             </div>
           )}
         </div>
       ))}
+      </div>
 
-      <!-- Fixed Mobile-Adaptive Step Controls -->
-      <div class="fixed bottom-6 right-6 sm:bottom-12 sm:right-12 flex gap-3 z-40">
-        <button type="button" id="prevBtn" class="bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white px-4 py-3 sm:p-4 rounded-xl opacity-50 cursor-not-allowed transition-all text-sm sm:text-base">
-          ← Back
-        </button>
-        <button type="button" id="nextBtn" class="bg-amber-500 text-neutral-950 font-bold px-5 py-3 sm:px-6 sm:py-4 rounded-xl hover:bg-amber-400 transition-all text-sm sm:text-base">
-          Next →
-        </button>
+      <!-- Inline Mobile-Safe Step Controls & Progress Indicator -->
+      <div class="flex items-center justify-between border-t border-neutral-900 pt-6">
+        <span id="stepCounter" class="font-mono text-xs uppercase tracking-widest text-neutral-500">
+          Step 01 / 0{formSteps.length}
+        </span>
+        <div class="flex gap-3">
+          <button type="button" id="prevBtn" class="bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white px-4 py-3 rounded-xl opacity-50 cursor-not-allowed transition-all text-sm sm:text-base">
+            ← Back
+          </button>
+          <button type="button" id="nextBtn" class="bg-amber-500 text-neutral-950 font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-all text-sm sm:text-base cursor-pointer">
+            Next →
+          </button>
+        </div>
       </div>
     </form>
   </div>
@@ -146,20 +154,23 @@ import Layout from '../layouts/Layout.astro';
     const steps = document.querySelectorAll('.step');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
+    const stepCounter = document.getElementById('stepCounter');
     const form = document.getElementById('typeform');
 
     if (!form || steps.length === 0) return;
 
-    function updateForm() {
+    function updateForm(shouldFocus = false) {
       steps.forEach((step, index) => {
         if (index === currentStep) {
-          step.classList.remove('opacity-0', 'pointer-events-none');
-          step.classList.add('opacity-100', 'pointer-events-auto');
-          const inputs = step.querySelectorAll('input[type="text"], input[type="email"], textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-          if(inputs.length > 0) inputs[0].focus();
+          step.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+          step.classList.add('opacity-100', 'pointer-events-auto', 'z-10');
+          if (shouldFocus) {
+            const inputs = step.querySelectorAll('input[type="text"], input[type="email"], textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+            if (inputs.length > 0) inputs[0].focus();
+          }
         } else {
-          step.classList.remove('opacity-100', 'pointer-events-auto');
-          step.classList.add('opacity-0', 'pointer-events-none');
+          step.classList.remove('opacity-100', 'pointer-events-auto', 'z-10');
+          step.classList.add('opacity-0', 'pointer-events-none', 'z-0');
         }
       });
 
@@ -171,10 +182,10 @@ import Layout from '../layouts/Layout.astro';
         (prevBtn as HTMLButtonElement).disabled = false;
       }
 
-      if (currentStep === steps.length - 1) {
-        if (nextBtn) nextBtn.style.display = 'none';
-      } else {
-        if (nextBtn) nextBtn.style.display = 'block';
+      nextBtn?.classList.toggle('hidden', currentStep === steps.length - 1);
+
+      if (stepCounter) {
+        stepCounter.textContent = `Step 0${currentStep + 1} / 0${steps.length}`;
       }
     }
 
@@ -193,14 +204,14 @@ import Layout from '../layouts/Layout.astro';
 
       if (currentStep < steps.length - 1) {
         currentStep++;
-        updateForm();
+        updateForm(true);
       }
     });
 
     prevBtn?.addEventListener('click', () => {
       if (currentStep > 0) {
         currentStep--;
-        updateForm();
+        updateForm(true);
       }
     });
 
@@ -214,6 +225,7 @@ import Layout from '../layouts/Layout.astro';
     updateForm();
   }
 
-  // Hook into client router lifecycle cleanly
+  // Initialize on standard page load and Astro client router transitions
+  initForm();
   document.addEventListener('astro:page-load', initForm);
 </script>

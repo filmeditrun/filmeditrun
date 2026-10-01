@@ -1,0 +1,27 @@
+{
+  "seoTitle": "FilmEditRun | Corporate Video Production London & Cambridge",
+  "seoDescription": "Professional multi-camera event video coverage, conference filming, broadcast editing, and creative corporate animation pipelines across London, Cambridge, and the UK.",
+  "brandName": "FILM.EDIT.RUN",
+  "locations": "London • Cambridge • UK Wide",
+  "heroHeadingPrefix": "We Capture, Create, and",
+  "heroHeadingHighlight": "Produce.",
+  "tagline": "Premium multi-camera event video coverage, conference filming, broadcast editing, and creative corporate animation pipelines across London, Cambridge, and the UK.",
+  "heroVideoPath": "/showreel.mp4",
+  "primaryCtaLabel": "Start a Project Brief",
+  "primaryCtaLink": "/contact",
+  "secondaryCtaLabel": "Watch Selected Work",
+  "secondaryCtaLink": "/work",
+  "expertiseList": [
+    "Conference Filming",
+    "Multi-Camera Events",
+    "Corporate Video",
+    "Motion Design"
+  ],
+  "introHeading": "Corporate Media Without Compromise.",
+  "introBody": "From massive commercial conference panels to sleek, customized brand motion design graphics, we supply professional workflows ensuring your corporate events translate beautifully across digital streams and highlight edits.",
+  "introPrimaryLinkLabel": "Explore Production Services ➔",
+  "introPrimaryLinkHref": "/services",
+  "introSecondaryLinkLabel": "Cambridge Hub ➔",
+  "introSecondaryLinkHref": "/cambridge"
+}
+

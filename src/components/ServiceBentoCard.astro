@@ -39,11 +39,6 @@ const { index, title, tag, description, image, video, span, titleClass } =
       class="absolute inset-0 bg-[radial-gradient(120%_80%_at_10%_0%,rgba(232,197,71,0.1),transparent_42%),linear-gradient(to_top,rgba(11,11,12,0.92)_8%,rgba(11,11,12,0.35)_52%,rgba(11,11,12,0.12)_100%)]"
     >
     </div>
-    <div
-      class="pointer-events-none absolute inset-0 opacity-25 mix-blend-overlay"
-      style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22120%22 height=%22120%22 filter=%22url(%23n)%22 opacity=%220.5%22/%3E%3C/svg%3E');"
-    >
-    </div>
   </div>
 
   <div class="relative z-10 flex min-h-0 flex-1 flex-col justify-between p-6 md:p-8">
@@ -65,7 +60,7 @@ const { index, title, tag, description, image, video, span, titleClass } =
     </div>
 
     <div>
-      <h2 class:list={["font-display leading-[1.05] text-pretty text-paper", titleClass]}>
+      <h2 class:list={["font-bold tracking-tight leading-[1.05] text-pretty text-paper", titleClass]}>
         {title}
       </h2>
       <p class="mt-3 max-w-md text-sm leading-relaxed text-paper/75 md:text-[15px]">

@@ -6,11 +6,13 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  fullBleed?: boolean;
 }
 
 const {
   title = "FilmEditRun",
   description = "Corporate and creative video production. Picture, sound, and story.",
+  fullBleed = false,
 } = Astro.props;
 ---
 
@@ -26,7 +28,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,900;1,9..40,400&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -34,9 +36,9 @@ const {
     <!-- CRITICAL ADDITION: This accepts custom page schemas like the Cambridge JSON-LD -->
     <slot name="head" />
   </head>
-  <body class="min-h-screen bg-ink text-paper antialiased">
+  <body class="min-h-screen bg-ink text-paper font-sans antialiased flex flex-col">
     <Header />
-    <main class="pt-20 md:pt-24">
+    <main class:list={["flex-1", !fullBleed && "pt-20"]}>
       <slot />
     </main>
     <Footer />

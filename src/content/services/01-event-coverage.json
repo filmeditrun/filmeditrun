@@ -1,0 +1,11 @@
+{
+  "order": "01",
+  "title": "Single & Multi-Camera Event Coverage",
+  "description": "Full-scale dynamic coverage for live corporate operations, keynotes, panel discussions, and premium visual archiving.",
+  "tag": "Multi-Cam Capable",
+  "link": "/services/event-coverage",
+  "displayAs": "local-video",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "https://your-link.mp4",
+  "imagePath": "/images/event-photo.jpg"
+}
