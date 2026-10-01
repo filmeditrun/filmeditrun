@@ -29,6 +29,10 @@ const archiveProjects = projects;
 
 // Extract unique categories dynamically for filtering pills
 const categories = Array.from(new Set(archiveProjects.map((p) => p.category).filter(Boolean)));
+
+const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
+  ? buildVimeoUrl(featuredProject.videoUrl, { background: "1", autoplay: "1", loop: "1", muted: "1", dnt: "1" })
+  : "";
 ---
 
 <Layout title={workPage.seoTitle} description={workPage.seoDescription} fullBleed={true}>
@@ -67,9 +71,9 @@ const categories = Array.from(new Set(archiveProjects.map((p) => p.category).fil
           >
             <source src={featuredProject.videoUrl} type="video/mp4" />
           </video>
-        ) : featuredProject.backgroundStyle === "video" && isEmbeddableVideo(featuredProject.videoUrl) ? (
+        ) : featuredProject.backgroundStyle === "video" && featuredVimeoBgUrl ? (
           <iframe 
-            src={buildVimeoUrl(featuredProject.videoUrl, { background: "1", autoplay: "1", loop: "1", muted: "1", dnt: "1" })}
+            src={featuredVimeoBgUrl}
             title={`${featuredProject.title} background reel`}
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full object-cover pointer-events-none z-10 opacity-95 sm:opacity-100 transition-all duration-500"
             allow="autoplay; fullscreen" 
@@ -123,7 +127,7 @@ const categories = Array.from(new Set(archiveProjects.map((p) => p.category).fil
           </h2>
 
           <!-- Description -->
-          <p class="text-neutral-300 text-xs sm:text-sm sm:text-base leading-relaxed max-w-xl line-clamp-2 pt-1 opacity-90 drop-shadow">
+          <p class="text-neutral-300 text-xs sm:text-base leading-relaxed max-w-xl line-clamp-2 pt-1 opacity-90 drop-shadow">
             {featuredProject.description}
           </p>
 
