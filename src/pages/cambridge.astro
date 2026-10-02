@@ -3,10 +3,49 @@
 // CAMBRIDGE LANDING PAGE (Managed via TinaCMS in src/content/pages/cambridge.json)
 // =====================================================================
 import Layout from '../layouts/Layout.astro';
-import cambridge from '../content/pages/cambridge.json';
+import rawCambridge from '../content/pages/cambridge.json';
+
+interface CambridgeData {
+  seoTitle: string;
+  seoDescription: string;
+  canonicalURL?: string;
+  heroTag?: string;
+  heroHeadingPrefix?: string;
+  heroHeadingHighlight?: string;
+  heroSubtitle?: string;
+  heroCtaLabel?: string;
+  heroCtaLink?: string;
+  displayAs?: "local-video" | "link-video" | "image" | "none";
+  localVideoPath?: string;
+  cloudVideoUrl?: string;
+  imagePath?: string;
+  expertiseTag?: string;
+  expertiseHeading?: string;
+  expertiseDescription?: string;
+  expertiseBullets?: string[];
+  cardTitle?: string;
+  cardBody?: string;
+  cardLinkLabel?: string;
+  cardLinkHref?: string;
+  faqHeading?: string;
+  faqs?: Array<{ question: string; answer: string }>;
+  bottomCtaHeading?: string;
+  bottomCtaBody?: string;
+  bottomCtaLabel?: string;
+  bottomCtaLink?: string;
+}
+
+const cambridge = rawCambridge as CambridgeData;
+
+const displayAs = cambridge.displayAs || "local-video";
+const localVideoPath = cambridge.localVideoPath || "/showreel.mp4";
+const cloudVideoUrl = cambridge.cloudVideoUrl || "https://your-link.mp4";
+const imagePath = cambridge.imagePath || "/og-image.jpg";
+const siteUrl = "https://filmeditrun.co.uk";
+const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
 ---
 
-<Layout title={cambridge.seoTitle} description={cambridge.seoDescription}>
+<Layout title={cambridge.seoTitle} description={cambridge.seoDescription} fullBleed={true}>
   
   <!-- 1. PLUGS LOCAL BUSINESS SCHEMA DIRECTLY INTO YOUR HEAD COMPONENT -->
   <Fragment slot="head">
@@ -15,9 +54,16 @@ import cambridge from '../content/pages/cambridge.json';
     <meta property="og:url" content={cambridge.canonicalURL} />
     <meta property="og:title" content={cambridge.seoTitle} />
     <meta property="og:description" content={cambridge.seoDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="FILM.EDIT.RUN" />
 
-    <script type="application/ld+json" is:inline>
-    {
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={cambridge.seoTitle} />
+    <meta name="twitter:description" content={cambridge.seoDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "FilmEditRun Cambridge",
@@ -33,73 +79,144 @@ import cambridge from '../content/pages/cambridge.json';
         "addressRegion": "Cambridgeshire",
         "addressCountry": "GB"
       }
-    }
-    </script>
+    })} />
   </Fragment>
 
-  <!-- Hero Section -->
-  <header class="relative w-full pt-16 pb-24 px-6 max-w-5xl mx-auto text-center">
-    <span class="text-xs uppercase tracking-[0.3em] text-amber-500 font-mono font-bold block mb-4">{cambridge.heroTag}</span>
-    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-none mb-6">
-      {cambridge.heroHeadingPrefix} <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">{cambridge.heroHeadingHighlight}</span>
-    </h1>
-    <p class="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed mb-10">
-      {cambridge.heroSubtitle}
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <a href={cambridge.heroCtaLink} class="w-full sm:w-auto bg-amber-500 text-neutral-950 font-bold px-8 py-4 rounded-xl text-base hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/10">
-        {cambridge.heroCtaLabel}
-      </a>
-    </div>
-  </header>
+  <div class="w-full relative z-10 bg-ink min-h-screen">
 
-  <!-- Local Hub Context Section -->
-  <section class="max-w-5xl mx-auto px-6 py-20 border-t border-neutral-900">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono block mb-2">{cambridge.expertiseTag}</span>
-        <h2 class="text-3xl font-bold tracking-tight text-white mb-4">{cambridge.expertiseHeading}</h2>
-        <p class="text-neutral-400 leading-relaxed mb-6">
-          {cambridge.expertiseDescription}
-        </p>
-        <ul class="space-y-3 text-neutral-300 text-sm font-mono">
-          {cambridge.expertiseBullets.map((bullet) => (
-            <li class="flex items-center gap-2">✓ {bullet}</li>
-          ))}
-        </ul>
+    <!-- ============================================================== -->
+    <!-- 1. CINEMATIC HERO BANNER (Matches Services Subpage Lighting)   -->
+    <!-- ============================================================== -->
+    <header class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
+      
+      <!-- Video / Photo Media Backdrop Layer (Clear, vibrant background) -->
+      <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
+        {/* Video Background (Local or Cloud) */}
+        {(displayAs === "local-video" || displayAs === "link-video") && (
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="absolute inset-0 w-full h-full object-cover opacity-95 sm:opacity-100 z-0"
+          >
+            <source
+              src={displayAs === "local-video" ? localVideoPath : cloudVideoUrl}
+              type="video/mp4"
+            />
+          </video>
+        )}
+
+        {/* Static Image Background */}
+        {displayAs === "image" && (
+          <img
+            src={imagePath}
+            alt={cambridge.seoTitle}
+            loading="eager"
+            fetchpriority="high"
+            class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
+          />
+        )}
       </div>
-      <div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl">
-        <h3 class="text-xl font-bold text-white mb-3">{cambridge.cardTitle}</h3>
-        <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-          {cambridge.cardBody}
+
+      <!-- Main Banner Content -->
+      <div class="relative z-20 max-w-6xl mx-auto px-6">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6 drop-shadow">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span class="text-neutral-600">/</span>
+          <span class="text-amber-500 font-semibold">Cambridge</span>
+        </nav>
+
+        {cambridge.heroTag && (
+          <span class="text-xs uppercase tracking-[0.3em] text-amber-500 font-mono font-bold block mb-4">
+            {cambridge.heroTag}
+          </span>
+        )}
+
+        <!-- Large Title with High-Contrast Drop Shadow -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] mb-6 max-w-4xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+          {cambridge.heroHeadingPrefix} <span class="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-amber-600">{cambridge.heroHeadingHighlight}</span>
+        </h1>
+
+        <!-- Value Proposition / Introductory Paragraph -->
+        <p class="text-lg sm:text-xl lg:text-2xl text-neutral-200 font-light leading-relaxed max-w-3xl mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+          {cambridge.heroSubtitle}
         </p>
-        <a href={cambridge.cardLinkHref} class="text-amber-500 font-mono text-sm hover:underline inline-flex items-center gap-1">
-          {cambridge.cardLinkLabel}
+
+        <!-- Primary Action -->
+        <div>
+          <a
+            href={cambridge.heroCtaLink}
+            class="inline-block bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-colors shadow-xl shadow-amber-500/20 text-center"
+          >
+            {cambridge.heroCtaLabel} &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- Local Hub Context Section -->
+    <section class="max-w-6xl mx-auto px-6 py-24 sm:py-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono block mb-2">{cambridge.expertiseTag}</span>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4 leading-tight">{cambridge.expertiseHeading}</h2>
+          <p class="text-neutral-400 leading-relaxed mb-6 font-light">
+            {cambridge.expertiseDescription}
+          </p>
+          <ul class="space-y-3 text-neutral-300 text-sm font-mono">
+            {cambridge.expertiseBullets.map((bullet) => (
+              <li class="flex items-center gap-2">✓ {bullet}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-neutral-900/80 border border-neutral-800 p-8 sm:p-10 rounded-2xl shadow-xl">
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">{cambridge.cardTitle}</h3>
+          <p class="text-neutral-400 text-sm sm:text-base leading-relaxed mb-6 font-light">
+            {cambridge.cardBody}
+          </p>
+          <a href={cambridge.cardLinkHref} class="text-amber-500 font-mono text-sm hover:underline inline-flex items-center gap-1 font-medium">
+            {cambridge.cardLinkLabel}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cambridge FAQ Section -->
+    <section class="max-w-4xl mx-auto px-6 py-20 border-t border-neutral-900">
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-10 text-center">{cambridge.faqHeading}</h2>
+      
+      <div class="space-y-6">
+        {cambridge.faqs.map((faq) => (
+          <div class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-xl">
+            <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed font-light">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="border-t border-white/10 py-24 sm:py-32 bg-neutral-950">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+          {cambridge.bottomCtaHeading}
+        </h2>
+        <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
+          {cambridge.bottomCtaBody}
+        </p>
+        <a
+          href={cambridge.bottomCtaLink}
+          class="inline-block bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-colors shadow-lg shadow-amber-500/10 text-center"
+        >
+          {cambridge.bottomCtaLabel} &rarr;
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Cambridge FAQ Section -->
-  <section class="max-w-4xl mx-auto px-6 py-20 border-t border-neutral-900">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-10 text-center">{cambridge.faqHeading}</h2>
-    
-    <div class="space-y-6">
-      {cambridge.faqs.map((faq) => (
-        <div class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-xl">
-          <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
-          <p class="text-neutral-400 text-sm leading-relaxed">{faq.answer}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Bottom CTA -->
-  <section class="max-w-4xl mx-auto px-6 py-20 text-center border-t border-neutral-900">
-    <h2 class="text-3xl font-bold text-white mb-4">{cambridge.bottomCtaHeading}</h2>
-    <p class="text-neutral-400 mb-8 max-w-lg mx-auto">{cambridge.bottomCtaBody}</p>
-    <a href={cambridge.bottomCtaLink} class="w-full sm:w-auto bg-amber-500 text-neutral-950 font-bold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all inline-block shadow-lg shadow-amber-500/10">
-      {cambridge.bottomCtaLabel}
-    </a>
-  </section>
+  </div>
 </Layout>

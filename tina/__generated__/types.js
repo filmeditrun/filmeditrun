@@ -69,6 +69,10 @@ export const CambridgePagePartsFragmentDoc = gql`
   heroSubtitle
   heroCtaLabel
   heroCtaLink
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
   expertiseTag
   expertiseHeading
   expertiseDescription
@@ -87,6 +91,60 @@ export const CambridgePagePartsFragmentDoc = gql`
   bottomCtaBody
   bottomCtaLabel
   bottomCtaLink
+}
+    `;
+export const AboutPagePartsFragmentDoc = gql`
+    fragment AboutPageParts on AboutPage {
+  __typename
+  seoTitle
+  seoDescription
+  headline
+  manifestoLead
+  manifestoQuote
+  manifestoAuthor
+  heroVideoPath
+  slider {
+    __typename
+    heading
+    tag
+    description
+    slides {
+      __typename
+      name
+      formalRole
+      bio
+      avatar
+      videoLoop
+      badge
+    }
+  }
+  btsHeading
+  btsTag
+  btsDescription
+  btsItems {
+    __typename
+    title
+    category
+    image
+    caption
+    aspectRatio
+  }
+  timelineHeading
+  timelineTag
+  timelineDescription
+  milestones {
+    __typename
+    year
+    draftLabel
+    takeNumber
+    title
+    description
+    badge
+  }
+  ctaHeading
+  ctaText
+  ctaButtonLabel
+  ctaButtonLink
 }
     `;
 export const ProjectPartsFragmentDoc = gql`
@@ -372,6 +430,63 @@ export const CambridgePageConnectionDocument = gql`
   }
 }
     ${CambridgePagePartsFragmentDoc}`;
+export const AboutPageDocument = gql`
+    query aboutPage($relativePath: String!) {
+  aboutPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...AboutPageParts
+  }
+}
+    ${AboutPagePartsFragmentDoc}`;
+export const AboutPageConnectionDocument = gql`
+    query aboutPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AboutPageFilter) {
+  aboutPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...AboutPageParts
+      }
+    }
+  }
+}
+    ${AboutPagePartsFragmentDoc}`;
 export const ProjectDocument = gql`
     query project($relativePath: String!) {
   project(relativePath: $relativePath) {
@@ -568,6 +683,12 @@ export function getSdk(requester) {
     },
     cambridgePageConnection(variables, options) {
       return requester(CambridgePageConnectionDocument, variables, options);
+    },
+    aboutPage(variables, options) {
+      return requester(AboutPageDocument, variables, options);
+    },
+    aboutPageConnection(variables, options) {
+      return requester(AboutPageConnectionDocument, variables, options);
     },
     project(variables, options) {
       return requester(ProjectDocument, variables, options);

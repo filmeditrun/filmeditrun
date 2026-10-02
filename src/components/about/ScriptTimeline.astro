@@ -1,0 +1,112 @@
+---
+interface Milestone {
+  year: string;
+  draftLabel: string;
+  takeNumber?: string;
+  title: string;
+  description: string;
+  badge?: string;
+}
+
+interface Props {
+  timelineHeading: string;
+  timelineTag?: string;
+  timelineDescription?: string;
+  milestones: Milestone[];
+}
+
+const {
+  timelineHeading,
+  timelineTag = "THE TIMELINE // EDIT LOG",
+  timelineDescription,
+  milestones = [],
+} = Astro.props;
+---
+
+<section class="py-20 md:py-32 border-b border-neutral-900 bg-neutral-950">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-16 md:mb-24">
+      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">
+        {timelineTag}
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+        {timelineHeading}
+      </h2>
+      {timelineDescription && (
+        <p class="text-neutral-400 text-base sm:text-lg leading-relaxed font-light">
+          {timelineDescription}
+        </p>
+      )}
+    </div>
+
+    <!-- Script Revision Log / Film Strip Timeline Container -->
+    <div class="relative max-w-4xl mx-auto">
+      
+      <!-- Central/Left Timeline Track Spine -->
+      <div class="absolute left-4 sm:left-8 top-4 bottom-8 w-px bg-gradient-to-b from-amber-500 via-neutral-800 to-transparent"></div>
+
+      <!-- Timeline Items -->
+      <div class="space-y-12 sm:space-y-16">
+        {milestones.map((item) => (
+          <div class="relative pl-12 sm:pl-20 group">
+            
+            <!-- Timeline Node (Camera Shutter / Slate Clapper Dot) -->
+            <div class="absolute left-2 sm:left-6 top-1.5 -translate-x-1/2 w-5 h-5 rounded-full border-2 border-neutral-800 bg-neutral-950 group-hover:border-amber-400 group-hover:bg-amber-400/20 transition-all duration-300 flex items-center justify-center shadow-lg">
+              <span class="w-1.5 h-1.5 rounded-full bg-neutral-600 group-hover:bg-amber-400 transition-colors"></span>
+            </div>
+
+            <!-- Milestone Card Styled as a Script Revision Draft Page -->
+            <div class="p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/30 hover:border-amber-500/40 hover:bg-neutral-900/70 transition-all duration-300 shadow-xl">
+              
+              <!-- Top Metadata Row: Draft Revision Label & Year -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-neutral-800/80 text-xs font-mono">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold tracking-wider uppercase text-[10px]">
+                    {item.draftLabel}
+                  </span>
+                  {item.badge && (
+                    <span class="text-neutral-500 uppercase tracking-widest text-[10px] hidden sm:inline">
+                      [{item.badge}]
+                    </span>
+                  )}
+                </div>
+
+                <div class="flex items-center gap-3">
+                  {item.takeNumber && (
+                    <span class="text-neutral-500 text-[11px]">{item.takeNumber}</span>
+                  )}
+                  <span class="text-xl sm:text-2xl font-black text-white font-mono tracking-tight group-hover:text-amber-400 transition-colors">
+                    {item.year}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Main Title -->
+              <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 group-hover:text-amber-300 transition-colors">
+                {item.title}
+              </h3>
+
+              <!-- Narrative / Description -->
+              <p class="text-neutral-400 text-sm sm:text-base leading-relaxed font-light">
+                {item.description}
+              </p>
+
+              <!-- Film Perforation Bottom Decorator -->
+              <div class="pt-4 mt-4 border-t border-neutral-800/40 flex items-center justify-between text-[9px] font-mono text-neutral-600 select-none">
+                <span class="tracking-widest">35MM FILM STOCK // EASTMAN KODAK 5219</span>
+                <span class="flex gap-1.5 opacity-40 group-hover:opacity-100 transition-opacity">
+                  <span>▫</span><span>▫</span><span>▫</span><span>▫</span>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,359 @@
+---
+interface SlideItem {
+  name: string;
+  formalRole: string;
+  bio?: string;
+  avatar?: string;
+  videoLoop?: string;
+  badge?: string;
+}
+
+interface SliderData {
+  heading?: string;
+  tag?: string;
+  description?: string;
+  slides?: SlideItem[];
+}
+
+interface Props {
+  slider?: SliderData;
+  heading?: string;
+  tag?: string;
+  description?: string;
+  slides?: SlideItem[];
+  teamHeading?: string;
+  teamTag?: string;
+  teamDescription?: string;
+  teamMembers?: SlideItem[];
+}
+
+const {
+  slider,
+  heading = slider?.heading,
+  tag = slider?.tag,
+  description = slider?.description,
+  slides = slider?.slides,
+  teamHeading = heading || "The Production Crew",
+  teamTag = tag || "OUR TEAM",
+  teamDescription = description,
+  teamMembers = slides || [],
+} = Astro.props;
+
+const totalSlides = teamMembers.length;
+const hasMultipleSlides = totalSlides > 1;
+---
+
+<section class="py-20 md:py-32 border-b border-neutral-900 bg-neutral-950" id="team-section">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Standardized Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+      <div class="max-w-3xl">
+        {teamTag && (
+          <span class="text-xs uppercase tracking-[0.25em] text-amber-500 font-mono font-bold block mb-3">
+            {teamTag}
+          </span>
+        )}
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+          {teamHeading}
+        </h2>
+        {teamDescription && (
+          <p class="text-neutral-400 text-base sm:text-lg leading-relaxed font-light">
+            {teamDescription}
+          </p>
+        )}
+      </div>
+
+      <!-- Header Right: Slider Navigation Controls (Shown only when 2+ slides exist) -->
+      {hasMultipleSlides && (
+        <div class="flex items-center gap-3 self-start md:self-auto shrink-0 bg-neutral-900/80 border border-neutral-800 rounded-full px-4 py-2 backdrop-blur-md shadow-lg">
+          <span id="slider-counter" class="text-xs font-mono font-semibold tracking-widest text-neutral-400 select-none">
+            <span class="text-amber-500 font-bold" id="slider-current-num">01</span>
+            <span class="text-neutral-600 mx-1">/</span>
+            <span>{String(totalSlides).padStart(2, '0')}</span>
+          </span>
+          <div class="h-3.5 w-px bg-neutral-800"></div>
+          <div class="flex items-center gap-1.5">
+            <button
+              type="button"
+              id="crew-prev-btn"
+              aria-label="Previous slide"
+              class="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 hover:text-amber-400 text-neutral-200 flex items-center justify-center transition-all active:scale-90 focus:outline-none focus:ring-1 focus:ring-amber-500"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="crew-next-btn"
+              aria-label="Next slide"
+              class="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 hover:text-amber-400 text-neutral-200 flex items-center justify-center transition-all active:scale-90 focus:outline-none focus:ring-1 focus:ring-amber-500"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- Main Cinematic Video Showcase: Full Card with Minimalist Overlay -->
+    {hasMultipleSlides ? (
+      /* Multi-Slide Mode: Smooth Horizontal Scroll-Snap Track */
+      <div
+        id="crew-slider-track"
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-2xl sm:rounded-3xl pb-2 focus:outline-none"
+        tabindex="0"
+        role="region"
+        aria-label="Production Crew & BTS Slider"
+      >
+        {teamMembers.map((member, index) => (
+          <div
+            class="crew-slide w-full shrink-0 snap-center relative aspect-video sm:aspect-16/9 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 bg-black shadow-2xl group"
+            data-slide-index={index}
+          >
+            <!-- Full-Card Media (Video or Image) -->
+            {member.videoLoop ? (
+              <video
+                loop
+                muted
+                playsinline
+                autoplay
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+              >
+                <source src={member.videoLoop} type="video/mp4" />
+              </video>
+            ) : member.avatar ? (
+              <img
+                src={member.avatar}
+                alt={member.name}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                loading="lazy"
+              />
+            ) : (
+              <div class="absolute inset-0 flex items-center justify-center bg-neutral-950 text-neutral-700 font-mono text-2xl font-bold">
+                UNIT 0{index + 1}
+              </div>
+            )}
+
+            <!-- Top Left Tag Badge -->
+            <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[11px] font-mono tracking-wider uppercase text-amber-400 font-semibold shadow-lg">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                {member.badge || (member.videoLoop ? "LIVE PRODUCTION REEL" : "BTS ARCHIVE")}
+              </span>
+            </div>
+
+            <!-- Top Right Slide Counter (Multi-Slide only) -->
+            <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
+              <span class="px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-400 tracking-wider">
+                0{index + 1} // 0{totalSlides}
+              </span>
+            </div>
+
+            <!-- Gradient Shadow for Perfect Text Legibility -->
+            <div class="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-linear-to-t from-neutral-950 via-neutral-950/60 to-transparent pointer-events-none"></div>
+
+            <!-- Minimal Editorial Overlay: Subtitle + Heading -->
+            <div class="absolute inset-x-0 bottom-0 p-5 sm:p-8 md:p-10 flex items-end justify-between gap-6 z-10">
+              <div class="max-w-2xl">
+                {member.formalRole && (
+                  <p class="text-xs sm:text-sm font-mono uppercase tracking-widest text-amber-400 font-bold mb-1 sm:mb-2">
+                    {member.formalRole}
+                  </p>
+                )}
+                <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight drop-shadow-md">
+                  {member.name}
+                </h3>
+                {member.bio && (
+                  <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 sm:mt-2 line-clamp-2 max-w-xl opacity-90 drop-shadow">
+                    {member.bio}
+                  </p>
+                )}
+              </div>
+
+              <!-- Brand Stamp -->
+              <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                <span>FILMEDITRUN</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    ) : (
+      /* Single Slide Mode: Full-Card Cinema Video Showcase */
+      teamMembers.length > 0 && (
+        <div class="relative aspect-video sm:aspect-16/9 w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 bg-black shadow-2xl group">
+          {teamMembers[0].videoLoop ? (
+            <video
+              loop
+              muted
+              playsinline
+              autoplay
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+            >
+              <source src={teamMembers[0].videoLoop} type="video/mp4" />
+            </video>
+          ) : teamMembers[0].avatar ? (
+            <img
+              src={teamMembers[0].avatar}
+              alt={teamMembers[0].name}
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+              loading="lazy"
+            />
+          ) : (
+            <div class="absolute inset-0 flex items-center justify-center bg-neutral-950 text-neutral-700 font-mono text-2xl font-bold">
+              SHOWCASE
+            </div>
+          )}
+
+          <!-- Top Left Tag Badge -->
+          <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[11px] font-mono tracking-wider uppercase text-amber-400 font-semibold shadow-lg">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+              {teamMembers[0].badge || (teamMembers[0].videoLoop ? "LIVE PRODUCTION REEL" : "BTS ARCHIVE")}
+            </span>
+          </div>
+
+          <!-- Gradient Shadow for Perfect Text Legibility -->
+          <div class="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-linear-to-t from-neutral-950 via-neutral-950/60 to-transparent pointer-events-none"></div>
+
+          <!-- Minimal Editorial Overlay: Subtitle + Heading -->
+          <div class="absolute inset-x-0 bottom-0 p-5 sm:p-8 md:p-10 flex items-end justify-between gap-6 z-10">
+            <div class="max-w-2xl">
+              {teamMembers[0].formalRole && (
+                <p class="text-xs sm:text-sm font-mono uppercase tracking-widest text-amber-400 font-bold mb-1 sm:mb-2">
+                  {teamMembers[0].formalRole}
+                </p>
+              )}
+              <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight drop-shadow-md">
+                {teamMembers[0].name}
+              </h3>
+              {teamMembers[0].bio && (
+                <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 sm:mt-2 line-clamp-2 max-w-xl opacity-90 drop-shadow">
+                  {teamMembers[0].bio}
+                </p>
+              )}
+            </div>
+
+            <!-- Brand Stamp -->
+            <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              <span>FILMEDITRUN</span>
+            </div>
+          </div>
+        </div>
+      )
+    )}
+
+    <!-- Bottom Indicator Dots (Rendered only when 2+ slides exist) -->
+    {hasMultipleSlides && (
+      <div class="flex items-center justify-center gap-2 mt-6" id="crew-slider-dots">
+        {teamMembers.map((_, index) => (
+          <button
+            type="button"
+            class={`crew-slider-dot h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-amber-500 ${
+              index === 0 ? "w-6 bg-amber-500" : "w-1.5 bg-neutral-700 hover:bg-neutral-500"
+            }`}
+            data-target-index={index}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    )}
+
+  </div>
+</section>
+
+{hasMultipleSlides && (
+  <script>
+    function setupCrewSlider() {
+      const track = document.getElementById("crew-slider-track") as HTMLDivElement | null;
+      const prevBtn = document.getElementById("crew-prev-btn") as HTMLButtonElement | null;
+      const nextBtn = document.getElementById("crew-next-btn") as HTMLButtonElement | null;
+      const currentNum = document.getElementById("slider-current-num") as HTMLSpanElement | null;
+      const dots = document.querySelectorAll(".crew-slider-dot") as NodeListOf<HTMLButtonElement>;
+      const slides = document.querySelectorAll(".crew-slide") as NodeListOf<HTMLDivElement>;
+
+      if (!track || slides.length <= 1) return;
+
+      let activeIndex = 0;
+
+      function updateActiveUI(index: number) {
+        if (index === activeIndex) return;
+        activeIndex = index;
+
+        if (currentNum) {
+          currentNum.textContent = String(index + 1).padStart(2, "0");
+        }
+
+        dots.forEach((dot, idx) => {
+          if (idx === index) {
+            dot.className = "crew-slider-dot h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-amber-500 w-6 bg-amber-500";
+          } else {
+            dot.className = "crew-slider-dot h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-amber-500 w-1.5 bg-neutral-700 hover:bg-neutral-500";
+          }
+        });
+      }
+
+      function scrollToSlide(index: number) {
+        if (!track || !slides[index]) return;
+        const targetSlide = slides[index];
+        const targetLeft = targetSlide.offsetLeft - track.offsetLeft;
+        track.scrollTo({ left: targetLeft, behavior: "smooth" });
+        updateActiveUI(index);
+      }
+
+      nextBtn?.addEventListener("click", () => {
+        const nextIndex = (activeIndex + 1) % slides.length;
+        scrollToSlide(nextIndex);
+      });
+
+      prevBtn?.addEventListener("click", () => {
+        const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
+        scrollToSlide(prevIndex);
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener("click", () => {
+          scrollToSlide(idx);
+        });
+      });
+
+      // Track scroll listener to update dots/counter on manual swipe or scroll
+      let scrollTimeout: NodeJS.Timeout | number;
+      track.addEventListener("scroll", () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          if (!track) return;
+          const scrollLeft = track.scrollLeft;
+          const slideWidth = track.clientWidth;
+          const calculatedIndex = Math.min(
+            slides.length - 1,
+            Math.max(0, Math.round(scrollLeft / slideWidth))
+          );
+          updateActiveUI(calculatedIndex);
+        }, 60);
+      }, { passive: true });
+
+      // Keyboard navigation when slider track has focus
+      track.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          const nextIndex = (activeIndex + 1) % slides.length;
+          scrollToSlide(nextIndex);
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
+          scrollToSlide(prevIndex);
+        }
+      });
+    }
+
+    setupCrewSlider();
+    document.addEventListener("astro:page-load", setupCrewSlider);
+  </script>
+)}

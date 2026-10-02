@@ -12,10 +12,10 @@ interface ServiceCard {
   description: string;
   tag: string;
   link: string;
-  displayAs: "local-video" | "link-video" | "image";
+  displayAs?: "local-video" | "link-video" | "image" | "none";
   localVideoPath?: string;
   cloudVideoUrl?: string;
-  imagePath: string;
+  imagePath?: string;
 }
 
 const serviceFiles = import.meta.glob<ServiceCard>("../content/services/*.json", {
@@ -38,55 +38,67 @@ const services = Object.values(serviceFiles)
     <p class="text-neutral-400 max-w-xl text-lg leading-relaxed mx-auto md:mx-0">{servicesPage.description}</p>
   </header>
 
-  <!-- Uniform Clean Grid Section -->
+  <!-- 2-Column Clean Grid Section -->
   <section class="max-w-7xl mx-auto px-6 pb-28">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
       
       {services.map((service) => (
         <a 
           href={service.link} 
-          class="group relative rounded-2xl border border-neutral-800 bg-neutral-900 p-6 sm:p-8 flex flex-col justify-between min-h-[340px] sm:h-[380px] overflow-hidden transition-all duration-300 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1"
+          class="group flex flex-col rounded-2xl border border-neutral-800 bg-neutral-900 overflow-hidden transition-all duration-300 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5"
         >
-          <!-- Automated Media Background Layer -->
-          <div class="absolute inset-0 w-full h-full z-0 bg-black">
-            <!-- Protective Text Contrast Overlay Layer -->
-            <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-t from-neutral-950/95 via-neutral-950/70 to-neutral-950/40"></div>
-            
-            {/* OPTION 1 & 2: DEFERRED VIDEO LOOP SETUP (LOCAL OR CLOUD) */}
-            {(service.displayAs === "local-video" || service.displayAs === "link-video") && (
-              <video
-                loop
-                muted
-                playsinline
-                preload="none"
-                poster={service.imagePath}
-                data-video-src={service.displayAs === "local-video" ? service.localVideoPath : service.cloudVideoUrl}
-                class="service-preview-video w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
-              >
-              </video>
-            )}
+          <!-- Top Media Showcase Container -->
+          {service.displayAs && (service.displayAs as string) !== "none" && (service.imagePath || service.localVideoPath || service.cloudVideoUrl) && (
+            <div class="relative w-full aspect-16/10 overflow-hidden bg-black select-none border-b border-neutral-800/80">
+              
+              {/* OPTION 1 & 2: DEFERRED VIDEO LOOP SETUP (LOCAL OR CLOUD) */}
+              {(service.displayAs === "local-video" || service.displayAs === "link-video") && (
+                <video
+                  loop
+                  muted
+                  playsinline
+                  preload="none"
+                  poster={service.imagePath}
+                  data-video-src={service.displayAs === "local-video" ? service.localVideoPath : service.cloudVideoUrl}
+                  class="service-preview-video w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                >
+                </video>
+              )}
 
-            {/* OPTION 3: PLAIN IMAGE SETUP */}
-            {service.displayAs === "image" && (
-              <img src={service.imagePath} alt={service.title} loading="lazy" class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" />
-            )}
-          </div>
+              {/* OPTION 3: PLAIN IMAGE SETUP */}
+              {service.displayAs === "image" && service.imagePath && (
+                <img
+                  src={service.imagePath}
+                  alt={service.title}
+                  loading="lazy"
+                  class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                />
+              )}
 
-          <!-- Top Tag Layer -->
-          <div class="relative z-20 flex justify-between items-start">
-            <span class="text-[11px] font-mono text-amber-500 uppercase tracking-widest bg-neutral-950/60 backdrop-blur px-3 py-1 rounded-full border border-neutral-800">
-              {service.id} &bull; {service.tag}
-            </span>
-            <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">&nearr;</span>
-          </div>
+              <!-- Corner Roseram Arrow -->
+              <div class="absolute top-4 right-4 pointer-events-none z-10">
+                <span class="text-neutral-300 group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-sm leading-none bg-neutral-950/75 backdrop-blur-md w-8 h-8 rounded-full border border-white/10 flex items-center justify-center shadow-lg">
+                  &nearr;
+                </span>
+              </div>
+            </div>
+          )}
 
-          <!-- Content Presentation Layer -->
-          <div class="relative z-20 pointer-events-none w-full mt-12 sm:mt-0">
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors">{service.title}</h3>
-            <p class="text-neutral-400 text-sm leading-relaxed line-clamp-3 sm:line-clamp-2">{service.description}</p>
-            <div class="pt-4 flex items-center gap-1.5 text-xs font-mono text-amber-500 font-medium group-hover:translate-x-1 transition-transform">
-              <span>Explore Pipeline</span>
-              <span>&rarr;</span>
+          <!-- Bottom Text Container -->
+          <div class="flex-1 flex flex-col justify-between p-6 sm:p-8">
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors duration-300 leading-snug">
+                {service.title}
+              </h3>
+              <p class="text-neutral-400 text-sm sm:text-base leading-relaxed line-clamp-3 font-light mb-6">
+                {service.description}
+              </p>
+            </div>
+
+            <!-- Bottom Action Row -->
+            <div class="pt-4 flex items-center justify-between border-t border-neutral-800/80 text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors duration-300">
+              <span class="font-medium">Explore Pipeline</span>
+              <span class="transform group-hover:translate-x-1.5 transition-transform duration-300 text-sm" aria-hidden="true">&rarr;</span>
             </div>
           </div>
         </a>
@@ -99,13 +111,14 @@ const services = Object.values(serviceFiles)
 <script>
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!prefersReducedMotion) {
-    const videos = document.querySelectorAll<HTMLVideoElement>('video.service-preview-video');
+    const videos = document.querySelectorAll('video.service-preview-video');
 
-    const loadVideo = (video: HTMLVideoElement) => {
-      const src = video.dataset.videoSrc;
-      if (src && !video.src) {
-        video.src = src;
-        video.load();
+    const loadVideo = (video: Element) => {
+      const vid = video as HTMLVideoElement;
+      const src = vid.dataset.videoSrc;
+      if (src && !vid.src) {
+        vid.src = src;
+        vid.load();
       }
     };
 

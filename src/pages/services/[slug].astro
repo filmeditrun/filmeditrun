@@ -7,10 +7,10 @@ export interface ServiceData {
   title: string;
   tag: string;
   link: string;
-  displayAs: "local-video" | "link-video" | "image";
+  displayAs?: "local-video" | "link-video" | "image" | "none";
   localVideoPath?: string;
   cloudVideoUrl?: string;
-  imagePath: string;
+  imagePath?: string;
   description: string;
   seoTitle: string;
   seoDescription: string;
@@ -60,7 +60,7 @@ const otherServices = allServices.filter((s) => s.slug !== service.slug);
 // Canonical and OpenGraph URL
 const siteUrl = "https://filmeditrun.com";
 const canonicalUrl = `${siteUrl}${service.link}`;
-const ogImage = service.imagePath.startsWith("http") ? service.imagePath : `${siteUrl}${service.imagePath}`;
+const ogImage = service.imagePath?.startsWith("http") ? service.imagePath : `${siteUrl}${service.imagePath || "/og-image.jpg"}`;
 
 // Structured JSON-LD Service Schema
 const jsonLd = {
@@ -112,13 +112,8 @@ const jsonLd = {
     <!-- ============================================================== -->
     <header class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
       
-      <!-- Video / Photo Media Backdrop Layer (Vibrant, work-page style) -->
+      <!-- Video / Photo Media Backdrop Layer (Clear, vibrant background) -->
       <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
-        <!-- Cinematic Soft Edge Gradients matching work.astro -->
-        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent z-10"></div>
-        <div class="absolute inset-x-0 top-0 h-36 sm:h-48 bg-gradient-to-b from-neutral-950/80 to-transparent z-10"></div>
-        <div class="absolute inset-y-0 left-0 w-full sm:w-3/5 bg-gradient-to-r from-neutral-950/85 via-neutral-950/40 to-transparent z-10 hidden sm:block"></div>
-
         {/* Video Background (High visibility, matching work page opacity) */}
         {(service.displayAs === "local-video" || service.displayAs === "link-video") && (
           <video
@@ -136,7 +131,7 @@ const jsonLd = {
         )}
 
         {/* Static Image Background */}
-        {service.displayAs === "image" && (
+        {service.displayAs === "image" && service.imagePath && (
           <img
             src={service.imagePath}
             alt={service.title}
@@ -207,14 +202,14 @@ const jsonLd = {
         <!-- Right: Production Still / Reference Image -->
         {service.imagePath && (
           <div class="lg:col-span-6">
-            <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <div class="relative w-full aspect-16/10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <img
                 src={service.imagePath}
                 alt={service.title}
                 loading="lazy"
                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/40 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute inset-0 bg-linear-to-t from-neutral-950/40 via-transparent to-transparent pointer-events-none"></div>
             </div>
           </div>
         )}

@@ -1,0 +1,27 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "html.validate.scripts": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "FilmEditRun",
+    "filmeditrun",
+    "Teradek",
+    "DaVinci",
+    "ProRes",
+    "ACES",
+    "lavalier",
+    "Pro-Mist",
+    "Zeiss",
+    "Sennheiser",
+    "keyframe",
+    "keyframes",
+    "bento",
+    "tinacms",
+    "vimeo",
+    "vimeocdn",
+    "fullbleed",
+    "subpage",
+    "subpages",
+    "formtorch"
+  ]
+}

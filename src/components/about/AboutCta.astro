@@ -1,0 +1,61 @@
+---
+interface Props {
+  ctaHeading: string;
+  ctaText: string;
+  ctaButtonLabel: string;
+  ctaButtonLink: string;
+}
+
+const {
+  ctaHeading,
+  ctaText,
+  ctaButtonLabel,
+  ctaButtonLink,
+} = Astro.props;
+---
+
+<section class="relative py-24 md:py-36 overflow-hidden bg-neutral-950">
+  <!-- Glowing ambient light backdrops -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+    
+    <!-- Top Slate Tag -->
+    <div class="inline-flex items-center gap-2 mb-6">
+      <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+        READY FOR THE NEXT TAKE?
+      </span>
+    </div>
+
+    <!-- Editorial Headline -->
+    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight text-balance">
+      {ctaHeading}
+    </h2>
+
+    <!-- Body Text -->
+    <p class="text-base sm:text-xl text-neutral-400 font-light leading-relaxed max-w-2xl mx-auto mb-10 text-pretty">
+      {ctaText}
+    </p>
+
+    <!-- High-Contrast CTA Button -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href={ctaButtonLink}
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-amber-500 text-neutral-950 font-mono font-bold text-sm uppercase tracking-wider hover:bg-amber-400 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-amber-500/10"
+      >
+        <span>{ctaButtonLabel}</span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+
+      <a
+        href="/work"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-neutral-800 bg-neutral-900/60 text-neutral-300 font-mono text-sm tracking-wider hover:text-white hover:border-neutral-700 hover:bg-neutral-900 transition-all"
+      >
+        <span>Explore Work Archive</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+

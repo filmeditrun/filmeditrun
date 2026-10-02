@@ -25,72 +25,103 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services Overview", href: "/services" },
   { label: "Work Archive", href: "/work" },
+  { label: "About Studio", href: "/about" },
   { label: "Contact", href: "/contact" }
 ];
 ---
 
 <footer class="bg-neutral-950 border-t border-neutral-900 text-neutral-400 py-16 px-6">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-12">
+  <div class="max-w-7xl mx-auto">
     
-    <!-- Brand Column -->
-    <div class="sm:col-span-2">
-      <a href="/" class="block mb-4 group">
-        {siteConfig.useImageLogo ? (
-          <img src={siteConfig.logoImagePath} alt={siteConfig.siteName} class="h-6 w-auto object-contain" />
-        ) : (
-          <span class="text-xl font-bold tracking-wider text-white font-mono group-hover:text-amber-400 transition-colors">
-            {siteConfig.logoText}
-          </span>
-        )}
-      </a>
-      <p class="text-sm text-neutral-400 max-w-sm leading-relaxed mb-6 font-light">
-        Professional single and multi-camera event filming, corporate video production, and high-end editing workflows.
-      </p>
-      <p class="text-xs font-mono text-neutral-600">
+    <!-- Top Row: Brand, Navigation, Locations -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pb-12">
+      
+      <!-- Brand Column (spans 6 of 12) -->
+      <div class="md:col-span-6 space-y-4">
+        <a href="/" class="block group">
+          {siteConfig.useImageLogo ? (
+            <img src={siteConfig.logoImagePath} alt={siteConfig.siteName} class="h-6 w-auto object-contain" />
+          ) : (
+            <span class="text-xl font-bold tracking-wider text-white font-mono group-hover:text-amber-400 transition-colors">
+              {siteConfig.logoText}
+            </span>
+          )}
+        </a>
+        <p class="text-sm text-neutral-400 max-w-md leading-relaxed font-light">
+          Professional single and multi-camera event filming, corporate video production, and high-end editing workflows.
+        </p>
+      </div>
+
+      <!-- Navigation Column (spans 3 of 12) -->
+      <div class="md:col-span-3">
+        <h4 class="text-white font-mono text-xs uppercase tracking-widest mb-4">Navigation</h4>
+        <ul class="space-y-2.5 text-sm font-light">
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-amber-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Locations & Studio Presence (spans 3 of 12) -->
+      <div class="md:col-span-3">
+        <h4 class="text-white font-mono text-xs uppercase tracking-widest mb-4">Locations</h4>
+        <ul class="space-y-2.5 text-sm font-light">
+          <li>
+            <a href="/cambridge" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+              <span>Cambridge</span>
+              <span class="text-xs text-amber-500 font-mono">📍</span>
+            </a>
+          </li>
+          <li>
+            <span class="text-neutral-500 flex items-center gap-1.5">
+              <span>London &amp; UK-Wide</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Horizontal Services Strip (Cinematic Agency Style - Alt 4) -->
+    <div class="border-t border-neutral-900 pt-8 pb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-4 text-xs font-mono">
+        <span class="uppercase tracking-widest text-amber-500 font-semibold shrink-0">
+          Services &amp; Capabilities &mdash;
+        </span>
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2.5 text-neutral-400">
+          {services.map((service, index) => (
+            <div class="flex items-center gap-5">
+              <a
+                href={service.href}
+                class="hover:text-amber-400 transition-colors whitespace-nowrap"
+              >
+                {service.title}
+              </a>
+              {index < services.length - 1 && (
+                <span class="text-neutral-700 select-none hidden sm:inline">&bull;</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Back to Top Row -->
+    <div class="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-600">
+      <p>
         &copy; {new Date().getFullYear()} {siteConfig.siteName}. All rights reserved.
       </p>
-    </div>
-
-    <!-- Navigation Column -->
-    <div>
-      <h4 class="text-white font-mono text-xs uppercase tracking-widest mb-4">Navigation</h4>
-      <ul class="space-y-3 text-sm">
-        {navLinks.map((link) => (
-          <li>
-            <a href={link.href} class="hover:text-amber-500 transition-colors">
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <!-- Services Column (SEO Internal Links) -->
-    <div>
-      <h4 class="text-white font-mono text-xs uppercase tracking-widest mb-4">Services</h4>
-      <ul class="space-y-3 text-sm">
-        {services.map((service) => (
-          <li>
-            <a href={service.href} class="hover:text-amber-500 transition-colors">
-              {service.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <!-- Location Column (SEO Internal Links) -->
-    <div>
-      <h4 class="text-white font-mono text-xs uppercase tracking-widest mb-4">Location</h4>
-      <ul class="space-y-3 text-sm">
-        <li>
-          <a href="/cambridge" class="hover:text-amber-500 transition-colors flex items-center gap-1.5">
-            Cambridge <span class="text-xs text-amber-500 font-mono">📍</span>
-          </a>
-        </li>
-      </ul>
+      <div class="flex items-center gap-6">
+        <a href="#top" class="hover:text-neutral-400 transition-colors flex items-center gap-1">
+          <span>Back to top</span>
+          <span>&uarr;</span>
+        </a>
+      </div>
     </div>
 
   </div>
 </footer>
-

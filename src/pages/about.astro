@@ -1,0 +1,83 @@
+---
+// =====================================================================
+// ABOUT / STUDIO MANIFESTO PAGE — THE DIRECTOR'S CUT
+// Content source: src/content/pages/about.json (Managed via TinaCMS)
+// =====================================================================
+import Layout from '../layouts/Layout.astro';
+import aboutPage from '../content/pages/about.json';
+
+import AboutHero from '../components/about/AboutHero.astro';
+import TeamSlider from '../components/about/TeamSlider.astro';
+import ScriptTimeline from '../components/about/ScriptTimeline.astro';
+import BtsGallery from '../components/about/BtsGallery.astro';
+import AboutCta from '../components/about/AboutCta.astro';
+---
+
+<Layout
+  title={aboutPage.seoTitle}
+  description={aboutPage.seoDescription}
+>
+  <!-- Schema.org JSON-LD Structured Data for About / Organization -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": aboutPage.seoTitle,
+    "description": aboutPage.seoDescription,
+    "mainEntity": {
+      "@type": "VideoProductionCompany",
+      "name": "FilmEditRun",
+      "url": "https://filmeditrun.co.uk",
+      "slogan": "Picture, Sound, and Story",
+      "description": aboutPage.manifestoLead,
+      "knowsAbout": [
+        "Multi-Camera Live Filming",
+        "Conference Video Production",
+        "Commercial Post-Production",
+        "Color Grading & Sound Design"
+      ]
+    }
+  })} />
+
+  <!-- 1. The Hero / Manifesto Section -->
+  <AboutHero
+    headline={aboutPage.headline}
+    manifestoLead={aboutPage.manifestoLead}
+    manifestoQuote={aboutPage.manifestoQuote}
+    manifestoAuthor={aboutPage.manifestoAuthor}
+    heroVideoPath={aboutPage.heroVideoPath}
+  />
+
+
+  <!-- 3. Production Crew & Showcase Slider -->
+  <TeamSlider
+    slider={aboutPage.slider}
+    heading={aboutPage.slider?.heading || aboutPage.teamHeading}
+    tag={aboutPage.slider?.tag || aboutPage.teamTag}
+    description={aboutPage.slider?.description || aboutPage.teamDescription}
+    slides={aboutPage.slider?.slides || aboutPage.teamMembers}
+  />
+
+  <!-- 4. Behind The Scenes (BTS) Production Gallery & Lightbox -->
+  <BtsGallery
+    btsHeading={aboutPage.btsHeading}
+    btsTag={aboutPage.btsTag}
+    btsDescription={aboutPage.btsDescription}
+    btsItems={aboutPage.btsItems}
+  />
+
+  <!-- 5. The Interactive Script Revision / Milestones Timeline -->
+  <ScriptTimeline
+    timelineHeading={aboutPage.timelineHeading}
+    timelineTag={aboutPage.timelineTag}
+    timelineDescription={aboutPage.timelineDescription}
+    milestones={aboutPage.milestones}
+  />
+
+  <!-- 6. Bottom Closer Call-To-Action -->
+  <AboutCta
+    ctaHeading={aboutPage.ctaHeading}
+    ctaText={aboutPage.ctaText}
+    ctaButtonLabel={aboutPage.ctaButtonLabel}
+    ctaButtonLink={aboutPage.ctaButtonLink}
+  />
+</Layout>

@@ -412,6 +412,33 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "displayAs",
+            label: "Hero Background Media Type",
+            options: [
+              { label: "Local Video Loop (from /public)", value: "local-video" },
+              { label: "External Cloud Video URL", value: "link-video" },
+              { label: "Static Image Only", value: "image" },
+            ],
+          },
+          {
+            type: "string",
+            name: "localVideoPath",
+            label: "Local Video Path",
+            description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "string",
+            name: "cloudVideoUrl",
+            label: "Cloud Video URL",
+            description: "e.g. https://your-link.mp4",
+          },
+          {
+            type: "image",
+            name: "imagePath",
+            label: "Hero Background Image / Fallback Poster",
+          },
+          {
+            type: "string",
             name: "expertiseTag",
             label: "Expertise Section Tag",
             required: true,
@@ -528,6 +555,229 @@ export default defineConfig({
         ],
       },
       {
+        name: "aboutPage",
+        label: "About Page",
+        path: "src/content/pages",
+        format: "json",
+        match: {
+          include: "about",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "SEO Page Title",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "SEO Meta Description",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "headline",
+            label: "Studio Headline / Manifesto Hook",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "manifestoLead",
+            label: "Manifesto Lead Paragraph",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "manifestoQuote",
+            label: "Featured Manifesto Quote",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "manifestoAuthor",
+            label: "Manifesto Quote Attribution",
+          },
+          {
+            type: "string",
+            name: "heroVideoPath",
+            label: "Hero Background Video Path (Optional)",
+            description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "object",
+            name: "slider",
+            label: "Slider",
+            description: "Showcase & BTS Video / Photo Slider",
+            fields: [
+              {
+                type: "string",
+                name: "heading",
+                label: "Slider Heading",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "tag",
+                label: "Slider Eyebrow Tag",
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Slider Intro Description",
+                ui: {
+                  component: "textarea",
+                },
+              },
+              {
+                type: "object",
+                name: "slides",
+                label: "Slides",
+                description: "Add 1 or more showcase slides (video or image). With 1 slide, it displays as a featured showcase; with 2+ slides, it becomes an interactive slider.",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: `${item?.name || "Slide"} — ${item?.formalRole || ""}`,
+                  }),
+                },
+                fields: [
+                  { type: "string", name: "name", label: "Title / Unit Name", required: true },
+                  { type: "string", name: "formalRole", label: "Subtitle / Specialty Tag", required: true },
+                  { type: "string", name: "bio", label: "Short Note / Scope (Optional)", ui: { component: "textarea" } },
+                  { type: "image", name: "avatar", label: "Still Image" },
+                  { type: "string", name: "videoLoop", label: "Video Loop URL/Path (Optional, e.g. /showreel.mp4)" },
+                  { type: "string", name: "badge", label: "Custom Badge (Optional, e.g. LIVE REEL)" },
+                ],
+              },
+            ],
+          },
+          {
+            type: "string",
+            name: "btsHeading",
+            label: "Behind the Scenes Heading",
+          },
+          {
+            type: "string",
+            name: "btsTag",
+            label: "Behind the Scenes Tag",
+          },
+          {
+            type: "string",
+            name: "btsDescription",
+            label: "Behind the Scenes Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "object",
+            name: "btsItems",
+            label: "Behind the Scenes Gallery Items",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: `${item?.category || "BTS"} — ${item?.title || "Item"}`,
+              }),
+            },
+            fields: [
+              { type: "string", name: "title", label: "Title", required: true },
+              { type: "string", name: "category", label: "Category (e.g. CAMERA OPS, SOUND DECK)", required: true },
+              { type: "image", name: "image", label: "Image Still" },
+              { type: "string", name: "caption", label: "Caption / Story", ui: { component: "textarea" } },
+              {
+                type: "string",
+                name: "aspectRatio",
+                label: "Aspect Ratio",
+                options: [
+                  { label: "16:9 Cinema Wide", value: "16/9" },
+                  { label: "4:3 Academy Ratio", value: "4/3" },
+                  { label: "1:1 Square", value: "1/1" },
+                ],
+              },
+            ],
+          },
+          {
+            type: "string",
+            name: "timelineHeading",
+            label: "Timeline Heading",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "timelineTag",
+            label: "Timeline Tag",
+          },
+          {
+            type: "string",
+            name: "timelineDescription",
+            label: "Timeline Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "object",
+            name: "milestones",
+            label: "Milestones / Script Revision Log",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: `${item?.year || ""} — ${item?.title || "Milestone"}`,
+              }),
+            },
+            fields: [
+              { type: "string", name: "year", label: "Year", required: true },
+              { type: "string", name: "draftLabel", label: "Draft / Script Revision Label (e.g. DRAFT 01)", required: true },
+              { type: "string", name: "takeNumber", label: "Take Number (e.g. TAKE 01)" },
+              { type: "string", name: "title", label: "Milestone Title", required: true },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" }, required: true },
+              { type: "string", name: "badge", label: "Badge Label (Optional)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "ctaHeading",
+            label: "Bottom CTA Heading",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "ctaText",
+            label: "Bottom CTA Body Text",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "ctaButtonLabel",
+            label: "Bottom CTA Button Text",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "ctaButtonLink",
+            label: "Bottom CTA Button Link",
+            required: true,
+          },
+        ],
+      },
+      {
         name: "project",
         label: "Portfolio Projects",
         path: "src/content/projects",
@@ -634,9 +884,8 @@ export default defineConfig({
           {
             type: "string",
             name: "tag",
-            label: "Badge Tag",
-            description: "e.g. Multi-Cam Capable, Scaleable Broadcast",
-            required: true,
+            label: "SEO / Service Type (Optional)",
+            description: "Used in Schema.org metadata and subpage scope header (e.g. Multi-Camera Filming)",
           },
           {
             type: "string",
@@ -722,6 +971,7 @@ export default defineConfig({
               { label: "Local Video Loop (from /public)", value: "local-video" },
               { label: "External Cloud Video URL", value: "link-video" },
               { label: "Static Image Only", value: "image" },
+              { label: "No Background Media (Solid Dark)", value: "none" },
             ],
             required: true,
           },
@@ -741,7 +991,6 @@ export default defineConfig({
             type: "image",
             name: "imagePath",
             label: "Poster / Fallback Image",
-            required: true,
           },
           {
             type: "object",

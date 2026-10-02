@@ -58,6 +58,10 @@ fragment CambridgePageParts on CambridgePage {
   heroSubtitle
   heroCtaLabel
   heroCtaLink
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
   expertiseTag
   expertiseHeading
   expertiseDescription
@@ -76,6 +80,59 @@ fragment CambridgePageParts on CambridgePage {
   bottomCtaBody
   bottomCtaLabel
   bottomCtaLink
+}
+
+fragment AboutPageParts on AboutPage {
+  __typename
+  seoTitle
+  seoDescription
+  headline
+  manifestoLead
+  manifestoQuote
+  manifestoAuthor
+  heroVideoPath
+  slider {
+    __typename
+    heading
+    tag
+    description
+    slides {
+      __typename
+      name
+      formalRole
+      bio
+      avatar
+      videoLoop
+      badge
+    }
+  }
+  btsHeading
+  btsTag
+  btsDescription
+  btsItems {
+    __typename
+    title
+    category
+    image
+    caption
+    aspectRatio
+  }
+  timelineHeading
+  timelineTag
+  timelineDescription
+  milestones {
+    __typename
+    year
+    draftLabel
+    takeNumber
+    title
+    description
+    badge
+  }
+  ctaHeading
+  ctaText
+  ctaButtonLabel
+  ctaButtonLink
 }
 
 fragment ProjectParts on Project {

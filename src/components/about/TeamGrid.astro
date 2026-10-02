@@ -1,0 +1,23 @@
+---
+import TeamSlider from './TeamSlider.astro';
+
+interface TeamMember {
+  name: string;
+  formalRole: string;
+  bio: string;
+  avatar?: string;
+  videoLoop?: string;
+  badge?: string;
+}
+
+interface Props {
+  teamHeading?: string;
+  teamTag?: string;
+  teamDescription?: string;
+  teamMembers?: TeamMember[];
+}
+
+const props = Astro.props;
+---
+
+<TeamSlider {...props} />

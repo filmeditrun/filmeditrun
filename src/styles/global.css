@@ -9,16 +9,16 @@
   --color-line: rgb(255 255 255 / 0.08);
   --color-accent: #e8c547;
   --animate-theater-in: theater-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-  @keyframes theater-fade-in {
-    from {
-      transform: scale(0.96);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
+@keyframes theater-fade-in {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -41,4 +41,13 @@ body::before {
 ::selection {
   background: var(--color-accent);
   color: var(--color-ink);
+}
+
+/* Hide scrollbar for clean slider tracks */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
