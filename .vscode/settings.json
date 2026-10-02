@@ -1,5 +1,6 @@
 {
   "css.lint.unknownAtRules": "ignore",
+  "tailwindCSS.lint.suggestCanonicalClasses": "ignore",
   "html.validate.scripts": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
@@ -25,3 +26,4 @@
     "formtorch"
   ]
 }
+

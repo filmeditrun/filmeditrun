@@ -43,6 +43,8 @@ const cloudVideoUrl = cambridge.cloudVideoUrl || "https://your-link.mp4";
 const imagePath = cambridge.imagePath || "/og-image.jpg";
 const siteUrl = "https://filmeditrun.co.uk";
 const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
+const expertiseBullets = cambridge.expertiseBullets ?? [];
+const faqs = cambridge.faqs ?? [];
 ---
 
 <Layout title={cambridge.seoTitle} description={cambridge.seoDescription} fullBleed={true}>
@@ -168,11 +170,13 @@ const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePat
           <p class="text-neutral-400 leading-relaxed mb-6 font-light">
             {cambridge.expertiseDescription}
           </p>
-          <ul class="space-y-3 text-neutral-300 text-sm font-mono">
-            {cambridge.expertiseBullets.map((bullet) => (
-              <li class="flex items-center gap-2">✓ {bullet}</li>
-            ))}
-          </ul>
+          {expertiseBullets.length > 0 && (
+            <ul class="space-y-3 text-neutral-300 text-sm font-mono">
+              {expertiseBullets.map((bullet) => (
+                <li class="flex items-center gap-2">✓ {bullet}</li>
+              ))}
+            </ul>
+          )}
         </div>
         <div class="bg-neutral-900/80 border border-neutral-800 p-8 sm:p-10 rounded-2xl shadow-xl">
           <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">{cambridge.cardTitle}</h3>
@@ -187,18 +191,20 @@ const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePat
     </section>
 
     <!-- Cambridge FAQ Section -->
-    <section class="max-w-4xl mx-auto px-6 py-20 border-t border-neutral-900">
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-10 text-center">{cambridge.faqHeading}</h2>
-      
-      <div class="space-y-6">
-        {cambridge.faqs.map((faq) => (
-          <div class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-xl">
-            <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
-            <p class="text-neutral-400 text-sm leading-relaxed font-light">{faq.answer}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    {faqs.length > 0 && (
+      <section class="max-w-4xl mx-auto px-6 py-20 border-t border-neutral-900">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-10 text-center">{cambridge.faqHeading}</h2>
+        
+        <div class="space-y-6">
+          {faqs.map((faq) => (
+            <div class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-xl">
+              <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+              <p class="text-neutral-400 text-sm leading-relaxed font-light">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- Bottom CTA -->
     <section class="border-t border-white/10 py-24 sm:py-32 bg-neutral-950">
