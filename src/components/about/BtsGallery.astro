@@ -65,28 +65,25 @@ const {
             
             <!-- Category Tag Pill (Top Left) -->
             <div class="absolute top-4 left-4 z-10">
-              <span class="px-3 py-1 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[11px] font-mono tracking-wider uppercase text-neutral-300 group-hover:text-amber-400 group-hover:border-amber-500/40 transition-colors">
+              <span class="hud-pill px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase text-neutral-300 group-hover:text-amber-500 transition-colors font-medium">
                 {item.category}
               </span>
             </div>
 
             <!-- Inspect Icon (Top Right on Hover) -->
             <div class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span class="w-8 h-8 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white text-xs shadow-lg">
+              <span class="hud-pill w-8 h-8 rounded-full flex items-center justify-center text-white text-xs shadow-lg">
                 &nearr;
               </span>
             </div>
-
-            <!-- Bottom Ambient Fade -->
-            <div class="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-neutral-950/80 to-transparent pointer-events-none"></div>
           </div>
 
-          <!-- Clean Minimal Title Bar (Unnecessary Text Removed) -->
+          <!-- Clean Minimal Title Bar -->
           <div class="p-5 sm:p-6 border-t border-neutral-800/80 bg-neutral-950/80 flex items-center justify-between gap-4">
-            <h3 class="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+            <h3 class="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-amber-500 transition-colors">
               {item.title}
             </h3>
-            <span class="text-xs font-mono text-neutral-500 tracking-wider shrink-0">
+            <span class="text-xs font-mono text-neutral-500 tracking-wider shrink-0 font-medium">
               0{index + 1}
             </span>
           </div>

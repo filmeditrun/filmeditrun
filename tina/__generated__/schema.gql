@@ -67,12 +67,18 @@ type Query {
   cambridgePageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CambridgePageFilter): CambridgePageConnection!
   aboutPage(relativePath: String): AboutPage!
   aboutPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutPageFilter): AboutPageConnection!
+  aboutSlider(relativePath: String): AboutSlider!
+  aboutSliderConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutSliderFilter): AboutSliderConnection!
   project(relativePath: String): Project!
   projectConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ProjectFilter): ProjectConnection!
   service(relativePath: String): Service!
   serviceConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServiceFilter): ServiceConnection!
   siteSettings(relativePath: String): SiteSettings!
   siteSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SiteSettingsFilter): SiteSettingsConnection!
+  gradeSettings(relativePath: String): GradeSettings!
+  gradeSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: GradeSettingsFilter): GradeSettingsConnection!
+  footerSettings(relativePath: String): FooterSettings!
+  footerSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: FooterSettingsFilter): FooterSettingsConnection!
 }
 
 input DocumentFilter {
@@ -81,9 +87,12 @@ input DocumentFilter {
   servicesPage: ServicesPageFilter
   cambridgePage: CambridgePageFilter
   aboutPage: AboutPageFilter
+  aboutSlider: AboutSliderFilter
   project: ProjectFilter
   service: ServiceFilter
   siteSettings: SiteSettingsFilter
+  gradeSettings: GradeSettingsFilter
+  footerSettings: FooterSettingsFilter
 }
 
 type DocumentConnectionEdges {
@@ -109,7 +118,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | Project | Service | SiteSettings | Folder
+union DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | AboutSlider | Project | Service | SiteSettings | GradeSettings | FooterSettings | Folder
 
 type Homepage implements Node & Document {
   seoTitle: String!
@@ -343,22 +352,6 @@ type CambridgePageConnection implements Connection {
   edges: [CambridgePageConnectionEdges]
 }
 
-type AboutPageSliderSlides {
-  name: String!
-  formalRole: String!
-  bio: String
-  avatar: String
-  videoLoop: String
-  badge: String
-}
-
-type AboutPageSlider {
-  heading: String!
-  tag: String
-  description: String
-  slides: [AboutPageSliderSlides]
-}
-
 type AboutPageBtsItems {
   title: String!
   category: String!
@@ -384,7 +377,7 @@ type AboutPage implements Node & Document {
   manifestoQuote: String
   manifestoAuthor: String
   heroVideoPath: String
-  slider: AboutPageSlider
+  heroFrostedGlass: String
   btsHeading: String
   btsTag: String
   btsDescription: String
@@ -400,22 +393,6 @@ type AboutPage implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input AboutPageSliderSlidesFilter {
-  name: StringFilter
-  formalRole: StringFilter
-  bio: StringFilter
-  avatar: ImageFilter
-  videoLoop: StringFilter
-  badge: StringFilter
-}
-
-input AboutPageSliderFilter {
-  heading: StringFilter
-  tag: StringFilter
-  description: StringFilter
-  slides: AboutPageSliderSlidesFilter
 }
 
 input AboutPageBtsItemsFilter {
@@ -443,7 +420,7 @@ input AboutPageFilter {
   manifestoQuote: StringFilter
   manifestoAuthor: StringFilter
   heroVideoPath: StringFilter
-  slider: AboutPageSliderFilter
+  heroFrostedGlass: StringFilter
   btsHeading: StringFilter
   btsTag: StringFilter
   btsDescription: StringFilter
@@ -467,6 +444,50 @@ type AboutPageConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [AboutPageConnectionEdges]
+}
+
+type AboutSliderSlides {
+  name: String!
+  bio: String
+  avatar: String
+  videoLoop: String
+  badge: String
+}
+
+type AboutSlider implements Node & Document {
+  heading: String!
+  tag: String
+  description: String
+  slides: [AboutSliderSlides]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input AboutSliderSlidesFilter {
+  name: StringFilter
+  bio: StringFilter
+  avatar: ImageFilter
+  videoLoop: StringFilter
+  badge: StringFilter
+}
+
+input AboutSliderFilter {
+  heading: StringFilter
+  tag: StringFilter
+  description: StringFilter
+  slides: AboutSliderSlidesFilter
+}
+
+type AboutSliderConnectionEdges {
+  cursor: String!
+  node: AboutSlider
+}
+
+type AboutSliderConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [AboutSliderConnectionEdges]
 }
 
 type Project implements Node & Document {
@@ -616,6 +637,126 @@ type SiteSettingsConnection implements Connection {
   edges: [SiteSettingsConnectionEdges]
 }
 
+type GradeSettings implements Node & Document {
+  defaultTheme: String
+  enableThemeSwitcher: Boolean
+  themeSwitcherTitle: String
+  darkNoirAccentColor: String
+  highKeyAccentColor: String
+  highKeyBgColor: String
+  supernovaAccentColor: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input GradeSettingsFilter {
+  defaultTheme: StringFilter
+  enableThemeSwitcher: BooleanFilter
+  themeSwitcherTitle: StringFilter
+  darkNoirAccentColor: StringFilter
+  highKeyAccentColor: StringFilter
+  highKeyBgColor: StringFilter
+  supernovaAccentColor: StringFilter
+}
+
+type GradeSettingsConnectionEdges {
+  cursor: String!
+  node: GradeSettings
+}
+
+type GradeSettingsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [GradeSettingsConnectionEdges]
+}
+
+type FooterSettingsStudioLinks {
+  label: String!
+  href: String!
+}
+
+type FooterSettings implements Node & Document {
+  studioTagline: String
+  commissionButtonLabel: String
+  commissionButtonLink: String
+  capabilitiesHeading: String
+  servicesLinkLabel: String
+  servicesLinkUrl: String
+  studioHeading: String
+  studioLinks: [FooterSettingsStudioLinks]
+  presenceHeading: String
+  cambridgeTitle: String
+  cambridgeSubtitle: String
+  cambridgeLink: String
+  londonTitle: String
+  londonSubtitle: String
+  worldwideTitle: String
+  worldwideSubtitle: String
+  directHeading: String
+  inquiriesLabel: String
+  inquiriesActionText: String
+  inquiriesActionLink: String
+  productionHubLabel: String
+  productionHub: String
+  capturePipelineLabel: String
+  capturePipeline: String
+  studioStatusLabel: String
+  studioStatus: String
+  copyrightTagline: String
+  backToTopLabel: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input FooterSettingsStudioLinksFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input FooterSettingsFilter {
+  studioTagline: StringFilter
+  commissionButtonLabel: StringFilter
+  commissionButtonLink: StringFilter
+  capabilitiesHeading: StringFilter
+  servicesLinkLabel: StringFilter
+  servicesLinkUrl: StringFilter
+  studioHeading: StringFilter
+  studioLinks: FooterSettingsStudioLinksFilter
+  presenceHeading: StringFilter
+  cambridgeTitle: StringFilter
+  cambridgeSubtitle: StringFilter
+  cambridgeLink: StringFilter
+  londonTitle: StringFilter
+  londonSubtitle: StringFilter
+  worldwideTitle: StringFilter
+  worldwideSubtitle: StringFilter
+  directHeading: StringFilter
+  inquiriesLabel: StringFilter
+  inquiriesActionText: StringFilter
+  inquiriesActionLink: StringFilter
+  productionHubLabel: StringFilter
+  productionHub: StringFilter
+  capturePipelineLabel: StringFilter
+  capturePipeline: StringFilter
+  studioStatusLabel: StringFilter
+  studioStatus: StringFilter
+  copyrightTagline: StringFilter
+  backToTopLabel: StringFilter
+}
+
+type FooterSettingsConnectionEdges {
+  cursor: String!
+  node: FooterSettings
+}
+
+type FooterSettingsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [FooterSettingsConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -632,12 +773,18 @@ type Mutation {
   createCambridgePage(relativePath: String!, params: CambridgePageMutation!): CambridgePage!
   updateAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
   createAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
+  updateAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
+  createAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
   updateProject(relativePath: String!, params: ProjectMutation!): Project!
   createProject(relativePath: String!, params: ProjectMutation!): Project!
   updateService(relativePath: String!, params: ServiceMutation!): Service!
   createService(relativePath: String!, params: ServiceMutation!): Service!
   updateSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
   createSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
+  updateGradeSettings(relativePath: String!, params: GradeSettingsMutation!): GradeSettings!
+  createGradeSettings(relativePath: String!, params: GradeSettingsMutation!): GradeSettings!
+  updateFooterSettings(relativePath: String!, params: FooterSettingsMutation!): FooterSettings!
+  createFooterSettings(relativePath: String!, params: FooterSettingsMutation!): FooterSettings!
 }
 
 input DocumentUpdateMutation {
@@ -646,9 +793,12 @@ input DocumentUpdateMutation {
   servicesPage: ServicesPageMutation
   cambridgePage: CambridgePageMutation
   aboutPage: AboutPageMutation
+  aboutSlider: AboutSliderMutation
   project: ProjectMutation
   service: ServiceMutation
   siteSettings: SiteSettingsMutation
+  gradeSettings: GradeSettingsMutation
+  footerSettings: FooterSettingsMutation
   relativePath: String
 }
 
@@ -658,9 +808,12 @@ input DocumentMutation {
   servicesPage: ServicesPageMutation
   cambridgePage: CambridgePageMutation
   aboutPage: AboutPageMutation
+  aboutSlider: AboutSliderMutation
   project: ProjectMutation
   service: ServiceMutation
   siteSettings: SiteSettingsMutation
+  gradeSettings: GradeSettingsMutation
+  footerSettings: FooterSettingsMutation
 }
 
 input HomepageMutation {
@@ -744,22 +897,6 @@ input CambridgePageMutation {
   bottomCtaLink: String
 }
 
-input AboutPageSliderSlidesMutation {
-  name: String
-  formalRole: String
-  bio: String
-  avatar: String
-  videoLoop: String
-  badge: String
-}
-
-input AboutPageSliderMutation {
-  heading: String
-  tag: String
-  description: String
-  slides: [AboutPageSliderSlidesMutation]
-}
-
 input AboutPageBtsItemsMutation {
   title: String
   category: String
@@ -785,7 +922,7 @@ input AboutPageMutation {
   manifestoQuote: String
   manifestoAuthor: String
   heroVideoPath: String
-  slider: AboutPageSliderMutation
+  heroFrostedGlass: String
   btsHeading: String
   btsTag: String
   btsDescription: String
@@ -798,6 +935,21 @@ input AboutPageMutation {
   ctaText: String
   ctaButtonLabel: String
   ctaButtonLink: String
+}
+
+input AboutSliderSlidesMutation {
+  name: String
+  bio: String
+  avatar: String
+  videoLoop: String
+  badge: String
+}
+
+input AboutSliderMutation {
+  heading: String
+  tag: String
+  description: String
+  slides: [AboutSliderSlidesMutation]
 }
 
 input ProjectMutation {
@@ -848,6 +1000,52 @@ input SiteSettingsMutation {
   logoText: String
   useImageLogo: Boolean
   logoImagePath: String
+}
+
+input GradeSettingsMutation {
+  defaultTheme: String
+  enableThemeSwitcher: Boolean
+  themeSwitcherTitle: String
+  darkNoirAccentColor: String
+  highKeyAccentColor: String
+  highKeyBgColor: String
+  supernovaAccentColor: String
+}
+
+input FooterSettingsStudioLinksMutation {
+  label: String
+  href: String
+}
+
+input FooterSettingsMutation {
+  studioTagline: String
+  commissionButtonLabel: String
+  commissionButtonLink: String
+  capabilitiesHeading: String
+  servicesLinkLabel: String
+  servicesLinkUrl: String
+  studioHeading: String
+  studioLinks: [FooterSettingsStudioLinksMutation]
+  presenceHeading: String
+  cambridgeTitle: String
+  cambridgeSubtitle: String
+  cambridgeLink: String
+  londonTitle: String
+  londonSubtitle: String
+  worldwideTitle: String
+  worldwideSubtitle: String
+  directHeading: String
+  inquiriesLabel: String
+  inquiriesActionText: String
+  inquiriesActionLink: String
+  productionHubLabel: String
+  productionHub: String
+  capturePipelineLabel: String
+  capturePipeline: String
+  studioStatusLabel: String
+  studioStatus: String
+  copyrightTagline: String
+  backToTopLabel: String
 }
 
 schema {

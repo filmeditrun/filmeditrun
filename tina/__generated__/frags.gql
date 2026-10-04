@@ -91,21 +91,7 @@ fragment AboutPageParts on AboutPage {
   manifestoQuote
   manifestoAuthor
   heroVideoPath
-  slider {
-    __typename
-    heading
-    tag
-    description
-    slides {
-      __typename
-      name
-      formalRole
-      bio
-      avatar
-      videoLoop
-      badge
-    }
-  }
+  heroFrostedGlass
   btsHeading
   btsTag
   btsDescription
@@ -133,6 +119,21 @@ fragment AboutPageParts on AboutPage {
   ctaText
   ctaButtonLabel
   ctaButtonLink
+}
+
+fragment AboutSliderParts on AboutSlider {
+  __typename
+  heading
+  tag
+  description
+  slides {
+    __typename
+    name
+    bio
+    avatar
+    videoLoop
+    badge
+  }
 }
 
 fragment ProjectParts on Project {
@@ -185,4 +186,51 @@ fragment SiteSettingsParts on SiteSettings {
   logoText
   useImageLogo
   logoImagePath
+}
+
+fragment GradeSettingsParts on GradeSettings {
+  __typename
+  defaultTheme
+  enableThemeSwitcher
+  themeSwitcherTitle
+  darkNoirAccentColor
+  highKeyAccentColor
+  highKeyBgColor
+  supernovaAccentColor
+}
+
+fragment FooterSettingsParts on FooterSettings {
+  __typename
+  studioTagline
+  commissionButtonLabel
+  commissionButtonLink
+  capabilitiesHeading
+  servicesLinkLabel
+  servicesLinkUrl
+  studioHeading
+  studioLinks {
+    __typename
+    label
+    href
+  }
+  presenceHeading
+  cambridgeTitle
+  cambridgeSubtitle
+  cambridgeLink
+  londonTitle
+  londonSubtitle
+  worldwideTitle
+  worldwideSubtitle
+  directHeading
+  inquiriesLabel
+  inquiriesActionText
+  inquiriesActionLink
+  productionHubLabel
+  productionHub
+  capturePipelineLabel
+  capturePipeline
+  studioStatusLabel
+  studioStatus
+  copyrightTagline
+  backToTopLabel
 }

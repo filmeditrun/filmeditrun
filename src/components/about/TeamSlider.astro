@@ -1,7 +1,7 @@
 ---
 interface SlideItem {
   name: string;
-  formalRole: string;
+  formalRole?: string;
   bio?: string;
   avatar?: string;
   videoLoop?: string;
@@ -140,7 +140,7 @@ const hasMultipleSlides = totalSlides > 1;
 
             <!-- Top Left Tag Badge -->
             <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[11px] font-mono tracking-wider uppercase text-amber-400 font-semibold shadow-lg">
+              <span class="hud-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono tracking-wider uppercase text-amber-500 font-semibold shadow-lg">
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
                 {member.badge || (member.videoLoop ? "LIVE PRODUCTION REEL" : "BTS ARCHIVE")}
               </span>
@@ -148,34 +148,26 @@ const hasMultipleSlides = totalSlides > 1;
 
             <!-- Top Right Slide Counter (Multi-Slide only) -->
             <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
-              <span class="px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-400 tracking-wider">
+              <span class="hud-pill px-2.5 py-1 rounded-md text-[11px] font-mono text-neutral-400 tracking-wider">
                 0{index + 1} // 0{totalSlides}
               </span>
             </div>
 
-            <!-- Gradient Shadow for Perfect Text Legibility -->
-            <div class="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-linear-to-t from-neutral-950 via-neutral-950/60 to-transparent pointer-events-none"></div>
-
-            <!-- Minimal Editorial Overlay: Subtitle + Heading -->
-            <div class="absolute inset-x-0 bottom-0 p-5 sm:p-8 md:p-10 flex items-end justify-between gap-6 z-10">
+            <!-- Full-Width Frosted HUD Dock (Fits full width of card) -->
+            <div class="absolute inset-x-0 bottom-0 w-full p-5 sm:p-6 md:p-8 hud-plaque hud-dock flex flex-col sm:flex-row sm:items-end justify-between gap-4 z-10 pointer-events-none">
               <div class="max-w-2xl">
-                {member.formalRole && (
-                  <p class="text-xs sm:text-sm font-mono uppercase tracking-widest text-amber-400 font-bold mb-1 sm:mb-2">
-                    {member.formalRole}
-                  </p>
-                )}
-                <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight drop-shadow-md">
+                <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
                   {member.name}
                 </h3>
                 {member.bio && (
-                  <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 sm:mt-2 line-clamp-2 max-w-xl opacity-90 drop-shadow">
+                  <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 sm:mt-2 line-clamp-2 max-w-xl opacity-90">
                     {member.bio}
                   </p>
                 )}
               </div>
 
               <!-- Brand Stamp -->
-              <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0">
+              <div class="hud-pill hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0">
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
                 <span>FILMEDITRUN</span>
               </div>
@@ -183,71 +175,60 @@ const hasMultipleSlides = totalSlides > 1;
           </div>
         ))}
       </div>
-    ) : (
-      /* Single Slide Mode: Full-Card Cinema Video Showcase */
-      teamMembers.length > 0 && (
-        <div class="relative aspect-video sm:aspect-16/9 w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 bg-black shadow-2xl group">
-          {teamMembers[0].videoLoop ? (
-            <video
-              loop
-              muted
-              playsinline
-              autoplay
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
-            >
-              <source src={teamMembers[0].videoLoop} type="video/mp4" />
-            </video>
-          ) : teamMembers[0].avatar ? (
-            <img
-              src={teamMembers[0].avatar}
-              alt={teamMembers[0].name}
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
-              loading="lazy"
-            />
-          ) : (
-            <div class="absolute inset-0 flex items-center justify-center bg-neutral-950 text-neutral-700 font-mono text-2xl font-bold">
-              SHOWCASE
-            </div>
-          )}
+    ) : teamMembers.length > 0 ? (
+      <div class="relative aspect-video sm:aspect-16/9 w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 bg-black shadow-2xl group">
+        {teamMembers[0].videoLoop ? (
+          <video
+            loop
+            muted
+            playsinline
+            autoplay
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+          >
+            <source src={teamMembers[0].videoLoop} type="video/mp4" />
+          </video>
+        ) : teamMembers[0].avatar ? (
+          <img
+            src={teamMembers[0].avatar}
+            alt={teamMembers[0].name}
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+            loading="lazy"
+          />
+        ) : (
+          <div class="absolute inset-0 flex items-center justify-center bg-neutral-950 text-neutral-700 font-mono text-2xl font-bold">
+            SHOWCASE
+          </div>
+        )}
 
-          <!-- Top Left Tag Badge -->
-          <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[11px] font-mono tracking-wider uppercase text-amber-400 font-semibold shadow-lg">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-              {teamMembers[0].badge || (teamMembers[0].videoLoop ? "LIVE PRODUCTION REEL" : "BTS ARCHIVE")}
-            </span>
+        <!-- Top Left Tag Badge -->
+        <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
+          <span class="hud-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono tracking-wider uppercase text-amber-500 font-semibold shadow-lg">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            {teamMembers[0].badge || (teamMembers[0].videoLoop ? "LIVE PRODUCTION REEL" : "BTS ARCHIVE")}
+          </span>
+        </div>
+
+        <!-- Full-Width Frosted HUD Dock (Fits full width of card) -->
+        <div class="absolute inset-x-0 bottom-0 w-full p-5 sm:p-6 md:p-8 hud-plaque hud-dock flex flex-col sm:flex-row sm:items-end justify-between gap-4 z-10 pointer-events-none">
+          <div class="max-w-2xl">
+            <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+              {teamMembers[0].name}
+            </h3>
+            {teamMembers[0].bio && (
+              <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 sm:mt-2 line-clamp-2 max-w-xl opacity-90">
+                {teamMembers[0].bio}
+              </p>
+            )}
           </div>
 
-          <!-- Gradient Shadow for Perfect Text Legibility -->
-          <div class="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-linear-to-t from-neutral-950 via-neutral-950/60 to-transparent pointer-events-none"></div>
-
-          <!-- Minimal Editorial Overlay: Subtitle + Heading -->
-          <div class="absolute inset-x-0 bottom-0 p-5 sm:p-8 md:p-10 flex items-end justify-between gap-6 z-10">
-            <div class="max-w-2xl">
-              {teamMembers[0].formalRole && (
-                <p class="text-xs sm:text-sm font-mono uppercase tracking-widest text-amber-400 font-bold mb-1 sm:mb-2">
-                  {teamMembers[0].formalRole}
-                </p>
-              )}
-              <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight drop-shadow-md">
-                {teamMembers[0].name}
-              </h3>
-              {teamMembers[0].bio && (
-                <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 sm:mt-2 line-clamp-2 max-w-xl opacity-90 drop-shadow">
-                  {teamMembers[0].bio}
-                </p>
-              )}
-            </div>
-
-            <!-- Brand Stamp -->
-            <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-              <span>FILMEDITRUN</span>
-            </div>
+          <!-- Brand Stamp -->
+          <div class="hud-pill hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span>FILMEDITRUN</span>
           </div>
         </div>
-      )
-    )}
+      </div>
+    ) : null}
 
     <!-- Bottom Indicator Dots (Rendered only when 2+ slides exist) -->
     {hasMultipleSlides && (
@@ -268,92 +249,90 @@ const hasMultipleSlides = totalSlides > 1;
   </div>
 </section>
 
-{hasMultipleSlides && (
-  <script>
-    function setupCrewSlider() {
-      const track = document.getElementById("crew-slider-track") as HTMLDivElement | null;
-      const prevBtn = document.getElementById("crew-prev-btn") as HTMLButtonElement | null;
-      const nextBtn = document.getElementById("crew-next-btn") as HTMLButtonElement | null;
-      const currentNum = document.getElementById("slider-current-num") as HTMLSpanElement | null;
-      const dots = document.querySelectorAll(".crew-slider-dot") as NodeListOf<HTMLButtonElement>;
-      const slides = document.querySelectorAll(".crew-slide") as NodeListOf<HTMLDivElement>;
+<script>
+  function setupCrewSlider() {
+    const track = document.getElementById("crew-slider-track") as HTMLDivElement | null;
+    const prevBtn = document.getElementById("crew-prev-btn") as HTMLButtonElement | null;
+    const nextBtn = document.getElementById("crew-next-btn") as HTMLButtonElement | null;
+    const currentNum = document.getElementById("slider-current-num") as HTMLSpanElement | null;
+    const dots = document.querySelectorAll(".crew-slider-dot") as NodeListOf<HTMLButtonElement>;
+    const slides = document.querySelectorAll(".crew-slide") as NodeListOf<HTMLDivElement>;
 
-      if (!track || slides.length <= 1) return;
+    if (!track || slides.length <= 1) return;
 
-      let activeIndex = 0;
+    let activeIndex = 0;
 
-      function updateActiveUI(index: number) {
-        if (index === activeIndex) return;
-        activeIndex = index;
+    function updateActiveUI(index: number) {
+      if (index === activeIndex) return;
+      activeIndex = index;
 
-        if (currentNum) {
-          currentNum.textContent = String(index + 1).padStart(2, "0");
-        }
-
-        dots.forEach((dot, idx) => {
-          if (idx === index) {
-            dot.className = "crew-slider-dot h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-amber-500 w-6 bg-amber-500";
-          } else {
-            dot.className = "crew-slider-dot h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-amber-500 w-1.5 bg-neutral-700 hover:bg-neutral-500";
-          }
-        });
+      if (currentNum) {
+        currentNum.textContent = String(index + 1).padStart(2, "0");
       }
-
-      function scrollToSlide(index: number) {
-        if (!track || !slides[index]) return;
-        const targetSlide = slides[index];
-        const targetLeft = targetSlide.offsetLeft - track.offsetLeft;
-        track.scrollTo({ left: targetLeft, behavior: "smooth" });
-        updateActiveUI(index);
-      }
-
-      nextBtn?.addEventListener("click", () => {
-        const nextIndex = (activeIndex + 1) % slides.length;
-        scrollToSlide(nextIndex);
-      });
-
-      prevBtn?.addEventListener("click", () => {
-        const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
-        scrollToSlide(prevIndex);
-      });
 
       dots.forEach((dot, idx) => {
-        dot.addEventListener("click", () => {
-          scrollToSlide(idx);
-        });
-      });
-
-      // Track scroll listener to update dots/counter on manual swipe or scroll
-      let scrollTimeout: NodeJS.Timeout | number;
-      track.addEventListener("scroll", () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          if (!track) return;
-          const scrollLeft = track.scrollLeft;
-          const slideWidth = track.clientWidth;
-          const calculatedIndex = Math.min(
-            slides.length - 1,
-            Math.max(0, Math.round(scrollLeft / slideWidth))
-          );
-          updateActiveUI(calculatedIndex);
-        }, 60);
-      }, { passive: true });
-
-      // Keyboard navigation when slider track has focus
-      track.addEventListener("keydown", (e: KeyboardEvent) => {
-        if (e.key === "ArrowRight") {
-          e.preventDefault();
-          const nextIndex = (activeIndex + 1) % slides.length;
-          scrollToSlide(nextIndex);
-        } else if (e.key === "ArrowLeft") {
-          e.preventDefault();
-          const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
-          scrollToSlide(prevIndex);
+        if (idx === index) {
+          dot.className = "crew-slider-dot h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-amber-500 w-6 bg-amber-500";
+        } else {
+          dot.className = "crew-slider-dot h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-amber-500 w-1.5 bg-neutral-700 hover:bg-neutral-500";
         }
       });
     }
 
-    setupCrewSlider();
-    document.addEventListener("astro:page-load", setupCrewSlider);
-  </script>
-)}
+    function scrollToSlide(index: number) {
+      if (!track || !slides[index]) return;
+      const targetSlide = slides[index];
+      const targetLeft = targetSlide.offsetLeft - track.offsetLeft;
+      track.scrollTo({ left: targetLeft, behavior: "smooth" });
+      updateActiveUI(index);
+    }
+
+    nextBtn?.addEventListener("click", () => {
+      const nextIndex = (activeIndex + 1) % slides.length;
+      scrollToSlide(nextIndex);
+    });
+
+    prevBtn?.addEventListener("click", () => {
+      const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
+      scrollToSlide(prevIndex);
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener("click", () => {
+        scrollToSlide(idx);
+      });
+    });
+
+    // Track scroll listener to update dots/counter on manual swipe or scroll
+    let scrollTimeout: NodeJS.Timeout | number;
+    track.addEventListener("scroll", () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (!track) return;
+        const scrollLeft = track.scrollLeft;
+        const slideWidth = track.clientWidth;
+        const calculatedIndex = Math.min(
+          slides.length - 1,
+          Math.max(0, Math.round(scrollLeft / slideWidth))
+        );
+        updateActiveUI(calculatedIndex);
+      }, 60);
+    }, { passive: true });
+
+    // Keyboard navigation when slider track has focus
+    track.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        const nextIndex = (activeIndex + 1) % slides.length;
+        scrollToSlide(nextIndex);
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
+        scrollToSlide(prevIndex);
+      }
+    });
+  }
+
+  setupCrewSlider();
+  document.addEventListener("astro:page-load", setupCrewSlider);
+</script>

@@ -5,12 +5,30 @@
 // =====================================================================
 import Layout from '../layouts/Layout.astro';
 import aboutPage from '../content/pages/about.json';
+import aboutSlider from '../content/pages/slider.json';
 
 import AboutHero from '../components/about/AboutHero.astro';
 import TeamSlider from '../components/about/TeamSlider.astro';
 import ScriptTimeline from '../components/about/ScriptTimeline.astro';
 import BtsGallery from '../components/about/BtsGallery.astro';
 import AboutCta from '../components/about/AboutCta.astro';
+
+interface SlideItem {
+  name: string;
+  bio?: string;
+  avatar?: string;
+  videoLoop?: string;
+  badge?: string;
+}
+
+interface SliderConfig {
+  heading?: string;
+  tag?: string;
+  description?: string;
+  slides?: SlideItem[];
+}
+
+const sliderData = aboutSlider as SliderConfig;
 ---
 
 <Layout
@@ -45,16 +63,17 @@ import AboutCta from '../components/about/AboutCta.astro';
     manifestoQuote={aboutPage.manifestoQuote}
     manifestoAuthor={aboutPage.manifestoAuthor}
     heroVideoPath={aboutPage.heroVideoPath}
+    heroFrostedGlass={(aboutPage as any).heroFrostedGlass}
   />
 
 
   <!-- 3. Production Crew & Showcase Slider -->
   <TeamSlider
-    slider={aboutPage.slider}
-    heading={aboutPage.slider?.heading || aboutPage.teamHeading}
-    tag={aboutPage.slider?.tag || aboutPage.teamTag}
-    description={aboutPage.slider?.description || aboutPage.teamDescription}
-    slides={aboutPage.slider?.slides || aboutPage.teamMembers}
+    slider={sliderData}
+    heading={sliderData.heading}
+    tag={sliderData.tag}
+    description={sliderData.description}
+    slides={sliderData.slides}
   />
 
   <!-- 4. Behind The Scenes (BTS) Production Gallery & Lightbox -->

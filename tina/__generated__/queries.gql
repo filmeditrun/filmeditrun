@@ -273,6 +273,61 @@ query aboutPageConnection($before: String, $after: String, $first: Float, $last:
   }
 }
 
+query aboutSlider($relativePath: String!) {
+  aboutSlider(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...AboutSliderParts
+  }
+}
+
+query aboutSliderConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AboutSliderFilter) {
+  aboutSliderConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...AboutSliderParts
+      }
+    }
+  }
+}
+
 query project($relativePath: String!) {
   project(relativePath: $relativePath) {
     ... on Document {
@@ -433,6 +488,116 @@ query siteSettingsConnection($before: String, $after: String, $first: Float, $la
           id
         }
         ...SiteSettingsParts
+      }
+    }
+  }
+}
+
+query gradeSettings($relativePath: String!) {
+  gradeSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...GradeSettingsParts
+  }
+}
+
+query gradeSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: GradeSettingsFilter) {
+  gradeSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...GradeSettingsParts
+      }
+    }
+  }
+}
+
+query footerSettings($relativePath: String!) {
+  footerSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...FooterSettingsParts
+  }
+}
+
+query footerSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: FooterSettingsFilter) {
+  footerSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...FooterSettingsParts
       }
     }
   }

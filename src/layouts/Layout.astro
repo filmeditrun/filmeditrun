@@ -1,6 +1,8 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ThemeDock from "../components/ThemeDock.astro";
+import { siteConfig } from "../data/siteConfig";
 import "../styles/global.css";
 
 interface Props {
@@ -14,10 +16,18 @@ const {
   description = "Corporate and creative video production. Picture, sound, and story.",
   fullBleed = false,
 } = Astro.props;
+
+const defaultTheme = siteConfig.defaultTheme || "dark-noir";
+const enableThemeSwitcher = siteConfig.enableThemeSwitcher !== false;
+
+const darkNoirAccent = siteConfig.darkNoirAccentColor || "#e8c547";
+const highKeyAccent = siteConfig.highKeyAccentColor || "#e11d48";
+const highKeyBg = siteConfig.highKeyBgColor || "#ffffff";
+const supernovaAccent = siteConfig.supernovaAccentColor || "#f43f5e";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme={defaultTheme} class={defaultTheme === "high-key" ? "light" : "dark"}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,6 +43,51 @@ const {
     />
     <title>{title}</title>
 
+    <!-- DYNAMIC CMS THEME COLOR TOKENS INJECTION -->
+    <style define:vars={{ darkNoirAccent, highKeyAccent, highKeyBg, supernovaAccent }}>
+      :root,
+      html[data-theme="dark-noir"],
+      html:has(#theme-choice-dark-noir:checked) {
+        --color-accent: var(--darkNoirAccent);
+        --color-amber-500: var(--darkNoirAccent);
+      }
+      html[data-theme="high-key"],
+      html:has(#theme-choice-high-key:checked) {
+        --color-ink: var(--highKeyBg);
+        --color-ink-soft: var(--highKeyBg);
+        --color-neutral-950: var(--highKeyBg);
+        --color-neutral-900: var(--highKeyBg);
+        --color-accent: var(--highKeyAccent);
+        --color-amber-500: var(--highKeyAccent);
+        --color-amber-400: var(--highKeyAccent);
+      }
+      html[data-theme="supernova"],
+      html:has(#theme-choice-supernova:checked) {
+        --color-accent: var(--supernovaAccent);
+        --color-amber-500: var(--supernovaAccent);
+      }
+    </style>
+
+    <!-- CRITICAL ZERO-FOUC CINEMATIC THEME ENGINE LOADER -->
+    <script is:inline define:vars={{ defaultTheme }}>
+      (function () {
+        try {
+          var stored = localStorage.getItem("antigravity_theme");
+          var activeTheme = stored || defaultTheme || "dark-noir";
+          document.documentElement.setAttribute("data-theme", activeTheme);
+          if (activeTheme === "high-key") {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          } else {
+            document.documentElement.classList.remove("light");
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", defaultTheme || "dark-noir");
+        }
+      })();
+    </script>
+
     <!-- CRITICAL ADDITION: This accepts custom page schemas like the Cambridge JSON-LD -->
     <slot name="head" />
   </head>
@@ -42,5 +97,14 @@ const {
       <slot />
     </main>
     <Footer />
+    {enableThemeSwitcher && (
+      <ThemeDock
+        defaultTheme={defaultTheme}
+        title={siteConfig.themeSwitcherTitle}
+        highKeyAccent={highKeyAccent}
+        darkNoirAccent={darkNoirAccent}
+        supernovaAccent={supernovaAccent}
+      />
+    )}
   </body>
 </html>

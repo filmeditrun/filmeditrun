@@ -1,0 +1,9 @@
+{
+  "defaultTheme": "dark-noir",
+  "enableThemeSwitcher": true,
+  "themeSwitcherTitle": "GRADE",
+  "darkNoirAccentColor": "#e8c547",
+  "highKeyAccentColor": "#E11D48",
+  "highKeyBgColor": "#ffffff",
+  "supernovaAccentColor": "#f43f5e"
+}

@@ -1,0 +1,322 @@
+---
+interface Props {
+  defaultTheme?: string;
+  title?: string;
+  highKeyAccent?: string;
+  darkNoirAccent?: string;
+  supernovaAccent?: string;
+}
+
+const {
+  defaultTheme = "dark-noir",
+  title = "GRADE",
+  highKeyAccent = "#e11d48",
+  darkNoirAccent = "#e8c547",
+  supernovaAccent = "#f43f5e",
+} = Astro.props;
+
+const themes = [
+  {
+    id: "dark-noir",
+    title: "Dark Noir",
+    accentColor: darkNoirAccent,
+    baseColor: "#0a0a0c",
+  },
+  {
+    id: "high-key",
+    title: "High-Key Light",
+    accentColor: highKeyAccent,
+    baseColor: "#ffffff",
+  },
+  {
+    id: "supernova",
+    title: "Supernova",
+    accentColor: supernovaAccent,
+    baseColor: "#080411",
+  },
+];
+---
+
+<!-- =========================================================================
+     COMPACT DIRECTOR'S GRADE SWITCHER (MINIMALIST CINEMATIC FLYOUT)
+     100% Native Checkbox/Radio + CSS :has() & Peer Modifiers for 0-JS Reliability
+     ========================================================================= -->
+
+<!-- 1. DECK TOGGLE CHECKBOX (Drives drawer slide-in via Tailwind peer/deck) -->
+<input
+  type="checkbox"
+  id="theme-deck-toggle"
+  class="peer/deck sr-only"
+  aria-hidden="true"
+/>
+
+<!-- 2. NATIVE RADIO INPUTS FOR THEMES (Drives site & card state via CSS :has) -->
+<input
+  type="radio"
+  name="site_theme_choice"
+  id="theme-choice-dark-noir"
+  value="dark-noir"
+  class="sr-only"
+  checked={defaultTheme === "dark-noir"}
+/>
+<input
+  type="radio"
+  name="site_theme_choice"
+  id="theme-choice-high-key"
+  value="high-key"
+  class="sr-only"
+  checked={defaultTheme === "high-key"}
+/>
+<input
+  type="radio"
+  name="site_theme_choice"
+  id="theme-choice-supernova"
+  value="supernova"
+  class="sr-only"
+  checked={defaultTheme === "supernova"}
+/>
+
+<!-- 3. FLOATING DOCK HANDLE (DOCKED VERTICALLY ON RIGHT EDGE) -->
+<aside class="fixed right-0 top-[56%] sm:top-1/2 -translate-y-1/2 z-[90] select-none touch-manipulation transition-all duration-300 peer-checked/deck:opacity-0 peer-checked/deck:pointer-events-none">
+  <label
+    for="theme-deck-toggle"
+    class="group relative flex items-center gap-2 py-2.5 pl-2.5 pr-2 rounded-l-xl bg-[#0c0c11]/90 hover:bg-[#14141c] active:scale-95 text-white border-l border-y border-white/15 backdrop-blur-xl shadow-2xl shadow-black/80 transition-all duration-300 hover:-translate-x-1 cursor-pointer"
+    aria-label="Open Theme Deck"
+  >
+    <!-- Live Status LED Indicator with Pulsing Ring -->
+    <span class="relative flex h-2 w-2">
+      <span class="theme-led-pulse animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
+      <span class="theme-led-dot relative inline-flex rounded-full h-2 w-2 shadow-sm"></span>
+    </span>
+
+    <!-- Vertical Monospace Tag -->
+    <span class="text-[9px] font-mono tracking-widest text-neutral-400 group-hover:text-amber-400 transition-colors uppercase font-bold [writing-mode:vertical-rl] rotate-180">
+      GRADE
+    </span>
+
+    <!-- Optics Icon -->
+    <svg
+      class="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400 transition-transform duration-300 group-hover:rotate-45"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.75"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="m14.31 8 5.74 9.94"></path>
+      <path d="M9.69 8h11.48"></path>
+      <path d="m7.38 12 5.74-9.94"></path>
+      <path d="M9.69 16 3.95 6.06"></path>
+      <path d="M14.31 16H2.83"></path>
+      <path d="m16.62 12-5.74 9.94"></path>
+    </svg>
+  </label>
+</aside>
+
+<!-- 4. BACKDROP DIMMER OVERLAY (CLICK UNCHECKS THE DRAWER) -->
+<label
+  for="theme-deck-toggle"
+  class="fixed inset-0 z-[95] bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none peer-checked/deck:opacity-100 peer-checked/deck:pointer-events-auto transition-opacity duration-300 ease-out cursor-pointer touch-manipulation"
+  aria-hidden="true"
+></label>
+
+<!-- 5. SLIDE-OUT COMPACT CONTROL PANEL (SLIM 64-72PX FLYOUT) -->
+<section
+  id="theme-dock-panel"
+  class="fixed inset-y-0 right-0 z-[100] w-64 sm:w-72 h-[100dvh] bg-[#0c0c11]/95 text-white backdrop-blur-2xl border-l border-white/10 shadow-2xl flex flex-col justify-between transform translate-x-full peer-checked/deck:translate-x-0 transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] select-none overscroll-contain"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Theme Selection"
+>
+  <div>
+    <!-- HEADER -->
+    <div class="flex items-center justify-between px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-3.5 border-b border-white/10">
+      <span class="text-[11px] font-mono tracking-widest text-neutral-400 uppercase font-semibold">
+        {title}
+      </span>
+      <label
+        for="theme-deck-toggle"
+        class="p-1.5 -mr-1 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+        aria-label="Close"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </label>
+    </div>
+
+    <!-- COMPACT GRADE BUTTONS -->
+    <div class="p-3.5 space-y-2">
+      {themes.map((t) => (
+        <label
+          for={`theme-choice-${t.id}`}
+          class={`theme-card theme-card-${t.id} group relative flex items-center justify-between w-full px-3.5 py-3 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] active:scale-[0.98] transition-all duration-200 cursor-pointer touch-manipulation`}
+        >
+          <div class="flex items-center gap-3">
+            <!-- Dual-tone mini swatch pill showing base + accent -->
+            <span class="flex h-3.5 w-6 rounded-full overflow-hidden border border-white/20 shrink-0">
+              <span class="w-1/2 h-full" style={{ backgroundColor: t.baseColor }}></span>
+              <span class="w-1/2 h-full" style={{ backgroundColor: t.accentColor }}></span>
+            </span>
+            <span class="text-xs sm:text-sm font-medium text-neutral-200 group-hover:text-white transition-colors">
+              {t.title}
+            </span>
+          </div>
+
+          <!-- Active indicator dot -->
+          <span class="theme-card-active-indicator flex h-2 w-2 rounded-full opacity-0 transition-all duration-200"></span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <!-- FOOTER: MINIMAL RESET -->
+  <div class="px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 border-t border-white/5">
+    <label
+      for={`theme-choice-${defaultTheme}`}
+      id="theme-dock-reset"
+      data-default-theme={defaultTheme}
+      class="text-[10px] font-mono tracking-wider text-neutral-500 hover:text-neutral-300 uppercase transition-colors cursor-pointer flex items-center justify-center gap-1.5 py-2 w-full text-center"
+    >
+      Reset to default
+    </label>
+  </div>
+</section>
+
+<!-- =========================================================================
+     PURE CSS DECLARATIVE STYLING: ACTIVE ROW HIGHLIGHT & INDICATOR
+     ========================================================================= -->
+<style define:vars={{ highKeyAccent, darkNoirAccent, supernovaAccent }} is:global>
+  /* Default LED Indicator */
+  .theme-led-dot,
+  .theme-led-pulse {
+    background-color: var(--darkNoirAccent);
+    box-shadow: 0 0 10px var(--darkNoirAccent);
+  }
+
+  /* -------------------------------------------------------------------------
+     DARK NOIR ACTIVE
+     ------------------------------------------------------------------------- */
+  :is(html[data-theme="dark-noir"], html:has(#theme-choice-dark-noir:checked)) .theme-card-dark-noir {
+    border-color: var(--darkNoirAccent) !important;
+    background-color: rgba(232, 197, 71, 0.08) !important;
+  }
+  :is(html[data-theme="dark-noir"], html:has(#theme-choice-dark-noir:checked)) .theme-card-dark-noir .theme-card-active-indicator {
+    opacity: 1 !important;
+    background-color: var(--darkNoirAccent) !important;
+    box-shadow: 0 0 8px var(--darkNoirAccent) !important;
+  }
+  :is(html[data-theme="dark-noir"], html:has(#theme-choice-dark-noir:checked)) .theme-led-dot,
+  :is(html[data-theme="dark-noir"], html:has(#theme-choice-dark-noir:checked)) .theme-led-pulse {
+    background-color: var(--darkNoirAccent) !important;
+    box-shadow: 0 0 10px var(--darkNoirAccent) !important;
+  }
+
+  /* -------------------------------------------------------------------------
+     HIGH-KEY LIGHT ACTIVE
+     ------------------------------------------------------------------------- */
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .theme-card-high-key {
+    border-color: var(--highKeyAccent) !important;
+    background-color: rgba(225, 29, 72, 0.08) !important;
+  }
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .theme-card-high-key .theme-card-active-indicator {
+    opacity: 1 !important;
+    background-color: var(--highKeyAccent) !important;
+    box-shadow: 0 0 8px var(--highKeyAccent) !important;
+  }
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .theme-led-dot,
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .theme-led-pulse {
+    background-color: var(--highKeyAccent) !important;
+    box-shadow: 0 0 10px var(--highKeyAccent) !important;
+  }
+
+  /* -------------------------------------------------------------------------
+     SUPERNOVA ACTIVE
+     ------------------------------------------------------------------------- */
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .theme-card-supernova {
+    border-color: var(--supernovaAccent) !important;
+    background-color: rgba(244, 63, 94, 0.08) !important;
+  }
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .theme-card-supernova .theme-card-active-indicator {
+    opacity: 1 !important;
+    background-color: var(--supernovaAccent) !important;
+    box-shadow: 0 0 8px var(--supernovaAccent) !important;
+  }
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .theme-led-dot,
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .theme-led-pulse {
+    background-color: var(--supernovaAccent) !important;
+    box-shadow: 0 0 10px var(--supernovaAccent) !important;
+  }
+</style>
+
+<!-- =========================================================================
+     MINIMAL PERSISTENCE SCRIPT (LOCALSTORAGE SYNC + ESCAPE KEY)
+     ========================================================================= -->
+<script is:inline>
+  (function () {
+    function syncTheme() {
+      try {
+        var theme = localStorage.getItem("antigravity_theme");
+        if (theme) {
+          var radio = document.getElementById("theme-choice-" + theme);
+          if (radio) radio.checked = true;
+          document.documentElement.setAttribute("data-theme", theme);
+          if (theme === "high-key") {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+          } else {
+            document.documentElement.classList.remove("light");
+            document.documentElement.classList.add("dark");
+          }
+        }
+      } catch (e) {}
+    }
+
+    syncTheme();
+    document.addEventListener("astro:page-load", syncTheme);
+
+    document.addEventListener("change", function (e) {
+      if (e.target && e.target.name === "site_theme_choice") {
+        var val = e.target.value;
+        document.documentElement.setAttribute("data-theme", val);
+        if (val === "high-key") {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        } else {
+          document.documentElement.classList.remove("light");
+          document.documentElement.classList.add("dark");
+        }
+        try {
+          localStorage.setItem("antigravity_theme", val);
+        } catch (e) {}
+      }
+    });
+
+    var resetBtn = document.getElementById("theme-dock-reset");
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        var def = resetBtn.getAttribute("data-default-theme") || "dark-noir";
+        try {
+          localStorage.removeItem("antigravity_theme");
+        } catch (e) {}
+        var radio = document.getElementById("theme-choice-" + def);
+        if (radio) radio.checked = true;
+        document.documentElement.setAttribute("data-theme", def);
+        if (def === "high-key") {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        } else {
+          document.documentElement.classList.remove("light");
+          document.documentElement.classList.add("dark");
+        }
+      });
+    }
+
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        var toggle = document.getElementById("theme-deck-toggle");
+        if (toggle && toggle.checked) toggle.checked = false;
+      }
+    });
+  })();
+</script>

@@ -1,0 +1,51 @@
+{
+  "studioTagline": "Single and multi-camera live filming, corporate video production, commercial editorial workflows, and sound design.",
+  "commissionButtonLabel": "Commission a Production",
+  "commissionButtonLink": "/contact",
+  "capabilitiesHeading": "Services",
+  "servicesLinkLabel": "All Services & Specs →",
+  "servicesLinkUrl": "/services",
+  "studioHeading": "Navigation",
+  "studioLinks": [
+    {
+      "label": "Selected Work",
+      "href": "/work"
+    },
+    {
+      "label": "Services Directory",
+      "href": "/services"
+    },
+    {
+      "label": "Studio Manifesto",
+      "href": "/about"
+    },
+    {
+      "label": "Production Archive",
+      "href": "/work#archive"
+    },
+    {
+      "label": "Start a Project Brief",
+      "href": "/contact"
+    }
+  ],
+  "presenceHeading": "Location",
+  "cambridgeTitle": "Cambridge Studio",
+  "cambridgeSubtitle": "Cambridgeshire & East of England",
+  "cambridgeLink": "/cambridge",
+  "londonTitle": "London Base",
+  "londonSubtitle": "Single & multi-cam field operations",
+  "worldwideTitle": "UK-Wide & Worldwide",
+  "worldwideSubtitle": "On-location commercial shoots",
+  "directHeading": "Direct",
+  "inquiriesLabel": "Inquiries",
+  "inquiriesActionText": "Start Project Brief →",
+  "inquiriesActionLink": "/contact",
+  "productionHubLabel": "Production Hub",
+  "productionHub": "Cambridge • London, UK",
+  "capturePipelineLabel": "Capture Pipeline",
+  "capturePipeline": "4K DCI • 10-Bit • Multi-Cam",
+  "studioStatusLabel": "Studio Status",
+  "studioStatus": "Accepting Commissions",
+  "copyrightTagline": "We Capture, Create, and Produce.",
+  "backToTopLabel": "Back to top"
+}

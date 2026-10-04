@@ -6,21 +6,40 @@
   "manifestoQuote": "Every frame is an intentional choice. Every cut has a heartbeat. If it doesn't advance the narrative or stir an emotion, it hits the cutting room floor.",
   "manifestoAuthor": "FILMEDITRUN STUDIO CREED",
   "heroVideoPath": "/showreel.mp4",
-  "slider": {
-    "heading": "The Production Crew",
-    "tag": "OUR TEAM",
-    "description": "Operating as a synchronized production collective across the UK—delivering multi-camera live stages, commercial cinematography, pristine audio engineering, and rapid post-production.",
-    "slides": [
-      {
-        "name": "FilmEditRun Production Collective",
-        "formalRole": "Directing, Cinematography, Sound & Editorial",
-        "bio": "Multi-camera live stages and commercial film operations across the UK.",
-        "avatar": "/og-image.jpg",
-        "videoLoop": "/showreel.mp4",
-        "badge": "LIVE PRODUCTION REEL"
-      }
-    ]
-  },
+  "heroFrostedGlass": "very-subtle",
+  "btsHeading": "Behind the Slate",
+  "btsTag": "BEHIND THE SCENES",
+  "btsDescription": "Unfiltered frames from sets, multi-camera live control rooms, and post-production suites.",
+  "btsItems": [
+    {
+      "title": "Wireless Camera Rig On Location",
+      "category": "CAMERA OPS",
+      "image": "/og-image.jpg",
+      "caption": "Rigged for rapid mobility during high-tempo conference coverage. Anamorphic glass, wireless video transmitter, and 12-hour continuous battery power.",
+      "aspectRatio": "16/9"
+    },
+    {
+      "title": "Multi-Cam Live Switch Deck",
+      "category": "LIVE BROADCAST",
+      "image": "/og-image.jpg",
+      "caption": "Director's multi-view monitoring 6 live SDI feeds with redundant hardware recording and instant replay triggers.",
+      "aspectRatio": "4/3"
+    },
+    {
+      "title": "Color Timing & Mastering Suite",
+      "category": "POST-PRODUCTION",
+      "image": "/og-image.jpg",
+      "caption": "Calibrated reference monitoring in our darkroom suite, dialling in skin tones and rich cinematic contrast curves.",
+      "aspectRatio": "16/9"
+    },
+    {
+      "title": "Field Audio & Spatial Isolation",
+      "category": "SOUND DECK",
+      "image": "/og-image.jpg",
+      "caption": "Dual boom and RF wireless microphones dialed in to reject venue echo and capture crystal-clear speaker nuance.",
+      "aspectRatio": "4/3"
+    }
+  ],
   "timelineHeading": "Script Revisions & Milestones",
   "timelineTag": "THE TIMELINE // EDIT LOG",
   "timelineDescription": "Every great production goes through drafts, cuts, and revisions. Here's how FilmEditRun evolved from an indie edit suite into a full-scale cinematic production house.",
@@ -64,39 +83,6 @@
       "title": "500+ Projects Mastered, Ready for Roll Call",
       "description": "A dynamic, agile collective of filmmakers, editors, and sound artists delivering commercial prestige without the sluggish bloat of traditional legacy agencies.",
       "badge": "LATEST CUT"
-    }
-  ],
-  "btsHeading": "Behind the Slate",
-  "btsTag": "BEHIND THE SCENES",
-  "btsDescription": "Unfiltered frames from sets, multi-camera live control rooms, and post-production suites.",
-  "btsItems": [
-    {
-      "title": "Wireless Camera Rig On Location",
-      "category": "CAMERA OPS",
-      "image": "/og-image.jpg",
-      "caption": "Rigged for rapid mobility during high-tempo conference coverage. Anamorphic glass, wireless video transmitter, and 12-hour continuous battery power.",
-      "aspectRatio": "16/9"
-    },
-    {
-      "title": "Multi-Cam Live Switch Deck",
-      "category": "LIVE BROADCAST",
-      "image": "/og-image.jpg",
-      "caption": "Director's multi-view monitoring 6 live SDI feeds with redundant hardware recording and instant replay triggers.",
-      "aspectRatio": "4/3"
-    },
-    {
-      "title": "Color Timing & Mastering Suite",
-      "category": "POST-PRODUCTION",
-      "image": "/og-image.jpg",
-      "caption": "Calibrated reference monitoring in our darkroom suite, dialling in skin tones and rich cinematic contrast curves.",
-      "aspectRatio": "16/9"
-    },
-    {
-      "title": "Field Audio & Spatial Isolation",
-      "category": "SOUND DECK",
-      "image": "/og-image.jpg",
-      "caption": "Dual boom and RF wireless microphones dialed in to reject venue echo and capture crystal-clear speaker nuance.",
-      "aspectRatio": "4/3"
     }
   ],
   "ctaHeading": "Got a story that deserves a Director's Cut?",

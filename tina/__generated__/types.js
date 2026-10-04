@@ -103,21 +103,7 @@ export const AboutPagePartsFragmentDoc = gql`
   manifestoQuote
   manifestoAuthor
   heroVideoPath
-  slider {
-    __typename
-    heading
-    tag
-    description
-    slides {
-      __typename
-      name
-      formalRole
-      bio
-      avatar
-      videoLoop
-      badge
-    }
-  }
+  heroFrostedGlass
   btsHeading
   btsTag
   btsDescription
@@ -145,6 +131,22 @@ export const AboutPagePartsFragmentDoc = gql`
   ctaText
   ctaButtonLabel
   ctaButtonLink
+}
+    `;
+export const AboutSliderPartsFragmentDoc = gql`
+    fragment AboutSliderParts on AboutSlider {
+  __typename
+  heading
+  tag
+  description
+  slides {
+    __typename
+    name
+    bio
+    avatar
+    videoLoop
+    badge
+  }
 }
     `;
 export const ProjectPartsFragmentDoc = gql`
@@ -200,6 +202,55 @@ export const SiteSettingsPartsFragmentDoc = gql`
   logoText
   useImageLogo
   logoImagePath
+}
+    `;
+export const GradeSettingsPartsFragmentDoc = gql`
+    fragment GradeSettingsParts on GradeSettings {
+  __typename
+  defaultTheme
+  enableThemeSwitcher
+  themeSwitcherTitle
+  darkNoirAccentColor
+  highKeyAccentColor
+  highKeyBgColor
+  supernovaAccentColor
+}
+    `;
+export const FooterSettingsPartsFragmentDoc = gql`
+    fragment FooterSettingsParts on FooterSettings {
+  __typename
+  studioTagline
+  commissionButtonLabel
+  commissionButtonLink
+  capabilitiesHeading
+  servicesLinkLabel
+  servicesLinkUrl
+  studioHeading
+  studioLinks {
+    __typename
+    label
+    href
+  }
+  presenceHeading
+  cambridgeTitle
+  cambridgeSubtitle
+  cambridgeLink
+  londonTitle
+  londonSubtitle
+  worldwideTitle
+  worldwideSubtitle
+  directHeading
+  inquiriesLabel
+  inquiriesActionText
+  inquiriesActionLink
+  productionHubLabel
+  productionHub
+  capturePipelineLabel
+  capturePipeline
+  studioStatusLabel
+  studioStatus
+  copyrightTagline
+  backToTopLabel
 }
     `;
 export const HomepageDocument = gql`
@@ -487,6 +538,63 @@ export const AboutPageConnectionDocument = gql`
   }
 }
     ${AboutPagePartsFragmentDoc}`;
+export const AboutSliderDocument = gql`
+    query aboutSlider($relativePath: String!) {
+  aboutSlider(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...AboutSliderParts
+  }
+}
+    ${AboutSliderPartsFragmentDoc}`;
+export const AboutSliderConnectionDocument = gql`
+    query aboutSliderConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AboutSliderFilter) {
+  aboutSliderConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...AboutSliderParts
+      }
+    }
+  }
+}
+    ${AboutSliderPartsFragmentDoc}`;
 export const ProjectDocument = gql`
     query project($relativePath: String!) {
   project(relativePath: $relativePath) {
@@ -658,6 +766,120 @@ export const SiteSettingsConnectionDocument = gql`
   }
 }
     ${SiteSettingsPartsFragmentDoc}`;
+export const GradeSettingsDocument = gql`
+    query gradeSettings($relativePath: String!) {
+  gradeSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...GradeSettingsParts
+  }
+}
+    ${GradeSettingsPartsFragmentDoc}`;
+export const GradeSettingsConnectionDocument = gql`
+    query gradeSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: GradeSettingsFilter) {
+  gradeSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...GradeSettingsParts
+      }
+    }
+  }
+}
+    ${GradeSettingsPartsFragmentDoc}`;
+export const FooterSettingsDocument = gql`
+    query footerSettings($relativePath: String!) {
+  footerSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...FooterSettingsParts
+  }
+}
+    ${FooterSettingsPartsFragmentDoc}`;
+export const FooterSettingsConnectionDocument = gql`
+    query footerSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: FooterSettingsFilter) {
+  footerSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...FooterSettingsParts
+      }
+    }
+  }
+}
+    ${FooterSettingsPartsFragmentDoc}`;
 export function getSdk(requester) {
   return {
     homepage(variables, options) {
@@ -690,6 +912,12 @@ export function getSdk(requester) {
     aboutPageConnection(variables, options) {
       return requester(AboutPageConnectionDocument, variables, options);
     },
+    aboutSlider(variables, options) {
+      return requester(AboutSliderDocument, variables, options);
+    },
+    aboutSliderConnection(variables, options) {
+      return requester(AboutSliderConnectionDocument, variables, options);
+    },
     project(variables, options) {
       return requester(ProjectDocument, variables, options);
     },
@@ -707,6 +935,18 @@ export function getSdk(requester) {
     },
     siteSettingsConnection(variables, options) {
       return requester(SiteSettingsConnectionDocument, variables, options);
+    },
+    gradeSettings(variables, options) {
+      return requester(GradeSettingsDocument, variables, options);
+    },
+    gradeSettingsConnection(variables, options) {
+      return requester(GradeSettingsConnectionDocument, variables, options);
+    },
+    footerSettings(variables, options) {
+      return requester(FooterSettingsDocument, variables, options);
+    },
+    footerSettingsConnection(variables, options) {
+      return requester(FooterSettingsConnectionDocument, variables, options);
     }
   };
 }

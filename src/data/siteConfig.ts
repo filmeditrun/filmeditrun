@@ -1,13 +1,24 @@
 // =====================================================================
-// SITE CONFIGURATION (Managed via TinaCMS in src/content/settings/site.json)
+// SITE & THEME CONFIGURATION (Managed via TinaCMS in src/content/settings/)
 // =====================================================================
 import siteData from "../content/settings/site.json";
+import themeData from "../content/settings/theme.json";
 
 export interface SiteConfig {
   useImageLogo: boolean;
   logoImagePath: string;
   logoText: string;
   siteName: string;
+  defaultTheme?: "dark-noir" | "high-key" | "supernova" | string;
+  enableThemeSwitcher?: boolean;
+  themeSwitcherTitle?: string;
+  darkNoirAccentColor?: string;
+  highKeyAccentColor?: string;
+  highKeyBgColor?: string;
+  supernovaAccentColor?: string;
 }
 
-export const siteConfig: SiteConfig = siteData;
+export const siteConfig: SiteConfig = {
+  ...siteData,
+  ...themeData,
+} as SiteConfig;

@@ -125,7 +125,7 @@ const faqs = cambridge.faqs ?? [];
       <div class="relative z-20 max-w-6xl mx-auto px-6">
         
         <!-- Breadcrumb Navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6 drop-shadow">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6">
           <a href="/" class="hover:text-white transition-colors">Home</a>
           <span class="text-neutral-600">/</span>
           <span class="text-amber-500 font-semibold">Cambridge</span>
@@ -137,13 +137,13 @@ const faqs = cambridge.faqs ?? [];
           </span>
         )}
 
-        <!-- Large Title with High-Contrast Drop Shadow -->
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] mb-6 max-w-4xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+        <!-- Large Title -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] mb-6 max-w-4xl">
           {cambridge.heroHeadingPrefix} <span class="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-amber-600">{cambridge.heroHeadingHighlight}</span>
         </h1>
 
         <!-- Value Proposition / Introductory Paragraph -->
-        <p class="text-lg sm:text-xl lg:text-2xl text-neutral-200 font-light leading-relaxed max-w-3xl mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+        <p class="text-lg sm:text-xl lg:text-2xl text-neutral-200 font-light leading-relaxed max-w-3xl mb-8">
           {cambridge.heroSubtitle}
         </p>
 
@@ -151,7 +151,7 @@ const faqs = cambridge.faqs ?? [];
         <div>
           <a
             href={cambridge.heroCtaLink}
-            class="inline-block bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-colors shadow-xl shadow-amber-500/20 text-center"
+            class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-all shadow-xl shadow-amber-500/20 hover:scale-[1.02] text-center"
           >
             {cambridge.heroCtaLabel} &rarr;
           </a>
@@ -217,7 +217,7 @@ const faqs = cambridge.faqs ?? [];
         </p>
         <a
           href={cambridge.bottomCtaLink}
-          class="inline-block bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-colors shadow-lg shadow-amber-500/10 text-center"
+          class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-all shadow-lg shadow-amber-500/10 hover:scale-[1.02] text-center"
         >
           {cambridge.bottomCtaLabel} &rarr;
         </a>

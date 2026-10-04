@@ -5,6 +5,7 @@ interface Props {
   manifestoQuote?: string;
   manifestoAuthor?: string;
   heroVideoPath?: string;
+  heroFrostedGlass?: "none" | "very-subtle" | "subtle" | "medium" | "strong" | string;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   manifestoQuote,
   manifestoAuthor,
   heroVideoPath,
+  heroFrostedGlass = "very-subtle",
 } = Astro.props;
 
 // Split headline into prefix statement and highlighted accent if period present
@@ -20,12 +22,21 @@ const dotIndex = headline.indexOf('. ');
 const hasSplit = dotIndex !== -1;
 const headlinePrefix = hasSplit ? headline.slice(0, dotIndex + 1) : headline;
 const headlineAccent = hasSplit ? headline.slice(dotIndex + 2) : '';
+
+const glassClassMap: Record<string, string> = {
+  none: "",
+  "very-subtle": "hero-glass-very-subtle",
+  subtle: "hero-glass-subtle",
+  medium: "hero-glass-medium",
+  strong: "hero-glass-strong",
+};
+const glassClass = glassClassMap[heroFrostedGlass] ?? (heroFrostedGlass === "none" ? "" : "hero-glass-very-subtle");
 ---
 
 <section class="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 border-b border-neutral-900 select-none">
-  <!-- Clear, Bright Video Background (No Heavy Dark Vignette or Blur) -->
+  <!-- Clear, Bright Video Background -->
   {heroVideoPath && (
-    <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden bg-neutral-950">
+    <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden bg-black">
       <video
         autoplay
         loop
@@ -38,6 +49,11 @@ const headlineAccent = hasSplit ? headline.slice(dotIndex + 2) : '';
     </div>
   )}
 
+  <!-- Frosted Glass Overlay Layer (Adjustable via TinaCMS) -->
+  {glassClass && (
+    <div class={`absolute inset-0 pointer-events-none select-none z-[1] transition-all duration-500 ${glassClass}`} />
+  )}
+
   <div class="relative z-10 max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
@@ -46,13 +62,13 @@ const headlineAccent = hasSplit ? headline.slice(dotIndex + 2) : '';
         <!-- Eyebrow Tag -->
         <div class="inline-flex items-center gap-2 mb-6">
           <span class="h-px w-8 bg-amber-500"></span>
-          <span class="text-xs uppercase tracking-[0.25em] text-amber-500 font-mono font-bold drop-shadow">
+          <span class="text-xs uppercase tracking-[0.25em] text-amber-500 font-mono font-bold">
             Studio Manifesto
           </span>
         </div>
 
         <!-- 2-Tone Editorial Display Title -->
-        <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.06] mb-8 drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+        <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.06] mb-8">
           <span class="block text-white mb-2">{headlinePrefix}</span>
           {headlineAccent && (
             <span class="block text-transparent bg-clip-text bg-linear-to-r from-amber-400 via-amber-300 to-amber-500">
@@ -62,7 +78,7 @@ const headlineAccent = hasSplit ? headline.slice(dotIndex + 2) : '';
         </h1>
 
         <!-- Manifesto Lead Hook -->
-        <p class="text-lg sm:text-xl text-neutral-200 font-light leading-relaxed max-w-2xl mb-10 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+        <p class="text-lg sm:text-xl text-neutral-200 font-light leading-relaxed max-w-2xl mb-10">
           {manifestoLead}
         </p>
 
@@ -70,7 +86,7 @@ const headlineAccent = hasSplit ? headline.slice(dotIndex + 2) : '';
         <div class="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
           <a
             href="#team-section"
-            class="px-5 py-3 rounded-xl bg-amber-500 text-neutral-950 font-bold hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/15 flex items-center gap-2"
+            class="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-neutral-950 font-bold hover:from-amber-300 hover:to-amber-500 transition-all shadow-lg shadow-amber-500/15 flex items-center gap-2 hover:scale-[1.02]"
           >
             <span>Production Showcase</span>
             <span class="text-sm font-sans">↓</span>

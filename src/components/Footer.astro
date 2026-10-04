@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../data/siteConfig';
+import footerData from '../content/settings/footer.json';
 
 interface ServiceEntry {
   order: string;
@@ -21,44 +22,133 @@ const services = Object.values(serviceFiles)
     href: s.link || `/services/${s.slug}`,
   }));
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services Overview", href: "/services" },
-  { label: "Work Archive", href: "/work" },
-  { label: "About Studio", href: "/about" },
-  { label: "Contact", href: "/contact" }
+const defaultStudioLinks = [
+  { label: "Selected Work", href: "/work" },
+  { label: "Services Directory", href: "/services" },
+  { label: "Studio Manifesto", href: "/about" },
+  { label: "Production Archive", href: "/work#archive" },
+  { label: "Start a Project Brief", href: "/contact" },
 ];
+
+const footer = {
+  studioTagline: "Single and multi-camera live filming, corporate video production, commercial editorial workflows, and sound design.",
+  commissionButtonLabel: "Commission a Production",
+  commissionButtonLink: "/contact",
+  capabilitiesHeading: "Capabilities",
+  servicesLinkLabel: "All Services & Specs →",
+  servicesLinkUrl: "/services",
+  studioHeading: "Studio",
+  studioLinks: defaultStudioLinks,
+  presenceHeading: "Presence",
+  cambridgeTitle: "Cambridge Studio",
+  cambridgeSubtitle: "Cambridgeshire & East of England",
+  cambridgeLink: "/cambridge",
+  londonTitle: "London Base",
+  londonSubtitle: "Single & multi-cam field operations",
+  worldwideTitle: "UK-Wide & Worldwide",
+  worldwideSubtitle: "On-location commercial shoots",
+  directHeading: "Direct",
+  inquiriesLabel: "Inquiries",
+  inquiriesActionText: "Start Project Brief →",
+  inquiriesActionLink: "/contact",
+  productionHubLabel: "Production Hub",
+  productionHub: "Cambridge • London, UK",
+  capturePipelineLabel: "Capture Pipeline",
+  capturePipeline: "4K DCI • 10-Bit • Multi-Cam",
+  studioStatusLabel: "Studio Status",
+  studioStatus: "Accepting Commissions",
+  copyrightTagline: "Picture, sound, and story.",
+  backToTopLabel: "Back to top",
+  ...footerData,
+};
+
+const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
+  ? footer.studioLinks
+  : defaultStudioLinks;
 ---
 
-<footer class="bg-neutral-950 border-t border-neutral-900 text-neutral-400 py-16 px-6">
-  <div class="max-w-7xl mx-auto">
+<footer class="bg-neutral-950 border-t border-neutral-900 text-neutral-400 pt-16 pb-12 px-6">
+  <div class="max-w-7xl mx-auto space-y-12">
     
-    <!-- Top Row: Brand, Navigation, Locations -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pb-12">
+    <!-- ============================================================== -->
+    <!-- 1. TOP TIER: BRAND IDENTITY & DIRECT COMMISSION ACTION         -->
+    <!-- ============================================================== -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-10 border-b border-white/10">
       
-      <!-- Brand Column (spans 6 of 12) -->
-      <div class="md:col-span-6 space-y-4">
+      <!-- Brand Logo & Scope Statement -->
+      <div class="space-y-3 max-w-xl">
         <a href="/" class="block group">
           {siteConfig.useImageLogo ? (
-            <img src={siteConfig.logoImagePath} alt={siteConfig.siteName} class="h-6 w-auto object-contain" />
+            <img src={siteConfig.logoImagePath} alt={siteConfig.siteName} class="h-7 w-auto object-contain" />
           ) : (
-            <span class="text-xl font-bold tracking-wider text-white font-mono group-hover:text-amber-400 transition-colors">
+            <span class="text-2xl sm:text-3xl font-black tracking-tight text-white font-mono group-hover:text-amber-400 transition-colors">
               {siteConfig.logoText}
             </span>
           )}
         </a>
-        <p class="text-sm text-neutral-400 max-w-md leading-relaxed font-light">
-          Professional single and multi-camera event filming, corporate video production, and high-end editing workflows.
+        <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+          {footer.studioTagline}
         </p>
       </div>
 
-      <!-- Navigation Column (spans 3 of 12) -->
-      <div class="md:col-span-3">
-        <h4 class="text-white font-mono text-xs uppercase tracking-widest mb-4">Navigation</h4>
+      <!-- Direct Commission Action Pill -->
+      <div class="shrink-0">
+        <a 
+          href={footer.commissionButtonLink} 
+          class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
+        >
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+          </span>
+          <span>{footer.commissionButtonLabel}</span>
+          <span class="group-hover:translate-x-1 transition-transform text-amber-400 font-bold">&rarr;</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- 2. MIDDLE TIER: 4 BALANCED ARCHITECTURAL COLUMNS               -->
+    <!-- ============================================================== -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-4">
+      
+      <!-- Column 1: CAPABILITIES (Dynamically grows as TinaCMS adds services) -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <h4 class="text-white font-mono text-xs uppercase tracking-widest font-semibold">
+            {footer.capabilitiesHeading}
+          </h4>
+        </div>
         <ul class="space-y-2.5 text-sm font-light">
-          {navLinks.map((link) => (
+          {services.map((service) => (
             <li>
-              <a href={link.href} class="hover:text-amber-400 transition-colors">
+              <a href={service.href} class="text-neutral-300 hover:text-amber-400 transition-colors block">
+                {service.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="pt-1">
+          <a href={footer.servicesLinkUrl || "/services"} class="inline-flex items-center gap-1.5 text-xs font-mono text-amber-500 hover:text-amber-400 tracking-wider transition-colors">
+            <span>{footer.servicesLinkLabel || "All Services & Specs →"}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: STUDIO NAVIGATION -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+          <h4 class="text-white font-mono text-xs uppercase tracking-widest font-semibold">
+            {footer.studioHeading}
+          </h4>
+        </div>
+        <ul class="space-y-2.5 text-sm font-light">
+          {navigationLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-neutral-300 hover:text-amber-400 transition-colors block">
                 {link.label}
               </a>
             </li>
@@ -66,61 +156,102 @@ const navLinks = [
         </ul>
       </div>
 
-      <!-- Locations & Studio Presence (spans 3 of 12) -->
-      <div class="md:col-span-3">
-        <h4 class="text-white font-mono text-xs uppercase tracking-widest mb-4">Locations</h4>
-        <ul class="space-y-2.5 text-sm font-light">
+      <!-- Column 3: LOCATIONS & PRESENCE -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+          <h4 class="text-white font-mono text-xs uppercase tracking-widest font-semibold">
+            {footer.presenceHeading}
+          </h4>
+        </div>
+        <ul class="space-y-3.5 text-sm font-light">
           <li>
-            <a href="/cambridge" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
-              <span>Cambridge</span>
-              <span class="text-xs text-amber-500 font-mono">📍</span>
+            <a href={footer.cambridgeLink || "/cambridge"} class="hover:text-amber-400 transition-colors block group">
+              <span class="font-medium text-white group-hover:text-amber-400 block transition-colors">
+                {footer.cambridgeTitle || "Cambridge Studio"}
+              </span>
+              <span class="text-xs text-neutral-500 block">
+                {footer.cambridgeSubtitle}
+              </span>
             </a>
           </li>
           <li>
-            <span class="text-neutral-500 flex items-center gap-1.5">
-              <span>London &amp; UK-Wide</span>
-            </span>
+            <div class="block">
+              <span class="font-medium text-neutral-300 block">
+                {footer.londonTitle || "London Base"}
+              </span>
+              <span class="text-xs text-neutral-500 block">
+                {footer.londonSubtitle}
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <span class="font-medium text-neutral-300 block">
+                {footer.worldwideTitle || "UK-Wide & Worldwide"}
+              </span>
+              <span class="text-xs text-neutral-500 block">
+                {footer.worldwideSubtitle}
+              </span>
+            </div>
           </li>
         </ul>
       </div>
 
-    </div>
-
-    <!-- Horizontal Services Strip (Cinematic Agency Style - Alt 4) -->
-    <div class="border-t border-neutral-900 pt-8 pb-8">
-      <div class="flex flex-col lg:flex-row lg:items-center gap-4 text-xs font-mono">
-        <span class="uppercase tracking-widest text-amber-500 font-semibold shrink-0">
-          Services &amp; Capabilities &mdash;
-        </span>
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-2.5 text-neutral-400">
-          {services.map((service, index) => (
-            <div class="flex items-center gap-5">
-              <a
-                href={service.href}
-                class="hover:text-amber-400 transition-colors whitespace-nowrap"
-              >
-                {service.title}
-              </a>
-              {index < services.length - 1 && (
-                <span class="text-neutral-700 select-none hidden sm:inline">&bull;</span>
-              )}
-            </div>
-          ))}
+      <!-- Column 4: DIRECT INQUIRIES & SPECS -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+          <h4 class="text-white font-mono text-xs uppercase tracking-widest font-semibold">
+            {footer.directHeading}
+          </h4>
+        </div>
+        <div class="space-y-3 text-xs font-mono">
+          <div>
+            <span class="text-neutral-500 block uppercase tracking-wider mb-1">
+              {footer.inquiriesLabel || "Inquiries"}
+            </span>
+            <a href={footer.inquiriesActionLink || "/contact"} class="text-neutral-200 hover:text-amber-400 transition-colors text-sm font-sans font-light">
+              {footer.inquiriesActionText || "Start Project Brief →"}
+            </a>
+          </div>
+          <div>
+            <span class="text-neutral-500 block uppercase tracking-wider mb-1">
+              {footer.productionHubLabel || "Production Hub"}
+            </span>
+            <span class="text-neutral-300">{footer.productionHub}</span>
+          </div>
+          <div>
+            <span class="text-neutral-500 block uppercase tracking-wider mb-1">
+              {footer.capturePipelineLabel || "Capture Pipeline"}
+            </span>
+            <span class="text-neutral-300">{footer.capturePipeline}</span>
+          </div>
+          <div>
+            <span class="text-neutral-500 block uppercase tracking-wider mb-1">
+              {footer.studioStatusLabel || "Studio Status"}
+            </span>
+            <span class="text-emerald-400 flex items-center gap-1.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              {footer.studioStatus}
+            </span>
+          </div>
         </div>
       </div>
+
     </div>
 
-    <!-- Bottom Copyright & Back to Top Row -->
-    <div class="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-600">
+    <!-- ============================================================== -->
+    <!-- 3. BOTTOM TIER: COLOPHON & BACK TO TOP                         -->
+    <!-- ============================================================== -->
+    <div class="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-500">
       <p>
-        &copy; {new Date().getFullYear()} {siteConfig.siteName}. All rights reserved.
+        &copy; {new Date().getFullYear()} {siteConfig.siteName}. {footer.copyrightTagline} All rights reserved.
       </p>
-      <div class="flex items-center gap-6">
-        <a href="#top" class="hover:text-neutral-400 transition-colors flex items-center gap-1">
-          <span>Back to top</span>
-          <span>&uarr;</span>
-        </a>
-      </div>
+      <a href="#top" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 shrink-0">
+        <span>{footer.backToTopLabel || "Back to top"}</span>
+        <span>&uarr;</span>
+      </a>
     </div>
 
   </div>

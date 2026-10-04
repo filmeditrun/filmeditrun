@@ -2,13 +2,205 @@
 
 @theme {
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --color-ink: #0b0b0c;
-  --color-ink-soft: #161618;
+  --color-ink: #0a0a0c;
+  --color-ink-soft: #121216;
   --color-paper: #f4f1ea;
   --color-mute: #a8a29a;
   --color-line: rgb(255 255 255 / 0.08);
   --color-accent: #e8c547;
+  --color-accent-hover: #f59e0b;
+  --color-accent-glow: rgba(232, 197, 71, 0.25);
   --animate-theater-in: theater-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===================================================================
+   CINEMATIC THEME ENGINE: MASTER COLOR SCIENCE & AESTHETIC GRADES
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   1. DARK NOIR (Obsidian Low-Key Cinema - Default Baseline)
+   Tungsten amber illumination on deep, unpolluted 35mm obsidian shadows.
+   ------------------------------------------------------------------- */
+:root,
+html[data-theme="dark-noir"],
+html:has(#theme-choice-dark-noir:checked) {
+  --color-ink: #0a0a0c;
+  --color-ink-soft: #121216;
+  --color-paper: #f4f1ea;
+  --color-mute: #a8a29a;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-accent: #e8c547;
+  --color-accent-hover: #f59e0b;
+  --color-accent-glow: rgba(232, 197, 71, 0.25);
+  color-scheme: dark;
+}
+
+/* -------------------------------------------------------------------
+   2. HIGH-KEY LIGHT (Pristine Studio White & High-Contrast Accent)
+   Pure snow-white studio canvas, crisp architectural line-work,
+   and clean high-contrast cinema accent. Zero dingy grey haze.
+   ------------------------------------------------------------------- */
+html[data-theme="high-key"],
+html:has(#theme-choice-high-key:checked) {
+  --color-ink: #ffffff;
+  --color-ink-soft: #ffffff;
+  --color-paper: #09090b;
+  --color-mute: #52525b;
+  --color-line: rgba(0, 0, 0, 0.08);
+  --color-accent: #e11d48;
+  --color-accent-hover: #be123c;
+  --color-accent-glow: rgba(225, 29, 72, 0.25);
+
+  /* Surface Neutrals: Pure snow-white canvas & crisp architectural dividers */
+  --color-neutral-950: #ffffff;
+  --color-neutral-900: #ffffff;
+  --color-neutral-850: #fafafa;
+  --color-neutral-800: #e5e7eb;
+  --color-neutral-700: #d1d5db;
+  --color-neutral-600: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-400: #4b5563;
+  --color-neutral-300: #1f2937;
+  --color-neutral-200: #111827;
+  --color-neutral-100: #030712;
+
+  /* High-Contrast Cinema Accent remapping */
+  --color-amber-300: #fb7185;
+  --color-amber-400: #e11d48;
+  --color-amber-500: #e11d48;
+  --color-amber-600: #be123c;
+
+  color-scheme: light;
+}
+
+/* High-key film grain adjustment */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) body::before {
+  opacity: 0.015;
+  mix-blend-mode: multiply;
+}
+
+/* High-Key: Convert page headings to dense obsidian ink */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h1:not([data-cinema-text]),
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h2:not([data-cinema-text]),
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h3:not([data-cinema-text]),
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h4:not([data-cinema-text]),
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .bg-neutral-900 .text-white,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .bg-neutral-950 .text-white,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) .text-white {
+  color: #09090b;
+}
+
+/* High-Key: Eliminate dirty dark drop shadows on light surfaces */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .drop-shadow,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main [class*="drop-shadow-"] {
+  filter: none !important;
+}
+
+/* High-Key: Replace heavy black shadows with soft diffused studio depth */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .shadow-2xl,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .shadow-xl,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main [class*="shadow-\[0_25px_"] {
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* High-Key: Card borders and hover states with crisp dividers */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .border-neutral-800,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .border-neutral-900 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .hover\:border-amber-500\/50:hover,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .hover\:border-amber-500\/40:hover {
+  border-color: rgba(225, 29, 72, 0.5) !important;
+  box-shadow: 0 12px 32px -4px rgba(225, 29, 72, 0.12) !important;
+}
+
+/* High-Key: Protect text inside cinema video players, thumbnails, modals & docks */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom],
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) video ~ *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .service-preview-video ~ *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [class*="aspect-"] .text-white,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #theme-dock-panel,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #theme-dock-panel *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #lightbox-modal,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #lightbox-modal *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .keep-white {
+  color: #ffffff !important;
+}
+
+/* -------------------------------------------------------------------
+   3. SUPERNOVA GRADIENT (Anamorphic Cyber-Noir Color Grade)
+   DaVinci Resolve 8K chromatic LUT: Cosmic ultraviolet void with
+   radiant magenta/rose highlights, anamorphic lens flares, and
+   luminous duotone glass.
+   ------------------------------------------------------------------- */
+html[data-theme="supernova"],
+html:has(#theme-choice-supernova:checked) {
+  --color-ink: #080411;
+  --color-ink-soft: #120824;
+  --color-paper: #fdf2f8;
+  --color-mute: #c4b5fd;
+  --color-line: rgba(244, 63, 94, 0.22);
+  --color-accent: #f43f5e;
+  --color-accent-hover: #fb7185;
+  --color-accent-glow: rgba(244, 63, 94, 0.45);
+
+  /* Surface Neutrals: Deep cosmic ultraviolet obsidian */
+  --color-neutral-950: #080411;
+  --color-neutral-900: #120824;
+  --color-neutral-850: #190c33;
+  --color-neutral-800: #28144d;
+  --color-neutral-700: #4a217c;
+  --color-neutral-600: #7c3aed;
+  --color-neutral-500: #a78bfa;
+  --color-neutral-400: #c4b5fd;
+  --color-neutral-300: #f3e8ff;
+  --color-neutral-200: #fae8ff;
+  --color-neutral-100: #ffffff;
+
+  /* Radiant Anamorphic Amber Remap: Electric Neon Rose & Magenta Flare */
+  --color-amber-300: #fda4af;
+  --color-amber-400: #fb7185;
+  --color-amber-500: #f43f5e;
+  --color-amber-600: #e11d48;
+
+  color-scheme: dark;
+}
+
+/* Supernova ambient chromatic mesh glow */
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.9;
+  background: 
+    radial-gradient(ellipse 75% 55% at 88% 12%, rgba(244, 63, 94, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 65% at 12% 88%, rgba(139, 92, 246, 0.24) 0%, transparent 60%),
+    radial-gradient(circle at 50% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
+}
+
+/* Supernova Card Glows & Luminous Duotone Borders */
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .border-neutral-800,
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .border-neutral-900 {
+  border-color: rgba(244, 63, 94, 0.18) !important;
+}
+
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hover\:border-amber-500\/50:hover,
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hover\:border-amber-500\/40:hover {
+  border-color: rgba(244, 63, 94, 0.6) !important;
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.18) !important;
+}
+
+/* Dynamic theme transition dissolve class */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, box-shadow 300ms ease !important;
+  transition-delay: 0s !important;
 }
 
 @keyframes theater-fade-in {
@@ -18,7 +210,6 @@
   }
   to {
     transform: scale(1);
-    opacity: 1;
   }
 }
 
@@ -51,3 +242,200 @@ body::before {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ===================================================================
+   FLOATING HUD PLAQUE & PILL: TACTILE GLASS METADATA DOCK
+   Guaranteed contrast across Dark Noir, High-Key Light & Supernova
+   =================================================================== */
+.hud-plaque {
+  background-color: rgba(10, 10, 12, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+/* Cyber Framing Border (Gradient Outline) */
+.hud-plaque::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px; /* Border thickness */
+  background: linear-gradient(135deg, var(--color-accent) 0%, transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  z-index: 10;
+}
+
+.hud-pill {
+  background-color: rgba(10, 10, 12, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 300ms ease;
+}
+
+/* Full-width bottom dock variant for slider & showcase cards */
+.hud-dock {
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-top-width: 1px !important;
+  border-top-style: solid !important;
+  border-radius: 0 0 inherit inherit !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hud-dock {
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.project-card:hover .hud-plaque {
+  transform: translateY(-2px);
+  border-color: transparent !important;
+}
+
+.project-card:hover .hud-plaque::before {
+  opacity: 1;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hud-plaque {
+  background-color: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hud-plaque h3,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hud-plaque h4 {
+  color: #09090b !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hud-plaque p {
+  color: #3f3f46 !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hud-plaque .hud-caption {
+  color: #71717a !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hud-pill {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #18181b !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .project-card:hover .hud-plaque {
+  box-shadow: 0 20px 40px -8px rgba(225, 29, 72, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+}
+
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hud-plaque {
+  background-color: rgba(18, 8, 36, 0.86);
+  border-color: rgba(244, 63, 94, 0.28);
+  box-shadow: 0 20px 45px -12px rgba(24, 6, 48, 0.7), 0 0 24px rgba(244, 63, 94, 0.15);
+}
+
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hud-pill {
+  background-color: rgba(18, 8, 36, 0.85) !important;
+  border-color: rgba(244, 63, 94, 0.25) !important;
+}
+
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .project-card:hover .hud-plaque {
+  box-shadow: 0 20px 45px -8px rgba(244, 63, 94, 0.25);
+}
+
+/* ===================================================================
+   THEATER DIALOG & IFRAME: ZERO ARTIFACT BORDERLESS RESET
+   Eliminates browser user-agent borders, focus outlines & WebKit sub-pixel seams
+   =================================================================== */
+dialog {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+dialog:focus,
+dialog:focus-visible,
+dialog *:focus,
+dialog *:focus-visible {
+  outline: none !important;
+  box-shadow: none;
+}
+
+dialog iframe {
+  border: 0 !important;
+  outline: none !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.theater-player-frame {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 30px 90px -15px rgba(0, 0, 0, 0.95);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  transform: translateZ(0);
+}
+
+/* ===================================================================
+   ABOUT HERO SOLID TINT OVERLAYS / ND FILTER (Adjustable via TinaCMS)
+   =================================================================== */
+.hero-glass-very-subtle {
+  background-color: rgba(10, 10, 12, 0.30);
+}
+
+.hero-glass-subtle {
+  background-color: rgba(10, 10, 12, 0.50);
+}
+
+.hero-glass-medium {
+  background-color: rgba(10, 10, 12, 0.70);
+}
+
+.hero-glass-strong {
+  background-color: rgba(10, 10, 12, 0.85);
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hero-glass-very-subtle {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hero-glass-subtle {
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hero-glass-medium {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .hero-glass-strong {
+  background-color: rgba(255, 255, 255, 0.90);
+}
+
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hero-glass-very-subtle {
+  background-color: rgba(18, 8, 36, 0.30);
+}
+
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hero-glass-subtle {
+  background-color: rgba(18, 8, 36, 0.50);
+}
+
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hero-glass-medium {
+  background-color: rgba(18, 8, 36, 0.70);
+}
+
+:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hero-glass-strong {
+  background-color: rgba(18, 8, 36, 0.85);
+}
+
+
+

@@ -619,50 +619,16 @@ export default defineConfig({
             description: "e.g. /showreel.mp4",
           },
           {
-            type: "object",
-            name: "slider",
-            label: "Slider",
-            description: "Showcase & BTS Video / Photo Slider",
-            fields: [
-              {
-                type: "string",
-                name: "heading",
-                label: "Slider Heading",
-                required: true,
-              },
-              {
-                type: "string",
-                name: "tag",
-                label: "Slider Eyebrow Tag",
-              },
-              {
-                type: "string",
-                name: "description",
-                label: "Slider Intro Description",
-                ui: {
-                  component: "textarea",
-                },
-              },
-              {
-                type: "object",
-                name: "slides",
-                label: "Slides",
-                description: "Add 1 or more showcase slides (video or image). With 1 slide, it displays as a featured showcase; with 2+ slides, it becomes an interactive slider.",
-                list: true,
-                ui: {
-                  itemProps: (item) => ({
-                    label: `${item?.name || "Slide"} — ${item?.formalRole || ""}`,
-                  }),
-                },
-                fields: [
-                  { type: "string", name: "name", label: "Title / Unit Name", required: true },
-                  { type: "string", name: "formalRole", label: "Subtitle / Specialty Tag", required: true },
-                  { type: "string", name: "bio", label: "Short Note / Scope (Optional)", ui: { component: "textarea" } },
-                  { type: "image", name: "avatar", label: "Still Image" },
-                  { type: "string", name: "videoLoop", label: "Video Loop URL/Path (Optional, e.g. /showreel.mp4)" },
-                  { type: "string", name: "badge", label: "Custom Badge (Optional, e.g. LIVE REEL)" },
-                ],
-              },
+            type: "string",
+            name: "heroFrostedGlass",
+            label: "Hero Background Solid Tint / ND Filter",
+            description: "Solid opacity tint over the background video (subtle is recommended)",
+            options: [
+              { value: "none", label: "None (Full Raw Video Clarity)" },
+              { value: "very-subtle", label: "Very Subtle (Light 30% ND Tint)" },
+              { value: "subtle", label: "Subtle (Balanced 50% ND Tint, Recommended)" },
+              { value: "medium", label: "Medium (Strong 70% ND Tint)" },
+              { value: "strong", label: "Strong (Heavy 85% ND Tint)" },
             ],
           },
           {
@@ -774,6 +740,61 @@ export default defineConfig({
             name: "ctaButtonLink",
             label: "Bottom CTA Button Link",
             required: true,
+          },
+        ],
+      },
+      {
+        name: "aboutSlider",
+        label: "About Slider",
+        path: "src/content/pages",
+        format: "json",
+        match: {
+          include: "slider",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "heading",
+            label: "Slider Heading",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "tag",
+            label: "Slider Eyebrow Tag",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Slider Intro Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "object",
+            name: "slides",
+            label: "Slides",
+            description: "Add 1 or more showcase slides (video or image). With 1 slide, it displays as a featured showcase; with 2+ slides, it becomes an interactive slider.",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.name || "Slide",
+              }),
+            },
+            fields: [
+              { type: "string", name: "name", label: "Title / Unit Name", required: true },
+              { type: "string", name: "bio", label: "Short Note / Scope (Optional)", ui: { component: "textarea" } },
+              { type: "image", name: "avatar", label: "Still Image" },
+              { type: "string", name: "videoLoop", label: "Video Loop URL/Path (Optional, e.g. /showreel.mp4)" },
+              { type: "string", name: "badge", label: "Custom Badge (Optional, e.g. LIVE REEL)" },
+            ],
           },
         ],
       },
@@ -936,7 +957,7 @@ export default defineConfig({
             type: "string",
             name: "heroHeading",
             label: "Subpage Hero Heading",
-            description: "e.g. Dynamic Multi-Camera Coverage for High-Stakes Events.",
+            description: "Wrap words in asterisks for the amber gradient. e.g. Dynamic *Multi-Camera* Coverage.",
             required: true,
           },
           {
@@ -1054,6 +1075,9 @@ export default defineConfig({
         label: "Site & Branding",
         path: "src/content/settings",
         format: "json",
+        match: {
+          include: "site",
+        },
         ui: {
           allowedActions: {
             create: false,
@@ -1082,6 +1106,276 @@ export default defineConfig({
             type: "image",
             name: "logoImagePath",
             label: "Logo Image",
+          },
+        ],
+      },
+      {
+        name: "gradeSettings",
+        label: "Grade Switcher",
+        path: "src/content/settings",
+        format: "json",
+        match: {
+          include: "theme",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "defaultTheme",
+            label: "Default Global Aesthetic / Grade",
+            description: "Baseline visual grade for visitors (Dark Noir, High-Key Light, or Supernova Gradient)",
+            options: [
+              { value: "dark-noir", label: "Dark Noir (Obsidian Low-Key Cinema)" },
+              { value: "high-key", label: "High-Key Light (Crisp Minimalist Studio)" },
+              { value: "supernova", label: "Supernova Gradient (Cosmic Duotone Mesh)" },
+            ],
+          },
+          {
+            type: "boolean",
+            name: "enableThemeSwitcher",
+            label: "Enable Floating Grade Switcher?",
+            description: "Show the slide-out Grade Switcher dock on the right edge of the viewport",
+          },
+          {
+            type: "string",
+            name: "themeSwitcherTitle",
+            label: "Grade Switcher Title (Optional)",
+            description: "Header label for the compact grade dock (default: GRADE)",
+          },
+          {
+            type: "string",
+            name: "darkNoirAccentColor",
+            label: "Dark Noir Accent Color (Hex)",
+            description: "Default: #e8c547 (Warm Tungsten Amber)",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "highKeyAccentColor",
+            label: "High-Key Accent Color (Hex)",
+            description: "Default: #e11d48 (Cinema Tally Red)",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "highKeyBgColor",
+            label: "High-Key Background Canvas (Hex)",
+            description: "Default: #ffffff (Pure Studio White)",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "supernovaAccentColor",
+            label: "Supernova Accent Color (Hex)",
+            description: "Default: #f43f5e (Electric Neon Rose)",
+            ui: {
+              component: "color",
+            },
+          },
+        ],
+      },
+      {
+        name: "footerSettings",
+        label: "Footer",
+        path: "src/content/settings",
+        format: "json",
+        match: {
+          include: "footer",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          // Top Tier: Tagline & Commission Button
+          {
+            type: "string",
+            name: "studioTagline",
+            label: "Top: Studio Scope Tagline",
+            description: "Descriptive studio capability sentence under the brand wordmark",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "commissionButtonLabel",
+            label: "Top: Commission Button Label",
+          },
+          {
+            type: "string",
+            name: "commissionButtonLink",
+            label: "Top: Commission Button Link",
+          },
+
+          // Column 1: Capabilities / Services
+          {
+            type: "string",
+            name: "capabilitiesHeading",
+            label: "Col 1: Capabilities Heading",
+          },
+          {
+            type: "string",
+            name: "servicesLinkLabel",
+            label: "Col 1: Bottom Link Label",
+            description: "e.g. All Services & Specs →",
+          },
+          {
+            type: "string",
+            name: "servicesLinkUrl",
+            label: "Col 1: Bottom Link URL",
+            description: "e.g. /services",
+          },
+
+          // Column 2: Studio / Navigation Links
+          {
+            type: "string",
+            name: "studioHeading",
+            label: "Col 2: Navigation Heading",
+          },
+          {
+            type: "object",
+            name: "studioLinks",
+            label: "Col 2: Navigation Links",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.label ? `${item.label} (${item?.href || ""})` : "Navigation Link",
+              }),
+            },
+            fields: [
+              { type: "string", name: "label", label: "Link Label", required: true },
+              { type: "string", name: "href", label: "Link URL", required: true },
+            ],
+          },
+
+          // Column 3: Presence / Locations
+          {
+            type: "string",
+            name: "presenceHeading",
+            label: "Col 3: Presence Heading",
+          },
+          {
+            type: "string",
+            name: "cambridgeTitle",
+            label: "Col 3: Cambridge Title / Label",
+            description: "Default: Cambridge Studio",
+          },
+          {
+            type: "string",
+            name: "cambridgeSubtitle",
+            label: "Col 3: Cambridge Subtitle",
+          },
+          {
+            type: "string",
+            name: "cambridgeLink",
+            label: "Col 3: Cambridge Link URL",
+          },
+          {
+            type: "string",
+            name: "londonTitle",
+            label: "Col 3: London Title / Label",
+            description: "Default: London Base",
+          },
+          {
+            type: "string",
+            name: "londonSubtitle",
+            label: "Col 3: London Subtitle",
+          },
+          {
+            type: "string",
+            name: "worldwideTitle",
+            label: "Col 3: Worldwide Title / Label",
+            description: "Default: UK-Wide & Worldwide",
+          },
+          {
+            type: "string",
+            name: "worldwideSubtitle",
+            label: "Col 3: Worldwide Subtitle",
+          },
+
+          // Column 4: Direct Inquiries & Specs
+          {
+            type: "string",
+            name: "directHeading",
+            label: "Col 4: Direct Heading",
+          },
+          {
+            type: "string",
+            name: "inquiriesLabel",
+            label: "Col 4: Inquiries Section Label",
+            description: "Default: Inquiries",
+          },
+          {
+            type: "string",
+            name: "inquiriesActionText",
+            label: "Col 4: Inquiries Button / Link Text",
+            description: "Default: Start Project Brief →",
+          },
+          {
+            type: "string",
+            name: "inquiriesActionLink",
+            label: "Col 4: Inquiries Link URL",
+            description: "Default: /contact",
+          },
+          {
+            type: "string",
+            name: "productionHubLabel",
+            label: "Col 4: Production Hub Label",
+            description: "Default: Production Hub",
+          },
+          {
+            type: "string",
+            name: "productionHub",
+            label: "Col 4: Production Hub Text",
+          },
+          {
+            type: "string",
+            name: "capturePipelineLabel",
+            label: "Col 4: Capture Pipeline Label",
+            description: "Default: Capture Pipeline",
+          },
+          {
+            type: "string",
+            name: "capturePipeline",
+            label: "Col 4: Capture Pipeline Specs",
+          },
+          {
+            type: "string",
+            name: "studioStatusLabel",
+            label: "Col 4: Studio Status Label",
+            description: "Default: Studio Status",
+          },
+          {
+            type: "string",
+            name: "studioStatus",
+            label: "Col 4: Studio Status Text",
+          },
+
+          // Bottom Colophon
+          {
+            type: "string",
+            name: "copyrightTagline",
+            label: "Bottom Colophon: Tagline",
+          },
+          {
+            type: "string",
+            name: "backToTopLabel",
+            label: "Bottom Colophon: Back to Top Label",
+            description: "Default: Back to top",
           },
         ],
       },

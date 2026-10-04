@@ -94,12 +94,18 @@ export type Query = {
   cambridgePageConnection: CambridgePageConnection;
   aboutPage: AboutPage;
   aboutPageConnection: AboutPageConnection;
+  aboutSlider: AboutSlider;
+  aboutSliderConnection: AboutSliderConnection;
   project: Project;
   projectConnection: ProjectConnection;
   service: Service;
   serviceConnection: ServiceConnection;
   siteSettings: SiteSettings;
   siteSettingsConnection: SiteSettingsConnection;
+  gradeSettings: GradeSettings;
+  gradeSettingsConnection: GradeSettingsConnection;
+  footerSettings: FooterSettings;
+  footerSettingsConnection: FooterSettingsConnection;
 };
 
 
@@ -199,6 +205,21 @@ export type QueryAboutPageConnectionArgs = {
 };
 
 
+export type QueryAboutSliderArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAboutSliderConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<AboutSliderFilter>;
+};
+
+
 export type QueryProjectArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -243,15 +264,48 @@ export type QuerySiteSettingsConnectionArgs = {
   filter?: InputMaybe<SiteSettingsFilter>;
 };
 
+
+export type QueryGradeSettingsArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryGradeSettingsConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<GradeSettingsFilter>;
+};
+
+
+export type QueryFooterSettingsArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryFooterSettingsConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<FooterSettingsFilter>;
+};
+
 export type DocumentFilter = {
   homepage?: InputMaybe<HomepageFilter>;
   workPage?: InputMaybe<WorkPageFilter>;
   servicesPage?: InputMaybe<ServicesPageFilter>;
   cambridgePage?: InputMaybe<CambridgePageFilter>;
   aboutPage?: InputMaybe<AboutPageFilter>;
+  aboutSlider?: InputMaybe<AboutSliderFilter>;
   project?: InputMaybe<ProjectFilter>;
   service?: InputMaybe<ServiceFilter>;
   siteSettings?: InputMaybe<SiteSettingsFilter>;
+  gradeSettings?: InputMaybe<GradeSettingsFilter>;
+  footerSettings?: InputMaybe<FooterSettingsFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -291,7 +345,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | Project | Service | SiteSettings | Folder;
+export type DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | AboutSlider | Project | Service | SiteSettings | GradeSettings | FooterSettings | Folder;
 
 export type Homepage = Node & Document & {
   __typename?: 'Homepage';
@@ -538,24 +592,6 @@ export type CambridgePageConnection = Connection & {
   edges?: Maybe<Array<Maybe<CambridgePageConnectionEdges>>>;
 };
 
-export type AboutPageSliderSlides = {
-  __typename?: 'AboutPageSliderSlides';
-  name: Scalars['String']['output'];
-  formalRole: Scalars['String']['output'];
-  bio?: Maybe<Scalars['String']['output']>;
-  avatar?: Maybe<Scalars['String']['output']>;
-  videoLoop?: Maybe<Scalars['String']['output']>;
-  badge?: Maybe<Scalars['String']['output']>;
-};
-
-export type AboutPageSlider = {
-  __typename?: 'AboutPageSlider';
-  heading: Scalars['String']['output'];
-  tag?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  slides?: Maybe<Array<Maybe<AboutPageSliderSlides>>>;
-};
-
 export type AboutPageBtsItems = {
   __typename?: 'AboutPageBtsItems';
   title: Scalars['String']['output'];
@@ -584,7 +620,7 @@ export type AboutPage = Node & Document & {
   manifestoQuote?: Maybe<Scalars['String']['output']>;
   manifestoAuthor?: Maybe<Scalars['String']['output']>;
   heroVideoPath?: Maybe<Scalars['String']['output']>;
-  slider?: Maybe<AboutPageSlider>;
+  heroFrostedGlass?: Maybe<Scalars['String']['output']>;
   btsHeading?: Maybe<Scalars['String']['output']>;
   btsTag?: Maybe<Scalars['String']['output']>;
   btsDescription?: Maybe<Scalars['String']['output']>;
@@ -600,22 +636,6 @@ export type AboutPage = Node & Document & {
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
-};
-
-export type AboutPageSliderSlidesFilter = {
-  name?: InputMaybe<StringFilter>;
-  formalRole?: InputMaybe<StringFilter>;
-  bio?: InputMaybe<StringFilter>;
-  avatar?: InputMaybe<ImageFilter>;
-  videoLoop?: InputMaybe<StringFilter>;
-  badge?: InputMaybe<StringFilter>;
-};
-
-export type AboutPageSliderFilter = {
-  heading?: InputMaybe<StringFilter>;
-  tag?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  slides?: InputMaybe<AboutPageSliderSlidesFilter>;
 };
 
 export type AboutPageBtsItemsFilter = {
@@ -643,7 +663,7 @@ export type AboutPageFilter = {
   manifestoQuote?: InputMaybe<StringFilter>;
   manifestoAuthor?: InputMaybe<StringFilter>;
   heroVideoPath?: InputMaybe<StringFilter>;
-  slider?: InputMaybe<AboutPageSliderFilter>;
+  heroFrostedGlass?: InputMaybe<StringFilter>;
   btsHeading?: InputMaybe<StringFilter>;
   btsTag?: InputMaybe<StringFilter>;
   btsDescription?: InputMaybe<StringFilter>;
@@ -669,6 +689,54 @@ export type AboutPageConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
   edges?: Maybe<Array<Maybe<AboutPageConnectionEdges>>>;
+};
+
+export type AboutSliderSlides = {
+  __typename?: 'AboutSliderSlides';
+  name: Scalars['String']['output'];
+  bio?: Maybe<Scalars['String']['output']>;
+  avatar?: Maybe<Scalars['String']['output']>;
+  videoLoop?: Maybe<Scalars['String']['output']>;
+  badge?: Maybe<Scalars['String']['output']>;
+};
+
+export type AboutSlider = Node & Document & {
+  __typename?: 'AboutSlider';
+  heading: Scalars['String']['output'];
+  tag?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  slides?: Maybe<Array<Maybe<AboutSliderSlides>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type AboutSliderSlidesFilter = {
+  name?: InputMaybe<StringFilter>;
+  bio?: InputMaybe<StringFilter>;
+  avatar?: InputMaybe<ImageFilter>;
+  videoLoop?: InputMaybe<StringFilter>;
+  badge?: InputMaybe<StringFilter>;
+};
+
+export type AboutSliderFilter = {
+  heading?: InputMaybe<StringFilter>;
+  tag?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  slides?: InputMaybe<AboutSliderSlidesFilter>;
+};
+
+export type AboutSliderConnectionEdges = {
+  __typename?: 'AboutSliderConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<AboutSlider>;
+};
+
+export type AboutSliderConnection = Connection & {
+  __typename?: 'AboutSliderConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<AboutSliderConnectionEdges>>>;
 };
 
 export type Project = Node & Document & {
@@ -828,6 +896,133 @@ export type SiteSettingsConnection = Connection & {
   edges?: Maybe<Array<Maybe<SiteSettingsConnectionEdges>>>;
 };
 
+export type GradeSettings = Node & Document & {
+  __typename?: 'GradeSettings';
+  defaultTheme?: Maybe<Scalars['String']['output']>;
+  enableThemeSwitcher?: Maybe<Scalars['Boolean']['output']>;
+  themeSwitcherTitle?: Maybe<Scalars['String']['output']>;
+  darkNoirAccentColor?: Maybe<Scalars['String']['output']>;
+  highKeyAccentColor?: Maybe<Scalars['String']['output']>;
+  highKeyBgColor?: Maybe<Scalars['String']['output']>;
+  supernovaAccentColor?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type GradeSettingsFilter = {
+  defaultTheme?: InputMaybe<StringFilter>;
+  enableThemeSwitcher?: InputMaybe<BooleanFilter>;
+  themeSwitcherTitle?: InputMaybe<StringFilter>;
+  darkNoirAccentColor?: InputMaybe<StringFilter>;
+  highKeyAccentColor?: InputMaybe<StringFilter>;
+  highKeyBgColor?: InputMaybe<StringFilter>;
+  supernovaAccentColor?: InputMaybe<StringFilter>;
+};
+
+export type GradeSettingsConnectionEdges = {
+  __typename?: 'GradeSettingsConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<GradeSettings>;
+};
+
+export type GradeSettingsConnection = Connection & {
+  __typename?: 'GradeSettingsConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<GradeSettingsConnectionEdges>>>;
+};
+
+export type FooterSettingsStudioLinks = {
+  __typename?: 'FooterSettingsStudioLinks';
+  label: Scalars['String']['output'];
+  href: Scalars['String']['output'];
+};
+
+export type FooterSettings = Node & Document & {
+  __typename?: 'FooterSettings';
+  studioTagline?: Maybe<Scalars['String']['output']>;
+  commissionButtonLabel?: Maybe<Scalars['String']['output']>;
+  commissionButtonLink?: Maybe<Scalars['String']['output']>;
+  capabilitiesHeading?: Maybe<Scalars['String']['output']>;
+  servicesLinkLabel?: Maybe<Scalars['String']['output']>;
+  servicesLinkUrl?: Maybe<Scalars['String']['output']>;
+  studioHeading?: Maybe<Scalars['String']['output']>;
+  studioLinks?: Maybe<Array<Maybe<FooterSettingsStudioLinks>>>;
+  presenceHeading?: Maybe<Scalars['String']['output']>;
+  cambridgeTitle?: Maybe<Scalars['String']['output']>;
+  cambridgeSubtitle?: Maybe<Scalars['String']['output']>;
+  cambridgeLink?: Maybe<Scalars['String']['output']>;
+  londonTitle?: Maybe<Scalars['String']['output']>;
+  londonSubtitle?: Maybe<Scalars['String']['output']>;
+  worldwideTitle?: Maybe<Scalars['String']['output']>;
+  worldwideSubtitle?: Maybe<Scalars['String']['output']>;
+  directHeading?: Maybe<Scalars['String']['output']>;
+  inquiriesLabel?: Maybe<Scalars['String']['output']>;
+  inquiriesActionText?: Maybe<Scalars['String']['output']>;
+  inquiriesActionLink?: Maybe<Scalars['String']['output']>;
+  productionHubLabel?: Maybe<Scalars['String']['output']>;
+  productionHub?: Maybe<Scalars['String']['output']>;
+  capturePipelineLabel?: Maybe<Scalars['String']['output']>;
+  capturePipeline?: Maybe<Scalars['String']['output']>;
+  studioStatusLabel?: Maybe<Scalars['String']['output']>;
+  studioStatus?: Maybe<Scalars['String']['output']>;
+  copyrightTagline?: Maybe<Scalars['String']['output']>;
+  backToTopLabel?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type FooterSettingsStudioLinksFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type FooterSettingsFilter = {
+  studioTagline?: InputMaybe<StringFilter>;
+  commissionButtonLabel?: InputMaybe<StringFilter>;
+  commissionButtonLink?: InputMaybe<StringFilter>;
+  capabilitiesHeading?: InputMaybe<StringFilter>;
+  servicesLinkLabel?: InputMaybe<StringFilter>;
+  servicesLinkUrl?: InputMaybe<StringFilter>;
+  studioHeading?: InputMaybe<StringFilter>;
+  studioLinks?: InputMaybe<FooterSettingsStudioLinksFilter>;
+  presenceHeading?: InputMaybe<StringFilter>;
+  cambridgeTitle?: InputMaybe<StringFilter>;
+  cambridgeSubtitle?: InputMaybe<StringFilter>;
+  cambridgeLink?: InputMaybe<StringFilter>;
+  londonTitle?: InputMaybe<StringFilter>;
+  londonSubtitle?: InputMaybe<StringFilter>;
+  worldwideTitle?: InputMaybe<StringFilter>;
+  worldwideSubtitle?: InputMaybe<StringFilter>;
+  directHeading?: InputMaybe<StringFilter>;
+  inquiriesLabel?: InputMaybe<StringFilter>;
+  inquiriesActionText?: InputMaybe<StringFilter>;
+  inquiriesActionLink?: InputMaybe<StringFilter>;
+  productionHubLabel?: InputMaybe<StringFilter>;
+  productionHub?: InputMaybe<StringFilter>;
+  capturePipelineLabel?: InputMaybe<StringFilter>;
+  capturePipeline?: InputMaybe<StringFilter>;
+  studioStatusLabel?: InputMaybe<StringFilter>;
+  studioStatus?: InputMaybe<StringFilter>;
+  copyrightTagline?: InputMaybe<StringFilter>;
+  backToTopLabel?: InputMaybe<StringFilter>;
+};
+
+export type FooterSettingsConnectionEdges = {
+  __typename?: 'FooterSettingsConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<FooterSettings>;
+};
+
+export type FooterSettingsConnection = Connection & {
+  __typename?: 'FooterSettingsConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<FooterSettingsConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -845,12 +1040,18 @@ export type Mutation = {
   createCambridgePage: CambridgePage;
   updateAboutPage: AboutPage;
   createAboutPage: AboutPage;
+  updateAboutSlider: AboutSlider;
+  createAboutSlider: AboutSlider;
   updateProject: Project;
   createProject: Project;
   updateService: Service;
   createService: Service;
   updateSiteSettings: SiteSettings;
   createSiteSettings: SiteSettings;
+  updateGradeSettings: GradeSettings;
+  createGradeSettings: GradeSettings;
+  updateFooterSettings: FooterSettings;
+  createFooterSettings: FooterSettings;
 };
 
 
@@ -947,6 +1148,18 @@ export type MutationCreateAboutPageArgs = {
 };
 
 
+export type MutationUpdateAboutSliderArgs = {
+  relativePath: Scalars['String']['input'];
+  params: AboutSliderMutation;
+};
+
+
+export type MutationCreateAboutSliderArgs = {
+  relativePath: Scalars['String']['input'];
+  params: AboutSliderMutation;
+};
+
+
 export type MutationUpdateProjectArgs = {
   relativePath: Scalars['String']['input'];
   params: ProjectMutation;
@@ -982,15 +1195,42 @@ export type MutationCreateSiteSettingsArgs = {
   params: SiteSettingsMutation;
 };
 
+
+export type MutationUpdateGradeSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: GradeSettingsMutation;
+};
+
+
+export type MutationCreateGradeSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: GradeSettingsMutation;
+};
+
+
+export type MutationUpdateFooterSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: FooterSettingsMutation;
+};
+
+
+export type MutationCreateFooterSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: FooterSettingsMutation;
+};
+
 export type DocumentUpdateMutation = {
   homepage?: InputMaybe<HomepageMutation>;
   workPage?: InputMaybe<WorkPageMutation>;
   servicesPage?: InputMaybe<ServicesPageMutation>;
   cambridgePage?: InputMaybe<CambridgePageMutation>;
   aboutPage?: InputMaybe<AboutPageMutation>;
+  aboutSlider?: InputMaybe<AboutSliderMutation>;
   project?: InputMaybe<ProjectMutation>;
   service?: InputMaybe<ServiceMutation>;
   siteSettings?: InputMaybe<SiteSettingsMutation>;
+  gradeSettings?: InputMaybe<GradeSettingsMutation>;
+  footerSettings?: InputMaybe<FooterSettingsMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -1000,9 +1240,12 @@ export type DocumentMutation = {
   servicesPage?: InputMaybe<ServicesPageMutation>;
   cambridgePage?: InputMaybe<CambridgePageMutation>;
   aboutPage?: InputMaybe<AboutPageMutation>;
+  aboutSlider?: InputMaybe<AboutSliderMutation>;
   project?: InputMaybe<ProjectMutation>;
   service?: InputMaybe<ServiceMutation>;
   siteSettings?: InputMaybe<SiteSettingsMutation>;
+  gradeSettings?: InputMaybe<GradeSettingsMutation>;
+  footerSettings?: InputMaybe<FooterSettingsMutation>;
 };
 
 export type HomepageMutation = {
@@ -1086,22 +1329,6 @@ export type CambridgePageMutation = {
   bottomCtaLink?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type AboutPageSliderSlidesMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  formalRole?: InputMaybe<Scalars['String']['input']>;
-  bio?: InputMaybe<Scalars['String']['input']>;
-  avatar?: InputMaybe<Scalars['String']['input']>;
-  videoLoop?: InputMaybe<Scalars['String']['input']>;
-  badge?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AboutPageSliderMutation = {
-  heading?: InputMaybe<Scalars['String']['input']>;
-  tag?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  slides?: InputMaybe<Array<InputMaybe<AboutPageSliderSlidesMutation>>>;
-};
-
 export type AboutPageBtsItemsMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   category?: InputMaybe<Scalars['String']['input']>;
@@ -1127,7 +1354,7 @@ export type AboutPageMutation = {
   manifestoQuote?: InputMaybe<Scalars['String']['input']>;
   manifestoAuthor?: InputMaybe<Scalars['String']['input']>;
   heroVideoPath?: InputMaybe<Scalars['String']['input']>;
-  slider?: InputMaybe<AboutPageSliderMutation>;
+  heroFrostedGlass?: InputMaybe<Scalars['String']['input']>;
   btsHeading?: InputMaybe<Scalars['String']['input']>;
   btsTag?: InputMaybe<Scalars['String']['input']>;
   btsDescription?: InputMaybe<Scalars['String']['input']>;
@@ -1140,6 +1367,21 @@ export type AboutPageMutation = {
   ctaText?: InputMaybe<Scalars['String']['input']>;
   ctaButtonLabel?: InputMaybe<Scalars['String']['input']>;
   ctaButtonLink?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutSliderSlidesMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  bio?: InputMaybe<Scalars['String']['input']>;
+  avatar?: InputMaybe<Scalars['String']['input']>;
+  videoLoop?: InputMaybe<Scalars['String']['input']>;
+  badge?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutSliderMutation = {
+  heading?: InputMaybe<Scalars['String']['input']>;
+  tag?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  slides?: InputMaybe<Array<InputMaybe<AboutSliderSlidesMutation>>>;
 };
 
 export type ProjectMutation = {
@@ -1190,6 +1432,52 @@ export type SiteSettingsMutation = {
   logoText?: InputMaybe<Scalars['String']['input']>;
   useImageLogo?: InputMaybe<Scalars['Boolean']['input']>;
   logoImagePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GradeSettingsMutation = {
+  defaultTheme?: InputMaybe<Scalars['String']['input']>;
+  enableThemeSwitcher?: InputMaybe<Scalars['Boolean']['input']>;
+  themeSwitcherTitle?: InputMaybe<Scalars['String']['input']>;
+  darkNoirAccentColor?: InputMaybe<Scalars['String']['input']>;
+  highKeyAccentColor?: InputMaybe<Scalars['String']['input']>;
+  highKeyBgColor?: InputMaybe<Scalars['String']['input']>;
+  supernovaAccentColor?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type FooterSettingsStudioLinksMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type FooterSettingsMutation = {
+  studioTagline?: InputMaybe<Scalars['String']['input']>;
+  commissionButtonLabel?: InputMaybe<Scalars['String']['input']>;
+  commissionButtonLink?: InputMaybe<Scalars['String']['input']>;
+  capabilitiesHeading?: InputMaybe<Scalars['String']['input']>;
+  servicesLinkLabel?: InputMaybe<Scalars['String']['input']>;
+  servicesLinkUrl?: InputMaybe<Scalars['String']['input']>;
+  studioHeading?: InputMaybe<Scalars['String']['input']>;
+  studioLinks?: InputMaybe<Array<InputMaybe<FooterSettingsStudioLinksMutation>>>;
+  presenceHeading?: InputMaybe<Scalars['String']['input']>;
+  cambridgeTitle?: InputMaybe<Scalars['String']['input']>;
+  cambridgeSubtitle?: InputMaybe<Scalars['String']['input']>;
+  cambridgeLink?: InputMaybe<Scalars['String']['input']>;
+  londonTitle?: InputMaybe<Scalars['String']['input']>;
+  londonSubtitle?: InputMaybe<Scalars['String']['input']>;
+  worldwideTitle?: InputMaybe<Scalars['String']['input']>;
+  worldwideSubtitle?: InputMaybe<Scalars['String']['input']>;
+  directHeading?: InputMaybe<Scalars['String']['input']>;
+  inquiriesLabel?: InputMaybe<Scalars['String']['input']>;
+  inquiriesActionText?: InputMaybe<Scalars['String']['input']>;
+  inquiriesActionLink?: InputMaybe<Scalars['String']['input']>;
+  productionHubLabel?: InputMaybe<Scalars['String']['input']>;
+  productionHub?: InputMaybe<Scalars['String']['input']>;
+  capturePipelineLabel?: InputMaybe<Scalars['String']['input']>;
+  capturePipeline?: InputMaybe<Scalars['String']['input']>;
+  studioStatusLabel?: InputMaybe<Scalars['String']['input']>;
+  studioStatus?: InputMaybe<Scalars['String']['input']>;
+  copyrightTagline?: InputMaybe<Scalars['String']['input']>;
+  backToTopLabel?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type StringFilter = {
@@ -1287,22 +1575,6 @@ export type CambridgePageFilter = {
   bottomCtaLink?: StringFilter | null | undefined;
 };
 
-export type AboutPageSliderSlidesFilter = {
-  name?: StringFilter | null | undefined;
-  formalRole?: StringFilter | null | undefined;
-  bio?: StringFilter | null | undefined;
-  avatar?: ImageFilter | null | undefined;
-  videoLoop?: StringFilter | null | undefined;
-  badge?: StringFilter | null | undefined;
-};
-
-export type AboutPageSliderFilter = {
-  heading?: StringFilter | null | undefined;
-  tag?: StringFilter | null | undefined;
-  description?: StringFilter | null | undefined;
-  slides?: AboutPageSliderSlidesFilter | null | undefined;
-};
-
 export type AboutPageBtsItemsFilter = {
   title?: StringFilter | null | undefined;
   category?: StringFilter | null | undefined;
@@ -1328,7 +1600,7 @@ export type AboutPageFilter = {
   manifestoQuote?: StringFilter | null | undefined;
   manifestoAuthor?: StringFilter | null | undefined;
   heroVideoPath?: StringFilter | null | undefined;
-  slider?: AboutPageSliderFilter | null | undefined;
+  heroFrostedGlass?: StringFilter | null | undefined;
   btsHeading?: StringFilter | null | undefined;
   btsTag?: StringFilter | null | undefined;
   btsDescription?: StringFilter | null | undefined;
@@ -1341,6 +1613,21 @@ export type AboutPageFilter = {
   ctaText?: StringFilter | null | undefined;
   ctaButtonLabel?: StringFilter | null | undefined;
   ctaButtonLink?: StringFilter | null | undefined;
+};
+
+export type AboutSliderSlidesFilter = {
+  name?: StringFilter | null | undefined;
+  bio?: StringFilter | null | undefined;
+  avatar?: ImageFilter | null | undefined;
+  videoLoop?: StringFilter | null | undefined;
+  badge?: StringFilter | null | undefined;
+};
+
+export type AboutSliderFilter = {
+  heading?: StringFilter | null | undefined;
+  tag?: StringFilter | null | undefined;
+  description?: StringFilter | null | undefined;
+  slides?: AboutSliderSlidesFilter | null | undefined;
 };
 
 export type ProjectFilter = {
@@ -1398,6 +1685,52 @@ export type SiteSettingsFilter = {
   logoImagePath?: ImageFilter | null | undefined;
 };
 
+export type GradeSettingsFilter = {
+  defaultTheme?: StringFilter | null | undefined;
+  enableThemeSwitcher?: BooleanFilter | null | undefined;
+  themeSwitcherTitle?: StringFilter | null | undefined;
+  darkNoirAccentColor?: StringFilter | null | undefined;
+  highKeyAccentColor?: StringFilter | null | undefined;
+  highKeyBgColor?: StringFilter | null | undefined;
+  supernovaAccentColor?: StringFilter | null | undefined;
+};
+
+export type FooterSettingsStudioLinksFilter = {
+  label?: StringFilter | null | undefined;
+  href?: StringFilter | null | undefined;
+};
+
+export type FooterSettingsFilter = {
+  studioTagline?: StringFilter | null | undefined;
+  commissionButtonLabel?: StringFilter | null | undefined;
+  commissionButtonLink?: StringFilter | null | undefined;
+  capabilitiesHeading?: StringFilter | null | undefined;
+  servicesLinkLabel?: StringFilter | null | undefined;
+  servicesLinkUrl?: StringFilter | null | undefined;
+  studioHeading?: StringFilter | null | undefined;
+  studioLinks?: FooterSettingsStudioLinksFilter | null | undefined;
+  presenceHeading?: StringFilter | null | undefined;
+  cambridgeTitle?: StringFilter | null | undefined;
+  cambridgeSubtitle?: StringFilter | null | undefined;
+  cambridgeLink?: StringFilter | null | undefined;
+  londonTitle?: StringFilter | null | undefined;
+  londonSubtitle?: StringFilter | null | undefined;
+  worldwideTitle?: StringFilter | null | undefined;
+  worldwideSubtitle?: StringFilter | null | undefined;
+  directHeading?: StringFilter | null | undefined;
+  inquiriesLabel?: StringFilter | null | undefined;
+  inquiriesActionText?: StringFilter | null | undefined;
+  inquiriesActionLink?: StringFilter | null | undefined;
+  productionHubLabel?: StringFilter | null | undefined;
+  productionHub?: StringFilter | null | undefined;
+  capturePipelineLabel?: StringFilter | null | undefined;
+  capturePipeline?: StringFilter | null | undefined;
+  studioStatusLabel?: StringFilter | null | undefined;
+  studioStatus?: StringFilter | null | undefined;
+  copyrightTagline?: StringFilter | null | undefined;
+  backToTopLabel?: StringFilter | null | undefined;
+};
+
 export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string };
 
 export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string };
@@ -1406,13 +1739,19 @@ export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: 
 
 export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
 
-export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroVideoPath: string | null, btsHeading: string | null, btsTag: string | null, btsDescription: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, slider: { __typename: 'AboutPageSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutPageSliderSlides', name: string, formalRole: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null } | null, btsItems: Array<{ __typename: 'AboutPageBtsItems', title: string, category: string, image: string | null, caption: string | null, aspectRatio: string | null } | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, draftLabel: string, takeNumber: string | null, title: string, description: string, badge: string | null } | null> | null };
+export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroVideoPath: string | null, heroFrostedGlass: string | null, btsHeading: string | null, btsTag: string | null, btsDescription: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, btsItems: Array<{ __typename: 'AboutPageBtsItems', title: string, category: string, image: string | null, caption: string | null, aspectRatio: string | null } | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, draftLabel: string, takeNumber: string | null, title: string, description: string, badge: string | null } | null> | null };
+
+export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutSliderSlides', name: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null };
 
 export type ProjectPartsFragment = { __typename: 'Project', order: string, title: string, client: string, category: string, runtime: string, description: string, backgroundStyle: string, videoUrl: string, thumbnail: string, brightnessStyle: string };
 
 export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string | null, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
 
 export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null };
+
+export type GradeSettingsPartsFragment = { __typename: 'GradeSettings', defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirAccentColor: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaAccentColor: string | null };
+
+export type FooterSettingsPartsFragment = { __typename: 'FooterSettings', studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null };
 
 export type HomepageQueryVariables = Exact<{
   relativePath: string;
@@ -1495,7 +1834,7 @@ export type AboutPageQueryVariables = Exact<{
 }>;
 
 
-export type AboutPageQuery = { aboutPage: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroVideoPath: string | null, btsHeading: string | null, btsTag: string | null, btsDescription: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, slider: { __typename: 'AboutPageSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutPageSliderSlides', name: string, formalRole: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null } | null, btsItems: Array<{ __typename: 'AboutPageBtsItems', title: string, category: string, image: string | null, caption: string | null, aspectRatio: string | null } | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, draftLabel: string, takeNumber: string | null, title: string, description: string, badge: string | null } | null> | null } };
+export type AboutPageQuery = { aboutPage: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroVideoPath: string | null, heroFrostedGlass: string | null, btsHeading: string | null, btsTag: string | null, btsDescription: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, btsItems: Array<{ __typename: 'AboutPageBtsItems', title: string, category: string, image: string | null, caption: string | null, aspectRatio: string | null } | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, draftLabel: string, takeNumber: string | null, title: string, description: string, badge: string | null } | null> | null } };
 
 export type AboutPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1507,7 +1846,26 @@ export type AboutPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AboutPageConnectionQuery = { aboutPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroVideoPath: string | null, btsHeading: string | null, btsTag: string | null, btsDescription: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, slider: { __typename: 'AboutPageSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutPageSliderSlides', name: string, formalRole: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null } | null, btsItems: Array<{ __typename: 'AboutPageBtsItems', title: string, category: string, image: string | null, caption: string | null, aspectRatio: string | null } | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, draftLabel: string, takeNumber: string | null, title: string, description: string, badge: string | null } | null> | null } | null } | null> | null } };
+export type AboutPageConnectionQuery = { aboutPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroVideoPath: string | null, heroFrostedGlass: string | null, btsHeading: string | null, btsTag: string | null, btsDescription: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, btsItems: Array<{ __typename: 'AboutPageBtsItems', title: string, category: string, image: string | null, caption: string | null, aspectRatio: string | null } | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, draftLabel: string, takeNumber: string | null, title: string, description: string, badge: string | null } | null> | null } | null } | null> | null } };
+
+export type AboutSliderQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type AboutSliderQuery = { aboutSlider: { __typename: 'AboutSlider', id: string, heading: string, tag: string | null, description: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, slides: Array<{ __typename: 'AboutSliderSlides', name: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null } };
+
+export type AboutSliderConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: AboutSliderFilter | null | undefined;
+}>;
+
+
+export type AboutSliderConnectionQuery = { aboutSliderConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutSlider', id: string, heading: string, tag: string | null, description: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, slides: Array<{ __typename: 'AboutSliderSlides', name: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null } | null } | null> | null } };
 
 export type ProjectQueryVariables = Exact<{
   relativePath: string;
@@ -1565,6 +1923,44 @@ export type SiteSettingsConnectionQueryVariables = Exact<{
 
 
 export type SiteSettingsConnectionQuery = { siteSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'SiteSettings', id: string, siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type GradeSettingsQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type GradeSettingsQuery = { gradeSettings: { __typename: 'GradeSettings', id: string, defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirAccentColor: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaAccentColor: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type GradeSettingsConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: GradeSettingsFilter | null | undefined;
+}>;
+
+
+export type GradeSettingsConnectionQuery = { gradeSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'GradeSettings', id: string, defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirAccentColor: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaAccentColor: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type FooterSettingsQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type FooterSettingsQuery = { footerSettings: { __typename: 'FooterSettings', id: string, studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null } };
+
+export type FooterSettingsConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: FooterSettingsFilter | null | undefined;
+}>;
+
+
+export type FooterSettingsConnectionQuery = { footerSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'FooterSettings', id: string, studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null } | null } | null> | null } };
 
 export const HomepagePartsFragmentDoc = gql`
     fragment HomepageParts on Homepage {
@@ -1664,21 +2060,7 @@ export const AboutPagePartsFragmentDoc = gql`
   manifestoQuote
   manifestoAuthor
   heroVideoPath
-  slider {
-    __typename
-    heading
-    tag
-    description
-    slides {
-      __typename
-      name
-      formalRole
-      bio
-      avatar
-      videoLoop
-      badge
-    }
-  }
+  heroFrostedGlass
   btsHeading
   btsTag
   btsDescription
@@ -1706,6 +2088,22 @@ export const AboutPagePartsFragmentDoc = gql`
   ctaText
   ctaButtonLabel
   ctaButtonLink
+}
+    `;
+export const AboutSliderPartsFragmentDoc = gql`
+    fragment AboutSliderParts on AboutSlider {
+  __typename
+  heading
+  tag
+  description
+  slides {
+    __typename
+    name
+    bio
+    avatar
+    videoLoop
+    badge
+  }
 }
     `;
 export const ProjectPartsFragmentDoc = gql`
@@ -1761,6 +2159,55 @@ export const SiteSettingsPartsFragmentDoc = gql`
   logoText
   useImageLogo
   logoImagePath
+}
+    `;
+export const GradeSettingsPartsFragmentDoc = gql`
+    fragment GradeSettingsParts on GradeSettings {
+  __typename
+  defaultTheme
+  enableThemeSwitcher
+  themeSwitcherTitle
+  darkNoirAccentColor
+  highKeyAccentColor
+  highKeyBgColor
+  supernovaAccentColor
+}
+    `;
+export const FooterSettingsPartsFragmentDoc = gql`
+    fragment FooterSettingsParts on FooterSettings {
+  __typename
+  studioTagline
+  commissionButtonLabel
+  commissionButtonLink
+  capabilitiesHeading
+  servicesLinkLabel
+  servicesLinkUrl
+  studioHeading
+  studioLinks {
+    __typename
+    label
+    href
+  }
+  presenceHeading
+  cambridgeTitle
+  cambridgeSubtitle
+  cambridgeLink
+  londonTitle
+  londonSubtitle
+  worldwideTitle
+  worldwideSubtitle
+  directHeading
+  inquiriesLabel
+  inquiriesActionText
+  inquiriesActionLink
+  productionHubLabel
+  productionHub
+  capturePipelineLabel
+  capturePipeline
+  studioStatusLabel
+  studioStatus
+  copyrightTagline
+  backToTopLabel
 }
     `;
 export const HomepageDocument = gql`
@@ -2048,6 +2495,63 @@ export const AboutPageConnectionDocument = gql`
   }
 }
     ${AboutPagePartsFragmentDoc}`;
+export const AboutSliderDocument = gql`
+    query aboutSlider($relativePath: String!) {
+  aboutSlider(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...AboutSliderParts
+  }
+}
+    ${AboutSliderPartsFragmentDoc}`;
+export const AboutSliderConnectionDocument = gql`
+    query aboutSliderConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AboutSliderFilter) {
+  aboutSliderConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...AboutSliderParts
+      }
+    }
+  }
+}
+    ${AboutSliderPartsFragmentDoc}`;
 export const ProjectDocument = gql`
     query project($relativePath: String!) {
   project(relativePath: $relativePath) {
@@ -2219,6 +2723,120 @@ export const SiteSettingsConnectionDocument = gql`
   }
 }
     ${SiteSettingsPartsFragmentDoc}`;
+export const GradeSettingsDocument = gql`
+    query gradeSettings($relativePath: String!) {
+  gradeSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...GradeSettingsParts
+  }
+}
+    ${GradeSettingsPartsFragmentDoc}`;
+export const GradeSettingsConnectionDocument = gql`
+    query gradeSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: GradeSettingsFilter) {
+  gradeSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...GradeSettingsParts
+      }
+    }
+  }
+}
+    ${GradeSettingsPartsFragmentDoc}`;
+export const FooterSettingsDocument = gql`
+    query footerSettings($relativePath: String!) {
+  footerSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...FooterSettingsParts
+  }
+}
+    ${FooterSettingsPartsFragmentDoc}`;
+export const FooterSettingsConnectionDocument = gql`
+    query footerSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: FooterSettingsFilter) {
+  footerSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...FooterSettingsParts
+      }
+    }
+  }
+}
+    ${FooterSettingsPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -2252,6 +2870,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
     aboutPageConnection(variables?: AboutPageConnectionQueryVariables, options?: C): Promise<{data: AboutPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutPageConnectionQueryVariables, query: string}> {
         return requester<{data: AboutPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutPageConnectionQueryVariables, query: string}, AboutPageConnectionQueryVariables>(AboutPageConnectionDocument, variables, options);
       },
+    aboutSlider(variables: AboutSliderQueryVariables, options?: C): Promise<{data: AboutSliderQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutSliderQueryVariables, query: string}> {
+        return requester<{data: AboutSliderQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutSliderQueryVariables, query: string}, AboutSliderQueryVariables>(AboutSliderDocument, variables, options);
+      },
+    aboutSliderConnection(variables?: AboutSliderConnectionQueryVariables, options?: C): Promise<{data: AboutSliderConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutSliderConnectionQueryVariables, query: string}> {
+        return requester<{data: AboutSliderConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutSliderConnectionQueryVariables, query: string}, AboutSliderConnectionQueryVariables>(AboutSliderConnectionDocument, variables, options);
+      },
     project(variables: ProjectQueryVariables, options?: C): Promise<{data: ProjectQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ProjectQueryVariables, query: string}> {
         return requester<{data: ProjectQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ProjectQueryVariables, query: string}, ProjectQueryVariables>(ProjectDocument, variables, options);
       },
@@ -2269,6 +2893,18 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     siteSettingsConnection(variables?: SiteSettingsConnectionQueryVariables, options?: C): Promise<{data: SiteSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteSettingsConnectionQueryVariables, query: string}> {
         return requester<{data: SiteSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteSettingsConnectionQueryVariables, query: string}, SiteSettingsConnectionQueryVariables>(SiteSettingsConnectionDocument, variables, options);
+      },
+    gradeSettings(variables: GradeSettingsQueryVariables, options?: C): Promise<{data: GradeSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GradeSettingsQueryVariables, query: string}> {
+        return requester<{data: GradeSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GradeSettingsQueryVariables, query: string}, GradeSettingsQueryVariables>(GradeSettingsDocument, variables, options);
+      },
+    gradeSettingsConnection(variables?: GradeSettingsConnectionQueryVariables, options?: C): Promise<{data: GradeSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GradeSettingsConnectionQueryVariables, query: string}> {
+        return requester<{data: GradeSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GradeSettingsConnectionQueryVariables, query: string}, GradeSettingsConnectionQueryVariables>(GradeSettingsConnectionDocument, variables, options);
+      },
+    footerSettings(variables: FooterSettingsQueryVariables, options?: C): Promise<{data: FooterSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: FooterSettingsQueryVariables, query: string}> {
+        return requester<{data: FooterSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: FooterSettingsQueryVariables, query: string}, FooterSettingsQueryVariables>(FooterSettingsDocument, variables, options);
+      },
+    footerSettingsConnection(variables?: FooterSettingsConnectionQueryVariables, options?: C): Promise<{data: FooterSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: FooterSettingsConnectionQueryVariables, query: string}> {
+        return requester<{data: FooterSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: FooterSettingsConnectionQueryVariables, query: string}, FooterSettingsConnectionQueryVariables>(FooterSettingsConnectionDocument, variables, options);
       }
     };
   }
