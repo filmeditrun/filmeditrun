@@ -1,0 +1,12 @@
+# Cloudflare Pages Caching & Security Headers
+# Static hashed assets (fonts, bundled CSS, scripts) - cache permanently (1 year)
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Favicons and manifest
+/favicon.*
+  Cache-Control: public, max-age=604800
+
+# HTML pages - revalidate to ensure instantaneous updates upon deploy
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

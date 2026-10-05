@@ -33,25 +33,29 @@ var config_default = defineConfig({
           }
         },
         fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
           {
             type: "string",
             name: "seoTitle",
-            label: "SEO Page Title",
+            label: "\u{1F50D} SEO Title (Google & Social)",
+            description: "Optimal length: 50\u201360 characters. Include primary keywords & locations.",
             required: true
           },
           {
             type: "string",
             name: "seoDescription",
-            label: "SEO Meta Description",
+            label: "\u{1F50D} SEO Meta Description",
+            description: "Optimal length: 140\u2013160 characters. Compelling summary for search snippets.",
             ui: {
               component: "textarea"
             },
             required: true
           },
+          // ─── 🎨 HERO & CINEMA BANNER ──────────────────────────────────
           {
             type: "string",
             name: "locations",
-            label: "Hero Locations Badge",
+            label: "\u{1F3A8} Hero Locations Badge",
             description: "e.g. London \u2022 Cambridge \u2022 UK Wide",
             required: true
           },
@@ -86,6 +90,12 @@ var config_default = defineConfig({
             required: true
           },
           {
+            type: "image",
+            name: "heroPosterPath",
+            label: "Hero Video Fallback Poster Image",
+            description: "Poster frame displayed before video loads or on mobile low-power mode (e.g. /og-image.jpg)"
+          },
+          {
             type: "string",
             name: "primaryCtaLabel",
             label: "Primary Button Text",
@@ -109,28 +119,30 @@ var config_default = defineConfig({
             label: "Secondary Button Link",
             required: true
           },
+          // ─── 🎞️ SPEC STRIP ───────────────────────────────────────────
           {
             type: "string",
             name: "brandName",
-            label: "Spec Strip Brand Label",
+            label: "\u{1F39E}\uFE0F Spec Strip Brand Label",
             required: true
           },
           {
             type: "string",
             name: "expertiseList",
-            label: "Spec Strip Expertise Items",
+            label: "\u{1F39E}\uFE0F Spec Strip Expertise Items",
             list: true
           },
+          // ─── 📝 EDITORIAL INTRO SECTION ───────────────────────────────
           {
             type: "string",
             name: "introHeading",
-            label: "Intro Section Heading",
+            label: "\u{1F4DD} Intro Section Heading",
             required: true
           },
           {
             type: "string",
             name: "introBody",
-            label: "Intro Section Body Text",
+            label: "\u{1F4DD} Intro Section Body Text",
             ui: {
               component: "textarea"
             },

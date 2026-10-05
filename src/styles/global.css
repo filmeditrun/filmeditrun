@@ -79,54 +79,97 @@ html:has(#theme-choice-high-key:checked) {
   mix-blend-mode: multiply;
 }
 
-/* High-Key: Convert page headings to dense obsidian ink */
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h1:not([data-cinema-text]),
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h2:not([data-cinema-text]),
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h3:not([data-cinema-text]),
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h4:not([data-cinema-text]),
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .bg-neutral-900 .text-white,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .bg-neutral-950 .text-white,
+/* High-Key: Convert page headings outside darkroom areas to dense obsidian ink */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h1:not([data-cinema-text]):not([data-cinema-darkroom] *):not(.keep-white),
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h2:not([data-cinema-text]):not([data-cinema-darkroom] *):not(.keep-white),
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h3:not([data-cinema-text]):not([data-cinema-darkroom] *):not(.keep-white),
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main h4:not([data-cinema-text]):not([data-cinema-darkroom] *):not(.keep-white),
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main p:not([data-cinema-darkroom] *):not(.keep-white).text-white,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .bg-neutral-900:not([data-cinema-darkroom] *) .text-white,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .bg-neutral-950:not([data-cinema-darkroom] *) .text-white,
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) .text-white {
   color: #09090b;
 }
 
 /* High-Key: Eliminate dirty dark drop shadows on light surfaces */
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .drop-shadow,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main [class*="drop-shadow-"] {
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) .drop-shadow,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) [class*="drop-shadow-"] {
   filter: none !important;
 }
 
 /* High-Key: Replace heavy black shadows with soft diffused studio depth */
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .shadow-2xl,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .shadow-xl,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main [class*="shadow-\[0_25px_"] {
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) .shadow-2xl,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) .shadow-xl,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) [class*="shadow-\[0_25px_"] {
   box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02) !important;
 }
 
 /* High-Key: Card borders and hover states with crisp dividers */
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .border-neutral-800,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .border-neutral-900 {
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) .border-neutral-800,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) .border-neutral-900 {
   border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .hover\:border-amber-500\/50:hover,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main .hover\:border-amber-500\/40:hover {
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) .hover\:border-amber-500\/50:hover,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) .hover\:border-amber-500\/40:hover {
   border-color: rgba(225, 29, 72, 0.5) !important;
   box-shadow: 0 12px 32px -4px rgba(225, 29, 72, 0.12) !important;
 }
 
-/* High-Key: Protect text inside cinema video players, thumbnails, modals & docks */
+/* High-Key: Guarantee pure white text and dark background inside cinema video players, heroes, modals & docks */
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom],
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] *,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) video ~ *,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .service-preview-video ~ *,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [class*="aspect-"] .text-white,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #theme-dock-panel,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #theme-dock-panel *,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #lightbox-modal,
-:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #lightbox-modal *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] [class*="bg-ink"],
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .bg-neutral-950 {
+  background-color: #0c0c11 !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .text-white,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] h1,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] h2,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] h3,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .keep-white,
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .keep-white {
   color: #ffffff !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .text-neutral-200,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .text-neutral-300 {
+  color: #e5e5e5 !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .text-neutral-400 {
+  color: #a3a3a3 !important;
+}
+
+/* High-Key: Guarantee ThemeDock handle & flyout stay darkroom styled with white/light text */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) aside label[for="theme-deck-toggle"] {
+  background-color: #0c0c11 !important;
+  color: #ffffff !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) aside label[for="theme-deck-toggle"] span {
+  color: #a3a3a3 !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) aside label[for="theme-deck-toggle"]:hover span {
+  color: var(--highKeyAccent) !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #theme-dock-panel {
+  background-color: #0c0c11 !important;
+  color: #ffffff !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #theme-dock-panel .text-neutral-200 {
+  color: #e5e5e5 !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #theme-dock-panel .text-neutral-400 {
+  color: #a3a3a3 !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #theme-dock-panel .text-neutral-500 {
+  color: #737373 !important;
 }
 
 /* -------------------------------------------------------------------
@@ -234,6 +277,27 @@ body::before {
   color: var(--color-ink);
 }
 
+/* Accessible focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Reduced motion consideration for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Hide scrollbar for clean slider tracks */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -266,6 +330,7 @@ body::before {
   padding: 1px; /* Border thickness */
   background: linear-gradient(135deg, var(--color-accent) 0%, transparent 60%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   pointer-events: none;
@@ -383,6 +448,7 @@ dialog iframe {
   outline: none !important;
   box-shadow: 0 30px 90px -15px rgba(0, 0, 0, 0.95);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+          mask-image: radial-gradient(white, black);
   transform: translateZ(0);
 }
 

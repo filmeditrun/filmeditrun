@@ -23,35 +23,40 @@ const hasSplit = dotIndex !== -1;
 const headlinePrefix = hasSplit ? headline.slice(0, dotIndex + 1) : headline;
 const headlineAccent = hasSplit ? headline.slice(dotIndex + 2) : '';
 
-const glassClassMap: Record<string, string> = {
-  none: "",
-  "very-subtle": "hero-glass-very-subtle",
-  subtle: "hero-glass-subtle",
-  medium: "hero-glass-medium",
-  strong: "hero-glass-strong",
+const ndDensityMap: Record<string, string> = {
+  none: "opacity-0",
+  "very-subtle": "opacity-60",
+  subtle: "opacity-75",
+  medium: "opacity-85",
+  strong: "opacity-95",
 };
-const glassClass = glassClassMap[heroFrostedGlass] ?? (heroFrostedGlass === "none" ? "" : "hero-glass-very-subtle");
+const ndDensityClass = ndDensityMap[heroFrostedGlass] ?? "opacity-80";
 ---
 
-<section class="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 border-b border-neutral-900 select-none">
-  <!-- Clear, Bright Video Background -->
+<section data-cinema-darkroom class="relative overflow-hidden pt-28 pb-20 sm:pt-36 md:pt-40 md:pb-32 border-b border-neutral-900 select-none">
+  <!-- Clear, Bright Video Background with Master Cinematic ND Filter -->
   {heroVideoPath && (
     <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden bg-black">
+      <!-- Master Cinematic Directional ND Filter (Unified Site-Wide Standard) -->
+      <div 
+        class:list={[
+          "absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none transition-opacity duration-500",
+          ndDensityClass
+        ]} 
+        aria-hidden="true"
+      />
+
       <video
         autoplay
         loop
         muted
         playsinline
-        class="w-full h-full object-cover opacity-90 sm:opacity-100"
+        preload="metadata"
+        class="w-full h-full object-cover opacity-90 sm:opacity-95 z-0"
       >
         <source src={heroVideoPath} type="video/mp4" />
       </video>
     </div>
-  )}
-
-  <!-- Frosted Glass Overlay Layer (Adjustable via TinaCMS) -->
-  {glassClass && (
-    <div class={`absolute inset-0 pointer-events-none select-none z-[1] transition-all duration-500 ${glassClass}`} />
   )}
 
   <div class="relative z-10 max-w-7xl mx-auto px-6">
@@ -68,17 +73,17 @@ const glassClass = glassClassMap[heroFrostedGlass] ?? (heroFrostedGlass === "non
         </div>
 
         <!-- 2-Tone Editorial Display Title -->
-        <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.06] mb-8">
-          <span class="block text-white mb-2">{headlinePrefix}</span>
+        <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white keep-white leading-[1.06] mb-8">
+          <span class="block text-white keep-white mb-2">{headlinePrefix}</span>
           {headlineAccent && (
-            <span class="block text-transparent bg-clip-text bg-linear-to-r from-amber-400 via-amber-300 to-amber-500">
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
               {headlineAccent}
             </span>
           )}
         </h1>
 
         <!-- Manifesto Lead Hook -->
-        <p class="text-lg sm:text-xl text-neutral-200 font-light leading-relaxed max-w-2xl mb-10">
+        <p class="text-lg sm:text-xl text-neutral-200 font-light leading-relaxed max-w-2xl mb-10 keep-white">
           {manifestoLead}
         </p>
 

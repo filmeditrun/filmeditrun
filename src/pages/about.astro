@@ -29,32 +29,34 @@ interface SliderConfig {
 }
 
 const sliderData = aboutSlider as SliderConfig;
+// Custom schema for About / Manifesto Page
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": aboutPage.seoTitle,
+  "description": aboutPage.seoDescription,
+  "mainEntity": {
+    "@type": "VideoProductionCompany",
+    "name": "FilmEditRun",
+    "url": "https://filmeditrun.co.uk",
+    "slogan": "Picture, Sound, and Story",
+    "description": aboutPage.manifestoLead,
+    "knowsAbout": [
+      "Multi-Camera Live Filming",
+      "Conference Video Production",
+      "Commercial Post-Production",
+      "Color Grading & Sound Design"
+    ]
+  }
+};
 ---
 
 <Layout
   title={aboutPage.seoTitle}
   description={aboutPage.seoDescription}
+  jsonLd={aboutSchema}
+  fullBleed={true}
 >
-  <!-- Schema.org JSON-LD Structured Data for About / Organization -->
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": aboutPage.seoTitle,
-    "description": aboutPage.seoDescription,
-    "mainEntity": {
-      "@type": "VideoProductionCompany",
-      "name": "FilmEditRun",
-      "url": "https://filmeditrun.co.uk",
-      "slogan": "Picture, Sound, and Story",
-      "description": aboutPage.manifestoLead,
-      "knowsAbout": [
-        "Multi-Camera Live Filming",
-        "Conference Video Production",
-        "Commercial Post-Production",
-        "Color Grading & Sound Design"
-      ]
-    }
-  })} />
 
   <!-- 1. The Hero / Manifesto Section -->
   <AboutHero

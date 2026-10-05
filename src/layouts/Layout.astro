@@ -2,18 +2,30 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ThemeDock from "../components/ThemeDock.astro";
+import SEO from "../components/seo/SEO.astro";
 import { siteConfig } from "../data/siteConfig";
+import "@fontsource-variable/dm-sans";
 import "../styles/global.css";
 
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
   fullBleed?: boolean;
 }
 
 const {
   title = "FilmEditRun",
   description = "Corporate and creative video production. Picture, sound, and story.",
+  canonical,
+  ogImage,
+  ogType,
+  noindex,
+  jsonLd,
   fullBleed = false,
 } = Astro.props;
 
@@ -34,14 +46,18 @@ const supernovaAccent = siteConfig.supernovaAccentColor || "#f43f5e";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,900;1,9..40,400&display=swap"
-      rel="stylesheet"
-    />
     <title>{title}</title>
+
+    <!-- UNIFIED HIGH-OCTANE SEO & AI SEARCH ENGINE (Structured Data, OpenGraph, Canonical) -->
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      ogType={ogType}
+      noindex={noindex}
+      jsonLd={jsonLd}
+    />
 
     <!-- DYNAMIC CMS THEME COLOR TOKENS INJECTION -->
     <style define:vars={{ darkNoirAccent, highKeyAccent, highKeyBg, supernovaAccent }}>

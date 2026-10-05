@@ -1,0 +1,126 @@
+---
+import { siteConfig } from "../../data/siteConfig";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
+}
+
+const {
+  title = "FilmEditRun | Corporate Video Production London & Cambridge",
+  description = "Professional multi-camera event video coverage, conference filming, broadcast editing, and creative corporate animation pipelines across London, Cambridge, and the UK.",
+  canonical,
+  ogImage = "/og-image.jpg",
+  ogType = "website",
+  noindex = false,
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, "") : "https://filmeditrun.co.uk";
+const currentUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+
+const resolvedOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : `${siteUrl}${ogImage.startsWith("/") ? ogImage : `/${ogImage}`}`;
+
+const siteName = siteConfig.siteName || "FilmEditRun";
+
+// Base Schema.org WebSite & LocalBusiness structured data
+const baseBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${siteUrl}/#organization`,
+  "name": siteName,
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.svg`,
+  "image": resolvedOgImage,
+  "description": description,
+  "telephone": "+44 20 0000 0000",
+  "priceRange": "££-£££",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressRegion": "Greater London",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "London" },
+    { "@type": "City", "name": "Cambridge" },
+    { "@type": "Country", "name": "United Kingdom" }
+  ],
+  "knowsAbout": [
+    "Corporate Video Production",
+    "Conference Filming",
+    "Multi-Camera Live Coverage",
+    "Post-Production & Editing",
+    "Motion Design & Animation",
+    "Colour Grading & Sound Design"
+  ],
+  "sameAs": [
+    "https://vimeo.com",
+    "https://www.linkedin.com"
+  ]
+};
+
+const webpageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${currentUrl}#webpage`,
+  "url": currentUrl,
+  "name": title,
+  "description": description,
+  "isPartOf": {
+    "@id": `${siteUrl}/#website`
+  },
+  "about": {
+    "@id": `${siteUrl}/#organization`
+  }
+};
+---
+
+<!-- Canonical URL -->
+<link rel="canonical" href={currentUrl} />
+
+<!-- Robots Indexing Control -->
+{noindex ? (
+  <meta name="robots" content="noindex, nofollow" />
+) : (
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+)}
+
+<!-- OpenGraph / Facebook Meta -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={resolvedOgImage} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_GB" />
+
+<!-- Twitter Card Meta (AI & Social Previews) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedOgImage} />
+<meta name="twitter:image:alt" content={title} />
+
+<!-- Structured Data Engine (JSON-LD) for Google, Perplexity & AI Crawlers -->
+<script type="application/ld+json" set:html={JSON.stringify(baseBusinessSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(webpageSchema)} />
+
+{jsonLd && (
+  Array.isArray(jsonLd) ? (
+    jsonLd.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))
+  ) : (
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  )
+)}
+

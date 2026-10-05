@@ -45,14 +45,10 @@ const {
     <!-- Clean, Photo-First Gallery Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
       {btsItems.map((item, index) => (
-        <button
-          type="button"
+        <a
+          href={`#bts-preview-${index}`}
           class="bts-card group relative block w-full text-left rounded-2xl border border-neutral-800 bg-neutral-900/40 overflow-hidden hover:border-amber-500/40 hover:shadow-2xl hover:shadow-amber-500/5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
-          data-image-src={item.image || "/og-image.jpg"}
-          data-title={item.title}
-          data-category={item.category}
-          data-caption={item.caption || ""}
-          data-frame={`0${index + 1} // 0${btsItems.length}`}
+          aria-label={`Preview behind the scenes image: ${item.title}`}
         >
           <!-- Media Frame -->
           <div class="relative w-full aspect-16/10 overflow-hidden bg-neutral-950 select-none">
@@ -87,112 +83,91 @@ const {
               0{index + 1}
             </span>
           </div>
-        </button>
+        </a>
       ))}
     </div>
 
   </div>
 </section>
 
-<!-- Lightweight Lightbox Modal -->
-<div 
-  id="bts-modal" 
-  class="fixed inset-0 z-50 hidden bg-neutral-950/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Behind the scenes image preview"
->
-  <div class="relative max-w-5xl w-full bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
-    <!-- Modal Top Bar -->
-    <div class="px-6 py-4 border-b border-neutral-800 bg-neutral-950 flex items-center justify-between text-xs font-mono">
-      <div class="flex items-center gap-3">
-        <span id="modal-category" class="px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-wider text-[11px]">
-          CAMERA OPS
-        </span>
-        <span id="modal-frame" class="text-neutral-500 tracking-wider">
-          01 // 04
-        </span>
+<!-- =========================================================================
+     ZERO-JS LIGHTBOX OVERLAYS VIA CSS :target (100% NATIVE, ZERO CLIENT JAVASCRIPT)
+     ========================================================================= -->
+{btsItems.map((item, index) => (
+  <aside
+    id={`bts-preview-${index}`}
+    class="bts-lightbox-modal fixed inset-0 z-[100] bg-neutral-950/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8 select-none"
+    role="dialog"
+    aria-modal="true"
+    aria-label={`${item.title} image preview`}
+  >
+    <!-- Background Backdrop click-to-close link -->
+    <a
+      href="#bts-gallery"
+      class="absolute inset-0 z-0 bg-transparent cursor-default"
+      aria-label="Close image preview"
+      tabindex="-1"
+    ></a>
+
+    <div class="relative z-10 max-w-5xl w-full bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col animate-theater-in">
+      <!-- Modal Top Bar -->
+      <div class="px-6 py-4 border-b border-neutral-800 bg-neutral-950 flex items-center justify-between text-xs font-mono">
+        <div class="flex items-center gap-3">
+          <span class="px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-wider text-[11px]">
+            {item.category}
+          </span>
+          <span class="text-neutral-500 tracking-wider">
+            0{index + 1} // 0{btsItems.length}
+          </span>
+        </div>
+
+        <!-- Close Button (Direct link back to section anchor) -->
+        <a
+          href="#bts-gallery"
+          class="text-neutral-400 hover:text-white px-3 py-1 rounded bg-neutral-800 hover:bg-neutral-700 transition-colors tracking-widest text-[11px] uppercase font-mono cursor-pointer flex items-center gap-1.5"
+          aria-label="Close Preview"
+        >
+          <span>✕</span> CLOSE
+        </a>
       </div>
 
-      <button
-        type="button"
-        id="modal-close-btn"
-        class="text-neutral-400 hover:text-white px-3 py-1 rounded bg-neutral-800 hover:bg-neutral-700 transition-colors tracking-widest text-[11px] uppercase font-mono cursor-pointer"
-      >
-        ESC ✕ CLOSE
-      </button>
+      <!-- Modal Image Container -->
+      <div class="relative bg-black flex items-center justify-center max-h-[70vh] overflow-hidden">
+        <img
+          src={item.image || "/og-image.jpg"}
+          alt={item.title}
+          class="w-full h-full max-h-[70vh] object-contain"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Modal Caption Bottom Bar -->
+      <div class="p-6 bg-neutral-950 border-t border-neutral-800">
+        <h4 class="text-xl font-bold text-white mb-1">
+          {item.title}
+        </h4>
+        {item.caption && (
+          <p class="text-sm text-neutral-400 font-light leading-relaxed">
+            {item.caption}
+          </p>
+        )}
+      </div>
     </div>
+  </aside>
+))}
 
-    <!-- Modal Image Container -->
-    <div class="relative bg-black flex items-center justify-center max-h-[70vh] overflow-hidden">
-      <img
-        id="modal-image"
-        src=""
-        alt=""
-        class="w-full h-full max-h-[70vh] object-contain"
-      />
-    </div>
-
-    <!-- Modal Caption Bottom Bar -->
-    <div class="p-6 bg-neutral-950 border-t border-neutral-800">
-      <h4 id="modal-title" class="text-xl font-bold text-white mb-1"></h4>
-      <p id="modal-caption" class="text-sm text-neutral-400 font-light leading-relaxed"></p>
-    </div>
-  </div>
-</div>
-
-<script>
-  function setupBtsModal() {
-    const modal = document.getElementById('bts-modal');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const modalImage = document.getElementById('modal-image') as HTMLImageElement | null;
-    const modalTitle = document.getElementById('modal-title');
-    const modalCategory = document.getElementById('modal-category');
-    const modalFrame = document.getElementById('modal-frame');
-    const modalCaption = document.getElementById('modal-caption');
-    const btsCards = document.querySelectorAll('.bts-card');
-
-    const openModal = (card: HTMLElement) => {
-      const src = card.dataset.imageSrc || '';
-      const title = card.dataset.title || '';
-      const category = card.dataset.category || '';
-      const caption = card.dataset.caption || '';
-      const frame = card.dataset.frame || '';
-
-      if (modalImage) modalImage.src = src;
-      if (modalTitle) modalTitle.textContent = title;
-      if (modalCategory) modalCategory.textContent = category;
-      if (modalCaption) {
-        modalCaption.textContent = caption;
-        modalCaption.style.display = caption ? 'block' : 'none';
-      }
-      if (modalFrame) modalFrame.textContent = frame;
-
-      modal?.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    };
-
-    const closeModal = () => {
-      modal?.classList.add('hidden');
-      document.body.style.overflow = '';
-    };
-
-    btsCards.forEach((card) => {
-      card.addEventListener('click', () => openModal(card as HTMLElement));
-    });
-
-    modalCloseBtn?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
-        closeModal();
-      }
-    });
+<style is:global>
+  /* Zero-JS Lightbox: Hidden by default, displayed smoothly when URL matches #bts-preview-* */
+  .bts-lightbox-modal {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms ease;
   }
 
-  setupBtsModal();
-  document.addEventListener('astro:page-load', setupBtsModal);
-</script>
+  .bts-lightbox-modal:target {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>

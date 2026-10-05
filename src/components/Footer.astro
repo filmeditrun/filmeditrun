@@ -30,7 +30,7 @@ const defaultStudioLinks = [
   { label: "Start a Project Brief", href: "/contact" },
 ];
 
-const footer = {
+const defaultFooter = {
   studioTagline: "Single and multi-camera live filming, corporate video production, commercial editorial workflows, and sound design.",
   commissionButtonLabel: "Commission a Production",
   commissionButtonLink: "/contact",
@@ -59,8 +59,9 @@ const footer = {
   studioStatus: "Accepting Commissions",
   copyrightTagline: "Picture, sound, and story.",
   backToTopLabel: "Back to top",
-  ...footerData,
 };
+
+const footer = Object.assign({}, defaultFooter, footerData);
 
 const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
   ? footer.studioLinks
@@ -208,7 +209,7 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
         </div>
         <div class="space-y-3 text-xs font-mono">
           <div>
-            <span class="text-neutral-500 block uppercase tracking-wider mb-1">
+            <span class="text-neutral-400 block uppercase tracking-wider mb-1">
               {footer.inquiriesLabel || "Inquiries"}
             </span>
             <a href={footer.inquiriesActionLink || "/contact"} class="text-neutral-200 hover:text-amber-400 transition-colors text-sm font-sans font-light">
@@ -216,19 +217,19 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
             </a>
           </div>
           <div>
-            <span class="text-neutral-500 block uppercase tracking-wider mb-1">
+            <span class="text-neutral-400 block uppercase tracking-wider mb-1">
               {footer.productionHubLabel || "Production Hub"}
             </span>
             <span class="text-neutral-300">{footer.productionHub}</span>
           </div>
           <div>
-            <span class="text-neutral-500 block uppercase tracking-wider mb-1">
+            <span class="text-neutral-400 block uppercase tracking-wider mb-1">
               {footer.capturePipelineLabel || "Capture Pipeline"}
             </span>
             <span class="text-neutral-300">{footer.capturePipeline}</span>
           </div>
           <div>
-            <span class="text-neutral-500 block uppercase tracking-wider mb-1">
+            <span class="text-neutral-400 block uppercase tracking-wider mb-1">
               {footer.studioStatusLabel || "Studio Status"}
             </span>
             <span class="text-emerald-400 flex items-center gap-1.5">
@@ -244,7 +245,7 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
     <!-- ============================================================== -->
     <!-- 3. BOTTOM TIER: COLOPHON & BACK TO TOP                         -->
     <!-- ============================================================== -->
-    <div class="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+    <div class="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-400">
       <p>
         &copy; {new Date().getFullYear()} {siteConfig.siteName}. {footer.copyrightTagline} All rights reserved.
       </p>

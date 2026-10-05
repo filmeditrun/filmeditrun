@@ -7,6 +7,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://filmeditrun.co.uk',
   integrations: [sitemap()],
+  server: {
+    host: true,
+  },
   vite: {
     plugins: [tailwindcss()],
   },

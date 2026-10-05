@@ -33,9 +33,44 @@ const categories = Array.from(new Set(archiveProjects.map((p) => p.category).fil
 const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
   ? buildVimeoUrl(featuredProject.videoUrl, { background: "1", autoplay: "1", loop: "1", muted: "1", dnt: "1" })
   : "";
+
+const parseHeading = (text: string) => {
+  if (!text) return "";
+  if (text.includes('*')) {
+    return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
+  }
+  const parts = text.split(' ');
+  if (parts.length > 1) {
+    const lastWord = parts.pop();
+    return `${parts.join(' ')} <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">${lastWord}</span>`;
+  }
+  return text;
+};
+
+// Schema.org VideoObject for Google & AI Video search carousels
+const workVideoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": featuredProject.title,
+  "description": featuredProject.description,
+  "thumbnailUrl": [
+    featuredProject.thumbnail.startsWith("http")
+      ? featuredProject.thumbnail
+      : `https://filmeditrun.co.uk${featuredProject.thumbnail}`
+  ],
+  "uploadDate": "2024-01-01T08:00:00+00:00",
+  "contentUrl": featuredProject.videoUrl,
+  "embedUrl": featuredProject.videoUrl
+};
 ---
 
-<Layout title={workPage.seoTitle} description={workPage.seoDescription} fullBleed={true}>
+<Layout
+  title={workPage.seoTitle}
+  description={workPage.seoDescription}
+  ogImage={featuredProject.thumbnail}
+  jsonLd={workVideoSchema}
+  fullBleed={true}
+>
   <Fragment slot="head">
     <link rel="preconnect" href="https://player.vimeo.com" />
     <link rel="preconnect" href="https://i.vimeocdn.com" />
@@ -56,9 +91,8 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
     >
       <!-- Automated Backdrop Manager Layer (Full-bleed 100vh behind navbar) -->
       <div class="absolute inset-0 z-0 bg-black pointer-events-none w-full h-full overflow-hidden">
-        <!-- Cinematic Soft Edge Gradients -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-20 pointer-events-none"></div>
-        <div class="absolute inset-x-0 top-0 h-36 sm:h-48 bg-gradient-to-b from-black/80 to-transparent z-20 pointer-events-none"></div>
+        <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Video Feeds) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
 
         {/* Video Backdrop: Full-bleed cover, zero spurious image bleeding */}
         {featuredProject.videoUrl.endsWith('.mp4') || featuredProject.videoUrl.startsWith('/') ? (
@@ -67,7 +101,9 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
             muted 
             loop 
             playsinline 
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-95 sm:opacity-100"
+            preload="metadata"
+            poster={featuredProject.thumbnail}
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-90 sm:opacity-95"
           >
             <source src={featuredProject.videoUrl} type="video/mp4" />
           </video>
@@ -75,7 +111,7 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
           <iframe 
             src={featuredVimeoBgUrl}
             title={`${featuredProject.title} background reel`}
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full object-cover pointer-events-none z-10 opacity-95 sm:opacity-100 transition-all duration-500"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full object-cover pointer-events-none z-0 opacity-90 sm:opacity-95 transition-all duration-500"
             allow="autoplay; fullscreen" 
             referrerpolicy="strict-origin-when-cross-origin"
             loading="eager"
@@ -86,7 +122,7 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
             alt={featuredProject.title} 
             loading="eager" 
             fetchpriority="high"
-            class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-90 z-0" 
+            class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-85 z-0" 
           />
         )}
       </div>
@@ -99,10 +135,11 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
             {workPage.headerTag}
           </span>
         </div>
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-none">
-          {workPage.heading}
-        </h1>
-        <p class="text-neutral-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg mt-2 sm:mt-3 opacity-90 line-clamp-2 hidden sm:block">
+        <h1 
+          class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white keep-white leading-[1.1] sm:leading-none"
+          set:html={parseHeading(workPage.heading)}
+        />
+        <p class="text-neutral-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg mt-2 sm:mt-3 opacity-90 line-clamp-2 hidden sm:block keep-white">
           {workPage.description}
         </p>
       </header>
@@ -113,21 +150,21 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
         <div class="max-w-2xl space-y-3 sm:space-y-4 text-left">
           <!-- Category & TRT -->
           <div class="flex items-center gap-3">
-            <span class="text-[10px] tracking-[0.2em] uppercase font-mono text-amber-500 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md">
+            <span class="text-[10px] tracking-[0.2em] uppercase font-mono text-amber-500 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md font-semibold">
               {featuredProject.category}
             </span>
-            <span class="text-[10px] font-mono text-neutral-400 bg-neutral-900/60 backdrop-blur px-2.5 py-0.5 rounded border border-neutral-800/40">
+            <span class="text-[10px] font-mono text-neutral-300 bg-neutral-900/80 backdrop-blur px-2.5 py-0.5 rounded border border-neutral-700/50">
               TRT {featuredProject.runtime}
             </span>
           </div>
 
           <!-- Title -->
-          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none max-w-2xl">
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white keep-white tracking-tight leading-none max-w-2xl">
             {featuredProject.title}
           </h2>
 
           <!-- Description -->
-          <p class="text-neutral-300 text-xs sm:text-base leading-relaxed max-w-xl line-clamp-2 pt-1 opacity-90">
+          <p class="text-neutral-300 text-xs sm:text-base leading-relaxed max-w-xl line-clamp-2 pt-1 opacity-90 keep-white font-light">
             {featuredProject.description}
           </p>
 
@@ -177,24 +214,46 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
         </p>
       </div>
 
+      <!-- 1. Pure CSS Category Filter Radio Inputs (Zero-JS) -->
+      <input
+        type="radio"
+        name="work_category_filter"
+        id="filter-all"
+        value="all"
+        class="sr-only"
+        checked
+      />
+      {categories.map((category) => (
+        <input
+          type="radio"
+          name="work_category_filter"
+          id={`filter-${category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+          value={category}
+          class="sr-only"
+        />
+      ))}
+
       <!-- Category Filter Tabs / Pills -->
-      <div class="flex flex-wrap items-center gap-2.5 pt-8 pb-12" id="filter-bar">
-        <button 
-          type="button"
-          data-filter="all"
-          class="filter-btn active px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-amber-400 to-amber-600 text-neutral-950 font-bold shadow-lg shadow-amber-500/20"
+      <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 pt-8 pb-12" id="filter-bar">
+        <label 
+          for="filter-all"
+          id="label-filter-all"
+          class="filter-pill min-h-[40px] inline-flex items-center justify-center px-4.5 py-2 sm:px-4 sm:py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer select-none border border-white/10 bg-neutral-900/80 text-neutral-400 hover:text-white hover:bg-neutral-800 active:scale-95 [touch-action:manipulation]"
         >
           {workPage.filterAllLabel}
-        </button>
-        {categories.map((category) => (
-          <button 
-            type="button"
-            data-filter={category}
-            class="filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer bg-neutral-900/80 text-neutral-400 hover:text-white hover:bg-neutral-800 border border-white/10"
-          >
-            {category}
-          </button>
-        ))}
+        </label>
+        {categories.map((category) => {
+          const filterSlug = category.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          return (
+            <label 
+              for={`filter-${filterSlug}`}
+              id={`label-filter-${filterSlug}`}
+              class="filter-pill min-h-[40px] inline-flex items-center justify-center px-4.5 py-2 sm:px-4 sm:py-2 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer select-none border border-white/10 bg-neutral-900/80 text-neutral-400 hover:text-white hover:bg-neutral-800 active:scale-95 [touch-action:manipulation]"
+            >
+              {category}
+            </label>
+          );
+        })}
       </div>
 
       <!-- Bento Grid Archive Container -->
@@ -203,11 +262,12 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
           // Visual Rhythm: alternate wide (7-col) and compact (5-col) bento cards
           const isWide = (index % 4 === 0 || index % 4 === 3);
           const colSpanClass = isWide ? "lg:col-span-7" : "lg:col-span-5";
+          const categorySlug = (project.category || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
           return (
             <article 
               data-project-card
-              data-category={project.category}
+              data-category={categorySlug}
               data-open-dialog={`dialog-modal-${project.id}`}
               class:list={[
                 "project-card group relative rounded-2xl overflow-hidden bg-neutral-950 border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[380px] sm:min-h-[440px] shadow-xl hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1",
@@ -261,13 +321,6 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
         })}
       </div>
 
-      <!-- Empty State for Filters -->
-      <div id="no-projects-msg" class="hidden text-center py-20">
-        <p class="text-neutral-400 font-mono text-sm uppercase tracking-widest">
-          No projects found in this category.
-        </p>
-      </div>
-
     </section>
 
     <!-- ============================================================== -->
@@ -307,55 +360,53 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
   </div>
 </Layout>
 
+<!-- =========================================================================
+     ZERO-JS CSS FILTER ENGINE: NATIVE :has() CARD DISPLAY & PILL STATES
+     ========================================================================= -->
+<style is:global>
+  /* Active filter pill states driven purely by radio :checked (Adapts dynamically to all 3 grades) */
+  html:has(#filter-all:checked) #label-filter-all {
+    background: var(--color-accent) !important;
+    color: var(--color-ink, #0a0a0c) !important;
+    font-weight: 700 !important;
+    box-shadow: 0 10px 25px -5px var(--color-accent-glow, rgba(232, 197, 71, 0.3)) !important;
+    border-color: transparent !important;
+  }
+
+  /* Dynamically style active pills for each category */
+  html:has(#filter-commercials:checked) #label-filter-commercials,
+  html:has(#filter-brand-films:checked) #label-filter-brand-films,
+  html:has(#filter-documentary:checked) #label-filter-documentary,
+  html:has(#filter-music-video:checked) #label-filter-music-video,
+  html:has(#filter-corporate:checked) #label-filter-corporate,
+  html:has(#filter-events:checked) #label-filter-events {
+    background: var(--color-accent) !important;
+    color: var(--color-ink, #0a0a0c) !important;
+    font-weight: 700 !important;
+    box-shadow: 0 10px 25px -5px var(--color-accent-glow, rgba(232, 197, 71, 0.3)) !important;
+    border-color: transparent !important;
+  }
+
+  /* Smooth hardware-accelerated transitions on project cards */
+  [data-project-card] {
+    transform: translateZ(0);
+    transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease;
+  }
+
+  /* Pure CSS Filtering: Hide cards that don't match selected category */
+  html:has(#filter-commercials:checked) [data-project-card]:not([data-category="commercials"]),
+  html:has(#filter-brand-films:checked) [data-project-card]:not([data-category="brand-films"]),
+  html:has(#filter-documentary:checked) [data-project-card]:not([data-category="documentary"]),
+  html:has(#filter-music-video:checked) [data-project-card]:not([data-category="music-video"]),
+  html:has(#filter-corporate:checked) [data-project-card]:not([data-category="corporate"]),
+  html:has(#filter-events:checked) [data-project-card]:not([data-category="events"]) {
+    display: none !important;
+  }
+</style>
+
+<!-- Zero-JS Modal Video Controller (Only unmounts iframe to stop background audio on close) -->
 <script>
-  // ==========================================
-  // CATEGORY FILTER CONTROLLER
-  // ==========================================
-  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const projectCards = document.querySelectorAll<HTMLElement>('[data-project-card]');
-  const noProjectsMsg = document.getElementById('no-projects-msg');
-
-  filterButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const selectedFilter = btn.dataset.filter || 'all';
-
-      // Update button visual state
-      filterButtons.forEach((b) => {
-        b.classList.remove('active', 'bg-gradient-to-r', 'from-amber-400', 'to-amber-600', 'text-neutral-950', 'font-bold', 'shadow-lg', 'shadow-amber-500/20');
-        b.classList.add('bg-neutral-900/80', 'text-neutral-400', 'hover:text-white', 'hover:bg-neutral-800', 'border', 'border-white/10');
-      });
-
-      btn.classList.add('active', 'bg-gradient-to-r', 'from-amber-400', 'to-amber-600', 'text-neutral-950', 'font-bold', 'shadow-lg', 'shadow-amber-500/20');
-      btn.classList.remove('bg-neutral-900/80', 'text-neutral-400', 'hover:text-white', 'hover:bg-neutral-800', 'border', 'border-white/10');
-
-      let visibleCount = 0;
-
-      // Filter cards
-      projectCards.forEach((card) => {
-        const category = card.dataset.category;
-        const matches = selectedFilter === 'all' || category === selectedFilter;
-
-        if (matches) {
-          card.classList.remove('hidden');
-          visibleCount++;
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-
-      if (noProjectsMsg) {
-        if (visibleCount === 0) {
-          noProjectsMsg.classList.remove('hidden');
-        } else {
-          noProjectsMsg.classList.add('hidden');
-        }
-      }
-    });
-  });
-
-  // ==========================================
-  // DIALOG MODAL CONTROLLER
-  // ==========================================
+  // Open dialog and mount iframe src on demand
   document.querySelectorAll<HTMLElement>('[data-open-dialog]').forEach((trigger) => {
     trigger.addEventListener('click', () => {
       const dialogId = trigger.dataset.openDialog;
@@ -369,6 +420,7 @@ const featuredVimeoBgUrl = isEmbeddableVideo(featuredProject.videoUrl)
     });
   });
 
+  // Stop video playback on close by unmounting src
   document.querySelectorAll<HTMLDialogElement>('dialog').forEach((dialog) => {
     dialog.addEventListener('close', () => {
       const iframe = dialog.querySelector('iframe');

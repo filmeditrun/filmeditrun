@@ -89,36 +89,28 @@ const parseHeading = (text: string) => {
 };
 ---
 
-<Layout title={service.seoTitle} description={service.seoDescription} fullBleed={true}>
-  <Fragment slot="head">
-    <!-- SEO & OpenGraph Meta Tags -->
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content={service.seoTitle} />
-    <meta property="og:description" content={service.seoDescription} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:site_name" content="FILM.EDIT.RUN" />
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={service.seoTitle} />
-    <meta name="twitter:description" content={service.seoDescription} />
-    <meta name="twitter:image" content={ogImage} />
-
-    <!-- JSON-LD Service Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  </Fragment>
+<Layout
+  title={service.seoTitle}
+  description={service.seoDescription}
+  canonical={canonicalUrl}
+  ogImage={ogImage}
+  ogType="article"
+  jsonLd={jsonLd}
+  fullBleed={true}
+>
 
   <div class="w-full relative z-10 bg-ink min-h-screen">
 
     <!-- ============================================================== -->
     <!-- 1. CINEMATIC HERO BANNER (Matches Work Page Lighting & Opacity)-->
     <!-- ============================================================== -->
-    <header class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
+    <header data-cinema-darkroom class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
       
       <!-- Video / Photo Media Backdrop Layer (Clear, vibrant background) -->
       <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
+        <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Video Feeds) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
+
         {/* Video Background (High visibility, matching work page opacity) */}
         {(service.displayAs === "local-video" || service.displayAs === "link-video") && (
           <video
@@ -126,7 +118,9 @@ const parseHeading = (text: string) => {
             muted
             loop
             playsinline
-            class="absolute inset-0 w-full h-full object-cover opacity-95 sm:opacity-100 z-0"
+            preload="metadata"
+            poster={service.imagePath}
+            class="absolute inset-0 w-full h-full object-cover opacity-90 sm:opacity-95 z-0"
           >
             <source
               src={service.displayAs === "local-video" ? (service.localVideoPath || "/showreel.mp4") : (service.cloudVideoUrl || "/showreel.mp4")}
@@ -142,7 +136,7 @@ const parseHeading = (text: string) => {
             alt={service.title}
             loading="eager"
             fetchpriority="high"
-            class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
+            class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-85 z-0"
           />
         )}
       </div>
@@ -161,7 +155,7 @@ const parseHeading = (text: string) => {
 
         <!-- Large Title -->
         <h1 
-          class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] mb-6 max-w-4xl"
+          class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl"
           set:html={parseHeading(service.heroHeading || service.title)}
         />
 
