@@ -7,13 +7,17 @@ import { siteConfig } from '../data/siteConfig';
 // ==========================================
 const pathname = Astro.url.pathname;
 
-const links = [
+const defaultLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
+
+const links = siteConfig.navLinks && siteConfig.navLinks.length > 0
+  ? siteConfig.navLinks
+  : defaultLinks;
 
 const isActive = (href: string) =>
   href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -39,10 +43,12 @@ const isActive = (href: string) =>
         <img 
           src={siteConfig.logoImagePath} 
           alt={siteConfig.siteName} 
+          loading="eager"
+          decoding="async"
           class="h-8 w-auto object-contain group-hover:opacity-90 transition-opacity" 
         />
       ) : (
-        <span class="text-xl font-bold tracking-wider text-white font-mono group-hover:text-amber-400 transition-colors">
+        <span class="text-xl font-bold tracking-tight text-white font-sans group-hover:text-amber-400 transition-colors">
           {siteConfig.logoText}
         </span>
       )}

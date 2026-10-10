@@ -1,6 +1,28 @@
 {
   "siteName": "FilmEditRun",
-  "logoText": "FILM EDIT RUN",
+  "logoText": "FilmEditRun",
   "useImageLogo": false,
-  "logoImagePath": "/logo.svg"
+  "logoImagePath": "/logo.svg",
+  "navLinks": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "Work",
+      "href": "/work"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ]
 }

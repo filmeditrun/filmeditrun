@@ -7,6 +7,7 @@ fragment HomepageParts on Homepage {
   heroHeadingHighlight
   tagline
   heroVideoPath
+  heroPosterPath
   primaryCtaLabel
   primaryCtaLink
   secondaryCtaLabel
@@ -186,6 +187,11 @@ fragment SiteSettingsParts on SiteSettings {
   logoText
   useImageLogo
   logoImagePath
+  navLinks {
+    __typename
+    label
+    href
+  }
 }
 
 fragment GradeSettingsParts on GradeSettings {

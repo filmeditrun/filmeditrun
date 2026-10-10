@@ -31,6 +31,8 @@ const { index, title, tag, description, image, video, span, titleClass } =
         <img
           src={image}
           alt=""
+          loading="lazy"
+          decoding="async"
           class="h-full w-full object-cover opacity-90 transition duration-700 ease-out group-hover:scale-[1.05]"
         />
       )

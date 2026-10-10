@@ -356,6 +356,7 @@ export type Homepage = Node & Document & {
   heroHeadingHighlight: Scalars['String']['output'];
   tagline: Scalars['String']['output'];
   heroVideoPath: Scalars['String']['output'];
+  heroPosterPath?: Maybe<Scalars['String']['output']>;
   primaryCtaLabel: Scalars['String']['output'];
   primaryCtaLink: Scalars['String']['output'];
   secondaryCtaLabel: Scalars['String']['output'];
@@ -380,6 +381,13 @@ export type StringFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type ImageFilter = {
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type HomepageFilter = {
   seoTitle?: InputMaybe<StringFilter>;
   seoDescription?: InputMaybe<StringFilter>;
@@ -388,6 +396,7 @@ export type HomepageFilter = {
   heroHeadingHighlight?: InputMaybe<StringFilter>;
   tagline?: InputMaybe<StringFilter>;
   heroVideoPath?: InputMaybe<StringFilter>;
+  heroPosterPath?: InputMaybe<ImageFilter>;
   primaryCtaLabel?: InputMaybe<StringFilter>;
   primaryCtaLink?: InputMaybe<StringFilter>;
   secondaryCtaLabel?: InputMaybe<StringFilter>;
@@ -535,13 +544,6 @@ export type CambridgePage = Node & Document & {
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
-};
-
-export type ImageFilter = {
-  startsWith?: InputMaybe<Scalars['String']['input']>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type CambridgePageFaqsFilter = {
@@ -860,12 +862,19 @@ export type ServiceConnection = Connection & {
   edges?: Maybe<Array<Maybe<ServiceConnectionEdges>>>;
 };
 
+export type SiteSettingsNavLinks = {
+  __typename?: 'SiteSettingsNavLinks';
+  label: Scalars['String']['output'];
+  href: Scalars['String']['output'];
+};
+
 export type SiteSettings = Node & Document & {
   __typename?: 'SiteSettings';
   siteName: Scalars['String']['output'];
   logoText: Scalars['String']['output'];
   useImageLogo?: Maybe<Scalars['Boolean']['output']>;
   logoImagePath?: Maybe<Scalars['String']['output']>;
+  navLinks?: Maybe<Array<Maybe<SiteSettingsNavLinks>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -876,11 +885,17 @@ export type BooleanFilter = {
   exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type SiteSettingsNavLinksFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
 export type SiteSettingsFilter = {
   siteName?: InputMaybe<StringFilter>;
   logoText?: InputMaybe<StringFilter>;
   useImageLogo?: InputMaybe<BooleanFilter>;
   logoImagePath?: InputMaybe<ImageFilter>;
+  navLinks?: InputMaybe<SiteSettingsNavLinksFilter>;
 };
 
 export type SiteSettingsConnectionEdges = {
@@ -1256,6 +1271,7 @@ export type HomepageMutation = {
   heroHeadingHighlight?: InputMaybe<Scalars['String']['input']>;
   tagline?: InputMaybe<Scalars['String']['input']>;
   heroVideoPath?: InputMaybe<Scalars['String']['input']>;
+  heroPosterPath?: InputMaybe<Scalars['String']['input']>;
   primaryCtaLabel?: InputMaybe<Scalars['String']['input']>;
   primaryCtaLink?: InputMaybe<Scalars['String']['input']>;
   secondaryCtaLabel?: InputMaybe<Scalars['String']['input']>;
@@ -1427,11 +1443,17 @@ export type ServiceMutation = {
   ctaButtonLabel?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type SiteSettingsNavLinksMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type SiteSettingsMutation = {
   siteName?: InputMaybe<Scalars['String']['input']>;
   logoText?: InputMaybe<Scalars['String']['input']>;
   useImageLogo?: InputMaybe<Scalars['Boolean']['input']>;
   logoImagePath?: InputMaybe<Scalars['String']['input']>;
+  navLinks?: InputMaybe<Array<InputMaybe<SiteSettingsNavLinksMutation>>>;
 };
 
 export type GradeSettingsMutation = {
@@ -1487,6 +1509,13 @@ export type StringFilter = {
   in?: Array<string | null | undefined> | null | undefined;
 };
 
+export type ImageFilter = {
+  startsWith?: string | null | undefined;
+  eq?: string | null | undefined;
+  exists?: boolean | null | undefined;
+  in?: Array<string | null | undefined> | null | undefined;
+};
+
 export type HomepageFilter = {
   seoTitle?: StringFilter | null | undefined;
   seoDescription?: StringFilter | null | undefined;
@@ -1495,6 +1524,7 @@ export type HomepageFilter = {
   heroHeadingHighlight?: StringFilter | null | undefined;
   tagline?: StringFilter | null | undefined;
   heroVideoPath?: StringFilter | null | undefined;
+  heroPosterPath?: ImageFilter | null | undefined;
   primaryCtaLabel?: StringFilter | null | undefined;
   primaryCtaLink?: StringFilter | null | undefined;
   secondaryCtaLabel?: StringFilter | null | undefined;
@@ -1531,13 +1561,6 @@ export type ServicesPageFilter = {
   headerTag?: StringFilter | null | undefined;
   heading?: StringFilter | null | undefined;
   description?: StringFilter | null | undefined;
-};
-
-export type ImageFilter = {
-  startsWith?: string | null | undefined;
-  eq?: string | null | undefined;
-  exists?: boolean | null | undefined;
-  in?: Array<string | null | undefined> | null | undefined;
 };
 
 export type CambridgePageFaqsFilter = {
@@ -1678,11 +1701,17 @@ export type BooleanFilter = {
   exists?: boolean | null | undefined;
 };
 
+export type SiteSettingsNavLinksFilter = {
+  label?: StringFilter | null | undefined;
+  href?: StringFilter | null | undefined;
+};
+
 export type SiteSettingsFilter = {
   siteName?: StringFilter | null | undefined;
   logoText?: StringFilter | null | undefined;
   useImageLogo?: BooleanFilter | null | undefined;
   logoImagePath?: ImageFilter | null | undefined;
+  navLinks?: SiteSettingsNavLinksFilter | null | undefined;
 };
 
 export type GradeSettingsFilter = {
@@ -1731,7 +1760,7 @@ export type FooterSettingsFilter = {
   backToTopLabel?: StringFilter | null | undefined;
 };
 
-export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string };
+export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, heroPosterPath: string | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string };
 
 export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string };
 
@@ -1747,7 +1776,7 @@ export type ProjectPartsFragment = { __typename: 'Project', order: string, title
 
 export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string | null, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
 
-export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null };
+export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, navLinks: Array<{ __typename: 'SiteSettingsNavLinks', label: string, href: string } | null> | null };
 
 export type GradeSettingsPartsFragment = { __typename: 'GradeSettings', defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirAccentColor: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaAccentColor: string | null };
 
@@ -1758,7 +1787,7 @@ export type HomepageQueryVariables = Exact<{
 }>;
 
 
-export type HomepageQuery = { homepage: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type HomepageQuery = { homepage: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, heroPosterPath: string | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type HomepageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1770,7 +1799,7 @@ export type HomepageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type HomepageConnectionQuery = { homepageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type HomepageConnectionQuery = { homepageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, heroPosterPath: string | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type WorkPageQueryVariables = Exact<{
   relativePath: string;
@@ -1910,7 +1939,7 @@ export type SiteSettingsQueryVariables = Exact<{
 }>;
 
 
-export type SiteSettingsQuery = { siteSettings: { __typename: 'SiteSettings', id: string, siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type SiteSettingsQuery = { siteSettings: { __typename: 'SiteSettings', id: string, siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navLinks: Array<{ __typename: 'SiteSettingsNavLinks', label: string, href: string } | null> | null } };
 
 export type SiteSettingsConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1922,7 +1951,7 @@ export type SiteSettingsConnectionQueryVariables = Exact<{
 }>;
 
 
-export type SiteSettingsConnectionQuery = { siteSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'SiteSettings', id: string, siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type SiteSettingsConnectionQuery = { siteSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'SiteSettings', id: string, siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navLinks: Array<{ __typename: 'SiteSettingsNavLinks', label: string, href: string } | null> | null } | null } | null> | null } };
 
 export type GradeSettingsQueryVariables = Exact<{
   relativePath: string;
@@ -1972,6 +2001,7 @@ export const HomepagePartsFragmentDoc = gql`
   heroHeadingHighlight
   tagline
   heroVideoPath
+  heroPosterPath
   primaryCtaLabel
   primaryCtaLink
   secondaryCtaLabel
@@ -2159,6 +2189,11 @@ export const SiteSettingsPartsFragmentDoc = gql`
   logoText
   useImageLogo
   logoImagePath
+  navLinks {
+    __typename
+    label
+    href
+  }
 }
     `;
 export const GradeSettingsPartsFragmentDoc = gql`

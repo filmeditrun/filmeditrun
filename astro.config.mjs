@@ -10,6 +10,9 @@ export default defineConfig({
   server: {
     host: true,
   },
+  redirects: {
+    '/admin': '/admin/index.html',
+  },
   vite: {
     plugins: [tailwindcss()],
   },

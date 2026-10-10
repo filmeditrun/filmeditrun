@@ -80,9 +80,9 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
       <div class="space-y-3 max-w-xl">
         <a href="/" class="block group">
           {siteConfig.useImageLogo ? (
-            <img src={siteConfig.logoImagePath} alt={siteConfig.siteName} class="h-7 w-auto object-contain" />
+            <img src={siteConfig.logoImagePath} alt={siteConfig.siteName} loading="lazy" decoding="async" class="h-7 w-auto object-contain" />
           ) : (
-            <span class="text-2xl sm:text-3xl font-black tracking-tight text-white font-mono group-hover:text-amber-400 transition-colors">
+            <span class="text-2xl sm:text-3xl font-black tracking-tight text-white font-sans group-hover:text-amber-400 transition-colors">
               {siteConfig.logoText}
             </span>
           )}

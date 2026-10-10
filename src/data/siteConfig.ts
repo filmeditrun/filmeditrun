@@ -9,6 +9,7 @@ export interface SiteConfig {
   logoImagePath: string;
   logoText: string;
   siteName: string;
+  navLinks?: Array<{ label: string; href: string }>;
   defaultTheme?: "dark-noir" | "high-key" | "supernova" | string;
   enableThemeSwitcher?: boolean;
   themeSwitcherTitle?: string;

@@ -15,6 +15,7 @@ export const HomepagePartsFragmentDoc = gql`
   heroHeadingHighlight
   tagline
   heroVideoPath
+  heroPosterPath
   primaryCtaLabel
   primaryCtaLink
   secondaryCtaLabel
@@ -202,6 +203,11 @@ export const SiteSettingsPartsFragmentDoc = gql`
   logoText
   useImageLogo
   logoImagePath
+  navLinks {
+    __typename
+    label
+    href
+  }
 }
     `;
 export const GradeSettingsPartsFragmentDoc = gql`

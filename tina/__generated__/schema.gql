@@ -128,6 +128,7 @@ type Homepage implements Node & Document {
   heroHeadingHighlight: String!
   tagline: String!
   heroVideoPath: String!
+  heroPosterPath: String
   primaryCtaLabel: String!
   primaryCtaLink: String!
   secondaryCtaLabel: String!
@@ -152,6 +153,13 @@ input StringFilter {
   in: [String]
 }
 
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
 input HomepageFilter {
   seoTitle: StringFilter
   seoDescription: StringFilter
@@ -160,6 +168,7 @@ input HomepageFilter {
   heroHeadingHighlight: StringFilter
   tagline: StringFilter
   heroVideoPath: StringFilter
+  heroPosterPath: ImageFilter
   primaryCtaLabel: StringFilter
   primaryCtaLink: StringFilter
   secondaryCtaLabel: StringFilter
@@ -297,13 +306,6 @@ type CambridgePage implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input ImageFilter {
-  startsWith: String
-  eq: String
-  exists: Boolean
-  in: [String]
 }
 
 input CambridgePageFaqsFilter {
@@ -604,11 +606,17 @@ type ServiceConnection implements Connection {
   edges: [ServiceConnectionEdges]
 }
 
+type SiteSettingsNavLinks {
+  label: String!
+  href: String!
+}
+
 type SiteSettings implements Node & Document {
   siteName: String!
   logoText: String!
   useImageLogo: Boolean
   logoImagePath: String
+  navLinks: [SiteSettingsNavLinks]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -619,11 +627,17 @@ input BooleanFilter {
   exists: Boolean
 }
 
+input SiteSettingsNavLinksFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
 input SiteSettingsFilter {
   siteName: StringFilter
   logoText: StringFilter
   useImageLogo: BooleanFilter
   logoImagePath: ImageFilter
+  navLinks: SiteSettingsNavLinksFilter
 }
 
 type SiteSettingsConnectionEdges {
@@ -824,6 +838,7 @@ input HomepageMutation {
   heroHeadingHighlight: String
   tagline: String
   heroVideoPath: String
+  heroPosterPath: String
   primaryCtaLabel: String
   primaryCtaLink: String
   secondaryCtaLabel: String
@@ -995,11 +1010,17 @@ input ServiceMutation {
   ctaButtonLabel: String
 }
 
+input SiteSettingsNavLinksMutation {
+  label: String
+  href: String
+}
+
 input SiteSettingsMutation {
   siteName: String
   logoText: String
   useImageLogo: Boolean
   logoImagePath: String
+  navLinks: [SiteSettingsNavLinksMutation]
 }
 
 input GradeSettingsMutation {

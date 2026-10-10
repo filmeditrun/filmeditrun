@@ -189,39 +189,43 @@ var config_default = defineConfig({
           }
         },
         fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
           {
             type: "string",
             name: "seoTitle",
-            label: "SEO Page Title",
+            label: "\u{1F50D} SEO Title (Google & Social)",
+            description: "Optimal length: 50\u201360 characters",
             required: true
           },
           {
             type: "string",
             name: "seoDescription",
-            label: "SEO Meta Description",
+            label: "\u{1F50D} SEO Meta Description",
+            description: "Optimal length: 140\u2013160 characters",
             ui: {
               component: "textarea"
             },
             required: true
           },
+          // ─── 🎬 HERO & HEADLINE ───────────────────────────────────────
           {
             type: "string",
             name: "headerTag",
-            label: "Top Amber Subheading Tag",
+            label: "\u{1F3AC} Top Eyebrow Tag",
             description: "e.g. Selected Portfolio",
             required: true
           },
           {
             type: "string",
             name: "heading",
-            label: "Main Page Heading",
+            label: "\u{1F3AC} Main Page Heading",
             description: "e.g. Our Work.",
             required: true
           },
           {
             type: "string",
             name: "description",
-            label: "Page Intro Text",
+            label: "\u{1F3AC} Page Intro Text",
             ui: {
               component: "textarea"
             },
@@ -255,10 +259,11 @@ var config_default = defineConfig({
             description: "e.g. EXPLORE ALL PRODUCTIONS",
             required: true
           },
+          // ─── 🎞️ PRODUCTION ARCHIVE & BENTO GRID ───────────────────────
           {
             type: "string",
             name: "archiveTag",
-            label: "Archive Section Amber Tag",
+            label: "\u{1F39E}\uFE0F Archive Section Tag",
             description: "e.g. Production Archive",
             required: true
           },
@@ -355,16 +360,19 @@ var config_default = defineConfig({
           }
         },
         fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
           {
             type: "string",
             name: "seoTitle",
-            label: "SEO Page Title",
+            label: "\u{1F50D} SEO Title (Google & Social)",
+            description: "Optimal length: 50\u201360 characters",
             required: true
           },
           {
             type: "string",
             name: "seoDescription",
-            label: "SEO Meta Description",
+            label: "\u{1F50D} SEO Meta Description",
+            description: "Optimal length: 140\u2013160 characters",
             ui: {
               component: "textarea"
             },
@@ -373,13 +381,14 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "canonicalURL",
-            label: "Canonical URL",
+            label: "\u{1F50D} Canonical URL",
             required: true
           },
+          // ─── 🎨 HERO & CINEMA BANNER ──────────────────────────────────
           {
             type: "string",
             name: "heroTag",
-            label: "Hero Badge Tag",
+            label: "\u{1F3A8} Hero Badge Tag",
             required: true
           },
           {
@@ -496,16 +505,17 @@ var config_default = defineConfig({
             label: "Right Feature Card Link URL",
             required: true
           },
+          // ─── ❓ FREQUENTLY ASKED QUESTIONS (AI SEARCH SCHEMA) ────────
           {
             type: "string",
             name: "faqHeading",
-            label: "FAQ Section Heading",
+            label: "\u2753 FAQ Section Heading",
             required: true
           },
           {
             type: "object",
             name: "faqs",
-            label: "FAQ Items",
+            label: "\u2753 FAQ Items (Auto-indexed for AI Search)",
             list: true,
             ui: {
               itemProps: (item) => ({
@@ -530,10 +540,11 @@ var config_default = defineConfig({
               }
             ]
           },
+          // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
           {
             type: "string",
             name: "bottomCtaHeading",
-            label: "Bottom CTA Heading",
+            label: "\u26A1 Bottom CTA Heading",
             required: true
           },
           {
@@ -574,25 +585,29 @@ var config_default = defineConfig({
           }
         },
         fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
           {
             type: "string",
             name: "seoTitle",
-            label: "SEO Page Title",
+            label: "\u{1F50D} SEO Title (Google & Social)",
+            description: "Optimal length: 50\u201360 characters",
             required: true
           },
           {
             type: "string",
             name: "seoDescription",
-            label: "SEO Meta Description",
+            label: "\u{1F50D} SEO Meta Description",
+            description: "Optimal length: 140\u2013160 characters",
             ui: {
               component: "textarea"
             },
             required: true
           },
+          // ─── 🎬 DIRECTOR'S MANIFESTO ──────────────────────────────────
           {
             type: "string",
             name: "headline",
-            label: "Studio Headline / Manifesto Hook",
+            label: "\u{1F3AC} Studio Headline / Manifesto Hook",
             required: true
           },
           {
@@ -636,20 +651,21 @@ var config_default = defineConfig({
               { value: "strong", label: "Strong (Heavy 85% ND Tint)" }
             ]
           },
+          // ─── 📸 BEHIND THE SCENES DARKROOM GALLERY ───────────────────
           {
             type: "string",
             name: "btsHeading",
-            label: "Behind the Scenes Heading"
+            label: "\u{1F4F8} BTS Gallery Section Heading"
           },
           {
             type: "string",
             name: "btsTag",
-            label: "Behind the Scenes Tag"
+            label: "\u{1F4F8} BTS Eyebrow Tag"
           },
           {
             type: "string",
             name: "btsDescription",
-            label: "Behind the Scenes Description",
+            label: "\u{1F4F8} BTS Section Description",
             ui: {
               component: "textarea"
             }
@@ -657,7 +673,7 @@ var config_default = defineConfig({
           {
             type: "object",
             name: "btsItems",
-            label: "Behind the Scenes Gallery Items",
+            label: "\u{1F4F8} Behind the Scenes Gallery Stills",
             list: true,
             ui: {
               itemProps: (item) => ({
@@ -681,10 +697,11 @@ var config_default = defineConfig({
               }
             ]
           },
+          // ─── ⏱️ PRODUCTION SCRIPT TIMELINE & LOG ──────────────────────
           {
             type: "string",
             name: "timelineHeading",
-            label: "Timeline Heading",
+            label: "\u23F1\uFE0F Timeline Heading",
             required: true
           },
           {
@@ -719,10 +736,11 @@ var config_default = defineConfig({
               { type: "string", name: "badge", label: "Badge Label (Optional)" }
             ]
           },
+          // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
           {
             type: "string",
             name: "ctaHeading",
-            label: "Bottom CTA Heading",
+            label: "\u26A1 Bottom CTA Heading",
             required: true
           },
           {
@@ -750,7 +768,7 @@ var config_default = defineConfig({
       },
       {
         name: "aboutSlider",
-        label: "About Slider",
+        label: "About: Team & Showcase Slider",
         path: "src/content/pages",
         format: "json",
         match: {
@@ -808,18 +826,24 @@ var config_default = defineConfig({
         label: "Portfolio Projects",
         path: "src/content/projects",
         format: "json",
+        ui: {
+          itemProps: (item) => ({
+            label: item?.title ? `[${item?.order || "\u2014"}] ${item.title} (${item?.category || ""})` : "Project Reel"
+          })
+        },
         fields: [
+          // ─── 🎬 PROJECT IDENTITY ──────────────────────────────────────
           {
             type: "string",
             name: "order",
-            label: "Display Order (01, 02, etc.)",
-            description: "Controls the display order on the /work page",
+            label: "\u{1F3AC} Display Order (01, 02, etc.)",
+            description: "Controls the display sequence on the /work page",
             required: true
           },
           {
             type: "string",
             name: "title",
-            label: "Project Title",
+            label: "\u{1F3AC} Project Title",
             isTitle: true,
             required: true
           },
@@ -892,25 +916,32 @@ var config_default = defineConfig({
         label: "Services",
         path: "src/content/services",
         format: "json",
+        ui: {
+          itemProps: (item) => ({
+            label: item?.title ? `[${item?.order || "\u2014"}] ${item.title}` : "Production Service"
+          })
+        },
         fields: [
+          // ─── 🏷️ SERVICE IDENTITY ─────────────────────────────────────
           {
             type: "string",
             name: "order",
-            label: "Service Number (01, 02, etc.)",
+            label: "\u{1F3F7}\uFE0F Service Number (01, 02, etc.)",
+            description: "Controls the grid sequence in the Services directory",
             required: true
           },
           {
             type: "string",
             name: "title",
-            label: "Service Title",
+            label: "\u{1F3F7}\uFE0F Service Title",
             isTitle: true,
             required: true
           },
           {
             type: "string",
             name: "tag",
-            label: "SEO / Service Type (Optional)",
-            description: "Used in Schema.org metadata and subpage scope header (e.g. Multi-Camera Filming)"
+            label: "\u{1F3F7}\uFE0F Category Badge (e.g. Multi-Camera Filming)",
+            description: "Used in Schema.org metadata and subpage scope header"
           },
           {
             type: "string",
@@ -1076,7 +1107,7 @@ var config_default = defineConfig({
       },
       {
         name: "siteSettings",
-        label: "Site & Branding",
+        label: "Header & Site Branding",
         path: "src/content/settings",
         format: "json",
         match: {
@@ -1110,6 +1141,33 @@ var config_default = defineConfig({
             type: "image",
             name: "logoImagePath",
             label: "Logo Image"
+          },
+          // ─── 🧭 MAIN NAVIGATION BAR (HEADER) ──────────────────────────
+          {
+            type: "object",
+            name: "navLinks",
+            label: "\u{1F9ED} Header Navigation Links",
+            description: "Manage and reorder menu links in the top header",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.label ? `${item.label} (${item?.href || ""})` : "Nav Link"
+              })
+            },
+            fields: [
+              {
+                type: "string",
+                name: "label",
+                label: "Menu Label",
+                required: true
+              },
+              {
+                type: "string",
+                name: "href",
+                label: "Link URL / Path (e.g. /work, /services, /contact)",
+                required: true
+              }
+            ]
           }
         ]
       },
@@ -1128,10 +1186,11 @@ var config_default = defineConfig({
           }
         },
         fields: [
+          // ─── 🎛️ DEFAULT GRADE & FLOATING DOCK ─────────────────────────
           {
             type: "string",
             name: "defaultTheme",
-            label: "Default Global Aesthetic / Grade",
+            label: "\u{1F39B}\uFE0F Default Global Aesthetic / Grade",
             description: "Baseline visual grade for visitors (Dark Noir, High-Key Light, or Supernova Gradient)",
             options: [
               { value: "dark-noir", label: "Dark Noir (Obsidian Low-Key Cinema)" },
@@ -1142,19 +1201,20 @@ var config_default = defineConfig({
           {
             type: "boolean",
             name: "enableThemeSwitcher",
-            label: "Enable Floating Grade Switcher?",
+            label: "\u{1F39B}\uFE0F Enable Floating Grade Switcher Dock?",
             description: "Show the slide-out Grade Switcher dock on the right edge of the viewport"
           },
           {
             type: "string",
             name: "themeSwitcherTitle",
-            label: "Grade Switcher Title (Optional)",
+            label: "\u{1F39B}\uFE0F Grade Switcher Dock Title (Optional)",
             description: "Header label for the compact grade dock (default: GRADE)"
           },
+          // ─── 🎨 GRADE PALETTE COLORS ──────────────────────────────────
           {
             type: "string",
             name: "darkNoirAccentColor",
-            label: "Dark Noir Accent Color (Hex)",
+            label: "\u{1F3A8} Dark Noir Accent Color (Hex)",
             description: "Default: #e8c547 (Warm Tungsten Amber)",
             ui: {
               component: "color"
@@ -1163,7 +1223,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "highKeyAccentColor",
-            label: "High-Key Accent Color (Hex)",
+            label: "\u{1F3A8} High-Key Light Accent Color (Hex)",
             description: "Default: #e11d48 (Cinema Tally Red)",
             ui: {
               component: "color"
@@ -1172,7 +1232,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "highKeyBgColor",
-            label: "High-Key Background Canvas (Hex)",
+            label: "\u{1F3A8} High-Key Light Canvas Background (Hex)",
             description: "Default: #ffffff (Pure Studio White)",
             ui: {
               component: "color"
@@ -1181,7 +1241,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "supernovaAccentColor",
-            label: "Supernova Accent Color (Hex)",
+            label: "\u{1F3A8} Supernova Accent Color (Hex)",
             description: "Default: #f43f5e (Electric Neon Rose)",
             ui: {
               component: "color"
