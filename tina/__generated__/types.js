@@ -216,10 +216,14 @@ export const GradeSettingsPartsFragmentDoc = gql`
   defaultTheme
   enableThemeSwitcher
   themeSwitcherTitle
+  darkNoirTitle
   darkNoirAccentColor
+  highKeyTitle
   highKeyAccentColor
   highKeyBgColor
+  supernovaTitle
   supernovaAccentColor
+  supernovaSecondaryColor
 }
     `;
 export const FooterSettingsPartsFragmentDoc = gql`

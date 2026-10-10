@@ -220,21 +220,21 @@ html:has(#theme-choice-supernova:checked) {
   z-index: -1;
   opacity: 0.9;
   background: 
-    radial-gradient(ellipse 75% 55% at 88% 12%, rgba(244, 63, 94, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 65% 65% at 12% 88%, rgba(139, 92, 246, 0.24) 0%, transparent 60%),
+    radial-gradient(ellipse 75% 55% at 88% 12%, var(--supernovaAccent, #f43f5e) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 65% at 12% 88%, var(--supernova-secondary, #8b5cf6) 0%, transparent 60%),
     radial-gradient(circle at 50% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
 }
 
 /* Supernova Card Glows & Luminous Duotone Borders */
 :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .border-neutral-800,
 :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .border-neutral-900 {
-  border-color: rgba(244, 63, 94, 0.18) !important;
+  border-color: color-mix(in srgb, var(--supernovaAccent, #f43f5e) 20%, transparent) !important;
 }
 
 :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hover\:border-amber-500\/50:hover,
 :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hover\:border-amber-500\/40:hover {
-  border-color: rgba(244, 63, 94, 0.6) !important;
-  box-shadow: 0 0 30px rgba(244, 63, 94, 0.18) !important;
+  border-color: color-mix(in srgb, var(--supernovaAccent, #f43f5e) 65%, transparent) !important;
+  box-shadow: 0 0 30px color-mix(in srgb, var(--supernovaAccent, #f43f5e) 22%, transparent) !important;
 }
 
 /* Dynamic theme transition dissolve class */
@@ -404,17 +404,17 @@ body::before {
 
 :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hud-plaque {
   background-color: rgba(18, 8, 36, 0.86);
-  border-color: rgba(244, 63, 94, 0.28);
-  box-shadow: 0 20px 45px -12px rgba(24, 6, 48, 0.7), 0 0 24px rgba(244, 63, 94, 0.15);
+  border-color: color-mix(in srgb, var(--supernovaAccent, #f43f5e) 28%, transparent);
+  box-shadow: 0 20px 45px -12px rgba(24, 6, 48, 0.7), 0 0 24px color-mix(in srgb, var(--supernovaAccent, #f43f5e) 15%, transparent);
 }
 
 :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .hud-pill {
   background-color: rgba(18, 8, 36, 0.85) !important;
-  border-color: rgba(244, 63, 94, 0.25) !important;
+  border-color: color-mix(in srgb, var(--supernovaAccent, #f43f5e) 25%, transparent) !important;
 }
 
 :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .project-card:hover .hud-plaque {
-  box-shadow: 0 20px 45px -8px rgba(244, 63, 94, 0.25);
+  box-shadow: 0 20px 45px -8px color-mix(in srgb, var(--supernovaAccent, #f43f5e) 25%, transparent);
 }
 
 /* ===================================================================

@@ -32,10 +32,14 @@ const {
 const defaultTheme = siteConfig.defaultTheme || "dark-noir";
 const enableThemeSwitcher = siteConfig.enableThemeSwitcher !== false;
 
+const darkNoirTitle = siteConfig.darkNoirTitle || "Dark Noir";
 const darkNoirAccent = siteConfig.darkNoirAccentColor || "#e8c547";
+const highKeyTitle = siteConfig.highKeyTitle || "High-Key Light";
 const highKeyAccent = siteConfig.highKeyAccentColor || "#e11d48";
 const highKeyBg = siteConfig.highKeyBgColor || "#ffffff";
+const supernovaTitle = siteConfig.supernovaTitle || "Supernova";
 const supernovaAccent = siteConfig.supernovaAccentColor || "#f43f5e";
+const supernovaSecondary = siteConfig.supernovaSecondaryColor || "#8b5cf6";
 ---
 
 <!doctype html>
@@ -60,7 +64,7 @@ const supernovaAccent = siteConfig.supernovaAccentColor || "#f43f5e";
     />
 
     <!-- DYNAMIC CMS THEME COLOR TOKENS INJECTION -->
-    <style define:vars={{ darkNoirAccent, highKeyAccent, highKeyBg, supernovaAccent }}>
+    <style define:vars={{ darkNoirAccent, highKeyAccent, highKeyBg, supernovaAccent, supernovaSecondary }}>
       :root,
       html[data-theme="dark-noir"],
       html:has(#theme-choice-dark-noir:checked) {
@@ -80,7 +84,11 @@ const supernovaAccent = siteConfig.supernovaAccentColor || "#f43f5e";
       html[data-theme="supernova"],
       html:has(#theme-choice-supernova:checked) {
         --color-accent: var(--supernovaAccent);
+        --color-amber-300: var(--supernovaAccent);
+        --color-amber-400: var(--supernovaAccent);
         --color-amber-500: var(--supernovaAccent);
+        --color-amber-600: var(--supernovaSecondary);
+        --supernova-secondary: var(--supernovaSecondary);
       }
     </style>
 
@@ -117,9 +125,14 @@ const supernovaAccent = siteConfig.supernovaAccentColor || "#f43f5e";
       <ThemeDock
         defaultTheme={defaultTheme}
         title={siteConfig.themeSwitcherTitle}
-        highKeyAccent={highKeyAccent}
+        darkNoirTitle={darkNoirTitle}
         darkNoirAccent={darkNoirAccent}
+        highKeyTitle={highKeyTitle}
+        highKeyAccent={highKeyAccent}
+        highKeyBg={highKeyBg}
+        supernovaTitle={supernovaTitle}
         supernovaAccent={supernovaAccent}
+        supernovaSecondary={supernovaSecondary}
       />
     )}
   </body>

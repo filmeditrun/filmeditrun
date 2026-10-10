@@ -13,10 +13,14 @@ export interface SiteConfig {
   defaultTheme?: "dark-noir" | "high-key" | "supernova" | string;
   enableThemeSwitcher?: boolean;
   themeSwitcherTitle?: string;
+  darkNoirTitle?: string;
   darkNoirAccentColor?: string;
+  highKeyTitle?: string;
   highKeyAccentColor?: string;
   highKeyBgColor?: string;
+  supernovaTitle?: string;
   supernovaAccentColor?: string;
+  supernovaSecondaryColor?: string;
 }
 
 export const siteConfig: SiteConfig = {

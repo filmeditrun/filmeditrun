@@ -2,37 +2,47 @@
 interface Props {
   defaultTheme?: string;
   title?: string;
-  highKeyAccent?: string;
+  darkNoirTitle?: string;
   darkNoirAccent?: string;
+  highKeyTitle?: string;
+  highKeyAccent?: string;
+  highKeyBg?: string;
+  supernovaTitle?: string;
   supernovaAccent?: string;
+  supernovaSecondary?: string;
 }
 
 const {
   defaultTheme = "dark-noir",
   title = "GRADE",
-  highKeyAccent = "#e11d48",
+  darkNoirTitle = "Dark Noir",
   darkNoirAccent = "#e8c547",
+  highKeyTitle = "High-Key Light",
+  highKeyAccent = "#e11d48",
+  highKeyBg = "#ffffff",
+  supernovaTitle = "Supernova",
   supernovaAccent = "#f43f5e",
+  supernovaSecondary = "#8b5cf6",
 } = Astro.props;
 
 const themes = [
   {
     id: "dark-noir",
-    title: "Dark Noir",
+    title: darkNoirTitle,
     accentColor: darkNoirAccent,
     baseColor: "#0a0a0c",
   },
   {
     id: "high-key",
-    title: "High-Key Light",
+    title: highKeyTitle,
     accentColor: highKeyAccent,
-    baseColor: "#ffffff",
+    baseColor: highKeyBg,
   },
   {
     id: "supernova",
-    title: "Supernova",
+    title: supernovaTitle,
     accentColor: supernovaAccent,
-    baseColor: "#080411",
+    baseColor: supernovaSecondary,
   },
 ];
 ---

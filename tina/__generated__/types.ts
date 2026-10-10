@@ -916,10 +916,14 @@ export type GradeSettings = Node & Document & {
   defaultTheme?: Maybe<Scalars['String']['output']>;
   enableThemeSwitcher?: Maybe<Scalars['Boolean']['output']>;
   themeSwitcherTitle?: Maybe<Scalars['String']['output']>;
+  darkNoirTitle?: Maybe<Scalars['String']['output']>;
   darkNoirAccentColor?: Maybe<Scalars['String']['output']>;
+  highKeyTitle?: Maybe<Scalars['String']['output']>;
   highKeyAccentColor?: Maybe<Scalars['String']['output']>;
   highKeyBgColor?: Maybe<Scalars['String']['output']>;
+  supernovaTitle?: Maybe<Scalars['String']['output']>;
   supernovaAccentColor?: Maybe<Scalars['String']['output']>;
+  supernovaSecondaryColor?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -929,10 +933,14 @@ export type GradeSettingsFilter = {
   defaultTheme?: InputMaybe<StringFilter>;
   enableThemeSwitcher?: InputMaybe<BooleanFilter>;
   themeSwitcherTitle?: InputMaybe<StringFilter>;
+  darkNoirTitle?: InputMaybe<StringFilter>;
   darkNoirAccentColor?: InputMaybe<StringFilter>;
+  highKeyTitle?: InputMaybe<StringFilter>;
   highKeyAccentColor?: InputMaybe<StringFilter>;
   highKeyBgColor?: InputMaybe<StringFilter>;
+  supernovaTitle?: InputMaybe<StringFilter>;
   supernovaAccentColor?: InputMaybe<StringFilter>;
+  supernovaSecondaryColor?: InputMaybe<StringFilter>;
 };
 
 export type GradeSettingsConnectionEdges = {
@@ -1460,10 +1468,14 @@ export type GradeSettingsMutation = {
   defaultTheme?: InputMaybe<Scalars['String']['input']>;
   enableThemeSwitcher?: InputMaybe<Scalars['Boolean']['input']>;
   themeSwitcherTitle?: InputMaybe<Scalars['String']['input']>;
+  darkNoirTitle?: InputMaybe<Scalars['String']['input']>;
   darkNoirAccentColor?: InputMaybe<Scalars['String']['input']>;
+  highKeyTitle?: InputMaybe<Scalars['String']['input']>;
   highKeyAccentColor?: InputMaybe<Scalars['String']['input']>;
   highKeyBgColor?: InputMaybe<Scalars['String']['input']>;
+  supernovaTitle?: InputMaybe<Scalars['String']['input']>;
   supernovaAccentColor?: InputMaybe<Scalars['String']['input']>;
+  supernovaSecondaryColor?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type FooterSettingsStudioLinksMutation = {
@@ -1718,10 +1730,14 @@ export type GradeSettingsFilter = {
   defaultTheme?: StringFilter | null | undefined;
   enableThemeSwitcher?: BooleanFilter | null | undefined;
   themeSwitcherTitle?: StringFilter | null | undefined;
+  darkNoirTitle?: StringFilter | null | undefined;
   darkNoirAccentColor?: StringFilter | null | undefined;
+  highKeyTitle?: StringFilter | null | undefined;
   highKeyAccentColor?: StringFilter | null | undefined;
   highKeyBgColor?: StringFilter | null | undefined;
+  supernovaTitle?: StringFilter | null | undefined;
   supernovaAccentColor?: StringFilter | null | undefined;
+  supernovaSecondaryColor?: StringFilter | null | undefined;
 };
 
 export type FooterSettingsStudioLinksFilter = {
@@ -1778,7 +1794,7 @@ export type ServicePartsFragment = { __typename: 'Service', order: string, title
 
 export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, navLinks: Array<{ __typename: 'SiteSettingsNavLinks', label: string, href: string } | null> | null };
 
-export type GradeSettingsPartsFragment = { __typename: 'GradeSettings', defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirAccentColor: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaAccentColor: string | null };
+export type GradeSettingsPartsFragment = { __typename: 'GradeSettings', defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirTitle: string | null, darkNoirAccentColor: string | null, highKeyTitle: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaTitle: string | null, supernovaAccentColor: string | null, supernovaSecondaryColor: string | null };
 
 export type FooterSettingsPartsFragment = { __typename: 'FooterSettings', studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null };
 
@@ -1958,7 +1974,7 @@ export type GradeSettingsQueryVariables = Exact<{
 }>;
 
 
-export type GradeSettingsQuery = { gradeSettings: { __typename: 'GradeSettings', id: string, defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirAccentColor: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaAccentColor: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type GradeSettingsQuery = { gradeSettings: { __typename: 'GradeSettings', id: string, defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirTitle: string | null, darkNoirAccentColor: string | null, highKeyTitle: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaTitle: string | null, supernovaAccentColor: string | null, supernovaSecondaryColor: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type GradeSettingsConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1970,7 +1986,7 @@ export type GradeSettingsConnectionQueryVariables = Exact<{
 }>;
 
 
-export type GradeSettingsConnectionQuery = { gradeSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'GradeSettings', id: string, defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirAccentColor: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaAccentColor: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type GradeSettingsConnectionQuery = { gradeSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'GradeSettings', id: string, defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirTitle: string | null, darkNoirAccentColor: string | null, highKeyTitle: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaTitle: string | null, supernovaAccentColor: string | null, supernovaSecondaryColor: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type FooterSettingsQueryVariables = Exact<{
   relativePath: string;
@@ -2202,10 +2218,14 @@ export const GradeSettingsPartsFragmentDoc = gql`
   defaultTheme
   enableThemeSwitcher
   themeSwitcherTitle
+  darkNoirTitle
   darkNoirAccentColor
+  highKeyTitle
   highKeyAccentColor
   highKeyBgColor
+  supernovaTitle
   supernovaAccentColor
+  supernovaSecondaryColor
 }
     `;
 export const FooterSettingsPartsFragmentDoc = gql`

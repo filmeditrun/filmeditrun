@@ -2,8 +2,12 @@
   "defaultTheme": "dark-noir",
   "enableThemeSwitcher": true,
   "themeSwitcherTitle": "GRADE",
+  "darkNoirTitle": "Dark",
   "darkNoirAccentColor": "#e8c547",
+  "highKeyTitle": "Light",
   "highKeyAccentColor": "#FF0000",
   "highKeyBgColor": "#ffffff",
-  "supernovaAccentColor": "#f43f5e"
+  "supernovaTitle": "Supernova",
+  "supernovaAccentColor": "#9013FE",
+  "supernovaSecondaryColor": "#0377FF"
 }

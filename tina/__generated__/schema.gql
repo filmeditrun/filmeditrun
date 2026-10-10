@@ -655,10 +655,14 @@ type GradeSettings implements Node & Document {
   defaultTheme: String
   enableThemeSwitcher: Boolean
   themeSwitcherTitle: String
+  darkNoirTitle: String
   darkNoirAccentColor: String
+  highKeyTitle: String
   highKeyAccentColor: String
   highKeyBgColor: String
+  supernovaTitle: String
   supernovaAccentColor: String
+  supernovaSecondaryColor: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -668,10 +672,14 @@ input GradeSettingsFilter {
   defaultTheme: StringFilter
   enableThemeSwitcher: BooleanFilter
   themeSwitcherTitle: StringFilter
+  darkNoirTitle: StringFilter
   darkNoirAccentColor: StringFilter
+  highKeyTitle: StringFilter
   highKeyAccentColor: StringFilter
   highKeyBgColor: StringFilter
+  supernovaTitle: StringFilter
   supernovaAccentColor: StringFilter
+  supernovaSecondaryColor: StringFilter
 }
 
 type GradeSettingsConnectionEdges {
@@ -1027,10 +1035,14 @@ input GradeSettingsMutation {
   defaultTheme: String
   enableThemeSwitcher: Boolean
   themeSwitcherTitle: String
+  darkNoirTitle: String
   darkNoirAccentColor: String
+  highKeyTitle: String
   highKeyAccentColor: String
   highKeyBgColor: String
+  supernovaTitle: String
   supernovaAccentColor: String
+  supernovaSecondaryColor: String
 }
 
 input FooterSettingsStudioLinksMutation {

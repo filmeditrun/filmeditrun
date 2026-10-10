@@ -199,10 +199,14 @@ fragment GradeSettingsParts on GradeSettings {
   defaultTheme
   enableThemeSwitcher
   themeSwitcherTitle
+  darkNoirTitle
   darkNoirAccentColor
+  highKeyTitle
   highKeyAccentColor
   highKeyBgColor
+  supernovaTitle
   supernovaAccentColor
+  supernovaSecondaryColor
 }
 
 fragment FooterSettingsParts on FooterSettings {

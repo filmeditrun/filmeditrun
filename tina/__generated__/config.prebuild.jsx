@@ -1310,20 +1310,33 @@ var config_default = defineConfig({
             label: "\u{1F39B}\uFE0F Grade Switcher Dock Title (Optional)",
             description: "Header label for the compact grade dock (default: GRADE)"
           },
-          // ─── 🎨 GRADE PALETTE COLORS ──────────────────────────────────
+          // ─── 🌑 GRADE 1: DARK NOIR ─────────────────────────────────────
+          {
+            type: "string",
+            name: "darkNoirTitle",
+            label: "\u{1F311} Dark Noir: Display Name",
+            description: "Display title in the floating grade switcher dock (e.g. Dark Noir)"
+          },
           {
             type: "string",
             name: "darkNoirAccentColor",
-            label: "\u{1F3A8} Dark Noir Accent Color (Hex)",
+            label: "\u{1F311} Dark Noir Accent Color (Hex)",
             description: "Default: #e8c547 (Warm Tungsten Amber)",
             ui: {
               component: "color"
             }
           },
+          // ─── ☀️ GRADE 2: HIGH-KEY LIGHT ────────────────────────────────
+          {
+            type: "string",
+            name: "highKeyTitle",
+            label: "\u2600\uFE0F High-Key Light: Display Name",
+            description: "Display title in the floating grade switcher dock (e.g. High-Key Light)"
+          },
           {
             type: "string",
             name: "highKeyAccentColor",
-            label: "\u{1F3A8} High-Key Light Accent Color (Hex)",
+            label: "\u2600\uFE0F High-Key Light Accent Color (Hex)",
             description: "Default: #e11d48 (Cinema Tally Red)",
             ui: {
               component: "color"
@@ -1332,17 +1345,33 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "highKeyBgColor",
-            label: "\u{1F3A8} High-Key Light Canvas Background (Hex)",
+            label: "\u2600\uFE0F High-Key Light Canvas Background (Hex)",
             description: "Default: #ffffff (Pure Studio White)",
+            ui: {
+              component: "color"
+            }
+          },
+          // ─── ✨ GRADE 3: SUPERNOVA DUOTONE ─────────────────────────────
+          {
+            type: "string",
+            name: "supernovaTitle",
+            label: "\u2728 Supernova: Display Name",
+            description: "Display title in the floating grade switcher dock (e.g. Supernova)"
+          },
+          {
+            type: "string",
+            name: "supernovaAccentColor",
+            label: "\u2728 Supernova Primary Accent (Hex)",
+            description: "Primary neon gradient glow (Default: #f43f5e)",
             ui: {
               component: "color"
             }
           },
           {
             type: "string",
-            name: "supernovaAccentColor",
-            label: "\u{1F3A8} Supernova Accent Color (Hex)",
-            description: "Default: #f43f5e (Electric Neon Rose)",
+            name: "supernovaSecondaryColor",
+            label: "\u2728 Supernova Secondary Mesh Color (Hex)",
+            description: "Secondary mesh duotone glow (Default: #8b5cf6)",
             ui: {
               component: "color"
             }
