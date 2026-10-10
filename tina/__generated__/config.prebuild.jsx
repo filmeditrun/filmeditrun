@@ -16,6 +16,106 @@ var config_default = defineConfig({
       publicFolder: "public"
     }
   },
+  cmsCallback: (cms) => {
+    if (typeof document !== "undefined") {
+      const styleId = "tina-custom-admin-theme";
+      if (!document.getElementById(styleId)) {
+        const style = document.createElement("style");
+        style.id = styleId;
+        style.textContent = `
+          /* Smart Invert Dimmer for comfortable dark reading */
+          html {
+            filter: invert(0.92) hue-rotate(180deg);
+            background: #121212 !important;
+          }
+          /* Counter-invert media, swatches, and welcome card */
+          img,
+          video,
+          svg image,
+          .swatch-inner,
+          [class*="swatch"],
+          [class*="sketch-picker"],
+          [class*="color-picker"],
+          [class*="media-item"],
+          [data-testid="media-image"],
+          .filmeditrun-welcome-card {
+            filter: invert(1) hue-rotate(180deg);
+          }
+
+          /* Standard centered form width for all collections (860px) */
+          [data-test^="form:"] > div,
+          [data-test*="form"] > div {
+            max-width: 860px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
+          .max-w-form {
+            max-width: 860px !important;
+          }
+
+          /* Grade Switcher collection specifically: wider layout (1280px) */
+          [data-test*="theme"] > div {
+            max-width: 1280px !important;
+            padding-left: 28px !important;
+            padding-right: 28px !important;
+          }
+          div:has(> [data-test*="theme"]) ~ div .max-w-form {
+            max-width: 1280px !important;
+          }
+
+          /* Grade Switcher color swatches: 360px (half size extra) */
+          button:has(.swatch-inner),
+          div.relative:has(.swatch-inner),
+          .swatch-inner {
+            max-width: 360px !important;
+          }
+        `;
+        document.head.appendChild(style);
+      }
+      const setupWelcomeScreen = () => {
+        const h3List = document.querySelectorAll("h3");
+        for (const h3 of Array.from(h3List)) {
+          if (h3.textContent && h3.textContent.includes("Welcome to Tina")) {
+            const pageHeader = h3.closest(".pt-4") || (h3.parentElement ? h3.parentElement.parentElement : null);
+            const pageBody = pageHeader ? pageHeader.nextElementSibling : null;
+            const container = pageHeader ? pageHeader.parentElement : null;
+            if (container && !container.querySelector(".filmeditrun-welcome-card")) {
+              if (pageHeader) pageHeader.style.display = "none";
+              if (pageBody) pageBody.style.display = "none";
+              const welcomeCard = document.createElement("div");
+              welcomeCard.className = "filmeditrun-welcome-card";
+              welcomeCard.innerHTML = `
+                <div style="max-width: 620px; margin: 60px auto 0; padding: 52px 40px; text-align: center; background: #121216; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);">
+                  <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                    <span style="font-family: 'DM Sans', -apple-system, sans-serif; font-size: 42px; font-weight: 900; letter-spacing: -0.04em; color: #ffffff;">
+                      FilmEditRun
+                    </span>
+                  </div>
+                  <h2 style="font-family: 'DM Sans', -apple-system, sans-serif; font-size: 20px; font-weight: 700; color: #f4f1ea; margin: 0 0 10px 0; letter-spacing: -0.02em;">
+                    Studio Content Management
+                  </h2>
+                  <p style="font-family: 'DM Sans', -apple-system, sans-serif; font-size: 14px; color: #a8a29a; line-height: 1.6; margin: 0 auto 28px auto; max-width: 460px; font-weight: 400;">
+                    Welcome to the FilmEditRun production studio. Select any collection on the left to edit pages, portfolio projects, or cinema grade aesthetics.
+                  </p>
+                  <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 9999px; background: rgba(232, 197, 71, 0.08); border: 1px solid rgba(232, 197, 71, 0.25); color: #e8c547; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">
+                    <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+                    Zero-JS Edge Architecture &bull; Studio Active
+                  </div>
+                </div>
+              `;
+              container.appendChild(welcomeCard);
+            }
+          }
+        }
+      };
+      setupWelcomeScreen();
+      const observer = new MutationObserver(setupWelcomeScreen);
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+    return cms;
+  },
   schema: {
     collections: [
       {
