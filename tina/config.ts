@@ -1284,6 +1284,133 @@ export default defineConfig({
               },
             ],
           },
+
+        ],
+      },
+      {
+        name: "seoSettings",
+        label: "SEO & Local Citations",
+        path: "src/content/settings",
+        format: "json",
+        match: {
+          include: "seo",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          // ─── 🏢 LOCAL BUSINESS & NAP CITATION (SCHEMA.ORG) ────────────
+          {
+            type: "string",
+            name: "legalName",
+            label: "🏢 Legal Business Entity Name",
+            description: "Official registered name (e.g. FilmEditRun Ltd)",
+          },
+          {
+            type: "string",
+            name: "telephone",
+            label: "📞 Contact Telephone Number",
+            description: "International format (e.g. +44 1223 926450)",
+          },
+          {
+            type: "string",
+            name: "email",
+            label: "✉️ Primary Contact Email",
+            description: "Used in Schema.org and structured business indexing",
+          },
+          {
+            type: "string",
+            name: "priceRange",
+            label: "💷 Studio Price Range Tier",
+            description: "Standard Schema tier (e.g. ££-£££)",
+          },
+          {
+            type: "string",
+            name: "addressLocality",
+            label: "📍 Primary City / Locality",
+            description: "e.g. Cambridge",
+          },
+          {
+            type: "string",
+            name: "addressRegion",
+            label: "📍 County / Region",
+            description: "e.g. Cambridgeshire",
+          },
+          {
+            type: "string",
+            name: "postalCode",
+            label: "📮 Postal Code",
+            description: "e.g. CB1 2JW",
+          },
+          {
+            type: "string",
+            name: "addressCountry",
+            label: "🇬🇧 Country Code",
+            description: "Default: GB",
+          },
+          {
+            type: "string",
+            name: "googleMapsUrl",
+            label: "🗺️ Google Business Profile / Maps URL",
+            description: "Direct link to your verified Google Maps listing",
+          },
+          {
+            type: "number",
+            name: "geoLatitude",
+            label: "🌐 Geo Latitude (Optional Pinpoint)",
+            description: "e.g. 52.2053 for Cambridge",
+          },
+          {
+            type: "number",
+            name: "geoLongitude",
+            label: "🌐 Geo Longitude (Optional Pinpoint)",
+            description: "e.g. 0.1218 for Cambridge",
+          },
+
+          // ─── 🔗 VERIFIED BACKLINK & DIRECTORY PROFILES (sameAs) ───────
+          {
+            type: "object",
+            name: "backlinkProfiles",
+            label: "🔗 Verified Citation Profiles & Directory Links",
+            description: "Manage authoritative backlink profiles (Cambridge Network, Google Business, Vimeo, GitHub, etc.) for both Schema.org entity linking and the sub-footer citation strip",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.name ? `${item.name} (${item?.badgeText || item?.url || ""})` : "Citation Profile",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "name",
+                label: "Profile / Platform Name",
+                required: true,
+                description: "e.g. Cambridge Network, Google Business Profile, Vimeo, GitHub",
+              },
+              {
+                type: "string",
+                name: "url",
+                label: "Target Profile URL",
+                required: true,
+                description: "e.g. https://www.cambridgenetwork.co.uk",
+              },
+              {
+                type: "string",
+                name: "badgeText",
+                label: "Sub-Badge Text (Optional)",
+                description: "Short label displayed next to the link (e.g. Member, Verified Studio, Portfolio, Company)",
+              },
+              {
+                type: "boolean",
+                name: "showInFooter",
+                label: "Show Link in Sub-Footer Citation Strip?",
+                description: "Toggle on to display in the visible footer. (Unchecked profiles are still included in Google Schema.org sameAs)",
+              },
+            ],
+          },
         ],
       },
       {

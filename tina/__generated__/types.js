@@ -210,6 +210,29 @@ export const SiteSettingsPartsFragmentDoc = gql`
   }
 }
     `;
+export const SeoSettingsPartsFragmentDoc = gql`
+    fragment SeoSettingsParts on SeoSettings {
+  __typename
+  legalName
+  telephone
+  email
+  priceRange
+  addressLocality
+  addressRegion
+  postalCode
+  addressCountry
+  googleMapsUrl
+  geoLatitude
+  geoLongitude
+  backlinkProfiles {
+    __typename
+    name
+    url
+    badgeText
+    showInFooter
+  }
+}
+    `;
 export const GradeSettingsPartsFragmentDoc = gql`
     fragment GradeSettingsParts on GradeSettings {
   __typename
@@ -776,6 +799,63 @@ export const SiteSettingsConnectionDocument = gql`
   }
 }
     ${SiteSettingsPartsFragmentDoc}`;
+export const SeoSettingsDocument = gql`
+    query seoSettings($relativePath: String!) {
+  seoSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...SeoSettingsParts
+  }
+}
+    ${SeoSettingsPartsFragmentDoc}`;
+export const SeoSettingsConnectionDocument = gql`
+    query seoSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SeoSettingsFilter) {
+  seoSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...SeoSettingsParts
+      }
+    }
+  }
+}
+    ${SeoSettingsPartsFragmentDoc}`;
 export const GradeSettingsDocument = gql`
     query gradeSettings($relativePath: String!) {
   gradeSettings(relativePath: $relativePath) {
@@ -945,6 +1025,12 @@ export function getSdk(requester) {
     },
     siteSettingsConnection(variables, options) {
       return requester(SiteSettingsConnectionDocument, variables, options);
+    },
+    seoSettings(variables, options) {
+      return requester(SeoSettingsDocument, variables, options);
+    },
+    seoSettingsConnection(variables, options) {
+      return requester(SeoSettingsConnectionDocument, variables, options);
     },
     gradeSettings(variables, options) {
       return requester(GradeSettingsDocument, variables, options);

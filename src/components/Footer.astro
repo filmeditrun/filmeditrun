@@ -243,12 +243,51 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
     </div>
 
     <!-- ============================================================== -->
+    <!-- 2.5 CITATION & BACKLINK PROFILES STRIP (LOCAL SEO & ENTITY REPUTATION) -->
+    <!-- ============================================================== -->
+    {siteConfig.backlinkProfiles && siteConfig.backlinkProfiles.filter(p => p.showInFooter !== false).length > 0 && (
+      <div class="border-t border-neutral-900/80 pt-8 pb-2 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs font-mono">
+        <div class="flex items-center gap-2 text-neutral-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span class="uppercase tracking-widest text-[11px] font-semibold text-neutral-300">Verified Profiles & Citations:</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+          {siteConfig.backlinkProfiles.filter(p => p.showInFooter !== false).map((profile) => (
+            <a
+              href={profile.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900/80 border border-neutral-800 hover:border-amber-500/40 hover:text-white text-neutral-300 transition-all duration-200 group text-xs font-mono"
+            >
+              <span>{profile.name}</span>
+              {profile.badgeText && (
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-amber-400 group-hover:border-amber-500/30">
+                  {profile.badgeText}
+                </span>
+              )}
+              <span class="text-neutral-500 group-hover:text-amber-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[10px] leading-none">
+                ↗
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- ============================================================== -->
     <!-- 3. BOTTOM TIER: COLOPHON & BACK TO TOP                         -->
     <!-- ============================================================== -->
     <div class="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-400">
-      <p>
-        &copy; {new Date().getFullYear()} {siteConfig.siteName}. {footer.copyrightTagline} All rights reserved.
-      </p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+        <p>
+          &copy; {new Date().getFullYear()} {siteConfig.legalName || siteConfig.siteName}. {footer.copyrightTagline} All rights reserved.
+        </p>
+        {siteConfig.addressLocality && (
+          <span class="hidden sm:inline text-neutral-400">
+            {siteConfig.addressLocality}, {siteConfig.addressRegion || siteConfig.addressCountry}
+          </span>
+        )}
+      </div>
       <a href="#top" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 shrink-0">
         <span>{footer.backToTopLabel || "Back to top"}</span>
         <span>&uarr;</span>

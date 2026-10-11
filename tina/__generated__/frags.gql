@@ -194,6 +194,28 @@ fragment SiteSettingsParts on SiteSettings {
   }
 }
 
+fragment SeoSettingsParts on SeoSettings {
+  __typename
+  legalName
+  telephone
+  email
+  priceRange
+  addressLocality
+  addressRegion
+  postalCode
+  addressCountry
+  googleMapsUrl
+  geoLatitude
+  geoLongitude
+  backlinkProfiles {
+    __typename
+    name
+    url
+    badgeText
+    showInFooter
+  }
+}
+
 fragment GradeSettingsParts on GradeSettings {
   __typename
   defaultTheme

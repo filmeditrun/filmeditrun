@@ -102,6 +102,8 @@ export type Query = {
   serviceConnection: ServiceConnection;
   siteSettings: SiteSettings;
   siteSettingsConnection: SiteSettingsConnection;
+  seoSettings: SeoSettings;
+  seoSettingsConnection: SeoSettingsConnection;
   gradeSettings: GradeSettings;
   gradeSettingsConnection: GradeSettingsConnection;
   footerSettings: FooterSettings;
@@ -265,6 +267,21 @@ export type QuerySiteSettingsConnectionArgs = {
 };
 
 
+export type QuerySeoSettingsArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySeoSettingsConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<SeoSettingsFilter>;
+};
+
+
 export type QueryGradeSettingsArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -304,6 +321,7 @@ export type DocumentFilter = {
   project?: InputMaybe<ProjectFilter>;
   service?: InputMaybe<ServiceFilter>;
   siteSettings?: InputMaybe<SiteSettingsFilter>;
+  seoSettings?: InputMaybe<SeoSettingsFilter>;
   gradeSettings?: InputMaybe<GradeSettingsFilter>;
   footerSettings?: InputMaybe<FooterSettingsFilter>;
 };
@@ -345,7 +363,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | AboutSlider | Project | Service | SiteSettings | GradeSettings | FooterSettings | Folder;
+export type DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | AboutSlider | Project | Service | SiteSettings | SeoSettings | GradeSettings | FooterSettings | Folder;
 
 export type Homepage = Node & Document & {
   __typename?: 'Homepage';
@@ -911,6 +929,78 @@ export type SiteSettingsConnection = Connection & {
   edges?: Maybe<Array<Maybe<SiteSettingsConnectionEdges>>>;
 };
 
+export type SeoSettingsBacklinkProfiles = {
+  __typename?: 'SeoSettingsBacklinkProfiles';
+  name: Scalars['String']['output'];
+  url: Scalars['String']['output'];
+  badgeText?: Maybe<Scalars['String']['output']>;
+  showInFooter?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type SeoSettings = Node & Document & {
+  __typename?: 'SeoSettings';
+  legalName?: Maybe<Scalars['String']['output']>;
+  telephone?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  priceRange?: Maybe<Scalars['String']['output']>;
+  addressLocality?: Maybe<Scalars['String']['output']>;
+  addressRegion?: Maybe<Scalars['String']['output']>;
+  postalCode?: Maybe<Scalars['String']['output']>;
+  addressCountry?: Maybe<Scalars['String']['output']>;
+  googleMapsUrl?: Maybe<Scalars['String']['output']>;
+  geoLatitude?: Maybe<Scalars['Float']['output']>;
+  geoLongitude?: Maybe<Scalars['Float']['output']>;
+  backlinkProfiles?: Maybe<Array<Maybe<SeoSettingsBacklinkProfiles>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type NumberFilter = {
+  lt?: InputMaybe<Scalars['Float']['input']>;
+  lte?: InputMaybe<Scalars['Float']['input']>;
+  gte?: InputMaybe<Scalars['Float']['input']>;
+  gt?: InputMaybe<Scalars['Float']['input']>;
+  eq?: InputMaybe<Scalars['Float']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+};
+
+export type SeoSettingsBacklinkProfilesFilter = {
+  name?: InputMaybe<StringFilter>;
+  url?: InputMaybe<StringFilter>;
+  badgeText?: InputMaybe<StringFilter>;
+  showInFooter?: InputMaybe<BooleanFilter>;
+};
+
+export type SeoSettingsFilter = {
+  legalName?: InputMaybe<StringFilter>;
+  telephone?: InputMaybe<StringFilter>;
+  email?: InputMaybe<StringFilter>;
+  priceRange?: InputMaybe<StringFilter>;
+  addressLocality?: InputMaybe<StringFilter>;
+  addressRegion?: InputMaybe<StringFilter>;
+  postalCode?: InputMaybe<StringFilter>;
+  addressCountry?: InputMaybe<StringFilter>;
+  googleMapsUrl?: InputMaybe<StringFilter>;
+  geoLatitude?: InputMaybe<NumberFilter>;
+  geoLongitude?: InputMaybe<NumberFilter>;
+  backlinkProfiles?: InputMaybe<SeoSettingsBacklinkProfilesFilter>;
+};
+
+export type SeoSettingsConnectionEdges = {
+  __typename?: 'SeoSettingsConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<SeoSettings>;
+};
+
+export type SeoSettingsConnection = Connection & {
+  __typename?: 'SeoSettingsConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<SeoSettingsConnectionEdges>>>;
+};
+
 export type GradeSettings = Node & Document & {
   __typename?: 'GradeSettings';
   defaultTheme?: Maybe<Scalars['String']['output']>;
@@ -1071,6 +1161,8 @@ export type Mutation = {
   createService: Service;
   updateSiteSettings: SiteSettings;
   createSiteSettings: SiteSettings;
+  updateSeoSettings: SeoSettings;
+  createSeoSettings: SeoSettings;
   updateGradeSettings: GradeSettings;
   createGradeSettings: GradeSettings;
   updateFooterSettings: FooterSettings;
@@ -1219,6 +1311,18 @@ export type MutationCreateSiteSettingsArgs = {
 };
 
 
+export type MutationUpdateSeoSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: SeoSettingsMutation;
+};
+
+
+export type MutationCreateSeoSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: SeoSettingsMutation;
+};
+
+
 export type MutationUpdateGradeSettingsArgs = {
   relativePath: Scalars['String']['input'];
   params: GradeSettingsMutation;
@@ -1252,6 +1356,7 @@ export type DocumentUpdateMutation = {
   project?: InputMaybe<ProjectMutation>;
   service?: InputMaybe<ServiceMutation>;
   siteSettings?: InputMaybe<SiteSettingsMutation>;
+  seoSettings?: InputMaybe<SeoSettingsMutation>;
   gradeSettings?: InputMaybe<GradeSettingsMutation>;
   footerSettings?: InputMaybe<FooterSettingsMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
@@ -1267,6 +1372,7 @@ export type DocumentMutation = {
   project?: InputMaybe<ProjectMutation>;
   service?: InputMaybe<ServiceMutation>;
   siteSettings?: InputMaybe<SiteSettingsMutation>;
+  seoSettings?: InputMaybe<SeoSettingsMutation>;
   gradeSettings?: InputMaybe<GradeSettingsMutation>;
   footerSettings?: InputMaybe<FooterSettingsMutation>;
 };
@@ -1462,6 +1568,28 @@ export type SiteSettingsMutation = {
   useImageLogo?: InputMaybe<Scalars['Boolean']['input']>;
   logoImagePath?: InputMaybe<Scalars['String']['input']>;
   navLinks?: InputMaybe<Array<InputMaybe<SiteSettingsNavLinksMutation>>>;
+};
+
+export type SeoSettingsBacklinkProfilesMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  badgeText?: InputMaybe<Scalars['String']['input']>;
+  showInFooter?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type SeoSettingsMutation = {
+  legalName?: InputMaybe<Scalars['String']['input']>;
+  telephone?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  priceRange?: InputMaybe<Scalars['String']['input']>;
+  addressLocality?: InputMaybe<Scalars['String']['input']>;
+  addressRegion?: InputMaybe<Scalars['String']['input']>;
+  postalCode?: InputMaybe<Scalars['String']['input']>;
+  addressCountry?: InputMaybe<Scalars['String']['input']>;
+  googleMapsUrl?: InputMaybe<Scalars['String']['input']>;
+  geoLatitude?: InputMaybe<Scalars['Float']['input']>;
+  geoLongitude?: InputMaybe<Scalars['Float']['input']>;
+  backlinkProfiles?: InputMaybe<Array<InputMaybe<SeoSettingsBacklinkProfilesMutation>>>;
 };
 
 export type GradeSettingsMutation = {
@@ -1726,6 +1854,38 @@ export type SiteSettingsFilter = {
   navLinks?: SiteSettingsNavLinksFilter | null | undefined;
 };
 
+export type NumberFilter = {
+  lt?: number | null | undefined;
+  lte?: number | null | undefined;
+  gte?: number | null | undefined;
+  gt?: number | null | undefined;
+  eq?: number | null | undefined;
+  exists?: boolean | null | undefined;
+  in?: Array<number | null | undefined> | null | undefined;
+};
+
+export type SeoSettingsBacklinkProfilesFilter = {
+  name?: StringFilter | null | undefined;
+  url?: StringFilter | null | undefined;
+  badgeText?: StringFilter | null | undefined;
+  showInFooter?: BooleanFilter | null | undefined;
+};
+
+export type SeoSettingsFilter = {
+  legalName?: StringFilter | null | undefined;
+  telephone?: StringFilter | null | undefined;
+  email?: StringFilter | null | undefined;
+  priceRange?: StringFilter | null | undefined;
+  addressLocality?: StringFilter | null | undefined;
+  addressRegion?: StringFilter | null | undefined;
+  postalCode?: StringFilter | null | undefined;
+  addressCountry?: StringFilter | null | undefined;
+  googleMapsUrl?: StringFilter | null | undefined;
+  geoLatitude?: NumberFilter | null | undefined;
+  geoLongitude?: NumberFilter | null | undefined;
+  backlinkProfiles?: SeoSettingsBacklinkProfilesFilter | null | undefined;
+};
+
 export type GradeSettingsFilter = {
   defaultTheme?: StringFilter | null | undefined;
   enableThemeSwitcher?: BooleanFilter | null | undefined;
@@ -1793,6 +1953,8 @@ export type ProjectPartsFragment = { __typename: 'Project', order: string, title
 export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string | null, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
 
 export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, navLinks: Array<{ __typename: 'SiteSettingsNavLinks', label: string, href: string } | null> | null };
+
+export type SeoSettingsPartsFragment = { __typename: 'SeoSettings', legalName: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null };
 
 export type GradeSettingsPartsFragment = { __typename: 'GradeSettings', defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirTitle: string | null, darkNoirAccentColor: string | null, highKeyTitle: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaTitle: string | null, supernovaAccentColor: string | null, supernovaSecondaryColor: string | null };
 
@@ -1968,6 +2130,25 @@ export type SiteSettingsConnectionQueryVariables = Exact<{
 
 
 export type SiteSettingsConnectionQuery = { siteSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'SiteSettings', id: string, siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navLinks: Array<{ __typename: 'SiteSettingsNavLinks', label: string, href: string } | null> | null } | null } | null> | null } };
+
+export type SeoSettingsQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type SeoSettingsQuery = { seoSettings: { __typename: 'SeoSettings', id: string, legalName: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null } };
+
+export type SeoSettingsConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: SeoSettingsFilter | null | undefined;
+}>;
+
+
+export type SeoSettingsConnectionQuery = { seoSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'SeoSettings', id: string, legalName: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null } | null } | null> | null } };
 
 export type GradeSettingsQueryVariables = Exact<{
   relativePath: string;
@@ -2209,6 +2390,29 @@ export const SiteSettingsPartsFragmentDoc = gql`
     __typename
     label
     href
+  }
+}
+    `;
+export const SeoSettingsPartsFragmentDoc = gql`
+    fragment SeoSettingsParts on SeoSettings {
+  __typename
+  legalName
+  telephone
+  email
+  priceRange
+  addressLocality
+  addressRegion
+  postalCode
+  addressCountry
+  googleMapsUrl
+  geoLatitude
+  geoLongitude
+  backlinkProfiles {
+    __typename
+    name
+    url
+    badgeText
+    showInFooter
   }
 }
     `;
@@ -2778,6 +2982,63 @@ export const SiteSettingsConnectionDocument = gql`
   }
 }
     ${SiteSettingsPartsFragmentDoc}`;
+export const SeoSettingsDocument = gql`
+    query seoSettings($relativePath: String!) {
+  seoSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...SeoSettingsParts
+  }
+}
+    ${SeoSettingsPartsFragmentDoc}`;
+export const SeoSettingsConnectionDocument = gql`
+    query seoSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SeoSettingsFilter) {
+  seoSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...SeoSettingsParts
+      }
+    }
+  }
+}
+    ${SeoSettingsPartsFragmentDoc}`;
 export const GradeSettingsDocument = gql`
     query gradeSettings($relativePath: String!) {
   gradeSettings(relativePath: $relativePath) {
@@ -2948,6 +3209,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     siteSettingsConnection(variables?: SiteSettingsConnectionQueryVariables, options?: C): Promise<{data: SiteSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteSettingsConnectionQueryVariables, query: string}> {
         return requester<{data: SiteSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteSettingsConnectionQueryVariables, query: string}, SiteSettingsConnectionQueryVariables>(SiteSettingsConnectionDocument, variables, options);
+      },
+    seoSettings(variables: SeoSettingsQueryVariables, options?: C): Promise<{data: SeoSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SeoSettingsQueryVariables, query: string}> {
+        return requester<{data: SeoSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SeoSettingsQueryVariables, query: string}, SeoSettingsQueryVariables>(SeoSettingsDocument, variables, options);
+      },
+    seoSettingsConnection(variables?: SeoSettingsConnectionQueryVariables, options?: C): Promise<{data: SeoSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SeoSettingsConnectionQueryVariables, query: string}> {
+        return requester<{data: SeoSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SeoSettingsConnectionQueryVariables, query: string}, SeoSettingsConnectionQueryVariables>(SeoSettingsConnectionDocument, variables, options);
       },
     gradeSettings(variables: GradeSettingsQueryVariables, options?: C): Promise<{data: GradeSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GradeSettingsQueryVariables, query: string}> {
         return requester<{data: GradeSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: GradeSettingsQueryVariables, query: string}, GradeSettingsQueryVariables>(GradeSettingsDocument, variables, options);

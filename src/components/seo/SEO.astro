@@ -29,28 +29,48 @@ const resolvedOgImage = ogImage.startsWith("http")
   : `${siteUrl}${ogImage.startsWith("/") ? ogImage : `/${ogImage}`}`;
 
 const siteName = siteConfig.siteName || "FilmEditRun";
+const legalName = siteConfig.legalName || siteName;
+const telephone = siteConfig.telephone || "+44 1223 926450";
+const email = siteConfig.email || "contact@filmeditrun.co.uk";
+const priceRange = siteConfig.priceRange || "££-£££";
+const locality = siteConfig.addressLocality || "Cambridge";
+const region = siteConfig.addressRegion || "Cambridgeshire";
+const postalCode = siteConfig.postalCode || "CB1 2JW";
+const country = siteConfig.addressCountry || "GB";
+const mapsUrl = siteConfig.googleMapsUrl || undefined;
+
+// Dynamic sameAs profile citations array from TinaCMS
+const backlinkUrls = siteConfig.backlinkProfiles?.map((p) => p.url).filter(Boolean) || [
+  "https://www.cambridgenetwork.co.uk",
+  "https://vimeo.com/filmeditrun",
+  "https://www.linkedin.com/company/filmeditrun",
+  "https://github.com/filmeditrun"
+];
 
 // Base Schema.org WebSite & LocalBusiness structured data
-const baseBusinessSchema = {
+const baseBusinessSchema: Record<string, any> = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": `${siteUrl}/#organization`,
   "name": siteName,
+  "legalName": legalName,
   "url": siteUrl,
   "logo": `${siteUrl}/logo.svg`,
   "image": resolvedOgImage,
   "description": description,
-  "telephone": "+44 20 0000 0000",
-  "priceRange": "££-£££",
+  "telephone": telephone,
+  "email": email,
+  "priceRange": priceRange,
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "London",
-    "addressRegion": "Greater London",
-    "addressCountry": "GB"
+    "addressLocality": locality,
+    "addressRegion": region,
+    "postalCode": postalCode,
+    "addressCountry": country
   },
   "areaServed": [
-    { "@type": "City", "name": "London" },
     { "@type": "City", "name": "Cambridge" },
+    { "@type": "City", "name": "London" },
     { "@type": "Country", "name": "United Kingdom" }
   ],
   "knowsAbout": [
@@ -61,11 +81,20 @@ const baseBusinessSchema = {
     "Motion Design & Animation",
     "Colour Grading & Sound Design"
   ],
-  "sameAs": [
-    "https://vimeo.com",
-    "https://www.linkedin.com"
-  ]
+  "sameAs": backlinkUrls
 };
+
+if (mapsUrl) {
+  baseBusinessSchema["hasMap"] = mapsUrl;
+}
+
+if (siteConfig.geoLatitude && siteConfig.geoLongitude) {
+  baseBusinessSchema["geo"] = {
+    "@type": "GeoCoordinates",
+    "latitude": siteConfig.geoLatitude,
+    "longitude": siteConfig.geoLongitude
+  };
+}
 
 const webpageSchema = {
   "@context": "https://schema.org",

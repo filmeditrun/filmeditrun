@@ -75,6 +75,8 @@ type Query {
   serviceConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServiceFilter): ServiceConnection!
   siteSettings(relativePath: String): SiteSettings!
   siteSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SiteSettingsFilter): SiteSettingsConnection!
+  seoSettings(relativePath: String): SeoSettings!
+  seoSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SeoSettingsFilter): SeoSettingsConnection!
   gradeSettings(relativePath: String): GradeSettings!
   gradeSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: GradeSettingsFilter): GradeSettingsConnection!
   footerSettings(relativePath: String): FooterSettings!
@@ -91,6 +93,7 @@ input DocumentFilter {
   project: ProjectFilter
   service: ServiceFilter
   siteSettings: SiteSettingsFilter
+  seoSettings: SeoSettingsFilter
   gradeSettings: GradeSettingsFilter
   footerSettings: FooterSettingsFilter
 }
@@ -118,7 +121,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | AboutSlider | Project | Service | SiteSettings | GradeSettings | FooterSettings | Folder
+union DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | AboutSlider | Project | Service | SiteSettings | SeoSettings | GradeSettings | FooterSettings | Folder
 
 type Homepage implements Node & Document {
   seoTitle: String!
@@ -651,6 +654,74 @@ type SiteSettingsConnection implements Connection {
   edges: [SiteSettingsConnectionEdges]
 }
 
+type SeoSettingsBacklinkProfiles {
+  name: String!
+  url: String!
+  badgeText: String
+  showInFooter: Boolean
+}
+
+type SeoSettings implements Node & Document {
+  legalName: String
+  telephone: String
+  email: String
+  priceRange: String
+  addressLocality: String
+  addressRegion: String
+  postalCode: String
+  addressCountry: String
+  googleMapsUrl: String
+  geoLatitude: Float
+  geoLongitude: Float
+  backlinkProfiles: [SeoSettingsBacklinkProfiles]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input SeoSettingsBacklinkProfilesFilter {
+  name: StringFilter
+  url: StringFilter
+  badgeText: StringFilter
+  showInFooter: BooleanFilter
+}
+
+input SeoSettingsFilter {
+  legalName: StringFilter
+  telephone: StringFilter
+  email: StringFilter
+  priceRange: StringFilter
+  addressLocality: StringFilter
+  addressRegion: StringFilter
+  postalCode: StringFilter
+  addressCountry: StringFilter
+  googleMapsUrl: StringFilter
+  geoLatitude: NumberFilter
+  geoLongitude: NumberFilter
+  backlinkProfiles: SeoSettingsBacklinkProfilesFilter
+}
+
+type SeoSettingsConnectionEdges {
+  cursor: String!
+  node: SeoSettings
+}
+
+type SeoSettingsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [SeoSettingsConnectionEdges]
+}
+
 type GradeSettings implements Node & Document {
   defaultTheme: String
   enableThemeSwitcher: Boolean
@@ -803,6 +874,8 @@ type Mutation {
   createService(relativePath: String!, params: ServiceMutation!): Service!
   updateSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
   createSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
+  updateSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
+  createSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   updateGradeSettings(relativePath: String!, params: GradeSettingsMutation!): GradeSettings!
   createGradeSettings(relativePath: String!, params: GradeSettingsMutation!): GradeSettings!
   updateFooterSettings(relativePath: String!, params: FooterSettingsMutation!): FooterSettings!
@@ -819,6 +892,7 @@ input DocumentUpdateMutation {
   project: ProjectMutation
   service: ServiceMutation
   siteSettings: SiteSettingsMutation
+  seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
   relativePath: String
@@ -834,6 +908,7 @@ input DocumentMutation {
   project: ProjectMutation
   service: ServiceMutation
   siteSettings: SiteSettingsMutation
+  seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
 }
@@ -1029,6 +1104,28 @@ input SiteSettingsMutation {
   useImageLogo: Boolean
   logoImagePath: String
   navLinks: [SiteSettingsNavLinksMutation]
+}
+
+input SeoSettingsBacklinkProfilesMutation {
+  name: String
+  url: String
+  badgeText: String
+  showInFooter: Boolean
+}
+
+input SeoSettingsMutation {
+  legalName: String
+  telephone: String
+  email: String
+  priceRange: String
+  addressLocality: String
+  addressRegion: String
+  postalCode: String
+  addressCountry: String
+  googleMapsUrl: String
+  geoLatitude: Float
+  geoLongitude: Float
+  backlinkProfiles: [SeoSettingsBacklinkProfilesMutation]
 }
 
 input GradeSettingsMutation {
