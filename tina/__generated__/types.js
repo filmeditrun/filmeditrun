@@ -94,6 +94,51 @@ export const CambridgePagePartsFragmentDoc = gql`
   bottomCtaLink
 }
     `;
+export const CustomPagesPartsFragmentDoc = gql`
+    fragment CustomPagesParts on CustomPages {
+  __typename
+  slug
+  seoTitle
+  seoDescription
+  canonicalURL
+  heroTag
+  heroHeadingPrefix
+  heroHeadingHighlight
+  heroSubtitle
+  heroCtaLabel
+  heroCtaLink
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+  section1Tag
+  section1Heading
+  section1Description
+  section1Bullets
+  section1RightType
+  section1CardTitle
+  section1CardBody
+  section1CardLinkLabel
+  section1CardLinkHref
+  section1CardImage
+  section1CardImageCaption
+  section2Tag
+  section2Heading
+  section2Description
+  section2Bullets
+  section2LeftType
+  section2CardTitle
+  section2CardBody
+  section2CardLinkLabel
+  section2CardLinkHref
+  section2CardImage
+  section2CardImageCaption
+  bottomCtaHeading
+  bottomCtaBody
+  bottomCtaLabel
+  bottomCtaLink
+}
+    `;
 export const AboutPagePartsFragmentDoc = gql`
     fragment AboutPageParts on AboutPage {
   __typename
@@ -514,6 +559,63 @@ export const CambridgePageConnectionDocument = gql`
   }
 }
     ${CambridgePagePartsFragmentDoc}`;
+export const CustomPagesDocument = gql`
+    query customPages($relativePath: String!) {
+  customPages(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...CustomPagesParts
+  }
+}
+    ${CustomPagesPartsFragmentDoc}`;
+export const CustomPagesConnectionDocument = gql`
+    query customPagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: CustomPagesFilter) {
+  customPagesConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...CustomPagesParts
+      }
+    }
+  }
+}
+    ${CustomPagesPartsFragmentDoc}`;
 export const AboutPageDocument = gql`
     query aboutPage($relativePath: String!) {
   aboutPage(relativePath: $relativePath) {
@@ -995,6 +1097,12 @@ export function getSdk(requester) {
     },
     cambridgePageConnection(variables, options) {
       return requester(CambridgePageConnectionDocument, variables, options);
+    },
+    customPages(variables, options) {
+      return requester(CustomPagesDocument, variables, options);
+    },
+    customPagesConnection(variables, options) {
+      return requester(CustomPagesConnectionDocument, variables, options);
     },
     aboutPage(variables, options) {
       return requester(AboutPageDocument, variables, options);

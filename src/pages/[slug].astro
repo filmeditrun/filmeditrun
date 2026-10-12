@@ -1,0 +1,370 @@
+---
+// =====================================================================
+// GENERIC / CUSTOM PAGE TEMPLATE (Option A: Root Dynamic [slug].astro)
+// Driven by TinaCMS in src/content/pages/custom/*.json
+// 100% Zero-JS, Semantic HTML, Theme-Aware, Dual Alternating Narrative
+// =====================================================================
+import Layout from '../layouts/Layout.astro';
+
+export interface CustomPageData {
+  slug: string;
+  seoTitle: string;
+  seoDescription: string;
+  canonicalURL?: string;
+  
+  // Hero
+  heroTag?: string;
+  heroHeadingPrefix: string;
+  heroHeadingHighlight: string;
+  heroSubtitle: string;
+  heroCtaLabel?: string;
+  heroCtaLink?: string;
+  displayAs?: "local-video" | "link-video" | "image" | "none";
+  localVideoPath?: string;
+  cloudVideoUrl?: string;
+  imagePath?: string;
+
+  // Narrative Story 1 (Left: Copy, Right: Card/Image)
+  section1Tag?: string;
+  section1Heading: string;
+  section1Description: string;
+  section1Bullets?: string[];
+  section1RightType?: "card" | "image";
+  section1CardTitle?: string;
+  section1CardBody?: string;
+  section1CardLinkLabel?: string;
+  section1CardLinkHref?: string;
+  section1CardImage?: string;
+  section1CardImageCaption?: string;
+
+  // Narrative Story 2 (Left: Card/Image, Right: Copy) - Alternating
+  section2Tag?: string;
+  section2Heading?: string;
+  section2Description?: string;
+  section2Bullets?: string[];
+  section2LeftType?: "card" | "image";
+  section2CardTitle?: string;
+  section2CardBody?: string;
+  section2CardLinkLabel?: string;
+  section2CardLinkHref?: string;
+  section2CardImage?: string;
+  section2CardImageCaption?: string;
+
+  // Bottom CTA
+  bottomCtaHeading?: string;
+  bottomCtaBody?: string;
+  bottomCtaLabel?: string;
+  bottomCtaLink?: string;
+}
+
+export async function getStaticPaths() {
+  const pageFiles = import.meta.glob<CustomPageData>('../content/pages/custom/*.json', {
+    eager: true,
+    import: 'default',
+  });
+
+  return Object.values(pageFiles).map((page) => {
+    const slug = page.slug || 'custom-page';
+    return {
+      params: { slug },
+      props: { page },
+    };
+  });
+}
+
+interface Props {
+  page: CustomPageData;
+}
+
+const { page } = Astro.props;
+
+// Formatting helper: converts **bold**, <u>underline</u>, and *highlight* seamlessly
+const formatRichText = (text?: string) => {
+  if (!text) return "";
+  let formatted = text
+    // Replace **bold** with semantic strong (inherits theme text color)
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold">$1</strong>')
+    // Replace <u>underline</u> with decorated underline
+    .replace(/<u>(.*?)<\/u>/g, '<u class="underline decoration-amber-500/60 underline-offset-4">$1</u>')
+    // Replace *highlight* with dynamic theme gradient text
+    .replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 font-semibold">$1</span>');
+  return formatted;
+};
+
+const displayAs = page.displayAs || "image";
+const localVideoPath = page.localVideoPath || "/showreel.mp4";
+const cloudVideoUrl = page.cloudVideoUrl || "";
+const imagePath = page.imagePath || "/og-image.jpg";
+const siteUrl = "https://filmeditrun.co.uk";
+const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
+
+const section1Bullets = page.section1Bullets ?? [];
+const section2Bullets = page.section2Bullets ?? [];
+---
+
+<Layout
+  title={page.seoTitle}
+  description={page.seoDescription}
+  canonical={page.canonicalURL || `${siteUrl}/${page.slug}`}
+  ogImage={ogImage}
+  fullBleed={true}
+>
+  <div class="w-full relative z-10 bg-ink min-h-screen">
+
+    <!-- ============================================================== -->
+    <!-- 1. CINEMATIC HERO BANNER                                       -->
+    <!-- ============================================================== -->
+    <header data-cinema-darkroom class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
+      
+      <!-- Video / Photo Media Backdrop Layer -->
+      <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
+        <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Themes) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
+
+        {/* Video Background (Local or Cloud) */}
+        {(displayAs === "local-video" || displayAs === "link-video") && (
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster={imagePath}
+            class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
+          >
+            <source
+              src={displayAs === "local-video" ? localVideoPath : cloudVideoUrl}
+              type="video/mp4"
+            />
+          </video>
+        )}
+
+        {/* Static Image Background */}
+        {displayAs === "image" && (
+          <img
+            src={imagePath}
+            alt={page.seoTitle}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-85 z-0"
+          />
+        )}
+      </div>
+
+      <!-- Main Banner Content -->
+      <div class="relative z-20 max-w-6xl mx-auto px-6">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span class="text-neutral-600">/</span>
+          <span class="text-amber-500 font-semibold capitalize">{page.slug.replace(/-/g, ' ')}</span>
+        </nav>
+
+        {page.heroTag && (
+          <span class="text-xs uppercase tracking-[0.3em] text-amber-500 font-mono font-bold block mb-4">
+            {page.heroTag}
+          </span>
+        )}
+
+        <!-- Large Title with Dynamic Gradient Highlight -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl">
+          {page.heroHeadingPrefix}{" "}
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+            {page.heroHeadingHighlight}
+          </span>
+        </h1>
+
+        <!-- Subtitle with Rich Formatting -->
+        <p class="text-lg sm:text-xl lg:text-2xl text-neutral-200 font-light leading-relaxed max-w-3xl mb-8" set:html={formatRichText(page.heroSubtitle)} />
+
+        <!-- Primary CTA Button -->
+        {page.heroCtaLabel && page.heroCtaLink && (
+          <div>
+            <a
+              href={page.heroCtaLink}
+              class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-all shadow-xl shadow-amber-500/20 hover:scale-[1.02] text-center"
+            >
+              {page.heroCtaLabel} &rarr;
+            </a>
+          </div>
+        )}
+
+      </div>
+    </header>
+
+    <!-- ============================================================== -->
+    <!-- 2. NARRATIVE STORY 1 (Left: Copy, Right: Card or Photo)        -->
+    <!-- ============================================================== -->
+    <section class="max-w-6xl mx-auto px-6 py-24 sm:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Story & Bullet Points -->
+        <div class="lg:col-span-7">
+          {page.section1Tag && (
+            <span class="text-xs uppercase tracking-widest text-amber-500 font-mono block mb-2 font-semibold">
+              {page.section1Tag}
+            </span>
+          )}
+          
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight text-white" set:html={formatRichText(page.section1Heading)} />
+          
+          <p class="text-base sm:text-lg leading-relaxed mb-8 font-light text-neutral-300" set:html={formatRichText(page.section1Description)} />
+
+          {section1Bullets.length > 0 && (
+            <ul class="space-y-3.5 text-sm sm:text-base font-sans font-light text-neutral-300">
+              {section1Bullets.map((bullet) => (
+                <li class="flex items-start gap-3">
+                  <span class="text-amber-500 font-bold shrink-0 mt-0.5">✓</span>
+                  <span set:html={formatRichText(bullet)} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <!-- Right: Plaque Card OR Showcase Photograph -->
+        <div class="lg:col-span-5">
+          {page.section1RightType === "image" && page.section1CardImage ? (
+            <div class="relative group rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-900/60">
+              <img
+                src={page.section1CardImage}
+                alt={page.section1CardImageCaption || page.section1Heading}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-auto object-cover rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+              {page.section1CardImageCaption && (
+                <div class="p-4 bg-neutral-950/80 backdrop-blur-sm border-t border-white/5 text-xs font-mono text-neutral-400">
+                  {page.section1CardImageCaption}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div class="bg-neutral-900/80 border border-neutral-800 p-8 sm:p-10 rounded-2xl shadow-xl hover:border-amber-500/40 transition-all duration-300">
+              {page.section1CardTitle && (
+                <h3 class="text-xl sm:text-2xl font-bold mb-4 text-white" set:html={formatRichText(page.section1CardTitle)} />
+              )}
+              {page.section1CardBody && (
+                <p class="text-sm sm:text-base leading-relaxed mb-6 font-light text-neutral-300" set:html={formatRichText(page.section1CardBody)} />
+              )}
+              {page.section1CardLinkLabel && page.section1CardLinkHref && (
+                <a
+                  href={page.section1CardLinkHref}
+                  class="text-amber-500 font-mono text-sm hover:underline inline-flex items-center gap-1 font-medium transition-colors"
+                >
+                  {page.section1CardLinkLabel}
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 3. NARRATIVE STORY 2 (Left: Card or Photo, Right: Copy) - REVERSED -->
+    <!-- ============================================================== -->
+    {page.section2Heading && (
+      <section class="border-t border-neutral-900 py-24 sm:py-32 bg-neutral-950/40">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left: Showcase Photograph OR Plaque Card -->
+            <div class="lg:col-span-5 order-2 lg:order-1">
+              {page.section2LeftType === "card" ? (
+                <div class="bg-neutral-900/80 border border-neutral-800 p-8 sm:p-10 rounded-2xl shadow-xl hover:border-amber-500/40 transition-all duration-300">
+                  {page.section2CardTitle && (
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 text-white" set:html={formatRichText(page.section2CardTitle)} />
+                  )}
+                  {page.section2CardBody && (
+                    <p class="text-sm sm:text-base leading-relaxed mb-6 font-light text-neutral-300" set:html={formatRichText(page.section2CardBody)} />
+                  )}
+                  {page.section2CardLinkLabel && page.section2CardLinkHref && (
+                    <a
+                      href={page.section2CardLinkHref}
+                      class="text-amber-500 font-mono text-sm hover:underline inline-flex items-center gap-1 font-medium transition-colors"
+                    >
+                      {page.section2CardLinkLabel}
+                    </a>
+                  )}
+                </div>
+              ) : (
+                page.section2CardImage && (
+                  <div class="relative group rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-900/60">
+                    <img
+                      src={page.section2CardImage}
+                      alt={page.section2CardImageCaption || page.section2Heading}
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-auto object-cover rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                    {page.section2CardImageCaption && (
+                      <div class="p-4 bg-neutral-950/80 backdrop-blur-sm border-t border-white/5 text-xs font-mono text-neutral-400">
+                        {page.section2CardImageCaption}
+                      </div>
+                    )}
+                  </div>
+                )
+              )}
+            </div>
+
+            <!-- Right: Story & Bullet Points -->
+            <div class="lg:col-span-7 order-1 lg:order-2">
+              {page.section2Tag && (
+                <span class="text-xs uppercase tracking-widest text-amber-500 font-mono block mb-2 font-semibold">
+                  {page.section2Tag}
+                </span>
+              )}
+              
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight text-white" set:html={formatRichText(page.section2Heading)} />
+              
+              {page.section2Description && (
+                <p class="text-base sm:text-lg leading-relaxed mb-8 font-light text-neutral-300" set:html={formatRichText(page.section2Description)} />
+              )}
+
+              {section2Bullets.length > 0 && (
+                <ul class="space-y-3.5 text-sm sm:text-base font-sans font-light text-neutral-300">
+                  {section2Bullets.map((bullet) => (
+                    <li class="flex items-start gap-3">
+                      <span class="text-amber-500 font-bold shrink-0 mt-0.5">✓</span>
+                      <span set:html={formatRichText(bullet)} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- ============================================================== -->
+    <!-- 4. BOTTOM CONVERSION CTA                                       -->
+    <!-- ============================================================== -->
+    {page.bottomCtaHeading && (
+      <section class="border-t border-neutral-900 py-24 sm:py-32 bg-neutral-950">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4" set:html={formatRichText(page.bottomCtaHeading)} />
+          
+          {page.bottomCtaBody && (
+            <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light" set:html={formatRichText(page.bottomCtaBody)} />
+          )}
+
+          {page.bottomCtaLabel && page.bottomCtaLink && (
+            <a
+              href={page.bottomCtaLink}
+              class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-all shadow-lg shadow-amber-500/10 hover:scale-[1.02] text-center"
+            >
+              {page.bottomCtaLabel} &rarr;
+            </a>
+          )}
+        </div>
+      </section>
+    )}
+
+  </div>
+</Layout>

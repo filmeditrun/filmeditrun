@@ -218,6 +218,61 @@ query cambridgePageConnection($before: String, $after: String, $first: Float, $l
   }
 }
 
+query customPages($relativePath: String!) {
+  customPages(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...CustomPagesParts
+  }
+}
+
+query customPagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: CustomPagesFilter) {
+  customPagesConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...CustomPagesParts
+      }
+    }
+  }
+}
+
 query aboutPage($relativePath: String!) {
   aboutPage(relativePath: $relativePath) {
     ... on Document {

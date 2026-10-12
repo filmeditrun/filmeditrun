@@ -1,0 +1,55 @@
+{
+  "slug": "sample-page",
+  "seoTitle": "Production Overview & Studio Capabilities | FilmEditRun",
+  "seoDescription": "Discover FilmEditRun's corporate video production services, multi-camera live event coverage, and creative workflows across London and the UK.",
+  "canonicalURL": "https://filmeditrun.co.uk/sample-page",
+  "heroTag": "Studio Overview",
+  "heroHeadingPrefix": "Cinematic Visuals for",
+  "heroHeadingHighlight": "Modern Brands.",
+  "heroSubtitle": "We craft compelling corporate films, conference coverage, and commercial content designed to capture attention and communicate with clarity.",
+  "heroCtaLabel": "Start a Project Brief",
+  "heroCtaLink": "/contact",
+  "displayAs": "image",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "",
+  "imagePath": "/og-image.jpg",
+  
+  "section1Tag": "Our Approach",
+  "section1Heading": "Clear Storytelling Paired with Technical Precision",
+  "section1Description": "Whether you are documenting a flagship corporate summit or creating a focused brand campaign, we combine cinematic visuals with thoughtful pacing to create videos that resonate with your audience.",
+  "section1Bullets": [
+    "High-definition multi-camera recording and live switching",
+    "Discrete, professional on-site production teams",
+    "Fast turnaround editorial and social media highlights",
+    "Clear upfront scope, timelines, and communication"
+  ],
+  "section1RightType": "card",
+  "section1CardTitle": "Why Clients Choose Us",
+  "section1CardBody": "We understand that corporate schedules are tight and events are high-stakes. Our streamlined production pipelines ensure prompt delivery without sacrificing craft, audio clarity, or cinematic polish.",
+  "section1CardLinkLabel": "Explore Selected Work →",
+  "section1CardLinkHref": "/work",
+  "section1CardImage": "/og-image.jpg",
+  "section1CardImageCaption": "On-location multi-camera production setup",
+
+  "section2Tag": "Production Standards",
+  "section2Heading": "Tailored Workflows Designed for Maximum Impact",
+  "section2Description": "From initial briefing through to final color grading and master delivery, every stage of our pipeline is engineered to give marketing teams, agencies, and event organizers complete peace of mind.",
+  "section2Bullets": [
+    "Redundant broadcast audio capture and spatial mixing",
+    "Precision cinema color grading matching your brand palette",
+    "Flexible aspect ratios formatted for digital, broadcast, and social",
+    "Transparent review cycles with frame-accurate client feedback"
+  ],
+  "section2LeftType": "image",
+  "section2CardTitle": "Reliable Delivery Every Time",
+  "section2CardBody": "Every project is backed by direct communication with your dedicated editor and director, ensuring your creative vision translates cleanly to screen.",
+  "section2CardLinkLabel": "Get in touch to discuss details →",
+  "section2CardLinkHref": "/contact",
+  "section2CardImage": "/og-image.jpg",
+  "section2CardImageCaption": "Precision color grading and sound design suite",
+
+  "bottomCtaHeading": "Ready to Start Your Project?",
+  "bottomCtaBody": "Tell us about your upcoming event dates, video requirements, or creative ideas. We will respond with a tailored proposal.",
+  "bottomCtaLabel": "Get in Touch",
+  "bottomCtaLink": "/contact"
+}

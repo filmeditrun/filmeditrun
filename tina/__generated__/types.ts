@@ -92,6 +92,8 @@ export type Query = {
   servicesPageConnection: ServicesPageConnection;
   cambridgePage: CambridgePage;
   cambridgePageConnection: CambridgePageConnection;
+  customPages: CustomPages;
+  customPagesConnection: CustomPagesConnection;
   aboutPage: AboutPage;
   aboutPageConnection: AboutPageConnection;
   aboutSlider: AboutSlider;
@@ -189,6 +191,21 @@ export type QueryCambridgePageConnectionArgs = {
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
   filter?: InputMaybe<CambridgePageFilter>;
+};
+
+
+export type QueryCustomPagesArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryCustomPagesConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<CustomPagesFilter>;
 };
 
 
@@ -316,6 +333,7 @@ export type DocumentFilter = {
   workPage?: InputMaybe<WorkPageFilter>;
   servicesPage?: InputMaybe<ServicesPageFilter>;
   cambridgePage?: InputMaybe<CambridgePageFilter>;
+  customPages?: InputMaybe<CustomPagesFilter>;
   aboutPage?: InputMaybe<AboutPageFilter>;
   aboutSlider?: InputMaybe<AboutSliderFilter>;
   project?: InputMaybe<ProjectFilter>;
@@ -363,7 +381,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | AboutSlider | Project | Service | SiteSettings | SeoSettings | GradeSettings | FooterSettings | Folder;
+export type DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | CustomPages | AboutPage | AboutSlider | Project | Service | SiteSettings | SeoSettings | GradeSettings | FooterSettings | Folder;
 
 export type Homepage = Node & Document & {
   __typename?: 'Homepage';
@@ -610,6 +628,109 @@ export type CambridgePageConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
   edges?: Maybe<Array<Maybe<CambridgePageConnectionEdges>>>;
+};
+
+export type CustomPages = Node & Document & {
+  __typename?: 'CustomPages';
+  slug: Scalars['String']['output'];
+  seoTitle: Scalars['String']['output'];
+  seoDescription: Scalars['String']['output'];
+  canonicalURL?: Maybe<Scalars['String']['output']>;
+  heroTag?: Maybe<Scalars['String']['output']>;
+  heroHeadingPrefix: Scalars['String']['output'];
+  heroHeadingHighlight: Scalars['String']['output'];
+  heroSubtitle: Scalars['String']['output'];
+  heroCtaLabel?: Maybe<Scalars['String']['output']>;
+  heroCtaLink?: Maybe<Scalars['String']['output']>;
+  displayAs?: Maybe<Scalars['String']['output']>;
+  localVideoPath?: Maybe<Scalars['String']['output']>;
+  cloudVideoUrl?: Maybe<Scalars['String']['output']>;
+  imagePath?: Maybe<Scalars['String']['output']>;
+  section1Tag?: Maybe<Scalars['String']['output']>;
+  section1Heading: Scalars['String']['output'];
+  section1Description: Scalars['String']['output'];
+  section1Bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  section1RightType?: Maybe<Scalars['String']['output']>;
+  section1CardTitle?: Maybe<Scalars['String']['output']>;
+  section1CardBody?: Maybe<Scalars['String']['output']>;
+  section1CardLinkLabel?: Maybe<Scalars['String']['output']>;
+  section1CardLinkHref?: Maybe<Scalars['String']['output']>;
+  section1CardImage?: Maybe<Scalars['String']['output']>;
+  section1CardImageCaption?: Maybe<Scalars['String']['output']>;
+  section2Tag?: Maybe<Scalars['String']['output']>;
+  section2Heading?: Maybe<Scalars['String']['output']>;
+  section2Description?: Maybe<Scalars['String']['output']>;
+  section2Bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  section2LeftType?: Maybe<Scalars['String']['output']>;
+  section2CardTitle?: Maybe<Scalars['String']['output']>;
+  section2CardBody?: Maybe<Scalars['String']['output']>;
+  section2CardLinkLabel?: Maybe<Scalars['String']['output']>;
+  section2CardLinkHref?: Maybe<Scalars['String']['output']>;
+  section2CardImage?: Maybe<Scalars['String']['output']>;
+  section2CardImageCaption?: Maybe<Scalars['String']['output']>;
+  bottomCtaHeading?: Maybe<Scalars['String']['output']>;
+  bottomCtaBody?: Maybe<Scalars['String']['output']>;
+  bottomCtaLabel?: Maybe<Scalars['String']['output']>;
+  bottomCtaLink?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type CustomPagesFilter = {
+  slug?: InputMaybe<StringFilter>;
+  seoTitle?: InputMaybe<StringFilter>;
+  seoDescription?: InputMaybe<StringFilter>;
+  canonicalURL?: InputMaybe<StringFilter>;
+  heroTag?: InputMaybe<StringFilter>;
+  heroHeadingPrefix?: InputMaybe<StringFilter>;
+  heroHeadingHighlight?: InputMaybe<StringFilter>;
+  heroSubtitle?: InputMaybe<StringFilter>;
+  heroCtaLabel?: InputMaybe<StringFilter>;
+  heroCtaLink?: InputMaybe<StringFilter>;
+  displayAs?: InputMaybe<StringFilter>;
+  localVideoPath?: InputMaybe<StringFilter>;
+  cloudVideoUrl?: InputMaybe<StringFilter>;
+  imagePath?: InputMaybe<ImageFilter>;
+  section1Tag?: InputMaybe<StringFilter>;
+  section1Heading?: InputMaybe<StringFilter>;
+  section1Description?: InputMaybe<StringFilter>;
+  section1Bullets?: InputMaybe<StringFilter>;
+  section1RightType?: InputMaybe<StringFilter>;
+  section1CardTitle?: InputMaybe<StringFilter>;
+  section1CardBody?: InputMaybe<StringFilter>;
+  section1CardLinkLabel?: InputMaybe<StringFilter>;
+  section1CardLinkHref?: InputMaybe<StringFilter>;
+  section1CardImage?: InputMaybe<ImageFilter>;
+  section1CardImageCaption?: InputMaybe<StringFilter>;
+  section2Tag?: InputMaybe<StringFilter>;
+  section2Heading?: InputMaybe<StringFilter>;
+  section2Description?: InputMaybe<StringFilter>;
+  section2Bullets?: InputMaybe<StringFilter>;
+  section2LeftType?: InputMaybe<StringFilter>;
+  section2CardTitle?: InputMaybe<StringFilter>;
+  section2CardBody?: InputMaybe<StringFilter>;
+  section2CardLinkLabel?: InputMaybe<StringFilter>;
+  section2CardLinkHref?: InputMaybe<StringFilter>;
+  section2CardImage?: InputMaybe<ImageFilter>;
+  section2CardImageCaption?: InputMaybe<StringFilter>;
+  bottomCtaHeading?: InputMaybe<StringFilter>;
+  bottomCtaBody?: InputMaybe<StringFilter>;
+  bottomCtaLabel?: InputMaybe<StringFilter>;
+  bottomCtaLink?: InputMaybe<StringFilter>;
+};
+
+export type CustomPagesConnectionEdges = {
+  __typename?: 'CustomPagesConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<CustomPages>;
+};
+
+export type CustomPagesConnection = Connection & {
+  __typename?: 'CustomPagesConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<CustomPagesConnectionEdges>>>;
 };
 
 export type AboutPageBtsItems = {
@@ -1151,6 +1272,8 @@ export type Mutation = {
   createServicesPage: ServicesPage;
   updateCambridgePage: CambridgePage;
   createCambridgePage: CambridgePage;
+  updateCustomPages: CustomPages;
+  createCustomPages: CustomPages;
   updateAboutPage: AboutPage;
   createAboutPage: AboutPage;
   updateAboutSlider: AboutSlider;
@@ -1248,6 +1371,18 @@ export type MutationUpdateCambridgePageArgs = {
 export type MutationCreateCambridgePageArgs = {
   relativePath: Scalars['String']['input'];
   params: CambridgePageMutation;
+};
+
+
+export type MutationUpdateCustomPagesArgs = {
+  relativePath: Scalars['String']['input'];
+  params: CustomPagesMutation;
+};
+
+
+export type MutationCreateCustomPagesArgs = {
+  relativePath: Scalars['String']['input'];
+  params: CustomPagesMutation;
 };
 
 
@@ -1351,6 +1486,7 @@ export type DocumentUpdateMutation = {
   workPage?: InputMaybe<WorkPageMutation>;
   servicesPage?: InputMaybe<ServicesPageMutation>;
   cambridgePage?: InputMaybe<CambridgePageMutation>;
+  customPages?: InputMaybe<CustomPagesMutation>;
   aboutPage?: InputMaybe<AboutPageMutation>;
   aboutSlider?: InputMaybe<AboutSliderMutation>;
   project?: InputMaybe<ProjectMutation>;
@@ -1367,6 +1503,7 @@ export type DocumentMutation = {
   workPage?: InputMaybe<WorkPageMutation>;
   servicesPage?: InputMaybe<ServicesPageMutation>;
   cambridgePage?: InputMaybe<CambridgePageMutation>;
+  customPages?: InputMaybe<CustomPagesMutation>;
   aboutPage?: InputMaybe<AboutPageMutation>;
   aboutSlider?: InputMaybe<AboutSliderMutation>;
   project?: InputMaybe<ProjectMutation>;
@@ -1453,6 +1590,49 @@ export type CambridgePageMutation = {
   cardLinkHref?: InputMaybe<Scalars['String']['input']>;
   faqHeading?: InputMaybe<Scalars['String']['input']>;
   faqs?: InputMaybe<Array<InputMaybe<CambridgePageFaqsMutation>>>;
+  bottomCtaHeading?: InputMaybe<Scalars['String']['input']>;
+  bottomCtaBody?: InputMaybe<Scalars['String']['input']>;
+  bottomCtaLabel?: InputMaybe<Scalars['String']['input']>;
+  bottomCtaLink?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CustomPagesMutation = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+  seoTitle?: InputMaybe<Scalars['String']['input']>;
+  seoDescription?: InputMaybe<Scalars['String']['input']>;
+  canonicalURL?: InputMaybe<Scalars['String']['input']>;
+  heroTag?: InputMaybe<Scalars['String']['input']>;
+  heroHeadingPrefix?: InputMaybe<Scalars['String']['input']>;
+  heroHeadingHighlight?: InputMaybe<Scalars['String']['input']>;
+  heroSubtitle?: InputMaybe<Scalars['String']['input']>;
+  heroCtaLabel?: InputMaybe<Scalars['String']['input']>;
+  heroCtaLink?: InputMaybe<Scalars['String']['input']>;
+  displayAs?: InputMaybe<Scalars['String']['input']>;
+  localVideoPath?: InputMaybe<Scalars['String']['input']>;
+  cloudVideoUrl?: InputMaybe<Scalars['String']['input']>;
+  imagePath?: InputMaybe<Scalars['String']['input']>;
+  section1Tag?: InputMaybe<Scalars['String']['input']>;
+  section1Heading?: InputMaybe<Scalars['String']['input']>;
+  section1Description?: InputMaybe<Scalars['String']['input']>;
+  section1Bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  section1RightType?: InputMaybe<Scalars['String']['input']>;
+  section1CardTitle?: InputMaybe<Scalars['String']['input']>;
+  section1CardBody?: InputMaybe<Scalars['String']['input']>;
+  section1CardLinkLabel?: InputMaybe<Scalars['String']['input']>;
+  section1CardLinkHref?: InputMaybe<Scalars['String']['input']>;
+  section1CardImage?: InputMaybe<Scalars['String']['input']>;
+  section1CardImageCaption?: InputMaybe<Scalars['String']['input']>;
+  section2Tag?: InputMaybe<Scalars['String']['input']>;
+  section2Heading?: InputMaybe<Scalars['String']['input']>;
+  section2Description?: InputMaybe<Scalars['String']['input']>;
+  section2Bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  section2LeftType?: InputMaybe<Scalars['String']['input']>;
+  section2CardTitle?: InputMaybe<Scalars['String']['input']>;
+  section2CardBody?: InputMaybe<Scalars['String']['input']>;
+  section2CardLinkLabel?: InputMaybe<Scalars['String']['input']>;
+  section2CardLinkHref?: InputMaybe<Scalars['String']['input']>;
+  section2CardImage?: InputMaybe<Scalars['String']['input']>;
+  section2CardImageCaption?: InputMaybe<Scalars['String']['input']>;
   bottomCtaHeading?: InputMaybe<Scalars['String']['input']>;
   bottomCtaBody?: InputMaybe<Scalars['String']['input']>;
   bottomCtaLabel?: InputMaybe<Scalars['String']['input']>;
@@ -1738,6 +1918,49 @@ export type CambridgePageFilter = {
   bottomCtaLink?: StringFilter | null | undefined;
 };
 
+export type CustomPagesFilter = {
+  slug?: StringFilter | null | undefined;
+  seoTitle?: StringFilter | null | undefined;
+  seoDescription?: StringFilter | null | undefined;
+  canonicalURL?: StringFilter | null | undefined;
+  heroTag?: StringFilter | null | undefined;
+  heroHeadingPrefix?: StringFilter | null | undefined;
+  heroHeadingHighlight?: StringFilter | null | undefined;
+  heroSubtitle?: StringFilter | null | undefined;
+  heroCtaLabel?: StringFilter | null | undefined;
+  heroCtaLink?: StringFilter | null | undefined;
+  displayAs?: StringFilter | null | undefined;
+  localVideoPath?: StringFilter | null | undefined;
+  cloudVideoUrl?: StringFilter | null | undefined;
+  imagePath?: ImageFilter | null | undefined;
+  section1Tag?: StringFilter | null | undefined;
+  section1Heading?: StringFilter | null | undefined;
+  section1Description?: StringFilter | null | undefined;
+  section1Bullets?: StringFilter | null | undefined;
+  section1RightType?: StringFilter | null | undefined;
+  section1CardTitle?: StringFilter | null | undefined;
+  section1CardBody?: StringFilter | null | undefined;
+  section1CardLinkLabel?: StringFilter | null | undefined;
+  section1CardLinkHref?: StringFilter | null | undefined;
+  section1CardImage?: ImageFilter | null | undefined;
+  section1CardImageCaption?: StringFilter | null | undefined;
+  section2Tag?: StringFilter | null | undefined;
+  section2Heading?: StringFilter | null | undefined;
+  section2Description?: StringFilter | null | undefined;
+  section2Bullets?: StringFilter | null | undefined;
+  section2LeftType?: StringFilter | null | undefined;
+  section2CardTitle?: StringFilter | null | undefined;
+  section2CardBody?: StringFilter | null | undefined;
+  section2CardLinkLabel?: StringFilter | null | undefined;
+  section2CardLinkHref?: StringFilter | null | undefined;
+  section2CardImage?: ImageFilter | null | undefined;
+  section2CardImageCaption?: StringFilter | null | undefined;
+  bottomCtaHeading?: StringFilter | null | undefined;
+  bottomCtaBody?: StringFilter | null | undefined;
+  bottomCtaLabel?: StringFilter | null | undefined;
+  bottomCtaLink?: StringFilter | null | undefined;
+};
+
 export type AboutPageBtsItemsFilter = {
   title?: StringFilter | null | undefined;
   category?: StringFilter | null | undefined;
@@ -1944,6 +2167,8 @@ export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: 
 
 export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
 
+export type CustomPagesPartsFragment = { __typename: 'CustomPages', slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, heroTag: string | null, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null };
+
 export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroVideoPath: string | null, heroFrostedGlass: string | null, btsHeading: string | null, btsTag: string | null, btsDescription: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, btsItems: Array<{ __typename: 'AboutPageBtsItems', title: string, category: string, image: string | null, caption: string | null, aspectRatio: string | null } | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, draftLabel: string, takeNumber: string | null, title: string, description: string, badge: string | null } | null> | null };
 
 export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutSliderSlides', name: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null };
@@ -2035,6 +2260,25 @@ export type CambridgePageConnectionQueryVariables = Exact<{
 
 
 export type CambridgePageConnectionQuery = { cambridgePageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
+
+export type CustomPagesQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type CustomPagesQuery = { customPages: { __typename: 'CustomPages', id: string, slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, heroTag: string | null, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type CustomPagesConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: CustomPagesFilter | null | undefined;
+}>;
+
+
+export type CustomPagesConnectionQuery = { customPagesConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CustomPages', id: string, slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, heroTag: string | null, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type AboutPageQueryVariables = Exact<{
   relativePath: string;
@@ -2271,6 +2515,51 @@ export const CambridgePagePartsFragmentDoc = gql`
     question
     answer
   }
+  bottomCtaHeading
+  bottomCtaBody
+  bottomCtaLabel
+  bottomCtaLink
+}
+    `;
+export const CustomPagesPartsFragmentDoc = gql`
+    fragment CustomPagesParts on CustomPages {
+  __typename
+  slug
+  seoTitle
+  seoDescription
+  canonicalURL
+  heroTag
+  heroHeadingPrefix
+  heroHeadingHighlight
+  heroSubtitle
+  heroCtaLabel
+  heroCtaLink
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+  section1Tag
+  section1Heading
+  section1Description
+  section1Bullets
+  section1RightType
+  section1CardTitle
+  section1CardBody
+  section1CardLinkLabel
+  section1CardLinkHref
+  section1CardImage
+  section1CardImageCaption
+  section2Tag
+  section2Heading
+  section2Description
+  section2Bullets
+  section2LeftType
+  section2CardTitle
+  section2CardBody
+  section2CardLinkLabel
+  section2CardLinkHref
+  section2CardImage
+  section2CardImageCaption
   bottomCtaHeading
   bottomCtaBody
   bottomCtaLabel
@@ -2697,6 +2986,63 @@ export const CambridgePageConnectionDocument = gql`
   }
 }
     ${CambridgePagePartsFragmentDoc}`;
+export const CustomPagesDocument = gql`
+    query customPages($relativePath: String!) {
+  customPages(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...CustomPagesParts
+  }
+}
+    ${CustomPagesPartsFragmentDoc}`;
+export const CustomPagesConnectionDocument = gql`
+    query customPagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: CustomPagesFilter) {
+  customPagesConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...CustomPagesParts
+      }
+    }
+  }
+}
+    ${CustomPagesPartsFragmentDoc}`;
 export const AboutPageDocument = gql`
     query aboutPage($relativePath: String!) {
   aboutPage(relativePath: $relativePath) {
@@ -3179,6 +3525,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     cambridgePageConnection(variables?: CambridgePageConnectionQueryVariables, options?: C): Promise<{data: CambridgePageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CambridgePageConnectionQueryVariables, query: string}> {
         return requester<{data: CambridgePageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CambridgePageConnectionQueryVariables, query: string}, CambridgePageConnectionQueryVariables>(CambridgePageConnectionDocument, variables, options);
+      },
+    customPages(variables: CustomPagesQueryVariables, options?: C): Promise<{data: CustomPagesQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CustomPagesQueryVariables, query: string}> {
+        return requester<{data: CustomPagesQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CustomPagesQueryVariables, query: string}, CustomPagesQueryVariables>(CustomPagesDocument, variables, options);
+      },
+    customPagesConnection(variables?: CustomPagesConnectionQueryVariables, options?: C): Promise<{data: CustomPagesConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CustomPagesConnectionQueryVariables, query: string}> {
+        return requester<{data: CustomPagesConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CustomPagesConnectionQueryVariables, query: string}, CustomPagesConnectionQueryVariables>(CustomPagesConnectionDocument, variables, options);
       },
     aboutPage(variables: AboutPageQueryVariables, options?: C): Promise<{data: AboutPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutPageQueryVariables, query: string}> {
         return requester<{data: AboutPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutPageQueryVariables, query: string}, AboutPageQueryVariables>(AboutPageDocument, variables, options);

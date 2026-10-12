@@ -83,6 +83,50 @@ fragment CambridgePageParts on CambridgePage {
   bottomCtaLink
 }
 
+fragment CustomPagesParts on CustomPages {
+  __typename
+  slug
+  seoTitle
+  seoDescription
+  canonicalURL
+  heroTag
+  heroHeadingPrefix
+  heroHeadingHighlight
+  heroSubtitle
+  heroCtaLabel
+  heroCtaLink
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+  section1Tag
+  section1Heading
+  section1Description
+  section1Bullets
+  section1RightType
+  section1CardTitle
+  section1CardBody
+  section1CardLinkLabel
+  section1CardLinkHref
+  section1CardImage
+  section1CardImageCaption
+  section2Tag
+  section2Heading
+  section2Description
+  section2Bullets
+  section2LeftType
+  section2CardTitle
+  section2CardBody
+  section2CardLinkLabel
+  section2CardLinkHref
+  section2CardImage
+  section2CardImageCaption
+  bottomCtaHeading
+  bottomCtaBody
+  bottomCtaLabel
+  bottomCtaLink
+}
+
 fragment AboutPageParts on AboutPage {
   __typename
   seoTitle

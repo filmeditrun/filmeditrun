@@ -65,6 +65,8 @@ type Query {
   servicesPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServicesPageFilter): ServicesPageConnection!
   cambridgePage(relativePath: String): CambridgePage!
   cambridgePageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CambridgePageFilter): CambridgePageConnection!
+  customPages(relativePath: String): CustomPages!
+  customPagesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CustomPagesFilter): CustomPagesConnection!
   aboutPage(relativePath: String): AboutPage!
   aboutPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutPageFilter): AboutPageConnection!
   aboutSlider(relativePath: String): AboutSlider!
@@ -88,6 +90,7 @@ input DocumentFilter {
   workPage: WorkPageFilter
   servicesPage: ServicesPageFilter
   cambridgePage: CambridgePageFilter
+  customPages: CustomPagesFilter
   aboutPage: AboutPageFilter
   aboutSlider: AboutSliderFilter
   project: ProjectFilter
@@ -121,7 +124,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | AboutPage | AboutSlider | Project | Service | SiteSettings | SeoSettings | GradeSettings | FooterSettings | Folder
+union DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | CustomPages | AboutPage | AboutSlider | Project | Service | SiteSettings | SeoSettings | GradeSettings | FooterSettings | Folder
 
 type Homepage implements Node & Document {
   seoTitle: String!
@@ -355,6 +358,106 @@ type CambridgePageConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [CambridgePageConnectionEdges]
+}
+
+type CustomPages implements Node & Document {
+  slug: String!
+  seoTitle: String!
+  seoDescription: String!
+  canonicalURL: String
+  heroTag: String
+  heroHeadingPrefix: String!
+  heroHeadingHighlight: String!
+  heroSubtitle: String!
+  heroCtaLabel: String
+  heroCtaLink: String
+  displayAs: String
+  localVideoPath: String
+  cloudVideoUrl: String
+  imagePath: String
+  section1Tag: String
+  section1Heading: String!
+  section1Description: String!
+  section1Bullets: [String]
+  section1RightType: String
+  section1CardTitle: String
+  section1CardBody: String
+  section1CardLinkLabel: String
+  section1CardLinkHref: String
+  section1CardImage: String
+  section1CardImageCaption: String
+  section2Tag: String
+  section2Heading: String
+  section2Description: String
+  section2Bullets: [String]
+  section2LeftType: String
+  section2CardTitle: String
+  section2CardBody: String
+  section2CardLinkLabel: String
+  section2CardLinkHref: String
+  section2CardImage: String
+  section2CardImageCaption: String
+  bottomCtaHeading: String
+  bottomCtaBody: String
+  bottomCtaLabel: String
+  bottomCtaLink: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input CustomPagesFilter {
+  slug: StringFilter
+  seoTitle: StringFilter
+  seoDescription: StringFilter
+  canonicalURL: StringFilter
+  heroTag: StringFilter
+  heroHeadingPrefix: StringFilter
+  heroHeadingHighlight: StringFilter
+  heroSubtitle: StringFilter
+  heroCtaLabel: StringFilter
+  heroCtaLink: StringFilter
+  displayAs: StringFilter
+  localVideoPath: StringFilter
+  cloudVideoUrl: StringFilter
+  imagePath: ImageFilter
+  section1Tag: StringFilter
+  section1Heading: StringFilter
+  section1Description: StringFilter
+  section1Bullets: StringFilter
+  section1RightType: StringFilter
+  section1CardTitle: StringFilter
+  section1CardBody: StringFilter
+  section1CardLinkLabel: StringFilter
+  section1CardLinkHref: StringFilter
+  section1CardImage: ImageFilter
+  section1CardImageCaption: StringFilter
+  section2Tag: StringFilter
+  section2Heading: StringFilter
+  section2Description: StringFilter
+  section2Bullets: StringFilter
+  section2LeftType: StringFilter
+  section2CardTitle: StringFilter
+  section2CardBody: StringFilter
+  section2CardLinkLabel: StringFilter
+  section2CardLinkHref: StringFilter
+  section2CardImage: ImageFilter
+  section2CardImageCaption: StringFilter
+  bottomCtaHeading: StringFilter
+  bottomCtaBody: StringFilter
+  bottomCtaLabel: StringFilter
+  bottomCtaLink: StringFilter
+}
+
+type CustomPagesConnectionEdges {
+  cursor: String!
+  node: CustomPages
+}
+
+type CustomPagesConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [CustomPagesConnectionEdges]
 }
 
 type AboutPageBtsItems {
@@ -864,6 +967,8 @@ type Mutation {
   createServicesPage(relativePath: String!, params: ServicesPageMutation!): ServicesPage!
   updateCambridgePage(relativePath: String!, params: CambridgePageMutation!): CambridgePage!
   createCambridgePage(relativePath: String!, params: CambridgePageMutation!): CambridgePage!
+  updateCustomPages(relativePath: String!, params: CustomPagesMutation!): CustomPages!
+  createCustomPages(relativePath: String!, params: CustomPagesMutation!): CustomPages!
   updateAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
   createAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
   updateAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
@@ -887,6 +992,7 @@ input DocumentUpdateMutation {
   workPage: WorkPageMutation
   servicesPage: ServicesPageMutation
   cambridgePage: CambridgePageMutation
+  customPages: CustomPagesMutation
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
   project: ProjectMutation
@@ -903,6 +1009,7 @@ input DocumentMutation {
   workPage: WorkPageMutation
   servicesPage: ServicesPageMutation
   cambridgePage: CambridgePageMutation
+  customPages: CustomPagesMutation
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
   project: ProjectMutation
@@ -989,6 +1096,49 @@ input CambridgePageMutation {
   cardLinkHref: String
   faqHeading: String
   faqs: [CambridgePageFaqsMutation]
+  bottomCtaHeading: String
+  bottomCtaBody: String
+  bottomCtaLabel: String
+  bottomCtaLink: String
+}
+
+input CustomPagesMutation {
+  slug: String
+  seoTitle: String
+  seoDescription: String
+  canonicalURL: String
+  heroTag: String
+  heroHeadingPrefix: String
+  heroHeadingHighlight: String
+  heroSubtitle: String
+  heroCtaLabel: String
+  heroCtaLink: String
+  displayAs: String
+  localVideoPath: String
+  cloudVideoUrl: String
+  imagePath: String
+  section1Tag: String
+  section1Heading: String
+  section1Description: String
+  section1Bullets: [String]
+  section1RightType: String
+  section1CardTitle: String
+  section1CardBody: String
+  section1CardLinkLabel: String
+  section1CardLinkHref: String
+  section1CardImage: String
+  section1CardImageCaption: String
+  section2Tag: String
+  section2Heading: String
+  section2Description: String
+  section2Bullets: [String]
+  section2LeftType: String
+  section2CardTitle: String
+  section2CardBody: String
+  section2CardLinkLabel: String
+  section2CardLinkHref: String
+  section2CardImage: String
+  section2CardImageCaption: String
   bottomCtaHeading: String
   bottomCtaBody: String
   bottomCtaLabel: String

@@ -35,7 +35,8 @@ export default defineConfig({
             filter: invert(0.92) hue-rotate(180deg);
             background: #121212 !important;
           }
-          /* Counter-invert media, swatches, and welcome card */
+          /* Counter-invert media, swatches, iframes, and welcome card */
+          iframe,
           img,
           video,
           svg image,
@@ -46,7 +47,7 @@ export default defineConfig({
           [class*="media-item"],
           [data-testid="media-image"],
           .filmeditrun-welcome-card {
-            filter: invert(1) hue-rotate(180deg);
+            filter: invert(1) hue-rotate(180deg) !important;
           }
 
           /* Standard centered form width for all collections (860px) */
@@ -79,45 +80,22 @@ export default defineConfig({
             max-width: 360px !important;
           }
 
-          /* Branded FilmEditRun Centerpiece on Dashboard Home */
-          div.relative.left-0.w-full.h-full > div.pt-4:has(h3) {
-            display: flex !important;
-            justify-content: center !important;
-            margin-top: 80px !important;
-            padding: 0 20px !important;
+          /* Collection List Tables (Custom Pages, Portfolio Projects, Services) */
+          /* Generous width, full column visibility, and seamless dark theme matching */
+          div.relative.left-0.w-full.h-full > div.pt-4,
+          div.relative.left-0.w-full.h-full > div.py-4 {
+            max-width: 1100px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 100% !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+            text-align: left !important;
           }
-          div.relative.left-0.w-full.h-full > div.pt-4:has(h3) > div {
-            justify-content: center !important;
-          }
-          div.relative.left-0.w-full.h-full > div.pt-4 h3 {
-            font-family: 'DM Sans', -apple-system, sans-serif !important;
-            font-size: 44px !important;
-            font-weight: 900 !important;
-            letter-spacing: -0.04em !important;
-            color: #ffffff !important;
-            visibility: hidden !important;
-            position: relative !important;
-            margin: 0 !important;
-          }
-          div.relative.left-0.w-full.h-full > div.pt-4 h3::after {
-            content: "FilmEditRun" !important;
-            visibility: visible !important;
-            position: absolute !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            color: #ffffff !important;
-            white-space: nowrap !important;
-            filter: invert(1) hue-rotate(180deg) !important;
-          }
-          div.relative.left-0.w-full.h-full > div.py-4:not([data-test*="form"]) {
-            max-width: 520px !important;
-            margin: 16px auto 0 !important;
-            text-align: center !important;
-            font-family: 'DM Sans', -apple-system, sans-serif !important;
-            color: #a8a29a !important;
-            font-size: 15px !important;
-            line-height: 1.6 !important;
-            filter: invert(1) hue-rotate(180deg) !important;
+          div.relative.left-0.w-full.h-full table,
+          div.relative.left-0.w-full.h-full [role="table"] {
+            width: 100% !important;
+            table-layout: auto !important;
           }
 
           /* Top-left brand icon: clean white */
@@ -689,6 +667,297 @@ export default defineConfig({
             name: "bottomCtaLink",
             label: "Bottom CTA Button Link",
             required: true,
+          },
+        ],
+      },
+      // ─── 📄 CUSTOM / GENERIC PAGES COLLECTION ──────────────────────
+      {
+        name: "customPages",
+        label: "📄 Custom Pages",
+        path: "src/content/pages/custom",
+        format: "json",
+        ui: {
+          router: ({ document }) => {
+            return `/${document._sys.filename}`;
+          },
+        },
+        fields: [
+          // ─── 🔍 SEO & ROUTING ──────────────────────────────────────────
+          {
+            type: "string",
+            name: "slug",
+            label: "🔗 Page URL Slug",
+            description: "Unique URL pathname (e.g. 'london' creates /london, 'pricing' creates /pricing)",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "🔍 SEO Title (Browser Tab & Google)",
+            description: "Optimal length: 50–60 characters",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "🔍 SEO Meta Description",
+            description: "Optimal length: 140–160 characters",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "canonicalURL",
+            label: "🔍 Canonical URL (Optional)",
+            description: "Defaults to https://filmeditrun.co.uk/{slug}",
+          },
+
+          // ─── 🎨 HERO BANNER ───────────────────────────────────────────
+          {
+            type: "string",
+            name: "heroTag",
+            label: "🎨 Hero Eyebrow Tag",
+            description: "Small uppercase category tag above the headline",
+          },
+          {
+            type: "string",
+            name: "heroHeadingPrefix",
+            label: "Hero Heading (Main White Text)",
+            description: "Initial headline copy before the highlight",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroHeadingHighlight",
+            label: "Hero Heading Highlight Word(s)",
+            description: "Accent word(s) highlighted with dynamic theme gradient color",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroSubtitle",
+            label: "Hero Subtitle Copy",
+            description: "Supports *highlight* formatting",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroCtaLabel",
+            label: "Hero Button Label",
+          },
+          {
+            type: "string",
+            name: "heroCtaLink",
+            label: "Hero Button Link",
+          },
+          {
+            type: "string",
+            name: "displayAs",
+            label: "Hero Background Media Type",
+            options: [
+              { label: "Local Video Loop (from /public)", value: "local-video" },
+              { label: "External Cloud Video URL", value: "link-video" },
+              { label: "Static Photo / Image", value: "image" },
+              { label: "Minimalist Dark Void (No Media)", value: "none" },
+            ],
+          },
+          {
+            type: "string",
+            name: "localVideoPath",
+            label: "Local Video Path",
+            description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "string",
+            name: "cloudVideoUrl",
+            label: "Cloud Video URL",
+            description: "e.g. https://your-link.mp4",
+          },
+          {
+            type: "image",
+            name: "imagePath",
+            label: "Hero Background Photo / Video Fallback Poster",
+          },
+
+          // ─── 💡 NARRATIVE STORY 1 (Left: Copy, Right: Card or Photo) ───
+          {
+            type: "string",
+            name: "section1Tag",
+            label: "Story 1: Eyebrow Tag",
+            description: "e.g. Our Approach, Scope Overview",
+          },
+          {
+            type: "string",
+            name: "section1Heading",
+            label: "Story 1: Section Heading",
+            description: "Main section title. Wrap in *asterisks* to highlight text with theme gradient color.",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "section1Description",
+            label: "Story 1: Section Body Copy",
+            description: "Editorial paragraph. Supports **bold**, <u>underline</u>, and *highlight*.",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "section1Bullets",
+            label: "Story 1: Checkmark Bullet Points",
+            description: "Key deliverables or assurances (✓ rendered automatically)",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "section1RightType",
+            label: "Story 1: Right Column Display Mode",
+            description: "Choose whether to display an informative plaque card or a featured photograph",
+            options: [
+              { label: "Informative Plaque Card (Title, Text & Link)", value: "card" },
+              { label: "Featured Photograph / Showcase Image", value: "image" },
+            ],
+          },
+          {
+            type: "string",
+            name: "section1CardTitle",
+            label: "Story 1: Plaque Card Title",
+            description: "e.g. Why Clients Choose Us",
+          },
+          {
+            type: "string",
+            name: "section1CardBody",
+            label: "Story 1: Plaque Card Body Copy",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "section1CardLinkLabel",
+            label: "Story 1: Plaque Card Link Text",
+            description: "e.g. Explore Selected Work →",
+          },
+          {
+            type: "string",
+            name: "section1CardLinkHref",
+            label: "Story 1: Plaque Card Link URL",
+            description: "e.g. /work or /contact",
+          },
+          {
+            type: "image",
+            name: "section1CardImage",
+            label: "Story 1: Showcase Photograph (When Display Mode is Image)",
+          },
+          {
+            type: "string",
+            name: "section1CardImageCaption",
+            label: "Story 1: Showcase Photo Caption (Optional)",
+          },
+
+          // ─── 🔄 NARRATIVE STORY 2 (Left: Card or Photo, Right: Copy) ───
+          {
+            type: "string",
+            name: "section2Tag",
+            label: "Story 2: Eyebrow Tag",
+            description: "e.g. Production Standards, Technical Capabilities",
+          },
+          {
+            type: "string",
+            name: "section2Heading",
+            label: "Story 2: Section Heading",
+            description: "Main section title. Wrap in *asterisks* to highlight text with theme gradient color.",
+          },
+          {
+            type: "string",
+            name: "section2Description",
+            label: "Story 2: Section Body Copy",
+            description: "Editorial paragraph. Supports **bold**, <u>underline</u>, and *highlight*.",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "section2Bullets",
+            label: "Story 2: Checkmark Bullet Points",
+            description: "Key deliverables or assurances (✓ rendered automatically)",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "section2LeftType",
+            label: "Story 2: Left Column Display Mode",
+            description: "Choose whether to display a featured photograph or an informative plaque card",
+            options: [
+              { label: "Featured Photograph / Showcase Image", value: "image" },
+              { label: "Informative Plaque Card (Title, Text & Link)", value: "card" },
+            ],
+          },
+          {
+            type: "string",
+            name: "section2CardTitle",
+            label: "Story 2: Plaque Card Title",
+          },
+          {
+            type: "string",
+            name: "section2CardBody",
+            label: "Story 2: Plaque Card Body Copy",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "section2CardLinkLabel",
+            label: "Story 2: Plaque Card Link Text",
+          },
+          {
+            type: "string",
+            name: "section2CardLinkHref",
+            label: "Story 2: Plaque Card Link URL",
+          },
+          {
+            type: "image",
+            name: "section2CardImage",
+            label: "Story 2: Showcase Photograph (When Display Mode is Image)",
+          },
+          {
+            type: "string",
+            name: "section2CardImageCaption",
+            label: "Story 2: Showcase Photo Caption (Optional)",
+          },
+
+          // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
+          {
+            type: "string",
+            name: "bottomCtaHeading",
+            label: "Bottom CTA Heading",
+          },
+          {
+            type: "string",
+            name: "bottomCtaBody",
+            label: "Bottom CTA Subtitle",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "bottomCtaLabel",
+            label: "Bottom CTA Button Text",
+          },
+          {
+            type: "string",
+            name: "bottomCtaLink",
+            label: "Bottom CTA Button Link",
           },
         ],
       },
