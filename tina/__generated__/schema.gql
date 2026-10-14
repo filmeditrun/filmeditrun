@@ -59,24 +59,24 @@ type Query {
   document(collection: String, relativePath: String): DocumentNode!
   homepage(relativePath: String): Homepage!
   homepageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HomepageFilter): HomepageConnection!
-  workPage(relativePath: String): WorkPage!
-  workPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: WorkPageFilter): WorkPageConnection!
-  servicesPage(relativePath: String): ServicesPage!
-  servicesPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServicesPageFilter): ServicesPageConnection!
   cambridgePage(relativePath: String): CambridgePage!
   cambridgePageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CambridgePageFilter): CambridgePageConnection!
   customPages(relativePath: String): CustomPages!
   customPagesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CustomPagesFilter): CustomPagesConnection!
+  siteSettings(relativePath: String): SiteSettings!
+  siteSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SiteSettingsFilter): SiteSettingsConnection!
+  servicesPage(relativePath: String): ServicesPage!
+  servicesPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServicesPageFilter): ServicesPageConnection!
+  service(relativePath: String): Service!
+  serviceConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServiceFilter): ServiceConnection!
+  workPage(relativePath: String): WorkPage!
+  workPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: WorkPageFilter): WorkPageConnection!
+  project(relativePath: String): Project!
+  projectConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ProjectFilter): ProjectConnection!
   aboutPage(relativePath: String): AboutPage!
   aboutPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutPageFilter): AboutPageConnection!
   aboutSlider(relativePath: String): AboutSlider!
   aboutSliderConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutSliderFilter): AboutSliderConnection!
-  project(relativePath: String): Project!
-  projectConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ProjectFilter): ProjectConnection!
-  service(relativePath: String): Service!
-  serviceConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServiceFilter): ServiceConnection!
-  siteSettings(relativePath: String): SiteSettings!
-  siteSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SiteSettingsFilter): SiteSettingsConnection!
   seoSettings(relativePath: String): SeoSettings!
   seoSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SeoSettingsFilter): SeoSettingsConnection!
   gradeSettings(relativePath: String): GradeSettings!
@@ -87,15 +87,15 @@ type Query {
 
 input DocumentFilter {
   homepage: HomepageFilter
-  workPage: WorkPageFilter
-  servicesPage: ServicesPageFilter
   cambridgePage: CambridgePageFilter
   customPages: CustomPagesFilter
+  siteSettings: SiteSettingsFilter
+  servicesPage: ServicesPageFilter
+  service: ServiceFilter
+  workPage: WorkPageFilter
+  project: ProjectFilter
   aboutPage: AboutPageFilter
   aboutSlider: AboutSliderFilter
-  project: ProjectFilter
-  service: ServiceFilter
-  siteSettings: SiteSettingsFilter
   seoSettings: SeoSettingsFilter
   gradeSettings: GradeSettingsFilter
   footerSettings: FooterSettingsFilter
@@ -124,7 +124,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | WorkPage | ServicesPage | CambridgePage | CustomPages | AboutPage | AboutSlider | Project | Service | SiteSettings | SeoSettings | GradeSettings | FooterSettings | Folder
+union DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | SeoSettings | GradeSettings | FooterSettings | Folder
 
 type Homepage implements Node & Document {
   seoTitle: String!
@@ -198,114 +198,6 @@ type HomepageConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [HomepageConnectionEdges]
-}
-
-type WorkPage implements Node & Document {
-  seoTitle: String!
-  seoDescription: String!
-  headerTag: String!
-  heading: String!
-  description: String!
-  aspectBadge: String
-  videoButtonLabel: String!
-  imageButtonLabel: String!
-  scrollIndicatorText: String!
-  archiveTag: String!
-  archiveHeading: String!
-  archiveDescription: String!
-  filterAllLabel: String!
-  closeModalLabel: String!
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input WorkPageFilter {
-  seoTitle: StringFilter
-  seoDescription: StringFilter
-  headerTag: StringFilter
-  heading: StringFilter
-  description: StringFilter
-  aspectBadge: StringFilter
-  videoButtonLabel: StringFilter
-  imageButtonLabel: StringFilter
-  scrollIndicatorText: StringFilter
-  archiveTag: StringFilter
-  archiveHeading: StringFilter
-  archiveDescription: StringFilter
-  filterAllLabel: StringFilter
-  closeModalLabel: StringFilter
-}
-
-type WorkPageConnectionEdges {
-  cursor: String!
-  node: WorkPage
-}
-
-type WorkPageConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [WorkPageConnectionEdges]
-}
-
-type ServicesPageProcessSteps {
-  step: String!
-  title: String!
-  tag: String!
-  description: String!
-}
-
-type ServicesPage implements Node & Document {
-  seoTitle: String!
-  headerTag: String!
-  heading: String!
-  description: String!
-  processTag: String
-  processHeading: String
-  processDescription: String
-  processSteps: [ServicesPageProcessSteps]
-  ctaTag: String
-  ctaHeading: String
-  ctaText: String
-  ctaButtonLabel: String
-  ctaButtonLink: String
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input ServicesPageProcessStepsFilter {
-  step: StringFilter
-  title: StringFilter
-  tag: StringFilter
-  description: StringFilter
-}
-
-input ServicesPageFilter {
-  seoTitle: StringFilter
-  headerTag: StringFilter
-  heading: StringFilter
-  description: StringFilter
-  processTag: StringFilter
-  processHeading: StringFilter
-  processDescription: StringFilter
-  processSteps: ServicesPageProcessStepsFilter
-  ctaTag: StringFilter
-  ctaHeading: StringFilter
-  ctaText: StringFilter
-  ctaButtonLabel: StringFilter
-  ctaButtonLink: StringFilter
-}
-
-type ServicesPageConnectionEdges {
-  cursor: String!
-  node: ServicesPage
-}
-
-type ServicesPageConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [ServicesPageConnectionEdges]
 }
 
 type CambridgePageFaqs {
@@ -498,6 +390,279 @@ type CustomPagesConnection implements Connection {
   edges: [CustomPagesConnectionEdges]
 }
 
+type SiteSettingsNavLinks {
+  label: String!
+  href: String!
+}
+
+type SiteSettings implements Node & Document {
+  siteName: String!
+  logoText: String!
+  useImageLogo: Boolean
+  logoImagePath: String
+  navLinks: [SiteSettingsNavLinks]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input SiteSettingsNavLinksFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input SiteSettingsFilter {
+  siteName: StringFilter
+  logoText: StringFilter
+  useImageLogo: BooleanFilter
+  logoImagePath: ImageFilter
+  navLinks: SiteSettingsNavLinksFilter
+}
+
+type SiteSettingsConnectionEdges {
+  cursor: String!
+  node: SiteSettings
+}
+
+type SiteSettingsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [SiteSettingsConnectionEdges]
+}
+
+type ServicesPageProcessSteps {
+  step: String!
+  title: String!
+  tag: String!
+  description: String!
+}
+
+type ServicesPage implements Node & Document {
+  seoTitle: String!
+  headerTag: String!
+  heading: String!
+  description: String!
+  processTag: String
+  processHeading: String
+  processDescription: String
+  processSteps: [ServicesPageProcessSteps]
+  ctaTag: String
+  ctaHeading: String
+  ctaText: String
+  ctaButtonLabel: String
+  ctaButtonLink: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ServicesPageProcessStepsFilter {
+  step: StringFilter
+  title: StringFilter
+  tag: StringFilter
+  description: StringFilter
+}
+
+input ServicesPageFilter {
+  seoTitle: StringFilter
+  headerTag: StringFilter
+  heading: StringFilter
+  description: StringFilter
+  processTag: StringFilter
+  processHeading: StringFilter
+  processDescription: StringFilter
+  processSteps: ServicesPageProcessStepsFilter
+  ctaTag: StringFilter
+  ctaHeading: StringFilter
+  ctaText: StringFilter
+  ctaButtonLabel: StringFilter
+  ctaButtonLink: StringFilter
+}
+
+type ServicesPageConnectionEdges {
+  cursor: String!
+  node: ServicesPage
+}
+
+type ServicesPageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ServicesPageConnectionEdges]
+}
+
+type ServiceDeliverables {
+  tag: String!
+  title: String!
+  description: String!
+}
+
+type Service implements Node & Document {
+  order: String!
+  title: String!
+  tag: String
+  description: String!
+  slug: String!
+  link: String!
+  seoTitle: String!
+  seoDescription: String!
+  heroTag: String!
+  heroHeading: String!
+  heroLead: String!
+  breakdownHeading: String
+  breakdownBody: String
+  displayAs: String!
+  localVideoPath: String
+  cloudVideoUrl: String
+  imagePath: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
+  deliverables: [ServiceDeliverables]
+  ctaHeading: String!
+  ctaDescription: String!
+  ctaButtonLabel: String!
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ServiceDeliverablesFilter {
+  tag: StringFilter
+  title: StringFilter
+  description: StringFilter
+}
+
+input ServiceFilter {
+  order: StringFilter
+  title: StringFilter
+  tag: StringFilter
+  description: StringFilter
+  slug: StringFilter
+  link: StringFilter
+  seoTitle: StringFilter
+  seoDescription: StringFilter
+  heroTag: StringFilter
+  heroHeading: StringFilter
+  heroLead: StringFilter
+  breakdownHeading: StringFilter
+  breakdownBody: StringFilter
+  displayAs: StringFilter
+  localVideoPath: StringFilter
+  cloudVideoUrl: StringFilter
+  imagePath: ImageFilter
+  heroGradientDirection: StringFilter
+  heroGradientColor1: StringFilter
+  heroGradientColor2: StringFilter
+  deliverables: ServiceDeliverablesFilter
+  ctaHeading: StringFilter
+  ctaDescription: StringFilter
+  ctaButtonLabel: StringFilter
+}
+
+type ServiceConnectionEdges {
+  cursor: String!
+  node: Service
+}
+
+type ServiceConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ServiceConnectionEdges]
+}
+
+type WorkPage implements Node & Document {
+  seoTitle: String!
+  seoDescription: String!
+  headerTag: String!
+  heading: String!
+  description: String!
+  aspectBadge: String
+  videoButtonLabel: String!
+  imageButtonLabel: String!
+  scrollIndicatorText: String!
+  archiveTag: String!
+  archiveHeading: String!
+  archiveDescription: String!
+  filterAllLabel: String!
+  closeModalLabel: String!
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input WorkPageFilter {
+  seoTitle: StringFilter
+  seoDescription: StringFilter
+  headerTag: StringFilter
+  heading: StringFilter
+  description: StringFilter
+  aspectBadge: StringFilter
+  videoButtonLabel: StringFilter
+  imageButtonLabel: StringFilter
+  scrollIndicatorText: StringFilter
+  archiveTag: StringFilter
+  archiveHeading: StringFilter
+  archiveDescription: StringFilter
+  filterAllLabel: StringFilter
+  closeModalLabel: StringFilter
+}
+
+type WorkPageConnectionEdges {
+  cursor: String!
+  node: WorkPage
+}
+
+type WorkPageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [WorkPageConnectionEdges]
+}
+
+type Project implements Node & Document {
+  order: String!
+  title: String!
+  client: String!
+  category: String!
+  runtime: String!
+  description: String!
+  backgroundStyle: String!
+  videoUrl: String!
+  thumbnail: String!
+  brightnessStyle: String!
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ProjectFilter {
+  order: StringFilter
+  title: StringFilter
+  client: StringFilter
+  category: StringFilter
+  runtime: StringFilter
+  description: StringFilter
+  backgroundStyle: StringFilter
+  videoUrl: StringFilter
+  thumbnail: ImageFilter
+  brightnessStyle: StringFilter
+}
+
+type ProjectConnectionEdges {
+  cursor: String!
+  node: Project
+}
+
+type ProjectConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ProjectConnectionEdges]
+}
+
 type AboutPageBtsItems {
   title: String!
   category: String!
@@ -644,171 +809,6 @@ type AboutSliderConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [AboutSliderConnectionEdges]
-}
-
-type Project implements Node & Document {
-  order: String!
-  title: String!
-  client: String!
-  category: String!
-  runtime: String!
-  description: String!
-  backgroundStyle: String!
-  videoUrl: String!
-  thumbnail: String!
-  brightnessStyle: String!
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input ProjectFilter {
-  order: StringFilter
-  title: StringFilter
-  client: StringFilter
-  category: StringFilter
-  runtime: StringFilter
-  description: StringFilter
-  backgroundStyle: StringFilter
-  videoUrl: StringFilter
-  thumbnail: ImageFilter
-  brightnessStyle: StringFilter
-}
-
-type ProjectConnectionEdges {
-  cursor: String!
-  node: Project
-}
-
-type ProjectConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [ProjectConnectionEdges]
-}
-
-type ServiceDeliverables {
-  tag: String!
-  title: String!
-  description: String!
-}
-
-type Service implements Node & Document {
-  order: String!
-  title: String!
-  tag: String
-  description: String!
-  slug: String!
-  link: String!
-  seoTitle: String!
-  seoDescription: String!
-  heroTag: String!
-  heroHeading: String!
-  heroLead: String!
-  breakdownHeading: String
-  breakdownBody: String
-  displayAs: String!
-  localVideoPath: String
-  cloudVideoUrl: String
-  imagePath: String
-  heroGradientDirection: String
-  heroGradientColor1: String
-  heroGradientColor2: String
-  deliverables: [ServiceDeliverables]
-  ctaHeading: String!
-  ctaDescription: String!
-  ctaButtonLabel: String!
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input ServiceDeliverablesFilter {
-  tag: StringFilter
-  title: StringFilter
-  description: StringFilter
-}
-
-input ServiceFilter {
-  order: StringFilter
-  title: StringFilter
-  tag: StringFilter
-  description: StringFilter
-  slug: StringFilter
-  link: StringFilter
-  seoTitle: StringFilter
-  seoDescription: StringFilter
-  heroTag: StringFilter
-  heroHeading: StringFilter
-  heroLead: StringFilter
-  breakdownHeading: StringFilter
-  breakdownBody: StringFilter
-  displayAs: StringFilter
-  localVideoPath: StringFilter
-  cloudVideoUrl: StringFilter
-  imagePath: ImageFilter
-  heroGradientDirection: StringFilter
-  heroGradientColor1: StringFilter
-  heroGradientColor2: StringFilter
-  deliverables: ServiceDeliverablesFilter
-  ctaHeading: StringFilter
-  ctaDescription: StringFilter
-  ctaButtonLabel: StringFilter
-}
-
-type ServiceConnectionEdges {
-  cursor: String!
-  node: Service
-}
-
-type ServiceConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [ServiceConnectionEdges]
-}
-
-type SiteSettingsNavLinks {
-  label: String!
-  href: String!
-}
-
-type SiteSettings implements Node & Document {
-  siteName: String!
-  logoText: String!
-  useImageLogo: Boolean
-  logoImagePath: String
-  navLinks: [SiteSettingsNavLinks]
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input BooleanFilter {
-  eq: Boolean
-  exists: Boolean
-}
-
-input SiteSettingsNavLinksFilter {
-  label: StringFilter
-  href: StringFilter
-}
-
-input SiteSettingsFilter {
-  siteName: StringFilter
-  logoText: StringFilter
-  useImageLogo: BooleanFilter
-  logoImagePath: ImageFilter
-  navLinks: SiteSettingsNavLinksFilter
-}
-
-type SiteSettingsConnectionEdges {
-  cursor: String!
-  node: SiteSettings
-}
-
-type SiteSettingsConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [SiteSettingsConnectionEdges]
 }
 
 type SeoSettingsBacklinkProfiles {
@@ -1015,24 +1015,24 @@ type Mutation {
   createFolder(collection: String, relativePath: String!): DocumentNode!
   updateHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
   createHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
-  updateWorkPage(relativePath: String!, params: WorkPageMutation!): WorkPage!
-  createWorkPage(relativePath: String!, params: WorkPageMutation!): WorkPage!
-  updateServicesPage(relativePath: String!, params: ServicesPageMutation!): ServicesPage!
-  createServicesPage(relativePath: String!, params: ServicesPageMutation!): ServicesPage!
   updateCambridgePage(relativePath: String!, params: CambridgePageMutation!): CambridgePage!
   createCambridgePage(relativePath: String!, params: CambridgePageMutation!): CambridgePage!
   updateCustomPages(relativePath: String!, params: CustomPagesMutation!): CustomPages!
   createCustomPages(relativePath: String!, params: CustomPagesMutation!): CustomPages!
+  updateSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
+  createSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
+  updateServicesPage(relativePath: String!, params: ServicesPageMutation!): ServicesPage!
+  createServicesPage(relativePath: String!, params: ServicesPageMutation!): ServicesPage!
+  updateService(relativePath: String!, params: ServiceMutation!): Service!
+  createService(relativePath: String!, params: ServiceMutation!): Service!
+  updateWorkPage(relativePath: String!, params: WorkPageMutation!): WorkPage!
+  createWorkPage(relativePath: String!, params: WorkPageMutation!): WorkPage!
+  updateProject(relativePath: String!, params: ProjectMutation!): Project!
+  createProject(relativePath: String!, params: ProjectMutation!): Project!
   updateAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
   createAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
   updateAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
   createAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
-  updateProject(relativePath: String!, params: ProjectMutation!): Project!
-  createProject(relativePath: String!, params: ProjectMutation!): Project!
-  updateService(relativePath: String!, params: ServiceMutation!): Service!
-  createService(relativePath: String!, params: ServiceMutation!): Service!
-  updateSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
-  createSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
   updateSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   createSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   updateGradeSettings(relativePath: String!, params: GradeSettingsMutation!): GradeSettings!
@@ -1043,15 +1043,15 @@ type Mutation {
 
 input DocumentUpdateMutation {
   homepage: HomepageMutation
-  workPage: WorkPageMutation
-  servicesPage: ServicesPageMutation
   cambridgePage: CambridgePageMutation
   customPages: CustomPagesMutation
+  siteSettings: SiteSettingsMutation
+  servicesPage: ServicesPageMutation
+  service: ServiceMutation
+  workPage: WorkPageMutation
+  project: ProjectMutation
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
-  project: ProjectMutation
-  service: ServiceMutation
-  siteSettings: SiteSettingsMutation
   seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
@@ -1060,15 +1060,15 @@ input DocumentUpdateMutation {
 
 input DocumentMutation {
   homepage: HomepageMutation
-  workPage: WorkPageMutation
-  servicesPage: ServicesPageMutation
   cambridgePage: CambridgePageMutation
   customPages: CustomPagesMutation
+  siteSettings: SiteSettingsMutation
+  servicesPage: ServicesPageMutation
+  service: ServiceMutation
+  workPage: WorkPageMutation
+  project: ProjectMutation
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
-  project: ProjectMutation
-  service: ServiceMutation
-  siteSettings: SiteSettingsMutation
   seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
@@ -1095,46 +1095,6 @@ input HomepageMutation {
   introPrimaryLinkHref: String
   introSecondaryLinkLabel: String
   introSecondaryLinkHref: String
-}
-
-input WorkPageMutation {
-  seoTitle: String
-  seoDescription: String
-  headerTag: String
-  heading: String
-  description: String
-  aspectBadge: String
-  videoButtonLabel: String
-  imageButtonLabel: String
-  scrollIndicatorText: String
-  archiveTag: String
-  archiveHeading: String
-  archiveDescription: String
-  filterAllLabel: String
-  closeModalLabel: String
-}
-
-input ServicesPageProcessStepsMutation {
-  step: String
-  title: String
-  tag: String
-  description: String
-}
-
-input ServicesPageMutation {
-  seoTitle: String
-  headerTag: String
-  heading: String
-  description: String
-  processTag: String
-  processHeading: String
-  processDescription: String
-  processSteps: [ServicesPageProcessStepsMutation]
-  ctaTag: String
-  ctaHeading: String
-  ctaText: String
-  ctaButtonLabel: String
-  ctaButtonLink: String
 }
 
 input CambridgePageFaqsMutation {
@@ -1218,6 +1178,105 @@ input CustomPagesMutation {
   bottomCtaLink: String
 }
 
+input SiteSettingsNavLinksMutation {
+  label: String
+  href: String
+}
+
+input SiteSettingsMutation {
+  siteName: String
+  logoText: String
+  useImageLogo: Boolean
+  logoImagePath: String
+  navLinks: [SiteSettingsNavLinksMutation]
+}
+
+input ServicesPageProcessStepsMutation {
+  step: String
+  title: String
+  tag: String
+  description: String
+}
+
+input ServicesPageMutation {
+  seoTitle: String
+  headerTag: String
+  heading: String
+  description: String
+  processTag: String
+  processHeading: String
+  processDescription: String
+  processSteps: [ServicesPageProcessStepsMutation]
+  ctaTag: String
+  ctaHeading: String
+  ctaText: String
+  ctaButtonLabel: String
+  ctaButtonLink: String
+}
+
+input ServiceDeliverablesMutation {
+  tag: String
+  title: String
+  description: String
+}
+
+input ServiceMutation {
+  order: String
+  title: String
+  tag: String
+  description: String
+  slug: String
+  link: String
+  seoTitle: String
+  seoDescription: String
+  heroTag: String
+  heroHeading: String
+  heroLead: String
+  breakdownHeading: String
+  breakdownBody: String
+  displayAs: String
+  localVideoPath: String
+  cloudVideoUrl: String
+  imagePath: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
+  deliverables: [ServiceDeliverablesMutation]
+  ctaHeading: String
+  ctaDescription: String
+  ctaButtonLabel: String
+}
+
+input WorkPageMutation {
+  seoTitle: String
+  seoDescription: String
+  headerTag: String
+  heading: String
+  description: String
+  aspectBadge: String
+  videoButtonLabel: String
+  imageButtonLabel: String
+  scrollIndicatorText: String
+  archiveTag: String
+  archiveHeading: String
+  archiveDescription: String
+  filterAllLabel: String
+  closeModalLabel: String
+}
+
+input ProjectMutation {
+  order: String
+  title: String
+  client: String
+  category: String
+  runtime: String
+  description: String
+  backgroundStyle: String
+  videoUrl: String
+  thumbnail: String
+  brightnessStyle: String
+}
+
 input AboutPageBtsItemsMutation {
   title: String
   category: String
@@ -1276,65 +1335,6 @@ input AboutSliderMutation {
   tag: String
   description: String
   slides: [AboutSliderSlidesMutation]
-}
-
-input ProjectMutation {
-  order: String
-  title: String
-  client: String
-  category: String
-  runtime: String
-  description: String
-  backgroundStyle: String
-  videoUrl: String
-  thumbnail: String
-  brightnessStyle: String
-}
-
-input ServiceDeliverablesMutation {
-  tag: String
-  title: String
-  description: String
-}
-
-input ServiceMutation {
-  order: String
-  title: String
-  tag: String
-  description: String
-  slug: String
-  link: String
-  seoTitle: String
-  seoDescription: String
-  heroTag: String
-  heroHeading: String
-  heroLead: String
-  breakdownHeading: String
-  breakdownBody: String
-  displayAs: String
-  localVideoPath: String
-  cloudVideoUrl: String
-  imagePath: String
-  heroGradientDirection: String
-  heroGradientColor1: String
-  heroGradientColor2: String
-  deliverables: [ServiceDeliverablesMutation]
-  ctaHeading: String
-  ctaDescription: String
-  ctaButtonLabel: String
-}
-
-input SiteSettingsNavLinksMutation {
-  label: String
-  href: String
-}
-
-input SiteSettingsMutation {
-  siteName: String
-  logoText: String
-  useImageLogo: Boolean
-  logoImagePath: String
-  navLinks: [SiteSettingsNavLinksMutation]
 }
 
 input SeoSettingsBacklinkProfilesMutation {

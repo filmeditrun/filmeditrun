@@ -30,49 +30,6 @@ export const HomepagePartsFragmentDoc = gql`
   introSecondaryLinkHref
 }
     `;
-export const WorkPagePartsFragmentDoc = gql`
-    fragment WorkPageParts on WorkPage {
-  __typename
-  seoTitle
-  seoDescription
-  headerTag
-  heading
-  description
-  aspectBadge
-  videoButtonLabel
-  imageButtonLabel
-  scrollIndicatorText
-  archiveTag
-  archiveHeading
-  archiveDescription
-  filterAllLabel
-  closeModalLabel
-}
-    `;
-export const ServicesPagePartsFragmentDoc = gql`
-    fragment ServicesPageParts on ServicesPage {
-  __typename
-  seoTitle
-  headerTag
-  heading
-  description
-  processTag
-  processHeading
-  processDescription
-  processSteps {
-    __typename
-    step
-    title
-    tag
-    description
-  }
-  ctaTag
-  ctaHeading
-  ctaText
-  ctaButtonLabel
-  ctaButtonLink
-}
-    `;
 export const CambridgePagePartsFragmentDoc = gql`
     fragment CambridgePageParts on CambridgePage {
   __typename
@@ -157,6 +114,112 @@ export const CustomPagesPartsFragmentDoc = gql`
   bottomCtaLink
 }
     `;
+export const SiteSettingsPartsFragmentDoc = gql`
+    fragment SiteSettingsParts on SiteSettings {
+  __typename
+  siteName
+  logoText
+  useImageLogo
+  logoImagePath
+  navLinks {
+    __typename
+    label
+    href
+  }
+}
+    `;
+export const ServicesPagePartsFragmentDoc = gql`
+    fragment ServicesPageParts on ServicesPage {
+  __typename
+  seoTitle
+  headerTag
+  heading
+  description
+  processTag
+  processHeading
+  processDescription
+  processSteps {
+    __typename
+    step
+    title
+    tag
+    description
+  }
+  ctaTag
+  ctaHeading
+  ctaText
+  ctaButtonLabel
+  ctaButtonLink
+}
+    `;
+export const ServicePartsFragmentDoc = gql`
+    fragment ServiceParts on Service {
+  __typename
+  order
+  title
+  tag
+  description
+  slug
+  link
+  seoTitle
+  seoDescription
+  heroTag
+  heroHeading
+  heroLead
+  breakdownHeading
+  breakdownBody
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
+  deliverables {
+    __typename
+    tag
+    title
+    description
+  }
+  ctaHeading
+  ctaDescription
+  ctaButtonLabel
+}
+    `;
+export const WorkPagePartsFragmentDoc = gql`
+    fragment WorkPageParts on WorkPage {
+  __typename
+  seoTitle
+  seoDescription
+  headerTag
+  heading
+  description
+  aspectBadge
+  videoButtonLabel
+  imageButtonLabel
+  scrollIndicatorText
+  archiveTag
+  archiveHeading
+  archiveDescription
+  filterAllLabel
+  closeModalLabel
+}
+    `;
+export const ProjectPartsFragmentDoc = gql`
+    fragment ProjectParts on Project {
+  __typename
+  order
+  title
+  client
+  category
+  runtime
+  description
+  backgroundStyle
+  videoUrl
+  thumbnail
+  brightnessStyle
+}
+    `;
 export const AboutPagePartsFragmentDoc = gql`
     fragment AboutPageParts on AboutPage {
   __typename
@@ -215,69 +278,6 @@ export const AboutSliderPartsFragmentDoc = gql`
     avatar
     videoLoop
     badge
-  }
-}
-    `;
-export const ProjectPartsFragmentDoc = gql`
-    fragment ProjectParts on Project {
-  __typename
-  order
-  title
-  client
-  category
-  runtime
-  description
-  backgroundStyle
-  videoUrl
-  thumbnail
-  brightnessStyle
-}
-    `;
-export const ServicePartsFragmentDoc = gql`
-    fragment ServiceParts on Service {
-  __typename
-  order
-  title
-  tag
-  description
-  slug
-  link
-  seoTitle
-  seoDescription
-  heroTag
-  heroHeading
-  heroLead
-  breakdownHeading
-  breakdownBody
-  displayAs
-  localVideoPath
-  cloudVideoUrl
-  imagePath
-  heroGradientDirection
-  heroGradientColor1
-  heroGradientColor2
-  deliverables {
-    __typename
-    tag
-    title
-    description
-  }
-  ctaHeading
-  ctaDescription
-  ctaButtonLabel
-}
-    `;
-export const SiteSettingsPartsFragmentDoc = gql`
-    fragment SiteSettingsParts on SiteSettings {
-  __typename
-  siteName
-  logoText
-  useImageLogo
-  logoImagePath
-  navLinks {
-    __typename
-    label
-    href
   }
 }
     `;
@@ -414,120 +414,6 @@ export const HomepageConnectionDocument = gql`
   }
 }
     ${HomepagePartsFragmentDoc}`;
-export const WorkPageDocument = gql`
-    query workPage($relativePath: String!) {
-  workPage(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...WorkPageParts
-  }
-}
-    ${WorkPagePartsFragmentDoc}`;
-export const WorkPageConnectionDocument = gql`
-    query workPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: WorkPageFilter) {
-  workPageConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...WorkPageParts
-      }
-    }
-  }
-}
-    ${WorkPagePartsFragmentDoc}`;
-export const ServicesPageDocument = gql`
-    query servicesPage($relativePath: String!) {
-  servicesPage(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...ServicesPageParts
-  }
-}
-    ${ServicesPagePartsFragmentDoc}`;
-export const ServicesPageConnectionDocument = gql`
-    query servicesPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ServicesPageFilter) {
-  servicesPageConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...ServicesPageParts
-      }
-    }
-  }
-}
-    ${ServicesPagePartsFragmentDoc}`;
 export const CambridgePageDocument = gql`
     query cambridgePage($relativePath: String!) {
   cambridgePage(relativePath: $relativePath) {
@@ -642,6 +528,291 @@ export const CustomPagesConnectionDocument = gql`
   }
 }
     ${CustomPagesPartsFragmentDoc}`;
+export const SiteSettingsDocument = gql`
+    query siteSettings($relativePath: String!) {
+  siteSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...SiteSettingsParts
+  }
+}
+    ${SiteSettingsPartsFragmentDoc}`;
+export const SiteSettingsConnectionDocument = gql`
+    query siteSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SiteSettingsFilter) {
+  siteSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...SiteSettingsParts
+      }
+    }
+  }
+}
+    ${SiteSettingsPartsFragmentDoc}`;
+export const ServicesPageDocument = gql`
+    query servicesPage($relativePath: String!) {
+  servicesPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ServicesPageParts
+  }
+}
+    ${ServicesPagePartsFragmentDoc}`;
+export const ServicesPageConnectionDocument = gql`
+    query servicesPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ServicesPageFilter) {
+  servicesPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ServicesPageParts
+      }
+    }
+  }
+}
+    ${ServicesPagePartsFragmentDoc}`;
+export const ServiceDocument = gql`
+    query service($relativePath: String!) {
+  service(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ServiceParts
+  }
+}
+    ${ServicePartsFragmentDoc}`;
+export const ServiceConnectionDocument = gql`
+    query serviceConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ServiceFilter) {
+  serviceConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ServiceParts
+      }
+    }
+  }
+}
+    ${ServicePartsFragmentDoc}`;
+export const WorkPageDocument = gql`
+    query workPage($relativePath: String!) {
+  workPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...WorkPageParts
+  }
+}
+    ${WorkPagePartsFragmentDoc}`;
+export const WorkPageConnectionDocument = gql`
+    query workPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: WorkPageFilter) {
+  workPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...WorkPageParts
+      }
+    }
+  }
+}
+    ${WorkPagePartsFragmentDoc}`;
+export const ProjectDocument = gql`
+    query project($relativePath: String!) {
+  project(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ProjectParts
+  }
+}
+    ${ProjectPartsFragmentDoc}`;
+export const ProjectConnectionDocument = gql`
+    query projectConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ProjectFilter) {
+  projectConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ProjectParts
+      }
+    }
+  }
+}
+    ${ProjectPartsFragmentDoc}`;
 export const AboutPageDocument = gql`
     query aboutPage($relativePath: String!) {
   aboutPage(relativePath: $relativePath) {
@@ -756,177 +927,6 @@ export const AboutSliderConnectionDocument = gql`
   }
 }
     ${AboutSliderPartsFragmentDoc}`;
-export const ProjectDocument = gql`
-    query project($relativePath: String!) {
-  project(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...ProjectParts
-  }
-}
-    ${ProjectPartsFragmentDoc}`;
-export const ProjectConnectionDocument = gql`
-    query projectConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ProjectFilter) {
-  projectConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...ProjectParts
-      }
-    }
-  }
-}
-    ${ProjectPartsFragmentDoc}`;
-export const ServiceDocument = gql`
-    query service($relativePath: String!) {
-  service(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...ServiceParts
-  }
-}
-    ${ServicePartsFragmentDoc}`;
-export const ServiceConnectionDocument = gql`
-    query serviceConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ServiceFilter) {
-  serviceConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...ServiceParts
-      }
-    }
-  }
-}
-    ${ServicePartsFragmentDoc}`;
-export const SiteSettingsDocument = gql`
-    query siteSettings($relativePath: String!) {
-  siteSettings(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...SiteSettingsParts
-  }
-}
-    ${SiteSettingsPartsFragmentDoc}`;
-export const SiteSettingsConnectionDocument = gql`
-    query siteSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SiteSettingsFilter) {
-  siteSettingsConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...SiteSettingsParts
-      }
-    }
-  }
-}
-    ${SiteSettingsPartsFragmentDoc}`;
 export const SeoSettingsDocument = gql`
     query seoSettings($relativePath: String!) {
   seoSettings(relativePath: $relativePath) {
@@ -1106,18 +1106,6 @@ export function getSdk(requester) {
     homepageConnection(variables, options) {
       return requester(HomepageConnectionDocument, variables, options);
     },
-    workPage(variables, options) {
-      return requester(WorkPageDocument, variables, options);
-    },
-    workPageConnection(variables, options) {
-      return requester(WorkPageConnectionDocument, variables, options);
-    },
-    servicesPage(variables, options) {
-      return requester(ServicesPageDocument, variables, options);
-    },
-    servicesPageConnection(variables, options) {
-      return requester(ServicesPageConnectionDocument, variables, options);
-    },
     cambridgePage(variables, options) {
       return requester(CambridgePageDocument, variables, options);
     },
@@ -1130,6 +1118,36 @@ export function getSdk(requester) {
     customPagesConnection(variables, options) {
       return requester(CustomPagesConnectionDocument, variables, options);
     },
+    siteSettings(variables, options) {
+      return requester(SiteSettingsDocument, variables, options);
+    },
+    siteSettingsConnection(variables, options) {
+      return requester(SiteSettingsConnectionDocument, variables, options);
+    },
+    servicesPage(variables, options) {
+      return requester(ServicesPageDocument, variables, options);
+    },
+    servicesPageConnection(variables, options) {
+      return requester(ServicesPageConnectionDocument, variables, options);
+    },
+    service(variables, options) {
+      return requester(ServiceDocument, variables, options);
+    },
+    serviceConnection(variables, options) {
+      return requester(ServiceConnectionDocument, variables, options);
+    },
+    workPage(variables, options) {
+      return requester(WorkPageDocument, variables, options);
+    },
+    workPageConnection(variables, options) {
+      return requester(WorkPageConnectionDocument, variables, options);
+    },
+    project(variables, options) {
+      return requester(ProjectDocument, variables, options);
+    },
+    projectConnection(variables, options) {
+      return requester(ProjectConnectionDocument, variables, options);
+    },
     aboutPage(variables, options) {
       return requester(AboutPageDocument, variables, options);
     },
@@ -1141,24 +1159,6 @@ export function getSdk(requester) {
     },
     aboutSliderConnection(variables, options) {
       return requester(AboutSliderConnectionDocument, variables, options);
-    },
-    project(variables, options) {
-      return requester(ProjectDocument, variables, options);
-    },
-    projectConnection(variables, options) {
-      return requester(ProjectConnectionDocument, variables, options);
-    },
-    service(variables, options) {
-      return requester(ServiceDocument, variables, options);
-    },
-    serviceConnection(variables, options) {
-      return requester(ServiceConnectionDocument, variables, options);
-    },
-    siteSettings(variables, options) {
-      return requester(SiteSettingsDocument, variables, options);
-    },
-    siteSettingsConnection(variables, options) {
-      return requester(SiteSettingsConnectionDocument, variables, options);
     },
     seoSettings(variables, options) {
       return requester(SeoSettingsDocument, variables, options);

@@ -277,274 +277,6 @@ export default defineConfig({
         ],
       },
       {
-        name: "workPage",
-        label: "Work Page",
-        path: "src/content/pages",
-        format: "json",
-        match: {
-          include: "work",
-        },
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-        },
-        fields: [
-          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
-          {
-            type: "string",
-            name: "seoTitle",
-            label: "🔍 SEO Title (Google & Social)",
-            description: "Optimal length: 50–60 characters",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "seoDescription",
-            label: "🔍 SEO Meta Description",
-            description: "Optimal length: 140–160 characters",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-
-          // ─── 🎬 HERO & HEADLINE ───────────────────────────────────────
-          {
-            type: "string",
-            name: "headerTag",
-            label: "🎬 Top Eyebrow Tag",
-            description: "e.g. Selected Portfolio",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "heading",
-            label: "🎬 Main Page Heading",
-            description: "e.g. Our Work.",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "🎬 Page Intro Text",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-          {
-            type: "string",
-            name: "aspectBadge",
-            label: "Technical Aspect Badge (Optional)",
-            description: "e.g. ASPECT // 16:9",
-            required: false,
-          },
-          {
-            type: "string",
-            name: "videoButtonLabel",
-            label: "Hero Play Button Label",
-            description: "e.g. WATCH FEATURED FILM ➔",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "imageButtonLabel",
-            label: "Archive Card Play Button Label",
-            description: "e.g. WATCH PROJECT REEL ➔",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "scrollIndicatorText",
-            label: "Hero Scroll Indicator Text",
-            description: "e.g. EXPLORE ALL PRODUCTIONS",
-            required: true,
-          },
-          // ─── 🎞️ PRODUCTION ARCHIVE & BENTO GRID ───────────────────────
-          {
-            type: "string",
-            name: "archiveTag",
-            label: "🎞️ Archive Section Tag",
-            description: "e.g. Production Archive",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "archiveHeading",
-            label: "Archive Section Main Heading",
-            description: "e.g. Selected Works & Case Studies",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "archiveDescription",
-            label: "Archive Section Subtitle",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-          {
-            type: "string",
-            name: "filterAllLabel",
-            label: "Filter 'All' Button Label",
-            description: "e.g. All Productions",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "closeModalLabel",
-            label: "Modal Close Button Text",
-            description: "e.g. ESC ✕ CLOSE",
-            required: true,
-          },
-        ],
-      },
-      {
-        name: "servicesPage",
-        label: "Services Page",
-        path: "src/content/pages",
-        format: "json",
-        match: {
-          include: "services",
-        },
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-        },
-        fields: [
-          // ─── 🔍 SEO & HEADER ───────────────────────────────────────────
-          {
-            type: "string",
-            name: "seoTitle",
-            label: "SEO Page Title",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "headerTag",
-            label: "Top Amber Tagline",
-            description: "e.g. Expert Production Solutions",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "heading",
-            label: "Main Page Heading",
-            description: "e.g. What We Do.",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "Page Subtitle & Meta Description",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-
-          // ─── ⚙️ PRODUCTION PROCESS (HOW IT WORKS) ─────────────────────
-          {
-            type: "string",
-            name: "processTag",
-            label: "Process Eyebrow Tag",
-            description: "Default: Workflow Architecture",
-          },
-          {
-            type: "string",
-            name: "processHeading",
-            label: "Process Section Heading",
-            description: "Default: The Production Process.",
-          },
-          {
-            type: "string",
-            name: "processDescription",
-            label: "Process Subtitle",
-            ui: {
-              component: "textarea",
-            },
-          },
-          {
-            type: "object",
-            list: true,
-            name: "processSteps",
-            label: "Production Process Steps",
-            ui: {
-              itemProps: (item) => ({
-                label: item?.step && item?.title ? `${item.step}. ${item.title}` : "Process Step",
-              }),
-            },
-            fields: [
-              {
-                type: "string",
-                name: "step",
-                label: "Step Number (e.g. 01)",
-                required: true,
-              },
-              {
-                type: "string",
-                name: "title",
-                label: "Step Title",
-                required: true,
-              },
-              {
-                type: "string",
-                name: "tag",
-                label: "Stage Category Tag (e.g. Pre-Production, Filming)",
-                required: true,
-              },
-              {
-                type: "string",
-                name: "description",
-                label: "Step Description",
-                ui: {
-                  component: "textarea",
-                },
-                required: true,
-              },
-            ],
-          },
-          // ─── 🚀 BOTTOM CTA ─────────────────────────────────────────────
-          {
-            type: "string",
-            name: "ctaTag",
-            label: "Bottom CTA Eyebrow Tag",
-            description: "Default: READY FOR THE NEXT TAKE?",
-          },
-          {
-            type: "string",
-            name: "ctaHeading",
-            label: "Bottom CTA Heading",
-            description: "Default: Have an Upcoming Event or Production Brief?",
-          },
-          {
-            type: "string",
-            name: "ctaText",
-            label: "Bottom CTA Description",
-            ui: {
-              component: "textarea",
-            },
-          },
-          {
-            type: "string",
-            name: "ctaButtonLabel",
-            label: "Bottom CTA Button Text",
-            description: "Default: Start Project Brief",
-          },
-          {
-            type: "string",
-            name: "ctaButtonLink",
-            label: "Bottom CTA Button Link",
-            description: "Default: /contact",
-          },
-        ],
-      },
-      {
         name: "cambridgePage",
         label: "Cambridge Page",
         path: "src/content/pages",
@@ -771,10 +503,9 @@ export default defineConfig({
           },
         ],
       },
-      // ─── 📄 CUSTOM / GENERIC PAGES COLLECTION ──────────────────────
       {
         name: "customPages",
-        label: "📄 Custom Pages",
+        label: "Custom Pages",
         path: "src/content/pages/custom",
         format: "json",
 
@@ -1091,6 +822,657 @@ export default defineConfig({
         ],
       },
       {
+        name: "siteSettings",
+        label: "Header & Site Branding",
+        path: "src/content/settings",
+        format: "json",
+        match: {
+          include: "site",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "siteName",
+            label: "Site Name (Metadata & Copyright)",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "logoText",
+            label: "Text Logo",
+            required: true,
+          },
+          {
+            type: "boolean",
+            name: "useImageLogo",
+            label: "Use Image Logo Instead of Text?",
+          },
+          {
+            type: "image",
+            name: "logoImagePath",
+            label: "Logo Image",
+          },
+          // ─── 🧭 MAIN NAVIGATION BAR (HEADER) ──────────────────────────
+          {
+            type: "object",
+            name: "navLinks",
+            label: "🧭 Header Navigation Links",
+            description: "Manage and reorder menu links in the top header",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.label ? `${item.label} (${item?.href || ""})` : "Nav Link",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "label",
+                label: "Menu Label",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "href",
+                label: "Link URL / Path (e.g. /work, /services, /contact)",
+                required: true,
+              },
+            ],
+          },
+
+        ],
+      },
+      {
+        name: "servicesPage",
+        label: "Services Page",
+        path: "src/content/pages",
+        format: "json",
+        match: {
+          include: "services",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          // ─── 🔍 SEO & HEADER ───────────────────────────────────────────
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "SEO Page Title",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "headerTag",
+            label: "Top Amber Tagline",
+            description: "e.g. Expert Production Solutions",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "Main Page Heading",
+            description: "e.g. What We Do.",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Page Subtitle & Meta Description",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+
+          // ─── ⚙️ PRODUCTION PROCESS (HOW IT WORKS) ─────────────────────
+          {
+            type: "string",
+            name: "processTag",
+            label: "Process Eyebrow Tag",
+            description: "Default: Workflow Architecture",
+          },
+          {
+            type: "string",
+            name: "processHeading",
+            label: "Process Section Heading",
+            description: "Default: The Production Process.",
+          },
+          {
+            type: "string",
+            name: "processDescription",
+            label: "Process Subtitle",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "object",
+            list: true,
+            name: "processSteps",
+            label: "Production Process Steps",
+            ui: {
+              itemProps: (item) => ({
+                label: item?.step && item?.title ? `${item.step}. ${item.title}` : "Process Step",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "step",
+                label: "Step Number (e.g. 01)",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Step Title",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "tag",
+                label: "Stage Category Tag (e.g. Pre-Production, Filming)",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Step Description",
+                ui: {
+                  component: "textarea",
+                },
+                required: true,
+              },
+            ],
+          },
+          // ─── 🚀 BOTTOM CTA ─────────────────────────────────────────────
+          {
+            type: "string",
+            name: "ctaTag",
+            label: "Bottom CTA Eyebrow Tag",
+            description: "Default: READY FOR THE NEXT TAKE?",
+          },
+          {
+            type: "string",
+            name: "ctaHeading",
+            label: "Bottom CTA Heading",
+            description: "Default: Have an Upcoming Event or Production Brief?",
+          },
+          {
+            type: "string",
+            name: "ctaText",
+            label: "Bottom CTA Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "ctaButtonLabel",
+            label: "Bottom CTA Button Text",
+            description: "Default: Start Project Brief",
+          },
+          {
+            type: "string",
+            name: "ctaButtonLink",
+            label: "Bottom CTA Button Link",
+            description: "Default: /contact",
+          },
+        ],
+      },
+      {
+        name: "service",
+        label: "Services",
+        path: "src/content/services",
+        format: "json",
+        ui: {
+          filename: {
+            slugify: (values) => {
+              const order = values?.order ? `${values.order}-` : "";
+              const slug = values?.slug || values?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'service';
+              return `${order}${slug}`;
+            },
+          },
+        },
+        fields: [
+          // ─── 🏷️ SERVICE IDENTITY ─────────────────────────────────────
+          {
+            type: "string",
+            name: "order",
+            label: "🏷️ Service Number (01, 02, etc.)",
+            description: "Controls the grid sequence in the Services directory",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "title",
+            label: "🏷️ Service Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "tag",
+            label: "🏷️ Category Badge (e.g. Multi-Camera Filming)",
+            description: "Used in Schema.org metadata and subpage scope header",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Service Description",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "slug",
+            label: "URL Slug",
+            description: "e.g. event-coverage, conference-production",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "link",
+            label: "Target Page Link",
+            description: "e.g. /services/event-coverage",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "SEO Page Title",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "SEO Meta Description",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroTag",
+            label: "Subpage Hero Tag",
+            description: "e.g. Live Production Pipeline",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroHeading",
+            label: "Subpage Hero Heading",
+            description: "Wrap words in asterisks for the amber gradient. e.g. Dynamic *Multi-Camera* Coverage.",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroLead",
+            label: "Subpage Hero Value Proposition",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "breakdownHeading",
+            label: "Breakdown Section Heading",
+            description: "Editorial subheadline explaining the service execution approach",
+          },
+          {
+            type: "string",
+            name: "breakdownBody",
+            label: "Breakdown Section Paragraph",
+            description: "Crisp paragraph explaining how we approach and execute this service",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "displayAs",
+            label: "Hero & Card Background Media Type",
+            options: [
+              { label: "🎬 Cinematic Video Loop", value: "local-video" },
+              { label: "📸 Static Photograph / Image", value: "image" },
+              { label: "🎨 Dual-Tone Gradient Background", value: "gradient" },
+              { label: "🌐 External Cloud Video URL", value: "link-video" },
+              { label: "⬛ No Background Media (Solid Dark)", value: "none" },
+            ],
+            required: true,
+          },
+          {
+            type: "string",
+            name: "localVideoPath",
+            label: "Local Video Path (When Video selected)",
+            description: "e.g. /showreel.mp4 (placed in public/ folder)",
+          },
+          {
+            type: "string",
+            name: "cloudVideoUrl",
+            label: "Cloud Video URL (When External Video selected)",
+            description: "e.g. https://your-cdn.com/clip.mp4",
+          },
+          {
+            type: "image",
+            name: "imagePath",
+            label: "Poster / Fallback Image",
+          },
+          {
+            type: "string",
+            name: "heroGradientDirection",
+            label: "Gradient Direction (When Gradient selected)",
+            options: [
+              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
+              { value: "to bottom", label: "Vertical (Top to Bottom)" },
+              { value: "to right", label: "Horizontal (Left to Right)" },
+              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
+              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
+              { value: "radial", label: "Center Spotlight (Radial)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "heroGradientColor1",
+            label: "Gradient First Color (Hex)",
+            description: "First color or spotlight center",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "heroGradientColor2",
+            label: "Gradient Second Color (Hex)",
+            description: "Second color or gradient base",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "object",
+            list: true,
+            name: "deliverables",
+            label: "Service Deliverables",
+            ui: {
+              itemProps: (item) => ({
+                label: item?.title || "Deliverable",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "tag",
+                label: "Deliverable Badge Tag",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Deliverable Title",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Deliverable Description",
+                ui: {
+                  component: "textarea",
+                },
+                required: true,
+              },
+            ],
+          },
+          {
+            type: "string",
+            name: "ctaHeading",
+            label: "Bottom CTA Heading",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "ctaDescription",
+            label: "Bottom CTA Description",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "ctaButtonLabel",
+            label: "Bottom CTA Button Text",
+            required: true,
+          },
+        ],
+      },
+      {
+        name: "workPage",
+        label: "Work Page",
+        path: "src/content/pages",
+        format: "json",
+        match: {
+          include: "work",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "🔍 SEO Title (Google & Social)",
+            description: "Optimal length: 50–60 characters",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "🔍 SEO Meta Description",
+            description: "Optimal length: 140–160 characters",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+
+          // ─── 🎬 HERO & HEADLINE ───────────────────────────────────────
+          {
+            type: "string",
+            name: "headerTag",
+            label: "🎬 Top Eyebrow Tag",
+            description: "e.g. Selected Portfolio",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "🎬 Main Page Heading",
+            description: "e.g. Our Work.",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "🎬 Page Intro Text",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "aspectBadge",
+            label: "Technical Aspect Badge (Optional)",
+            description: "e.g. ASPECT // 16:9",
+            required: false,
+          },
+          {
+            type: "string",
+            name: "videoButtonLabel",
+            label: "Hero Play Button Label",
+            description: "e.g. WATCH FEATURED FILM ➔",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "imageButtonLabel",
+            label: "Archive Card Play Button Label",
+            description: "e.g. WATCH PROJECT REEL ➔",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "scrollIndicatorText",
+            label: "Hero Scroll Indicator Text",
+            description: "e.g. EXPLORE ALL PRODUCTIONS",
+            required: true,
+          },
+          // ─── 🎞️ PRODUCTION ARCHIVE & BENTO GRID ───────────────────────
+          {
+            type: "string",
+            name: "archiveTag",
+            label: "🎞️ Archive Section Tag",
+            description: "e.g. Production Archive",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "archiveHeading",
+            label: "Archive Section Main Heading",
+            description: "e.g. Selected Works & Case Studies",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "archiveDescription",
+            label: "Archive Section Subtitle",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "filterAllLabel",
+            label: "Filter 'All' Button Label",
+            description: "e.g. All Productions",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "closeModalLabel",
+            label: "Modal Close Button Text",
+            description: "e.g. ESC ✕ CLOSE",
+            required: true,
+          },
+        ],
+      },
+      {
+        name: "project",
+        label: "Portfolio Projects",
+        path: "src/content/projects",
+        format: "json",
+        fields: [
+          // ─── 🎬 PROJECT IDENTITY ──────────────────────────────────────
+          {
+            type: "string",
+            name: "order",
+            label: "🎬 Display Order (01, 02, etc.)",
+            description: "Controls the display sequence on the /work page",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "title",
+            label: "🎬 Project Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "client",
+            label: "Client Name",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "category",
+            label: "Category Badge",
+            description: "e.g. Commercial / Filming, Narrative / Editing",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "runtime",
+            label: "Total Run Time (TRT)",
+            description: "e.g. 0:45 or 8:12",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Project Description",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "backgroundStyle",
+            label: "Background Display Mode",
+            options: [
+              { label: "Moving Cinema Video (Vimeo)", value: "video" },
+              { label: "Static Photograph", value: "image" },
+            ],
+            required: true,
+          },
+          {
+            type: "string",
+            name: "videoUrl",
+            label: "Vimeo Embed URL",
+            description:
+              "Use format: https://player.vimeo.com/video/828757840",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "thumbnail",
+            label: "Thumbnail / Backdrop Still Image",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "brightnessStyle",
+            label: "Video Brightness Tuning",
+            options: [
+              { label: "Normal (Deep Moody Contrast)", value: "normal" },
+              { label: "Bright (Boosted Exposure)", value: "bright" },
+            ],
+            required: true,
+          },
+        ],
+      },
+      {
         name: "aboutPage",
         label: "About Page",
         path: "src/content/pages",
@@ -1389,389 +1771,6 @@ export default defineConfig({
               { type: "string", name: "badge", label: "Custom Badge (Optional, e.g. LIVE REEL)" },
             ],
           },
-        ],
-      },
-      {
-        name: "project",
-        label: "Portfolio Projects",
-        path: "src/content/projects",
-        format: "json",
-        fields: [
-          // ─── 🎬 PROJECT IDENTITY ──────────────────────────────────────
-          {
-            type: "string",
-            name: "order",
-            label: "🎬 Display Order (01, 02, etc.)",
-            description: "Controls the display sequence on the /work page",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "title",
-            label: "🎬 Project Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "string",
-            name: "client",
-            label: "Client Name",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "category",
-            label: "Category Badge",
-            description: "e.g. Commercial / Filming, Narrative / Editing",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "runtime",
-            label: "Total Run Time (TRT)",
-            description: "e.g. 0:45 or 8:12",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "Project Description",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-          {
-            type: "string",
-            name: "backgroundStyle",
-            label: "Background Display Mode",
-            options: [
-              { label: "Moving Cinema Video (Vimeo)", value: "video" },
-              { label: "Static Photograph", value: "image" },
-            ],
-            required: true,
-          },
-          {
-            type: "string",
-            name: "videoUrl",
-            label: "Vimeo Embed URL",
-            description:
-              "Use format: https://player.vimeo.com/video/828757840",
-            required: true,
-          },
-          {
-            type: "image",
-            name: "thumbnail",
-            label: "Thumbnail / Backdrop Still Image",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "brightnessStyle",
-            label: "Video Brightness Tuning",
-            options: [
-              { label: "Normal (Deep Moody Contrast)", value: "normal" },
-              { label: "Bright (Boosted Exposure)", value: "bright" },
-            ],
-            required: true,
-          },
-        ],
-      },
-      {
-        name: "service",
-        label: "Services",
-        path: "src/content/services",
-        format: "json",
-        ui: {
-          filename: {
-            slugify: (values) => {
-              const order = values?.order ? `${values.order}-` : "";
-              const slug = values?.slug || values?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'service';
-              return `${order}${slug}`;
-            },
-          },
-        },
-        fields: [
-          // ─── 🏷️ SERVICE IDENTITY ─────────────────────────────────────
-          {
-            type: "string",
-            name: "order",
-            label: "🏷️ Service Number (01, 02, etc.)",
-            description: "Controls the grid sequence in the Services directory",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "title",
-            label: "🏷️ Service Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "string",
-            name: "tag",
-            label: "🏷️ Category Badge (e.g. Multi-Camera Filming)",
-            description: "Used in Schema.org metadata and subpage scope header",
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "Service Description",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-          {
-            type: "string",
-            name: "slug",
-            label: "URL Slug",
-            description: "e.g. event-coverage, conference-production",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "link",
-            label: "Target Page Link",
-            description: "e.g. /services/event-coverage",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "seoTitle",
-            label: "SEO Page Title",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "seoDescription",
-            label: "SEO Meta Description",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-          {
-            type: "string",
-            name: "heroTag",
-            label: "Subpage Hero Tag",
-            description: "e.g. Live Production Pipeline",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "heroHeading",
-            label: "Subpage Hero Heading",
-            description: "Wrap words in asterisks for the amber gradient. e.g. Dynamic *Multi-Camera* Coverage.",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "heroLead",
-            label: "Subpage Hero Value Proposition",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-          {
-            type: "string",
-            name: "breakdownHeading",
-            label: "Breakdown Section Heading",
-            description: "Editorial subheadline explaining the service execution approach",
-          },
-          {
-            type: "string",
-            name: "breakdownBody",
-            label: "Breakdown Section Paragraph",
-            description: "Crisp paragraph explaining how we approach and execute this service",
-            ui: {
-              component: "textarea",
-            },
-          },
-          {
-            type: "string",
-            name: "displayAs",
-            label: "Hero & Card Background Media Type",
-            options: [
-              { label: "🎬 Cinematic Video Loop", value: "local-video" },
-              { label: "📸 Static Photograph / Image", value: "image" },
-              { label: "🎨 Dual-Tone Gradient Background", value: "gradient" },
-              { label: "🌐 External Cloud Video URL", value: "link-video" },
-              { label: "⬛ No Background Media (Solid Dark)", value: "none" },
-            ],
-            required: true,
-          },
-          {
-            type: "string",
-            name: "localVideoPath",
-            label: "Local Video Path (When Video selected)",
-            description: "e.g. /showreel.mp4 (placed in public/ folder)",
-          },
-          {
-            type: "string",
-            name: "cloudVideoUrl",
-            label: "Cloud Video URL (When External Video selected)",
-            description: "e.g. https://your-cdn.com/clip.mp4",
-          },
-          {
-            type: "image",
-            name: "imagePath",
-            label: "Poster / Fallback Image",
-          },
-          {
-            type: "string",
-            name: "heroGradientDirection",
-            label: "Gradient Direction (When Gradient selected)",
-            options: [
-              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
-              { value: "to bottom", label: "Vertical (Top to Bottom)" },
-              { value: "to right", label: "Horizontal (Left to Right)" },
-              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
-              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
-              { value: "radial", label: "Center Spotlight (Radial)" },
-            ],
-          },
-          {
-            type: "string",
-            name: "heroGradientColor1",
-            label: "Gradient First Color (Hex)",
-            description: "First color or spotlight center",
-            ui: {
-              component: "color",
-            },
-          },
-          {
-            type: "string",
-            name: "heroGradientColor2",
-            label: "Gradient Second Color (Hex)",
-            description: "Second color or gradient base",
-            ui: {
-              component: "color",
-            },
-          },
-          {
-            type: "object",
-            list: true,
-            name: "deliverables",
-            label: "Service Deliverables",
-            ui: {
-              itemProps: (item) => ({
-                label: item?.title || "Deliverable",
-              }),
-            },
-            fields: [
-              {
-                type: "string",
-                name: "tag",
-                label: "Deliverable Badge Tag",
-                required: true,
-              },
-              {
-                type: "string",
-                name: "title",
-                label: "Deliverable Title",
-                required: true,
-              },
-              {
-                type: "string",
-                name: "description",
-                label: "Deliverable Description",
-                ui: {
-                  component: "textarea",
-                },
-                required: true,
-              },
-            ],
-          },
-          {
-            type: "string",
-            name: "ctaHeading",
-            label: "Bottom CTA Heading",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "ctaDescription",
-            label: "Bottom CTA Description",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
-          },
-          {
-            type: "string",
-            name: "ctaButtonLabel",
-            label: "Bottom CTA Button Text",
-            required: true,
-          },
-        ],
-      },
-      {
-        name: "siteSettings",
-        label: "Header & Site Branding",
-        path: "src/content/settings",
-        format: "json",
-        match: {
-          include: "site",
-        },
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-        },
-        fields: [
-          {
-            type: "string",
-            name: "siteName",
-            label: "Site Name (Metadata & Copyright)",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "logoText",
-            label: "Text Logo",
-            required: true,
-          },
-          {
-            type: "boolean",
-            name: "useImageLogo",
-            label: "Use Image Logo Instead of Text?",
-          },
-          {
-            type: "image",
-            name: "logoImagePath",
-            label: "Logo Image",
-          },
-          // ─── 🧭 MAIN NAVIGATION BAR (HEADER) ──────────────────────────
-          {
-            type: "object",
-            name: "navLinks",
-            label: "🧭 Header Navigation Links",
-            description: "Manage and reorder menu links in the top header",
-            list: true,
-            ui: {
-              itemProps: (item) => ({
-                label: item?.label ? `${item.label} (${item?.href || ""})` : "Nav Link",
-              }),
-            },
-            fields: [
-              {
-                type: "string",
-                name: "label",
-                label: "Menu Label",
-                required: true,
-              },
-              {
-                type: "string",
-                name: "href",
-                label: "Link URL / Path (e.g. /work, /services, /contact)",
-                required: true,
-              },
-            ],
-          },
-
         ],
       },
       {

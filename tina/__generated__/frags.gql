@@ -22,47 +22,6 @@ fragment HomepageParts on Homepage {
   introSecondaryLinkHref
 }
 
-fragment WorkPageParts on WorkPage {
-  __typename
-  seoTitle
-  seoDescription
-  headerTag
-  heading
-  description
-  aspectBadge
-  videoButtonLabel
-  imageButtonLabel
-  scrollIndicatorText
-  archiveTag
-  archiveHeading
-  archiveDescription
-  filterAllLabel
-  closeModalLabel
-}
-
-fragment ServicesPageParts on ServicesPage {
-  __typename
-  seoTitle
-  headerTag
-  heading
-  description
-  processTag
-  processHeading
-  processDescription
-  processSteps {
-    __typename
-    step
-    title
-    tag
-    description
-  }
-  ctaTag
-  ctaHeading
-  ctaText
-  ctaButtonLabel
-  ctaButtonLink
-}
-
 fragment CambridgePageParts on CambridgePage {
   __typename
   seoTitle
@@ -145,6 +104,107 @@ fragment CustomPagesParts on CustomPages {
   bottomCtaLink
 }
 
+fragment SiteSettingsParts on SiteSettings {
+  __typename
+  siteName
+  logoText
+  useImageLogo
+  logoImagePath
+  navLinks {
+    __typename
+    label
+    href
+  }
+}
+
+fragment ServicesPageParts on ServicesPage {
+  __typename
+  seoTitle
+  headerTag
+  heading
+  description
+  processTag
+  processHeading
+  processDescription
+  processSteps {
+    __typename
+    step
+    title
+    tag
+    description
+  }
+  ctaTag
+  ctaHeading
+  ctaText
+  ctaButtonLabel
+  ctaButtonLink
+}
+
+fragment ServiceParts on Service {
+  __typename
+  order
+  title
+  tag
+  description
+  slug
+  link
+  seoTitle
+  seoDescription
+  heroTag
+  heroHeading
+  heroLead
+  breakdownHeading
+  breakdownBody
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
+  deliverables {
+    __typename
+    tag
+    title
+    description
+  }
+  ctaHeading
+  ctaDescription
+  ctaButtonLabel
+}
+
+fragment WorkPageParts on WorkPage {
+  __typename
+  seoTitle
+  seoDescription
+  headerTag
+  heading
+  description
+  aspectBadge
+  videoButtonLabel
+  imageButtonLabel
+  scrollIndicatorText
+  archiveTag
+  archiveHeading
+  archiveDescription
+  filterAllLabel
+  closeModalLabel
+}
+
+fragment ProjectParts on Project {
+  __typename
+  order
+  title
+  client
+  category
+  runtime
+  description
+  backgroundStyle
+  videoUrl
+  thumbnail
+  brightnessStyle
+}
+
 fragment AboutPageParts on AboutPage {
   __typename
   seoTitle
@@ -201,66 +261,6 @@ fragment AboutSliderParts on AboutSlider {
     avatar
     videoLoop
     badge
-  }
-}
-
-fragment ProjectParts on Project {
-  __typename
-  order
-  title
-  client
-  category
-  runtime
-  description
-  backgroundStyle
-  videoUrl
-  thumbnail
-  brightnessStyle
-}
-
-fragment ServiceParts on Service {
-  __typename
-  order
-  title
-  tag
-  description
-  slug
-  link
-  seoTitle
-  seoDescription
-  heroTag
-  heroHeading
-  heroLead
-  breakdownHeading
-  breakdownBody
-  displayAs
-  localVideoPath
-  cloudVideoUrl
-  imagePath
-  heroGradientDirection
-  heroGradientColor1
-  heroGradientColor2
-  deliverables {
-    __typename
-    tag
-    title
-    description
-  }
-  ctaHeading
-  ctaDescription
-  ctaButtonLabel
-}
-
-fragment SiteSettingsParts on SiteSettings {
-  __typename
-  siteName
-  logoText
-  useImageLogo
-  logoImagePath
-  navLinks {
-    __typename
-    label
-    href
   }
 }
 
