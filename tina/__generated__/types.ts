@@ -511,15 +511,39 @@ export type WorkPageConnection = Connection & {
   edges?: Maybe<Array<Maybe<WorkPageConnectionEdges>>>;
 };
 
+export type ServicesPageProcessSteps = {
+  __typename?: 'ServicesPageProcessSteps';
+  step: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  tag: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+};
+
 export type ServicesPage = Node & Document & {
   __typename?: 'ServicesPage';
   seoTitle: Scalars['String']['output'];
   headerTag: Scalars['String']['output'];
   heading: Scalars['String']['output'];
   description: Scalars['String']['output'];
+  processTag?: Maybe<Scalars['String']['output']>;
+  processHeading?: Maybe<Scalars['String']['output']>;
+  processDescription?: Maybe<Scalars['String']['output']>;
+  processSteps?: Maybe<Array<Maybe<ServicesPageProcessSteps>>>;
+  ctaTag?: Maybe<Scalars['String']['output']>;
+  ctaHeading?: Maybe<Scalars['String']['output']>;
+  ctaText?: Maybe<Scalars['String']['output']>;
+  ctaButtonLabel?: Maybe<Scalars['String']['output']>;
+  ctaButtonLink?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
+};
+
+export type ServicesPageProcessStepsFilter = {
+  step?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  tag?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
 };
 
 export type ServicesPageFilter = {
@@ -527,6 +551,15 @@ export type ServicesPageFilter = {
   headerTag?: InputMaybe<StringFilter>;
   heading?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  processTag?: InputMaybe<StringFilter>;
+  processHeading?: InputMaybe<StringFilter>;
+  processDescription?: InputMaybe<StringFilter>;
+  processSteps?: InputMaybe<ServicesPageProcessStepsFilter>;
+  ctaTag?: InputMaybe<StringFilter>;
+  ctaHeading?: InputMaybe<StringFilter>;
+  ctaText?: InputMaybe<StringFilter>;
+  ctaButtonLabel?: InputMaybe<StringFilter>;
+  ctaButtonLink?: InputMaybe<StringFilter>;
 };
 
 export type ServicesPageConnectionEdges = {
@@ -1576,11 +1609,27 @@ export type WorkPageMutation = {
   closeModalLabel?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ServicesPageProcessStepsMutation = {
+  step?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  tag?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ServicesPageMutation = {
   seoTitle?: InputMaybe<Scalars['String']['input']>;
   headerTag?: InputMaybe<Scalars['String']['input']>;
   heading?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  processTag?: InputMaybe<Scalars['String']['input']>;
+  processHeading?: InputMaybe<Scalars['String']['input']>;
+  processDescription?: InputMaybe<Scalars['String']['input']>;
+  processSteps?: InputMaybe<Array<InputMaybe<ServicesPageProcessStepsMutation>>>;
+  ctaTag?: InputMaybe<Scalars['String']['input']>;
+  ctaHeading?: InputMaybe<Scalars['String']['input']>;
+  ctaText?: InputMaybe<Scalars['String']['input']>;
+  ctaButtonLabel?: InputMaybe<Scalars['String']['input']>;
+  ctaButtonLink?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type CambridgePageFaqsMutation = {
@@ -1909,11 +1958,27 @@ export type WorkPageFilter = {
   closeModalLabel?: StringFilter | null | undefined;
 };
 
+export type ServicesPageProcessStepsFilter = {
+  step?: StringFilter | null | undefined;
+  title?: StringFilter | null | undefined;
+  tag?: StringFilter | null | undefined;
+  description?: StringFilter | null | undefined;
+};
+
 export type ServicesPageFilter = {
   seoTitle?: StringFilter | null | undefined;
   headerTag?: StringFilter | null | undefined;
   heading?: StringFilter | null | undefined;
   description?: StringFilter | null | undefined;
+  processTag?: StringFilter | null | undefined;
+  processHeading?: StringFilter | null | undefined;
+  processDescription?: StringFilter | null | undefined;
+  processSteps?: ServicesPageProcessStepsFilter | null | undefined;
+  ctaTag?: StringFilter | null | undefined;
+  ctaHeading?: StringFilter | null | undefined;
+  ctaText?: StringFilter | null | undefined;
+  ctaButtonLabel?: StringFilter | null | undefined;
+  ctaButtonLink?: StringFilter | null | undefined;
 };
 
 export type CambridgePageFaqsFilter = {
@@ -2207,7 +2272,7 @@ export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, 
 
 export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string };
 
-export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: string, headerTag: string, heading: string, description: string };
+export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: string, headerTag: string, heading: string, description: string, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null };
 
 export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
 
@@ -2272,7 +2337,7 @@ export type ServicesPageQueryVariables = Exact<{
 }>;
 
 
-export type ServicesPageQuery = { servicesPage: { __typename: 'ServicesPage', id: string, seoTitle: string, headerTag: string, heading: string, description: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ServicesPageQuery = { servicesPage: { __typename: 'ServicesPage', id: string, seoTitle: string, headerTag: string, heading: string, description: string, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null } };
 
 export type ServicesPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -2284,7 +2349,7 @@ export type ServicesPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ServicesPageConnectionQuery = { servicesPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ServicesPage', id: string, seoTitle: string, headerTag: string, heading: string, description: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ServicesPageConnectionQuery = { servicesPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ServicesPage', id: string, seoTitle: string, headerTag: string, heading: string, description: string, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null } | null } | null> | null } };
 
 export type CambridgePageQueryVariables = Exact<{
   relativePath: string;
@@ -2527,6 +2592,21 @@ export const ServicesPagePartsFragmentDoc = gql`
   headerTag
   heading
   description
+  processTag
+  processHeading
+  processDescription
+  processSteps {
+    __typename
+    step
+    title
+    tag
+    description
+  }
+  ctaTag
+  ctaHeading
+  ctaText
+  ctaButtonLabel
+  ctaButtonLink
 }
     `;
 export const CambridgePagePartsFragmentDoc = gql`

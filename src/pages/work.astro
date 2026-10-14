@@ -85,16 +85,19 @@ const workVideoSchema = {
     <!-- ============================================================== -->
     <!-- 1. FEATURED SHOWREEL HERO SECTION (MATCHES HOMEPAGE HEIGHT)    -->
     <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- 1. FEATURED SHOWREEL HERO SECTION (CONCEPT 2: DEAD-CENTER PREMIERE) -->
+    <!-- ============================================================== -->
     <section 
       data-cinema-darkroom
-      class="relative w-full min-h-[100dvh] pt-20 flex flex-col justify-between p-6 sm:p-12 lg:p-16 overflow-hidden border-b border-neutral-900/60 select-none"
+      class="relative w-full min-h-[100dvh] pt-20 flex flex-col justify-between p-6 sm:p-12 overflow-hidden border-b border-neutral-900/60 select-none"
     >
-      <!-- Automated Backdrop Manager Layer (Full-bleed 100vh behind navbar) -->
+      <!-- Automated Backdrop Manager Layer (Full-bleed 100vh, Zero Muddy Gradient) -->
       <div class="absolute inset-0 z-0 bg-black pointer-events-none w-full h-full overflow-hidden">
-        <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Video Feeds) -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
+        <!-- Minimal Top Scrim for Navbar Contrast Only (90% of screen has zero overlay) -->
+        <div class="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-black/70 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
 
-        {/* Video Backdrop: Full-bleed cover, zero spurious image bleeding */}
+        {/* Video Backdrop: 100% Crisp, Pure Cinematography */}
         {featuredProject.videoUrl.endsWith('.mp4') || featuredProject.videoUrl.startsWith('/') ? (
           <video 
             autoplay 
@@ -103,7 +106,7 @@ const workVideoSchema = {
             playsinline 
             preload="metadata"
             poster={featuredProject.thumbnail}
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-90 sm:opacity-95"
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-100"
           >
             <source src={featuredProject.videoUrl} type="video/mp4" />
           </video>
@@ -111,7 +114,7 @@ const workVideoSchema = {
           <iframe 
             src={featuredVimeoBgUrl}
             title={`${featuredProject.title} background reel`}
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full object-cover pointer-events-none z-0 opacity-90 sm:opacity-95 transition-all duration-500"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full object-cover pointer-events-none z-0 opacity-100 transition-all duration-500"
             allow="autoplay; fullscreen" 
             referrerpolicy="strict-origin-when-cross-origin"
             loading="eager"
@@ -123,74 +126,42 @@ const workVideoSchema = {
             loading="eager" 
             fetchpriority="high"
             decoding="async"
-            class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-85 z-0" 
+            class="absolute inset-0 w-full h-full object-cover opacity-100 z-0" 
           />
         )}
       </div>
 
-      <!-- Top Floating HUD / Page Header Overlay -->
-      <header class="relative z-30 max-w-xl text-left pt-4 sm:pt-8 pointer-events-auto">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-950/80 border border-white/10 backdrop-blur-md mb-2 sm:mb-3 shadow-2xl">
-          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-          <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-amber-500 font-mono font-bold">
-            {workPage.headerTag}
-          </span>
-        </div>
-        <h1 
-          class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white keep-white leading-[1.1] sm:leading-none"
-          set:html={parseHeading(workPage.heading)}
-        />
-        <p class="text-neutral-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg mt-2 sm:mt-3 opacity-90 line-clamp-2 hidden sm:block keep-white">
-          {workPage.description}
-        </p>
-      </header>
+      <!-- Spacer to balance vertical centering with navbar height -->
+      <div class="h-10 sm:h-16"></div>
 
-      <!-- Bottom Layout Bar (Project Details + Scroll Cue) -->
-      <div class="relative z-30 flex flex-col md:flex-row md:items-end justify-between gap-6 w-full pb-2 sm:pb-6">
-        <!-- Featured Project Presentation Bay (Bottom-Left) -->
-        <div class="max-w-2xl space-y-3 sm:space-y-4 text-left">
-          <!-- Category & TRT -->
-          <div class="flex items-center gap-3">
-            <span class="text-[10px] tracking-[0.2em] uppercase font-mono text-amber-500 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md font-semibold">
-              {featuredProject.category}
-            </span>
-            <span class="text-[10px] font-mono text-neutral-300 bg-neutral-900/80 backdrop-blur px-2.5 py-0.5 rounded border border-neutral-700/50">
-              TRT {featuredProject.runtime}
-            </span>
-          </div>
+      <!-- DEAD-CENTER "WATCH OUR REEL" BUTTON -->
+      <div class="relative z-30 flex-1 flex flex-col items-center justify-center text-center px-4 my-auto">
+        <button 
+          type="button"
+          data-open-dialog={`dialog-modal-${featuredProject.id}`}
+          class="hero-reel-btn group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-mono font-bold text-sm uppercase tracking-wider hover:scale-[1.03] active:scale-[0.98] transition-all shadow-2xl shadow-amber-500/20 cursor-pointer outline-none"
+          aria-label="Watch our reel"
+        >
+          <!-- Play Icon -->
+          <svg class="w-4 h-4 fill-current translate-x-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <span>Watch our reel</span>
+          <span class="transform group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
 
-          <!-- Title -->
-          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white keep-white tracking-tight leading-none max-w-2xl">
-            {featuredProject.title}
-          </h2>
-
-          <!-- Description -->
-          <p class="text-neutral-300 text-xs sm:text-base leading-relaxed max-w-xl line-clamp-2 pt-1 opacity-90 keep-white font-light">
-            {featuredProject.description}
-          </p>
-
-          <!-- Native HTML5 Dialog Control Trigger -->
-          <button 
-            data-open-dialog={`dialog-modal-${featuredProject.id}`}
-            class="pt-3 sm:pt-4 flex items-center gap-3 font-mono text-xs text-amber-500 tracking-wider hover:text-amber-400 transition-colors cursor-pointer group outline-none z-40 relative"
-          >
-            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-neutral-950 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:from-amber-300 group-hover:to-amber-500 transition-all duration-300">
-              <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <span class="group-hover:translate-x-1 transition-transform duration-300">
-              {workPage.videoButtonLabel}
-            </span>
-          </button>
-        </div>
-
-        <!-- Smooth Scroll Indicator Link to Archive Section -->
+      <!-- Minimal Bottom Scroll Cue Anchored at Bottom Center -->
+      <div class="relative z-30 pb-4 sm:pb-6 flex justify-center">
         <a 
           href="#archive"
-          class="font-mono text-[10px] text-neutral-400 tracking-[0.2em] hidden md:flex items-center gap-2.5 bg-neutral-950/70 border border-white/10 px-4 py-2 rounded-full backdrop-blur-md hover:border-amber-500/50 hover:text-white transition-all shadow-lg self-start md:self-end"
+          class="group inline-flex flex-col items-center gap-1.5 text-neutral-400 hover:text-white font-mono text-[10px] uppercase tracking-[0.25em] transition-colors"
+          aria-label="Scroll to Project Archive"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-          <span>{workPage.scrollIndicatorText}</span>
-          <span class="animate-bounce text-amber-500 font-bold">↓</span>
+          <span class="opacity-70 group-hover:opacity-100 transition-opacity">Explore Archive</span>
+          <span class="w-7 h-7 rounded-full border border-white/10 group-hover:border-amber-500/50 flex items-center justify-center text-amber-500 group-hover:text-amber-400 animate-bounce text-xs bg-neutral-950/60 backdrop-blur-sm">
+            &darr;
+          </span>
         </a>
       </div>
     </section>
@@ -271,51 +242,40 @@ const workVideoSchema = {
               data-category={categorySlug}
               data-open-dialog={`dialog-modal-${project.id}`}
               class:list={[
-                "project-card group relative rounded-2xl overflow-hidden bg-neutral-950 border border-white/10 hover:border-amber-500/50 transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[380px] sm:min-h-[440px] shadow-xl hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1",
+                "project-card group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-amber-500/50 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xl hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5",
                 colSpanClass
               ]}
             >
-              <!-- Card Background Media Layer (Zero Muddy Vignettes) -->
-              <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+              <!-- 1. TOP CONTENT CONTAINER (Text on Top for Instant Reading) -->
+              <div class="p-6 pb-5 sm:p-7 sm:pb-6 flex flex-col justify-between flex-1">
+                <!-- Client Eyebrow Tag -->
+                <span class="text-xs uppercase tracking-widest font-mono text-neutral-400 group-hover:text-amber-400 transition-colors duration-300 font-semibold mb-2 block">
+                  {project.client}
+                </span>
+
+                <!-- Bold Project Title (Zero Clutter) -->
+                <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors duration-300 leading-snug">
+                  {project.title}
+                </h3>
+              </div>
+
+              <!-- 2. BOTTOM WIDESCREEN MEDIA WINDOW (16:9 Cinema Aspect Ratio) -->
+              <div class="relative w-full aspect-16/9 overflow-hidden bg-black select-none border-t border-neutral-800/80">
                 <img 
                   src={project.thumbnail} 
                   alt={project.title} 
                   loading="lazy"
                   decoding="async"
-                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-90 group-hover:opacity-100" 
+                  class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
                 />
-              </div>
 
-              <!-- Card Top Header (Clean Minimal Category & TRT Pills) -->
-              <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between gap-4 pointer-events-none">
-                <span class="hud-pill text-[10px] uppercase font-mono tracking-widest text-amber-500 px-3 py-1 rounded-full font-semibold">
-                  {project.category}
-                </span>
-                <span class="hud-pill text-[10px] font-mono text-neutral-400 px-2.5 py-1 rounded-full">
-                  TRT {project.runtime}
-                </span>
-              </div>
-
-              <!-- Center Hover-Reveal Play Cue (Dead-Center, Floating Above Text Layer) -->
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
-                <div class="w-14 h-14 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-neutral-950 flex items-center justify-center shadow-2xl opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out">
-                  <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-              </div>
-
-              <!-- Floating Frosted HUD Plaque (Guaranteed Contrast Across All Themes) -->
-              <div class="relative z-10 m-3 sm:m-4 p-5 sm:p-6 rounded-xl sm:rounded-2xl hud-plaque space-y-2 pointer-events-none">
-                <span class="hud-caption text-[11px] font-mono text-neutral-400 uppercase tracking-widest block font-medium">
-                  {project.client}
-                </span>
-                <h3 class="text-xl sm:text-2xl font-black text-white group-hover:text-amber-500 transition-colors tracking-tight leading-tight">
-                  {project.title}
-                </h3>
-                <p class="text-xs sm:text-sm text-neutral-300 line-clamp-2 leading-relaxed opacity-90 font-light">
-                  {project.description}
-                </p>
-                <div class="pt-2 flex items-center gap-2 font-mono text-xs text-amber-500 tracking-wider group-hover:translate-x-1 transition-transform font-medium">
-                  <span>{workPage.imageButtonLabel}</span>
+                <!-- Dead-Center Amber Play Cue (Soft Glass Resting, Luminous Bloom on Hover) -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                  <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-neutral-950/75 border border-white/20 backdrop-blur-md text-white flex items-center justify-center shadow-xl group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-amber-500 group-hover:border-transparent group-hover:text-neutral-950 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-amber-500/30 transition-all duration-300 ease-out">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </article>
@@ -404,6 +364,8 @@ const workVideoSchema = {
   html:has(#filter-events:checked) [data-project-card]:not([data-category="events"]) {
     display: none !important;
   }
+
+
 </style>
 
 <!-- Zero-JS Modal Video Controller (Only unmounts iframe to stop background audio on close) -->

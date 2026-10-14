@@ -417,6 +417,7 @@ export default defineConfig({
           },
         },
         fields: [
+          // ─── 🔍 SEO & HEADER ───────────────────────────────────────────
           {
             type: "string",
             name: "seoTitle",
@@ -445,6 +446,101 @@ export default defineConfig({
               component: "textarea",
             },
             required: true,
+          },
+
+          // ─── ⚙️ PRODUCTION PROCESS (HOW IT WORKS) ─────────────────────
+          {
+            type: "string",
+            name: "processTag",
+            label: "Process Eyebrow Tag",
+            description: "Default: Workflow Architecture",
+          },
+          {
+            type: "string",
+            name: "processHeading",
+            label: "Process Section Heading",
+            description: "Default: The Production Process.",
+          },
+          {
+            type: "string",
+            name: "processDescription",
+            label: "Process Subtitle",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "object",
+            list: true,
+            name: "processSteps",
+            label: "Production Process Steps",
+            ui: {
+              itemProps: (item) => ({
+                label: item?.step && item?.title ? `${item.step}. ${item.title}` : "Process Step",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "step",
+                label: "Step Number (e.g. 01)",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Step Title",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "tag",
+                label: "Stage Category Tag (e.g. Pre-Production, Filming)",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Step Description",
+                ui: {
+                  component: "textarea",
+                },
+                required: true,
+              },
+            ],
+          },
+          // ─── 🚀 BOTTOM CTA ─────────────────────────────────────────────
+          {
+            type: "string",
+            name: "ctaTag",
+            label: "Bottom CTA Eyebrow Tag",
+            description: "Default: READY FOR THE NEXT TAKE?",
+          },
+          {
+            type: "string",
+            name: "ctaHeading",
+            label: "Bottom CTA Heading",
+            description: "Default: Have an Upcoming Event or Production Brief?",
+          },
+          {
+            type: "string",
+            name: "ctaText",
+            label: "Bottom CTA Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "ctaButtonLabel",
+            label: "Bottom CTA Button Text",
+            description: "Default: Start Project Brief",
+          },
+          {
+            type: "string",
+            name: "ctaButtonLink",
+            label: "Bottom CTA Button Link",
+            description: "Default: /contact",
           },
         ],
       },
@@ -681,11 +777,7 @@ export default defineConfig({
         label: "📄 Custom Pages",
         path: "src/content/pages/custom",
         format: "json",
-        ui: {
-          router: ({ document }) => {
-            return `/${document._sys.filename}`;
-          },
-        },
+
         fields: [
           // ─── 🔍 SEO & ROUTING ──────────────────────────────────────────
           {
@@ -1007,7 +1099,6 @@ export default defineConfig({
           include: "about",
         },
         ui: {
-          router: () => "/about",
           allowedActions: {
             create: false,
             delete: false,
@@ -1392,9 +1483,12 @@ export default defineConfig({
         path: "src/content/services",
         format: "json",
         ui: {
-          router: ({ document }) => {
-            const cleanSlug = document._sys.filename.replace(/^\d+-/, "");
-            return `/services/${cleanSlug}`;
+          filename: {
+            slugify: (values) => {
+              const order = values?.order ? `${values.order}-` : "";
+              const slug = values?.slug || values?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'service';
+              return `${order}${slug}`;
+            },
           },
         },
         fields: [

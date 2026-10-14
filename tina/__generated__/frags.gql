@@ -46,6 +46,21 @@ fragment ServicesPageParts on ServicesPage {
   headerTag
   heading
   description
+  processTag
+  processHeading
+  processDescription
+  processSteps {
+    __typename
+    step
+    title
+    tag
+    description
+  }
+  ctaTag
+  ctaHeading
+  ctaText
+  ctaButtonLabel
+  ctaButtonLink
 }
 
 fragment CambridgePageParts on CambridgePage {

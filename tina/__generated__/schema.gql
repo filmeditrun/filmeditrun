@@ -248,14 +248,37 @@ type WorkPageConnection implements Connection {
   edges: [WorkPageConnectionEdges]
 }
 
+type ServicesPageProcessSteps {
+  step: String!
+  title: String!
+  tag: String!
+  description: String!
+}
+
 type ServicesPage implements Node & Document {
   seoTitle: String!
   headerTag: String!
   heading: String!
   description: String!
+  processTag: String
+  processHeading: String
+  processDescription: String
+  processSteps: [ServicesPageProcessSteps]
+  ctaTag: String
+  ctaHeading: String
+  ctaText: String
+  ctaButtonLabel: String
+  ctaButtonLink: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input ServicesPageProcessStepsFilter {
+  step: StringFilter
+  title: StringFilter
+  tag: StringFilter
+  description: StringFilter
 }
 
 input ServicesPageFilter {
@@ -263,6 +286,15 @@ input ServicesPageFilter {
   headerTag: StringFilter
   heading: StringFilter
   description: StringFilter
+  processTag: StringFilter
+  processHeading: StringFilter
+  processDescription: StringFilter
+  processSteps: ServicesPageProcessStepsFilter
+  ctaTag: StringFilter
+  ctaHeading: StringFilter
+  ctaText: StringFilter
+  ctaButtonLabel: StringFilter
+  ctaButtonLink: StringFilter
 }
 
 type ServicesPageConnectionEdges {
@@ -1082,11 +1114,27 @@ input WorkPageMutation {
   closeModalLabel: String
 }
 
+input ServicesPageProcessStepsMutation {
+  step: String
+  title: String
+  tag: String
+  description: String
+}
+
 input ServicesPageMutation {
   seoTitle: String
   headerTag: String
   heading: String
   description: String
+  processTag: String
+  processHeading: String
+  processDescription: String
+  processSteps: [ServicesPageProcessStepsMutation]
+  ctaTag: String
+  ctaHeading: String
+  ctaText: String
+  ctaButtonLabel: String
+  ctaButtonLink: String
 }
 
 input CambridgePageFaqsMutation {

@@ -2,5 +2,39 @@
   "seoTitle": "Our Services | FilmEditRun",
   "headerTag": "Expert Production Solutions",
   "heading": "What We Do.",
-  "description": "High-impact video production, corporate event coverage, and premium creative post-production tailored for brands and global conferences."
+  "description": "High-impact video production, corporate event coverage, and premium creative post-production tailored for brands and global conferences.",
+  "processTag": "Workflow Architecture",
+  "processHeading": "The Production Process.",
+  "processDescription": "A disciplined, four-stage pipeline designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade visuals every time.",
+  "processSteps": [
+    {
+      "step": "01",
+      "title": "Discovery & Blueprint",
+      "tag": "Pre-Production",
+      "description": "We establish your core objectives, shooting schedule, visual treatment, and technical audio requirements before touching a camera."
+    },
+    {
+      "step": "02",
+      "title": "Production & Capture",
+      "tag": "Filming & Audio",
+      "description": "Cinema-grade multi-camera packages and redundant broadcast audio feeds ensure every keynote and critical moment is captured with precision."
+    },
+    {
+      "step": "03",
+      "title": "Editorial & Review",
+      "tag": "Post-Production",
+      "description": "Pacing cuts and story assembly are uploaded to a private, frame-accurate review portal for fast, friction-free stakeholder feedback."
+    },
+    {
+      "step": "04",
+      "title": "Master & Delivery",
+      "tag": "Final Output",
+      "description": "DaVinci Resolve color grading, audio spatial mastering, and final exports formatted in 4K, 16:9, and vertical 9:16 social deliverables."
+    }
+  ],
+  "ctaTag": "READY FOR THE NEXT TAKE?",
+  "ctaHeading": "Have an Upcoming Event or Production Brief?",
+  "ctaText": "Tell us about your event dates, venue location, or creative ideas. We deliver a tailored technical scope and quote within 24 hours.",
+  "ctaButtonLabel": "Start Project Brief",
+  "ctaButtonLink": "/contact"
 }

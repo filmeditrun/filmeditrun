@@ -56,6 +56,21 @@ export const ServicesPagePartsFragmentDoc = gql`
   headerTag
   heading
   description
+  processTag
+  processHeading
+  processDescription
+  processSteps {
+    __typename
+    step
+    title
+    tag
+    description
+  }
+  ctaTag
+  ctaHeading
+  ctaText
+  ctaButtonLabel
+  ctaButtonLink
 }
     `;
 export const CambridgePagePartsFragmentDoc = gql`

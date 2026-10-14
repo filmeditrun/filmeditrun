@@ -8,6 +8,7 @@ import servicesPage from '../content/pages/services.json';
 
 interface ServiceCard {
   order: string;
+  slug?: string;
   title: string;
   description: string;
   tag: string;
@@ -29,6 +30,23 @@ const serviceFiles = import.meta.glob<ServiceCard>("../content/services/*.json",
 const services = Object.values(serviceFiles)
   .map((s) => ({ ...s, id: s.order }))
   .sort((a, b) => a.order.localeCompare(b.order, undefined, { numeric: true }));
+
+// Maximum cards shown on initial load (2 rows of 3 columns = 6 cards)
+const INITIAL_LIMIT = 6;
+const hasMore = services.length > INITIAL_LIMIT;
+
+// Process section content from services.json
+const processTag = servicesPage.processTag || "Workflow Architecture";
+const processHeading = servicesPage.processHeading || "The Production Process.";
+const processDescription = servicesPage.processDescription || "A disciplined, four-stage pipeline designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade visuals every time.";
+const processSteps = servicesPage.processSteps || [];
+
+// Bottom CTA content from services.json
+const ctaTag = servicesPage.ctaTag || "READY FOR THE NEXT TAKE?";
+const ctaHeading = servicesPage.ctaHeading || "Have an Upcoming Event or Production Brief?";
+const ctaText = servicesPage.ctaText || "Tell us about your event dates, venue location, or creative ideas. We deliver a tailored technical production proposal within 24 hours.";
+const ctaButtonLabel = servicesPage.ctaButtonLabel || "Start Project Brief";
+const ctaButtonLink = servicesPage.ctaButtonLink || "/contact";
 // =====================================================================
 ---
 
@@ -38,33 +56,105 @@ const services = Object.values(serviceFiles)
   <header class="max-w-7xl mx-auto px-6 pt-12 pb-16 text-center md:text-left">
     <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">{servicesPage.headerTag}</span>
     <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-4">{servicesPage.heading}</h1>
-    <p class="text-neutral-400 max-w-xl text-lg leading-relaxed mx-auto md:mx-0">{servicesPage.description}</p>
+    <p class="text-neutral-400 max-w-xl text-lg leading-relaxed mx-auto md:mx-0 font-light">{servicesPage.description}</p>
   </header>
 
-  <!-- 2-Column Clean Grid Section -->
-  <section class="max-w-7xl mx-auto px-6 pb-28">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+  <!-- 3-Column Bento Services Grid Section (Text Above, Widescreen Media Below) -->
+  <section class="max-w-7xl mx-auto px-6 pb-24">
+    <!-- Zero-JS Pure CSS Expansion Controller -->
+    {hasMore && (
+      <input 
+        type="checkbox" 
+        id="expand-services" 
+        class="peer sr-only" 
+        aria-label="Expand all services"
+      />
+    )}
+
+    <!-- Top Utility Bar: Services Dropdown (Aligned above Card 03) -->
+    <div class="flex items-center justify-end pb-6 mb-6 border-b border-neutral-800/60 relative z-40">
+      <!-- Zero-JS Services Dropdown (<details>) -->
+      <div class="relative">
+        <details class="group/dropdown relative">
+          <summary class="list-none [&::-webkit-details-marker]:hidden inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-xs uppercase font-mono tracking-wider font-semibold bg-neutral-900/90 hover:bg-neutral-850 text-neutral-300 border border-neutral-800 hover:border-amber-500/50 hover:text-white transition-all duration-200 cursor-pointer select-none shadow-md">
+            <span>Explore our Services</span>
+            <svg class="w-3.5 h-3.5 text-amber-500 transition-transform duration-200 group-open/dropdown:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+
+          <!-- Dropdown Flyout Panel -->
+          <div class="absolute right-0 top-full mt-2.5 w-72 sm:w-84 rounded-2xl bg-[#0c0c11]/95 border border-neutral-800/90 backdrop-blur-2xl shadow-2xl z-50 p-2 overflow-hidden">
+            <div class="px-3.5 py-2.5 border-b border-neutral-800/80 text-[10px] uppercase font-mono tracking-widest text-neutral-400 flex items-center justify-between">
+              <span>Full Service Roster</span>
+              <span class="text-amber-500 font-semibold">Direct Jump</span>
+            </div>
+            
+            <div class="py-1.5 max-h-84 overflow-y-auto divide-y divide-neutral-900/60">
+              {services.map((service, idx) => (
+                <a
+                  href={service.link}
+                  class="group/item flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-neutral-900/90 transition-colors"
+                >
+                  <div class="flex items-center gap-3 min-w-0 pr-3">
+                    <span class="text-[11px] font-mono font-bold text-amber-500/70 group-hover/item:text-amber-400 shrink-0">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <span class="text-sm font-medium text-neutral-200 group-hover/item:text-white truncate">
+                      {service.title}
+                    </span>
+                  </div>
+                  <span class="text-xs text-neutral-500 group-hover/item:text-amber-400 group-hover/item:translate-x-0.5 transition-all shrink-0">
+                    &rarr;
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       
-      {services.map((service) => (
+      {services.map((service, index) => (
         <a 
           href={service.link} 
-          class="group flex flex-col rounded-2xl border border-neutral-800 bg-neutral-900 overflow-hidden transition-all duration-300 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5"
+          class:list={[
+            "group flex flex-col justify-between rounded-2xl border border-neutral-800 bg-neutral-900/90 overflow-hidden transition-all duration-300 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5",
+            index >= INITIAL_LIMIT && "service-card-extra"
+          ]}
         >
-          <!-- Top Media Showcase Container -->
+          <!-- 1. TOP CONTENT CONTAINER (Text on Top for Instant Reading) -->
+          <div class="p-6 pb-5 sm:p-7 sm:pb-6 flex flex-col justify-between flex-1">
+            <!-- Top Header: Title & Action Indicator -->
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors duration-300 leading-snug">
+                {service.title}
+              </h3>
+
+              <span class="text-neutral-400 group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-xs leading-none bg-neutral-950/80 border border-white/10 group-hover:border-amber-500/40 w-7 h-7 rounded-full flex items-center justify-center shadow-sm shrink-0 mt-1">
+                &nearr;
+              </span>
+            </div>
+          </div>
+
+          <!-- 2. BOTTOM WIDESCREEN MEDIA WINDOW (16:9 Cinema Aspect Ratio) -->
           {service.displayAs && (service.displayAs as string) !== "none" && (service.displayAs === "gradient" || service.imagePath || service.localVideoPath || service.cloudVideoUrl) && (
-            <div class="relative w-full aspect-16/10 overflow-hidden bg-black select-none border-b border-neutral-800/80">
+            <div class="relative w-full aspect-16/9 overflow-hidden bg-black select-none border-t border-neutral-800/80">
               
-              {/* OPTION 1 & 2: DEFERRED VIDEO LOOP SETUP (LOCAL OR CLOUD) */}
+              {/* OPTION 1 & 2: NATIVE ZERO-JS VIDEO LOOP (LOCAL OR CLOUD) */}
               {(service.displayAs === "local-video" || service.displayAs === "link-video" || service.displayAs === "video") && (
                 <video
+                  autoplay
                   loop
                   muted
                   playsinline
-                  preload="none"
+                  preload="metadata"
                   poster={service.imagePath}
-                  data-video-src={service.displayAs === "link-video" ? service.cloudVideoUrl : service.localVideoPath}
-                  class="service-preview-video w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                  class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                 >
+                  <source src={service.displayAs === "link-video" ? service.cloudVideoUrl : service.localVideoPath} type="video/mp4" />
                 </video>
               )}
 
@@ -89,69 +179,168 @@ const services = Object.values(serviceFiles)
                   aria-hidden="true"
                 />
               )}
-
-              <!-- Corner Roseram Arrow -->
-              <div class="absolute top-4 right-4 pointer-events-none z-10">
-                <span class="text-neutral-300 group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-sm leading-none bg-neutral-950/75 backdrop-blur-md w-8 h-8 rounded-full border border-white/10 flex items-center justify-center shadow-lg">
-                  &nearr;
-                </span>
-              </div>
             </div>
           )}
-
-          <!-- Bottom Text Container -->
-          <div class="flex-1 flex flex-col justify-between p-6 sm:p-8">
-            <div>
-              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors duration-300 leading-snug">
-                {service.title}
-              </h3>
-              <p class="text-neutral-400 text-sm sm:text-base leading-relaxed line-clamp-3 font-light mb-6">
-                {service.description}
-              </p>
-            </div>
-
-            <!-- Bottom Action Row -->
-            <div class="pt-4 flex items-center justify-between border-t border-neutral-800/80 text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors duration-300">
-              <span class="font-medium">Explore Pipeline</span>
-              <span class="transform group-hover:translate-x-1.5 transition-transform duration-300 text-sm" aria-hidden="true">&rarr;</span>
-            </div>
-          </div>
         </a>
       ))}
 
     </div>
+
+    {/* Part 1 Option 1: Zero-JS CSS Expand Label for Services beyond 6 */}
+    {hasMore && (
+      <div class="expand-btn-container mt-12 text-center">
+        <label
+          for="expand-services"
+          class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs uppercase font-mono tracking-widest font-semibold bg-neutral-900 text-neutral-300 border border-neutral-800 hover:border-amber-500/50 hover:text-white hover:bg-neutral-850 transition-all duration-300 shadow-lg cursor-pointer select-none"
+        >
+          <span class="btn-label-more inline-flex items-center gap-2">
+            Explore All Services ({services.length})
+            <span class="text-amber-500 font-bold">&darr;</span>
+          </span>
+          <span class="btn-label-less hidden items-center gap-2">
+            Show Less
+            <span class="text-amber-500 font-bold">&uarr;</span>
+          </span>
+        </label>
+      </div>
+    )}
   </section>
+
+  <!-- ============================================================== -->
+  <!-- PRODUCTION PROCESS (HOW IT WORKS) - CLEAN TIMELINE RAIL        -->
+  <!-- ============================================================== -->
+  {processSteps && processSteps.length > 0 && (
+    <section class="max-w-7xl mx-auto px-6 pt-16 pb-28 border-t border-neutral-900">
+      
+      <!-- Section Header -->
+      <div class="text-center md:text-left mb-16 sm:mb-20">
+        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">
+          {processTag}
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+          {processHeading}
+        </h2>
+        <p class="text-neutral-400 max-w-2xl text-base sm:text-lg leading-relaxed font-light mx-auto md:mx-0">
+          {processDescription}
+        </p>
+      </div>
+
+      <!-- Horizontal Timeline Rail (Clean Nodes - No Timecodes) -->
+      <div class="relative">
+        <!-- Connecting Rail Line (Desktop: Horizontal) -->
+        <div 
+          class="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-gradient-to-r from-neutral-800 via-amber-500/35 to-neutral-800 z-0 pointer-events-none" 
+          aria-hidden="true"
+        />
+
+        <!-- Step Grid (1 col mobile, 2 cols tablet, 4 cols desktop) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 relative z-10">
+          {processSteps.map((step) => (
+            <div class="group relative flex flex-col bg-neutral-900/60 hover:bg-neutral-900/90 border border-neutral-800 hover:border-amber-500/40 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/5">
+              
+              <!-- Top Node & Stage Tag -->
+              <div class="flex items-center justify-between mb-6">
+                <!-- Step Number Node -->
+                <div class="w-14 h-14 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center font-mono font-bold text-amber-400 text-lg shadow-inner group-hover:border-amber-500/60 group-hover:text-amber-300 transition-all duration-300">
+                  {step.step}
+                </div>
+
+                <!-- Stage Category Pill -->
+                <span class="text-[11px] uppercase tracking-wider font-mono text-neutral-400 font-medium bg-neutral-950/80 border border-neutral-800/80 px-2.5 py-1 rounded-md">
+                  {step.tag}
+                </span>
+              </div>
+
+              <!-- Step Title -->
+              <h3 class="text-lg sm:text-xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
+                {step.title}
+              </h3>
+
+              <!-- Step Description -->
+              <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ============================================================== -->
+  <!-- HIGH-CONVERTING BOTTOM STUDIO COMMISSION DOCK                  -->
+  <!-- ============================================================== -->
+  <section class="relative py-20 sm:py-28 overflow-hidden bg-neutral-950 border-t border-neutral-900">
+    <!-- Ambient gold glow backdrop -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-140 h-70 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      
+      <!-- Top Slate Tag -->
+      <div class="inline-flex items-center gap-2 mb-6">
+        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+          {ctaTag}
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6 leading-tight">
+        {ctaHeading}
+      </h2>
+
+      <!-- Description -->
+      <p class="text-base sm:text-lg text-neutral-400 font-light leading-relaxed max-w-2xl mx-auto mb-10">
+        {ctaText}
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={ctaButtonLink}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-mono font-bold text-sm uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-amber-500/10"
+        >
+          <span>{ctaButtonLabel}</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+
+        <a
+          href="/work"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-neutral-800 bg-neutral-900/60 text-neutral-300 font-mono text-sm tracking-wider hover:text-white hover:border-neutral-700 hover:bg-neutral-900 transition-all"
+        >
+          <span>Explore Selected Work</span>
+        </a>
+      </div>
+
+      <!-- Studio Dispatch Locations Footer -->
+      <div class="mt-12 pt-8 border-t border-neutral-900/80 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-mono text-neutral-500">
+        <span>● London Base</span>
+        <span>● Cambridge Studio</span>
+        <span>● UK-Wide & Global Dispatch</span>
+      </div>
+
+    </div>
+  </section>
+
 </Layout>
 
-<script>
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReducedMotion) {
-    const videos = document.querySelectorAll('video.service-preview-video');
-
-    const loadVideo = (video: Element) => {
-      const vid = video as HTMLVideoElement;
-      const src = vid.dataset.videoSrc;
-      if (src && !vid.src) {
-        vid.src = src;
-        vid.load();
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target as HTMLVideoElement;
-          if (entry.isIntersecting) {
-            loadVideo(video);
-            video.play().catch(() => {});
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { rootMargin: '100px 0px', threshold: 0.25 }
-    );
-
-    videos.forEach((video) => observer.observe(video));
+<style>
+  /* ============================================================== */
+  /* ZERO-JS CSS EXPANSION CONTROLLER                               */
+  /* ============================================================== */
+  .service-card-extra {
+    display: none;
   }
-</script>
+
+  #expand-services:checked ~ #services-grid .service-card-extra {
+    display: flex;
+  }
+
+  #expand-services:checked ~ .expand-btn-container .btn-label-more {
+    display: none;
+  }
+
+  #expand-services:checked ~ .expand-btn-container .btn-label-less {
+    display: inline-flex;
+  }
+</style>
