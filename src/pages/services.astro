@@ -12,10 +12,13 @@ interface ServiceCard {
   description: string;
   tag: string;
   link: string;
-  displayAs?: "local-video" | "link-video" | "image" | "none";
+  displayAs?: "local-video" | "link-video" | "image" | "gradient" | "none" | string;
   localVideoPath?: string;
   cloudVideoUrl?: string;
   imagePath?: string;
+  heroGradientDirection?: string;
+  heroGradientColor1?: string;
+  heroGradientColor2?: string;
 }
 
 const serviceFiles = import.meta.glob<ServiceCard>("../content/services/*.json", {
@@ -48,18 +51,18 @@ const services = Object.values(serviceFiles)
           class="group flex flex-col rounded-2xl border border-neutral-800 bg-neutral-900 overflow-hidden transition-all duration-300 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5"
         >
           <!-- Top Media Showcase Container -->
-          {service.displayAs && (service.displayAs as string) !== "none" && (service.imagePath || service.localVideoPath || service.cloudVideoUrl) && (
+          {service.displayAs && (service.displayAs as string) !== "none" && (service.displayAs === "gradient" || service.imagePath || service.localVideoPath || service.cloudVideoUrl) && (
             <div class="relative w-full aspect-16/10 overflow-hidden bg-black select-none border-b border-neutral-800/80">
               
               {/* OPTION 1 & 2: DEFERRED VIDEO LOOP SETUP (LOCAL OR CLOUD) */}
-              {(service.displayAs === "local-video" || service.displayAs === "link-video") && (
+              {(service.displayAs === "local-video" || service.displayAs === "link-video" || service.displayAs === "video") && (
                 <video
                   loop
                   muted
                   playsinline
                   preload="none"
                   poster={service.imagePath}
-                  data-video-src={service.displayAs === "local-video" ? service.localVideoPath : service.cloudVideoUrl}
+                  data-video-src={service.displayAs === "link-video" ? service.cloudVideoUrl : service.localVideoPath}
                   class="service-preview-video w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                 >
                 </video>
@@ -73,6 +76,17 @@ const services = Object.values(serviceFiles)
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                />
+              )}
+
+              {/* OPTION 4: DUAL-TONE GRADIENT SETUP */}
+              {service.displayAs === "gradient" && (
+                <div
+                  class="w-full h-full group-hover:scale-105 transition-all duration-700 ease-out"
+                  style={service.heroGradientDirection === "radial"
+                    ? `background: radial-gradient(circle at center, ${service.heroGradientColor1 || "#180d2b"} 0%, ${service.heroGradientColor2 || "#09090c"} 100%);`
+                    : `background: linear-gradient(${service.heroGradientDirection || "to bottom right"}, ${service.heroGradientColor1 || "#180d2b"} 0%, ${service.heroGradientColor2 || "#09090c"} 100%);`}
+                  aria-hidden="true"
                 />
               )}
 

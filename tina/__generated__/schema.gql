@@ -375,6 +375,9 @@ type CustomPages implements Node & Document {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   section1Tag: String
   section1Heading: String!
   section1Description: String!
@@ -421,6 +424,9 @@ input CustomPagesFilter {
   localVideoPath: StringFilter
   cloudVideoUrl: StringFilter
   imagePath: ImageFilter
+  heroGradientDirection: StringFilter
+  heroGradientColor1: StringFilter
+  heroGradientColor2: StringFilter
   section1Tag: StringFilter
   section1Heading: StringFilter
   section1Description: StringFilter
@@ -484,7 +490,12 @@ type AboutPage implements Node & Document {
   manifestoLead: String!
   manifestoQuote: String
   manifestoAuthor: String
+  heroBackgroundType: String
   heroVideoPath: String
+  heroImagePath: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   heroFrostedGlass: String
   btsHeading: String
   btsTag: String
@@ -527,7 +538,12 @@ input AboutPageFilter {
   manifestoLead: StringFilter
   manifestoQuote: StringFilter
   manifestoAuthor: StringFilter
+  heroBackgroundType: StringFilter
   heroVideoPath: StringFilter
+  heroImagePath: ImageFilter
+  heroGradientDirection: StringFilter
+  heroGradientColor1: StringFilter
+  heroGradientColor2: StringFilter
   heroFrostedGlass: StringFilter
   btsHeading: StringFilter
   btsTag: StringFilter
@@ -662,6 +678,9 @@ type Service implements Node & Document {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   deliverables: [ServiceDeliverables]
   ctaHeading: String!
   ctaDescription: String!
@@ -695,6 +714,9 @@ input ServiceFilter {
   localVideoPath: StringFilter
   cloudVideoUrl: StringFilter
   imagePath: ImageFilter
+  heroGradientDirection: StringFilter
+  heroGradientColor1: StringFilter
+  heroGradientColor2: StringFilter
   deliverables: ServiceDeliverablesFilter
   ctaHeading: StringFilter
   ctaDescription: StringFilter
@@ -1117,6 +1139,9 @@ input CustomPagesMutation {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   section1Tag: String
   section1Heading: String
   section1Description: String
@@ -1169,7 +1194,12 @@ input AboutPageMutation {
   manifestoLead: String
   manifestoQuote: String
   manifestoAuthor: String
+  heroBackgroundType: String
   heroVideoPath: String
+  heroImagePath: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   heroFrostedGlass: String
   btsHeading: String
   btsTag: String
@@ -1237,6 +1267,9 @@ input ServiceMutation {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   deliverables: [ServiceDeliverablesMutation]
   ctaHeading: String
   ctaDescription: String

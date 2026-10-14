@@ -99,6 +99,9 @@ fragment CustomPagesParts on CustomPages {
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   section1Tag
   section1Heading
   section1Description
@@ -135,7 +138,12 @@ fragment AboutPageParts on AboutPage {
   manifestoLead
   manifestoQuote
   manifestoAuthor
+  heroBackgroundType
   heroVideoPath
+  heroImagePath
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   heroFrostedGlass
   btsHeading
   btsTag
@@ -214,6 +222,9 @@ fragment ServiceParts on Service {
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   deliverables {
     __typename
     tag

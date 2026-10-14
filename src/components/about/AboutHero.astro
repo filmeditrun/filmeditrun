@@ -4,7 +4,12 @@ interface Props {
   manifestoLead: string;
   manifestoQuote?: string;
   manifestoAuthor?: string;
+  heroBackgroundType?: "video" | "image" | "gradient" | string;
   heroVideoPath?: string;
+  heroImagePath?: string;
+  heroGradientDirection?: string;
+  heroGradientColor1?: string;
+  heroGradientColor2?: string;
   heroFrostedGlass?: "none" | "very-subtle" | "subtle" | "medium" | "strong" | string;
 }
 
@@ -13,7 +18,12 @@ const {
   manifestoLead,
   manifestoQuote,
   manifestoAuthor,
+  heroBackgroundType = "video",
   heroVideoPath,
+  heroImagePath = "/og-image.jpg",
+  heroGradientDirection = "to bottom right",
+  heroGradientColor1 = "#180d2b",
+  heroGradientColor2 = "#09090c",
   heroFrostedGlass = "very-subtle",
 } = Astro.props;
 
@@ -31,33 +41,63 @@ const ndDensityMap: Record<string, string> = {
   strong: "opacity-95",
 };
 const ndDensityClass = ndDensityMap[heroFrostedGlass] ?? "opacity-80";
+
+// Fallback logic for background type
+const bgType = heroBackgroundType || (heroVideoPath ? "video" : "gradient");
+const isRadial = heroGradientDirection === "radial";
+const gradientStyle = isRadial
+  ? `background: radial-gradient(circle at center, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`
+  : `background: linear-gradient(${heroGradientDirection}, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`;
 ---
 
 <section data-cinema-darkroom class="relative overflow-hidden pt-28 pb-20 sm:pt-36 md:pt-40 md:pb-32 border-b border-neutral-900 select-none">
-  <!-- Clear, Bright Video Background with Master Cinematic ND Filter -->
-  {heroVideoPath && (
-    <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden bg-black">
-      <!-- Master Cinematic Directional ND Filter (Unified Site-Wide Standard) -->
-      <div 
-        class:list={[
-          "absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none transition-opacity duration-500",
-          ndDensityClass
-        ]} 
-        aria-hidden="true"
-      />
+  <!-- Media Backdrop Layer (Video, Image, or Dual-Tone Gradient) -->
+  <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden bg-black">
+    <!-- Master Cinematic Directional ND Filter (Unified Site-Wide Standard) -->
+    <div 
+      class:list={[
+        "absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none transition-opacity duration-500",
+        ndDensityClass
+      ]} 
+      aria-hidden="true"
+    />
 
+    {/* 1. Video Background */}
+    {bgType === "video" && heroVideoPath && (
       <video
         autoplay
         loop
         muted
         playsinline
         preload="metadata"
+        poster={heroImagePath}
         class="w-full h-full object-cover opacity-90 sm:opacity-95 z-0"
       >
         <source src={heroVideoPath} type="video/mp4" />
       </video>
-    </div>
-  )}
+    )}
+
+    {/* 2. Static Photograph / Image Background */}
+    {bgType === "image" && heroImagePath && (
+      <img
+        src={heroImagePath}
+        alt={headlinePrefix}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
+      />
+    )}
+
+    {/* 3. Dual-Tone Gradient Background */}
+    {bgType === "gradient" && (
+      <div
+        class="w-full h-full z-0"
+        style={gradientStyle}
+        aria-hidden="true"
+      />
+    )}
+  </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

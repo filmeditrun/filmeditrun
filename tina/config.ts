@@ -50,20 +50,27 @@ export default defineConfig({
             filter: invert(1) hue-rotate(180deg) !important;
           }
 
-          /* Standard centered form width for all collections (860px) */
+          /* Standard centered form width for all document editor forms (860px) */
+          form,
+          form > div,
+          [data-test*="form"],
+          [data-test*="form"] > div,
+          [data-test^="form:"],
           [data-test^="form:"] > div,
-          [data-test*="form"] > div {
+          .max-w-form,
+          div:has(> form) {
             max-width: 860px !important;
             margin-left: auto !important;
             margin-right: auto !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
-          }
-          .max-w-form {
-            max-width: 860px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
           }
 
           /* Grade Switcher collection specifically: wider layout (1280px) */
+          form:has([data-test*="theme"]),
+          [data-test*="theme"] form,
           [data-test*="theme"] > div {
             max-width: 1280px !important;
             padding-left: 28px !important;
@@ -73,24 +80,22 @@ export default defineConfig({
             max-width: 1280px !important;
           }
 
-          /* Grade Switcher color swatches: 360px (half size extra) */
-          button:has(.swatch-inner),
-          div.relative:has(.swatch-inner),
+          /* Grade Switcher and Hero color swatches: 360px (half size extra) */
+          button:has(> .swatch-inner),
+          div.relative:has(> button > .swatch-inner),
           .swatch-inner {
             max-width: 360px !important;
           }
 
-          /* Collection List Tables (Custom Pages, Portfolio Projects, Services) */
-          /* Generous width, full column visibility, and seamless dark theme matching */
-          div.relative.left-0.w-full.h-full > div.pt-4,
-          div.relative.left-0.w-full.h-full > div.py-4 {
+          /* Collection List Tables (Custom Pages, Portfolio Projects, Services) - scoped strictly to tables */
+          div.relative.left-0.w-full.h-full:has(table),
+          div.relative.left-0.w-full.h-full:has([role="table"]) {
             max-width: 1100px !important;
             margin-left: auto !important;
             margin-right: auto !important;
             width: 100% !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
-            text-align: left !important;
           }
           div.relative.left-0.w-full.h-full table,
           div.relative.left-0.w-full.h-full [role="table"] {
@@ -760,28 +765,60 @@ export default defineConfig({
             name: "displayAs",
             label: "Hero Background Media Type",
             options: [
-              { label: "Local Video Loop (from /public)", value: "local-video" },
-              { label: "External Cloud Video URL", value: "link-video" },
-              { label: "Static Photo / Image", value: "image" },
-              { label: "Minimalist Dark Void (No Media)", value: "none" },
+              { label: "🎬 Cinematic Video Loop", value: "local-video" },
+              { label: "📸 Static Photograph / Image", value: "image" },
+              { label: "🎨 Dual-Tone Gradient Background", value: "gradient" },
+              { label: "🌐 External Cloud Video URL", value: "link-video" },
+              { label: "⬛ Minimalist Dark Void (No Media)", value: "none" },
             ],
           },
           {
             type: "string",
             name: "localVideoPath",
-            label: "Local Video Path",
-            description: "e.g. /showreel.mp4",
+            label: "Local Video Path (When Video selected)",
+            description: "e.g. /showreel.mp4 (placed in public/ folder)",
           },
           {
             type: "string",
             name: "cloudVideoUrl",
-            label: "Cloud Video URL",
+            label: "Cloud Video URL (When External Video selected)",
             description: "e.g. https://your-link.mp4",
           },
           {
             type: "image",
             name: "imagePath",
             label: "Hero Background Photo / Video Fallback Poster",
+          },
+          {
+            type: "string",
+            name: "heroGradientDirection",
+            label: "Gradient Direction (When Gradient selected)",
+            options: [
+              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
+              { value: "to bottom", label: "Vertical (Top to Bottom)" },
+              { value: "to right", label: "Horizontal (Left to Right)" },
+              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
+              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
+              { value: "radial", label: "Center Spotlight (Radial)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "heroGradientColor1",
+            label: "Gradient First Color (Hex)",
+            description: "First color or spotlight center",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "heroGradientColor2",
+            label: "Gradient Second Color (Hex)",
+            description: "Second color or gradient base",
+            ui: {
+              component: "color",
+            },
           },
 
           // ─── 💡 NARRATIVE STORY 1 (Left: Copy, Right: Card or Photo) ───
@@ -970,6 +1007,7 @@ export default defineConfig({
           include: "about",
         },
         ui: {
+          router: () => "/about",
           allowedActions: {
             create: false,
             delete: false,
@@ -1026,17 +1064,65 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "heroBackgroundType",
+            label: "Hero Background Type",
+            description: "Choose between video loop, photo image, or dual-tone gradient",
+            options: [
+              { value: "video", label: "🎬 Cinematic Video Loop" },
+              { value: "image", label: "📸 Static Photograph / Image" },
+              { value: "gradient", label: "🎨 Dual-Tone Gradient Background" },
+            ],
+          },
+          {
+            type: "string",
             name: "heroVideoPath",
-            label: "Hero Background Video Path (Optional)",
+            label: "Hero Background Video Path (When Video selected)",
             description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "image",
+            name: "heroImagePath",
+            label: "Hero Background Photo / Image (When Image selected)",
+            description: "High-resolution photo for the hero backdrop",
+          },
+          {
+            type: "string",
+            name: "heroGradientDirection",
+            label: "Gradient Direction (When Gradient selected)",
+            options: [
+              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
+              { value: "to bottom", label: "Vertical (Top to Bottom)" },
+              { value: "to right", label: "Horizontal (Left to Right)" },
+              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
+              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
+              { value: "radial", label: "Center Spotlight (Radial)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "heroGradientColor1",
+            label: "Gradient First Color (Hex)",
+            description: "First color or spotlight center",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "heroGradientColor2",
+            label: "Gradient Second Color (Hex)",
+            description: "Second color or outer edge",
+            ui: {
+              component: "color",
+            },
           },
           {
             type: "string",
             name: "heroFrostedGlass",
             label: "Hero Background Solid Tint / ND Filter",
-            description: "Solid opacity tint over the background video (subtle is recommended)",
+            description: "Solid opacity tint over the background (subtle is recommended)",
             options: [
-              { value: "none", label: "None (Full Raw Video Clarity)" },
+              { value: "none", label: "None (Full Raw Clarity)" },
               { value: "very-subtle", label: "Very Subtle (Light 30% ND Tint)" },
               { value: "subtle", label: "Subtle (Balanced 50% ND Tint, Recommended)" },
               { value: "medium", label: "Medium (Strong 70% ND Tint)" },
@@ -1305,6 +1391,12 @@ export default defineConfig({
         label: "Services",
         path: "src/content/services",
         format: "json",
+        ui: {
+          router: ({ document }) => {
+            const cleanSlug = document._sys.filename.replace(/^\d+-/, "");
+            return `/services/${cleanSlug}`;
+          },
+        },
         fields: [
           // ─── 🏷️ SERVICE IDENTITY ─────────────────────────────────────
           {
@@ -1406,31 +1498,63 @@ export default defineConfig({
           {
             type: "string",
             name: "displayAs",
-            label: "Card Background Media Type",
+            label: "Hero & Card Background Media Type",
             options: [
-              { label: "Local Video Loop (from /public)", value: "local-video" },
-              { label: "External Cloud Video URL", value: "link-video" },
-              { label: "Static Image Only", value: "image" },
-              { label: "No Background Media (Solid Dark)", value: "none" },
+              { label: "🎬 Cinematic Video Loop", value: "local-video" },
+              { label: "📸 Static Photograph / Image", value: "image" },
+              { label: "🎨 Dual-Tone Gradient Background", value: "gradient" },
+              { label: "🌐 External Cloud Video URL", value: "link-video" },
+              { label: "⬛ No Background Media (Solid Dark)", value: "none" },
             ],
             required: true,
           },
           {
             type: "string",
             name: "localVideoPath",
-            label: "Local Video Path",
-            description: "e.g. /showreel.mp4",
+            label: "Local Video Path (When Video selected)",
+            description: "e.g. /showreel.mp4 (placed in public/ folder)",
           },
           {
             type: "string",
             name: "cloudVideoUrl",
-            label: "Cloud Video URL",
+            label: "Cloud Video URL (When External Video selected)",
             description: "e.g. https://your-cdn.com/clip.mp4",
           },
           {
             type: "image",
             name: "imagePath",
             label: "Poster / Fallback Image",
+          },
+          {
+            type: "string",
+            name: "heroGradientDirection",
+            label: "Gradient Direction (When Gradient selected)",
+            options: [
+              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
+              { value: "to bottom", label: "Vertical (Top to Bottom)" },
+              { value: "to right", label: "Horizontal (Left to Right)" },
+              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
+              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
+              { value: "radial", label: "Center Spotlight (Radial)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "heroGradientColor1",
+            label: "Gradient First Color (Hex)",
+            description: "First color or spotlight center",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "heroGradientColor2",
+            label: "Gradient Second Color (Hex)",
+            description: "Second color or gradient base",
+            ui: {
+              component: "color",
+            },
           },
           {
             type: "object",

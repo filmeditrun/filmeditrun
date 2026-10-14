@@ -19,10 +19,13 @@ export interface CustomPageData {
   heroSubtitle: string;
   heroCtaLabel?: string;
   heroCtaLink?: string;
-  displayAs?: "local-video" | "link-video" | "image" | "none";
+  displayAs?: "local-video" | "link-video" | "image" | "gradient" | "none" | string;
   localVideoPath?: string;
   cloudVideoUrl?: string;
   imagePath?: string;
+  heroGradientDirection?: string;
+  heroGradientColor1?: string;
+  heroGradientColor2?: string;
 
   // Narrative Story 1 (Left: Copy, Right: Card/Image)
   section1Tag?: string;
@@ -95,6 +98,14 @@ const displayAs = page.displayAs || "image";
 const localVideoPath = page.localVideoPath || "/showreel.mp4";
 const cloudVideoUrl = page.cloudVideoUrl || "";
 const imagePath = page.imagePath || "/og-image.jpg";
+const heroGradientDirection = page.heroGradientDirection || "to bottom right";
+const heroGradientColor1 = page.heroGradientColor1 || "#180d2b";
+const heroGradientColor2 = page.heroGradientColor2 || "#09090c";
+const isRadial = heroGradientDirection === "radial";
+const gradientStyle = isRadial
+  ? `background: radial-gradient(circle at center, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`
+  : `background: linear-gradient(${heroGradientDirection}, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`;
+
 const siteUrl = "https://filmeditrun.co.uk";
 const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
 
@@ -122,7 +133,7 @@ const section2Bullets = page.section2Bullets ?? [];
         <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
 
         {/* Video Background (Local or Cloud) */}
-        {(displayAs === "local-video" || displayAs === "link-video") && (
+        {(displayAs === "local-video" || displayAs === "link-video" || displayAs === "video") && (
           <video
             autoplay
             muted
@@ -133,7 +144,7 @@ const section2Bullets = page.section2Bullets ?? [];
             class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
           >
             <source
-              src={displayAs === "local-video" ? localVideoPath : cloudVideoUrl}
+              src={displayAs === "link-video" ? cloudVideoUrl : localVideoPath}
               type="video/mp4"
             />
           </video>
@@ -148,6 +159,15 @@ const section2Bullets = page.section2Bullets ?? [];
             fetchpriority="high"
             decoding="async"
             class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-85 z-0"
+          />
+        )}
+
+        {/* Dual-Tone Gradient Background */}
+        {displayAs === "gradient" && (
+          <div
+            class="absolute inset-0 w-full h-full z-0"
+            style={gradientStyle}
+            aria-hidden="true"
           />
         )}
       </div>

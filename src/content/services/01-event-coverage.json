@@ -13,10 +13,13 @@
   "heroLead": "From flagship tech summits to executive panels, we capture every keynote, audience reaction, and defining moment using cinema-grade multi-camera packages and broadcast audio feeds.",
   "breakdownHeading": "Engineered for Live Precision and High-Stakes Agility.",
   "breakdownBody": "Live corporate events leave zero room for second takes. We deploy multi-angle cinema camera rigs and integrated board audio feeds to capture every key address, attendee interaction, and brand touchpoint with broadcast discipline.",
-  "displayAs": "local-video",
+  "displayAs": "gradient",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
-  "imagePath": "",
+  "imagePath": "/og-image.jpg",
+  "heroGradientDirection": "radial",
+  "heroGradientColor1": "#FFFFFF",
+  "heroGradientColor2": "#09090c",
   "deliverables": [
     {
       "tag": "Keynote Delivery",

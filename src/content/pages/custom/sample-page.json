@@ -13,6 +13,9 @@
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "",
   "imagePath": "/og-image.jpg",
+  "heroGradientDirection": "to bottom right",
+  "heroGradientColor1": "#180d2b",
+  "heroGradientColor2": "#09090c",
   
   "section1Tag": "Our Approach",
   "section1Heading": "Clear Storytelling Paired with Technical Precision",

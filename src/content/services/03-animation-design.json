@@ -16,6 +16,9 @@
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
   "imagePath": "/og-image.jpg",
+  "heroGradientDirection": "to bottom right",
+  "heroGradientColor1": "#1e1b4b",
+  "heroGradientColor2": "#09090b",
   "deliverables": [
     {
       "tag": "Opening Impact",

@@ -111,6 +111,9 @@ export const CustomPagesPartsFragmentDoc = gql`
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   section1Tag
   section1Heading
   section1Description
@@ -148,7 +151,12 @@ export const AboutPagePartsFragmentDoc = gql`
   manifestoLead
   manifestoQuote
   manifestoAuthor
+  heroBackgroundType
   heroVideoPath
+  heroImagePath
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   heroFrostedGlass
   btsHeading
   btsTag
@@ -230,6 +238,9 @@ export const ServicePartsFragmentDoc = gql`
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   deliverables {
     __typename
     tag

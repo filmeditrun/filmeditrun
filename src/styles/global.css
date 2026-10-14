@@ -350,6 +350,11 @@ body::before {
 
 /* Full-width bottom dock variant for slider & showcase cards */
 .hud-dock {
+  position: absolute !important;
+  inset-inline: 0 !important;
+  bottom: 0 !important;
+  top: auto !important;
+  width: 100% !important;
   border-left: none !important;
   border-right: none !important;
   border-bottom: none !important;
