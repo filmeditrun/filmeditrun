@@ -281,6 +281,54 @@ export const AboutSliderPartsFragmentDoc = gql`
   }
 }
     `;
+export const ContactPagePartsFragmentDoc = gql`
+    fragment ContactPageParts on ContactPage {
+  __typename
+  seoTitle
+  seoDescription
+  formEndpoint
+  redirectUrl
+  enableTurnstile
+  turnstileSiteKey
+  step1Tag
+  step1Title
+  step1Placeholder
+  step2Tag
+  step2Title
+  serviceOptions {
+    __typename
+    label
+    value
+  }
+  step3Tag
+  step3Title
+  step3Placeholder
+  step4Tag
+  step4Title
+  step4Placeholder
+  step5Tag
+  step5Title
+  gdprText
+  submitButtonLabel
+  thankYouStatusBadge
+  thankYouHeading
+  thankYouHighlight
+  thankYouDescription
+  phase1Tag
+  phase1Title
+  phase1Desc
+  phase2Tag
+  phase2Title
+  phase2Desc
+  phase3Tag
+  phase3Title
+  phase3Desc
+  thankYouPrimaryBtnLabel
+  thankYouPrimaryBtnLink
+  thankYouSecondaryBtnLabel
+  thankYouSecondaryBtnLink
+}
+    `;
 export const SeoSettingsPartsFragmentDoc = gql`
     fragment SeoSettingsParts on SeoSettings {
   __typename
@@ -927,6 +975,63 @@ export const AboutSliderConnectionDocument = gql`
   }
 }
     ${AboutSliderPartsFragmentDoc}`;
+export const ContactPageDocument = gql`
+    query contactPage($relativePath: String!) {
+  contactPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ContactPageParts
+  }
+}
+    ${ContactPagePartsFragmentDoc}`;
+export const ContactPageConnectionDocument = gql`
+    query contactPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ContactPageFilter) {
+  contactPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ContactPageParts
+      }
+    }
+  }
+}
+    ${ContactPagePartsFragmentDoc}`;
 export const SeoSettingsDocument = gql`
     query seoSettings($relativePath: String!) {
   seoSettings(relativePath: $relativePath) {
@@ -1159,6 +1264,12 @@ export function getSdk(requester) {
     },
     aboutSliderConnection(variables, options) {
       return requester(AboutSliderConnectionDocument, variables, options);
+    },
+    contactPage(variables, options) {
+      return requester(ContactPageDocument, variables, options);
+    },
+    contactPageConnection(variables, options) {
+      return requester(ContactPageConnectionDocument, variables, options);
     },
     seoSettings(variables, options) {
       return requester(SeoSettingsDocument, variables, options);

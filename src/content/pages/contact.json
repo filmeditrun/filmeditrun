@@ -1,11 +1,58 @@
 {
   "seoTitle": "Start Your Project | FilmEditRun",
   "seoDescription": "Tell us about your upcoming filming, editing, or creative project. We respond with a tailored proposal within 24 hours.",
-  "heroBackgroundType": "gradient",
-  "heroImagePath": "/og-image.jpg",
-  "heroVideoPath": "/showreel.mp4",
-  "heroGradientDirection": "to bottom right",
-  "heroGradientColor1": "#180d2b",
-  "heroGradientColor2": "#09090c"
+  "formEndpoint": "https://formtorch.com/f/51wrbqkz2r",
+  "redirectUrl": "/thank-you",
+  "enableTurnstile": false,
+  "turnstileSiteKey": "",
+  "step1Tag": "01 ➔ Introduce Yourself",
+  "step1Title": "What is your first and surname? *",
+  "step1Placeholder": "Type your full name here...",
+  "step2Tag": "02 ➔ Project Requirement",
+  "step2Title": "What service do you need? *",
+  "serviceOptions": [
+    {
+      "label": "Filming",
+      "value": "Filming"
+    },
+    {
+      "label": "Editing",
+      "value": "Editing"
+    },
+    {
+      "label": "Filming & Editing (Full Production)",
+      "value": "Filming and Editing"
+    },
+    {
+      "label": "Animation & Motion Design",
+      "value": "Animation and Motion Design"
+    }
+  ],
+  "step3Tag": "03 ➔ Reachable Contact",
+  "step3Title": "What is your contact email address? *",
+  "step3Placeholder": "name@company.com",
+  "step4Tag": "04 ➔ Project Brief",
+  "step4Title": "How can we help? *",
+  "step4Placeholder": "Tell us about your event, dates, or visual goals...",
+  "step5Tag": "05 ➔ Verification & Consent",
+  "step5Title": "Final Step *",
+  "gdprText": "I consent to having this website store my submitted information so they can respond to my inquiry.",
+  "submitButtonLabel": "Submit Brief",
+  "thankYouStatusBadge": "Brief Dispatch Confirmed • 24hr Response",
+  "thankYouHeading": "We've received your project brief.",
+  "thankYouHighlight": "project brief.",
+  "thankYouDescription": "Thank you for getting in touch. Your requirements have been safely delivered to our production desk. We review every brief carefully and will get back to you with a tailored scope within 24 hours.",
+  "phase1Tag": "Phase 01 // Discovery",
+  "phase1Title": "Review & Needs",
+  "phase1Desc": "We assess your target dates, creative requirements, filming locations, and turnaround expectations.",
+  "phase2Tag": "Phase 02 // Scoping",
+  "phase2Title": "Proposal & Quote",
+  "phase2Desc": "We prepare a tailored production treatment with equipment specs, crew allocation, and clear itemized costing.",
+  "phase3Tag": "Phase 03 // Launch",
+  "phase3Title": "Calendar Lock",
+  "phase3Desc": "Upon approval, dates are secured in our shoot calendar and pre-production commences immediately.",
+  "thankYouPrimaryBtnLabel": "Explore Recent Work",
+  "thankYouPrimaryBtnLink": "/work",
+  "thankYouSecondaryBtnLabel": "Back to Homepage",
+  "thankYouSecondaryBtnLink": "/"
 }
-

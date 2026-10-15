@@ -1774,6 +1774,315 @@ export default defineConfig({
         ],
       },
       {
+        name: "contactPage",
+        label: "Contact Page",
+        path: "src/content/pages",
+        format: "json",
+        match: {
+          include: "contact",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "🔍 SEO Title (Google & Social)",
+            description: "Optimal length: 50–60 characters. Primary keywords & brand name.",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "🔍 SEO Meta Description",
+            description: "Optimal length: 140–160 characters. Compelling summary for search snippets.",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+
+          // ─── 🔌 FORMTORCH & SUBMISSION INTEGRATION ─────────────────────
+          {
+            type: "string",
+            name: "formEndpoint",
+            label: "🔌 FormTorch Endpoint URL",
+            description: "Paste your unique FormTorch endpoint here (e.g. https://formtorch.com/f/your-key)",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "redirectUrl",
+            label: "Redirect URL After Submission (Optional)",
+            description: "Optional custom thank-you page URL (e.g. / or /thank-you). Leave empty to use FormTorch default confirmation.",
+          },
+          {
+            type: "boolean",
+            name: "enableTurnstile",
+            label: "Enable Cloudflare Turnstile Anti-Spam",
+            description: "Turn on if you want Cloudflare bot verification before submission.",
+          },
+          {
+            type: "string",
+            name: "turnstileSiteKey",
+            label: "Cloudflare Turnstile Site Key (Optional)",
+            description: "Site Key from your Cloudflare Turnstile dashboard.",
+          },
+
+          // ─── 01. STEP 1: NAME ──────────────────────────────────────────
+          {
+            type: "string",
+            name: "step1Tag",
+            label: "Step 1 Tagline",
+            description: "e.g. 01 ➔ Introduce Yourself",
+          },
+          {
+            type: "string",
+            name: "step1Title",
+            label: "Step 1 Question Title",
+            description: "e.g. What is your first and surname? *",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "step1Placeholder",
+            label: "Step 1 Field Placeholder",
+            description: "e.g. Type your full name here...",
+          },
+
+          // ─── 02. STEP 2: SERVICES ──────────────────────────────────────
+          {
+            type: "string",
+            name: "step2Tag",
+            label: "Step 2 Tagline",
+            description: "e.g. 02 ➔ Project Requirement",
+          },
+          {
+            type: "string",
+            name: "step2Title",
+            label: "Step 2 Question Title",
+            description: "e.g. What service do you need? *",
+            required: true,
+          },
+          {
+            type: "object",
+            name: "serviceOptions",
+            label: "Service Requirement Options",
+            description: "Radio options users can select for their project brief",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.label || "Service Option",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "label",
+                label: "Option Label (Visible in Form)",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "value",
+                label: "Option Value (Sent in Email Notification)",
+                required: true,
+              },
+            ],
+          },
+
+          // ─── 03. STEP 3: EMAIL ─────────────────────────────────────────
+          {
+            type: "string",
+            name: "step3Tag",
+            label: "Step 3 Tagline",
+            description: "e.g. 03 ➔ Reachable Contact",
+          },
+          {
+            type: "string",
+            name: "step3Title",
+            label: "Step 3 Question Title",
+            description: "e.g. What is your contact email address? *",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "step3Placeholder",
+            label: "Step 3 Field Placeholder",
+            description: "e.g. name@company.com",
+          },
+
+          // ─── 04. STEP 4: PROJECT BRIEF ─────────────────────────────────
+          {
+            type: "string",
+            name: "step4Tag",
+            label: "Step 4 Tagline",
+            description: "e.g. 04 ➔ Project Brief",
+          },
+          {
+            type: "string",
+            name: "step4Title",
+            label: "Step 4 Question Title",
+            description: "e.g. How can we help? *",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "step4Placeholder",
+            label: "Step 4 Field Placeholder",
+            description: "e.g. Tell us about your event, dates, or visual goals...",
+          },
+
+          // ─── 05. STEP 5: VERIFICATION & CONSENT ─────────────────────────
+          {
+            type: "string",
+            name: "step5Tag",
+            label: "Step 5 Tagline",
+            description: "e.g. 05 ➔ Verification & Consent",
+          },
+          {
+            type: "string",
+            name: "step5Title",
+            label: "Step 5 Question Title",
+            description: "e.g. Final Step *",
+          },
+          {
+            type: "string",
+            name: "gdprText",
+            label: "GDPR Consent Statement",
+            description: "Consent text shown next to the verification checkbox",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "submitButtonLabel",
+            label: "Submit Button Text",
+            description: "e.g. Submit Brief",
+            required: true,
+          },
+
+          // ─── 🎉 THANK YOU / CONFIRMATION PAGE ─────────────────────────
+          {
+            type: "string",
+            name: "thankYouStatusBadge",
+            label: "🎉 Thank You: Status Badge",
+            description: "Default: Brief Dispatch Confirmed • 24hr Response",
+          },
+          {
+            type: "string",
+            name: "thankYouHeading",
+            label: "🎉 Thank You: Main Headline",
+            description: "Default: We've received your project brief.",
+          },
+          {
+            type: "string",
+            name: "thankYouHighlight",
+            label: "🎉 Thank You: Gradient Highlight Words",
+            description: "Words in headline to highlight with amber gradient (e.g. project brief.)",
+          },
+          {
+            type: "string",
+            name: "thankYouDescription",
+            label: "🎉 Thank You: Subtitle Reassurance Text",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "phase1Tag",
+            label: "Phase 1 Eyebrow Tag",
+            description: "e.g. Phase 01 // Discovery",
+          },
+          {
+            type: "string",
+            name: "phase1Title",
+            label: "Phase 1 Title",
+            description: "e.g. Review & Needs",
+          },
+          {
+            type: "string",
+            name: "phase1Desc",
+            label: "Phase 1 Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "phase2Tag",
+            label: "Phase 2 Eyebrow Tag",
+            description: "e.g. Phase 02 // Scoping",
+          },
+          {
+            type: "string",
+            name: "phase2Title",
+            label: "Phase 2 Title",
+            description: "e.g. Proposal & Quote",
+          },
+          {
+            type: "string",
+            name: "phase2Desc",
+            label: "Phase 2 Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "phase3Tag",
+            label: "Phase 3 Eyebrow Tag",
+            description: "e.g. Phase 03 // Launch",
+          },
+          {
+            type: "string",
+            name: "phase3Title",
+            label: "Phase 3 Title",
+            description: "e.g. Calendar Lock",
+          },
+          {
+            type: "string",
+            name: "phase3Desc",
+            label: "Phase 3 Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "thankYouPrimaryBtnLabel",
+            label: "Thank You: Primary Button Text",
+            description: "Default: Explore Recent Work",
+          },
+          {
+            type: "string",
+            name: "thankYouPrimaryBtnLink",
+            label: "Thank You: Primary Button Link",
+            description: "Default: /work",
+          },
+          {
+            type: "string",
+            name: "thankYouSecondaryBtnLabel",
+            label: "Thank You: Secondary Button Text",
+            description: "Default: Back to Homepage",
+          },
+          {
+            type: "string",
+            name: "thankYouSecondaryBtnLink",
+            label: "Thank You: Secondary Button Link",
+            description: "Default: /",
+          },
+        ],
+      },
+      {
         name: "seoSettings",
         label: "SEO & Local Citations",
         path: "src/content/settings",

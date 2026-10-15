@@ -1,75 +1,92 @@
 ---
-// =====================================================================
-// EASY QUESTION MANAGER BLOCK
-// To change, add, or remove questions, just edit this list below!
-// =====================================================================
+import Layout from '../layouts/Layout.astro';
+import contact from '../content/pages/contact.json';
+
+const seoTitle = contact.seoTitle || "Start Your Project | FilmEditRun";
+const seoDescription = contact.seoDescription || "Tell us about your upcoming filming, editing, or creative project.";
+const formEndpoint = contact.formEndpoint || "https://formtorch.com/f/YOUR_FORMTORCH_KEY";
+const redirectUrl = contact.redirectUrl || "";
+const enableTurnstile = Boolean(contact.enableTurnstile && contact.turnstileSiteKey);
+const turnstileSiteKey = contact.turnstileSiteKey || "";
+
+const serviceOptions = contact.serviceOptions && contact.serviceOptions.length > 0
+  ? contact.serviceOptions
+  : [
+      { label: "Filming", value: "Filming" },
+      { label: "Editing", value: "Editing" },
+      { label: "Filming & Editing (Full Production)", value: "Filming and Editing" },
+      { label: "Animation & Motion Design", value: "Animation and Motion Design" }
+    ];
+
 const formSteps = [
   {
     id: "name",
     type: "text",
-    tag: "01 ➔ Introduce Yourself",
-    title: "What is your first and surname? *",
+    tag: contact.step1Tag || "01 ➔ Introduce Yourself",
+    title: contact.step1Title || "What is your first and surname? *",
     inputType: "text",
     nameAttr: "name",
-    placeholder: "Type your full name here...",
+    placeholder: contact.step1Placeholder || "Type your full name here...",
     required: true
   },
   {
     id: "service",
     type: "radio",
-    tag: "02 ➔ Project Requirement",
-    title: "What service do you need? *",
-    options: [
-      { label: "Filming", value: "Filming" },
-      { label: "Editing", value: "Editing" },
-      { label: "Filming & Editing (Full Production)", value: "Filming and Editing" },
-      { label: "Animation & Motion Design", value: "Animation and Motion Design" }
-    ]
+    tag: contact.step2Tag || "02 ➔ Project Requirement",
+    title: contact.step2Title || "What service do you need? *",
+    options: serviceOptions
   },
   {
     id: "email",
     type: "text",
-    tag: "03 ➔ Reachable Contact",
-    title: "What is your contact email address? *",
+    tag: contact.step3Tag || "03 ➔ Reachable Contact",
+    title: contact.step3Title || "What is your contact email address? *",
     inputType: "email",
     nameAttr: "email",
-    placeholder: "name@company.com",
+    placeholder: contact.step3Placeholder || "name@company.com",
     required: true
   },
   {
     id: "message",
     type: "textarea",
-    tag: "04 ➔ Project Brief",
-    title: "How can we help? *",
+    tag: contact.step4Tag || "04 ➔ Project Brief",
+    title: contact.step4Title || "How can we help? *",
     nameAttr: "message",
-    placeholder: "Tell us about your event, dates, or visual goals...",
+    placeholder: contact.step4Placeholder || "Tell us about your event, dates, or visual goals...",
     required: true
   },
   {
     id: "verification",
     type: "final",
-    tag: "05 ➔ Verification & Consent",
-    title: "Final Step *",
-    gdprText: "I consent to having this website store my submitted information so they can respond to my inquiry.",
-    turnstileSiteKey: "YOUR_TURNSTILE_SITE_KEY"
+    tag: contact.step5Tag || "05 ➔ Verification & Consent",
+    title: contact.step5Title || "Final Step *",
+    gdprText: contact.gdprText || "I consent to having this website store my submitted information so they can respond to my inquiry.",
+    enableTurnstile,
+    turnstileSiteKey,
+    submitButtonLabel: contact.submitButtonLabel || "Submit Brief"
   }
 ];
-
-// 1. CHOOSE GLOBAL LAYOUT TO PREVENT NAVIGATION COLLISION
-import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Start Your Project | FilmEditRun" description="Get a tailored media production brief response.">
-  <Fragment slot="head">
-    <!-- Keep third-party scripts scoped cleanly -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  </Fragment>
+<Layout title={seoTitle} description={seoDescription}>
+  {enableTurnstile && (
+    <Fragment slot="head">
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    </Fragment>
+  )}
 
   <!-- 2. STRETCHABLE COMPACT WRAPPER FOR SAFE MOBILE BOUNDS -->
   <div class="min-h-[calc(100dvh-5rem)] w-full flex items-center justify-center px-6 py-12 relative">
     
     <!-- Grid overlay container lets steps crossfade while respecting natural mobile height -->
-    <form id="typeform" action="https://formtorch.com/f/YOUR_FORMTORCH_KEY" method="POST" class="w-full max-w-2xl flex flex-col justify-between gap-10">
+    <form id="typeform" action={formEndpoint} method="POST" class="w-full max-w-2xl flex flex-col justify-between gap-10">
+      <!-- Anti-Spam Honeypot (Invisible to humans, traps bots) -->
+      <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off" />
+
+      {redirectUrl && (
+        <input type="hidden" name="_next" value={redirectUrl} />
+      )}
+
       <div class="grid grid-cols-1 items-center min-h-[280px]">
       
       {formSteps.map((step, index) => (
@@ -118,10 +135,12 @@ import Layout from '../layouts/Layout.astro';
                 <span class="text-neutral-400 text-xs sm:text-sm leading-relaxed">{step.gdprText}</span>
               </label>
 
-              <div class="cf-turnstile scale-90 origin-left" data-theme="dark" data-sitekey={step.turnstileSiteKey}></div>
+              {step.enableTurnstile && step.turnstileSiteKey && (
+                <div class="cf-turnstile scale-90 origin-left" data-theme="dark" data-sitekey={step.turnstileSiteKey}></div>
+              )}
 
-              <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-colors shadow-xl shadow-amber-500/10">
-                Submit Brief
+              <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-colors shadow-xl shadow-amber-500/10 cursor-pointer">
+                {step.submitButtonLabel}
               </button>
             </div>
           )}

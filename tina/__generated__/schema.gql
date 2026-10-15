@@ -77,6 +77,8 @@ type Query {
   aboutPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutPageFilter): AboutPageConnection!
   aboutSlider(relativePath: String): AboutSlider!
   aboutSliderConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutSliderFilter): AboutSliderConnection!
+  contactPage(relativePath: String): ContactPage!
+  contactPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ContactPageFilter): ContactPageConnection!
   seoSettings(relativePath: String): SeoSettings!
   seoSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SeoSettingsFilter): SeoSettingsConnection!
   gradeSettings(relativePath: String): GradeSettings!
@@ -96,6 +98,7 @@ input DocumentFilter {
   project: ProjectFilter
   aboutPage: AboutPageFilter
   aboutSlider: AboutSliderFilter
+  contactPage: ContactPageFilter
   seoSettings: SeoSettingsFilter
   gradeSettings: GradeSettingsFilter
   footerSettings: FooterSettingsFilter
@@ -124,7 +127,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | SeoSettings | GradeSettings | FooterSettings | Folder
+union DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | SeoSettings | GradeSettings | FooterSettings | Folder
 
 type Homepage implements Node & Document {
   seoTitle: String!
@@ -811,6 +814,114 @@ type AboutSliderConnection implements Connection {
   edges: [AboutSliderConnectionEdges]
 }
 
+type ContactPageServiceOptions {
+  label: String!
+  value: String!
+}
+
+type ContactPage implements Node & Document {
+  seoTitle: String!
+  seoDescription: String!
+  formEndpoint: String!
+  redirectUrl: String
+  enableTurnstile: Boolean
+  turnstileSiteKey: String
+  step1Tag: String
+  step1Title: String!
+  step1Placeholder: String
+  step2Tag: String
+  step2Title: String!
+  serviceOptions: [ContactPageServiceOptions]
+  step3Tag: String
+  step3Title: String!
+  step3Placeholder: String
+  step4Tag: String
+  step4Title: String!
+  step4Placeholder: String
+  step5Tag: String
+  step5Title: String
+  gdprText: String!
+  submitButtonLabel: String!
+  thankYouStatusBadge: String
+  thankYouHeading: String
+  thankYouHighlight: String
+  thankYouDescription: String
+  phase1Tag: String
+  phase1Title: String
+  phase1Desc: String
+  phase2Tag: String
+  phase2Title: String
+  phase2Desc: String
+  phase3Tag: String
+  phase3Title: String
+  phase3Desc: String
+  thankYouPrimaryBtnLabel: String
+  thankYouPrimaryBtnLink: String
+  thankYouSecondaryBtnLabel: String
+  thankYouSecondaryBtnLink: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ContactPageServiceOptionsFilter {
+  label: StringFilter
+  value: StringFilter
+}
+
+input ContactPageFilter {
+  seoTitle: StringFilter
+  seoDescription: StringFilter
+  formEndpoint: StringFilter
+  redirectUrl: StringFilter
+  enableTurnstile: BooleanFilter
+  turnstileSiteKey: StringFilter
+  step1Tag: StringFilter
+  step1Title: StringFilter
+  step1Placeholder: StringFilter
+  step2Tag: StringFilter
+  step2Title: StringFilter
+  serviceOptions: ContactPageServiceOptionsFilter
+  step3Tag: StringFilter
+  step3Title: StringFilter
+  step3Placeholder: StringFilter
+  step4Tag: StringFilter
+  step4Title: StringFilter
+  step4Placeholder: StringFilter
+  step5Tag: StringFilter
+  step5Title: StringFilter
+  gdprText: StringFilter
+  submitButtonLabel: StringFilter
+  thankYouStatusBadge: StringFilter
+  thankYouHeading: StringFilter
+  thankYouHighlight: StringFilter
+  thankYouDescription: StringFilter
+  phase1Tag: StringFilter
+  phase1Title: StringFilter
+  phase1Desc: StringFilter
+  phase2Tag: StringFilter
+  phase2Title: StringFilter
+  phase2Desc: StringFilter
+  phase3Tag: StringFilter
+  phase3Title: StringFilter
+  phase3Desc: StringFilter
+  thankYouPrimaryBtnLabel: StringFilter
+  thankYouPrimaryBtnLink: StringFilter
+  thankYouSecondaryBtnLabel: StringFilter
+  thankYouSecondaryBtnLink: StringFilter
+}
+
+type ContactPageConnectionEdges {
+  cursor: String!
+  node: ContactPage
+}
+
+type ContactPageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ContactPageConnectionEdges]
+}
+
 type SeoSettingsBacklinkProfiles {
   name: String!
   url: String!
@@ -1033,6 +1144,8 @@ type Mutation {
   createAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
   updateAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
   createAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
+  updateContactPage(relativePath: String!, params: ContactPageMutation!): ContactPage!
+  createContactPage(relativePath: String!, params: ContactPageMutation!): ContactPage!
   updateSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   createSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   updateGradeSettings(relativePath: String!, params: GradeSettingsMutation!): GradeSettings!
@@ -1052,6 +1165,7 @@ input DocumentUpdateMutation {
   project: ProjectMutation
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
+  contactPage: ContactPageMutation
   seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
@@ -1069,6 +1183,7 @@ input DocumentMutation {
   project: ProjectMutation
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
+  contactPage: ContactPageMutation
   seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
@@ -1335,6 +1450,53 @@ input AboutSliderMutation {
   tag: String
   description: String
   slides: [AboutSliderSlidesMutation]
+}
+
+input ContactPageServiceOptionsMutation {
+  label: String
+  value: String
+}
+
+input ContactPageMutation {
+  seoTitle: String
+  seoDescription: String
+  formEndpoint: String
+  redirectUrl: String
+  enableTurnstile: Boolean
+  turnstileSiteKey: String
+  step1Tag: String
+  step1Title: String
+  step1Placeholder: String
+  step2Tag: String
+  step2Title: String
+  serviceOptions: [ContactPageServiceOptionsMutation]
+  step3Tag: String
+  step3Title: String
+  step3Placeholder: String
+  step4Tag: String
+  step4Title: String
+  step4Placeholder: String
+  step5Tag: String
+  step5Title: String
+  gdprText: String
+  submitButtonLabel: String
+  thankYouStatusBadge: String
+  thankYouHeading: String
+  thankYouHighlight: String
+  thankYouDescription: String
+  phase1Tag: String
+  phase1Title: String
+  phase1Desc: String
+  phase2Tag: String
+  phase2Title: String
+  phase2Desc: String
+  phase3Tag: String
+  phase3Title: String
+  phase3Desc: String
+  thankYouPrimaryBtnLabel: String
+  thankYouPrimaryBtnLink: String
+  thankYouSecondaryBtnLabel: String
+  thankYouSecondaryBtnLink: String
 }
 
 input SeoSettingsBacklinkProfilesMutation {

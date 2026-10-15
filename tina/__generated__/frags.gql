@@ -264,6 +264,53 @@ fragment AboutSliderParts on AboutSlider {
   }
 }
 
+fragment ContactPageParts on ContactPage {
+  __typename
+  seoTitle
+  seoDescription
+  formEndpoint
+  redirectUrl
+  enableTurnstile
+  turnstileSiteKey
+  step1Tag
+  step1Title
+  step1Placeholder
+  step2Tag
+  step2Title
+  serviceOptions {
+    __typename
+    label
+    value
+  }
+  step3Tag
+  step3Title
+  step3Placeholder
+  step4Tag
+  step4Title
+  step4Placeholder
+  step5Tag
+  step5Title
+  gdprText
+  submitButtonLabel
+  thankYouStatusBadge
+  thankYouHeading
+  thankYouHighlight
+  thankYouDescription
+  phase1Tag
+  phase1Title
+  phase1Desc
+  phase2Tag
+  phase2Title
+  phase2Desc
+  phase3Tag
+  phase3Title
+  phase3Desc
+  thankYouPrimaryBtnLabel
+  thankYouPrimaryBtnLink
+  thankYouSecondaryBtnLabel
+  thankYouSecondaryBtnLink
+}
+
 fragment SeoSettingsParts on SeoSettings {
   __typename
   legalName
