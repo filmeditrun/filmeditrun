@@ -1,32 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import contact from '../content/pages/contact.json';
+import thankYou from '../content/pages/thank-you.json';
 import seo from '../content/settings/seo.json';
 
 const studioEmail = seo.email || "contact@filmeditrun.co.uk";
 const studioPhone = seo.telephone || "+44 1223 926450";
 
-const statusBadge = contact.thankYouStatusBadge || "Brief Dispatch Confirmed • 24hr Response";
-const heading = contact.thankYouHeading || "We've received your project brief.";
-const highlight = contact.thankYouHighlight || "project brief.";
-const description = contact.thankYouDescription || "Thank you for getting in touch. Your requirements have been safely delivered to our production desk. We review every brief carefully and will get back to you with a tailored scope within 24 hours.";
+const seoTitle = thankYou.seoTitle || "Brief Received | FilmEditRun";
+const seoDescription = thankYou.seoDescription || "Thank you for submitting your project brief. We review every brief carefully and respond with a tailored proposal within 24 hours.";
 
-const phase1Tag = contact.phase1Tag || "Phase 01 // Discovery";
-const phase1Title = contact.phase1Title || "Review & Needs";
-const phase1Desc = contact.phase1Desc || "We assess your target dates, creative requirements, filming locations, and turnaround expectations.";
+const statusBadge = thankYou.statusBadge || "Brief Dispatch Confirmed • 24hr Response";
+const heading = thankYou.heading || "We've received your project brief.";
+const highlight = thankYou.highlight || "project brief.";
+const description = thankYou.description || "Thank you for getting in touch. Your requirements have been safely delivered to our production desk. We review every brief carefully and will get back to you with a tailored scope within 24 hours.";
 
-const phase2Tag = contact.phase2Tag || "Phase 02 // Scoping";
-const phase2Title = contact.phase2Title || "Proposal & Quote";
-const phase2Desc = contact.phase2Desc || "We prepare a tailored production treatment with equipment specs, crew allocation, and clear itemized costing.";
+const phase1Tag = thankYou.phase1Tag || "Phase 01 // Discovery";
+const phase1Title = thankYou.phase1Title || "Review & Needs";
+const phase1Desc = thankYou.phase1Desc || "We assess your target dates, creative requirements, filming locations, and turnaround expectations.";
 
-const phase3Tag = contact.phase3Tag || "Phase 03 // Launch";
-const phase3Title = contact.phase3Title || "Calendar Lock";
-const phase3Desc = contact.phase3Desc || "Upon approval, dates are secured in our shoot calendar and pre-production commences immediately.";
+const phase2Tag = thankYou.phase2Tag || "Phase 02 // Scoping";
+const phase2Title = thankYou.phase2Title || "Proposal & Quote";
+const phase2Desc = thankYou.phase2Desc || "We prepare a tailored production treatment with equipment specs, crew allocation, and clear itemized costing.";
 
-const primaryBtnLabel = contact.thankYouPrimaryBtnLabel || "Explore Recent Work";
-const primaryBtnLink = contact.thankYouPrimaryBtnLink || "/work";
-const secondaryBtnLabel = contact.thankYouSecondaryBtnLabel || "Back to Homepage";
-const secondaryBtnLink = contact.thankYouSecondaryBtnLink || "/";
+const phase3Tag = thankYou.phase3Tag || "Phase 03 // Launch";
+const phase3Title = thankYou.phase3Title || "Calendar Lock";
+const phase3Desc = thankYou.phase3Desc || "Upon approval, dates are secured in our shoot calendar and pre-production commences immediately.";
+
+const primaryBtnLabel = thankYou.primaryBtnLabel || "Explore Recent Work";
+const primaryBtnLink = thankYou.primaryBtnLink || "/work";
+const secondaryBtnLabel = thankYou.secondaryBtnLabel || "Back to Homepage";
+const secondaryBtnLink = thankYou.secondaryBtnLink || "/";
 
 // Helper to highlight gradient text in heading
 let headingPrefix = heading;
@@ -39,8 +42,8 @@ if (highlight && heading.includes(highlight)) {
 ---
 
 <Layout 
-  title="Brief Received | FilmEditRun" 
-  description="Thank you for submitting your project brief. We review every brief carefully and respond with a tailored proposal within 24 hours."
+  title={seoTitle} 
+  description={seoDescription}
 >
   <main class="min-h-[calc(100dvh-5rem)] w-full flex items-center justify-center px-6 py-16 sm:py-24 relative overflow-hidden">
     

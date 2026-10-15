@@ -79,6 +79,8 @@ type Query {
   aboutSliderConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutSliderFilter): AboutSliderConnection!
   contactPage(relativePath: String): ContactPage!
   contactPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ContactPageFilter): ContactPageConnection!
+  thankYouPage(relativePath: String): ThankYouPage!
+  thankYouPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ThankYouPageFilter): ThankYouPageConnection!
   seoSettings(relativePath: String): SeoSettings!
   seoSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SeoSettingsFilter): SeoSettingsConnection!
   gradeSettings(relativePath: String): GradeSettings!
@@ -99,6 +101,7 @@ input DocumentFilter {
   aboutPage: AboutPageFilter
   aboutSlider: AboutSliderFilter
   contactPage: ContactPageFilter
+  thankYouPage: ThankYouPageFilter
   seoSettings: SeoSettingsFilter
   gradeSettings: GradeSettingsFilter
   footerSettings: FooterSettingsFilter
@@ -127,7 +130,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | SeoSettings | GradeSettings | FooterSettings | Folder
+union DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | SeoSettings | GradeSettings | FooterSettings | Folder
 
 type Homepage implements Node & Document {
   seoTitle: String!
@@ -842,23 +845,6 @@ type ContactPage implements Node & Document {
   step5Title: String
   gdprText: String!
   submitButtonLabel: String!
-  thankYouStatusBadge: String
-  thankYouHeading: String
-  thankYouHighlight: String
-  thankYouDescription: String
-  phase1Tag: String
-  phase1Title: String
-  phase1Desc: String
-  phase2Tag: String
-  phase2Title: String
-  phase2Desc: String
-  phase3Tag: String
-  phase3Title: String
-  phase3Desc: String
-  thankYouPrimaryBtnLabel: String
-  thankYouPrimaryBtnLink: String
-  thankYouSecondaryBtnLabel: String
-  thankYouSecondaryBtnLink: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -892,23 +878,6 @@ input ContactPageFilter {
   step5Title: StringFilter
   gdprText: StringFilter
   submitButtonLabel: StringFilter
-  thankYouStatusBadge: StringFilter
-  thankYouHeading: StringFilter
-  thankYouHighlight: StringFilter
-  thankYouDescription: StringFilter
-  phase1Tag: StringFilter
-  phase1Title: StringFilter
-  phase1Desc: StringFilter
-  phase2Tag: StringFilter
-  phase2Title: StringFilter
-  phase2Desc: StringFilter
-  phase3Tag: StringFilter
-  phase3Title: StringFilter
-  phase3Desc: StringFilter
-  thankYouPrimaryBtnLabel: StringFilter
-  thankYouPrimaryBtnLink: StringFilter
-  thankYouSecondaryBtnLabel: StringFilter
-  thankYouSecondaryBtnLink: StringFilter
 }
 
 type ContactPageConnectionEdges {
@@ -920,6 +889,64 @@ type ContactPageConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [ContactPageConnectionEdges]
+}
+
+type ThankYouPage implements Node & Document {
+  seoTitle: String!
+  seoDescription: String!
+  statusBadge: String
+  heading: String!
+  highlight: String
+  description: String
+  phase1Tag: String
+  phase1Title: String
+  phase1Desc: String
+  phase2Tag: String
+  phase2Title: String
+  phase2Desc: String
+  phase3Tag: String
+  phase3Title: String
+  phase3Desc: String
+  primaryBtnLabel: String
+  primaryBtnLink: String
+  secondaryBtnLabel: String
+  secondaryBtnLink: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ThankYouPageFilter {
+  seoTitle: StringFilter
+  seoDescription: StringFilter
+  statusBadge: StringFilter
+  heading: StringFilter
+  highlight: StringFilter
+  description: StringFilter
+  phase1Tag: StringFilter
+  phase1Title: StringFilter
+  phase1Desc: StringFilter
+  phase2Tag: StringFilter
+  phase2Title: StringFilter
+  phase2Desc: StringFilter
+  phase3Tag: StringFilter
+  phase3Title: StringFilter
+  phase3Desc: StringFilter
+  primaryBtnLabel: StringFilter
+  primaryBtnLink: StringFilter
+  secondaryBtnLabel: StringFilter
+  secondaryBtnLink: StringFilter
+}
+
+type ThankYouPageConnectionEdges {
+  cursor: String!
+  node: ThankYouPage
+}
+
+type ThankYouPageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ThankYouPageConnectionEdges]
 }
 
 type SeoSettingsBacklinkProfiles {
@@ -1146,6 +1173,8 @@ type Mutation {
   createAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
   updateContactPage(relativePath: String!, params: ContactPageMutation!): ContactPage!
   createContactPage(relativePath: String!, params: ContactPageMutation!): ContactPage!
+  updateThankYouPage(relativePath: String!, params: ThankYouPageMutation!): ThankYouPage!
+  createThankYouPage(relativePath: String!, params: ThankYouPageMutation!): ThankYouPage!
   updateSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   createSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   updateGradeSettings(relativePath: String!, params: GradeSettingsMutation!): GradeSettings!
@@ -1166,6 +1195,7 @@ input DocumentUpdateMutation {
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
   contactPage: ContactPageMutation
+  thankYouPage: ThankYouPageMutation
   seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
@@ -1184,6 +1214,7 @@ input DocumentMutation {
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
   contactPage: ContactPageMutation
+  thankYouPage: ThankYouPageMutation
   seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
@@ -1480,10 +1511,15 @@ input ContactPageMutation {
   step5Title: String
   gdprText: String
   submitButtonLabel: String
-  thankYouStatusBadge: String
-  thankYouHeading: String
-  thankYouHighlight: String
-  thankYouDescription: String
+}
+
+input ThankYouPageMutation {
+  seoTitle: String
+  seoDescription: String
+  statusBadge: String
+  heading: String
+  highlight: String
+  description: String
   phase1Tag: String
   phase1Title: String
   phase1Desc: String
@@ -1493,10 +1529,10 @@ input ContactPageMutation {
   phase3Tag: String
   phase3Title: String
   phase3Desc: String
-  thankYouPrimaryBtnLabel: String
-  thankYouPrimaryBtnLink: String
-  thankYouSecondaryBtnLabel: String
-  thankYouSecondaryBtnLink: String
+  primaryBtnLabel: String
+  primaryBtnLink: String
+  secondaryBtnLabel: String
+  secondaryBtnLink: String
 }
 
 input SeoSettingsBacklinkProfilesMutation {

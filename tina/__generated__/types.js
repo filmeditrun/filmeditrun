@@ -310,10 +310,17 @@ export const ContactPagePartsFragmentDoc = gql`
   step5Title
   gdprText
   submitButtonLabel
-  thankYouStatusBadge
-  thankYouHeading
-  thankYouHighlight
-  thankYouDescription
+}
+    `;
+export const ThankYouPagePartsFragmentDoc = gql`
+    fragment ThankYouPageParts on ThankYouPage {
+  __typename
+  seoTitle
+  seoDescription
+  statusBadge
+  heading
+  highlight
+  description
   phase1Tag
   phase1Title
   phase1Desc
@@ -323,10 +330,10 @@ export const ContactPagePartsFragmentDoc = gql`
   phase3Tag
   phase3Title
   phase3Desc
-  thankYouPrimaryBtnLabel
-  thankYouPrimaryBtnLink
-  thankYouSecondaryBtnLabel
-  thankYouSecondaryBtnLink
+  primaryBtnLabel
+  primaryBtnLink
+  secondaryBtnLabel
+  secondaryBtnLink
 }
     `;
 export const SeoSettingsPartsFragmentDoc = gql`
@@ -1032,6 +1039,63 @@ export const ContactPageConnectionDocument = gql`
   }
 }
     ${ContactPagePartsFragmentDoc}`;
+export const ThankYouPageDocument = gql`
+    query thankYouPage($relativePath: String!) {
+  thankYouPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ThankYouPageParts
+  }
+}
+    ${ThankYouPagePartsFragmentDoc}`;
+export const ThankYouPageConnectionDocument = gql`
+    query thankYouPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ThankYouPageFilter) {
+  thankYouPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ThankYouPageParts
+      }
+    }
+  }
+}
+    ${ThankYouPagePartsFragmentDoc}`;
 export const SeoSettingsDocument = gql`
     query seoSettings($relativePath: String!) {
   seoSettings(relativePath: $relativePath) {
@@ -1270,6 +1334,12 @@ export function getSdk(requester) {
     },
     contactPageConnection(variables, options) {
       return requester(ContactPageConnectionDocument, variables, options);
+    },
+    thankYouPage(variables, options) {
+      return requester(ThankYouPageDocument, variables, options);
+    },
+    thankYouPageConnection(variables, options) {
+      return requester(ThankYouPageConnectionDocument, variables, options);
     },
     seoSettings(variables, options) {
       return requester(SeoSettingsDocument, variables, options);

@@ -106,6 +106,8 @@ export type Query = {
   aboutSliderConnection: AboutSliderConnection;
   contactPage: ContactPage;
   contactPageConnection: ContactPageConnection;
+  thankYouPage: ThankYouPage;
+  thankYouPageConnection: ThankYouPageConnection;
   seoSettings: SeoSettings;
   seoSettingsConnection: SeoSettingsConnection;
   gradeSettings: GradeSettings;
@@ -301,6 +303,21 @@ export type QueryContactPageConnectionArgs = {
 };
 
 
+export type QueryThankYouPageArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryThankYouPageConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ThankYouPageFilter>;
+};
+
+
 export type QuerySeoSettingsArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -357,6 +374,7 @@ export type DocumentFilter = {
   aboutPage?: InputMaybe<AboutPageFilter>;
   aboutSlider?: InputMaybe<AboutSliderFilter>;
   contactPage?: InputMaybe<ContactPageFilter>;
+  thankYouPage?: InputMaybe<ThankYouPageFilter>;
   seoSettings?: InputMaybe<SeoSettingsFilter>;
   gradeSettings?: InputMaybe<GradeSettingsFilter>;
   footerSettings?: InputMaybe<FooterSettingsFilter>;
@@ -399,7 +417,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | SeoSettings | GradeSettings | FooterSettings | Folder;
+export type DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | SeoSettings | GradeSettings | FooterSettings | Folder;
 
 export type Homepage = Node & Document & {
   __typename?: 'Homepage';
@@ -1153,23 +1171,6 @@ export type ContactPage = Node & Document & {
   step5Title?: Maybe<Scalars['String']['output']>;
   gdprText: Scalars['String']['output'];
   submitButtonLabel: Scalars['String']['output'];
-  thankYouStatusBadge?: Maybe<Scalars['String']['output']>;
-  thankYouHeading?: Maybe<Scalars['String']['output']>;
-  thankYouHighlight?: Maybe<Scalars['String']['output']>;
-  thankYouDescription?: Maybe<Scalars['String']['output']>;
-  phase1Tag?: Maybe<Scalars['String']['output']>;
-  phase1Title?: Maybe<Scalars['String']['output']>;
-  phase1Desc?: Maybe<Scalars['String']['output']>;
-  phase2Tag?: Maybe<Scalars['String']['output']>;
-  phase2Title?: Maybe<Scalars['String']['output']>;
-  phase2Desc?: Maybe<Scalars['String']['output']>;
-  phase3Tag?: Maybe<Scalars['String']['output']>;
-  phase3Title?: Maybe<Scalars['String']['output']>;
-  phase3Desc?: Maybe<Scalars['String']['output']>;
-  thankYouPrimaryBtnLabel?: Maybe<Scalars['String']['output']>;
-  thankYouPrimaryBtnLink?: Maybe<Scalars['String']['output']>;
-  thankYouSecondaryBtnLabel?: Maybe<Scalars['String']['output']>;
-  thankYouSecondaryBtnLink?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -1203,23 +1204,6 @@ export type ContactPageFilter = {
   step5Title?: InputMaybe<StringFilter>;
   gdprText?: InputMaybe<StringFilter>;
   submitButtonLabel?: InputMaybe<StringFilter>;
-  thankYouStatusBadge?: InputMaybe<StringFilter>;
-  thankYouHeading?: InputMaybe<StringFilter>;
-  thankYouHighlight?: InputMaybe<StringFilter>;
-  thankYouDescription?: InputMaybe<StringFilter>;
-  phase1Tag?: InputMaybe<StringFilter>;
-  phase1Title?: InputMaybe<StringFilter>;
-  phase1Desc?: InputMaybe<StringFilter>;
-  phase2Tag?: InputMaybe<StringFilter>;
-  phase2Title?: InputMaybe<StringFilter>;
-  phase2Desc?: InputMaybe<StringFilter>;
-  phase3Tag?: InputMaybe<StringFilter>;
-  phase3Title?: InputMaybe<StringFilter>;
-  phase3Desc?: InputMaybe<StringFilter>;
-  thankYouPrimaryBtnLabel?: InputMaybe<StringFilter>;
-  thankYouPrimaryBtnLink?: InputMaybe<StringFilter>;
-  thankYouSecondaryBtnLabel?: InputMaybe<StringFilter>;
-  thankYouSecondaryBtnLink?: InputMaybe<StringFilter>;
 };
 
 export type ContactPageConnectionEdges = {
@@ -1233,6 +1217,67 @@ export type ContactPageConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
   edges?: Maybe<Array<Maybe<ContactPageConnectionEdges>>>;
+};
+
+export type ThankYouPage = Node & Document & {
+  __typename?: 'ThankYouPage';
+  seoTitle: Scalars['String']['output'];
+  seoDescription: Scalars['String']['output'];
+  statusBadge?: Maybe<Scalars['String']['output']>;
+  heading: Scalars['String']['output'];
+  highlight?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  phase1Tag?: Maybe<Scalars['String']['output']>;
+  phase1Title?: Maybe<Scalars['String']['output']>;
+  phase1Desc?: Maybe<Scalars['String']['output']>;
+  phase2Tag?: Maybe<Scalars['String']['output']>;
+  phase2Title?: Maybe<Scalars['String']['output']>;
+  phase2Desc?: Maybe<Scalars['String']['output']>;
+  phase3Tag?: Maybe<Scalars['String']['output']>;
+  phase3Title?: Maybe<Scalars['String']['output']>;
+  phase3Desc?: Maybe<Scalars['String']['output']>;
+  primaryBtnLabel?: Maybe<Scalars['String']['output']>;
+  primaryBtnLink?: Maybe<Scalars['String']['output']>;
+  secondaryBtnLabel?: Maybe<Scalars['String']['output']>;
+  secondaryBtnLink?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type ThankYouPageFilter = {
+  seoTitle?: InputMaybe<StringFilter>;
+  seoDescription?: InputMaybe<StringFilter>;
+  statusBadge?: InputMaybe<StringFilter>;
+  heading?: InputMaybe<StringFilter>;
+  highlight?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  phase1Tag?: InputMaybe<StringFilter>;
+  phase1Title?: InputMaybe<StringFilter>;
+  phase1Desc?: InputMaybe<StringFilter>;
+  phase2Tag?: InputMaybe<StringFilter>;
+  phase2Title?: InputMaybe<StringFilter>;
+  phase2Desc?: InputMaybe<StringFilter>;
+  phase3Tag?: InputMaybe<StringFilter>;
+  phase3Title?: InputMaybe<StringFilter>;
+  phase3Desc?: InputMaybe<StringFilter>;
+  primaryBtnLabel?: InputMaybe<StringFilter>;
+  primaryBtnLink?: InputMaybe<StringFilter>;
+  secondaryBtnLabel?: InputMaybe<StringFilter>;
+  secondaryBtnLink?: InputMaybe<StringFilter>;
+};
+
+export type ThankYouPageConnectionEdges = {
+  __typename?: 'ThankYouPageConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<ThankYouPage>;
+};
+
+export type ThankYouPageConnection = Connection & {
+  __typename?: 'ThankYouPageConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<ThankYouPageConnectionEdges>>>;
 };
 
 export type SeoSettingsBacklinkProfiles = {
@@ -1471,6 +1516,8 @@ export type Mutation = {
   createAboutSlider: AboutSlider;
   updateContactPage: ContactPage;
   createContactPage: ContactPage;
+  updateThankYouPage: ThankYouPage;
+  createThankYouPage: ThankYouPage;
   updateSeoSettings: SeoSettings;
   createSeoSettings: SeoSettings;
   updateGradeSettings: GradeSettings;
@@ -1645,6 +1692,18 @@ export type MutationCreateContactPageArgs = {
 };
 
 
+export type MutationUpdateThankYouPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ThankYouPageMutation;
+};
+
+
+export type MutationCreateThankYouPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: ThankYouPageMutation;
+};
+
+
 export type MutationUpdateSeoSettingsArgs = {
   relativePath: Scalars['String']['input'];
   params: SeoSettingsMutation;
@@ -1692,6 +1751,7 @@ export type DocumentUpdateMutation = {
   aboutPage?: InputMaybe<AboutPageMutation>;
   aboutSlider?: InputMaybe<AboutSliderMutation>;
   contactPage?: InputMaybe<ContactPageMutation>;
+  thankYouPage?: InputMaybe<ThankYouPageMutation>;
   seoSettings?: InputMaybe<SeoSettingsMutation>;
   gradeSettings?: InputMaybe<GradeSettingsMutation>;
   footerSettings?: InputMaybe<FooterSettingsMutation>;
@@ -1710,6 +1770,7 @@ export type DocumentMutation = {
   aboutPage?: InputMaybe<AboutPageMutation>;
   aboutSlider?: InputMaybe<AboutSliderMutation>;
   contactPage?: InputMaybe<ContactPageMutation>;
+  thankYouPage?: InputMaybe<ThankYouPageMutation>;
   seoSettings?: InputMaybe<SeoSettingsMutation>;
   gradeSettings?: InputMaybe<GradeSettingsMutation>;
   footerSettings?: InputMaybe<FooterSettingsMutation>;
@@ -2006,10 +2067,15 @@ export type ContactPageMutation = {
   step5Title?: InputMaybe<Scalars['String']['input']>;
   gdprText?: InputMaybe<Scalars['String']['input']>;
   submitButtonLabel?: InputMaybe<Scalars['String']['input']>;
-  thankYouStatusBadge?: InputMaybe<Scalars['String']['input']>;
-  thankYouHeading?: InputMaybe<Scalars['String']['input']>;
-  thankYouHighlight?: InputMaybe<Scalars['String']['input']>;
-  thankYouDescription?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ThankYouPageMutation = {
+  seoTitle?: InputMaybe<Scalars['String']['input']>;
+  seoDescription?: InputMaybe<Scalars['String']['input']>;
+  statusBadge?: InputMaybe<Scalars['String']['input']>;
+  heading?: InputMaybe<Scalars['String']['input']>;
+  highlight?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
   phase1Tag?: InputMaybe<Scalars['String']['input']>;
   phase1Title?: InputMaybe<Scalars['String']['input']>;
   phase1Desc?: InputMaybe<Scalars['String']['input']>;
@@ -2019,10 +2085,10 @@ export type ContactPageMutation = {
   phase3Tag?: InputMaybe<Scalars['String']['input']>;
   phase3Title?: InputMaybe<Scalars['String']['input']>;
   phase3Desc?: InputMaybe<Scalars['String']['input']>;
-  thankYouPrimaryBtnLabel?: InputMaybe<Scalars['String']['input']>;
-  thankYouPrimaryBtnLink?: InputMaybe<Scalars['String']['input']>;
-  thankYouSecondaryBtnLabel?: InputMaybe<Scalars['String']['input']>;
-  thankYouSecondaryBtnLink?: InputMaybe<Scalars['String']['input']>;
+  primaryBtnLabel?: InputMaybe<Scalars['String']['input']>;
+  primaryBtnLink?: InputMaybe<Scalars['String']['input']>;
+  secondaryBtnLabel?: InputMaybe<Scalars['String']['input']>;
+  secondaryBtnLink?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SeoSettingsBacklinkProfilesMutation = {
@@ -2407,10 +2473,15 @@ export type ContactPageFilter = {
   step5Title?: StringFilter | null | undefined;
   gdprText?: StringFilter | null | undefined;
   submitButtonLabel?: StringFilter | null | undefined;
-  thankYouStatusBadge?: StringFilter | null | undefined;
-  thankYouHeading?: StringFilter | null | undefined;
-  thankYouHighlight?: StringFilter | null | undefined;
-  thankYouDescription?: StringFilter | null | undefined;
+};
+
+export type ThankYouPageFilter = {
+  seoTitle?: StringFilter | null | undefined;
+  seoDescription?: StringFilter | null | undefined;
+  statusBadge?: StringFilter | null | undefined;
+  heading?: StringFilter | null | undefined;
+  highlight?: StringFilter | null | undefined;
+  description?: StringFilter | null | undefined;
   phase1Tag?: StringFilter | null | undefined;
   phase1Title?: StringFilter | null | undefined;
   phase1Desc?: StringFilter | null | undefined;
@@ -2420,10 +2491,10 @@ export type ContactPageFilter = {
   phase3Tag?: StringFilter | null | undefined;
   phase3Title?: StringFilter | null | undefined;
   phase3Desc?: StringFilter | null | undefined;
-  thankYouPrimaryBtnLabel?: StringFilter | null | undefined;
-  thankYouPrimaryBtnLink?: StringFilter | null | undefined;
-  thankYouSecondaryBtnLabel?: StringFilter | null | undefined;
-  thankYouSecondaryBtnLink?: StringFilter | null | undefined;
+  primaryBtnLabel?: StringFilter | null | undefined;
+  primaryBtnLink?: StringFilter | null | undefined;
+  secondaryBtnLabel?: StringFilter | null | undefined;
+  secondaryBtnLink?: StringFilter | null | undefined;
 };
 
 export type NumberFilter = {
@@ -2528,7 +2599,9 @@ export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string
 
 export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutSliderSlides', name: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null };
 
-export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, thankYouStatusBadge: string | null, thankYouHeading: string | null, thankYouHighlight: string | null, thankYouDescription: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, thankYouPrimaryBtnLabel: string | null, thankYouPrimaryBtnLink: string | null, thankYouSecondaryBtnLabel: string | null, thankYouSecondaryBtnLink: string | null, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
+export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
+
+export type ThankYouPagePartsFragment = { __typename: 'ThankYouPage', seoTitle: string, seoDescription: string, statusBadge: string | null, heading: string, highlight: string | null, description: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, primaryBtnLabel: string | null, primaryBtnLink: string | null, secondaryBtnLabel: string | null, secondaryBtnLink: string | null };
 
 export type SeoSettingsPartsFragment = { __typename: 'SeoSettings', legalName: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null };
 
@@ -2731,7 +2804,7 @@ export type ContactPageQueryVariables = Exact<{
 }>;
 
 
-export type ContactPageQuery = { contactPage: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, thankYouStatusBadge: string | null, thankYouHeading: string | null, thankYouHighlight: string | null, thankYouDescription: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, thankYouPrimaryBtnLabel: string | null, thankYouPrimaryBtnLink: string | null, thankYouSecondaryBtnLabel: string | null, thankYouSecondaryBtnLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } };
+export type ContactPageQuery = { contactPage: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } };
 
 export type ContactPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -2743,7 +2816,26 @@ export type ContactPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ContactPageConnectionQuery = { contactPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, thankYouStatusBadge: string | null, thankYouHeading: string | null, thankYouHighlight: string | null, thankYouDescription: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, thankYouPrimaryBtnLabel: string | null, thankYouPrimaryBtnLink: string | null, thankYouSecondaryBtnLabel: string | null, thankYouSecondaryBtnLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } | null } | null> | null } };
+export type ContactPageConnectionQuery = { contactPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } | null } | null> | null } };
+
+export type ThankYouPageQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type ThankYouPageQuery = { thankYouPage: { __typename: 'ThankYouPage', id: string, seoTitle: string, seoDescription: string, statusBadge: string | null, heading: string, highlight: string | null, description: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, primaryBtnLabel: string | null, primaryBtnLink: string | null, secondaryBtnLabel: string | null, secondaryBtnLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type ThankYouPageConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: ThankYouPageFilter | null | undefined;
+}>;
+
+
+export type ThankYouPageConnectionQuery = { thankYouPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ThankYouPage', id: string, seoTitle: string, seoDescription: string, statusBadge: string | null, heading: string, highlight: string | null, description: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, primaryBtnLabel: string | null, primaryBtnLink: string | null, secondaryBtnLabel: string | null, secondaryBtnLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type SeoSettingsQueryVariables = Exact<{
   relativePath: string;
@@ -3107,10 +3199,17 @@ export const ContactPagePartsFragmentDoc = gql`
   step5Title
   gdprText
   submitButtonLabel
-  thankYouStatusBadge
-  thankYouHeading
-  thankYouHighlight
-  thankYouDescription
+}
+    `;
+export const ThankYouPagePartsFragmentDoc = gql`
+    fragment ThankYouPageParts on ThankYouPage {
+  __typename
+  seoTitle
+  seoDescription
+  statusBadge
+  heading
+  highlight
+  description
   phase1Tag
   phase1Title
   phase1Desc
@@ -3120,10 +3219,10 @@ export const ContactPagePartsFragmentDoc = gql`
   phase3Tag
   phase3Title
   phase3Desc
-  thankYouPrimaryBtnLabel
-  thankYouPrimaryBtnLink
-  thankYouSecondaryBtnLabel
-  thankYouSecondaryBtnLink
+  primaryBtnLabel
+  primaryBtnLink
+  secondaryBtnLabel
+  secondaryBtnLink
 }
     `;
 export const SeoSettingsPartsFragmentDoc = gql`
@@ -3829,6 +3928,63 @@ export const ContactPageConnectionDocument = gql`
   }
 }
     ${ContactPagePartsFragmentDoc}`;
+export const ThankYouPageDocument = gql`
+    query thankYouPage($relativePath: String!) {
+  thankYouPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...ThankYouPageParts
+  }
+}
+    ${ThankYouPagePartsFragmentDoc}`;
+export const ThankYouPageConnectionDocument = gql`
+    query thankYouPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ThankYouPageFilter) {
+  thankYouPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...ThankYouPageParts
+      }
+    }
+  }
+}
+    ${ThankYouPagePartsFragmentDoc}`;
 export const SeoSettingsDocument = gql`
     query seoSettings($relativePath: String!) {
   seoSettings(relativePath: $relativePath) {
@@ -4068,6 +4224,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     contactPageConnection(variables?: ContactPageConnectionQueryVariables, options?: C): Promise<{data: ContactPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ContactPageConnectionQueryVariables, query: string}> {
         return requester<{data: ContactPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ContactPageConnectionQueryVariables, query: string}, ContactPageConnectionQueryVariables>(ContactPageConnectionDocument, variables, options);
+      },
+    thankYouPage(variables: ThankYouPageQueryVariables, options?: C): Promise<{data: ThankYouPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ThankYouPageQueryVariables, query: string}> {
+        return requester<{data: ThankYouPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ThankYouPageQueryVariables, query: string}, ThankYouPageQueryVariables>(ThankYouPageDocument, variables, options);
+      },
+    thankYouPageConnection(variables?: ThankYouPageConnectionQueryVariables, options?: C): Promise<{data: ThankYouPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ThankYouPageConnectionQueryVariables, query: string}> {
+        return requester<{data: ThankYouPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ThankYouPageConnectionQueryVariables, query: string}, ThankYouPageConnectionQueryVariables>(ThankYouPageConnectionDocument, variables, options);
       },
     seoSettings(variables: SeoSettingsQueryVariables, options?: C): Promise<{data: SeoSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SeoSettingsQueryVariables, query: string}> {
         return requester<{data: SeoSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SeoSettingsQueryVariables, query: string}, SeoSettingsQueryVariables>(SeoSettingsDocument, variables, options);

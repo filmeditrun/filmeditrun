@@ -1939,34 +1939,71 @@ var config_default = defineConfig({
             label: "Submit Button Text",
             description: "e.g. Submit Brief",
             required: true
-          },
-          // ─── 🎉 THANK YOU / CONFIRMATION PAGE ─────────────────────────
+          }
+        ]
+      },
+      {
+        name: "thankYouPage",
+        label: "Thank You Page",
+        path: "src/content/pages",
+        format: "json",
+        match: {
+          include: "thank-you"
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false
+          }
+        },
+        fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
           {
             type: "string",
-            name: "thankYouStatusBadge",
-            label: "\u{1F389} Thank You: Status Badge",
+            name: "seoTitle",
+            label: "\u{1F50D} SEO Title (Google & Social)",
+            description: "Optimal length: 50\u201360 characters.",
+            required: true
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "\u{1F50D} SEO Meta Description",
+            description: "Optimal length: 140\u2013160 characters.",
+            ui: {
+              component: "textarea"
+            },
+            required: true
+          },
+          // ─── 🏷️ HERO & CONFIRMATION MESSAGE ────────────────────────────
+          {
+            type: "string",
+            name: "statusBadge",
+            label: "Status Badge Text",
             description: "Default: Brief Dispatch Confirmed \u2022 24hr Response"
           },
           {
             type: "string",
-            name: "thankYouHeading",
-            label: "\u{1F389} Thank You: Main Headline",
-            description: "Default: We've received your project brief."
+            name: "heading",
+            label: "Main Headline",
+            description: "Default: We've received your project brief.",
+            required: true
           },
           {
             type: "string",
-            name: "thankYouHighlight",
-            label: "\u{1F389} Thank You: Gradient Highlight Words",
+            name: "highlight",
+            label: "Amber Gradient Highlight Words",
             description: "Words in headline to highlight with amber gradient (e.g. project brief.)"
           },
           {
             type: "string",
-            name: "thankYouDescription",
-            label: "\u{1F389} Thank You: Subtitle Reassurance Text",
+            name: "description",
+            label: "Subtitle Reassurance Note",
             ui: {
               component: "textarea"
             }
           },
+          // ─── 🛣️ 3-PHASE PRODUCTION ROADMAP ─────────────────────────────
           {
             type: "string",
             name: "phase1Tag",
@@ -2027,28 +2064,29 @@ var config_default = defineConfig({
               component: "textarea"
             }
           },
+          // ─── 🔘 ACTION BUTTONS ─────────────────────────────────────────
           {
             type: "string",
-            name: "thankYouPrimaryBtnLabel",
-            label: "Thank You: Primary Button Text",
+            name: "primaryBtnLabel",
+            label: "Primary Button Text",
             description: "Default: Explore Recent Work"
           },
           {
             type: "string",
-            name: "thankYouPrimaryBtnLink",
-            label: "Thank You: Primary Button Link",
+            name: "primaryBtnLink",
+            label: "Primary Button Link",
             description: "Default: /work"
           },
           {
             type: "string",
-            name: "thankYouSecondaryBtnLabel",
-            label: "Thank You: Secondary Button Text",
+            name: "secondaryBtnLabel",
+            label: "Secondary Button Text",
             description: "Default: Back to Homepage"
           },
           {
             type: "string",
-            name: "thankYouSecondaryBtnLink",
-            label: "Thank You: Secondary Button Link",
+            name: "secondaryBtnLink",
+            label: "Secondary Button Link",
             description: "Default: /"
           }
         ]

@@ -37,22 +37,5 @@
   "step5Tag": "05 ➔ Verification & Consent",
   "step5Title": "Final Step *",
   "gdprText": "I consent to having this website store my submitted information so they can respond to my inquiry.",
-  "submitButtonLabel": "Submit Brief",
-  "thankYouStatusBadge": "Brief Dispatch Confirmed • 24hr Response",
-  "thankYouHeading": "We've received your project brief.",
-  "thankYouHighlight": "project brief.",
-  "thankYouDescription": "Thank you for getting in touch. Your requirements have been safely delivered to our production desk. We review every brief carefully and will get back to you with a tailored scope within 24 hours.",
-  "phase1Tag": "Phase 01 // Discovery",
-  "phase1Title": "Review & Needs",
-  "phase1Desc": "We assess your target dates, creative requirements, filming locations, and turnaround expectations.",
-  "phase2Tag": "Phase 02 // Scoping",
-  "phase2Title": "Proposal & Quote",
-  "phase2Desc": "We prepare a tailored production treatment with equipment specs, crew allocation, and clear itemized costing.",
-  "phase3Tag": "Phase 03 // Launch",
-  "phase3Title": "Calendar Lock",
-  "phase3Desc": "Upon approval, dates are secured in our shoot calendar and pre-production commences immediately.",
-  "thankYouPrimaryBtnLabel": "Explore Recent Work",
-  "thankYouPrimaryBtnLink": "/work",
-  "thankYouSecondaryBtnLabel": "Back to Homepage",
-  "thankYouSecondaryBtnLink": "/"
+  "submitButtonLabel": "Submit Brief"
 }

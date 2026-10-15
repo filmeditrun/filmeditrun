@@ -292,10 +292,16 @@ fragment ContactPageParts on ContactPage {
   step5Title
   gdprText
   submitButtonLabel
-  thankYouStatusBadge
-  thankYouHeading
-  thankYouHighlight
-  thankYouDescription
+}
+
+fragment ThankYouPageParts on ThankYouPage {
+  __typename
+  seoTitle
+  seoDescription
+  statusBadge
+  heading
+  highlight
+  description
   phase1Tag
   phase1Title
   phase1Desc
@@ -305,10 +311,10 @@ fragment ContactPageParts on ContactPage {
   phase3Tag
   phase3Title
   phase3Desc
-  thankYouPrimaryBtnLabel
-  thankYouPrimaryBtnLink
-  thankYouSecondaryBtnLabel
-  thankYouSecondaryBtnLink
+  primaryBtnLabel
+  primaryBtnLink
+  secondaryBtnLabel
+  secondaryBtnLink
 }
 
 fragment SeoSettingsParts on SeoSettings {
