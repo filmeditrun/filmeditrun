@@ -336,6 +336,30 @@ export const ThankYouPagePartsFragmentDoc = gql`
   secondaryBtnLink
 }
     `;
+export const PrivacyPagePartsFragmentDoc = gql`
+    fragment PrivacyPageParts on PrivacyPage {
+  __typename
+  seoTitle
+  seoDescription
+  heroTag
+  heading
+  lastUpdated
+  introText
+  sections {
+    __typename
+    id
+    number
+    title
+    content
+  }
+  deskTag
+  deskTitle
+  deskDescription
+  deskEmailLabel
+  deskCustomEmail
+  deskCustomPhone
+}
+    `;
 export const SeoSettingsPartsFragmentDoc = gql`
     fragment SeoSettingsParts on SeoSettings {
   __typename
@@ -1096,6 +1120,63 @@ export const ThankYouPageConnectionDocument = gql`
   }
 }
     ${ThankYouPagePartsFragmentDoc}`;
+export const PrivacyPageDocument = gql`
+    query privacyPage($relativePath: String!) {
+  privacyPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PrivacyPageParts
+  }
+}
+    ${PrivacyPagePartsFragmentDoc}`;
+export const PrivacyPageConnectionDocument = gql`
+    query privacyPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PrivacyPageFilter) {
+  privacyPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PrivacyPageParts
+      }
+    }
+  }
+}
+    ${PrivacyPagePartsFragmentDoc}`;
 export const SeoSettingsDocument = gql`
     query seoSettings($relativePath: String!) {
   seoSettings(relativePath: $relativePath) {
@@ -1340,6 +1421,12 @@ export function getSdk(requester) {
     },
     thankYouPageConnection(variables, options) {
       return requester(ThankYouPageConnectionDocument, variables, options);
+    },
+    privacyPage(variables, options) {
+      return requester(PrivacyPageDocument, variables, options);
+    },
+    privacyPageConnection(variables, options) {
+      return requester(PrivacyPageConnectionDocument, variables, options);
     },
     seoSettings(variables, options) {
       return requester(SeoSettingsDocument, variables, options);

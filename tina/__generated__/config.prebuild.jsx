@@ -2092,6 +2092,152 @@ var config_default = defineConfig({
         ]
       },
       {
+        name: "privacyPage",
+        label: "Privacy & Cookie Policy",
+        path: "src/content/pages",
+        format: "json",
+        match: {
+          include: "privacy"
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false
+          }
+        },
+        fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "\u{1F50D} SEO Title (Google & Social)",
+            description: "Optimal length: 50\u201360 characters.",
+            required: true
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "\u{1F50D} SEO Meta Description",
+            description: "Optimal length: 140\u2013160 characters.",
+            ui: {
+              component: "textarea"
+            },
+            required: true
+          },
+          // ─── 🏷️ PAGE HEADER & BADGES ────────────────────────────────────
+          {
+            type: "string",
+            name: "heroTag",
+            label: "Eyebrow Tag",
+            description: "Default: Legal & Compliance"
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "Main Heading",
+            description: "Default: Privacy & Cookie Policy",
+            required: true
+          },
+          {
+            type: "string",
+            name: "lastUpdated",
+            label: "Last Updated Date / Version Badge",
+            description: "e.g. Updated June 2026 (DUAA 2025 Compliant)"
+          },
+          {
+            type: "string",
+            name: "introText",
+            label: "Introductory Statement",
+            ui: {
+              component: "textarea"
+            }
+          },
+          // ─── 📜 POLICY SECTIONS ─────────────────────────────────────────
+          {
+            type: "object",
+            name: "sections",
+            label: "Policy Clauses & Sections",
+            description: "Add, reorder, or edit the individual clauses of the privacy policy.",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: `${item?.number || "Clause"} - ${item?.title || "Section"}`
+              })
+            },
+            fields: [
+              {
+                type: "string",
+                name: "id",
+                label: "Section Anchor ID (slug)",
+                description: "e.g. controller, data-collected, lawful-basis, cookies",
+                required: true
+              },
+              {
+                type: "string",
+                name: "number",
+                label: "Clause Number",
+                description: "e.g. 01, 02, 03...",
+                required: true
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Clause Title",
+                required: true
+              },
+              {
+                type: "string",
+                name: "content",
+                label: "Clause Content (Supports Markdown: **bold**, * bullet lists, 1. numbered lists)",
+                ui: {
+                  component: "textarea"
+                },
+                required: true
+              }
+            ]
+          },
+          // ─── 📞 COMPLIANCE DESK CONTACT CALLOUT ────────────────────────
+          {
+            type: "string",
+            name: "deskTag",
+            label: "Compliance Desk: Eyebrow Tag",
+            description: "Default: Direct Data Rights & DUAA Enquiries"
+          },
+          {
+            type: "string",
+            name: "deskTitle",
+            label: "Compliance Desk: Box Title",
+            description: "Default: Need to exercise your statutory data rights?"
+          },
+          {
+            type: "string",
+            name: "deskDescription",
+            label: "Compliance Desk: Subtitle / Description",
+            ui: {
+              component: "textarea"
+            }
+          },
+          {
+            type: "string",
+            name: "deskEmailLabel",
+            label: "Compliance Desk: Email Button Label",
+            description: "Default: Email Data Desk"
+          },
+          {
+            type: "string",
+            name: "deskCustomEmail",
+            label: "Compliance Desk: Dedicated Email (Optional)",
+            description: "Leave empty to use the studio email (contact@filmeditrun.co.uk)"
+          },
+          {
+            type: "string",
+            name: "deskCustomPhone",
+            label: "Compliance Desk: Dedicated Telephone (Optional)",
+            description: "Leave empty to use main studio telephone"
+          }
+        ]
+      },
+      {
         name: "seoSettings",
         label: "SEO & Local Citations",
         path: "src/content/settings",

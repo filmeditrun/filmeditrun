@@ -81,6 +81,8 @@ type Query {
   contactPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ContactPageFilter): ContactPageConnection!
   thankYouPage(relativePath: String): ThankYouPage!
   thankYouPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ThankYouPageFilter): ThankYouPageConnection!
+  privacyPage(relativePath: String): PrivacyPage!
+  privacyPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PrivacyPageFilter): PrivacyPageConnection!
   seoSettings(relativePath: String): SeoSettings!
   seoSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SeoSettingsFilter): SeoSettingsConnection!
   gradeSettings(relativePath: String): GradeSettings!
@@ -102,6 +104,7 @@ input DocumentFilter {
   aboutSlider: AboutSliderFilter
   contactPage: ContactPageFilter
   thankYouPage: ThankYouPageFilter
+  privacyPage: PrivacyPageFilter
   seoSettings: SeoSettingsFilter
   gradeSettings: GradeSettingsFilter
   footerSettings: FooterSettingsFilter
@@ -130,7 +133,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | SeoSettings | GradeSettings | FooterSettings | Folder
+union DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder
 
 type Homepage implements Node & Document {
   seoTitle: String!
@@ -949,6 +952,66 @@ type ThankYouPageConnection implements Connection {
   edges: [ThankYouPageConnectionEdges]
 }
 
+type PrivacyPageSections {
+  id: String!
+  number: String!
+  title: String!
+  content: String!
+}
+
+type PrivacyPage implements Node & Document {
+  seoTitle: String!
+  seoDescription: String!
+  heroTag: String
+  heading: String!
+  lastUpdated: String
+  introText: String
+  sections: [PrivacyPageSections]
+  deskTag: String
+  deskTitle: String
+  deskDescription: String
+  deskEmailLabel: String
+  deskCustomEmail: String
+  deskCustomPhone: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input PrivacyPageSectionsFilter {
+  id: StringFilter
+  number: StringFilter
+  title: StringFilter
+  content: StringFilter
+}
+
+input PrivacyPageFilter {
+  seoTitle: StringFilter
+  seoDescription: StringFilter
+  heroTag: StringFilter
+  heading: StringFilter
+  lastUpdated: StringFilter
+  introText: StringFilter
+  sections: PrivacyPageSectionsFilter
+  deskTag: StringFilter
+  deskTitle: StringFilter
+  deskDescription: StringFilter
+  deskEmailLabel: StringFilter
+  deskCustomEmail: StringFilter
+  deskCustomPhone: StringFilter
+}
+
+type PrivacyPageConnectionEdges {
+  cursor: String!
+  node: PrivacyPage
+}
+
+type PrivacyPageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [PrivacyPageConnectionEdges]
+}
+
 type SeoSettingsBacklinkProfiles {
   name: String!
   url: String!
@@ -1175,6 +1238,8 @@ type Mutation {
   createContactPage(relativePath: String!, params: ContactPageMutation!): ContactPage!
   updateThankYouPage(relativePath: String!, params: ThankYouPageMutation!): ThankYouPage!
   createThankYouPage(relativePath: String!, params: ThankYouPageMutation!): ThankYouPage!
+  updatePrivacyPage(relativePath: String!, params: PrivacyPageMutation!): PrivacyPage!
+  createPrivacyPage(relativePath: String!, params: PrivacyPageMutation!): PrivacyPage!
   updateSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   createSeoSettings(relativePath: String!, params: SeoSettingsMutation!): SeoSettings!
   updateGradeSettings(relativePath: String!, params: GradeSettingsMutation!): GradeSettings!
@@ -1196,6 +1261,7 @@ input DocumentUpdateMutation {
   aboutSlider: AboutSliderMutation
   contactPage: ContactPageMutation
   thankYouPage: ThankYouPageMutation
+  privacyPage: PrivacyPageMutation
   seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
@@ -1215,6 +1281,7 @@ input DocumentMutation {
   aboutSlider: AboutSliderMutation
   contactPage: ContactPageMutation
   thankYouPage: ThankYouPageMutation
+  privacyPage: PrivacyPageMutation
   seoSettings: SeoSettingsMutation
   gradeSettings: GradeSettingsMutation
   footerSettings: FooterSettingsMutation
@@ -1533,6 +1600,29 @@ input ThankYouPageMutation {
   primaryBtnLink: String
   secondaryBtnLabel: String
   secondaryBtnLink: String
+}
+
+input PrivacyPageSectionsMutation {
+  id: String
+  number: String
+  title: String
+  content: String
+}
+
+input PrivacyPageMutation {
+  seoTitle: String
+  seoDescription: String
+  heroTag: String
+  heading: String
+  lastUpdated: String
+  introText: String
+  sections: [PrivacyPageSectionsMutation]
+  deskTag: String
+  deskTitle: String
+  deskDescription: String
+  deskEmailLabel: String
+  deskCustomEmail: String
+  deskCustomPhone: String
 }
 
 input SeoSettingsBacklinkProfilesMutation {

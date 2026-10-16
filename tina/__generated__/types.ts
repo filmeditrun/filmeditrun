@@ -108,6 +108,8 @@ export type Query = {
   contactPageConnection: ContactPageConnection;
   thankYouPage: ThankYouPage;
   thankYouPageConnection: ThankYouPageConnection;
+  privacyPage: PrivacyPage;
+  privacyPageConnection: PrivacyPageConnection;
   seoSettings: SeoSettings;
   seoSettingsConnection: SeoSettingsConnection;
   gradeSettings: GradeSettings;
@@ -318,6 +320,21 @@ export type QueryThankYouPageConnectionArgs = {
 };
 
 
+export type QueryPrivacyPageArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPrivacyPageConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PrivacyPageFilter>;
+};
+
+
 export type QuerySeoSettingsArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -375,6 +392,7 @@ export type DocumentFilter = {
   aboutSlider?: InputMaybe<AboutSliderFilter>;
   contactPage?: InputMaybe<ContactPageFilter>;
   thankYouPage?: InputMaybe<ThankYouPageFilter>;
+  privacyPage?: InputMaybe<PrivacyPageFilter>;
   seoSettings?: InputMaybe<SeoSettingsFilter>;
   gradeSettings?: InputMaybe<GradeSettingsFilter>;
   footerSettings?: InputMaybe<FooterSettingsFilter>;
@@ -417,7 +435,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | SeoSettings | GradeSettings | FooterSettings | Folder;
+export type DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder;
 
 export type Homepage = Node & Document & {
   __typename?: 'Homepage';
@@ -1280,6 +1298,70 @@ export type ThankYouPageConnection = Connection & {
   edges?: Maybe<Array<Maybe<ThankYouPageConnectionEdges>>>;
 };
 
+export type PrivacyPageSections = {
+  __typename?: 'PrivacyPageSections';
+  id: Scalars['String']['output'];
+  number: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  content: Scalars['String']['output'];
+};
+
+export type PrivacyPage = Node & Document & {
+  __typename?: 'PrivacyPage';
+  seoTitle: Scalars['String']['output'];
+  seoDescription: Scalars['String']['output'];
+  heroTag?: Maybe<Scalars['String']['output']>;
+  heading: Scalars['String']['output'];
+  lastUpdated?: Maybe<Scalars['String']['output']>;
+  introText?: Maybe<Scalars['String']['output']>;
+  sections?: Maybe<Array<Maybe<PrivacyPageSections>>>;
+  deskTag?: Maybe<Scalars['String']['output']>;
+  deskTitle?: Maybe<Scalars['String']['output']>;
+  deskDescription?: Maybe<Scalars['String']['output']>;
+  deskEmailLabel?: Maybe<Scalars['String']['output']>;
+  deskCustomEmail?: Maybe<Scalars['String']['output']>;
+  deskCustomPhone?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type PrivacyPageSectionsFilter = {
+  id?: InputMaybe<StringFilter>;
+  number?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+};
+
+export type PrivacyPageFilter = {
+  seoTitle?: InputMaybe<StringFilter>;
+  seoDescription?: InputMaybe<StringFilter>;
+  heroTag?: InputMaybe<StringFilter>;
+  heading?: InputMaybe<StringFilter>;
+  lastUpdated?: InputMaybe<StringFilter>;
+  introText?: InputMaybe<StringFilter>;
+  sections?: InputMaybe<PrivacyPageSectionsFilter>;
+  deskTag?: InputMaybe<StringFilter>;
+  deskTitle?: InputMaybe<StringFilter>;
+  deskDescription?: InputMaybe<StringFilter>;
+  deskEmailLabel?: InputMaybe<StringFilter>;
+  deskCustomEmail?: InputMaybe<StringFilter>;
+  deskCustomPhone?: InputMaybe<StringFilter>;
+};
+
+export type PrivacyPageConnectionEdges = {
+  __typename?: 'PrivacyPageConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<PrivacyPage>;
+};
+
+export type PrivacyPageConnection = Connection & {
+  __typename?: 'PrivacyPageConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<PrivacyPageConnectionEdges>>>;
+};
+
 export type SeoSettingsBacklinkProfiles = {
   __typename?: 'SeoSettingsBacklinkProfiles';
   name: Scalars['String']['output'];
@@ -1518,6 +1600,8 @@ export type Mutation = {
   createContactPage: ContactPage;
   updateThankYouPage: ThankYouPage;
   createThankYouPage: ThankYouPage;
+  updatePrivacyPage: PrivacyPage;
+  createPrivacyPage: PrivacyPage;
   updateSeoSettings: SeoSettings;
   createSeoSettings: SeoSettings;
   updateGradeSettings: GradeSettings;
@@ -1704,6 +1788,18 @@ export type MutationCreateThankYouPageArgs = {
 };
 
 
+export type MutationUpdatePrivacyPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PrivacyPageMutation;
+};
+
+
+export type MutationCreatePrivacyPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PrivacyPageMutation;
+};
+
+
 export type MutationUpdateSeoSettingsArgs = {
   relativePath: Scalars['String']['input'];
   params: SeoSettingsMutation;
@@ -1752,6 +1848,7 @@ export type DocumentUpdateMutation = {
   aboutSlider?: InputMaybe<AboutSliderMutation>;
   contactPage?: InputMaybe<ContactPageMutation>;
   thankYouPage?: InputMaybe<ThankYouPageMutation>;
+  privacyPage?: InputMaybe<PrivacyPageMutation>;
   seoSettings?: InputMaybe<SeoSettingsMutation>;
   gradeSettings?: InputMaybe<GradeSettingsMutation>;
   footerSettings?: InputMaybe<FooterSettingsMutation>;
@@ -1771,6 +1868,7 @@ export type DocumentMutation = {
   aboutSlider?: InputMaybe<AboutSliderMutation>;
   contactPage?: InputMaybe<ContactPageMutation>;
   thankYouPage?: InputMaybe<ThankYouPageMutation>;
+  privacyPage?: InputMaybe<PrivacyPageMutation>;
   seoSettings?: InputMaybe<SeoSettingsMutation>;
   gradeSettings?: InputMaybe<GradeSettingsMutation>;
   footerSettings?: InputMaybe<FooterSettingsMutation>;
@@ -2089,6 +2187,29 @@ export type ThankYouPageMutation = {
   primaryBtnLink?: InputMaybe<Scalars['String']['input']>;
   secondaryBtnLabel?: InputMaybe<Scalars['String']['input']>;
   secondaryBtnLink?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PrivacyPageSectionsMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  number?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PrivacyPageMutation = {
+  seoTitle?: InputMaybe<Scalars['String']['input']>;
+  seoDescription?: InputMaybe<Scalars['String']['input']>;
+  heroTag?: InputMaybe<Scalars['String']['input']>;
+  heading?: InputMaybe<Scalars['String']['input']>;
+  lastUpdated?: InputMaybe<Scalars['String']['input']>;
+  introText?: InputMaybe<Scalars['String']['input']>;
+  sections?: InputMaybe<Array<InputMaybe<PrivacyPageSectionsMutation>>>;
+  deskTag?: InputMaybe<Scalars['String']['input']>;
+  deskTitle?: InputMaybe<Scalars['String']['input']>;
+  deskDescription?: InputMaybe<Scalars['String']['input']>;
+  deskEmailLabel?: InputMaybe<Scalars['String']['input']>;
+  deskCustomEmail?: InputMaybe<Scalars['String']['input']>;
+  deskCustomPhone?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SeoSettingsBacklinkProfilesMutation = {
@@ -2497,6 +2618,29 @@ export type ThankYouPageFilter = {
   secondaryBtnLink?: StringFilter | null | undefined;
 };
 
+export type PrivacyPageSectionsFilter = {
+  id?: StringFilter | null | undefined;
+  number?: StringFilter | null | undefined;
+  title?: StringFilter | null | undefined;
+  content?: StringFilter | null | undefined;
+};
+
+export type PrivacyPageFilter = {
+  seoTitle?: StringFilter | null | undefined;
+  seoDescription?: StringFilter | null | undefined;
+  heroTag?: StringFilter | null | undefined;
+  heading?: StringFilter | null | undefined;
+  lastUpdated?: StringFilter | null | undefined;
+  introText?: StringFilter | null | undefined;
+  sections?: PrivacyPageSectionsFilter | null | undefined;
+  deskTag?: StringFilter | null | undefined;
+  deskTitle?: StringFilter | null | undefined;
+  deskDescription?: StringFilter | null | undefined;
+  deskEmailLabel?: StringFilter | null | undefined;
+  deskCustomEmail?: StringFilter | null | undefined;
+  deskCustomPhone?: StringFilter | null | undefined;
+};
+
 export type NumberFilter = {
   lt?: number | null | undefined;
   lte?: number | null | undefined;
@@ -2602,6 +2746,8 @@ export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: str
 export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
 
 export type ThankYouPagePartsFragment = { __typename: 'ThankYouPage', seoTitle: string, seoDescription: string, statusBadge: string | null, heading: string, highlight: string | null, description: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, primaryBtnLabel: string | null, primaryBtnLink: string | null, secondaryBtnLabel: string | null, secondaryBtnLink: string | null };
+
+export type PrivacyPagePartsFragment = { __typename: 'PrivacyPage', seoTitle: string, seoDescription: string, heroTag: string | null, heading: string, lastUpdated: string | null, introText: string | null, deskTag: string | null, deskTitle: string | null, deskDescription: string | null, deskEmailLabel: string | null, deskCustomEmail: string | null, deskCustomPhone: string | null, sections: Array<{ __typename: 'PrivacyPageSections', id: string, number: string, title: string, content: string } | null> | null };
 
 export type SeoSettingsPartsFragment = { __typename: 'SeoSettings', legalName: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null };
 
@@ -2836,6 +2982,25 @@ export type ThankYouPageConnectionQueryVariables = Exact<{
 
 
 export type ThankYouPageConnectionQuery = { thankYouPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ThankYouPage', id: string, seoTitle: string, seoDescription: string, statusBadge: string | null, heading: string, highlight: string | null, description: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, primaryBtnLabel: string | null, primaryBtnLink: string | null, secondaryBtnLabel: string | null, secondaryBtnLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type PrivacyPageQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type PrivacyPageQuery = { privacyPage: { __typename: 'PrivacyPage', id: string, seoTitle: string, seoDescription: string, heroTag: string | null, heading: string, lastUpdated: string | null, introText: string | null, deskTag: string | null, deskTitle: string | null, deskDescription: string | null, deskEmailLabel: string | null, deskCustomEmail: string | null, deskCustomPhone: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sections: Array<{ __typename: 'PrivacyPageSections', id: string, number: string, title: string, content: string } | null> | null } };
+
+export type PrivacyPageConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: PrivacyPageFilter | null | undefined;
+}>;
+
+
+export type PrivacyPageConnectionQuery = { privacyPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'PrivacyPage', id: string, seoTitle: string, seoDescription: string, heroTag: string | null, heading: string, lastUpdated: string | null, introText: string | null, deskTag: string | null, deskTitle: string | null, deskDescription: string | null, deskEmailLabel: string | null, deskCustomEmail: string | null, deskCustomPhone: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sections: Array<{ __typename: 'PrivacyPageSections', id: string, number: string, title: string, content: string } | null> | null } | null } | null> | null } };
 
 export type SeoSettingsQueryVariables = Exact<{
   relativePath: string;
@@ -3223,6 +3388,30 @@ export const ThankYouPagePartsFragmentDoc = gql`
   primaryBtnLink
   secondaryBtnLabel
   secondaryBtnLink
+}
+    `;
+export const PrivacyPagePartsFragmentDoc = gql`
+    fragment PrivacyPageParts on PrivacyPage {
+  __typename
+  seoTitle
+  seoDescription
+  heroTag
+  heading
+  lastUpdated
+  introText
+  sections {
+    __typename
+    id
+    number
+    title
+    content
+  }
+  deskTag
+  deskTitle
+  deskDescription
+  deskEmailLabel
+  deskCustomEmail
+  deskCustomPhone
 }
     `;
 export const SeoSettingsPartsFragmentDoc = gql`
@@ -3985,6 +4174,63 @@ export const ThankYouPageConnectionDocument = gql`
   }
 }
     ${ThankYouPagePartsFragmentDoc}`;
+export const PrivacyPageDocument = gql`
+    query privacyPage($relativePath: String!) {
+  privacyPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PrivacyPageParts
+  }
+}
+    ${PrivacyPagePartsFragmentDoc}`;
+export const PrivacyPageConnectionDocument = gql`
+    query privacyPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PrivacyPageFilter) {
+  privacyPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PrivacyPageParts
+      }
+    }
+  }
+}
+    ${PrivacyPagePartsFragmentDoc}`;
 export const SeoSettingsDocument = gql`
     query seoSettings($relativePath: String!) {
   seoSettings(relativePath: $relativePath) {
@@ -4230,6 +4476,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     thankYouPageConnection(variables?: ThankYouPageConnectionQueryVariables, options?: C): Promise<{data: ThankYouPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ThankYouPageConnectionQueryVariables, query: string}> {
         return requester<{data: ThankYouPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ThankYouPageConnectionQueryVariables, query: string}, ThankYouPageConnectionQueryVariables>(ThankYouPageConnectionDocument, variables, options);
+      },
+    privacyPage(variables: PrivacyPageQueryVariables, options?: C): Promise<{data: PrivacyPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PrivacyPageQueryVariables, query: string}> {
+        return requester<{data: PrivacyPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PrivacyPageQueryVariables, query: string}, PrivacyPageQueryVariables>(PrivacyPageDocument, variables, options);
+      },
+    privacyPageConnection(variables?: PrivacyPageConnectionQueryVariables, options?: C): Promise<{data: PrivacyPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PrivacyPageConnectionQueryVariables, query: string}> {
+        return requester<{data: PrivacyPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PrivacyPageConnectionQueryVariables, query: string}, PrivacyPageConnectionQueryVariables>(PrivacyPageConnectionDocument, variables, options);
       },
     seoSettings(variables: SeoSettingsQueryVariables, options?: C): Promise<{data: SeoSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SeoSettingsQueryVariables, query: string}> {
         return requester<{data: SeoSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SeoSettingsQueryVariables, query: string}, SeoSettingsQueryVariables>(SeoSettingsDocument, variables, options);

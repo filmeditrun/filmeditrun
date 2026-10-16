@@ -658,6 +658,61 @@ query thankYouPageConnection($before: String, $after: String, $first: Float, $la
   }
 }
 
+query privacyPage($relativePath: String!) {
+  privacyPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PrivacyPageParts
+  }
+}
+
+query privacyPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PrivacyPageFilter) {
+  privacyPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PrivacyPageParts
+      }
+    }
+  }
+}
+
 query seoSettings($relativePath: String!) {
   seoSettings(relativePath: $relativePath) {
     ... on Document {

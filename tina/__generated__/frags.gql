@@ -317,6 +317,29 @@ fragment ThankYouPageParts on ThankYouPage {
   secondaryBtnLink
 }
 
+fragment PrivacyPageParts on PrivacyPage {
+  __typename
+  seoTitle
+  seoDescription
+  heroTag
+  heading
+  lastUpdated
+  introText
+  sections {
+    __typename
+    id
+    number
+    title
+    content
+  }
+  deskTag
+  deskTitle
+  deskDescription
+  deskEmailLabel
+  deskCustomEmail
+  deskCustomPhone
+}
+
 fragment SeoSettingsParts on SeoSettings {
   __typename
   legalName

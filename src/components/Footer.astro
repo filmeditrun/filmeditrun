@@ -287,6 +287,10 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
             {siteConfig.addressLocality}, {siteConfig.addressRegion || siteConfig.addressCountry}
           </span>
         )}
+        <span class="hidden sm:inline text-neutral-700">•</span>
+        <a href="/privacy" class="hover:text-amber-400 transition-colors">
+          Privacy & Cookie Policy
+        </a>
       </div>
       <a href="#top" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 shrink-0">
         <span>{footer.backToTopLabel || "Back to top"}</span>

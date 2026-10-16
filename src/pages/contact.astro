@@ -132,7 +132,17 @@ const formSteps = [
             <div class="space-y-4">
               <label class="flex items-start gap-3 p-3 border border-neutral-800 rounded-xl bg-neutral-900/20 cursor-pointer hover:border-neutral-700 transition-colors">
                 <input type="checkbox" name="gdpr_consent" required class="accent-amber-500 w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span class="text-neutral-400 text-xs sm:text-sm leading-relaxed">{step.gdprText}</span>
+                <span class="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+                  {step.gdprText.includes("Privacy Policy") ? (
+                    <>
+                      {step.gdprText.split("Privacy Policy")[0]}
+                      <a href="/privacy" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 underline underline-offset-4">Privacy Policy</a>
+                      {step.gdprText.split("Privacy Policy").slice(1).join("Privacy Policy")}
+                    </>
+                  ) : (
+                    step.gdprText
+                  )}
+                </span>
               </label>
 
               {step.enableTurnstile && step.turnstileSiteKey && (

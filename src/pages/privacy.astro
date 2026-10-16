@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import privacy from '../content/pages/privacy.json';
+import seo from '../content/settings/seo.json';
+
+const studioEmail = seo.email || "contact@filmeditrun.co.uk";
+const studioPhone = seo.telephone || "+44 1223 926450";
+
+const deskTag = privacy.deskTag || "Direct Data Rights & DUAA Enquiries";
+const deskTitle = privacy.deskTitle || "Need to exercise your statutory data rights?";
+const deskDescription = privacy.deskDescription || "To request access, rectification, or deletion of your project brief data, contact our Cambridge studio compliance desk directly:";
+const deskEmailLabel = privacy.deskEmailLabel || "Email Data Desk";
+const deskEmail = privacy.deskCustomEmail || studioEmail;
+const deskPhone = privacy.deskCustomPhone || studioPhone;
+
+// Lightweight Zero-JS Markdown Formatter for Sections
+const formatMarkdown = (text: string) => {
+  return text
+    .split('\n\n')
+    .map(block => {
+      // Unordered list block
+      if (block.trim().startsWith('* ')) {
+        const items = block
+          .split('\n')
+          .filter(line => line.trim().startsWith('* '))
+          .map(line => {
+            const raw = line.replace(/^\*\s+/, '');
+            const parsed = raw.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
+            return `<li class="flex items-start gap-2.5 my-1.5"><span class="text-amber-500 font-bold shrink-0">•</span><span>${parsed}</span></li>`;
+          })
+          .join('');
+        return `<ul class="my-3 space-y-1 text-neutral-300">${items}</ul>`;
+      }
+      
+      // Ordered list block
+      if (/^\d+\.\s/.test(block.trim())) {
+        const items = block
+          .split('\n')
+          .filter(line => /^\d+\.\s/.test(line.trim()))
+          .map(line => {
+            const raw = line.replace(/^\d+\.\s+/, '');
+            const parsed = raw.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
+            return `<li class="flex items-start gap-2.5 my-2"><span class="text-amber-500 font-mono font-bold shrink-0 text-xs mt-0.5">➔</span><span>${parsed}</span></li>`;
+          })
+          .join('');
+        return `<ol class="my-3 space-y-2 text-neutral-300">${items}</ol>`;
+      }
+
+      // Standard paragraph
+      const parsed = block
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
+        .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-white/10 font-mono text-xs text-amber-400">$1</code>')
+        .replace(/\n/g, '<br />');
+
+      return `<p class="leading-relaxed text-neutral-300 my-3 font-light">${parsed}</p>`;
+    })
+    .join('');
+};
+---
+
+<Layout 
+  title={privacy.seoTitle} 
+  description={privacy.seoDescription}
+>
+  <main class="min-h-screen pt-28 pb-24 px-6 relative">
+    
+    <!-- Ambient Glow Top Scrim -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+    <div class="max-w-4xl mx-auto space-y-12">
+      
+      <!-- Page Header -->
+      <header class="space-y-4 pb-8 border-b border-neutral-800">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="text-xs uppercase tracking-[0.25em] text-amber-500 font-mono font-bold block">
+            {privacy.heroTag || "Legal & Compliance"}
+          </span>
+          <span class="text-neutral-700">•</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px] font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            {privacy.lastUpdated}
+          </span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          {privacy.heading}
+        </h1>
+
+        <p class="text-base sm:text-lg text-neutral-300 leading-relaxed font-light pt-2">
+          {privacy.introText}
+        </p>
+
+        <!-- Quick Jump Links Navigation -->
+        <div class="pt-4 flex flex-wrap gap-2 text-xs font-mono">
+          {privacy.sections.map((section) => (
+            <a 
+              href={`#${section.id}`} 
+              class="px-3 py-1.5 rounded-lg bg-neutral-900/80 border border-neutral-800 text-neutral-400 hover:text-white hover:border-amber-500/40 transition-colors"
+            >
+              <span class="text-amber-500/80 mr-1.5">{section.number}</span>
+              <span>{section.title.split('&')[0].trim()}</span>
+            </a>
+          ))}
+        </div>
+      </header>
+
+      <!-- Policy Sections -->
+      <div class="space-y-12">
+        {privacy.sections.map((section) => (
+          <article id={section.id} class="p-7 sm:p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 scroll-mt-28 space-y-4 shadow-xl">
+            <div class="flex items-center gap-3 pb-3 border-b border-white/5">
+              <span class="text-amber-500 font-mono text-xs font-bold px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
+                {section.number}
+              </span>
+              <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                {section.title}
+              </h2>
+            </div>
+
+            <div class="text-sm sm:text-base leading-relaxed" set:html={formatMarkdown(section.content)} />
+          </article>
+        ))}
+      </div>
+
+      <!-- Compliance Desk Contact Callout -->
+      <section class="p-8 rounded-2xl bg-gradient-to-br from-neutral-900/90 to-neutral-950 border border-amber-500/30 text-center space-y-4 shadow-2xl">
+        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-bold block">
+          {deskTag}
+        </span>
+        <h3 class="text-xl sm:text-2xl font-bold text-white">
+          {deskTitle}
+        </h3>
+        <p class="text-sm text-neutral-400 max-w-xl mx-auto font-light leading-relaxed">
+          {deskDescription}
+        </p>
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a 
+            href={`mailto:${deskEmail}`}
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-amber-500/10"
+          >
+            <span>{deskEmailLabel}</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a 
+            href={`tel:${deskPhone.replace(/\s+/g, '')}`}
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-white/20 text-neutral-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-all"
+          >
+            <span>{deskPhone}</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Return Link -->
+      <div class="pt-4 text-center">
+        <a href="/" class="text-xs font-mono text-neutral-500 hover:text-amber-400 transition-colors uppercase tracking-widest">
+          &larr; Return to Homepage
+        </a>
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
