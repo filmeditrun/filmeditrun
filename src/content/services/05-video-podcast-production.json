@@ -1,0 +1,48 @@
+{
+  "order": "05",
+  "title": "Video Podcast & Vodcast Production",
+  "tag": "Multi-Cam Vodcasts",
+  "description": "Broadcast-quality multi-camera video podcast production recorded directly at your office, headquarters, or event green room.",
+  "slug": "video-podcast-production",
+  "link": "/services/video-podcast-production",
+  "seoTitle": "Video Podcast Production London & Cambridge | FilmEditRun",
+  "seoDescription": "Multi-camera 4K video podcast filming, on-location boardroom recording, and LinkedIn/YouTube social clip editing across London, Cambridge, and the UK.",
+  "heroTag": "Vodcast & Interview Suite",
+  "heroHeading": "Broadcast-Grade Video Podcast & *Vodcast* Production.",
+  "heroLead": "Bring the studio directly into your boardroom. We deploy multi-angle 4K cinema cameras, broadcast microphones, and flattering lighting to record professional video podcasts and executive conversation series with zero travel friction.",
+  "breakdownHeading": "Engineered for C-Suite Conversations and High-Impact Social Distribution.",
+  "breakdownBody": "Modern B2B authority is built through genuine conversation. We transform your office, boardroom, or venue into a high-end recording studio, capturing intimate, multi-angle 4K visual discourse paired with studio-grade vocal isolation and rapid Adobe editorial finishing.",
+  "displayAs": "gradient",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "https://your-link.mp4",
+  "imagePath": "/og-image.jpg",
+  "heroGradientDirection": "radial",
+  "heroGradientColor1": "#f59e0b",
+  "heroGradientColor2": "#09090c",
+  "deliverables": [
+    {
+      "tag": "Full Broadcast",
+      "title": "Full-Length Multi-Cam Episodes",
+      "description": "Seamless multi-camera narrative edits in 4K widescreen with studio audio mastering, ready for YouTube, Spotify Video, and web embedding."
+    },
+    {
+      "tag": "Social First",
+      "title": "Viral 9:16 Vertical Video Clips",
+      "description": "High-impact short-form cutdowns with dynamic kinetic subtitles and sound effects designed for maximum reach on LinkedIn, Shorts, and TikTok."
+    },
+    {
+      "tag": "Audio Master",
+      "title": "Broadcast Podcast Audio Feeds",
+      "description": "Pristine WAV and MP3 vocal tracks treated with spectral noise reduction and calibrated loudness normalization for Apple Podcasts and Spotify."
+    },
+    {
+      "tag": "Brand Identity",
+      "title": "Custom Animated Intros & Lower Thirds",
+      "description": "Branded motion graphics, guest title slates, lower-thirds, and episode countdown bumpers crafted to align with your corporate guidelines."
+    }
+  ],
+  "ctaHeading": "Ready to Launch Your Corporate Video Podcast?",
+  "ctaDescription": "Tell us about your episode concept, recording frequency, or venue location. We deliver a complete equipment and production package tailored to your schedule.",
+  "ctaButtonLabel": "Request a Video Podcast Proposal"
+}
+

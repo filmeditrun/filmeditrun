@@ -66,6 +66,42 @@ export const CambridgePagePartsFragmentDoc = gql`
   bottomCtaLink
 }
     `;
+export const LondonPagePartsFragmentDoc = gql`
+    fragment LondonPageParts on LondonPage {
+  __typename
+  seoTitle
+  seoDescription
+  canonicalURL
+  heroTag
+  heroHeadingPrefix
+  heroHeadingHighlight
+  heroSubtitle
+  heroCtaLabel
+  heroCtaLink
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+  expertiseTag
+  expertiseHeading
+  expertiseDescription
+  expertiseBullets
+  cardTitle
+  cardBody
+  cardLinkLabel
+  cardLinkHref
+  faqHeading
+  faqs {
+    __typename
+    question
+    answer
+  }
+  bottomCtaHeading
+  bottomCtaBody
+  bottomCtaLabel
+  bottomCtaLink
+}
+    `;
 export const CustomPagesPartsFragmentDoc = gql`
     fragment CustomPagesParts on CustomPages {
   __typename
@@ -194,10 +230,13 @@ export const WorkPagePartsFragmentDoc = gql`
   headerTag
   heading
   description
+  heroVideoPath
+  heroPosterPath
   aspectBadge
   videoButtonLabel
   imageButtonLabel
   scrollIndicatorText
+  showArchive
   archiveTag
   archiveHeading
   archiveDescription
@@ -306,6 +345,7 @@ export const ContactPagePartsFragmentDoc = gql`
   step4Tag
   step4Title
   step4Placeholder
+  step4HelpText
   step5Tag
   step5Title
   gdprText
@@ -420,6 +460,7 @@ export const FooterSettingsPartsFragmentDoc = gql`
   cambridgeLink
   londonTitle
   londonSubtitle
+  londonLink
   worldwideTitle
   worldwideSubtitle
   directHeading
@@ -550,6 +591,63 @@ export const CambridgePageConnectionDocument = gql`
   }
 }
     ${CambridgePagePartsFragmentDoc}`;
+export const LondonPageDocument = gql`
+    query londonPage($relativePath: String!) {
+  londonPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...LondonPageParts
+  }
+}
+    ${LondonPagePartsFragmentDoc}`;
+export const LondonPageConnectionDocument = gql`
+    query londonPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: LondonPageFilter) {
+  londonPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...LondonPageParts
+      }
+    }
+  }
+}
+    ${LondonPagePartsFragmentDoc}`;
 export const CustomPagesDocument = gql`
     query customPages($relativePath: String!) {
   customPages(relativePath: $relativePath) {
@@ -1361,6 +1459,12 @@ export function getSdk(requester) {
     },
     cambridgePageConnection(variables, options) {
       return requester(CambridgePageConnectionDocument, variables, options);
+    },
+    londonPage(variables, options) {
+      return requester(LondonPageDocument, variables, options);
+    },
+    londonPageConnection(variables, options) {
+      return requester(LondonPageConnectionDocument, variables, options);
     },
     customPages(variables, options) {
       return requester(CustomPagesDocument, variables, options);

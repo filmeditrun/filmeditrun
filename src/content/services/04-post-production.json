@@ -6,12 +6,12 @@
   "slug": "post-production",
   "link": "/services/post-production",
   "seoTitle": "Video Post-Production & Color Grading London & Cambridge | FilmEditRun",
-  "seoDescription": "Broadcast editing, DaVinci Resolve color grading, audio sweetening, and multi-platform master delivery for corporate and commercial films.",
+  "seoDescription": "Broadcast editing, precision Adobe color grading, audio sweetening, and multi-platform master delivery for corporate and commercial films.",
   "heroTag": "Editorial Suite",
   "heroHeading": "Meticulous Post-Production, Cinematic Color & Spatial Sound.",
-  "heroLead": "Raw footage is only the beginning. Our post-production pipeline combines rhythmic offline editing, DaVinci Resolve color grading, dialogue restoration, and spatial sound design into a broadcast-ready master.",
+  "heroLead": "Raw footage is only the beginning. Our post-production pipeline combines rhythmic offline editing in Adobe Premiere Pro, calibrated color grading, dialogue restoration, and spatial sound design into a broadcast-ready master.",
   "breakdownHeading": "Rhythmic Editorial, Color Science, and Spatial Mastering.",
-  "breakdownBody": "Raw footage becomes cinema in the edit suite. Our post-production pipeline combines story-driven narrative cutting, calibrated DaVinci Resolve color grading, dialogue acoustic restoration, and broadcast loudness normalization for multi-platform delivery.",
+  "breakdownBody": "Raw footage becomes cinema in the edit suite. Our post-production pipeline combines story-driven narrative cutting, calibrated Adobe color grading, dialogue acoustic restoration, and broadcast loudness normalization for multi-platform delivery.",
   "displayAs": "local-video",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
@@ -27,7 +27,7 @@
     },
     {
       "tag": "Color Science",
-      "title": "DaVinci Resolve Cinema Color Grading",
+      "title": "Precision Adobe Cinema Color Grading",
       "description": "Custom color look creation, skin tone balancing, dynamic range expansion, and shot-to-shot consistency calibrated for modern displays."
     },
     {

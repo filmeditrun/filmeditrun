@@ -504,6 +504,237 @@ export default defineConfig({
         ],
       },
       {
+        name: "londonPage",
+        label: "London Page",
+        path: "src/content/pages",
+        format: "json",
+        match: {
+          include: "london",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          // ─── 🔍 SEO & DISCOVERABILITY ──────────────────────────────────
+          {
+            type: "string",
+            name: "seoTitle",
+            label: "🔍 SEO Title (Google & Social)",
+            description: "Optimal length: 50–60 characters",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "seoDescription",
+            label: "🔍 SEO Meta Description",
+            description: "Optimal length: 140–160 characters",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "canonicalURL",
+            label: "🔍 Canonical URL",
+            required: true,
+          },
+
+          // ─── 🎨 HERO & CINEMA BANNER ──────────────────────────────────
+          {
+            type: "string",
+            name: "heroTag",
+            label: "🎨 Hero Badge Tag",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroHeadingPrefix",
+            label: "Hero Heading (Main White Text)",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroHeadingHighlight",
+            label: "Hero Heading (Amber Highlight Word)",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroSubtitle",
+            label: "Hero Lead Paragraph",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroCtaLabel",
+            label: "Hero CTA Button Text",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "heroCtaLink",
+            label: "Hero CTA Button Link",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "displayAs",
+            label: "Hero Background Media Type",
+            description: "Select whether the hero displays a looping video, photo, or transparent darkroom",
+            options: [
+              { value: "local-video", label: "🎬 Local Video Loop (Fastest, e.g. /showreel.mp4)" },
+              { value: "link-video", label: "🔗 Hosted Video URL (.mp4 / cloud stream)" },
+              { value: "image", label: "📸 Static Photograph" },
+              { value: "none", label: "⬛ Pure Minimalist Darkroom (No Media)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "localVideoPath",
+            label: "Local Video File Path",
+            description: "Default: /showreel.mp4",
+          },
+          {
+            type: "string",
+            name: "cloudVideoUrl",
+            label: "External Video File URL (.mp4)",
+          },
+          {
+            type: "image",
+            name: "imagePath",
+            label: "Static Background Image / Fallback Poster",
+            description: "High-resolution photo used as background or video poster",
+          },
+
+          // ─── 📍 LOCAL EXPERTISE & VENUE SPECIFICATIONS ───────────────
+          {
+            type: "string",
+            name: "expertiseTag",
+            label: "📍 Local Hub Section Tag",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "expertiseHeading",
+            label: "Local Hub Main Heading",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "expertiseDescription",
+            label: "Local Production Overview",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "expertiseBullets",
+            label: "Key Production Capabilities (Bullet List)",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "cardTitle",
+            label: "Right Feature Card Title",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "cardBody",
+            label: "Right Feature Card Body Text",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "cardLinkLabel",
+            label: "Right Feature Card Link Text",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "cardLinkHref",
+            label: "Right Feature Card Link URL",
+            required: true,
+          },
+          // ─── ❓ FREQUENTLY ASKED QUESTIONS (AI SEARCH SCHEMA) ────────
+          {
+            type: "string",
+            name: "faqHeading",
+            label: "❓ FAQ Section Heading",
+            required: true,
+          },
+          {
+            type: "object",
+            name: "faqs",
+            label: "❓ FAQ Items (Auto-indexed for AI Search)",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.question || "FAQ Item",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "question",
+                label: "Question",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "answer",
+                label: "Answer",
+                ui: {
+                  component: "textarea",
+                },
+                required: true,
+              },
+            ],
+          },
+
+          // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
+          {
+            type: "string",
+            name: "bottomCtaHeading",
+            label: "⚡ Bottom CTA Heading",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "bottomCtaBody",
+            label: "Bottom CTA Subtitle",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "bottomCtaLabel",
+            label: "Bottom CTA Button Text",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "bottomCtaLink",
+            label: "Bottom CTA Button Link",
+            required: true,
+          },
+        ],
+      },
+      {
         name: "customPages",
         label: "Custom Pages",
         path: "src/content/pages/custom",
@@ -1320,6 +1551,18 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "heroVideoPath",
+            label: "🎬 Hero Background Video Path",
+            description: "Default: /showreel.mp4 (instant local video playback, zero buffering, zero white flash)",
+          },
+          {
+            type: "image",
+            name: "heroPosterPath",
+            label: "🎬 Hero Fallback Poster Frame",
+            description: "Dark image displayed at millisecond 0 while video loads (e.g. /og-image.jpg)",
+          },
+          {
+            type: "string",
             name: "aspectBadge",
             label: "Technical Aspect Badge (Optional)",
             description: "e.g. ASPECT // 16:9",
@@ -1347,6 +1590,12 @@ export default defineConfig({
             required: true,
           },
           // ─── 🎞️ PRODUCTION ARCHIVE & BENTO GRID ───────────────────────
+          {
+            type: "boolean",
+            name: "showArchive",
+            label: "🎞️ Display Production Archive & Bento Grid?",
+            description: "Toggle ON to display the archive grid and category filter, or OFF to feature only the cinema hero showreel.",
+          },
           {
             type: "string",
             name: "archiveTag",
@@ -1936,6 +2185,15 @@ export default defineConfig({
             name: "step4Placeholder",
             label: "Step 4 Field Placeholder",
             description: "e.g. Tell us about your event, dates, or visual goals...",
+          },
+          {
+            type: "string",
+            name: "step4HelpText",
+            label: "Step 4 Guidance / AI Brief Tip Banner",
+            description: "Helpful tip banner displayed above the brief input (welcoming ChatGPT drafts, event dates, etc.)",
+            ui: {
+              component: "textarea",
+            },
           },
 
           // ─── 05. STEP 5: VERIFICATION & CONSENT ─────────────────────────
@@ -2617,6 +2875,12 @@ export default defineConfig({
             type: "string",
             name: "londonSubtitle",
             label: "Col 3: London Subtitle",
+          },
+          {
+            type: "string",
+            name: "londonLink",
+            label: "Col 3: London Link URL",
+            description: "Default: /london",
           },
           {
             type: "string",

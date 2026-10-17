@@ -177,14 +177,14 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
             </a>
           </li>
           <li>
-            <div class="block">
-              <span class="font-medium text-neutral-300 block">
+            <a href={(footer as any).londonLink || "/london"} class="hover:text-amber-400 transition-colors block group">
+              <span class="font-medium text-white group-hover:text-amber-400 block transition-colors">
                 {footer.londonTitle || "London Base"}
               </span>
               <span class="text-xs text-neutral-500 block">
                 {footer.londonSubtitle}
               </span>
-            </div>
+            </a>
           </li>
           <li>
             <div class="block">

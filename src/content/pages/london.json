@@ -1,0 +1,47 @@
+{
+  "seoTitle": "Corporate Video Production & Event Filming London | FilmEditRun",
+  "seoDescription": "Broadcast-grade corporate video production, multi-camera conference coverage, and executive interviews across the City of London, Canary Wharf, and Central London venues.",
+  "canonicalURL": "https://filmeditrun.co.uk/london",
+  "heroTag": "London Production Hub",
+  "heroHeadingPrefix": "Corporate Video Production in",
+  "heroHeadingHighlight": "London.",
+  "heroSubtitle": "Specialist single and multi-camera event filming, keynote broadcasts, and brand storytelling for London's enterprise businesses, financial institutions, and global tech scale-ups.",
+  "heroCtaLabel": "Discuss Your London Project",
+  "heroCtaLink": "/contact",
+  "displayAs": "local-video",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "",
+  "imagePath": "/og-image.jpg",
+  "expertiseTag": "Capital Production",
+  "expertiseHeading": "Filming Across London's Premier Venues & Headquarters",
+  "expertiseDescription": "From keynote auditoriums and annual summits at ExCeL London, QEII Centre, and the Business Design Centre to boardroom executive interviews in the City and Canary Wharf, our mobile cinema units deploy on-location with broadcast precision and zero venue friction.",
+  "expertiseBullets": [
+    "Multi-camera live switching & keynote recording",
+    "On-location C-suite interviews & case studies",
+    "Fast 24-48h highlight reels for corporate communications"
+  ],
+  "cardTitle": "Why London Enterprise Brands Choose Us",
+  "cardBody": "London corporate events demand broadcast reliability, discreet crew operations, and cinematic visual impact. We combine high-end cinema glass and redundant multi-camera feeds with streamlined Adobe post-production to deliver assets that hold the attention of stakeholders and global audiences.",
+  "cardLinkLabel": "View our selected works ➔",
+  "cardLinkHref": "/work",
+  "faqHeading": "Frequently Asked Questions",
+  "faqs": [
+    {
+      "question": "Do you provide multi-camera event filming across Central London?",
+      "answer": "Yes. We regularly film corporate conferences, symposiums, and leadership summits across Central London, the City, Canary Wharf, and major exhibition centers with multi-camera 4K setups."
+    },
+    {
+      "question": "How do you handle equipment load-in and strict London venue rules?",
+      "answer": "We are fully experienced with London venue logistics, security sign-ins, risk assessments (RAMS), and loading bay access. Our compact cinema rigs are designed for rapid deployment with minimal footprint."
+    },
+    {
+      "question": "Can you deliver same-day or 24-hour highlight reels for social media?",
+      "answer": "Yes. For conferences and summits with immediate press or LinkedIn requirements, we offer on-site editing and rapid 24-to-48-hour delivery for social cutdowns and highlight reels."
+    }
+  ],
+  "bottomCtaHeading": "Ready to Film in London?",
+  "bottomCtaBody": "Get in touch to discuss your upcoming event dates, venue location, and technical production scope.",
+  "bottomCtaLabel": "Request a London Production Quote",
+  "bottomCtaLink": "/contact"
+}
+

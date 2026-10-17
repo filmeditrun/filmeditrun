@@ -51,6 +51,7 @@ const formSteps = [
     type: "textarea",
     tag: contact.step4Tag || "04 ➔ Project Brief",
     title: contact.step4Title || "How can we help? *",
+    helpText: (contact as any).step4HelpText || "",
     nameAttr: "message",
     placeholder: contact.step4Placeholder || "Tell us about your event, dates, or visual goals...",
     required: true
@@ -119,13 +120,21 @@ const formSteps = [
           )}
 
           {step.type === "textarea" && (
-            <textarea 
-              name={step.nameAttr} 
-              required={step.required} 
-              rows="3" 
-              placeholder={step.placeholder} 
-              class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-lg md:text-2xl py-2 outline-none text-white transition-colors resize-none"
-            ></textarea>
+            <>
+              {step.helpText && (
+                <div class="mb-4 p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/5 text-xs font-mono text-neutral-300 leading-relaxed flex items-start gap-2.5">
+                  <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold text-[10px] uppercase tracking-wider shrink-0">BRIEF TIP</span>
+                  <span>{step.helpText}</span>
+                </div>
+              )}
+              <textarea 
+                name={step.nameAttr} 
+                required={step.required} 
+                rows="3" 
+                placeholder={step.placeholder} 
+                class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-lg md:text-2xl py-2 outline-none text-white transition-colors resize-none"
+              ></textarea>
+            </>
           )}
 
           {step.type === "final" && (

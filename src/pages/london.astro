@@ -1,0 +1,249 @@
+---
+// =====================================================================
+// LONDON LANDING PAGE (Managed via TinaCMS in src/content/pages/london.json)
+// =====================================================================
+import Layout from '../layouts/Layout.astro';
+import rawLondon from '../content/pages/london.json';
+
+interface LondonData {
+  seoTitle: string;
+  seoDescription: string;
+  canonicalURL?: string;
+  heroTag?: string;
+  heroHeadingPrefix?: string;
+  heroHeadingHighlight?: string;
+  heroSubtitle?: string;
+  heroCtaLabel?: string;
+  heroCtaLink?: string;
+  displayAs?: "local-video" | "link-video" | "image" | "none";
+  localVideoPath?: string;
+  cloudVideoUrl?: string;
+  imagePath?: string;
+  expertiseTag?: string;
+  expertiseHeading?: string;
+  expertiseDescription?: string;
+  expertiseBullets?: string[];
+  cardTitle?: string;
+  cardBody?: string;
+  cardLinkLabel?: string;
+  cardLinkHref?: string;
+  faqHeading?: string;
+  faqs?: Array<{ question: string; answer: string }>;
+  bottomCtaHeading?: string;
+  bottomCtaBody?: string;
+  bottomCtaLabel?: string;
+  bottomCtaLink?: string;
+}
+
+const london = rawLondon as LondonData;
+
+const displayAs = london.displayAs || "local-video";
+const localVideoPath = london.localVideoPath || "/showreel.mp4";
+const cloudVideoUrl = london.cloudVideoUrl || "https://your-link.mp4";
+const imagePath = london.imagePath || "/og-image.jpg";
+const siteUrl = "https://filmeditrun.co.uk";
+const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
+const expertiseBullets = london.expertiseBullets ?? [];
+const faqs = london.faqs ?? [];
+
+// Specific LocalBusiness & FAQPage Schema for London
+const londonSchemas: Record<string, any>[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "FilmEditRun London",
+    "description": "Corporate video production and multi-camera event filming serving Central London, the City, and Greater London.",
+    "url": "https://filmeditrun.co.uk/london",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "London"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Greater London"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London",
+      "addressRegion": "Greater London",
+      "addressCountry": "GB"
+    }
+  }
+];
+
+if (faqs.length > 0) {
+  londonSchemas.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  });
+}
+---
+
+<Layout
+  title={london.seoTitle}
+  description={london.seoDescription}
+  canonical={london.canonicalURL || "https://filmeditrun.co.uk/london"}
+  ogImage={ogImage}
+  jsonLd={londonSchemas}
+  fullBleed={true}
+>
+
+  <div class="w-full relative z-10 bg-ink min-h-screen">
+
+    <!-- ============================================================== -->
+    <!-- 1. CINEMATIC HERO BANNER (Matches Services Subpage Lighting)   -->
+    <!-- ============================================================== -->
+    <header data-cinema-darkroom class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
+      
+      <!-- Video / Photo Media Backdrop Layer (Clear, vibrant background) -->
+      <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
+        <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Video Feeds) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
+
+        {/* Video Background (Local or Cloud) */}
+        {(displayAs === "local-video" || displayAs === "link-video") && (
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster={imagePath}
+            class="absolute inset-0 w-full h-full object-cover opacity-90 sm:opacity-95 z-0"
+          >
+            <source
+              src={displayAs === "local-video" ? localVideoPath : cloudVideoUrl}
+              type="video/mp4"
+            />
+          </video>
+        )}
+
+        {/* Static Image Background */}
+        {displayAs === "image" && (
+          <img
+            src={imagePath}
+            alt={london.seoTitle}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-85 z-0"
+          />
+        )}
+      </div>
+
+      <!-- Main Banner Content -->
+      <div class="relative z-20 max-w-6xl mx-auto px-6">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span class="text-neutral-600">/</span>
+          <span class="text-amber-500 font-semibold">London</span>
+        </nav>
+
+        {london.heroTag && (
+          <span class="text-xs uppercase tracking-[0.3em] text-amber-500 font-mono font-bold block mb-4">
+            {london.heroTag}
+          </span>
+        )}
+
+        <!-- Large Title -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl">
+          {london.heroHeadingPrefix} <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">{london.heroHeadingHighlight}</span>
+        </h1>
+
+        <!-- Value Proposition / Introductory Paragraph -->
+        <p class="text-lg sm:text-xl lg:text-2xl text-neutral-200 font-light leading-relaxed max-w-3xl mb-8">
+          {london.heroSubtitle}
+        </p>
+
+        <!-- Primary Action -->
+        <div>
+          <a
+            href={london.heroCtaLink}
+            class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-all shadow-xl shadow-amber-500/20 hover:scale-[1.02] text-center"
+          >
+            {london.heroCtaLabel} &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- Local Hub Context Section -->
+    <section class="max-w-6xl mx-auto px-6 py-24 sm:py-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono block mb-2">{london.expertiseTag}</span>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4 leading-tight">{london.expertiseHeading}</h2>
+          <p class="text-neutral-400 leading-relaxed mb-6 font-light">
+            {london.expertiseDescription}
+          </p>
+          {expertiseBullets.length > 0 && (
+            <ul class="space-y-3 text-neutral-300 text-sm font-mono">
+              {expertiseBullets.map((bullet) => (
+                <li class="flex items-center gap-2">✓ {bullet}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div class="bg-neutral-900/80 border border-neutral-800 p-8 sm:p-10 rounded-2xl shadow-xl">
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">{london.cardTitle}</h3>
+          <p class="text-neutral-400 text-sm sm:text-base leading-relaxed mb-6 font-light">
+            {london.cardBody}
+          </p>
+          <a href={london.cardLinkHref} class="text-amber-500 font-mono text-sm hover:underline inline-flex items-center gap-1 font-medium">
+            {london.cardLinkLabel}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- London FAQ Section -->
+    {faqs.length > 0 && (
+      <section class="max-w-4xl mx-auto px-6 py-20 border-t border-neutral-900">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-10 text-center">{london.faqHeading}</h2>
+        
+        <div class="space-y-6">
+          {faqs.map((faq) => (
+            <div class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-xl">
+              <h3 class="text-lg font-semibold text-white mb-2">{faq.question}</h3>
+              <p class="text-neutral-400 text-sm leading-relaxed font-light">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Bottom CTA -->
+    <section class="border-t border-white/10 py-24 sm:py-32 bg-neutral-950">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+          {london.bottomCtaHeading}
+        </h2>
+        <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
+          {london.bottomCtaBody}
+        </p>
+        <a
+          href={london.bottomCtaLink}
+          class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-all shadow-lg shadow-amber-500/10 hover:scale-[1.02] text-center"
+        >
+          {london.bottomCtaLabel} &rarr;
+        </a>
+      </div>
+    </section>
+
+  </div>
+</Layout>
+

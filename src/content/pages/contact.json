@@ -12,20 +12,24 @@
   "step2Title": "What service do you need? *",
   "serviceOptions": [
     {
-      "label": "Filming",
-      "value": "Filming"
+      "label": "Live Event & Conference Filming",
+      "value": "Live Event & Conference Filming"
     },
     {
-      "label": "Editing",
-      "value": "Editing"
+      "label": "Video Podcast & Vodcast Production",
+      "value": "Video Podcast & Vodcast Production"
     },
     {
-      "label": "Filming & Editing (Full Production)",
-      "value": "Filming and Editing"
+      "label": "Corporate Brand & Commercial Films",
+      "value": "Corporate Brand & Commercial Films"
+    },
+    {
+      "label": "Editing & Post-Production (Adobe Suite)",
+      "value": "Editing & Post-Production"
     },
     {
       "label": "Animation & Motion Design",
-      "value": "Animation and Motion Design"
+      "value": "Animation & Motion Design"
     }
   ],
   "step3Tag": "03 ➔ Reachable Contact",
@@ -33,7 +37,8 @@
   "step3Placeholder": "name@company.com",
   "step4Tag": "04 ➔ Project Brief",
   "step4Title": "How can we help? *",
-  "step4Placeholder": "Tell us about your event, dates, or visual goals...",
+  "step4HelpText": "Have an AI-generated brief, ChatGPT storyboard, or draft dates? Paste it straight in—we translate your ideas into broadcast schedules and camera execution.",
+  "step4Placeholder": "Tell us about your event dates, venue location, or project brief (AI / ChatGPT drafts welcome!)...",
   "step5Tag": "05 ➔ Verification & Consent",
   "step5Title": "Final Step *",
   "gdprText": "I confirm that FilmEditRun may process my contact details and project brief to prepare a production proposal in accordance with their Privacy Policy.",

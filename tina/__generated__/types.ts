@@ -88,6 +88,8 @@ export type Query = {
   homepageConnection: HomepageConnection;
   cambridgePage: CambridgePage;
   cambridgePageConnection: CambridgePageConnection;
+  londonPage: LondonPage;
+  londonPageConnection: LondonPageConnection;
   customPages: CustomPages;
   customPagesConnection: CustomPagesConnection;
   siteSettings: SiteSettings;
@@ -167,6 +169,21 @@ export type QueryCambridgePageConnectionArgs = {
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
   filter?: InputMaybe<CambridgePageFilter>;
+};
+
+
+export type QueryLondonPageArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryLondonPageConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<LondonPageFilter>;
 };
 
 
@@ -382,6 +399,7 @@ export type QueryFooterSettingsConnectionArgs = {
 export type DocumentFilter = {
   homepage?: InputMaybe<HomepageFilter>;
   cambridgePage?: InputMaybe<CambridgePageFilter>;
+  londonPage?: InputMaybe<LondonPageFilter>;
   customPages?: InputMaybe<CustomPagesFilter>;
   siteSettings?: InputMaybe<SiteSettingsFilter>;
   servicesPage?: InputMaybe<ServicesPageFilter>;
@@ -435,7 +453,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder;
+export type DocumentNode = Homepage | CambridgePage | LondonPage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder;
 
 export type Homepage = Node & Document & {
   __typename?: 'Homepage';
@@ -600,6 +618,94 @@ export type CambridgePageConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
   edges?: Maybe<Array<Maybe<CambridgePageConnectionEdges>>>;
+};
+
+export type LondonPageFaqs = {
+  __typename?: 'LondonPageFaqs';
+  question: Scalars['String']['output'];
+  answer: Scalars['String']['output'];
+};
+
+export type LondonPage = Node & Document & {
+  __typename?: 'LondonPage';
+  seoTitle: Scalars['String']['output'];
+  seoDescription: Scalars['String']['output'];
+  canonicalURL: Scalars['String']['output'];
+  heroTag: Scalars['String']['output'];
+  heroHeadingPrefix: Scalars['String']['output'];
+  heroHeadingHighlight: Scalars['String']['output'];
+  heroSubtitle: Scalars['String']['output'];
+  heroCtaLabel: Scalars['String']['output'];
+  heroCtaLink: Scalars['String']['output'];
+  displayAs?: Maybe<Scalars['String']['output']>;
+  localVideoPath?: Maybe<Scalars['String']['output']>;
+  cloudVideoUrl?: Maybe<Scalars['String']['output']>;
+  imagePath?: Maybe<Scalars['String']['output']>;
+  expertiseTag: Scalars['String']['output'];
+  expertiseHeading: Scalars['String']['output'];
+  expertiseDescription: Scalars['String']['output'];
+  expertiseBullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  cardTitle: Scalars['String']['output'];
+  cardBody: Scalars['String']['output'];
+  cardLinkLabel: Scalars['String']['output'];
+  cardLinkHref: Scalars['String']['output'];
+  faqHeading: Scalars['String']['output'];
+  faqs?: Maybe<Array<Maybe<LondonPageFaqs>>>;
+  bottomCtaHeading: Scalars['String']['output'];
+  bottomCtaBody: Scalars['String']['output'];
+  bottomCtaLabel: Scalars['String']['output'];
+  bottomCtaLink: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type LondonPageFaqsFilter = {
+  question?: InputMaybe<StringFilter>;
+  answer?: InputMaybe<StringFilter>;
+};
+
+export type LondonPageFilter = {
+  seoTitle?: InputMaybe<StringFilter>;
+  seoDescription?: InputMaybe<StringFilter>;
+  canonicalURL?: InputMaybe<StringFilter>;
+  heroTag?: InputMaybe<StringFilter>;
+  heroHeadingPrefix?: InputMaybe<StringFilter>;
+  heroHeadingHighlight?: InputMaybe<StringFilter>;
+  heroSubtitle?: InputMaybe<StringFilter>;
+  heroCtaLabel?: InputMaybe<StringFilter>;
+  heroCtaLink?: InputMaybe<StringFilter>;
+  displayAs?: InputMaybe<StringFilter>;
+  localVideoPath?: InputMaybe<StringFilter>;
+  cloudVideoUrl?: InputMaybe<StringFilter>;
+  imagePath?: InputMaybe<ImageFilter>;
+  expertiseTag?: InputMaybe<StringFilter>;
+  expertiseHeading?: InputMaybe<StringFilter>;
+  expertiseDescription?: InputMaybe<StringFilter>;
+  expertiseBullets?: InputMaybe<StringFilter>;
+  cardTitle?: InputMaybe<StringFilter>;
+  cardBody?: InputMaybe<StringFilter>;
+  cardLinkLabel?: InputMaybe<StringFilter>;
+  cardLinkHref?: InputMaybe<StringFilter>;
+  faqHeading?: InputMaybe<StringFilter>;
+  faqs?: InputMaybe<LondonPageFaqsFilter>;
+  bottomCtaHeading?: InputMaybe<StringFilter>;
+  bottomCtaBody?: InputMaybe<StringFilter>;
+  bottomCtaLabel?: InputMaybe<StringFilter>;
+  bottomCtaLink?: InputMaybe<StringFilter>;
+};
+
+export type LondonPageConnectionEdges = {
+  __typename?: 'LondonPageConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<LondonPage>;
+};
+
+export type LondonPageConnection = Connection & {
+  __typename?: 'LondonPageConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<LondonPageConnectionEdges>>>;
 };
 
 export type CustomPages = Node & Document & {
@@ -915,10 +1021,13 @@ export type WorkPage = Node & Document & {
   headerTag: Scalars['String']['output'];
   heading: Scalars['String']['output'];
   description: Scalars['String']['output'];
+  heroVideoPath?: Maybe<Scalars['String']['output']>;
+  heroPosterPath?: Maybe<Scalars['String']['output']>;
   aspectBadge?: Maybe<Scalars['String']['output']>;
   videoButtonLabel: Scalars['String']['output'];
   imageButtonLabel: Scalars['String']['output'];
   scrollIndicatorText: Scalars['String']['output'];
+  showArchive?: Maybe<Scalars['Boolean']['output']>;
   archiveTag: Scalars['String']['output'];
   archiveHeading: Scalars['String']['output'];
   archiveDescription: Scalars['String']['output'];
@@ -935,10 +1044,13 @@ export type WorkPageFilter = {
   headerTag?: InputMaybe<StringFilter>;
   heading?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  heroVideoPath?: InputMaybe<StringFilter>;
+  heroPosterPath?: InputMaybe<ImageFilter>;
   aspectBadge?: InputMaybe<StringFilter>;
   videoButtonLabel?: InputMaybe<StringFilter>;
   imageButtonLabel?: InputMaybe<StringFilter>;
   scrollIndicatorText?: InputMaybe<StringFilter>;
+  showArchive?: InputMaybe<BooleanFilter>;
   archiveTag?: InputMaybe<StringFilter>;
   archiveHeading?: InputMaybe<StringFilter>;
   archiveDescription?: InputMaybe<StringFilter>;
@@ -1185,6 +1297,7 @@ export type ContactPage = Node & Document & {
   step4Tag?: Maybe<Scalars['String']['output']>;
   step4Title: Scalars['String']['output'];
   step4Placeholder?: Maybe<Scalars['String']['output']>;
+  step4HelpText?: Maybe<Scalars['String']['output']>;
   step5Tag?: Maybe<Scalars['String']['output']>;
   step5Title?: Maybe<Scalars['String']['output']>;
   gdprText: Scalars['String']['output'];
@@ -1218,6 +1331,7 @@ export type ContactPageFilter = {
   step4Tag?: InputMaybe<StringFilter>;
   step4Title?: InputMaybe<StringFilter>;
   step4Placeholder?: InputMaybe<StringFilter>;
+  step4HelpText?: InputMaybe<StringFilter>;
   step5Tag?: InputMaybe<StringFilter>;
   step5Title?: InputMaybe<StringFilter>;
   gdprText?: InputMaybe<StringFilter>;
@@ -1501,6 +1615,7 @@ export type FooterSettings = Node & Document & {
   cambridgeLink?: Maybe<Scalars['String']['output']>;
   londonTitle?: Maybe<Scalars['String']['output']>;
   londonSubtitle?: Maybe<Scalars['String']['output']>;
+  londonLink?: Maybe<Scalars['String']['output']>;
   worldwideTitle?: Maybe<Scalars['String']['output']>;
   worldwideSubtitle?: Maybe<Scalars['String']['output']>;
   directHeading?: Maybe<Scalars['String']['output']>;
@@ -1540,6 +1655,7 @@ export type FooterSettingsFilter = {
   cambridgeLink?: InputMaybe<StringFilter>;
   londonTitle?: InputMaybe<StringFilter>;
   londonSubtitle?: InputMaybe<StringFilter>;
+  londonLink?: InputMaybe<StringFilter>;
   worldwideTitle?: InputMaybe<StringFilter>;
   worldwideSubtitle?: InputMaybe<StringFilter>;
   directHeading?: InputMaybe<StringFilter>;
@@ -1580,6 +1696,8 @@ export type Mutation = {
   createHomepage: Homepage;
   updateCambridgePage: CambridgePage;
   createCambridgePage: CambridgePage;
+  updateLondonPage: LondonPage;
+  createLondonPage: LondonPage;
   updateCustomPages: CustomPages;
   createCustomPages: CustomPages;
   updateSiteSettings: SiteSettings;
@@ -1665,6 +1783,18 @@ export type MutationUpdateCambridgePageArgs = {
 export type MutationCreateCambridgePageArgs = {
   relativePath: Scalars['String']['input'];
   params: CambridgePageMutation;
+};
+
+
+export type MutationUpdateLondonPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: LondonPageMutation;
+};
+
+
+export type MutationCreateLondonPageArgs = {
+  relativePath: Scalars['String']['input'];
+  params: LondonPageMutation;
 };
 
 
@@ -1838,6 +1968,7 @@ export type MutationCreateFooterSettingsArgs = {
 export type DocumentUpdateMutation = {
   homepage?: InputMaybe<HomepageMutation>;
   cambridgePage?: InputMaybe<CambridgePageMutation>;
+  londonPage?: InputMaybe<LondonPageMutation>;
   customPages?: InputMaybe<CustomPagesMutation>;
   siteSettings?: InputMaybe<SiteSettingsMutation>;
   servicesPage?: InputMaybe<ServicesPageMutation>;
@@ -1858,6 +1989,7 @@ export type DocumentUpdateMutation = {
 export type DocumentMutation = {
   homepage?: InputMaybe<HomepageMutation>;
   cambridgePage?: InputMaybe<CambridgePageMutation>;
+  londonPage?: InputMaybe<LondonPageMutation>;
   customPages?: InputMaybe<CustomPagesMutation>;
   siteSettings?: InputMaybe<SiteSettingsMutation>;
   servicesPage?: InputMaybe<ServicesPageMutation>;
@@ -1926,6 +2058,41 @@ export type CambridgePageMutation = {
   cardLinkHref?: InputMaybe<Scalars['String']['input']>;
   faqHeading?: InputMaybe<Scalars['String']['input']>;
   faqs?: InputMaybe<Array<InputMaybe<CambridgePageFaqsMutation>>>;
+  bottomCtaHeading?: InputMaybe<Scalars['String']['input']>;
+  bottomCtaBody?: InputMaybe<Scalars['String']['input']>;
+  bottomCtaLabel?: InputMaybe<Scalars['String']['input']>;
+  bottomCtaLink?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LondonPageFaqsMutation = {
+  question?: InputMaybe<Scalars['String']['input']>;
+  answer?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LondonPageMutation = {
+  seoTitle?: InputMaybe<Scalars['String']['input']>;
+  seoDescription?: InputMaybe<Scalars['String']['input']>;
+  canonicalURL?: InputMaybe<Scalars['String']['input']>;
+  heroTag?: InputMaybe<Scalars['String']['input']>;
+  heroHeadingPrefix?: InputMaybe<Scalars['String']['input']>;
+  heroHeadingHighlight?: InputMaybe<Scalars['String']['input']>;
+  heroSubtitle?: InputMaybe<Scalars['String']['input']>;
+  heroCtaLabel?: InputMaybe<Scalars['String']['input']>;
+  heroCtaLink?: InputMaybe<Scalars['String']['input']>;
+  displayAs?: InputMaybe<Scalars['String']['input']>;
+  localVideoPath?: InputMaybe<Scalars['String']['input']>;
+  cloudVideoUrl?: InputMaybe<Scalars['String']['input']>;
+  imagePath?: InputMaybe<Scalars['String']['input']>;
+  expertiseTag?: InputMaybe<Scalars['String']['input']>;
+  expertiseHeading?: InputMaybe<Scalars['String']['input']>;
+  expertiseDescription?: InputMaybe<Scalars['String']['input']>;
+  expertiseBullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  cardTitle?: InputMaybe<Scalars['String']['input']>;
+  cardBody?: InputMaybe<Scalars['String']['input']>;
+  cardLinkLabel?: InputMaybe<Scalars['String']['input']>;
+  cardLinkHref?: InputMaybe<Scalars['String']['input']>;
+  faqHeading?: InputMaybe<Scalars['String']['input']>;
+  faqs?: InputMaybe<Array<InputMaybe<LondonPageFaqsMutation>>>;
   bottomCtaHeading?: InputMaybe<Scalars['String']['input']>;
   bottomCtaBody?: InputMaybe<Scalars['String']['input']>;
   bottomCtaLabel?: InputMaybe<Scalars['String']['input']>;
@@ -2053,10 +2220,13 @@ export type WorkPageMutation = {
   headerTag?: InputMaybe<Scalars['String']['input']>;
   heading?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  heroVideoPath?: InputMaybe<Scalars['String']['input']>;
+  heroPosterPath?: InputMaybe<Scalars['String']['input']>;
   aspectBadge?: InputMaybe<Scalars['String']['input']>;
   videoButtonLabel?: InputMaybe<Scalars['String']['input']>;
   imageButtonLabel?: InputMaybe<Scalars['String']['input']>;
   scrollIndicatorText?: InputMaybe<Scalars['String']['input']>;
+  showArchive?: InputMaybe<Scalars['Boolean']['input']>;
   archiveTag?: InputMaybe<Scalars['String']['input']>;
   archiveHeading?: InputMaybe<Scalars['String']['input']>;
   archiveDescription?: InputMaybe<Scalars['String']['input']>;
@@ -2161,6 +2331,7 @@ export type ContactPageMutation = {
   step4Tag?: InputMaybe<Scalars['String']['input']>;
   step4Title?: InputMaybe<Scalars['String']['input']>;
   step4Placeholder?: InputMaybe<Scalars['String']['input']>;
+  step4HelpText?: InputMaybe<Scalars['String']['input']>;
   step5Tag?: InputMaybe<Scalars['String']['input']>;
   step5Title?: InputMaybe<Scalars['String']['input']>;
   gdprText?: InputMaybe<Scalars['String']['input']>;
@@ -2268,6 +2439,7 @@ export type FooterSettingsMutation = {
   cambridgeLink?: InputMaybe<Scalars['String']['input']>;
   londonTitle?: InputMaybe<Scalars['String']['input']>;
   londonSubtitle?: InputMaybe<Scalars['String']['input']>;
+  londonLink?: InputMaybe<Scalars['String']['input']>;
   worldwideTitle?: InputMaybe<Scalars['String']['input']>;
   worldwideSubtitle?: InputMaybe<Scalars['String']['input']>;
   directHeading?: InputMaybe<Scalars['String']['input']>;
@@ -2350,6 +2522,41 @@ export type CambridgePageFilter = {
   cardLinkHref?: StringFilter | null | undefined;
   faqHeading?: StringFilter | null | undefined;
   faqs?: CambridgePageFaqsFilter | null | undefined;
+  bottomCtaHeading?: StringFilter | null | undefined;
+  bottomCtaBody?: StringFilter | null | undefined;
+  bottomCtaLabel?: StringFilter | null | undefined;
+  bottomCtaLink?: StringFilter | null | undefined;
+};
+
+export type LondonPageFaqsFilter = {
+  question?: StringFilter | null | undefined;
+  answer?: StringFilter | null | undefined;
+};
+
+export type LondonPageFilter = {
+  seoTitle?: StringFilter | null | undefined;
+  seoDescription?: StringFilter | null | undefined;
+  canonicalURL?: StringFilter | null | undefined;
+  heroTag?: StringFilter | null | undefined;
+  heroHeadingPrefix?: StringFilter | null | undefined;
+  heroHeadingHighlight?: StringFilter | null | undefined;
+  heroSubtitle?: StringFilter | null | undefined;
+  heroCtaLabel?: StringFilter | null | undefined;
+  heroCtaLink?: StringFilter | null | undefined;
+  displayAs?: StringFilter | null | undefined;
+  localVideoPath?: StringFilter | null | undefined;
+  cloudVideoUrl?: StringFilter | null | undefined;
+  imagePath?: ImageFilter | null | undefined;
+  expertiseTag?: StringFilter | null | undefined;
+  expertiseHeading?: StringFilter | null | undefined;
+  expertiseDescription?: StringFilter | null | undefined;
+  expertiseBullets?: StringFilter | null | undefined;
+  cardTitle?: StringFilter | null | undefined;
+  cardBody?: StringFilter | null | undefined;
+  cardLinkLabel?: StringFilter | null | undefined;
+  cardLinkHref?: StringFilter | null | undefined;
+  faqHeading?: StringFilter | null | undefined;
+  faqs?: LondonPageFaqsFilter | null | undefined;
   bottomCtaHeading?: StringFilter | null | undefined;
   bottomCtaBody?: StringFilter | null | undefined;
   bottomCtaLabel?: StringFilter | null | undefined;
@@ -2482,10 +2689,13 @@ export type WorkPageFilter = {
   headerTag?: StringFilter | null | undefined;
   heading?: StringFilter | null | undefined;
   description?: StringFilter | null | undefined;
+  heroVideoPath?: StringFilter | null | undefined;
+  heroPosterPath?: ImageFilter | null | undefined;
   aspectBadge?: StringFilter | null | undefined;
   videoButtonLabel?: StringFilter | null | undefined;
   imageButtonLabel?: StringFilter | null | undefined;
   scrollIndicatorText?: StringFilter | null | undefined;
+  showArchive?: BooleanFilter | null | undefined;
   archiveTag?: StringFilter | null | undefined;
   archiveHeading?: StringFilter | null | undefined;
   archiveDescription?: StringFilter | null | undefined;
@@ -2590,6 +2800,7 @@ export type ContactPageFilter = {
   step4Tag?: StringFilter | null | undefined;
   step4Title?: StringFilter | null | undefined;
   step4Placeholder?: StringFilter | null | undefined;
+  step4HelpText?: StringFilter | null | undefined;
   step5Tag?: StringFilter | null | undefined;
   step5Title?: StringFilter | null | undefined;
   gdprText?: StringFilter | null | undefined;
@@ -2707,6 +2918,7 @@ export type FooterSettingsFilter = {
   cambridgeLink?: StringFilter | null | undefined;
   londonTitle?: StringFilter | null | undefined;
   londonSubtitle?: StringFilter | null | undefined;
+  londonLink?: StringFilter | null | undefined;
   worldwideTitle?: StringFilter | null | undefined;
   worldwideSubtitle?: StringFilter | null | undefined;
   directHeading?: StringFilter | null | undefined;
@@ -2727,6 +2939,8 @@ export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, 
 
 export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
 
+export type LondonPagePartsFragment = { __typename: 'LondonPage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null };
+
 export type CustomPagesPartsFragment = { __typename: 'CustomPages', slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, heroTag: string | null, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null };
 
 export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, navLinks: Array<{ __typename: 'SiteSettingsNavLinks', label: string, href: string } | null> | null };
@@ -2735,7 +2949,7 @@ export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: 
 
 export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string | null, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, displayAs: string, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
 
-export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string };
+export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string };
 
 export type ProjectPartsFragment = { __typename: 'Project', order: string, title: string, client: string, category: string, runtime: string, description: string, backgroundStyle: string, videoUrl: string, thumbnail: string, brightnessStyle: string };
 
@@ -2743,7 +2957,7 @@ export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string
 
 export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutSliderSlides', name: string, bio: string | null, avatar: string | null, videoLoop: string | null, badge: string | null } | null> | null };
 
-export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
+export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
 
 export type ThankYouPagePartsFragment = { __typename: 'ThankYouPage', seoTitle: string, seoDescription: string, statusBadge: string | null, heading: string, highlight: string | null, description: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, primaryBtnLabel: string | null, primaryBtnLink: string | null, secondaryBtnLabel: string | null, secondaryBtnLink: string | null };
 
@@ -2753,7 +2967,7 @@ export type SeoSettingsPartsFragment = { __typename: 'SeoSettings', legalName: s
 
 export type GradeSettingsPartsFragment = { __typename: 'GradeSettings', defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirTitle: string | null, darkNoirAccentColor: string | null, highKeyTitle: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaTitle: string | null, supernovaAccentColor: string | null, supernovaSecondaryColor: string | null };
 
-export type FooterSettingsPartsFragment = { __typename: 'FooterSettings', studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null };
+export type FooterSettingsPartsFragment = { __typename: 'FooterSettings', studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, londonLink: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null };
 
 export type HomepageQueryVariables = Exact<{
   relativePath: string;
@@ -2792,6 +3006,25 @@ export type CambridgePageConnectionQueryVariables = Exact<{
 
 
 export type CambridgePageConnectionQuery = { cambridgePageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
+
+export type LondonPageQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type LondonPageQuery = { londonPage: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } };
+
+export type LondonPageConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: LondonPageFilter | null | undefined;
+}>;
+
+
+export type LondonPageConnectionQuery = { londonPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
 
 export type CustomPagesQueryVariables = Exact<{
   relativePath: string;
@@ -2874,7 +3107,7 @@ export type WorkPageQueryVariables = Exact<{
 }>;
 
 
-export type WorkPageQuery = { workPage: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type WorkPageQuery = { workPage: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type WorkPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -2886,7 +3119,7 @@ export type WorkPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type WorkPageConnectionQuery = { workPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type WorkPageConnectionQuery = { workPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, aspectBadge: string | null, videoButtonLabel: string, imageButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, archiveDescription: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type ProjectQueryVariables = Exact<{
   relativePath: string;
@@ -2950,7 +3183,7 @@ export type ContactPageQueryVariables = Exact<{
 }>;
 
 
-export type ContactPageQuery = { contactPage: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } };
+export type ContactPageQuery = { contactPage: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } };
 
 export type ContactPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -2962,7 +3195,7 @@ export type ContactPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ContactPageConnectionQuery = { contactPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } | null } | null> | null } };
+export type ContactPageConnectionQuery = { contactPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } | null } | null> | null } };
 
 export type ThankYouPageQueryVariables = Exact<{
   relativePath: string;
@@ -3045,7 +3278,7 @@ export type FooterSettingsQueryVariables = Exact<{
 }>;
 
 
-export type FooterSettingsQuery = { footerSettings: { __typename: 'FooterSettings', id: string, studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null } };
+export type FooterSettingsQuery = { footerSettings: { __typename: 'FooterSettings', id: string, studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, londonLink: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null } };
 
 export type FooterSettingsConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3057,7 +3290,7 @@ export type FooterSettingsConnectionQueryVariables = Exact<{
 }>;
 
 
-export type FooterSettingsConnectionQuery = { footerSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'FooterSettings', id: string, studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null } | null } | null> | null } };
+export type FooterSettingsConnectionQuery = { footerSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'FooterSettings', id: string, studioTagline: string | null, commissionButtonLabel: string | null, commissionButtonLink: string | null, capabilitiesHeading: string | null, servicesLinkLabel: string | null, servicesLinkUrl: string | null, studioHeading: string | null, presenceHeading: string | null, cambridgeTitle: string | null, cambridgeSubtitle: string | null, cambridgeLink: string | null, londonTitle: string | null, londonSubtitle: string | null, londonLink: string | null, worldwideTitle: string | null, worldwideSubtitle: string | null, directHeading: string | null, inquiriesLabel: string | null, inquiriesActionText: string | null, inquiriesActionLink: string | null, productionHubLabel: string | null, productionHub: string | null, capturePipelineLabel: string | null, capturePipeline: string | null, studioStatusLabel: string | null, studioStatus: string | null, copyrightTagline: string | null, backToTopLabel: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, studioLinks: Array<{ __typename: 'FooterSettingsStudioLinks', label: string, href: string } | null> | null } | null } | null> | null } };
 
 export const HomepagePartsFragmentDoc = gql`
     fragment HomepageParts on Homepage {
@@ -3086,6 +3319,42 @@ export const HomepagePartsFragmentDoc = gql`
     `;
 export const CambridgePagePartsFragmentDoc = gql`
     fragment CambridgePageParts on CambridgePage {
+  __typename
+  seoTitle
+  seoDescription
+  canonicalURL
+  heroTag
+  heroHeadingPrefix
+  heroHeadingHighlight
+  heroSubtitle
+  heroCtaLabel
+  heroCtaLink
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+  expertiseTag
+  expertiseHeading
+  expertiseDescription
+  expertiseBullets
+  cardTitle
+  cardBody
+  cardLinkLabel
+  cardLinkHref
+  faqHeading
+  faqs {
+    __typename
+    question
+    answer
+  }
+  bottomCtaHeading
+  bottomCtaBody
+  bottomCtaLabel
+  bottomCtaLink
+}
+    `;
+export const LondonPagePartsFragmentDoc = gql`
+    fragment LondonPageParts on LondonPage {
   __typename
   seoTitle
   seoDescription
@@ -3248,10 +3517,13 @@ export const WorkPagePartsFragmentDoc = gql`
   headerTag
   heading
   description
+  heroVideoPath
+  heroPosterPath
   aspectBadge
   videoButtonLabel
   imageButtonLabel
   scrollIndicatorText
+  showArchive
   archiveTag
   archiveHeading
   archiveDescription
@@ -3360,6 +3632,7 @@ export const ContactPagePartsFragmentDoc = gql`
   step4Tag
   step4Title
   step4Placeholder
+  step4HelpText
   step5Tag
   step5Title
   gdprText
@@ -3474,6 +3747,7 @@ export const FooterSettingsPartsFragmentDoc = gql`
   cambridgeLink
   londonTitle
   londonSubtitle
+  londonLink
   worldwideTitle
   worldwideSubtitle
   directHeading
@@ -3604,6 +3878,63 @@ export const CambridgePageConnectionDocument = gql`
   }
 }
     ${CambridgePagePartsFragmentDoc}`;
+export const LondonPageDocument = gql`
+    query londonPage($relativePath: String!) {
+  londonPage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...LondonPageParts
+  }
+}
+    ${LondonPagePartsFragmentDoc}`;
+export const LondonPageConnectionDocument = gql`
+    query londonPageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: LondonPageFilter) {
+  londonPageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...LondonPageParts
+      }
+    }
+  }
+}
+    ${LondonPagePartsFragmentDoc}`;
 export const CustomPagesDocument = gql`
     query customPages($relativePath: String!) {
   customPages(relativePath: $relativePath) {
@@ -4416,6 +4747,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     cambridgePageConnection(variables?: CambridgePageConnectionQueryVariables, options?: C): Promise<{data: CambridgePageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CambridgePageConnectionQueryVariables, query: string}> {
         return requester<{data: CambridgePageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CambridgePageConnectionQueryVariables, query: string}, CambridgePageConnectionQueryVariables>(CambridgePageConnectionDocument, variables, options);
+      },
+    londonPage(variables: LondonPageQueryVariables, options?: C): Promise<{data: LondonPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: LondonPageQueryVariables, query: string}> {
+        return requester<{data: LondonPageQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: LondonPageQueryVariables, query: string}, LondonPageQueryVariables>(LondonPageDocument, variables, options);
+      },
+    londonPageConnection(variables?: LondonPageConnectionQueryVariables, options?: C): Promise<{data: LondonPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: LondonPageConnectionQueryVariables, query: string}> {
+        return requester<{data: LondonPageConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: LondonPageConnectionQueryVariables, query: string}, LondonPageConnectionQueryVariables>(LondonPageConnectionDocument, variables, options);
       },
     customPages(variables: CustomPagesQueryVariables, options?: C): Promise<{data: CustomPagesQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CustomPagesQueryVariables, query: string}> {
         return requester<{data: CustomPagesQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: CustomPagesQueryVariables, query: string}, CustomPagesQueryVariables>(CustomPagesDocument, variables, options);

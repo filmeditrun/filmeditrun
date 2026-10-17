@@ -57,6 +57,41 @@ fragment CambridgePageParts on CambridgePage {
   bottomCtaLink
 }
 
+fragment LondonPageParts on LondonPage {
+  __typename
+  seoTitle
+  seoDescription
+  canonicalURL
+  heroTag
+  heroHeadingPrefix
+  heroHeadingHighlight
+  heroSubtitle
+  heroCtaLabel
+  heroCtaLink
+  displayAs
+  localVideoPath
+  cloudVideoUrl
+  imagePath
+  expertiseTag
+  expertiseHeading
+  expertiseDescription
+  expertiseBullets
+  cardTitle
+  cardBody
+  cardLinkLabel
+  cardLinkHref
+  faqHeading
+  faqs {
+    __typename
+    question
+    answer
+  }
+  bottomCtaHeading
+  bottomCtaBody
+  bottomCtaLabel
+  bottomCtaLink
+}
+
 fragment CustomPagesParts on CustomPages {
   __typename
   slug
@@ -180,10 +215,13 @@ fragment WorkPageParts on WorkPage {
   headerTag
   heading
   description
+  heroVideoPath
+  heroPosterPath
   aspectBadge
   videoButtonLabel
   imageButtonLabel
   scrollIndicatorText
+  showArchive
   archiveTag
   archiveHeading
   archiveDescription
@@ -288,6 +326,7 @@ fragment ContactPageParts on ContactPage {
   step4Tag
   step4Title
   step4Placeholder
+  step4HelpText
   step5Tag
   step5Title
   gdprText
@@ -397,6 +436,7 @@ fragment FooterSettingsParts on FooterSettings {
   cambridgeLink
   londonTitle
   londonSubtitle
+  londonLink
   worldwideTitle
   worldwideSubtitle
   directHeading

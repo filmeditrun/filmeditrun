@@ -61,6 +61,8 @@ type Query {
   homepageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HomepageFilter): HomepageConnection!
   cambridgePage(relativePath: String): CambridgePage!
   cambridgePageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CambridgePageFilter): CambridgePageConnection!
+  londonPage(relativePath: String): LondonPage!
+  londonPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: LondonPageFilter): LondonPageConnection!
   customPages(relativePath: String): CustomPages!
   customPagesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CustomPagesFilter): CustomPagesConnection!
   siteSettings(relativePath: String): SiteSettings!
@@ -94,6 +96,7 @@ type Query {
 input DocumentFilter {
   homepage: HomepageFilter
   cambridgePage: CambridgePageFilter
+  londonPage: LondonPageFilter
   customPages: CustomPagesFilter
   siteSettings: SiteSettingsFilter
   servicesPage: ServicesPageFilter
@@ -133,7 +136,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | CambridgePage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder
+union DocumentNode = Homepage | CambridgePage | LondonPage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder
 
 type Homepage implements Node & Document {
   seoTitle: String!
@@ -291,6 +294,90 @@ type CambridgePageConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [CambridgePageConnectionEdges]
+}
+
+type LondonPageFaqs {
+  question: String!
+  answer: String!
+}
+
+type LondonPage implements Node & Document {
+  seoTitle: String!
+  seoDescription: String!
+  canonicalURL: String!
+  heroTag: String!
+  heroHeadingPrefix: String!
+  heroHeadingHighlight: String!
+  heroSubtitle: String!
+  heroCtaLabel: String!
+  heroCtaLink: String!
+  displayAs: String
+  localVideoPath: String
+  cloudVideoUrl: String
+  imagePath: String
+  expertiseTag: String!
+  expertiseHeading: String!
+  expertiseDescription: String!
+  expertiseBullets: [String]
+  cardTitle: String!
+  cardBody: String!
+  cardLinkLabel: String!
+  cardLinkHref: String!
+  faqHeading: String!
+  faqs: [LondonPageFaqs]
+  bottomCtaHeading: String!
+  bottomCtaBody: String!
+  bottomCtaLabel: String!
+  bottomCtaLink: String!
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input LondonPageFaqsFilter {
+  question: StringFilter
+  answer: StringFilter
+}
+
+input LondonPageFilter {
+  seoTitle: StringFilter
+  seoDescription: StringFilter
+  canonicalURL: StringFilter
+  heroTag: StringFilter
+  heroHeadingPrefix: StringFilter
+  heroHeadingHighlight: StringFilter
+  heroSubtitle: StringFilter
+  heroCtaLabel: StringFilter
+  heroCtaLink: StringFilter
+  displayAs: StringFilter
+  localVideoPath: StringFilter
+  cloudVideoUrl: StringFilter
+  imagePath: ImageFilter
+  expertiseTag: StringFilter
+  expertiseHeading: StringFilter
+  expertiseDescription: StringFilter
+  expertiseBullets: StringFilter
+  cardTitle: StringFilter
+  cardBody: StringFilter
+  cardLinkLabel: StringFilter
+  cardLinkHref: StringFilter
+  faqHeading: StringFilter
+  faqs: LondonPageFaqsFilter
+  bottomCtaHeading: StringFilter
+  bottomCtaBody: StringFilter
+  bottomCtaLabel: StringFilter
+  bottomCtaLink: StringFilter
+}
+
+type LondonPageConnectionEdges {
+  cursor: String!
+  node: LondonPage
+}
+
+type LondonPageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [LondonPageConnectionEdges]
 }
 
 type CustomPages implements Node & Document {
@@ -590,10 +677,13 @@ type WorkPage implements Node & Document {
   headerTag: String!
   heading: String!
   description: String!
+  heroVideoPath: String
+  heroPosterPath: String
   aspectBadge: String
   videoButtonLabel: String!
   imageButtonLabel: String!
   scrollIndicatorText: String!
+  showArchive: Boolean
   archiveTag: String!
   archiveHeading: String!
   archiveDescription: String!
@@ -610,10 +700,13 @@ input WorkPageFilter {
   headerTag: StringFilter
   heading: StringFilter
   description: StringFilter
+  heroVideoPath: StringFilter
+  heroPosterPath: ImageFilter
   aspectBadge: StringFilter
   videoButtonLabel: StringFilter
   imageButtonLabel: StringFilter
   scrollIndicatorText: StringFilter
+  showArchive: BooleanFilter
   archiveTag: StringFilter
   archiveHeading: StringFilter
   archiveDescription: StringFilter
@@ -844,6 +937,7 @@ type ContactPage implements Node & Document {
   step4Tag: String
   step4Title: String!
   step4Placeholder: String
+  step4HelpText: String
   step5Tag: String
   step5Title: String
   gdprText: String!
@@ -877,6 +971,7 @@ input ContactPageFilter {
   step4Tag: StringFilter
   step4Title: StringFilter
   step4Placeholder: StringFilter
+  step4HelpText: StringFilter
   step5Tag: StringFilter
   step5Title: StringFilter
   gdprText: StringFilter
@@ -1142,6 +1237,7 @@ type FooterSettings implements Node & Document {
   cambridgeLink: String
   londonTitle: String
   londonSubtitle: String
+  londonLink: String
   worldwideTitle: String
   worldwideSubtitle: String
   directHeading: String
@@ -1181,6 +1277,7 @@ input FooterSettingsFilter {
   cambridgeLink: StringFilter
   londonTitle: StringFilter
   londonSubtitle: StringFilter
+  londonLink: StringFilter
   worldwideTitle: StringFilter
   worldwideSubtitle: StringFilter
   directHeading: StringFilter
@@ -1218,6 +1315,8 @@ type Mutation {
   createHomepage(relativePath: String!, params: HomepageMutation!): Homepage!
   updateCambridgePage(relativePath: String!, params: CambridgePageMutation!): CambridgePage!
   createCambridgePage(relativePath: String!, params: CambridgePageMutation!): CambridgePage!
+  updateLondonPage(relativePath: String!, params: LondonPageMutation!): LondonPage!
+  createLondonPage(relativePath: String!, params: LondonPageMutation!): LondonPage!
   updateCustomPages(relativePath: String!, params: CustomPagesMutation!): CustomPages!
   createCustomPages(relativePath: String!, params: CustomPagesMutation!): CustomPages!
   updateSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
@@ -1251,6 +1350,7 @@ type Mutation {
 input DocumentUpdateMutation {
   homepage: HomepageMutation
   cambridgePage: CambridgePageMutation
+  londonPage: LondonPageMutation
   customPages: CustomPagesMutation
   siteSettings: SiteSettingsMutation
   servicesPage: ServicesPageMutation
@@ -1271,6 +1371,7 @@ input DocumentUpdateMutation {
 input DocumentMutation {
   homepage: HomepageMutation
   cambridgePage: CambridgePageMutation
+  londonPage: LondonPageMutation
   customPages: CustomPagesMutation
   siteSettings: SiteSettingsMutation
   servicesPage: ServicesPageMutation
@@ -1339,6 +1440,41 @@ input CambridgePageMutation {
   cardLinkHref: String
   faqHeading: String
   faqs: [CambridgePageFaqsMutation]
+  bottomCtaHeading: String
+  bottomCtaBody: String
+  bottomCtaLabel: String
+  bottomCtaLink: String
+}
+
+input LondonPageFaqsMutation {
+  question: String
+  answer: String
+}
+
+input LondonPageMutation {
+  seoTitle: String
+  seoDescription: String
+  canonicalURL: String
+  heroTag: String
+  heroHeadingPrefix: String
+  heroHeadingHighlight: String
+  heroSubtitle: String
+  heroCtaLabel: String
+  heroCtaLink: String
+  displayAs: String
+  localVideoPath: String
+  cloudVideoUrl: String
+  imagePath: String
+  expertiseTag: String
+  expertiseHeading: String
+  expertiseDescription: String
+  expertiseBullets: [String]
+  cardTitle: String
+  cardBody: String
+  cardLinkLabel: String
+  cardLinkHref: String
+  faqHeading: String
+  faqs: [LondonPageFaqsMutation]
   bottomCtaHeading: String
   bottomCtaBody: String
   bottomCtaLabel: String
@@ -1466,10 +1602,13 @@ input WorkPageMutation {
   headerTag: String
   heading: String
   description: String
+  heroVideoPath: String
+  heroPosterPath: String
   aspectBadge: String
   videoButtonLabel: String
   imageButtonLabel: String
   scrollIndicatorText: String
+  showArchive: Boolean
   archiveTag: String
   archiveHeading: String
   archiveDescription: String
@@ -1574,6 +1713,7 @@ input ContactPageMutation {
   step4Tag: String
   step4Title: String
   step4Placeholder: String
+  step4HelpText: String
   step5Tag: String
   step5Title: String
   gdprText: String
@@ -1681,6 +1821,7 @@ input FooterSettingsMutation {
   cambridgeLink: String
   londonTitle: String
   londonSubtitle: String
+  londonLink: String
   worldwideTitle: String
   worldwideSubtitle: String
   directHeading: String
