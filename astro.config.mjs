@@ -12,6 +12,8 @@ export default defineConfig({
   },
   redirects: {
     '/admin': '/admin/index.html',
+    '/review': 'https://g.page/r/Cba1pWWqNcpWEAI/review',
+    '/reviews': 'https://g.page/r/Cba1pWWqNcpWEAI/review',
   },
   vite: {
     plugins: [tailwindcss()],
