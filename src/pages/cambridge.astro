@@ -27,6 +27,13 @@ interface CambridgeData {
   cardBody?: string;
   cardLinkLabel?: string;
   cardLinkHref?: string;
+  lookbookTag?: string;
+  lookbookHeroImage?: string;
+  lookbookHeroBadge?: string;
+  lookbookDetail1Image?: string;
+  lookbookDetail1Badge?: string;
+  lookbookDetail2Image?: string;
+  lookbookDetail2Badge?: string;
   faqHeading?: string;
   faqs?: Array<{ question: string; answer: string }>;
   bottomCtaHeading?: string;
@@ -45,6 +52,13 @@ const siteUrl = "https://filmeditrun.co.uk";
 const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
 const expertiseBullets = cambridge.expertiseBullets ?? [];
 const faqs = cambridge.faqs ?? [];
+const lookbookTag = cambridge.lookbookTag || "Field Dispatches // Cambridge";
+const lookbookHeroImage = cambridge.lookbookHeroImage || "/og-image.jpg";
+const lookbookHeroBadge = cambridge.lookbookHeroBadge || "Cambridge Science Park • Multi-Cam Keynote";
+const lookbookDetail1Image = cambridge.lookbookDetail1Image || "/og-image.jpg";
+const lookbookDetail1Badge = cambridge.lookbookDetail1Badge || "Historic Colleges • Symposia & Panels";
+const lookbookDetail2Image = cambridge.lookbookDetail2Image || "/og-image.jpg";
+const lookbookDetail2Badge = cambridge.lookbookDetail2Badge || "The Bradfield Centre • Executive Interviews";
 
 // Specific LocalBusiness & FAQPage Schema for Cambridge
 const cambridgeSchemas: Record<string, any>[] = [
@@ -200,6 +214,67 @@ if (faqs.length > 0) {
           <a href={cambridge.cardLinkHref} class="text-amber-500 font-mono text-sm hover:underline inline-flex items-center gap-1 font-medium">
             {cambridge.cardLinkLabel}
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cambridge Editorial Lookbook -->
+    <section class="max-w-6xl mx-auto px-6 py-16 sm:py-20 border-t border-neutral-900">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+          {lookbookTag}
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6 items-stretch">
+        <!-- Large Left Hero Frame (3 of 5 cols) -->
+        <div class="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 min-h-[300px] sm:min-h-[420px]">
+          <img
+            src={lookbookHeroImage}
+            alt={lookbookHeroBadge}
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
+          />
+          {lookbookHeroBadge && (
+            <div class="absolute bottom-3.5 left-3.5 px-3 py-1.5 rounded-lg bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-300 uppercase tracking-wider flex items-center gap-2 shadow-lg">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span>{lookbookHeroBadge}</span>
+            </div>
+          )}
+        </div>
+
+        <!-- Stacked Right Detail Frames (2 of 5 cols) -->
+        <div class="lg:col-span-2 flex flex-col gap-4 sm:gap-6">
+          <div class="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 aspect-[16/10] sm:aspect-[16/9] flex-1">
+            <img
+              src={lookbookDetail1Image}
+              alt={lookbookDetail1Badge}
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              loading="lazy"
+            />
+            {lookbookDetail1Badge && (
+              <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300 uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                <span class="w-1 h-1 rounded-full bg-amber-400"></span>
+                <span>{lookbookDetail1Badge}</span>
+              </div>
+            )}
+          </div>
+
+          <div class="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 aspect-[16/10] sm:aspect-[16/9] flex-1">
+            <img
+              src={lookbookDetail2Image}
+              alt={lookbookDetail2Badge}
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              loading="lazy"
+            />
+            {lookbookDetail2Badge && (
+              <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300 uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                <span class="w-1 h-1 rounded-full bg-amber-400"></span>
+                <span>{lookbookDetail2Badge}</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

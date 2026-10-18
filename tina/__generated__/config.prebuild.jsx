@@ -427,6 +427,42 @@ var config_default = defineConfig({
             label: "Right Feature Card Link URL",
             required: true
           },
+          // ─── 📸 ON-LOCATION EDITORIAL LOOKBOOK ─────────────────────────
+          {
+            type: "string",
+            name: "lookbookTag",
+            label: "\u{1F4F8} Lookbook Section Tag"
+          },
+          {
+            type: "image",
+            name: "lookbookHeroImage",
+            label: "\u{1F4F8} Large Hero Frame (Left)"
+          },
+          {
+            type: "string",
+            name: "lookbookHeroBadge",
+            label: "Large Hero Badge (e.g. Cambridge Science Park \u2022 Multi-Cam Keynote)"
+          },
+          {
+            type: "image",
+            name: "lookbookDetail1Image",
+            label: "\u{1F4F8} Detail Frame 1 (Top Right)"
+          },
+          {
+            type: "string",
+            name: "lookbookDetail1Badge",
+            label: "Detail 1 Badge (e.g. Historic Colleges \u2022 Symposia & Panels)"
+          },
+          {
+            type: "image",
+            name: "lookbookDetail2Image",
+            label: "\u{1F4F8} Detail Frame 2 (Bottom Right)"
+          },
+          {
+            type: "string",
+            name: "lookbookDetail2Badge",
+            label: "Detail 2 Badge (e.g. The Bradfield Centre \u2022 Executive Interviews)"
+          },
           // ─── ❓ FREQUENTLY ASKED QUESTIONS (AI SEARCH SCHEMA) ────────
           {
             type: "string",
@@ -654,6 +690,42 @@ var config_default = defineConfig({
             name: "cardLinkHref",
             label: "Right Feature Card Link URL",
             required: true
+          },
+          // ─── 📸 ON-LOCATION EDITORIAL LOOKBOOK ─────────────────────────
+          {
+            type: "string",
+            name: "lookbookTag",
+            label: "\u{1F4F8} Lookbook Section Tag"
+          },
+          {
+            type: "image",
+            name: "lookbookHeroImage",
+            label: "\u{1F4F8} Large Hero Frame (Left)"
+          },
+          {
+            type: "string",
+            name: "lookbookHeroBadge",
+            label: "Large Hero Badge (e.g. ExCeL London \u2022 4K Multi-Cam Stage)"
+          },
+          {
+            type: "image",
+            name: "lookbookDetail1Image",
+            label: "\u{1F4F8} Detail Frame 1 (Top Right)"
+          },
+          {
+            type: "string",
+            name: "lookbookDetail1Badge",
+            label: "Detail 1 Badge (e.g. City of London \u2022 Executive Profiles)"
+          },
+          {
+            type: "image",
+            name: "lookbookDetail2Image",
+            label: "\u{1F4F8} Detail Frame 2 (Bottom Right)"
+          },
+          {
+            type: "string",
+            name: "lookbookDetail2Badge",
+            label: "Detail 2 Badge (e.g. Kings Cross \u2022 Live Audio & Cinema Rigs)"
           },
           // ─── ❓ FREQUENTLY ASKED QUESTIONS (AI SEARCH SCHEMA) ────────
           {

@@ -561,6 +561,13 @@ export type CambridgePage = Node & Document & {
   cardBody: Scalars['String']['output'];
   cardLinkLabel: Scalars['String']['output'];
   cardLinkHref: Scalars['String']['output'];
+  lookbookTag?: Maybe<Scalars['String']['output']>;
+  lookbookHeroImage?: Maybe<Scalars['String']['output']>;
+  lookbookHeroBadge?: Maybe<Scalars['String']['output']>;
+  lookbookDetail1Image?: Maybe<Scalars['String']['output']>;
+  lookbookDetail1Badge?: Maybe<Scalars['String']['output']>;
+  lookbookDetail2Image?: Maybe<Scalars['String']['output']>;
+  lookbookDetail2Badge?: Maybe<Scalars['String']['output']>;
   faqHeading: Scalars['String']['output'];
   faqs?: Maybe<Array<Maybe<CambridgePageFaqs>>>;
   bottomCtaHeading: Scalars['String']['output'];
@@ -599,6 +606,13 @@ export type CambridgePageFilter = {
   cardBody?: InputMaybe<StringFilter>;
   cardLinkLabel?: InputMaybe<StringFilter>;
   cardLinkHref?: InputMaybe<StringFilter>;
+  lookbookTag?: InputMaybe<StringFilter>;
+  lookbookHeroImage?: InputMaybe<ImageFilter>;
+  lookbookHeroBadge?: InputMaybe<StringFilter>;
+  lookbookDetail1Image?: InputMaybe<ImageFilter>;
+  lookbookDetail1Badge?: InputMaybe<StringFilter>;
+  lookbookDetail2Image?: InputMaybe<ImageFilter>;
+  lookbookDetail2Badge?: InputMaybe<StringFilter>;
   faqHeading?: InputMaybe<StringFilter>;
   faqs?: InputMaybe<CambridgePageFaqsFilter>;
   bottomCtaHeading?: InputMaybe<StringFilter>;
@@ -649,6 +663,13 @@ export type LondonPage = Node & Document & {
   cardBody: Scalars['String']['output'];
   cardLinkLabel: Scalars['String']['output'];
   cardLinkHref: Scalars['String']['output'];
+  lookbookTag?: Maybe<Scalars['String']['output']>;
+  lookbookHeroImage?: Maybe<Scalars['String']['output']>;
+  lookbookHeroBadge?: Maybe<Scalars['String']['output']>;
+  lookbookDetail1Image?: Maybe<Scalars['String']['output']>;
+  lookbookDetail1Badge?: Maybe<Scalars['String']['output']>;
+  lookbookDetail2Image?: Maybe<Scalars['String']['output']>;
+  lookbookDetail2Badge?: Maybe<Scalars['String']['output']>;
   faqHeading: Scalars['String']['output'];
   faqs?: Maybe<Array<Maybe<LondonPageFaqs>>>;
   bottomCtaHeading: Scalars['String']['output'];
@@ -687,6 +708,13 @@ export type LondonPageFilter = {
   cardBody?: InputMaybe<StringFilter>;
   cardLinkLabel?: InputMaybe<StringFilter>;
   cardLinkHref?: InputMaybe<StringFilter>;
+  lookbookTag?: InputMaybe<StringFilter>;
+  lookbookHeroImage?: InputMaybe<ImageFilter>;
+  lookbookHeroBadge?: InputMaybe<StringFilter>;
+  lookbookDetail1Image?: InputMaybe<ImageFilter>;
+  lookbookDetail1Badge?: InputMaybe<StringFilter>;
+  lookbookDetail2Image?: InputMaybe<ImageFilter>;
+  lookbookDetail2Badge?: InputMaybe<StringFilter>;
   faqHeading?: InputMaybe<StringFilter>;
   faqs?: InputMaybe<LondonPageFaqsFilter>;
   bottomCtaHeading?: InputMaybe<StringFilter>;
@@ -2056,6 +2084,13 @@ export type CambridgePageMutation = {
   cardBody?: InputMaybe<Scalars['String']['input']>;
   cardLinkLabel?: InputMaybe<Scalars['String']['input']>;
   cardLinkHref?: InputMaybe<Scalars['String']['input']>;
+  lookbookTag?: InputMaybe<Scalars['String']['input']>;
+  lookbookHeroImage?: InputMaybe<Scalars['String']['input']>;
+  lookbookHeroBadge?: InputMaybe<Scalars['String']['input']>;
+  lookbookDetail1Image?: InputMaybe<Scalars['String']['input']>;
+  lookbookDetail1Badge?: InputMaybe<Scalars['String']['input']>;
+  lookbookDetail2Image?: InputMaybe<Scalars['String']['input']>;
+  lookbookDetail2Badge?: InputMaybe<Scalars['String']['input']>;
   faqHeading?: InputMaybe<Scalars['String']['input']>;
   faqs?: InputMaybe<Array<InputMaybe<CambridgePageFaqsMutation>>>;
   bottomCtaHeading?: InputMaybe<Scalars['String']['input']>;
@@ -2091,6 +2126,13 @@ export type LondonPageMutation = {
   cardBody?: InputMaybe<Scalars['String']['input']>;
   cardLinkLabel?: InputMaybe<Scalars['String']['input']>;
   cardLinkHref?: InputMaybe<Scalars['String']['input']>;
+  lookbookTag?: InputMaybe<Scalars['String']['input']>;
+  lookbookHeroImage?: InputMaybe<Scalars['String']['input']>;
+  lookbookHeroBadge?: InputMaybe<Scalars['String']['input']>;
+  lookbookDetail1Image?: InputMaybe<Scalars['String']['input']>;
+  lookbookDetail1Badge?: InputMaybe<Scalars['String']['input']>;
+  lookbookDetail2Image?: InputMaybe<Scalars['String']['input']>;
+  lookbookDetail2Badge?: InputMaybe<Scalars['String']['input']>;
   faqHeading?: InputMaybe<Scalars['String']['input']>;
   faqs?: InputMaybe<Array<InputMaybe<LondonPageFaqsMutation>>>;
   bottomCtaHeading?: InputMaybe<Scalars['String']['input']>;
@@ -2520,6 +2562,13 @@ export type CambridgePageFilter = {
   cardBody?: StringFilter | null | undefined;
   cardLinkLabel?: StringFilter | null | undefined;
   cardLinkHref?: StringFilter | null | undefined;
+  lookbookTag?: StringFilter | null | undefined;
+  lookbookHeroImage?: ImageFilter | null | undefined;
+  lookbookHeroBadge?: StringFilter | null | undefined;
+  lookbookDetail1Image?: ImageFilter | null | undefined;
+  lookbookDetail1Badge?: StringFilter | null | undefined;
+  lookbookDetail2Image?: ImageFilter | null | undefined;
+  lookbookDetail2Badge?: StringFilter | null | undefined;
   faqHeading?: StringFilter | null | undefined;
   faqs?: CambridgePageFaqsFilter | null | undefined;
   bottomCtaHeading?: StringFilter | null | undefined;
@@ -2555,6 +2604,13 @@ export type LondonPageFilter = {
   cardBody?: StringFilter | null | undefined;
   cardLinkLabel?: StringFilter | null | undefined;
   cardLinkHref?: StringFilter | null | undefined;
+  lookbookTag?: StringFilter | null | undefined;
+  lookbookHeroImage?: ImageFilter | null | undefined;
+  lookbookHeroBadge?: StringFilter | null | undefined;
+  lookbookDetail1Image?: ImageFilter | null | undefined;
+  lookbookDetail1Badge?: StringFilter | null | undefined;
+  lookbookDetail2Image?: ImageFilter | null | undefined;
+  lookbookDetail2Badge?: StringFilter | null | undefined;
   faqHeading?: StringFilter | null | undefined;
   faqs?: LondonPageFaqsFilter | null | undefined;
   bottomCtaHeading?: StringFilter | null | undefined;
@@ -2937,9 +2993,9 @@ export type FooterSettingsFilter = {
 
 export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeadingPrefix: string, heroHeadingHighlight: string, tagline: string, heroVideoPath: string, heroPosterPath: string | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introPrimaryLinkLabel: string, introPrimaryLinkHref: string, introSecondaryLinkLabel: string, introSecondaryLinkHref: string };
 
-export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
+export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
 
-export type LondonPagePartsFragment = { __typename: 'LondonPage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null };
+export type LondonPagePartsFragment = { __typename: 'LondonPage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null };
 
 export type CustomPagesPartsFragment = { __typename: 'CustomPages', slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, heroTag: string | null, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null };
 
@@ -2993,7 +3049,7 @@ export type CambridgePageQueryVariables = Exact<{
 }>;
 
 
-export type CambridgePageQuery = { cambridgePage: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } };
+export type CambridgePageQuery = { cambridgePage: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } };
 
 export type CambridgePageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3005,14 +3061,14 @@ export type CambridgePageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type CambridgePageConnectionQuery = { cambridgePageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
+export type CambridgePageConnectionQuery = { cambridgePageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
 
 export type LondonPageQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type LondonPageQuery = { londonPage: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } };
+export type LondonPageQuery = { londonPage: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } };
 
 export type LondonPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3024,7 +3080,7 @@ export type LondonPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type LondonPageConnectionQuery = { londonPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
+export type LondonPageConnectionQuery = { londonPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeadingPrefix: string, heroHeadingHighlight: string, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
 
 export type CustomPagesQueryVariables = Exact<{
   relativePath: string;
@@ -3341,6 +3397,13 @@ export const CambridgePagePartsFragmentDoc = gql`
   cardBody
   cardLinkLabel
   cardLinkHref
+  lookbookTag
+  lookbookHeroImage
+  lookbookHeroBadge
+  lookbookDetail1Image
+  lookbookDetail1Badge
+  lookbookDetail2Image
+  lookbookDetail2Badge
   faqHeading
   faqs {
     __typename
@@ -3377,6 +3440,13 @@ export const LondonPagePartsFragmentDoc = gql`
   cardBody
   cardLinkLabel
   cardLinkHref
+  lookbookTag
+  lookbookHeroImage
+  lookbookHeroBadge
+  lookbookDetail1Image
+  lookbookDetail1Badge
+  lookbookDetail2Image
+  lookbookDetail2Badge
   faqHeading
   faqs {
     __typename

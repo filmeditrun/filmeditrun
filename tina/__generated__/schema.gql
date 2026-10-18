@@ -239,6 +239,13 @@ type CambridgePage implements Node & Document {
   cardBody: String!
   cardLinkLabel: String!
   cardLinkHref: String!
+  lookbookTag: String
+  lookbookHeroImage: String
+  lookbookHeroBadge: String
+  lookbookDetail1Image: String
+  lookbookDetail1Badge: String
+  lookbookDetail2Image: String
+  lookbookDetail2Badge: String
   faqHeading: String!
   faqs: [CambridgePageFaqs]
   bottomCtaHeading: String!
@@ -277,6 +284,13 @@ input CambridgePageFilter {
   cardBody: StringFilter
   cardLinkLabel: StringFilter
   cardLinkHref: StringFilter
+  lookbookTag: StringFilter
+  lookbookHeroImage: ImageFilter
+  lookbookHeroBadge: StringFilter
+  lookbookDetail1Image: ImageFilter
+  lookbookDetail1Badge: StringFilter
+  lookbookDetail2Image: ImageFilter
+  lookbookDetail2Badge: StringFilter
   faqHeading: StringFilter
   faqs: CambridgePageFaqsFilter
   bottomCtaHeading: StringFilter
@@ -323,6 +337,13 @@ type LondonPage implements Node & Document {
   cardBody: String!
   cardLinkLabel: String!
   cardLinkHref: String!
+  lookbookTag: String
+  lookbookHeroImage: String
+  lookbookHeroBadge: String
+  lookbookDetail1Image: String
+  lookbookDetail1Badge: String
+  lookbookDetail2Image: String
+  lookbookDetail2Badge: String
   faqHeading: String!
   faqs: [LondonPageFaqs]
   bottomCtaHeading: String!
@@ -361,6 +382,13 @@ input LondonPageFilter {
   cardBody: StringFilter
   cardLinkLabel: StringFilter
   cardLinkHref: StringFilter
+  lookbookTag: StringFilter
+  lookbookHeroImage: ImageFilter
+  lookbookHeroBadge: StringFilter
+  lookbookDetail1Image: ImageFilter
+  lookbookDetail1Badge: StringFilter
+  lookbookDetail2Image: ImageFilter
+  lookbookDetail2Badge: StringFilter
   faqHeading: StringFilter
   faqs: LondonPageFaqsFilter
   bottomCtaHeading: StringFilter
@@ -1438,6 +1466,13 @@ input CambridgePageMutation {
   cardBody: String
   cardLinkLabel: String
   cardLinkHref: String
+  lookbookTag: String
+  lookbookHeroImage: String
+  lookbookHeroBadge: String
+  lookbookDetail1Image: String
+  lookbookDetail1Badge: String
+  lookbookDetail2Image: String
+  lookbookDetail2Badge: String
   faqHeading: String
   faqs: [CambridgePageFaqsMutation]
   bottomCtaHeading: String
@@ -1473,6 +1508,13 @@ input LondonPageMutation {
   cardBody: String
   cardLinkLabel: String
   cardLinkHref: String
+  lookbookTag: String
+  lookbookHeroImage: String
+  lookbookHeroBadge: String
+  lookbookDetail1Image: String
+  lookbookDetail1Badge: String
+  lookbookDetail2Image: String
+  lookbookDetail2Badge: String
   faqHeading: String
   faqs: [LondonPageFaqsMutation]
   bottomCtaHeading: String

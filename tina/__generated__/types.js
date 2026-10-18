@@ -54,6 +54,13 @@ export const CambridgePagePartsFragmentDoc = gql`
   cardBody
   cardLinkLabel
   cardLinkHref
+  lookbookTag
+  lookbookHeroImage
+  lookbookHeroBadge
+  lookbookDetail1Image
+  lookbookDetail1Badge
+  lookbookDetail2Image
+  lookbookDetail2Badge
   faqHeading
   faqs {
     __typename
@@ -90,6 +97,13 @@ export const LondonPagePartsFragmentDoc = gql`
   cardBody
   cardLinkLabel
   cardLinkHref
+  lookbookTag
+  lookbookHeroImage
+  lookbookHeroBadge
+  lookbookDetail1Image
+  lookbookDetail1Badge
+  lookbookDetail2Image
+  lookbookDetail2Badge
   faqHeading
   faqs {
     __typename

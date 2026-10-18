@@ -45,6 +45,13 @@ fragment CambridgePageParts on CambridgePage {
   cardBody
   cardLinkLabel
   cardLinkHref
+  lookbookTag
+  lookbookHeroImage
+  lookbookHeroBadge
+  lookbookDetail1Image
+  lookbookDetail1Badge
+  lookbookDetail2Image
+  lookbookDetail2Badge
   faqHeading
   faqs {
     __typename
@@ -80,6 +87,13 @@ fragment LondonPageParts on LondonPage {
   cardBody
   cardLinkLabel
   cardLinkHref
+  lookbookTag
+  lookbookHeroImage
+  lookbookHeroBadge
+  lookbookDetail1Image
+  lookbookDetail1Badge
+  lookbookDetail2Image
+  lookbookDetail2Badge
   faqHeading
   faqs {
     __typename
