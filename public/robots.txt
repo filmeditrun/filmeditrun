@@ -1,0 +1,13 @@
+# FILM.EDIT.RUN Robots Configuration
+User-agent: *
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /thank-you
+
+# Explicitly disallow review vanity redirects from search indexing
+Disallow: /review
+Disallow: /reviews
+
+# Sitemap location
+Sitemap: https://filmeditrun.co.uk/sitemap-index.xml
+

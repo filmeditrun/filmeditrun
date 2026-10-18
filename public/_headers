@@ -1,4 +1,21 @@
 # Cloudflare Pages Caching & Security Headers
+
+# Global Security Headers for all routes
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://identity.tinajs.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://formtorch.com https://challenges.cloudflare.com https://*.tinajs.io https://*.tina.io https://identity.tinajs.io https://content.tinajs.io; frame-src 'self' https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com https://challenges.cloudflare.com https://*.tinajs.io; frame-ancestors 'self' https://app.tina.io; form-action 'self' https://formtorch.com; base-uri 'self';
+
+# Prevent search engine crawlers from indexing TinaCMS admin
+/admin
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
 # Static hashed assets (fonts, bundled CSS, scripts) - cache permanently (1 year)
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
