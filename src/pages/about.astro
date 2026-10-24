@@ -9,7 +9,6 @@ import aboutSlider from '../content/pages/slider.json';
 
 import AboutHero from '../components/about/AboutHero.astro';
 import TeamSlider from '../components/about/TeamSlider.astro';
-import ScriptTimeline from '../components/about/ScriptTimeline.astro';
 import BtsGallery from '../components/about/BtsGallery.astro';
 import AboutCta from '../components/about/AboutCta.astro';
 
@@ -91,15 +90,7 @@ const aboutSchema = {
     btsItems={aboutPage.btsItems}
   />
 
-  <!-- 5. The Interactive Script Revision / Milestones Timeline -->
-  <ScriptTimeline
-    timelineHeading={aboutPage.timelineHeading}
-    timelineTag={aboutPage.timelineTag}
-    timelineDescription={aboutPage.timelineDescription}
-    milestones={aboutPage.milestones}
-  />
-
-  <!-- 6. Bottom Closer Call-To-Action -->
+  <!-- 5. Bottom Closer Call-To-Action -->
   <AboutCta
     ctaHeading={aboutPage.ctaHeading}
     ctaText={aboutPage.ctaText}

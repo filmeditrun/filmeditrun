@@ -1,10 +1,10 @@
 {
-  "seoTitle": "About Us // The Director's Cut — FilmEditRun",
-  "seoDescription": "Meet FilmEditRun: an independent video production studio and post-house obsessed with cinematic pacing, camera craft, and zero-compromise storytelling.",
-  "headline": "We don't shoot generic video. We craft cinematic films that stop people in their tracks.",
-  "manifestoLead": "Born inside high-pressure multi-camera live environments and late-night Adobe creative suites, FilmEditRun was built on a simple premise: corporate and commercial films deserve the same visual rhythm, optical depth, and emotional punch as narrative cinema.",
-  "manifestoQuote": "Every frame is an intentional choice. Every cut has a heartbeat. If it doesn't advance the narrative or stir an emotion, it hits the cutting room floor.",
-  "manifestoAuthor": "FILMEDITRUN STUDIO",
+  "seoTitle": "About FilmEditRun | Video Production Cambridge & London",
+  "seoDescription": "Meet FilmEditRun: an independent video production studio and post-house founded by Scott Sartain. Filming conferences, brand stories, and podcasts across the UK.",
+  "headline": "Films crafted with care, clarity, and *purpose*.",
+  "manifestoLead": "FilmEditRun was founded by Scott Sartain on a simple premise: corporate and brand films should feel alive, not manufactured. Operating from Cambridge with agile crews on-location across London and the UK, we give clients direct access to experienced filmmakers who shoot and edit your story—delivering cinema-grade results without agency layers or bloat.",
+  "manifestoQuote": "Every project deserves a dedicated filmmaker, not a conveyor belt of account handlers. We shoot with intent and cut with discipline.",
+  "manifestoAuthor": "Scott Sartain — Founder & Director",
   "heroBackgroundType": "gradient",
   "heroVideoPath": "/showreel.mp4",
   "heroImagePath": "/og-image.jpg",
@@ -90,8 +90,8 @@
       "badge": "LATEST CUT"
     }
   ],
-  "ctaHeading": "Got a story that deserves a Director's Cut?",
-  "ctaText": "Whether it's an ambitious multi-camera event, a sleek commercial reel, or high-end post-production, we're ready to roll. Let's talk about your next film.",
-  "ctaButtonLabel": "Start Your Production Brief",
+  "ctaHeading": "Have a project or event in mind?",
+  "ctaText": "Whether you’re planning a multi-camera conference, a flagship brand film, or need fast post-production, we’re ready to help. Let’s talk through your ideas.",
+  "ctaButtonLabel": "Start Your Project Brief →",
   "ctaButtonLink": "/contact"
 }

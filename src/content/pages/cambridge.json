@@ -1,11 +1,11 @@
 {
-  "seoTitle": "Corporate Video Production & Event Filming Cambridge | FilmEditRun",
-  "seoDescription": "Premier corporate video production, multi-camera conference coverage, and brand filmmaking across Cambridge Science Park, university colleges, and local tech hubs.",
+  "seoTitle": "Video Production & Event Filming Cambridge | FilmEditRun",
+  "seoDescription": "Independent corporate video production and multi-camera event filming across Cambridge Science Park, historic colleges, and tech hubs. Fast local turnaround.",
   "canonicalURL": "https://filmeditrun.co.uk/cambridge",
   "heroTag": "Cambridge Production Hub",
   "heroHeadingPrefix": "Corporate Video Production in",
   "heroHeadingHighlight": "Cambridge.",
-  "heroSubtitle": "Specialist single and multi-camera event video coverage, conference filming, and brand storytelling for Cambridge’s thriving tech sector, universities, and commercial enterprises.",
+  "heroSubtitle": "From keynote stages at Cambridge Science Park to research stories across historic colleges, we film on-location with discrete multi-camera crews—turning complex innovation into sharp, engaging video your audience will actually watch.",
   "heroCtaLabel": "Discuss Your Cambridge Project",
   "heroCtaLink": "/contact",
   "displayAs": "local-video",
@@ -14,14 +14,14 @@
   "imagePath": "/og-image.jpg",
   "expertiseTag": "Local Expertise",
   "expertiseHeading": "Filming Across Cambridge’s Key Innovation Hubs",
-  "expertiseDescription": "Whether you are hosting a keynote panel at the Cambridge Science Park, producing marketing content near The Bradfield Centre, or recording academic symposia across historic university colleges, our team brings discrete, professional production pipelines tailored to local venues.",
+  "expertiseDescription": "Whether you're hosting a multi-stage keynote at Cambridge Science Park, producing executive interviews near The Bradfield Centre, or recording symposia across historic university venues, our crews work with calm discretion and a minimal footprint.",
   "expertiseBullets": [
-    "Multi-camera live switching & recording",
-    "Corporate interviews & leadership profiles",
-    "Fast turnaround highlight reels for social media"
+    "Multi-camera conference & keynote capture",
+    "Executive interviews & research case studies",
+    "Fast-turnaround 24–48hr event highlight reels"
   ],
   "cardTitle": "Why Cambridge Brands Choose Us",
-  "cardBody": "Cambridge companies demand technical precision, clean audio capture, and cinematic pacing. We combine high-end cinema gear with streamlined editing workflows to deliver assets that resonate with global investors and local audiences alike.",
+  "cardBody": "Cambridge's tech, biotech, and research teams need technical accuracy without dry presentation. Working directly with our filmmakers, you get clean audio in challenging venues, natural on-camera interviews, and polished films that connect with global partners and investors.",
   "cardLinkLabel": "View our selected works ➔",
   "cardLinkHref": "/work",
   "lookbookTag": "Field Dispatches // Cambridge",
@@ -46,8 +46,8 @@
       "answer": "For fast-turnaround event highlights or social media cutdowns, we can deliver initial drafts within 24 to 48 hours post-event."
     }
   ],
-  "bottomCtaHeading": "Ready to Film in Cambridge?",
-  "bottomCtaBody": "Get in touch to discuss your upcoming project timeline, technical requirements, and production scope.",
-  "bottomCtaLabel": "Get a Quote",
+  "bottomCtaHeading": "Planning a shoot in Cambridge?",
+  "bottomCtaBody": "Tell us about your event dates, venue location, or project ideas. We’ll discuss the setup and provide a clear, straightforward quote.",
+  "bottomCtaLabel": "Discuss Your Cambridge Project →",
   "bottomCtaLink": "/contact"
 }

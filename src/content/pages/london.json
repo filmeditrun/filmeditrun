@@ -1,11 +1,11 @@
 {
-  "seoTitle": "Corporate Video Production & Event Filming London | FilmEditRun",
-  "seoDescription": "Broadcast-grade corporate video production, multi-camera conference coverage, and executive interviews across the City of London, Canary Wharf, and Central London venues.",
+  "seoTitle": "Video Production & Event Filming London | FilmEditRun",
+  "seoDescription": "Corporate video production, multi-camera conference filming, and executive interviews across the City, Canary Wharf, and Central London. Fast 24-48h turnaround.",
   "canonicalURL": "https://filmeditrun.co.uk/london",
   "heroTag": "London Production Hub",
   "heroHeadingPrefix": "Corporate Video Production in",
   "heroHeadingHighlight": "London.",
-  "heroSubtitle": "Specialist single and multi-camera event filming, keynote broadcasts, and brand storytelling for London's enterprise businesses, financial institutions, and global tech scale-ups.",
+  "heroSubtitle": "From main-stage keynotes at ExCeL and the QEII Centre to boardroom executive interviews across the City and Canary Wharf, we deploy agile cinema camera crews across London—capturing high-stakes events and brand stories with calm, dependable precision.",
   "heroCtaLabel": "Discuss Your London Project",
   "heroCtaLink": "/contact",
   "displayAs": "local-video",
@@ -13,15 +13,15 @@
   "cloudVideoUrl": "",
   "imagePath": "/og-image.jpg",
   "expertiseTag": "Capital Production",
-  "expertiseHeading": "Filming Across London's Premier Venues & Headquarters",
-  "expertiseDescription": "From keynote auditoriums and annual summits at ExCeL London, QEII Centre, and the Business Design Centre to boardroom executive interviews in the City and Canary Wharf, our mobile cinema units deploy on-location with broadcast precision and zero venue friction.",
+  "expertiseHeading": "Filming Across London's Leading Venues & Headquarters",
+  "expertiseDescription": "Whether you're hosting an annual summit at ExCeL London, a financial keynote at the QEII Centre, or recording executive thought leadership in Canary Wharf, our crews handle venue logistics, RAMS, and multi-camera setups with zero friction.",
   "expertiseBullets": [
-    "Multi-camera live switching & keynote recording",
-    "On-location C-suite interviews & case studies",
-    "Fast 24-48h highlight reels for corporate communications"
+    "Multi-camera summit & keynote capture",
+    "Executive boardroom interviews & case studies",
+    "Fast-turnaround 24–48hr highlight films for LinkedIn"
   ],
   "cardTitle": "Why London Enterprise Brands Choose Us",
-  "cardBody": "London corporate events demand broadcast reliability, discreet crew operations, and cinematic visual impact. We combine high-end cinema glass and redundant multi-camera feeds with streamlined Adobe post-production to deliver assets that hold the attention of stakeholders and global audiences.",
+  "cardBody": "High-stakes London events leave zero room for technical second takes. Working directly with our experienced filmmakers, you get calm on-site direction, redundant multi-camera recording, and rapid post-production that keeps your stakeholders and global audience engaged.",
   "cardLinkLabel": "View our selected works ➔",
   "cardLinkHref": "/work",
   "lookbookTag": "Field Dispatches // London",
@@ -46,9 +46,8 @@
       "answer": "Yes. For conferences and summits with immediate press or LinkedIn requirements, we offer on-site editing and rapid 24-to-48-hour delivery for social cutdowns and highlight reels."
     }
   ],
-  "bottomCtaHeading": "Ready to Film in London?",
-  "bottomCtaBody": "Get in touch to discuss your upcoming event dates, venue location, and technical production scope.",
-  "bottomCtaLabel": "Request a London Production Quote",
+  "bottomCtaHeading": "Planning a shoot or conference in London?",
+  "bottomCtaBody": "Tell us about your event dates, venue location, or project brief. We’ll discuss the setup and provide a clear, straightforward quote.",
+  "bottomCtaLabel": "Discuss Your London Project →",
   "bottomCtaLink": "/contact"
 }
-
