@@ -61,7 +61,7 @@ const { service, allServices } = Astro.props;
 const otherServices = allServices.filter((s) => s.slug !== service.slug);
 
 // Canonical and OpenGraph URL
-const siteUrl = "https://filmeditrun.com";
+const siteUrl = "https://filmeditrun.co.uk";
 const canonicalUrl = `${siteUrl}${service.link}`;
 const ogImage = service.imagePath?.startsWith("http") ? service.imagePath : `${siteUrl}${service.imagePath || "/og-image.jpg"}`;
 
@@ -181,7 +181,7 @@ const gradientStyle = isRadial
         />
 
         <!-- Value Proposition / Introductory Paragraph -->
-        <p class="text-lg sm:text-xl lg:text-2xl text-neutral-200 font-light leading-relaxed max-w-3xl mb-8">
+        <p class="text-base sm:text-lg lg:text-xl text-neutral-300 font-normal leading-relaxed max-w-3xl mb-8">
           {service.heroLead || service.description}
         </p>
 

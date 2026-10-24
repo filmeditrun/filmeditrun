@@ -1,18 +1,18 @@
 {
   "heroHeadingHighlight": "",
   "order": "01",
-  "title": "Single & Multi-Camera Event Coverage",
-  "tag": "Multi-Cam Capable",
-  "description": "Full-scale dynamic coverage for live corporate operations, keynotes, panel discussions, and premium visual archiving.",
+  "title": "Single & Multi-Camera Event Filming",
+  "tag": "Event Filming",
+  "description": "Experienced filming crews delivering a cinematic look to your corporate events, keynotes, and panel discussions with fast-turnaround highlights.",
   "slug": "event-coverage",
   "link": "/services/event-coverage",
-  "seoTitle": "Multi-Camera Event Filming London & Cambridge | FilmEditRun",
-  "seoDescription": "Professional multi-camera corporate event filming, keynote recording, and same-day highlight reel production across London, Cambridge, and the UK.",
-  "heroTag": "Live Production Pipeline",
-  "heroHeading": "Dynamic Multi-Camera *Coverage* for High-Stakes Corporate Events.",
-  "heroLead": "From flagship tech summits to executive panels, we capture every keynote, audience reaction, and defining moment using cinema-grade multi-camera packages and broadcast audio feeds.",
-  "breakdownHeading": "Engineered for Live Precision and High-Stakes Agility.",
-  "breakdownBody": "Live corporate events leave zero room for second takes. We deploy multi-angle cinema camera rigs and integrated board audio feeds to capture every key address, attendee interaction, and brand touchpoint with broadcast discipline.",
+  "seoTitle": "Corporate Event Filming & Multi-Camera Coverage | Cambridge & London | FilmEditRun",
+  "seoDescription": "Experienced filming crews delivering cinematic event video, multi-camera keynote capture, and fast-turnaround highlight reels across Cambridge and London.",
+  "heroTag": "Event Filming",
+  "heroHeading": "Great events happen once. We make sure the *momentum* lasts.",
+  "heroLead": "From industry summits and leadership panels to company celebrations, experienced filming crews deliver a cinematic look to your event. We capture every keynote, genuine reaction, and room atmosphere on location—delivering full session recordings and fast-turnaround highlights ready to share while the buzz is still alive.",
+  "breakdownHeading": "Discrete on-location crews, cinematic results.",
+  "breakdownBody": "The best event filming captures the energy in the room without getting in the way. Our crews work discretely with high-end cinema cameras and clean audio capture, blending into the background so your speakers and guests stay focused on the day. Whether you need a single mobile operator or a multi-camera setup for main-stage talks, we deliver a calm, dependable service from initial brief to final delivery.",
   "displayAs": "gradient",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
@@ -22,27 +22,22 @@
   "heroGradientColor2": "#09090c",
   "deliverables": [
     {
-      "tag": "Keynote Delivery",
-      "title": "Full-Length Session Recordings",
-      "description": "Uncut, multi-angle camera switching synced with high-fidelity stage audio and digital presentation slides."
+      "tag": "Highlights",
+      "title": "Fast-Turnaround Highlight Films",
+      "description": "Short, energetic recap films delivered within 24 to 48 hours, cut to music with on-screen titles to share the buzz on LinkedIn and social channels while your event is still trending."
     },
     {
-      "tag": "Social First",
-      "title": "Fast-Turnaround Highlight Reels",
-      "description": "High-octane, rhythm-driven event trailers designed for LinkedIn, Instagram Reels, and press releases within 24-48 hours."
+      "tag": "Full Sessions",
+      "title": "Multi-Camera Stage & Keynote Recordings",
+      "description": "Complete, multi-cam recordings of your keynotes, fireside chats, and panel discussions, synchronized with presentation slides and clean audio for on-demand viewing across your channels."
     },
     {
-      "tag": "Media Archive",
-      "title": "Executive Soundbites & Vox Pops",
-      "description": "Engaging on-the-floor attendee interviews and VIP sponsor testimonials captured with dedicated mobile interview rigs."
-    },
-    {
-      "tag": "Broadcast Stream",
-      "title": "Clean ISO & B-Roll Visual Vault",
-      "description": "Comprehensive visual b-roll archive of audience engagement, venue atmosphere, and branded sponsor staging."
+      "tag": "Interviews & B-Roll",
+      "title": "Attendee Vox Pops & Atmosphere Stills",
+      "description": "On-the-floor interviews with attendees, executive soundbites, and a rich library of venue cutaways and branded details you can use across future marketing campaigns."
     }
   ],
-  "ctaHeading": "Planning a Corporate Event or Conference?",
-  "ctaDescription": "Tell us about your event dates, venue location, and filming requirements. We will provide a tailored technical production proposal within 24 hours.",
-  "ctaButtonLabel": "Request an Event Filming Quote"
+  "ctaHeading": "Planning an upcoming event?",
+  "ctaDescription": "Tell us about your event dates, venue location, and what you’d like to capture. We’ll discuss the setup and provide a clear, straightforward quote.",
+  "ctaButtonLabel": "Discuss Your Event →"
 }

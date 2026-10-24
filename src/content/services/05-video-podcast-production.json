@@ -1,17 +1,17 @@
 {
   "order": "05",
   "title": "Video Podcast & Vodcast Production",
-  "tag": "Multi-Cam Vodcasts",
+  "tag": "Video Podcasts & Vodcasts",
   "description": "Broadcast-quality multi-camera video podcast production recorded directly at your office, headquarters, or event green room.",
   "slug": "video-podcast-production",
   "link": "/services/video-podcast-production",
-  "seoTitle": "Video Podcast Production London & Cambridge | FilmEditRun",
-  "seoDescription": "Multi-camera 4K video podcast filming, on-location boardroom recording, and LinkedIn/YouTube social clip editing across London, Cambridge, and the UK.",
-  "heroTag": "Vodcast & Interview Suite",
-  "heroHeading": "Broadcast-Grade Video Podcast & *Vodcast* Production.",
-  "heroLead": "Bring the studio directly into your boardroom. We deploy multi-angle 4K cinema cameras, broadcast microphones, and flattering lighting to record professional video podcasts and executive conversation series with zero travel friction.",
-  "breakdownHeading": "Engineered for C-Suite Conversations and High-Impact Social Distribution.",
-  "breakdownBody": "Modern B2B authority is built through genuine conversation. We transform your office, boardroom, or venue into a high-end recording studio, capturing intimate, multi-angle 4K visual discourse paired with studio-grade vocal isolation and rapid Adobe editorial finishing.",
+  "seoTitle": "Video Podcast Production Studio | Cambridge & London",
+  "seoDescription": "Multi-camera video podcast filming, on-location boardroom recording, and LinkedIn social clip editing across London, Cambridge, and the UK.",
+  "heroTag": "Video Podcasts & Vodcasts",
+  "heroHeading": "Turn real conversations into your most trusted *content*.",
+  "heroLead": "The most compelling B2B content doesn't feel like a pitch—it feels like a genuine conversation. We bring a complete multi-camera studio directly to your boardroom, office, or event green room, capturing clean audio, cinematic lighting, and relaxed dialogue with zero travel hassle for your leadership team.",
+  "breakdownHeading": "Studio-grade recording, right in your space.",
+  "breakdownBody": "You don’t need to rent an expensive studio across town to record broadcast-quality video podcasts. Our crews set up quickly and discretely in your office, turning any meeting room into an executive recording space. With dedicated multi-camera angles and broadcast microphones for every speaker, we ensure your team looks sharp, sounds natural, and stays focused on the discussion.",
   "displayAs": "gradient",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
@@ -21,28 +21,22 @@
   "heroGradientColor2": "#09090c",
   "deliverables": [
     {
-      "tag": "Full Broadcast",
-      "title": "Full-Length Multi-Cam Episodes",
-      "description": "Seamless multi-camera narrative edits in 4K widescreen with studio audio mastering, ready for YouTube, Spotify Video, and web embedding."
+      "tag": "Video Masters",
+      "title": "Full-Length Video Episodes",
+      "description": "Multi-camera narrative master cuts with smooth switching and balanced audio, formatted and ready for YouTube, Spotify Video, and your website."
     },
     {
-      "tag": "Social First",
-      "title": "Viral 9:16 Vertical Video Clips",
-      "description": "High-impact short-form cutdowns with dynamic kinetic subtitles and sound effects designed for maximum reach on LinkedIn, Shorts, and TikTok."
+      "tag": "Social Cutdowns",
+      "title": "Short-Form Social Clips",
+      "description": "60-to-90 second vertical (9:16) clips with styled subtitles and clear hooks, cut specifically to drive engagement on LinkedIn and social channels."
     },
     {
-      "tag": "Audio Master",
-      "title": "Broadcast Podcast Audio Feeds",
-      "description": "Pristine WAV and MP3 vocal tracks treated with spectral noise reduction and calibrated loudness normalization for Apple Podcasts and Spotify."
-    },
-    {
-      "tag": "Brand Identity",
-      "title": "Custom Animated Intros & Lower Thirds",
-      "description": "Branded motion graphics, guest title slates, lower-thirds, and episode countdown bumpers crafted to align with your corporate guidelines."
+      "tag": "Audio Feeds",
+      "title": "Mastered Podcast Audio Feeds",
+      "description": "Crystal-clear vocal audio tracks with background noise removed and loudness normalized for distribution on Apple Podcasts and Spotify."
     }
   ],
-  "ctaHeading": "Ready to Launch Your Corporate Video Podcast?",
-  "ctaDescription": "Tell us about your episode concept, recording frequency, or venue location. We deliver a complete equipment and production package tailored to your schedule.",
-  "ctaButtonLabel": "Request a Video Podcast Proposal"
+  "ctaHeading": "Planning a video podcast or interview series?",
+  "ctaDescription": "Tell us about your format, episode frequency, or recording location. We’ll outline a dependable setup and provide a clear quote.",
+  "ctaButtonLabel": "Discuss Your Podcast →"
 }
-

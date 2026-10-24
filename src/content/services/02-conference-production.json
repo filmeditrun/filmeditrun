@@ -1,17 +1,17 @@
 {
   "order": "02",
   "title": "Corporate & Conference Production",
-  "tag": "Scaleable Broadcast",
-  "description": "End-to-end management for high-stakes business conferences, internal streams, and B2B visual assets.",
+  "tag": "Conference Filming",
+  "description": "End-to-end filming and recording for business conferences, multi-stage summits, and executive keynotes across London and Cambridge.",
   "slug": "conference-production",
   "link": "/services/conference-production",
-  "seoTitle": "Conference Video Production London & Cambridge | FilmEditRun",
-  "seoDescription": "End-to-end conference video filming, multi-stage keynote capture, and executive interview suites for global business summits in London and Cambridge.",
-  "heroTag": "Enterprise Production",
-  "heroHeading": "End-to-End Conference Production for Global Business Summits.",
-  "heroLead": "We transform multi-day corporate conferences into enduring digital assets—managing multi-stage video recordings, executive media suites, and polished highlight films that maximize event ROI.",
-  "breakdownHeading": "Complete Multi-Stage Production for Global Summits.",
-  "breakdownBody": "From plenary auditoriums to break-out workshop tracks, our conference teams manage multi-room camera crews, dedicated speaker media hubs, and high-definition slide deck integration to turn temporary events into permanent digital assets.",
+  "seoTitle": "Conference Video Production | Cambridge & London | FilmEditRun",
+  "seoDescription": "End-to-end conference video production, multi-stage keynote filming, and speaker interview capture for business summits across London and Cambridge.",
+  "heroTag": "Conference & Summit Filming",
+  "heroHeading": "When your industry gathers, make sure the *conversations* echo.",
+  "heroLead": "Large conferences are full of ideas that shouldn't end when the lights go down. We film multi-stage keynotes, main-stage panels, and unscripted attendee conversations across London and Cambridge—turning your annual summit into sharp, engaging video content your community will watch and share all year.",
+  "breakdownHeading": "Multi-stage scale, zero distraction.",
+  "breakdownBody": "Running a large conference involves hundreds of moving parts. Our experienced filming crews operate with quiet efficiency across plenary halls and breakout tracks, coordinating directly with your AV and staging teams. We capture high-fidelity presentation slides alongside multi-camera speaker angles, delivering clean, reliable video without disrupting your delegates or schedule.",
   "displayAs": "local-video",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
@@ -21,27 +21,22 @@
   "heroGradientColor2": "#020617",
   "deliverables": [
     {
-      "tag": "Comprehensive Capture",
-      "title": "Multi-Stage Keynote Catalog",
-      "description": "Crisp 4K multi-camera recordings of every speaker, synchronized with their high-definition slide decks for member on-demand portals."
+      "tag": "Full Sessions",
+      "title": "Keynote & Session Masters",
+      "description": "Crisp multi-camera recordings of every talk, synchronized with high-resolution slide decks and clean board audio for immediate on-demand viewing across your channels."
     },
     {
-      "tag": "Marketing Catalyst",
-      "title": "Next-Year Promotional Film",
-      "description": "A dynamic, high-energy cinematic promo capturing the scale, networking energy, and attendee enthusiasm to drive future ticket sales."
+      "tag": "Highlights",
+      "title": "Next-Year Promo & Highlights",
+      "description": "Dynamic recap films cut to music, capturing attendee buzz, speaker energy, and sponsor presence to celebrate the event and drive ticket sales for your next summit."
     },
     {
-      "tag": "Executive Media",
-      "title": "VIP & Keynote Thought Leadership Clips",
-      "description": "Dedicated studio lighting and teleprompter setup capturing focused, 2-minute thought leadership insights from keynote speakers."
-    },
-    {
-      "tag": "Investor & Board",
-      "title": "Internal Recap & Stakeholder Highlights",
-      "description": "Concise executive overview summarizing key announcements, product unveilings, and conference metrics for board presentations."
+      "tag": "Social Clips",
+      "title": "Executive & Speaker Soundbites",
+      "description": "Fast-turnaround vertical and widescreen clips highlighting key takeaways and product announcements, ready for your speakers and team to share on LinkedIn while engagement is high."
     }
   ],
-  "ctaHeading": "Hosting an Upcoming Annual Conference?",
-  "ctaDescription": "Let's discuss your conference schedule, speaker lineup, and video capture scope. We handle full technical logistics from initial recce to final master delivery.",
-  "ctaButtonLabel": "Discuss Your Conference Production"
+  "ctaHeading": "Planning an upcoming conference?",
+  "ctaDescription": "Tell us your dates, stage count, and venue location. We’ll outline a calm, dependable filming plan and provide a straightforward quote.",
+  "ctaButtonLabel": "Discuss Your Conference →"
 }

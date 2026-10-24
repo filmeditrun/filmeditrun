@@ -1,17 +1,17 @@
 {
   "order": "03",
   "title": "Animation & Motion Design",
-  "tag": "Visual Effects",
-  "description": "Custom 2D/3D brand graphics, functional overlay templates, transitions, and immersive opening showreels.",
+  "tag": "Motion Graphics & Design",
+  "description": "Bespoke 2D/3D motion graphics, technical product explainers, and event title sequences for tech, science, and corporate brands.",
   "slug": "animation-design",
   "link": "/services/animation-design",
-  "seoTitle": "Corporate Motion Design & 2D/3D Animation UK | FilmEditRun",
-  "seoDescription": "Bespoke corporate 2D/3D animation, kinetic typography, brand motion identity systems, and event title sequences designed in London & Cambridge.",
-  "heroTag": "Motion Identity System",
-  "heroHeading": "Bespoke Motion Design & Animation That Elevates Your Brand Story.",
-  "heroLead": "We bring static brand identities to life with kinetic typography, 3D product visualizations, conference title sequences, and modular motion toolkits tailored for modern digital ecosystems.",
-  "breakdownHeading": "Kinetic Visual Systems That Articulate Complex Ideas.",
-  "breakdownBody": "Motion is the catalyst that transforms intricate technical propositions into clear, engaging visual narratives. We engineer bespoke 2D and 3D motion design systems, conference openers, and interface animations built to elevate your brand's digital identity.",
+  "seoTitle": "Motion Design & Animation Studio | Cambridge & London",
+  "seoDescription": "Bespoke 2D/3D motion graphics, technical product explainers, and event title sequences designed for tech, science, and corporate brands across the UK.",
+  "heroTag": "Motion Graphics & Design",
+  "heroHeading": "Complex ideas move faster when you *show* them.",
+  "heroLead": "Whether you’re explaining deep tech, unveiling new software, or launching an annual summit, motion brings clarity to what words alone can't. We design clean 2D and 3D animations, technical product explainers, and branded motion systems that help your audience immediately understand what you do and why it matters.",
+  "breakdownHeading": "Clarity through movement, not visual noise.",
+  "breakdownBody": "Great motion design clarifies; it doesn’t distract. Working alongside Cambridge’s tech and science clusters and London’s enterprise leaders, we translate complex architecture, data, and workflows into elegant visual sequences. From bold conference openers to modular on-screen brand toolkits, every frame is built with precision to match your brand guidelines.",
   "displayAs": "image",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
@@ -21,27 +21,22 @@
   "heroGradientColor2": "#09090b",
   "deliverables": [
     {
-      "tag": "Opening Impact",
-      "title": "Conference & Event Title Openers",
-      "description": "High-octane visual show-openers and countdown bumpers that immediately set an electric tone for live and virtual audiences."
+      "tag": "Explainers",
+      "title": "Technical & Product Explainers",
+      "description": "Visual walkthroughs and 2D/3D animations that translate intricate software features, hardware, or scientific concepts into clear, engaging stories."
     },
     {
-      "tag": "Product Demo",
-      "title": "SaaS & Technical Explainer Videos",
-      "description": "Clear, visually stimulating product walkthroughs that translate complex software features or hardware engineering into simple, elegant motion."
+      "tag": "Event Visuals",
+      "title": "Event Openers & Screen Graphics",
+      "description": "High-energy title sequences, speaker intro bumpers, and large-format screen animations designed to capture attention at live summits."
     },
     {
-      "tag": "Design System",
-      "title": "Brand Motion Guidelines & Toolkits",
-      "description": "Comprehensive motion identity assets including animated logo bugs, lower-thirds, interstitial wipes, and title cards."
-    },
-    {
-      "tag": "Data In Motion",
-      "title": "Infographics & Investor Pitch Graphics",
-      "description": "Dynamic financial chart visualizations and statistical storytelling designed to maintain executive attention during investor presentations."
+      "tag": "Brand Systems",
+      "title": "Brand Motion Toolkits",
+      "description": "A modular suite of animated logo idents, lower-thirds, transitions, and title templates to keep all your ongoing video content cohesive."
     }
   ],
-  "ctaHeading": "Need Custom Motion Graphics for Your Next Campaign?",
-  "ctaDescription": "Whether you need a high-impact conference title sequence, a SaaS product explainer, or a full brand motion system, let's create something extraordinary.",
-  "ctaButtonLabel": "Start a Motion Design Brief"
+  "ctaHeading": "Have an idea you want to bring to life?",
+  "ctaDescription": "Tell us about your product, upcoming campaign, or event graphics. We’ll discuss the creative approach, visual style, and timeline.",
+  "ctaButtonLabel": "Discuss Motion Design →"
 }

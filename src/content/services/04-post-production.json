@@ -1,17 +1,17 @@
 {
   "order": "04",
-  "title": "Creative Post-Production",
-  "tag": "Final Polish",
-  "description": "Precision pacing, premium color grading, spatial sound design, and master delivery optimization.",
+  "title": "Video Editing & Post-Production",
+  "tag": "Creative Post-Production",
+  "description": "Transforming your footage with clean edits, balanced color, clear sound, and titles for your website and social media.",
   "slug": "post-production",
   "link": "/services/post-production",
-  "seoTitle": "Video Post-Production & Color Grading London & Cambridge | FilmEditRun",
-  "seoDescription": "Broadcast editing, precision Adobe color grading, audio sweetening, and multi-platform master delivery for corporate and commercial films.",
-  "heroTag": "Editorial Suite",
-  "heroHeading": "Meticulous Post-Production, Cinematic Color & Spatial Sound.",
-  "heroLead": "Raw footage is only the beginning. Our post-production pipeline combines rhythmic offline editing in Adobe Premiere Pro, calibrated color grading, dialogue restoration, and spatial sound design into a broadcast-ready master.",
-  "breakdownHeading": "Rhythmic Editorial, Color Science, and Spatial Mastering.",
-  "breakdownBody": "Raw footage becomes cinema in the edit suite. Our post-production pipeline combines story-driven narrative cutting, calibrated Adobe color grading, dialogue acoustic restoration, and broadcast loudness normalization for multi-platform delivery.",
+  "seoTitle": "Video Editing & Post-Production Services | Cambridge & London | FilmEditRun",
+  "seoDescription": "Professional video editing, color balancing, and audio cleanup for business, event, and promotional videos. Fast turnaround across Cambridge and London.",
+  "heroTag": "Creative Post-Production",
+  "heroHeading": "*Great footage* is only half the battle. The rest happens in the *edit*.",
+  "heroLead": "A great edit doesn’t just cut out the pauses—it builds momentum. From the moment our crews capture your interviews, live event, or brand story on location, we’re already shaping how it all comes together. By layering dynamic B-roll, custom motion graphics, and rich sound design, we turn raw footage—whether filmed by us or supplied by your team—into polished videos that look and sound brilliant across your website, keynotes, and social feeds.",
+  "breakdownHeading": "Where the shoot comes to life.",
+  "breakdownBody": "Every project has a pulse. The edit is where we take the energy of the day—the key insights from an interview, the atmosphere in the venue, the unscripted moments—and shape it into a story that actually connects. By pairing on-camera voices with dynamic B-roll, clean animated graphics, and thoughtful sound design, we make sure your message isn’t just seen—it’s understood and remembered.",
   "displayAs": "local-video",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
@@ -21,27 +21,22 @@
   "heroGradientColor2": "#0c0a09",
   "deliverables": [
     {
-      "tag": "Offline Editorial",
-      "title": "Story-Driven Narrative Assembly",
-      "description": "Ruthless editorial trimming, tempo control, and pacing that grabs audience attention in the first three seconds and never lets go."
+      "tag": "Story & Pacing",
+      "title": "Narrative Flow & B-Roll",
+      "description": "We find the thread that holds your story together. By weaving your primary dialogue with purposeful B-roll and cutaways, we create a rich, visual rhythm that keeps viewers engaged from the first second to the final frame."
     },
     {
-      "tag": "Color Science",
-      "title": "Precision Adobe Cinema Color Grading",
-      "description": "Custom color look creation, skin tone balancing, dynamic range expansion, and shot-to-shot consistency calibrated for modern displays."
+      "tag": "Motion Design",
+      "title": "Motion Graphics & Animated Titles",
+      "description": "Graphics should clarify, not distract. We build clean animated titles, lower-thirds, and visual callouts that support your story, emphasize key takeaways, and match your brand guidelines with precision."
     },
     {
-      "tag": "Audio Architecture",
-      "title": "Dialogue Repair & Sound Design",
-      "description": "Spectral de-noising of tricky venue room echo, layered foley, cinematic whooshes, and bespoke music bed ducking."
-    },
-    {
-      "tag": "Multi-Channel Master",
-      "title": "Omnichannel Versioning & Subtitles",
-      "description": "Exporting clean 16:9 4K widescreen, 9:16 vertical TikTok/Reels, 1:1 square feeds, with burnt-in and sidecar SRT subtitle files."
+      "tag": "Sound & Delivery",
+      "title": "Sound Design & Multi-Format Delivery",
+      "description": "Audio is half the experience. We clear out background noise, level dialogue so every voice is crisp, and mix music that drives the pace—delivering polished master films alongside vertical cutdowns and captions ready for social feeds."
     }
   ],
-  "ctaHeading": "Have Existing Footage That Needs Professional Polish?",
-  "ctaDescription": "Send us your raw drives or cloud storage link. Our post-production team will evaluate your material and provide a detailed edit schedule and quote.",
-  "ctaButtonLabel": "Book an Editorial Suite Consultation"
+  "ctaHeading": "Have a story you want to tell?",
+  "ctaDescription": "Whether you're planning an upcoming shoot with our team or have raw footage you'd like to bring to life, let’s talk through your ideas and timeline.",
+  "ctaButtonLabel": "Let's Talk Story →"
 }
