@@ -1,10 +1,10 @@
 {
-  "seoTitle": "FilmEditRun | Corporate Video Production London & Cambridge",
-  "seoDescription": "Professional multi-camera event video coverage, conference filming, broadcast editing, and creative corporate animation pipelines across London, Cambridge, and the UK.",
-  "locations": "London • Cambridge • UK Wide",
+  "seoTitle": "FilmEditRun | Corporate Video Production Cambridge & London",
+  "seoDescription": "Independent video production studio and post-house based in Cambridge, filming on-location across London and the UK. Conferences, brand films, and podcasts.",
+  "locations": "Cambridge • London • UK-Wide",
   "heroHeadingPrefix": "We Capture, Create, and",
   "heroHeadingHighlight": "Produce.",
-  "tagline": "Premium multi-camera event video coverage, conference filming, broadcast editing, and creative corporate animation pipelines across London, Cambridge, and the UK.",
+  "tagline": "Independent video production and post-house. We capture conferences, brand stories, and live events on-location across Cambridge, London, and nationwide—delivering polished films that keep audiences engaged.",
   "heroVideoPath": "/showreel.mp4",
   "heroPosterPath": "/og-image.jpg",
   "primaryCtaLabel": "Start a Project Brief",
@@ -13,15 +13,16 @@
   "secondaryCtaLink": "/work",
   "brandName": "Film Edit Run",
   "expertiseList": [
-    "Conference Filming",
-    "Multi-Camera Events",
-    "Corporate Video",
-    "Motion Design"
+    "Event & Conference Filming",
+    "Brand & Case Study Films",
+    "Video Podcasts",
+    "Motion Design",
+    "Post-Production"
   ],
-  "introHeading": "Corporate Media Without Compromise.",
-  "introBody": "From massive commercial conference panels to sleek, customized brand motion design graphics, we supply professional workflows ensuring your corporate events translate beautifully across digital streams and highlight edits.",
-  "introPrimaryLinkLabel": "Explore Production Services ➔",
+  "introHeading": "Grounded storytelling. Broadcast craft.",
+  "introBody": "Great video isn’t about flashy agency jargon or rigid scripts—it’s about capturing real energy, genuine voices, and clear ideas. Operating from Cambridge with agile crews on-location across London and the UK, we handle everything from multi-stage summit recordings to intimate brand documentaries and rapid post-production.",
+  "introPrimaryLinkLabel": "Explore Our Services ➔",
   "introPrimaryLinkHref": "/services",
-  "introSecondaryLinkLabel": "Cambridge Hub ➔",
+  "introSecondaryLinkLabel": "Cambridge Studio Hub ➔",
   "introSecondaryLinkHref": "/cambridge"
 }
