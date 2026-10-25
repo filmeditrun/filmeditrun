@@ -12,20 +12,24 @@
   "step2Title": "What service do you need? *",
   "serviceOptions": [
     {
-      "label": "Live Event & Conference Filming",
-      "value": "Live Event & Conference Filming"
+      "label": "Corporate Event Filming & Highlights",
+      "value": "Corporate Event Filming & Highlights"
+    },
+    {
+      "label": "Corporate & Conference Production",
+      "value": "Corporate & Conference Production"
+    },
+    {
+      "label": "Corporate Brand & Case Study Films",
+      "value": "Corporate Brand & Case Study Films"
     },
     {
       "label": "Video Podcast & Vodcast Production",
       "value": "Video Podcast & Vodcast Production"
     },
     {
-      "label": "Corporate Brand & Commercial Films",
-      "value": "Corporate Brand & Commercial Films"
-    },
-    {
-      "label": "Editing & Post-Production (Adobe Suite)",
-      "value": "Editing & Post-Production"
+      "label": "Video Editing & Post-Production",
+      "value": "Video Editing & Post-Production"
     },
     {
       "label": "Animation & Motion Design",
