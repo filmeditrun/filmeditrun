@@ -62,7 +62,7 @@ const isActive = (href: string) =>
     >
       <!-- Hamburger Icon (Visible by default, hidden when checked) -->
       <svg
-        class="h-6 w-6 block peer-checked/nav:hidden transition-transform duration-200 group-hover:scale-105"
+        class="h-6 w-6 block nav-hamburger-icon transition-transform duration-200 group-hover:scale-105"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -73,7 +73,7 @@ const isActive = (href: string) =>
 
       <!-- Close (X) Icon (Hidden by default, shown when checked) -->
       <svg
-        class="h-6 w-6 hidden peer-checked/nav:block transition-transform duration-200 group-hover:rotate-90 text-amber-400"
+        class="h-6 w-6 hidden nav-close-icon transition-transform duration-200 group-hover:rotate-90 text-amber-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -83,10 +83,10 @@ const isActive = (href: string) =>
       </svg>
     </label>
 
-    <!-- 4. Navigation Links: Hidden by default on mobile, revealed via peer-checked/nav -->
+    <!-- 4. Navigation Links: Hidden by default on mobile, revealed when #mobile-nav-toggle is checked -->
     <nav 
       id="nav-links"
-      class="hidden peer-checked/nav:flex absolute top-full left-0 right-0 bg-ink/95 backdrop-blur-2xl border-b border-line p-6 flex-col gap-1.5 text-base tracking-wide shadow-2xl overscroll-contain md:static md:flex md:flex-row md:items-center md:gap-2 md:text-[13px] md:border-none md:p-0 md:bg-transparent md:shadow-none transition-all duration-300 select-none" 
+      class="hidden absolute top-full left-0 right-0 bg-ink/95 backdrop-blur-2xl border-b border-line p-6 flex-col gap-1.5 text-base tracking-wide shadow-2xl overscroll-contain md:static md:flex md:flex-row md:items-center md:gap-2 md:text-[13px] md:border-none md:p-0 md:bg-transparent md:shadow-none transition-all duration-300 select-none" 
       aria-label="Primary"
     >
       {
@@ -123,3 +123,15 @@ const isActive = (href: string) =>
 
   </div>
 </header>
+
+<style>
+  header:has(#mobile-nav-toggle:checked) #nav-links {
+    display: flex !important;
+  }
+  header:has(#mobile-nav-toggle:checked) .nav-hamburger-icon {
+    display: none !important;
+  }
+  header:has(#mobile-nav-toggle:checked) .nav-close-icon {
+    display: block !important;
+  }
+</style>
