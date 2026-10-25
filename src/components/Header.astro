@@ -25,7 +25,7 @@ const isActive = (href: string) =>
 ---
 
 <!-- Cinematic Studio Navbar Wrapper -->
-<header class="fixed inset-x-0 top-0 z-50 h-20 border-b border-white/10 bg-ink/80 backdrop-blur-2xl">
+<header class="fixed inset-x-0 top-0 z-50 h-20 border-b border-line bg-ink/80 backdrop-blur-2xl">
   <!-- 1. Pure CSS Checkbox Hack for Mobile Menu Toggle (Zero-JS) -->
   <input
     type="checkbox"
@@ -86,7 +86,7 @@ const isActive = (href: string) =>
     <!-- 4. Navigation Links: Hidden by default on mobile, revealed via peer-checked/nav -->
     <nav 
       id="nav-links"
-      class="hidden peer-checked/nav:flex absolute top-full left-0 right-0 bg-ink/95 backdrop-blur-2xl border-b border-white/10 p-6 flex-col gap-2.5 text-base tracking-wide shadow-2xl overscroll-contain md:static md:flex md:flex-row md:items-center md:gap-1 md:text-[13px] md:border-none md:p-0 md:bg-transparent md:shadow-none transition-all duration-300 select-none" 
+      class="hidden peer-checked/nav:flex absolute top-full left-0 right-0 bg-ink/95 backdrop-blur-2xl border-b border-line p-6 flex-col gap-1.5 text-base tracking-wide shadow-2xl overscroll-contain md:static md:flex md:flex-row md:items-center md:gap-2 md:text-[13px] md:border-none md:p-0 md:bg-transparent md:shadow-none transition-all duration-300 select-none" 
       aria-label="Primary"
     >
       {
@@ -94,13 +94,28 @@ const isActive = (href: string) =>
           <a
             href={link.href}
             class:list={[
-              "rounded-xl px-5 py-3.5 transition-all active:scale-[0.98] [touch-action:manipulation] md:rounded-full md:px-4 md:py-1.5 md:active:scale-100",
+              "group relative flex items-center transition-all duration-200 [touch-action:manipulation]",
+              // Mobile vertical drawer layout
+              "px-4 py-3 rounded-r-lg border-l-2 active:scale-[0.99]",
+              // Desktop horizontal layout
+              "md:rounded-none md:border-l-0 md:px-3 md:py-2 md:active:scale-100",
               isActive(link.href)
-                ? "bg-gradient-to-r from-amber-400 to-amber-600 text-neutral-950 font-bold shadow-md shadow-amber-500/20"
-                : "text-neutral-300 hover:text-white hover:bg-white/5 active:bg-white/10",
+                ? "border-amber-400 bg-white/[0.04] text-white font-medium"
+                : "border-transparent text-neutral-400 hover:text-white hover:bg-white/[0.02] md:hover:bg-transparent",
             ]}
           >
-            {link.label}
+            <span>{link.label}</span>
+            <!-- Desktop animated gradient underline -->
+            <span
+              class:list={[
+                "hidden md:block absolute bottom-0 left-3 right-3 h-[2px] rounded-full transition-transform duration-300 ease-out origin-left",
+                "bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600",
+                isActive(link.href)
+                  ? "scale-x-100"
+                  : "scale-x-0 group-hover:scale-x-100",
+              ]}
+              aria-hidden="true"
+            />
           </a>
         ))
       }
