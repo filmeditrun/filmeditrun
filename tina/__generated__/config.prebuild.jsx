@@ -313,6 +313,25 @@ var config_default = defineConfig({
             label: "Work Spotlight View All Button Link",
             description: "Default: /work"
           },
+          // ─── 🌌 FULL-BLEED PARALLAX IMMERSION ─────────────────────────
+          {
+            type: "string",
+            name: "scaleHeading",
+            label: "Parallax Section Heading (Use *word* for gradient)",
+            description: "Default: Low-profile crews. *Plenary-scale capture.*"
+          },
+          {
+            type: "string",
+            name: "scaleDescription",
+            label: "Parallax Section Description",
+            ui: { component: "textarea" }
+          },
+          {
+            type: "image",
+            name: "scaleImage",
+            label: "Parallax Background Image",
+            description: "Default: /cambridge/stage-wide.webp"
+          },
           // ─── 🍱 SERVICES BENTO GRID ───────────────────────────────────
           {
             type: "string",

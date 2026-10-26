@@ -56,6 +56,21 @@
   - `Explore Our Services ➔` → `/services`
   - `Cambridge Studio Hub ➔` → `/cambridge`
 
+### Selected Work in Focus
+* **Tag:** `// SELECTED WORK`
+* **Heading:** `Selected Films & Client Highlights.` *(with "Client Highlights." highlighted in amber gradient)*
+* **Description:** `A glimpse into recent corporate conferences, brand documentaries, and location shoots.`
+* **Primary Button:** `Explore Full Portfolio →` → `/work`
+* **Featured Projects (Dynamically fed from Projects Collection):**
+  - `01. FilmEditRun: 2025 Showreel` (Commercials • 0:45)
+  - `02. Echoes of Silence: Short Film` (Narrative • 8:12)
+  - `03. Lumina: Neon Horizons` (Music Videos • 3:40)
+
+### Full-Bleed Parallax Immersion (Field Scale)
+* **Visual Background:** `/cambridge/stage-wide.webp` (Cambridge Corn Exchange Plenary Stage) with fixed parallax depth
+* **Heading:** `Low-profile crews. Plenary-scale capture.` *(with "Plenary-scale capture." highlighted in amber gradient)*
+* **Description:** `Operating with quiet discretion across plenary halls, research campuses, and corporate boardrooms. Broadcast cinema rigs, synchronized presentation capture, and redundant multi-camera audio without disrupting your schedule.`
+
 ### Services Bento Grid (Modular Production Disciplines)
 * **Tag:** `// SERVICES`
 * **Heading:** `Engineered for Impact & Engagement.` *(with "Impact & Engagement." highlighted in amber gradient)*
@@ -68,16 +83,6 @@
   - `Corporate Brand & Case Study Films` (Brand Storytelling • 2-Col Anchor)
   - `Animation & Motion Design` (Motion & 3D • 1-Col)
   - `Video Editing & Post-Production` (Post-Production • 2-Col Anchor)
-
-### Selected Work in Focus
-* **Tag:** `// SELECTED WORK`
-* **Heading:** `Selected Films & Client Highlights.` *(with "Client Highlights." highlighted in amber gradient)*
-* **Description:** `A glimpse into recent corporate conferences, brand documentaries, and location shoots.`
-* **Primary Button:** `Explore Full Portfolio →` → `/work`
-* **Featured Projects (Dynamically fed from Projects Collection):**
-  - `01. FilmEditRun: 2025 Showreel` (Commercials • 0:45)
-  - `02. Echoes of Silence: Short Film` (Narrative • 8:12)
-  - `03. Lumina: Neon Horizons` (Music Videos • 3:40)
 
 ### Production Pipeline (Disciplined 4-Stage Methodology)
 * **Tag:** `// PRODUCTION PIPELINE`

@@ -39,6 +39,9 @@ export const HomepagePartsFragmentDoc = gql`
   workSpotlightDescription
   workSpotlightLinkLabel
   workSpotlightLinkHref
+  scaleHeading
+  scaleDescription
+  scaleImage
   bentoTag
   bentoHeading
   bentoDescription

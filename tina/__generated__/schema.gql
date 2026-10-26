@@ -171,6 +171,9 @@ type Homepage implements Node & Document {
   workSpotlightDescription: String
   workSpotlightLinkLabel: String
   workSpotlightLinkHref: String
+  scaleHeading: String
+  scaleDescription: String
+  scaleImage: String
   bentoTag: String
   bentoHeading: String
   bentoDescription: String
@@ -243,6 +246,9 @@ input HomepageFilter {
   workSpotlightDescription: StringFilter
   workSpotlightLinkLabel: StringFilter
   workSpotlightLinkHref: StringFilter
+  scaleHeading: StringFilter
+  scaleDescription: StringFilter
+  scaleImage: ImageFilter
   bentoTag: StringFilter
   bentoHeading: StringFilter
   bentoDescription: StringFilter
@@ -1517,6 +1523,9 @@ input HomepageMutation {
   workSpotlightDescription: String
   workSpotlightLinkLabel: String
   workSpotlightLinkHref: String
+  scaleHeading: String
+  scaleDescription: String
+  scaleImage: String
   bentoTag: String
   bentoHeading: String
   bentoDescription: String

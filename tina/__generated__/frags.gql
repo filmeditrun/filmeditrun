@@ -31,6 +31,9 @@ fragment HomepageParts on Homepage {
   workSpotlightDescription
   workSpotlightLinkLabel
   workSpotlightLinkHref
+  scaleHeading
+  scaleDescription
+  scaleImage
   bentoTag
   bentoHeading
   bentoDescription
