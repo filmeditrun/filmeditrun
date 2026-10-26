@@ -325,12 +325,12 @@ export default defineConfig({
             description: "Default: /work",
           },
 
-          // ─── 🍱 CAPABILITIES BENTO GRID ───────────────────────────────
+          // ─── 🍱 SERVICES BENTO GRID ───────────────────────────────────
           {
             type: "string",
             name: "bentoTag",
             label: "Bento Grid Tag / Badge",
-            description: "Default: Capabilities",
+            description: "Default: Services",
           },
           {
             type: "string",
@@ -348,7 +348,7 @@ export default defineConfig({
             type: "string",
             name: "bentoLinkLabel",
             label: "Bento Grid Directory Link Label",
-            description: "Default: Explore All 6 Services & Specs →",
+            description: "Default: Explore Services →",
           },
           {
             type: "string",

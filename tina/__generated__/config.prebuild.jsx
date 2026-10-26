@@ -313,12 +313,12 @@ var config_default = defineConfig({
             label: "Work Spotlight View All Button Link",
             description: "Default: /work"
           },
-          // ─── 🍱 CAPABILITIES BENTO GRID ───────────────────────────────
+          // ─── 🍱 SERVICES BENTO GRID ───────────────────────────────────
           {
             type: "string",
             name: "bentoTag",
             label: "Bento Grid Tag / Badge",
-            description: "Default: Capabilities"
+            description: "Default: Services"
           },
           {
             type: "string",
@@ -336,7 +336,7 @@ var config_default = defineConfig({
             type: "string",
             name: "bentoLinkLabel",
             label: "Bento Grid Directory Link Label",
-            description: "Default: Explore All 6 Services & Specs \u2192"
+            description: "Default: Explore Services \u2192"
           },
           {
             type: "string",

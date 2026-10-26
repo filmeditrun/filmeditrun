@@ -56,18 +56,18 @@
   - `Explore Our Services ➔` → `/services`
   - `Cambridge Studio Hub ➔` → `/cambridge`
 
-### Capabilities Bento Grid (Modular Production Disciplines)
-* **Tag:** `// CAPABILITIES`
+### Services Bento Grid (Modular Production Disciplines)
+* **Tag:** `// SERVICES`
 * **Heading:** `Engineered for Impact & Engagement.` *(with "Impact & Engagement." highlighted in amber gradient)*
 * **Description:** `Six modular video production disciplines designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time.`
-* **Primary Button:** `Explore All 6 Services & Technical Specs →` → `/services`
+* **Primary Button:** `Explore Services →` → `/services`
 * **Modular Services Bento Cards:**
-  - `02. Corporate & Conference Production` (Conference Filming • 2-Col Anchor)
-  - `01. Single & Multi-Camera Event Filming` (Event Coverage • 1-Col)
-  - `05. Video Podcast & Vodcast Production` (Podcasts • 1-Col)
-  - `06. Corporate Brand & Case Study Films` (Brand Storytelling • 2-Col Anchor)
-  - `03. Animation & Motion Design` (Motion & 3D • 1-Col)
-  - `04. Video Editing & Post-Production` (Post-Production • 2-Col Anchor)
+  - `Corporate & Conference Production` (Conference Filming • 2-Col Anchor)
+  - `Single & Multi-Camera Event Filming` (Event Coverage • 1-Col)
+  - `Video Podcast & Vodcast Production` (Podcasts • 1-Col)
+  - `Corporate Brand & Case Study Films` (Brand Storytelling • 2-Col Anchor)
+  - `Animation & Motion Design` (Motion & 3D • 1-Col)
+  - `Video Editing & Post-Production` (Post-Production • 2-Col Anchor)
 
 ### Selected Work in Focus
 * **Tag:** `// SELECTED WORK`

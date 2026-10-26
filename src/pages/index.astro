@@ -191,7 +191,7 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
   <!-- ================================================================= -->
-  <!-- 2. PRODUCTION CAPABILITIES BENTO GRID (Arm Modular Architecture)  -->
+  <!-- 2. PRODUCTION SERVICES BENTO GRID (Arm Modular Architecture)      -->
   <!-- ================================================================= -->
   <section class="max-w-7xl mx-auto px-6 py-20 sm:py-28 border-t border-line">
     
@@ -201,7 +201,7 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
         <div class="flex items-center gap-2 mb-3">
           <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
           <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-            {(home as any).bentoTag || "Capabilities"}
+            {(home as any).bentoTag || "Services"}
           </span>
         </div>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading((home as any).bentoHeading || "Engineered for *Impact & Engagement*.")} />
@@ -214,14 +214,14 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
           href={(home as any).bentoLinkHref || "/services"} 
           class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
         >
-          <span>{(home as any).bentoLinkLabel || "Explore All 6 Services & Specs →"}</span>
+          <span>{(home as any).bentoLinkLabel || "Explore Services →"}</span>
         </a>
       </div>
     </div>
 
     <!-- Asymmetric 3-Column Bento Grid (2+1, 1+2, 1+2) -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-      {bentoItems.map((item, idx) => (
+      {bentoItems.map((item) => (
         <a
           href={item.service.href}
           class:list={[
@@ -230,13 +230,10 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
           ]}
         >
           <div>
-            <!-- Top Tag & Index -->
+            <!-- Category Tag Pill -->
             <div class="flex items-center justify-between gap-4 mb-4">
               <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
                 {item.service.tag}
-              </span>
-              <span class="text-xs font-mono text-neutral-500 group-hover:text-amber-400 transition-colors">
-                0{item.service.order || idx + 1}
               </span>
             </div>
 
@@ -258,7 +255,7 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
 
           <!-- Bottom Action Prompt -->
           <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
-            <span>Explore Capabilities</span>
+            <span>Explore Service</span>
             <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
           </div>
         </a>
@@ -271,7 +268,7 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
         href={(home as any).bentoLinkHref || "/services"} 
         class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-all shadow-lg"
       >
-        <span>{(home as any).bentoLinkLabel || "Explore All 6 Services & Technical Specs →"}</span>
+        <span>{(home as any).bentoLinkLabel || "Explore Services →"}</span>
       </a>
     </div>
 
