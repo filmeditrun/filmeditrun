@@ -79,6 +79,17 @@
   - `02. Echoes of Silence: Short Film` (Narrative • 8:12)
   - `03. Lumina: Neon Horizons` (Music Videos • 3:40)
 
+### Production Pipeline (Disciplined 4-Stage Methodology)
+* **Tag:** `// PRODUCTION PIPELINE`
+* **Heading:** `Calm execution. Predictable excellence.` *(with "Predictable excellence." highlighted in amber gradient)*
+* **Description:** `A disciplined four-stage pipeline designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time.`
+* **Primary Button:** `Discuss Your Timeline →` → `/contact`
+* **The 4 Process Stages:**
+  - `01. Discovery & Briefing` (`Pre-Production`): We establish your core objectives, shooting schedule, visual treatment, and technical audio requirements before touching a camera.
+  - `02. On-Location Filming` (`Filming & Audio`): Cinema-grade multi-camera packages and clean broadcast audio feeds ensure every keynote, interview, and critical moment is captured with precision.
+  - `03. Editorial & Review` (`Post-Production`): Story assembly and pacing cuts are shared via private, frame-accurate review links for fast, friction-free stakeholder feedback.
+  - `04. Master & Delivery` (`Final Output`): Final color-graded masters, vertical social cutdowns, and burned-in caption files packaged for instant publishing across your website and social channels.
+
 ---
 
 ## 2. About Page (`/about`)
@@ -134,7 +145,7 @@
 * **Step 01: Discovery & Briefing** (`Pre-Production`): We establish your core objectives, shooting schedule, visual treatment, and technical audio requirements before touching a camera.
 * **Step 02: On-Location Filming** (`Filming & Audio`): Cinema-grade multi-camera packages and clean broadcast audio feeds ensure every keynote, interview, and critical moment is captured with precision.
 * **Step 03: Editorial & Review** (`Post-Production`): Story assembly and pacing cuts are shared via private, frame-accurate review links for fast, friction-free stakeholder feedback.
-* **Step 04: Master & Delivery** (`Final Output`): Cinematic color balancing, sound design, and clean exports delivered in 4K widescreen alongside vertical 9:16 social cutdowns.
+* **Step 04: Master & Delivery** (`Final Output`): Final color-graded masters, vertical social cutdowns, and burned-in caption files packaged for instant publishing across your website and social channels.
 
 ### Bottom CTA
 * **Eyebrow Tag:** `READY FOR THE NEXT TAKE?`

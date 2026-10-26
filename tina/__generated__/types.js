@@ -44,6 +44,11 @@ export const HomepagePartsFragmentDoc = gql`
   bentoDescription
   bentoLinkLabel
   bentoLinkHref
+  pipelineTag
+  pipelineHeading
+  pipelineDescription
+  pipelineLinkLabel
+  pipelineLinkHref
 }
     `;
 export const CambridgePagePartsFragmentDoc = gql`

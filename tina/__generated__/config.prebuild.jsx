@@ -343,6 +343,37 @@ var config_default = defineConfig({
             name: "bentoLinkHref",
             label: "Bento Grid Directory Link URL",
             description: "Default: /services"
+          },
+          // ─── ⚡ PRODUCTION PIPELINE (STAGE 3) ─────────────────────────
+          {
+            type: "string",
+            name: "pipelineTag",
+            label: "Pipeline Section Tag / Badge",
+            description: "Default: Production Pipeline"
+          },
+          {
+            type: "string",
+            name: "pipelineHeading",
+            label: "Pipeline Heading (Use *word* for gradient)",
+            description: "Default: Calm execution. *Predictable excellence.*"
+          },
+          {
+            type: "string",
+            name: "pipelineDescription",
+            label: "Pipeline Description",
+            ui: { component: "textarea" }
+          },
+          {
+            type: "string",
+            name: "pipelineLinkLabel",
+            label: "Pipeline Link Button Label",
+            description: "Default: Discuss Your Timeline \u2192"
+          },
+          {
+            type: "string",
+            name: "pipelineLinkHref",
+            label: "Pipeline Link Button URL",
+            description: "Default: /contact"
           }
         ]
       },

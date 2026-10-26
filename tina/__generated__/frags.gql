@@ -36,6 +36,11 @@ fragment HomepageParts on Homepage {
   bentoDescription
   bentoLinkLabel
   bentoLinkHref
+  pipelineTag
+  pipelineHeading
+  pipelineDescription
+  pipelineLinkLabel
+  pipelineLinkHref
 }
 
 fragment CambridgePageParts on CambridgePage {

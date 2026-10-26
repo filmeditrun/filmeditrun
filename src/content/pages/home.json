@@ -56,5 +56,10 @@
   "bentoHeading": "Engineered for *Impact & Engagement*.",
   "bentoDescription": "Six modular video production disciplines designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time.",
   "bentoLinkLabel": "Explore Services →",
-  "bentoLinkHref": "/services"
+  "bentoLinkHref": "/services",
+  "pipelineTag": "Production Pipeline",
+  "pipelineHeading": "Calm execution. *Predictable excellence.*",
+  "pipelineDescription": "A disciplined four-stage pipeline designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time.",
+  "pipelineLinkLabel": "Discuss Your Timeline →",
+  "pipelineLinkHref": "/contact"
 }
