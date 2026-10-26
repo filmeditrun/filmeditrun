@@ -20,6 +20,11 @@ interface ServiceCard {
   heroGradientDirection?: string;
   heroGradientColor1?: string;
   heroGradientColor2?: string;
+  deliverables?: Array<{
+    tag?: string;
+    title: string;
+    description?: string;
+  }>;
 }
 
 const serviceFiles = import.meta.glob<ServiceCard>("../content/services/*.json", {
@@ -121,66 +126,57 @@ const ctaButtonLink = servicesPage.ctaButtonLink || "/contact";
         <a 
           href={service.link} 
           class:list={[
-            "group flex flex-col justify-between rounded-2xl border border-neutral-800 bg-neutral-900/90 overflow-hidden transition-all duration-300 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5",
+            "group flex flex-col justify-between rounded-2xl border border-neutral-800 bg-neutral-900/60 p-7 sm:p-8 transition-all duration-300 hover:border-amber-500/50 hover:bg-neutral-900/90 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5",
             index >= INITIAL_LIMIT && "service-card-extra"
           ]}
         >
-          <!-- 1. TOP CONTENT CONTAINER (Text on Top for Instant Reading) -->
-          <div class="p-6 pb-5 sm:p-7 sm:pb-6 flex flex-col justify-between flex-1">
-            <!-- Top Header: Title & Action Indicator -->
-            <div class="flex items-start justify-between gap-4">
-              <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors duration-300 leading-snug">
-                {service.title}
-              </h3>
-
-              <span class="text-neutral-400 group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-xs leading-none bg-neutral-950/80 border border-white/10 group-hover:border-amber-500/40 w-7 h-7 rounded-full flex items-center justify-center shadow-sm shrink-0 mt-1">
-                &nearr;
+          <div>
+            <!-- Order Number & Tag Pill -->
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
+                {service.tag}
+              </span>
+              <span class="text-xs font-mono text-neutral-500 group-hover:text-amber-400 transition-colors">
+                {String(index + 1).padStart(2, '0')}
               </span>
             </div>
+
+            <!-- Service Title -->
+            <h2 class="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-snug mb-3">
+              {service.title}
+            </h2>
+
+            <!-- Service Description -->
+            <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light mb-6">
+              {service.description}
+            </p>
+
+            <!-- Key Deliverables Breakdown -->
+            {service.deliverables && service.deliverables.length > 0 && (
+              <div class="pt-5 border-t border-white/5">
+                <span class="text-[10px] uppercase font-mono tracking-wider text-neutral-500 block mb-3 font-semibold">
+                  Standard Deliverables
+                </span>
+                <ul class="space-y-2.5">
+                  {service.deliverables.map((item) => (
+                    <li class="flex items-start gap-2 text-xs text-neutral-300 font-light">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" aria-hidden="true"></span>
+                      <div>
+                        <strong class="text-white font-medium">{item.tag || item.title}:</strong>{" "}
+                        <span class="text-neutral-400">{item.title !== item.tag ? item.title : item.description}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
-          <!-- 2. BOTTOM WIDESCREEN MEDIA WINDOW (16:9 Cinema Aspect Ratio) -->
-          {service.displayAs && (service.displayAs as string) !== "none" && (service.displayAs === "gradient" || service.imagePath || service.localVideoPath || service.cloudVideoUrl) && (
-            <div class="relative w-full aspect-16/9 overflow-hidden bg-black select-none border-t border-neutral-800/80">
-              
-              {/* OPTION 1 & 2: NATIVE ZERO-JS VIDEO LOOP (LOCAL OR CLOUD) */}
-              {(service.displayAs === "local-video" || service.displayAs === "link-video" || service.displayAs === "video") && (
-                <video
-                  autoplay
-                  loop
-                  muted
-                  playsinline
-                  preload="metadata"
-                  poster={service.imagePath}
-                  class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                >
-                  <source src={service.displayAs === "link-video" ? service.cloudVideoUrl : service.localVideoPath} type="video/mp4" />
-                </video>
-              )}
-
-              {/* OPTION 3: PLAIN IMAGE SETUP */}
-              {service.displayAs === "image" && service.imagePath && (
-                <img
-                  src={service.imagePath}
-                  alt={service.title}
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                />
-              )}
-
-              {/* OPTION 4: DUAL-TONE GRADIENT SETUP */}
-              {service.displayAs === "gradient" && (
-                <div
-                  class="w-full h-full group-hover:scale-105 transition-all duration-700 ease-out"
-                  style={service.heroGradientDirection === "radial"
-                    ? `background: radial-gradient(circle at center, ${service.heroGradientColor1 || "#180d2b"} 0%, ${service.heroGradientColor2 || "#09090c"} 100%);`
-                    : `background: linear-gradient(${service.heroGradientDirection || "to bottom right"}, ${service.heroGradientColor1 || "#180d2b"} 0%, ${service.heroGradientColor2 || "#09090c"} 100%);`}
-                  aria-hidden="true"
-                />
-              )}
-            </div>
-          )}
+          <!-- Bottom Action Prompt -->
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
+            <span>Explore Specs & Scope</span>
+            <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
+          </div>
         </a>
       ))}
 

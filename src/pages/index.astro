@@ -26,6 +26,11 @@ interface ServiceEntry {
   description: string;
   link?: string;
   slug?: string;
+  deliverables?: Array<{
+    tag?: string;
+    title: string;
+    description?: string;
+  }>;
 }
 
 const serviceFiles = import.meta.glob<ServiceEntry>('../content/services/*.json', {
@@ -377,11 +382,23 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
             <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light line-clamp-3">
               {item.service.description}
             </p>
+
+            <!-- Key Deliverable Badges -->
+            {item.service.deliverables && item.service.deliverables.length > 0 && (
+              <div class="flex flex-wrap gap-2 mt-5">
+                {item.service.deliverables.map((d) => (
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] sm:text-[11px] font-mono text-neutral-300">
+                    <span class="w-1 h-1 rounded-full bg-amber-400 mr-1.5 shrink-0" aria-hidden="true"></span>
+                    {d.tag || d.title}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
           <!-- Bottom Action Prompt -->
           <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
-            <span>Explore Service</span>
+            <span>Explore Service & Specs</span>
             <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
           </div>
         </a>
