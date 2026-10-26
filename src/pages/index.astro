@@ -1,6 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import home from '../content/pages/home.json';
+import { projects } from '../data/projects';
+
+// Helper for asterisk gradient formatting
+const parseHeading = (text: string) => {
+  if (!text) return "";
+  if (text.includes('*')) {
+    return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">$1</span>');
+  }
+  return text;
+};
+
+// Top 3 projects dynamically pulled from TinaCMS collection
+const featuredProjects = projects.slice(0, 3);
+
+// Default telemetry metrics if not provided
+const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemetryMetrics.length > 0
+  ? (home as any).telemetryMetrics
+  : [
+      {
+        value: "100%",
+        label: "Independent Filmmakers",
+        description: "Direct collaboration with experienced directors and camera operators. No agency bloat or markups."
+      },
+      {
+        value: "48h",
+        label: "Highlight Turnaround",
+        description: "Rapid recap reels and press cutdowns delivered while event momentum is live."
+      },
+      {
+        value: "2",
+        label: "Operational Hubs",
+        description: "Cambridge studio base and London on-location field crews filming UK-wide."
+      },
+      {
+        value: "Web & Social",
+        label: "Hero Films & Social Cutdowns",
+        description: "Widescreen masters for your site alongside vertical cutdowns for social, complete with titled and untitled masters, plus subtitles."
+      }
+    ];
 ---
 
 <Layout
@@ -68,11 +107,39 @@ import home from '../content/pages/home.json';
     </div>
   </header>
 
+  <!-- ================================================================= -->
+  <!-- 1. STUDIO TELEMETRY METRIC BAR (Arm 'By the Numbers' Architecture) -->
+  <!-- ================================================================= -->
+  <section class="relative border-b border-line bg-ink-soft/40 backdrop-blur-sm overflow-hidden select-none">
+    <!-- Grade-Aware Ambient Radial Glow (Amber Tungsten in Dark Noir / Rose in High-Key / Neon in Supernova) -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_75%_50%_at_50%_50%,var(--color-accent-glow),transparent_75%)] opacity-35 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-12 sm:py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-line">
+        {telemetryMetrics.map((metric: any, idx: number) => (
+          <div class={`flex flex-col justify-between ${idx > 0 ? "pt-6 sm:pt-0 sm:pl-6 lg:pl-8" : ""}`}>
+            <div>
+              <span class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 block mb-2 font-sans">
+                {metric.value}
+              </span>
+              <h3 class="text-xs uppercase tracking-widest text-white font-mono font-semibold mb-2">
+                {metric.label}
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+                {metric.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Fading Cinematic Divider -->
-  <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50"></div>
+  <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-30"></div>
 
   <!-- Brief Introduction Section -->
-  <section class="max-w-5xl mx-auto px-6 py-24 sm:py-32 text-center">
+  <section class="max-w-5xl mx-auto px-6 py-20 sm:py-28 text-center">
     <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-6">{home.introHeading}</h2>
     <p class="text-neutral-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
       {home.introBody}
@@ -85,6 +152,89 @@ import home from '../content/pages/home.json';
         {home.introSecondaryLinkLabel}
       </a>
     </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 2. SELECTED WORK IN FOCUS (Dynamic TinaCMS Project Showcase)       -->
+  <!-- ================================================================= -->
+  <section class="relative max-w-7xl mx-auto px-6 pb-24 sm:pb-32 overflow-hidden">
+    <!-- Atmospheric Ambient Rim Glow Behind Project Cards -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent-glow),transparent_70%)] opacity-25 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Section Header with Direct View All Button -->
+    <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14 border-b border-line pb-8">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+            {(home as any).workSpotlightTag || "Selected Work"}
+          </span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading((home as any).workSpotlightHeading || "Selected Films & *Client Highlights*.")} />
+        <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3 font-light leading-relaxed">
+          {(home as any).workSpotlightDescription || "A glimpse into recent corporate conferences, brand documentaries, and location shoots."}
+        </p>
+      </div>
+      <div class="shrink-0">
+        <a 
+          href={(home as any).workSpotlightLinkHref || "/work"} 
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
+        >
+          <span>{(home as any).workSpotlightLinkLabel || "Explore Full Portfolio →"}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3-Column Flagship Cards Grid (100% Dynamically Fed from TinaCMS Projects) -->
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {featuredProjects.map((project) => (
+        <a 
+          href="/work" 
+          class="group flex flex-col rounded-2xl bg-neutral-900/60 border border-line hover:border-amber-500/60 transition-all duration-300 overflow-hidden shadow-2xl hover:-translate-y-1"
+        >
+          <!-- 16:9 Thumbnail Frame with Smooth 700ms Hover Zoom -->
+          <div class="relative w-full aspect-video overflow-hidden bg-neutral-950">
+            <img 
+              src={project.thumbnail || "/og-image.jpg"} 
+              alt={project.title} 
+              loading="lazy" 
+              decoding="async" 
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            
+            <!-- Category / Client Tag -->
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-wider text-amber-400">
+              {project.category || project.client}
+            </div>
+
+            <!-- Runtime Tag -->
+            {project.runtime && (
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300">
+                {project.runtime}
+              </div>
+            )}
+          </div>
+
+          <!-- Content Details -->
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors mb-2 line-clamp-1">
+                {project.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light line-clamp-2">
+                {project.description}
+              </p>
+            </div>
+            <div class="pt-4 mt-5 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
+              <span>Watch Film</span>
+              <span class="group-hover:translate-x-1 transition-transform font-bold">&rarr;</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
   </section>
 
 </Layout>

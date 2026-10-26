@@ -20,6 +20,17 @@ fragment HomepageParts on Homepage {
   introPrimaryLinkHref
   introSecondaryLinkLabel
   introSecondaryLinkHref
+  telemetryMetrics {
+    __typename
+    value
+    label
+    description
+  }
+  workSpotlightTag
+  workSpotlightHeading
+  workSpotlightDescription
+  workSpotlightLinkLabel
+  workSpotlightLinkHref
 }
 
 fragment CambridgePageParts on CambridgePage {

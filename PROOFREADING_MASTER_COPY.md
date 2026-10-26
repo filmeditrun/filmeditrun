@@ -43,12 +43,28 @@
   - `Motion Design`
   - `Post-Production`
 
+### Studio Telemetry Metric Bar
+* **Metric 1:** `100%` • `Independent Filmmakers` — Direct collaboration with experienced directors and camera operators. No agency bloat or markups.
+* **Metric 2:** `48h` • `Highlight Turnaround` — Rapid recap reels and press cutdowns delivered while event momentum is live.
+* **Metric 3:** `2` • `Operational Hubs` — Cambridge studio base and London on-location field crews filming UK-wide.
+* **Metric 4:** `Web & Social` • `Hero Films & Social Cutdowns` — Widescreen masters for your site alongside vertical cutdowns for social, complete with titled and untitled masters, plus subtitles.
+
 ### Intro Section
 * **Heading:** `Grounded storytelling. Broadcast craft.`
 * **Body:** `Great video isn’t about flashy agency jargon or rigid scripts. It’s about capturing real energy, genuine voices, and clear ideas. Operating from Cambridge with agile crews on-location across London and the UK, we handle everything from multi-stage summit recordings to intimate brand documentaries and rapid post-production.`
 * **Links:**
   - `Explore Our Services ➔` → `/services`
   - `Cambridge Studio Hub ➔` → `/cambridge`
+
+### Selected Work in Focus
+* **Tag:** `// SELECTED WORK`
+* **Heading:** `Selected Films & Client Highlights.` *(with "Client Highlights." highlighted in amber gradient)*
+* **Description:** `A glimpse into recent corporate conferences, brand documentaries, and location shoots.`
+* **Primary Button:** `Explore Full Portfolio →` → `/work`
+* **Featured Projects (Dynamically fed from Projects Collection):**
+  - `01. FilmEditRun: 2025 Showreel` (Commercials • 0:45)
+  - `02. Echoes of Silence: Short Film` (Narrative • 8:12)
+  - `03. Lumina: Neon Horizons` (Music Videos • 3:40)
 
 ---
 

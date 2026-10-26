@@ -9,14 +9,31 @@ const redirectUrl = contact.redirectUrl || "";
 const enableTurnstile = Boolean(contact.enableTurnstile && contact.turnstileSiteKey);
 const turnstileSiteKey = contact.turnstileSiteKey || "";
 
-const serviceOptions = contact.serviceOptions && contact.serviceOptions.length > 0
-  ? contact.serviceOptions
-  : [
-      { label: "Filming", value: "Filming" },
-      { label: "Editing", value: "Editing" },
-      { label: "Filming & Editing (Full Production)", value: "Filming and Editing" },
-      { label: "Animation & Motion Design", value: "Animation and Motion Design" }
-    ];
+interface ServiceEntry {
+  order?: string;
+  title: string;
+}
+
+// Dynamically import all services from TinaCMS collection for 100% automated sync
+const serviceFiles = import.meta.glob<ServiceEntry>('../content/services/*.json', {
+  eager: true,
+  import: 'default',
+});
+
+const dynamicServices = Object.values(serviceFiles)
+  .sort((a, b) => (a.order || "").localeCompare(b.order || "", undefined, { numeric: true }))
+  .map((s) => ({ label: s.title, value: s.title }));
+
+const serviceOptions = dynamicServices.length > 0
+  ? dynamicServices
+  : (contact.serviceOptions && contact.serviceOptions.length > 0
+      ? contact.serviceOptions
+      : [
+          { label: "Filming", value: "Filming" },
+          { label: "Editing", value: "Editing" },
+          { label: "Filming & Editing (Full Production)", value: "Filming and Editing" },
+          { label: "Animation & Motion Design", value: "Animation and Motion Design" }
+        ]);
 
 const formSteps = [
   {

@@ -28,6 +28,17 @@ export const HomepagePartsFragmentDoc = gql`
   introPrimaryLinkHref
   introSecondaryLinkLabel
   introSecondaryLinkHref
+  telemetryMetrics {
+    __typename
+    value
+    label
+    description
+  }
+  workSpotlightTag
+  workSpotlightHeading
+  workSpotlightDescription
+  workSpotlightLinkLabel
+  workSpotlightLinkHref
 }
     `;
 export const CambridgePagePartsFragmentDoc = gql`

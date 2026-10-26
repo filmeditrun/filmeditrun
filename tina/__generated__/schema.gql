@@ -138,6 +138,12 @@ type Collection {
 
 union DocumentNode = Homepage | CambridgePage | LondonPage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder
 
+type HomepageTelemetryMetrics {
+  value: String!
+  label: String!
+  description: String!
+}
+
 type Homepage implements Node & Document {
   seoTitle: String!
   seoDescription: String!
@@ -159,6 +165,12 @@ type Homepage implements Node & Document {
   introPrimaryLinkHref: String!
   introSecondaryLinkLabel: String!
   introSecondaryLinkHref: String!
+  telemetryMetrics: [HomepageTelemetryMetrics]
+  workSpotlightTag: String
+  workSpotlightHeading: String
+  workSpotlightDescription: String
+  workSpotlightLinkLabel: String
+  workSpotlightLinkHref: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -176,6 +188,12 @@ input ImageFilter {
   eq: String
   exists: Boolean
   in: [String]
+}
+
+input HomepageTelemetryMetricsFilter {
+  value: StringFilter
+  label: StringFilter
+  description: StringFilter
 }
 
 input HomepageFilter {
@@ -199,6 +217,12 @@ input HomepageFilter {
   introPrimaryLinkHref: StringFilter
   introSecondaryLinkLabel: StringFilter
   introSecondaryLinkHref: StringFilter
+  telemetryMetrics: HomepageTelemetryMetricsFilter
+  workSpotlightTag: StringFilter
+  workSpotlightHeading: StringFilter
+  workSpotlightDescription: StringFilter
+  workSpotlightLinkLabel: StringFilter
+  workSpotlightLinkHref: StringFilter
 }
 
 type HomepageConnectionEdges {
@@ -1416,6 +1440,12 @@ input DocumentMutation {
   footerSettings: FooterSettingsMutation
 }
 
+input HomepageTelemetryMetricsMutation {
+  value: String
+  label: String
+  description: String
+}
+
 input HomepageMutation {
   seoTitle: String
   seoDescription: String
@@ -1437,6 +1467,12 @@ input HomepageMutation {
   introPrimaryLinkHref: String
   introSecondaryLinkLabel: String
   introSecondaryLinkHref: String
+  telemetryMetrics: [HomepageTelemetryMetricsMutation]
+  workSpotlightTag: String
+  workSpotlightHeading: String
+  workSpotlightDescription: String
+  workSpotlightLinkLabel: String
+  workSpotlightLinkHref: String
 }
 
 input CambridgePageFaqsMutation {

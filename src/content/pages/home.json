@@ -19,10 +19,37 @@
     "Motion Design",
     "Post-Production"
   ],
+  "telemetryMetrics": [
+    {
+      "value": "100%",
+      "label": "Independent Filmmakers",
+      "description": "Direct collaboration with experienced directors and camera operators. No agency bloat or markups."
+    },
+    {
+      "value": "48h",
+      "label": "Highlight Turnaround",
+      "description": "Rapid recap reels and press cutdowns delivered while event momentum is live."
+    },
+    {
+      "value": "2",
+      "label": "Operational Hubs",
+      "description": "Cambridge studio base and London on-location field crews filming UK-wide."
+    },
+    {
+      "value": "Web & Social",
+      "label": "Hero Films & Social Cutdowns",
+      "description": "Widescreen masters for your site alongside vertical cutdowns for social, complete with titled and untitled masters, plus subtitles."
+    }
+  ],
   "introHeading": "Grounded storytelling. Broadcast craft.",
   "introBody": "Great video isn’t about flashy agency jargon or rigid scripts. It’s about capturing real energy, genuine voices, and clear ideas. Operating from Cambridge with agile crews on-location across London and the UK, we handle everything from multi-stage summit recordings to intimate brand documentaries and rapid post-production.",
   "introPrimaryLinkLabel": "Explore Our Services ➔",
   "introPrimaryLinkHref": "/services",
   "introSecondaryLinkLabel": "Cambridge Studio Hub ➔",
-  "introSecondaryLinkHref": "/cambridge"
+  "introSecondaryLinkHref": "/cambridge",
+  "workSpotlightTag": "Selected Work",
+  "workSpotlightHeading": "Selected Films & *Client Highlights*.",
+  "workSpotlightDescription": "A glimpse into recent corporate conferences, brand documentaries, and location shoots.",
+  "workSpotlightLinkLabel": "Explore Full Portfolio →",
+  "workSpotlightLinkHref": "/work"
 }

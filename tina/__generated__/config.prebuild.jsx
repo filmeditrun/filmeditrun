@@ -264,6 +264,54 @@ var config_default = defineConfig({
             name: "introSecondaryLinkHref",
             label: "Intro Second Link URL",
             required: true
+          },
+          // ─── 📊 STUDIO TELEMETRY METRICS ──────────────────────────────
+          {
+            type: "object",
+            name: "telemetryMetrics",
+            label: "\u{1F4CA} Studio Telemetry Metrics",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.value ? `${item.value} \u2014 ${item?.label || ""}` : "Metric"
+              })
+            },
+            fields: [
+              { type: "string", name: "value", label: "Metric Number / Value (e.g. 100%, 48h)", required: true },
+              { type: "string", name: "label", label: "Metric Title / Label", required: true },
+              { type: "string", name: "description", label: "Short Description", ui: { component: "textarea" }, required: true }
+            ]
+          },
+          // ─── 🎬 SELECTED WORK SPOTLIGHT ───────────────────────────────
+          {
+            type: "string",
+            name: "workSpotlightTag",
+            label: "Work Spotlight Badge Tag",
+            description: "Default: Selected Work"
+          },
+          {
+            type: "string",
+            name: "workSpotlightHeading",
+            label: "Work Spotlight Heading (Use *word* for gradient)",
+            description: "Default: Selected Films & *Client Highlights*."
+          },
+          {
+            type: "string",
+            name: "workSpotlightDescription",
+            label: "Work Spotlight Description",
+            ui: { component: "textarea" }
+          },
+          {
+            type: "string",
+            name: "workSpotlightLinkLabel",
+            label: "Work Spotlight View All Button Text",
+            description: "Default: Explore Full Portfolio \u2192"
+          },
+          {
+            type: "string",
+            name: "workSpotlightLinkHref",
+            label: "Work Spotlight View All Button Link",
+            description: "Default: /work"
           }
         ]
       },
