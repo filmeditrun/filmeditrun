@@ -32,6 +32,7 @@ html:has(#theme-choice-dark-noir:checked) {
   --color-accent: #e8c547;
   --color-accent-hover: #f59e0b;
   --color-accent-glow: rgba(232, 197, 71, 0.25);
+  --color-atmosphere-glow: radial-gradient(ellipse 75% 55% at 50% 50%, rgba(14, 116, 144, 0.14) 0%, rgba(30, 58, 138, 0.08) 40%, transparent 75%);
   color-scheme: dark;
 }
 
@@ -50,6 +51,7 @@ html:has(#theme-choice-high-key:checked) {
   --color-accent: #e11d48;
   --color-accent-hover: #be123c;
   --color-accent-glow: rgba(225, 29, 72, 0.25);
+  --color-atmosphere-glow: radial-gradient(ellipse 75% 55% at 50% 50%, rgba(225, 29, 72, 0.03) 0%, transparent 75%);
 
   /* Surface Neutrals: Pure snow-white canvas & crisp architectural dividers */
   --color-neutral-950: #ffffff;
@@ -188,6 +190,7 @@ html:has(#theme-choice-supernova:checked) {
   --color-accent: #f43f5e;
   --color-accent-hover: #fb7185;
   --color-accent-glow: rgba(244, 63, 94, 0.45);
+  --color-atmosphere-glow: radial-gradient(ellipse 75% 55% at 50% 50%, rgba(244, 63, 94, 0.22) 0%, rgba(139, 92, 246, 0.18) 50%, transparent 75%);
 
   /* Surface Neutrals: Deep cosmic ultraviolet obsidian */
   --color-neutral-950: #080411;
