@@ -292,22 +292,25 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   <!-- ================================================================= -->
   <!-- 3. FULL-BLEED PARALLAX IMMERSION BREAK (Arm-Style Cinematic Break)-->
   <!-- ================================================================= -->
-  <section 
-    class="relative w-full py-28 sm:py-36 bg-scroll lg:bg-fixed bg-center bg-cover border-y border-line overflow-hidden select-none text-white" 
-    style={`background-image: url('${(home as any).scaleImage || "/cambridge/stage-wide.webp"}');`}
-    data-cinema-darkroom
-  >
-    <!-- Dark Cinema Scrim Overlay -->
-    <div class="absolute inset-0 bg-black/75 backdrop-blur-[1px]"></div>
+  <section class="relative w-full py-28 sm:py-36 border-y border-line overflow-hidden select-none text-white">
+    <!-- Dedicated Parallax Background Image Layer -->
+    <div 
+      class="absolute inset-0 bg-center bg-cover bg-scroll lg:bg-fixed" 
+      style={`background-image: url('${(home as any).scaleImage || "/cambridge/stage-wide.webp"}');`}
+      aria-hidden="true"
+    ></div>
+
+    <!-- Dark Cinema Scrim Overlay (Clean Opacity Tint, No WebKit Filter Blur) -->
+    <div class="absolute inset-0 bg-neutral-950/70" aria-hidden="true"></div>
 
     <!-- Centered Content (No Tag, High-Impact Direct Headline) -->
-    <div class="relative max-w-5xl mx-auto px-6 text-center">
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
       <h2 
         class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-6" 
         set:html={parseHeading((home as any).scaleHeading || "Low-profile crews. *Plenary-scale capture.*")} 
       />
 
-      <p class="text-neutral-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+      <p class="text-neutral-200 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
         {(home as any).scaleDescription || "Operating with quiet discretion across plenary halls, research campuses, and corporate boardrooms. Broadcast cinema rigs, synchronized presentation capture, and redundant multi-camera audio without disrupting your schedule."}
       </p>
     </div>
