@@ -92,18 +92,25 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
         </p>
       </div>
 
-      <!-- Direct Commission Action Pill -->
-      <div class="shrink-0">
-        <a 
-          href={footer.commissionButtonLink} 
-          class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
-        >
+      <!-- Top Actions: Status Badge & Commission Button -->
+      <div class="shrink-0 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+        <!-- Live Studio Status Indicator -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-xs font-mono text-neutral-300">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
           </span>
+          <span class="text-neutral-400">{footer.studioStatusLabel || "Studio Status"}:</span>
+          <span class="text-emerald-400 font-medium">{footer.studioStatus || "Accepting Commissions"}</span>
+        </div>
+
+        <!-- Commission a Production Button -->
+        <a 
+          href={footer.commissionButtonLink || "/contact"} 
+          class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all duration-200 group shadow-lg shadow-amber-500/10 hover:scale-[1.02]"
+        >
           <span>{footer.commissionButtonLabel}</span>
-          <span class="group-hover:translate-x-1 transition-transform text-amber-400 font-bold">&rarr;</span>
+          <span class="group-hover:translate-x-1 transition-transform font-bold">&rarr;</span>
         </a>
       </div>
 
@@ -189,7 +196,7 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
           <li>
             <div class="block">
               <span class="font-medium text-neutral-300 block">
-                {footer.worldwideTitle || "UK-Wide & Worldwide"}
+                {footer.worldwideTitle || "UK-Wide Deployments"}
               </span>
               <span class="text-xs text-neutral-500 block">
                 {footer.worldwideSubtitle}
@@ -202,41 +209,50 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
       <!-- Column 4: DIRECT INQUIRIES & SPECS -->
       <div class="space-y-4">
         <div class="flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
           <h4 class="text-white font-mono text-xs uppercase tracking-widest font-semibold">
             {footer.directHeading}
           </h4>
         </div>
-        <div class="space-y-3 text-xs font-mono">
+        <div class="space-y-3.5 text-xs font-mono">
           <div>
             <span class="text-neutral-400 block uppercase tracking-wider mb-1">
-              {footer.inquiriesLabel || "Inquiries"}
+              {footer.inquiriesLabel || "Studio Inquiries"}
             </span>
-            <a href={footer.inquiriesActionLink || "/contact"} class="text-neutral-200 hover:text-amber-400 transition-colors text-sm font-sans font-light">
-              {footer.inquiriesActionText || "Start Project Brief →"}
+            <a 
+              href={siteConfig.email ? `mailto:${siteConfig.email}` : (footer.inquiriesActionLink || "/contact")} 
+              class="text-neutral-200 hover:text-amber-400 transition-colors text-sm font-sans font-medium block"
+            >
+              {siteConfig.email || footer.inquiriesActionText || "contact@filmeditrun.co.uk"}
             </a>
           </div>
+          {siteConfig.telephone && (
+            <div>
+              <span class="text-neutral-400 block uppercase tracking-wider mb-1">
+                Studio Direct
+              </span>
+              <a 
+                href={`tel:${siteConfig.telephone.replace(/\s+/g, '')}`} 
+                class="text-neutral-300 hover:text-amber-400 transition-colors block text-xs"
+              >
+                {siteConfig.telephone}
+              </a>
+            </div>
+          )}
           <div>
             <span class="text-neutral-400 block uppercase tracking-wider mb-1">
-              {footer.productionHubLabel || "Production Hub"}
+              {footer.productionHubLabel || "Production Hubs"}
             </span>
-            <span class="text-neutral-300">{footer.productionHub}</span>
+            <span class="text-neutral-300 block">{footer.productionHub || "Cambridge • London, UK"}</span>
           </div>
-          <div>
-            <span class="text-neutral-400 block uppercase tracking-wider mb-1">
-              {footer.capturePipelineLabel || "Capture Pipeline"}
-            </span>
-            <span class="text-neutral-300">{footer.capturePipeline}</span>
-          </div>
-          <div>
-            <span class="text-neutral-400 block uppercase tracking-wider mb-1">
-              {footer.studioStatusLabel || "Studio Status"}
-            </span>
-            <span class="text-emerald-400 flex items-center gap-1.5">
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-              {footer.studioStatus}
-            </span>
-          </div>
+          {footer.capturePipeline && (
+            <div>
+              <span class="text-neutral-400 block uppercase tracking-wider mb-1">
+                {footer.capturePipelineLabel || "Capture Pipeline"}
+              </span>
+              <span class="text-neutral-300 block">{footer.capturePipeline}</span>
+            </div>
+          )}
         </div>
       </div>
 

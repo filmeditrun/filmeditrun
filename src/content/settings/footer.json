@@ -1,52 +1,51 @@
 {
-  "studioTagline": "Single and multi-camera live filming, corporate video production, commercial editorial workflows.",
+  "studioTagline": "Independent video production studio and post-house. Single and multi-camera coverage on location across Cambridge, London, and nationwide.",
   "commissionButtonLabel": "Commission a Production",
   "commissionButtonLink": "/contact",
-  "capabilitiesHeading": "Services",
+  "capabilitiesHeading": "Capabilities",
   "servicesLinkLabel": "All Services & Specs →",
   "servicesLinkUrl": "/services",
-  "studioHeading": "Navigation",
+  "studioHeading": "Studio",
   "studioLinks": [
     {
       "label": "Selected Work",
       "href": "/work"
     },
     {
-      "label": "Services Directory",
-      "href": "/services"
-    },
-    {
-      "label": "Studio Manifesto",
+      "label": "About FilmEditRun",
       "href": "/about"
     },
     {
-      "label": "Production Archive",
-      "href": "/work#archive"
+      "label": "Cambridge Studio Hub",
+      "href": "/cambridge"
     },
     {
-      "label": "Start a Project Brief",
-      "href": "/contact"
+      "label": "London Production Base",
+      "href": "/london"
+    },
+    {
+      "label": "Privacy & Data Notice",
+      "href": "/privacy"
     }
   ],
-  "presenceHeading": "Location",
+  "presenceHeading": "Presence",
   "cambridgeTitle": "Cambridge Studio",
-  "cambridgeSubtitle": "Cambridgeshire & East of England",
+  "cambridgeSubtitle": "Silicon Fen, Science Parks & East",
   "cambridgeLink": "/cambridge",
   "londonTitle": "London Base",
-  "londonSubtitle": "Single & multi-cam field operations",
+  "londonSubtitle": "ExCeL, QEII, City & Central Venues",
   "londonLink": "/london",
-  "worldwideTitle": "UK-Wide & Worldwide",
-  "worldwideSubtitle": "On-location commercial shoots",
+  "worldwideTitle": "UK-Wide Deployments",
+  "worldwideSubtitle": "Agile on-location field production",
   "directHeading": "Direct",
-  "inquiriesLabel": "Inquiries",
-  "inquiriesActionText": "Start Project Brief →",
+  "inquiriesLabel": "Studio Inquiries",
+  "inquiriesActionText": "contact@filmeditrun.co.uk",
   "inquiriesActionLink": "/contact",
-  "productionHubLabel": "Production Hub",
+  "productionHubLabel": "Production Hubs",
   "productionHub": "Cambridge • London, UK",
-  "capturePipelineLabel": "Cambridge • Videographer",
-  "capturePipeline": "",
+  "capturePipelineLabel": "Capture Pipeline",
+  "capturePipeline": "4K DCI • 10-Bit Log • Multi-Cam",
   "studioStatusLabel": "Studio Status",
   "studioStatus": "Accepting Commissions",
-  "copyrightTagline": "We Capture, Create, and Produce.",
-  "backToTopLabel": "Back to top"
+  "copyrightTagline": "We Capture, Create, and Produce."
 }
