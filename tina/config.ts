@@ -609,6 +609,12 @@ export default defineConfig({
             list: true,
           },
           {
+            type: "image",
+            name: "hubImage",
+            label: "Homepage Hub Card Photo",
+            description: "Default: /cambridge/stage-wide.webp",
+          },
+          {
             type: "string",
             name: "expertiseBullets",
             label: "Expertise Checkmark Bullet Points",
@@ -880,6 +886,12 @@ export default defineConfig({
             name: "keyVenues",
             label: "Key Hub Venues (Shown on Hub & Homepage)",
             list: true,
+          },
+          {
+            type: "image",
+            name: "hubImage",
+            label: "Homepage Hub Card Photo",
+            description: "Default: /work/onlocation.webp",
           },
           {
             type: "string",
