@@ -293,11 +293,15 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   <!-- 3. FULL-BLEED PARALLAX IMMERSION BREAK (Zero-JS Native Parallax) -->
   <!-- ================================================================= -->
   <section 
-    class="relative w-full py-20 sm:py-28 lg:py-40 bg-scroll lg:bg-fixed bg-center bg-cover border-y border-line select-none text-white" 
+    class="relative w-full py-20 sm:py-28 lg:py-40 bg-scroll lg:bg-fixed bg-center bg-cover select-none text-white overflow-hidden" 
     style={`background-image: url('${(home as any).scaleImage || "/cambridge/stage-wide.webp"}');`}
   >
     <!-- Dark Cinema Scrim Overlay -->
     <div class="absolute inset-0 bg-black/70 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Soft Edge Dissolves (Eliminates spurious lines or hard seams) -->
+    <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-ink to-transparent pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink to-transparent pointer-events-none" aria-hidden="true"></div>
 
     <!-- Centered Content (Protected Cinema Darkroom: Pure White in All Grades) -->
     <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-cinema-darkroom>
