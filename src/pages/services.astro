@@ -208,61 +208,68 @@ const ctaButtonLink = servicesPage.ctaButtonLink || "/contact";
   </section>
 
   <!-- ============================================================== -->
-  <!-- PRODUCTION PROCESS (HOW IT WORKS) - CLEAN TIMELINE RAIL        -->
+  <!-- PRODUCTION PROCESS (HOW IT WORKS) - CONTRAST STUDIO STAGE      -->
   <!-- ============================================================== -->
   {processSteps && processSteps.length > 0 && (
-    <section class="max-w-7xl mx-auto px-6 pt-16 pb-28 border-t border-neutral-900">
-      
-      <!-- Section Header -->
-      <div class="text-center md:text-left mb-16 sm:mb-20">
-        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">
-          {processTag}
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
-          {processHeading}
-        </h2>
-        <p class="text-neutral-400 max-w-2xl text-base sm:text-lg leading-relaxed font-light mx-auto md:mx-0">
-          {processDescription}
-        </p>
+    <section class="relative w-full py-20 sm:py-28 border-y border-neutral-800/80 bg-neutral-900/40 overflow-hidden">
+      <!-- Ambient Studio Atmosphere Mesh -->
+      <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-amber-500/5 rounded-full blur-[120px]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(232,197,71,0.06),transparent)]"></div>
       </div>
 
-      <!-- Horizontal Timeline Rail (Clean Nodes - No Timecodes) -->
-      <div class="relative">
-        <!-- Connecting Rail Line (Desktop: Horizontal) -->
-        <div 
-          class="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-gradient-to-r from-neutral-800 via-amber-500/35 to-neutral-800 z-0 pointer-events-none" 
-          aria-hidden="true"
-        />
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center md:text-left mb-16 sm:mb-20">
+          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">
+            {processTag}
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+            {processHeading}
+          </h2>
+          <p class="text-neutral-400 max-w-2xl text-base sm:text-lg leading-relaxed font-light mx-auto md:mx-0">
+            {processDescription}
+          </p>
+        </div>
 
-        <!-- Step Grid (1 col mobile, 2 cols tablet, 4 cols desktop) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 relative z-10">
-          {processSteps.map((step) => (
-            <div class="group relative flex flex-col bg-neutral-900/60 hover:bg-neutral-900/90 border border-neutral-800 hover:border-amber-500/40 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/5">
-              
-              <!-- Top Node & Stage Tag -->
-              <div class="flex items-center justify-between mb-6">
-                <!-- Step Number Node -->
-                <div class="w-14 h-14 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center font-mono font-bold text-amber-400 text-lg shadow-inner group-hover:border-amber-500/60 group-hover:text-amber-300 transition-all duration-300">
-                  {step.step}
+        <!-- Horizontal Timeline Rail (Clean Nodes - No Timecodes) -->
+        <div class="relative">
+          <!-- Connecting Rail Line (Desktop: Horizontal) -->
+          <div 
+            class="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-gradient-to-r from-neutral-800 via-amber-500/40 to-neutral-800 z-0 pointer-events-none" 
+            aria-hidden="true"
+          />
+
+          <!-- Step Grid (1 col mobile, 2 cols tablet, 4 cols desktop) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 relative z-10">
+            {processSteps.map((step) => (
+              <div class="group relative flex flex-col bg-neutral-950/70 hover:bg-neutral-950/95 border border-neutral-800/80 hover:border-amber-500/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/10 backdrop-blur-sm">
+                
+                <!-- Top Node & Stage Tag -->
+                <div class="flex items-center justify-between mb-6">
+                  <!-- Step Number Node -->
+                  <div class="w-14 h-14 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center font-mono font-bold text-amber-400 text-lg shadow-inner group-hover:border-amber-500/60 group-hover:text-amber-300 transition-all duration-300">
+                    {step.step}
+                  </div>
+
+                  <!-- Stage Category Pill -->
+                  <span class="text-[11px] uppercase tracking-wider font-mono text-neutral-400 font-medium bg-neutral-900/80 border border-neutral-800/80 px-2.5 py-1 rounded-md">
+                    {step.tag}
+                  </span>
                 </div>
 
-                <!-- Stage Category Pill -->
-                <span class="text-[11px] uppercase tracking-wider font-mono text-neutral-400 font-medium bg-neutral-950/80 border border-neutral-800/80 px-2.5 py-1 rounded-md">
-                  {step.tag}
-                </span>
+                <!-- Step Title -->
+                <h3 class="text-lg sm:text-xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
+                  {step.title}
+                </h3>
+
+                <!-- Step Description -->
+                <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                  {step.description}
+                </p>
               </div>
-
-              <!-- Step Title -->
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
-                {step.title}
-              </h3>
-
-              <!-- Step Description -->
-              <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                {step.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
