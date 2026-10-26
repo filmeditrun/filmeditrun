@@ -141,13 +141,13 @@ const ctaButtonLink = servicesPage.ctaButtonLink || "/contact";
         >
           <!-- Ambient Watermark & Atmospheric Glow Layer -->
           <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-            <!-- Cinema Photo Watermark (Monochrome & Enhanced Contrast) -->
+            <!-- Cinema Photo Watermark (Full Natural Color) -->
             <img 
               src={service.imagePath && service.imagePath !== "/og-image.jpg" ? service.imagePath : defaultWatermarks[index % defaultWatermarks.length]} 
               alt="" 
               loading="lazy" 
               decoding="async" 
-              class="w-full h-full object-cover grayscale contrast-125 opacity-25 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 ease-out" 
+              class="w-full h-full object-cover contrast-110 opacity-25 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 ease-out" 
             />
             <!-- Theme-Adaptive Scrim Mask: Solid behind typography, opening up toward the top-right -->
             <div class="absolute inset-0 bg-gradient-to-tr from-neutral-950 via-neutral-950/80 to-neutral-950/40"></div>
