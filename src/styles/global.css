@@ -32,8 +32,21 @@ html:has(#theme-choice-dark-noir:checked) {
   --color-accent: #e8c547;
   --color-accent-hover: #f59e0b;
   --color-accent-glow: rgba(232, 197, 71, 0.25);
-  --color-atmosphere-glow: radial-gradient(ellipse 75% 55% at 50% 50%, rgba(232, 197, 71, 0.12) 0%, rgba(245, 158, 11, 0.05) 45%, transparent 75%);
   color-scheme: dark;
+}
+
+/* Dark Noir ambient atmospheric dual-point mesh glow */
+:is(html[data-theme="dark-noir"], html:has(#theme-choice-dark-noir:checked), html:not([data-theme]):not([data-theme="high-key"]):not([data-theme="supernova"])) body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.85;
+  background: 
+    radial-gradient(ellipse 75% 55% at 88% 12%, rgba(232, 197, 71, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 65% at 12% 88%, rgba(245, 158, 11, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 50% 45%, rgba(232, 197, 71, 0.02) 0%, transparent 70%);
 }
 
 /* -------------------------------------------------------------------
@@ -51,7 +64,6 @@ html:has(#theme-choice-high-key:checked) {
   --color-accent: #e11d48;
   --color-accent-hover: #be123c;
   --color-accent-glow: rgba(225, 29, 72, 0.25);
-  --color-atmosphere-glow: radial-gradient(ellipse 75% 55% at 50% 50%, rgba(225, 29, 72, 0.03) 0%, transparent 75%);
 
   /* Surface Neutrals: Pure snow-white canvas & crisp architectural dividers */
   --color-neutral-950: #ffffff;
@@ -79,6 +91,11 @@ html:has(#theme-choice-high-key:checked) {
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) body::before {
   opacity: 0.015;
   mix-blend-mode: multiply;
+}
+
+/* High-key: disable ambient chromatic mesh */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) body::after {
+  display: none !important;
 }
 
 /* High-Key: Convert page headings outside darkroom areas to dense obsidian ink */
@@ -190,7 +207,6 @@ html:has(#theme-choice-supernova:checked) {
   --color-accent: #f43f5e;
   --color-accent-hover: #fb7185;
   --color-accent-glow: rgba(244, 63, 94, 0.45);
-  --color-atmosphere-glow: radial-gradient(ellipse 75% 55% at 50% 50%, rgba(244, 63, 94, 0.22) 0%, rgba(139, 92, 246, 0.18) 50%, transparent 75%);
 
   /* Surface Neutrals: Deep cosmic ultraviolet obsidian */
   --color-neutral-950: #080411;
