@@ -206,53 +206,44 @@ const navigationLinks = footer.studioLinks && footer.studioLinks.length > 0
         </ul>
       </div>
 
-      <!-- Column 4: DIRECT INQUIRIES & SPECS -->
+      <!-- Column 4: DIRECT PROJECT INTAKE & HUBS -->
       <div class="space-y-4">
         <div class="flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
           <h4 class="text-white font-mono text-xs uppercase tracking-widest font-semibold">
-            {footer.directHeading}
+            {footer.directHeading || "Direct"}
           </h4>
         </div>
         <div class="space-y-3.5 text-xs font-mono">
           <div>
             <span class="text-neutral-400 block uppercase tracking-wider mb-1">
-              {footer.inquiriesLabel || "Studio Inquiries"}
+              {footer.inquiriesLabel || "Project Intake"}
             </span>
             <a 
-              href={siteConfig.email ? `mailto:${siteConfig.email}` : (footer.inquiriesActionLink || "/contact")} 
+              href={footer.inquiriesActionLink || "/contact"} 
               class="text-neutral-200 hover:text-amber-400 transition-colors text-sm font-sans font-medium block"
             >
-              {siteConfig.email || footer.inquiriesActionText || "contact@filmeditrun.co.uk"}
+              {footer.inquiriesActionText || "Start a Project Brief →"}
             </a>
           </div>
-          {siteConfig.telephone && (
-            <div>
-              <span class="text-neutral-400 block uppercase tracking-wider mb-1">
-                Studio Direct
-              </span>
-              <a 
-                href={`tel:${siteConfig.telephone.replace(/\s+/g, '')}`} 
-                class="text-neutral-300 hover:text-amber-400 transition-colors block text-xs"
-              >
-                {siteConfig.telephone}
-              </a>
-            </div>
-          )}
           <div>
             <span class="text-neutral-400 block uppercase tracking-wider mb-1">
               {footer.productionHubLabel || "Production Hubs"}
             </span>
             <span class="text-neutral-300 block">{footer.productionHub || "Cambridge • London, UK"}</span>
           </div>
-          {footer.capturePipeline && (
-            <div>
-              <span class="text-neutral-400 block uppercase tracking-wider mb-1">
-                {footer.capturePipelineLabel || "Capture Pipeline"}
-              </span>
-              <span class="text-neutral-300 block">{footer.capturePipeline}</span>
-            </div>
-          )}
+          <div>
+            <span class="text-neutral-400 block uppercase tracking-wider mb-1">
+              Field Coverage
+            </span>
+            <span class="text-neutral-300 block">On-location shoots UK-wide</span>
+          </div>
+          <div>
+            <span class="text-neutral-400 block uppercase tracking-wider mb-1">
+              Response Time
+            </span>
+            <span class="text-emerald-400 block">Direct response within 24 hours</span>
+          </div>
         </div>
       </div>
 
