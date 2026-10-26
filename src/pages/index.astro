@@ -293,15 +293,17 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   <!-- 3. FULL-BLEED PARALLAX IMMERSION BREAK (Arm-Style Cinematic Break)-->
   <!-- ================================================================= -->
   <section class="relative w-full py-28 sm:py-36 border-y border-line overflow-hidden select-none text-white">
-    <!-- Dedicated Parallax Background Image Layer -->
-    <div 
-      class="absolute inset-0 bg-center bg-cover bg-scroll lg:bg-fixed" 
-      style={`background-image: url('${(home as any).scaleImage || "/cambridge/stage-wide.webp"}');`}
-      aria-hidden="true"
-    ></div>
+    <!-- Real Cinema Stage Background Photo (Native Widescreen Object-Cover) -->
+    <img 
+      src={(home as any).scaleImage || "/cambridge/stage-wide.webp"} 
+      alt="On-Location Plenary Stage Capture" 
+      class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      loading="eager"
+      decoding="async"
+    />
 
-    <!-- Dark Cinema Scrim Overlay (Clean Opacity Tint, No WebKit Filter Blur) -->
-    <div class="absolute inset-0 bg-neutral-950/70" aria-hidden="true"></div>
+    <!-- Dark Cinema Scrim Overlay -->
+    <div class="absolute inset-0 bg-black/70" aria-hidden="true"></div>
 
     <!-- Centered Content (No Tag, High-Impact Direct Headline) -->
     <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
