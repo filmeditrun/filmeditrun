@@ -51,5 +51,10 @@
   "workSpotlightHeading": "Selected Films & *Client Highlights*.",
   "workSpotlightDescription": "A glimpse into recent corporate conferences, brand documentaries, and location shoots.",
   "workSpotlightLinkLabel": "Explore Full Portfolio →",
-  "workSpotlightLinkHref": "/work"
+  "workSpotlightLinkHref": "/work",
+  "bentoTag": "Capabilities",
+  "bentoHeading": "Engineered for *Impact & Engagement*.",
+  "bentoDescription": "Six modular video production disciplines designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time.",
+  "bentoLinkLabel": "Explore All 6 Services & Technical Specs →",
+  "bentoLinkHref": "/services"
 }

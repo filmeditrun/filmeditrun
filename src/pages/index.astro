@@ -12,8 +12,47 @@ const parseHeading = (text: string) => {
   return text;
 };
 
-// Top 3 projects dynamically pulled from TinaCMS collection
+// 1. Top 3 projects dynamically pulled from TinaCMS collection
 const featuredProjects = projects.slice(0, 3);
+
+// 2. Dynamically import all 6 services from TinaCMS for the Capabilities Bento Grid
+interface ServiceEntry {
+  order: string;
+  title: string;
+  tag: string;
+  description: string;
+  link?: string;
+  slug?: string;
+}
+
+const serviceFiles = import.meta.glob<ServiceEntry>('../content/services/*.json', {
+  eager: true,
+  import: 'default',
+});
+
+const services = Object.values(serviceFiles)
+  .sort((a, b) => (a.order || "").localeCompare(b.order || "", undefined, { numeric: true }))
+  .map((s) => ({
+    ...s,
+    href: s.link || `/services/${s.slug}`,
+  }));
+
+// Asymmetrical 3-column Bento mapping (2+1, 1+2, 1+2 alternating rhythm)
+const conferenceService = services.find((s) => s.href.includes('conference')) || services[1] || services[0];
+const eventService = services.find((s) => s.href.includes('event')) || services[0];
+const podcastService = services.find((s) => s.href.includes('podcast')) || services[4] || services[0];
+const brandService = services.find((s) => s.href.includes('brand')) || services[5] || services[0];
+const animationService = services.find((s) => s.href.includes('animation')) || services[2] || services[0];
+const postService = services.find((s) => s.href.includes('post')) || services[3] || services[0];
+
+const bentoItems = [
+  { service: conferenceService, span: "lg:col-span-2", isAnchor: true },
+  { service: eventService, span: "lg:col-span-1", isAnchor: false },
+  { service: podcastService, span: "lg:col-span-1", isAnchor: false },
+  { service: brandService, span: "lg:col-span-2", isAnchor: true },
+  { service: animationService, span: "lg:col-span-1", isAnchor: false },
+  { service: postService, span: "lg:col-span-2", isAnchor: true },
+].filter((item) => Boolean(item.service && item.service.title));
 
 // Default telemetry metrics if not provided
 const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemetryMetrics.length > 0
@@ -152,7 +191,94 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
   <!-- ================================================================= -->
-  <!-- 2. SELECTED WORK IN FOCUS (Dynamic TinaCMS Project Showcase)       -->
+  <!-- 2. PRODUCTION CAPABILITIES BENTO GRID (Arm Modular Architecture)  -->
+  <!-- ================================================================= -->
+  <section class="max-w-7xl mx-auto px-6 py-20 sm:py-28 border-t border-line">
+    
+    <!-- Section Header with Direct View All Button -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14 border-b border-line pb-8">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+            {(home as any).bentoTag || "Capabilities"}
+          </span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading((home as any).bentoHeading || "Engineered for *Impact & Engagement*.")} />
+        <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3 font-light leading-relaxed">
+          {(home as any).bentoDescription || "Six modular video production disciplines designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time."}
+        </p>
+      </div>
+      <div class="shrink-0">
+        <a 
+          href={(home as any).bentoLinkHref || "/services"} 
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
+        >
+          <span>{(home as any).bentoLinkLabel || "Explore All 6 Services & Specs →"}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Asymmetric 3-Column Bento Grid (2+1, 1+2, 1+2) -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+      {bentoItems.map((item, idx) => (
+        <a
+          href={item.service.href}
+          class:list={[
+            "group relative flex flex-col justify-between rounded-2xl border border-line bg-neutral-900/40 p-7 sm:p-9 hover:border-amber-500/60 hover:bg-neutral-900/70 transition-all duration-300 shadow-xl hover:-translate-y-1",
+            item.span,
+          ]}
+        >
+          <div>
+            <!-- Top Tag & Index -->
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
+                {item.service.tag}
+              </span>
+              <span class="text-xs font-mono text-neutral-500 group-hover:text-amber-400 transition-colors">
+                0{item.service.order || idx + 1}
+              </span>
+            </div>
+
+            <!-- Heading -->
+            <h3
+              class:list={[
+                "font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-tight mb-3",
+                item.isAnchor ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl",
+              ]}
+            >
+              {item.service.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light line-clamp-3">
+              {item.service.description}
+            </p>
+          </div>
+
+          <!-- Bottom Action Prompt -->
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
+            <span>Explore Capabilities</span>
+            <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Bottom Architectural Directory Pathway Strip -->
+    <div class="mt-8 pt-6 border-t border-line text-center">
+      <a 
+        href={(home as any).bentoLinkHref || "/services"} 
+        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-all shadow-lg"
+      >
+        <span>{(home as any).bentoLinkLabel || "Explore All 6 Services & Technical Specs →"}</span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 3. SELECTED WORK IN FOCUS (Dynamic TinaCMS Project Showcase)       -->
   <!-- ================================================================= -->
   <section class="relative max-w-7xl mx-auto px-6 pb-24 sm:pb-32 overflow-hidden">
     <!-- Section Header with Direct View All Button -->

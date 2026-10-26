@@ -312,6 +312,37 @@ var config_default = defineConfig({
             name: "workSpotlightLinkHref",
             label: "Work Spotlight View All Button Link",
             description: "Default: /work"
+          },
+          // ─── 🍱 CAPABILITIES BENTO GRID ───────────────────────────────
+          {
+            type: "string",
+            name: "bentoTag",
+            label: "Bento Grid Tag / Badge",
+            description: "Default: Capabilities"
+          },
+          {
+            type: "string",
+            name: "bentoHeading",
+            label: "Bento Grid Heading (Use *word* for gradient)",
+            description: "Default: Engineered for *Impact & Engagement*."
+          },
+          {
+            type: "string",
+            name: "bentoDescription",
+            label: "Bento Grid Description",
+            ui: { component: "textarea" }
+          },
+          {
+            type: "string",
+            name: "bentoLinkLabel",
+            label: "Bento Grid Directory Link Label",
+            description: "Default: Explore All 6 Services & Specs \u2192"
+          },
+          {
+            type: "string",
+            name: "bentoLinkHref",
+            label: "Bento Grid Directory Link URL",
+            description: "Default: /services"
           }
         ]
       },

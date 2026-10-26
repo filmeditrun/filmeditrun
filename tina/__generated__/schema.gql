@@ -171,6 +171,11 @@ type Homepage implements Node & Document {
   workSpotlightDescription: String
   workSpotlightLinkLabel: String
   workSpotlightLinkHref: String
+  bentoTag: String
+  bentoHeading: String
+  bentoDescription: String
+  bentoLinkLabel: String
+  bentoLinkHref: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -223,6 +228,11 @@ input HomepageFilter {
   workSpotlightDescription: StringFilter
   workSpotlightLinkLabel: StringFilter
   workSpotlightLinkHref: StringFilter
+  bentoTag: StringFilter
+  bentoHeading: StringFilter
+  bentoDescription: StringFilter
+  bentoLinkLabel: StringFilter
+  bentoLinkHref: StringFilter
 }
 
 type HomepageConnectionEdges {
@@ -1473,6 +1483,11 @@ input HomepageMutation {
   workSpotlightDescription: String
   workSpotlightLinkLabel: String
   workSpotlightLinkHref: String
+  bentoTag: String
+  bentoHeading: String
+  bentoDescription: String
+  bentoLinkLabel: String
+  bentoLinkHref: String
 }
 
 input CambridgePageFaqsMutation {
