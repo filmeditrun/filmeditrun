@@ -110,6 +110,31 @@ html:has(#theme-choice-high-key:checked) {
   color: #09090b;
 }
 
+/* High-Key: Header & Navigation Link Color Science */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) a {
+  color: #52525b;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) a:hover,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) a:hover span,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) label:hover {
+  color: #09090b !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) a.border-amber-400 {
+  color: #09090b !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) header:not([data-cinema-darkroom]) a.border-amber-400 span {
+  color: #09090b !important;
+}
+
 /* High-Key: Eliminate dirty dark drop shadows on light surfaces */
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) .drop-shadow,
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) [class*="drop-shadow-"] {
