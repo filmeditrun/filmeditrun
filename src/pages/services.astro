@@ -36,6 +36,15 @@ const services = Object.values(serviceFiles)
   .map((s) => ({ ...s, id: s.order }))
   .sort((a, b) => a.order.localeCompare(b.order, undefined, { numeric: true }));
 
+const defaultWatermarks = [
+  "/cambridge/stage-wide.webp",
+  "/work/onlocation.webp",
+  "/og-image.jpg",
+  "/work/handheld.webp",
+  "/work/onlocation.webp",
+  "/work/handheld.webp",
+];
+
 // Maximum cards shown on initial load (2 rows of 3 columns = 6 cards)
 const INITIAL_LIMIT = 6;
 const hasMore = services.length > INITIAL_LIMIT;
@@ -126,56 +135,52 @@ const ctaButtonLink = servicesPage.ctaButtonLink || "/contact";
         <a 
           href={service.link} 
           class:list={[
-            "group flex flex-col justify-between rounded-2xl border border-neutral-800 bg-neutral-900/60 p-7 sm:p-8 transition-all duration-300 hover:border-amber-500/50 hover:bg-neutral-900/90 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5",
+            "group relative flex flex-col justify-between rounded-2xl border border-neutral-800 bg-neutral-900/60 p-7 sm:p-8 transition-all duration-300 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5 overflow-hidden",
             index >= INITIAL_LIMIT && "service-card-extra"
           ]}
         >
-          <div>
-            <!-- Order Number & Tag Pill -->
-            <div class="flex items-center justify-between gap-4 mb-4">
-              <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
-                {service.tag}
-              </span>
-              <span class="text-xs font-mono text-neutral-500 group-hover:text-amber-400 transition-colors">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-            </div>
-
-            <!-- Service Title -->
-            <h2 class="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-snug mb-3">
-              {service.title}
-            </h2>
-
-            <!-- Service Description -->
-            <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light mb-6">
-              {service.description}
-            </p>
-
-            <!-- Key Deliverables Breakdown -->
-            {service.deliverables && service.deliverables.length > 0 && (
-              <div class="pt-5 border-t border-white/5">
-                <span class="text-[10px] uppercase font-mono tracking-wider text-neutral-500 block mb-3 font-semibold">
-                  Standard Deliverables
-                </span>
-                <ul class="space-y-2.5">
-                  {service.deliverables.map((item) => (
-                    <li class="flex items-start gap-2 text-xs text-neutral-300 font-light">
-                      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" aria-hidden="true"></span>
-                      <div>
-                        <strong class="text-white font-medium">{item.tag || item.title}:</strong>{" "}
-                        <span class="text-neutral-400">{item.title !== item.tag ? item.title : item.description}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          <!-- Ambient Watermark & Atmospheric Glow Layer -->
+          <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+            <!-- Cinema Photo Watermark -->
+            <img 
+              src={service.imagePath && service.imagePath !== "/og-image.jpg" ? service.imagePath : defaultWatermarks[index % defaultWatermarks.length]} 
+              alt="" 
+              loading="lazy" 
+              decoding="async" 
+              class="w-full h-full object-cover opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700 ease-out" 
+            />
+            <!-- Dark Scrim Mask ensuring 100% crisp typography -->
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/95 via-neutral-950/80 to-neutral-950/65"></div>
+            <!-- Ambient Corner Gradient Bloom -->
+            <div class="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-amber-500/10 group-hover:bg-amber-500/20 blur-2xl transition-all duration-500"></div>
           </div>
 
-          <!-- Bottom Action Prompt -->
-          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
-            <span>Explore Specs & Scope</span>
-            <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
+          <!-- Card Content (Elevated above watermark) -->
+          <div class="relative z-10 flex flex-col justify-between h-full">
+            <div>
+              <!-- Tag Pill (No numbers) -->
+              <div class="flex items-center justify-between gap-4 mb-4">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
+                  {service.tag}
+                </span>
+              </div>
+
+              <!-- Service Title -->
+              <h2 class="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-snug mb-3">
+                {service.title}
+              </h2>
+
+              <!-- Service Description -->
+              <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed font-light">
+                {service.description}
+              </p>
+            </div>
+
+            <!-- Bottom Action Prompt -->
+            <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
+              <span>Explore Service</span>
+              <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
+            </div>
           </div>
         </a>
       ))}
