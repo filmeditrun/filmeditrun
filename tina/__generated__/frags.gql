@@ -41,6 +41,16 @@ fragment HomepageParts on Homepage {
   pipelineDescription
   pipelineLinkLabel
   pipelineLinkHref
+  hubsTag
+  hubsHeading
+  hubsDescription
+  ctaBadge
+  ctaHeading
+  ctaDescription
+  ctaPrimaryLabel
+  ctaPrimaryLink
+  ctaSecondaryLabel
+  ctaSecondaryLink
 }
 
 fragment CambridgePageParts on CambridgePage {
@@ -61,6 +71,7 @@ fragment CambridgePageParts on CambridgePage {
   expertiseTag
   expertiseHeading
   expertiseDescription
+  keyVenues
   expertiseBullets
   cardTitle
   cardBody
@@ -103,6 +114,7 @@ fragment LondonPageParts on LondonPage {
   expertiseTag
   expertiseHeading
   expertiseDescription
+  keyVenues
   expertiseBullets
   cardTitle
   cardBody

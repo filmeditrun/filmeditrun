@@ -14,7 +14,12 @@
   "imagePath": "/og-image.jpg",
   "expertiseTag": "Local Expertise",
   "expertiseHeading": "Filming Across Cambridge’s Key Innovation Hubs",
-  "expertiseDescription": "Whether you're hosting a multi-stage keynote at Cambridge Science Park, producing executive interviews near The Bradfield Centre, or recording symposia across historic university venues, our crews work with calm discretion and a minimal footprint.",
+  "expertiseDescription": "Whether you're recording symposia across historic University of Cambridge colleges, hosting a multi-stage keynote at Cambridge Science Park, or producing executive interviews across the Cambridge Biomedical Campus, our crews work with calm discretion and a minimal footprint.",
+  "keyVenues": [
+    "Historic University of Cambridge Colleges",
+    "Cambridge Science Park",
+    "Cambridge Biomedical Campus"
+  ],
   "expertiseBullets": [
     "Multi-camera conference & keynote capture",
     "Executive interviews & research case studies",
@@ -30,7 +35,7 @@
   "lookbookDetail1Image": "/og-image.jpg",
   "lookbookDetail1Badge": "Historic Colleges • Symposia & Panels",
   "lookbookDetail2Image": "/og-image.jpg",
-  "lookbookDetail2Badge": "The Bradfield Centre • Executive Interviews",
+  "lookbookDetail2Badge": "Cambridge Biomedical Campus • Executive Interviews",
   "faqHeading": "Frequently Asked Questions",
   "faqs": [
     {

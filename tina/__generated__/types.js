@@ -49,6 +49,16 @@ export const HomepagePartsFragmentDoc = gql`
   pipelineDescription
   pipelineLinkLabel
   pipelineLinkHref
+  hubsTag
+  hubsHeading
+  hubsDescription
+  ctaBadge
+  ctaHeading
+  ctaDescription
+  ctaPrimaryLabel
+  ctaPrimaryLink
+  ctaSecondaryLabel
+  ctaSecondaryLink
 }
     `;
 export const CambridgePagePartsFragmentDoc = gql`
@@ -70,6 +80,7 @@ export const CambridgePagePartsFragmentDoc = gql`
   expertiseTag
   expertiseHeading
   expertiseDescription
+  keyVenues
   expertiseBullets
   cardTitle
   cardBody
@@ -113,6 +124,7 @@ export const LondonPagePartsFragmentDoc = gql`
   expertiseTag
   expertiseHeading
   expertiseDescription
+  keyVenues
   expertiseBullets
   cardTitle
   cardBody

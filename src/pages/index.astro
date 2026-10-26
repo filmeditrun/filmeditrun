@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import home from '../content/pages/home.json';
 import servicesPage from '../content/pages/services.json';
+import cambridgePage from '../content/pages/cambridge.json';
+import londonPage from '../content/pages/london.json';
 import { projects } from '../data/projects';
 
 // Helper for asterisk gradient formatting
@@ -57,6 +59,20 @@ const bentoItems = [
 
 // 3. Four-stage production pipeline steps (dynamically pulled from services.json)
 const processSteps = servicesPage.processSteps || [];
+
+// 4. Dual Hub data dynamically fed from cambridge.json and london.json (Single Source of Truth)
+const cambridgeVenues = (cambridgePage as any).keyVenues || [
+  "Historic University of Cambridge Colleges",
+  "Cambridge Science Park",
+  "Cambridge Biomedical Campus",
+];
+
+const londonVenues = (londonPage as any).keyVenues || [
+  "ExCeL London",
+  "QEII Centre",
+  "Olympia London",
+  "The City & Canary Wharf",
+];
 
 // Default telemetry metrics if not provided
 const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemetryMetrics.length > 0
@@ -441,7 +457,193 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
         <span>{(home as any).pipelineLinkLabel || "Discuss Your Timeline →"}</span>
       </a>
     </div>
+  </section>
 
+  <!-- ================================================================= -->
+  <!-- 5. DUAL OPERATIONAL HUBS (Cambridge & London Single-Source)       -->
+  <!-- ================================================================= -->
+  <section class="max-w-7xl mx-auto px-6 py-20 sm:py-28 border-t border-line">
+    
+    <!-- Section Header -->
+    <div class="mb-14 sm:mb-16 border-b border-line pb-8">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+          {(home as any).hubsTag || "Dual Hubs"}
+        </span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading((home as any).hubsHeading || "Rooted in Cambridge. *On-location across London.*")} />
+      <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mt-3 font-light leading-relaxed">
+        {(home as any).hubsDescription || "Operating with permanent post-production suites in Cambridge and agile cinema camera field units filming on-location across London and throughout the UK."}
+      </p>
+    </div>
+
+    <!-- Dual Hub Architectural Cards (100% Dynamically Fed from cambridge.json & london.json) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Hub 1: Cambridge Studio Base -->
+      <a
+        href="/cambridge"
+        class="group relative flex flex-col justify-between rounded-2xl border border-line bg-neutral-900/40 p-8 sm:p-10 hover:border-amber-500/60 hover:bg-neutral-900/70 transition-all duration-300 shadow-xl hover:-translate-y-1"
+      >
+        <div>
+          <!-- Top Row Badges -->
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <span class="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
+              Studio Base // Cambridge (CB2)
+            </span>
+            <span class="text-xs font-mono text-neutral-500 group-hover:text-neutral-400 transition-colors">
+              East of England
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-tight mb-3">
+            Cambridge Studio Hub
+          </h3>
+
+          <!-- Subtitle / Focus -->
+          <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light mb-8">
+            {(cambridgePage as any).heroSubtitle || "From keynote stages at Cambridge Science Park to research stories across historic colleges, we film on-location with discrete multi-camera crews."}
+          </p>
+
+          <!-- Key Venues Strip (Single Source of Truth) -->
+          <div>
+            <span class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 block mb-3 font-semibold">
+              Key Grounding Locations:
+            </span>
+            <div class="flex flex-wrap gap-2">
+              {cambridgeVenues.map((venue: string) => (
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 group-hover:border-amber-500/30 group-hover:text-amber-300 transition-colors">
+                  {venue}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Action Prompt -->
+        <div class="pt-6 mt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
+          <span>Explore Cambridge Hub</span>
+          <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- Hub 2: London Field Unit -->
+      <a
+        href="/london"
+        class="group relative flex flex-col justify-between rounded-2xl border border-line bg-neutral-900/40 p-8 sm:p-10 hover:border-amber-500/60 hover:bg-neutral-900/70 transition-all duration-300 shadow-xl hover:-translate-y-1"
+      >
+        <div>
+          <!-- Top Row Badges -->
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <span class="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
+              On-Location // London Field Unit
+            </span>
+            <span class="text-xs font-mono text-neutral-500 group-hover:text-neutral-400 transition-colors">
+              Greater London & UK-Wide
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-tight mb-3">
+            London Production Hub
+          </h3>
+
+          <!-- Subtitle / Focus -->
+          <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light mb-8">
+            {(londonPage as any).heroSubtitle || "From main-stage keynotes at ExCeL and the QEII Centre to boardroom executive interviews across the City and Canary Wharf, we deploy agile cinema camera crews across London."}
+          </p>
+
+          <!-- Key Venues Strip (Single Source of Truth) -->
+          <div>
+            <span class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 block mb-3 font-semibold">
+              Key Grounding Locations:
+            </span>
+            <div class="flex flex-wrap gap-2">
+              {londonVenues.map((venue: string) => (
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 group-hover:border-amber-500/30 group-hover:text-amber-300 transition-colors">
+                  {venue}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Action Prompt -->
+        <div class="pt-6 mt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
+          <span>Explore London Hub</span>
+          <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 6. FINAL STUDIO COMMISSIONING CTA (Arm Architectural Closure)    -->
+  <!-- ================================================================= -->
+  <section class="relative max-w-7xl mx-auto px-6 pb-24 sm:pb-32 overflow-hidden">
+    <div class="relative rounded-3xl border border-line bg-gradient-to-br from-neutral-900/80 via-neutral-900/50 to-neutral-950 p-8 sm:p-14 lg:p-16 text-center overflow-hidden shadow-2xl">
+      
+      <!-- Ambient Glow Behind CTA -->
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+      <!-- Top Intake Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <span>{(home as any).ctaBadge || "Direct Studio Intake"}</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h2 
+        class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-3xl mx-auto leading-tight mb-5" 
+        set:html={parseHeading((home as any).ctaHeading || "Ready to film your next *conference or brand story*?")} 
+      />
+
+      <!-- Subtitle Description -->
+      <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed mb-10">
+        {(home as any).ctaDescription || "Tell us about your upcoming dates, venue location, or creative ideas. We deliver a straightforward technical production scope and transparent quote within 24 hours."}
+      </p>
+
+      <!-- Action Buttons Row -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href={(home as any).ctaPrimaryLink || "/contact"} 
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold text-sm tracking-wide shadow-xl shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+        >
+          <span>{(home as any).ctaPrimaryLabel || "Start Project Brief →"}</span>
+        </a>
+        <a 
+          href={(home as any).ctaSecondaryLink || "/work"} 
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/5 border border-line hover:border-amber-500/40 hover:bg-white/10 text-sm font-medium text-white transition-all"
+        >
+          <span>{(home as any).ctaSecondaryLabel || "Explore Full Portfolio"}</span>
+        </a>
+      </div>
+
+      <!-- Trust Signals Strip -->
+      <div class="mt-12 pt-8 border-t border-white/5 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-mono text-neutral-400">
+        <span class="flex items-center gap-2">
+          <span class="w-1 h-1 rounded-full bg-amber-500"></span>
+          Direct Filmmaker Collaboration
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="w-1 h-1 rounded-full bg-amber-500"></span>
+          Zero Agency Markups
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="w-1 h-1 rounded-full bg-amber-500"></span>
+          24h Proposal Turnaround
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="w-1 h-1 rounded-full bg-amber-500"></span>
+          Full UK Coverage
+        </span>
+      </div>
+
+    </div>
   </section>
 
 </Layout>

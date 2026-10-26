@@ -181,6 +181,16 @@ type Homepage implements Node & Document {
   pipelineDescription: String
   pipelineLinkLabel: String
   pipelineLinkHref: String
+  hubsTag: String
+  hubsHeading: String
+  hubsDescription: String
+  ctaBadge: String
+  ctaHeading: String
+  ctaDescription: String
+  ctaPrimaryLabel: String
+  ctaPrimaryLink: String
+  ctaSecondaryLabel: String
+  ctaSecondaryLink: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -243,6 +253,16 @@ input HomepageFilter {
   pipelineDescription: StringFilter
   pipelineLinkLabel: StringFilter
   pipelineLinkHref: StringFilter
+  hubsTag: StringFilter
+  hubsHeading: StringFilter
+  hubsDescription: StringFilter
+  ctaBadge: StringFilter
+  ctaHeading: StringFilter
+  ctaDescription: StringFilter
+  ctaPrimaryLabel: StringFilter
+  ctaPrimaryLink: StringFilter
+  ctaSecondaryLabel: StringFilter
+  ctaSecondaryLink: StringFilter
 }
 
 type HomepageConnectionEdges {
@@ -278,6 +298,7 @@ type CambridgePage implements Node & Document {
   expertiseTag: String!
   expertiseHeading: String!
   expertiseDescription: String!
+  keyVenues: [String]
   expertiseBullets: [String]
   cardTitle: String!
   cardBody: String!
@@ -323,6 +344,7 @@ input CambridgePageFilter {
   expertiseTag: StringFilter
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
+  keyVenues: StringFilter
   expertiseBullets: StringFilter
   cardTitle: StringFilter
   cardBody: StringFilter
@@ -376,6 +398,7 @@ type LondonPage implements Node & Document {
   expertiseTag: String!
   expertiseHeading: String!
   expertiseDescription: String!
+  keyVenues: [String]
   expertiseBullets: [String]
   cardTitle: String!
   cardBody: String!
@@ -421,6 +444,7 @@ input LondonPageFilter {
   expertiseTag: StringFilter
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
+  keyVenues: StringFilter
   expertiseBullets: StringFilter
   cardTitle: StringFilter
   cardBody: StringFilter
@@ -1503,6 +1527,16 @@ input HomepageMutation {
   pipelineDescription: String
   pipelineLinkLabel: String
   pipelineLinkHref: String
+  hubsTag: String
+  hubsHeading: String
+  hubsDescription: String
+  ctaBadge: String
+  ctaHeading: String
+  ctaDescription: String
+  ctaPrimaryLabel: String
+  ctaPrimaryLink: String
+  ctaSecondaryLabel: String
+  ctaSecondaryLink: String
 }
 
 input CambridgePageFaqsMutation {
@@ -1527,6 +1561,7 @@ input CambridgePageMutation {
   expertiseTag: String
   expertiseHeading: String
   expertiseDescription: String
+  keyVenues: [String]
   expertiseBullets: [String]
   cardTitle: String
   cardBody: String
@@ -1569,6 +1604,7 @@ input LondonPageMutation {
   expertiseTag: String
   expertiseHeading: String
   expertiseDescription: String
+  keyVenues: [String]
   expertiseBullets: [String]
   cardTitle: String
   cardBody: String

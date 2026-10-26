@@ -90,6 +90,27 @@
   - `03. Editorial & Review` (`Post-Production`): Story assembly and pacing cuts are shared via private, frame-accurate review links for fast, friction-free stakeholder feedback.
   - `04. Master & Delivery` (`Final Output`): Final color-graded masters, vertical social cutdowns, and burned-in caption files packaged for instant publishing across your website and social channels.
 
+### Dual Operational Hubs (Cambridge & London Single-Source)
+* **Tag:** `// DUAL HUBS`
+* **Heading:** `Rooted in Cambridge. On-location across London.` *(with "On-location across London." highlighted in amber gradient)*
+* **Description:** `Operating with permanent post-production suites in Cambridge and agile cinema camera field units filming on-location across London and throughout the UK.`
+* **Cambridge Studio Hub Card:**
+  - **Tag:** `Studio Base // Cambridge (CB2)` • `East of England`
+  - **Key Grounding Locations:** `Historic University of Cambridge Colleges`, `Cambridge Science Park`, `Cambridge Biomedical Campus`
+  - **Action Link:** `Explore Cambridge Hub →` → `/cambridge`
+* **London Production Hub Card:**
+  - **Tag:** `On-Location // London Field Unit` • `Greater London & UK-Wide`
+  - **Key Grounding Locations:** `ExCeL London`, `QEII Centre`, `Olympia London`, `The City & Canary Wharf`
+  - **Action Link:** `Explore London Hub →` → `/london`
+
+### Final Studio Commissioning CTA
+* **Badge:** `// DIRECT STUDIO INTAKE`
+* **Heading:** `Ready to film your next conference or brand story?` *(with "conference or brand story?" highlighted in amber gradient)*
+* **Description:** `Tell us about your upcoming dates, venue location, or creative ideas. We deliver a straightforward technical production scope and transparent quote within 24 hours.`
+* **Primary Button:** `Start Project Brief →` → `/contact`
+* **Secondary Button:** `Explore Full Portfolio` → `/work`
+* **Trust Signals:** `Direct Filmmaker Collaboration` • `Zero Agency Markups` • `24h Proposal Turnaround` • `Full UK Coverage`
+
 ---
 
 ## 2. About Page (`/about`)
@@ -326,7 +347,8 @@
 ### Local Expertise & Venues
 * **Tag:** `Local Expertise`
 * **Heading:** `Filming Across Cambridge’s Key Innovation Hubs`
-* **Description:** `Whether you're hosting a multi-stage keynote at Cambridge Science Park, producing executive interviews near The Bradfield Centre, or recording symposia across historic university venues, our crews work with calm discretion and a minimal footprint.`
+* **Description:** `Whether you're recording symposia across historic University of Cambridge colleges, hosting a multi-stage keynote at Cambridge Science Park, or producing executive interviews across the Cambridge Biomedical Campus, our crews work with calm discretion and a minimal footprint.`
+* **Key Grounding Locations:** `Historic University of Cambridge Colleges`, `Cambridge Science Park`, `Cambridge Biomedical Campus`
 * **Key Bullets:**
   - `Multi-camera conference & keynote capture`
   - `Executive interviews & research case studies`

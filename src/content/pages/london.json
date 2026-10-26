@@ -15,6 +15,12 @@
   "expertiseTag": "Capital Production",
   "expertiseHeading": "Filming Across London's Leading Venues & Headquarters",
   "expertiseDescription": "Whether you're hosting an annual summit at ExCeL London, a financial keynote at the QEII Centre, or recording executive thought leadership in Canary Wharf, our crews handle venue logistics, RAMS, and multi-camera setups with zero friction.",
+  "keyVenues": [
+    "ExCeL London",
+    "QEII Centre",
+    "Olympia London",
+    "The City & Canary Wharf"
+  ],
   "expertiseBullets": [
     "Multi-camera summit & keynote capture",
     "Executive boardroom interviews & case studies",

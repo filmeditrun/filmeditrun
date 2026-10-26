@@ -61,5 +61,15 @@
   "pipelineHeading": "Calm execution. *Predictable excellence.*",
   "pipelineDescription": "A disciplined four-stage pipeline designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time.",
   "pipelineLinkLabel": "Discuss Your Timeline →",
-  "pipelineLinkHref": "/contact"
+  "pipelineLinkHref": "/contact",
+  "hubsTag": "Dual Hubs",
+  "hubsHeading": "Rooted in Cambridge. *On-location across London.*",
+  "hubsDescription": "Operating with permanent post-production suites in Cambridge and agile cinema camera field units filming on-location across London and throughout the UK.",
+  "ctaBadge": "Direct Studio Intake",
+  "ctaHeading": "Ready to film your next *conference or brand story*?",
+  "ctaDescription": "Tell us about your upcoming dates, venue location, or creative ideas. We deliver a straightforward technical production scope and transparent quote within 24 hours.",
+  "ctaPrimaryLabel": "Start Project Brief →",
+  "ctaPrimaryLink": "/contact",
+  "ctaSecondaryLabel": "Explore Full Portfolio",
+  "ctaSecondaryLink": "/work"
 }

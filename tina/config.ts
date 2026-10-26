@@ -388,6 +388,70 @@ export default defineConfig({
             label: "Pipeline Link Button URL",
             description: "Default: /contact",
           },
+
+          // ─── 🏛️ DUAL HUBS (STAGE 4 - PART 1) ──────────────────────────
+          {
+            type: "string",
+            name: "hubsTag",
+            label: "Dual Hubs Section Tag / Badge",
+            description: "Default: Dual Hubs",
+          },
+          {
+            type: "string",
+            name: "hubsHeading",
+            label: "Dual Hubs Heading (Use *word* for gradient)",
+            description: "Default: Rooted in Cambridge. *On-location across London.*",
+          },
+          {
+            type: "string",
+            name: "hubsDescription",
+            label: "Dual Hubs Description",
+            ui: { component: "textarea" },
+          },
+
+          // ─── 🚀 FINAL COMMISSIONING CTA (STAGE 4 - PART 2) ───────────
+          {
+            type: "string",
+            name: "ctaBadge",
+            label: "Final CTA Badge",
+            description: "Default: Direct Studio Intake",
+          },
+          {
+            type: "string",
+            name: "ctaHeading",
+            label: "Final CTA Heading (Use *word* for gradient)",
+            description: "Default: Ready to film your next *conference or brand story*?",
+          },
+          {
+            type: "string",
+            name: "ctaDescription",
+            label: "Final CTA Description",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "string",
+            name: "ctaPrimaryLabel",
+            label: "Final CTA Primary Button Label",
+            description: "Default: Start Project Brief →",
+          },
+          {
+            type: "string",
+            name: "ctaPrimaryLink",
+            label: "Final CTA Primary Button URL",
+            description: "Default: /contact",
+          },
+          {
+            type: "string",
+            name: "ctaSecondaryLabel",
+            label: "Final CTA Secondary Button Label",
+            description: "Default: Explore Full Portfolio",
+          },
+          {
+            type: "string",
+            name: "ctaSecondaryLink",
+            label: "Final CTA Secondary Button URL",
+            description: "Default: /work",
+          },
         ],
       },
       {
@@ -517,6 +581,12 @@ export default defineConfig({
               component: "textarea",
             },
             required: true,
+          },
+          {
+            type: "string",
+            name: "keyVenues",
+            label: "Key Hub Venues (Shown on Hub & Homepage)",
+            list: true,
           },
           {
             type: "string",
@@ -784,6 +854,12 @@ export default defineConfig({
               component: "textarea",
             },
             required: true,
+          },
+          {
+            type: "string",
+            name: "keyVenues",
+            label: "Key Hub Venues (Shown on Hub & Homepage)",
+            list: true,
           },
           {
             type: "string",
