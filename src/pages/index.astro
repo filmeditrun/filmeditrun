@@ -307,10 +307,10 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
     <!-- Dark Cinema Scrim Overlay -->
     <div class="absolute inset-0 bg-black/70" aria-hidden="true"></div>
 
-    <!-- Centered Content (No Tag, High-Impact Direct Headline) -->
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+    <!-- Centered Content (Protected Cinema Darkroom: Pure White in All Grades) -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-cinema-darkroom>
       <h2 
-        class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-6" 
+        class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-6 keep-white" 
         set:html={parseHeading((home as any).scaleHeading || "Low-profile crews. *Plenary-scale capture.*")} 
       />
 
