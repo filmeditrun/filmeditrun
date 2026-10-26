@@ -290,12 +290,20 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
   <!-- ================================================================= -->
-  <!-- 3. FULL-BLEED PARALLAX IMMERSION BREAK (Arm-Style Cinematic Break)-->
+  <!-- 3. FULL-BLEED PARALLAX IMMERSION BREAK (Arm Differential Parallax)-->
   <!-- ================================================================= -->
-  <section 
-    class="relative w-full py-32 sm:py-44 bg-fixed bg-center bg-cover border-y border-line select-none text-white" 
-    style={`background-image: url('${(home as any).scaleImage || "/cambridge/stage-wide.webp"}');`}
-  >
+  <section class="relative w-full py-32 sm:py-44 border-y border-line overflow-hidden select-none text-white">
+    <!-- Pure CSS Differential Parallax Layer (Zero-JS Compositor Animation) -->
+    <div class="absolute -top-24 -bottom-24 inset-x-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <img 
+        src={(home as any).scaleImage || "/cambridge/stage-wide.webp"} 
+        alt="On-Location Plenary Stage Capture" 
+        class="w-full h-full object-cover parallax-image scale-110"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+
     <!-- Dark Cinema Scrim Overlay -->
     <div class="absolute inset-0 bg-black/70" aria-hidden="true"></div>
 
@@ -670,3 +678,23 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
 </Layout>
+
+<style>
+  @keyframes parallax-glide {
+    0% {
+      transform: translateY(-10%);
+    }
+    100% {
+      transform: translateY(10%);
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    .parallax-image {
+      animation: parallax-glide linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+      will-change: transform;
+    }
+  }
+</style>
