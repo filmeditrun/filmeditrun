@@ -290,22 +290,14 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
   <!-- ================================================================= -->
-  <!-- 3. FULL-BLEED PARALLAX IMMERSION BREAK (Arm Differential Parallax)-->
+  <!-- 3. FULL-BLEED PARALLAX IMMERSION BREAK (Zero-JS Native Parallax) -->
   <!-- ================================================================= -->
-  <section class="relative w-full py-32 sm:py-44 border-y border-line overflow-hidden select-none text-white">
-    <!-- Pure CSS Differential Parallax Layer (Zero-JS Compositor Animation) -->
-    <div class="absolute -top-24 -bottom-24 inset-x-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      <img 
-        src={(home as any).scaleImage || "/cambridge/stage-wide.webp"} 
-        alt="On-Location Plenary Stage Capture" 
-        class="w-full h-full object-cover parallax-image scale-110"
-        loading="eager"
-        decoding="async"
-      />
-    </div>
-
+  <section 
+    class="relative w-full py-36 sm:py-48 bg-fixed bg-center bg-cover border-y border-line select-none text-white" 
+    style={`background-image: url('${(home as any).scaleImage || "/cambridge/stage-wide.webp"}');`}
+  >
     <!-- Dark Cinema Scrim Overlay -->
-    <div class="absolute inset-0 bg-black/70" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-black/70 pointer-events-none" aria-hidden="true"></div>
 
     <!-- Centered Content (Protected Cinema Darkroom: Pure White in All Grades) -->
     <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" data-cinema-darkroom>
@@ -678,23 +670,3 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
 </Layout>
-
-<style>
-  @keyframes parallax-glide {
-    0% {
-      transform: translateY(-10%);
-    }
-    100% {
-      transform: translateY(10%);
-    }
-  }
-
-  @supports (animation-timeline: view()) {
-    .parallax-image {
-      animation: parallax-glide linear both;
-      animation-timeline: view();
-      animation-range: entry 0% exit 100%;
-      will-change: transform;
-    }
-  }
-</style>
