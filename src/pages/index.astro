@@ -361,30 +361,30 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
       <input type="radio" name="arm-tab" id="arm-tab-2" class="sr-only" />
       <input type="radio" name="arm-tab" id="arm-tab-3" class="sr-only" />
 
-      <!-- Tab Navigation Bar -->
-      <div id="arm-tab-bar" class="flex flex-wrap items-center gap-2 sm:gap-3 mb-10 pb-6 border-b border-line">
+      <!-- Arm Editorial Horizontal Tab Bar -->
+      <div id="arm-tab-bar" class="flex items-center gap-6 sm:gap-10 border-b border-line overflow-x-auto scrollbar-none mb-10 pb-px">
         <label
           for="arm-tab-1"
-          class="cursor-pointer select-none inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-line bg-white/5 hover:bg-white/10 hover:border-white/20 text-neutral-400 hover:text-white font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200"
+          class="arm-tab-btn cursor-pointer select-none inline-flex items-center gap-2 pb-4 text-sm sm:text-base font-semibold text-neutral-400 hover:text-white transition-all whitespace-nowrap"
         >
-          <span class="tab-num font-bold text-neutral-500">01</span>
-          <span>Live Events & Summits</span>
+          <span class="tab-num font-mono text-xs opacity-60">01</span>
+          <span>Live Events &amp; Summits</span>
         </label>
 
         <label
           for="arm-tab-2"
-          class="cursor-pointer select-none inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-line bg-white/5 hover:bg-white/10 hover:border-white/20 text-neutral-400 hover:text-white font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200"
+          class="arm-tab-btn cursor-pointer select-none inline-flex items-center gap-2 pb-4 text-sm sm:text-base font-semibold text-neutral-400 hover:text-white transition-all whitespace-nowrap"
         >
-          <span class="tab-num font-bold text-neutral-500">02</span>
-          <span>Brand & Thought Leadership</span>
+          <span class="tab-num font-mono text-xs opacity-60">02</span>
+          <span>Brand &amp; Thought Leadership</span>
         </label>
 
         <label
           for="arm-tab-3"
-          class="cursor-pointer select-none inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-line bg-white/5 hover:bg-white/10 hover:border-white/20 text-neutral-400 hover:text-white font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200"
+          class="arm-tab-btn cursor-pointer select-none inline-flex items-center gap-2 pb-4 text-sm sm:text-base font-semibold text-neutral-400 hover:text-white transition-all whitespace-nowrap"
         >
-          <span class="tab-num font-bold text-neutral-500">03</span>
-          <span>Post-House & Motion Design</span>
+          <span class="tab-num font-mono text-xs opacity-60">03</span>
+          <span>Studio Post &amp; Motion</span>
         </label>
       </div>
 
@@ -393,81 +393,65 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
         
         <!-- Panel 1: Live Events & Summits -->
         <div id="arm-panel-1" class="arm-tabpanel">
-          <!-- Panel Header -->
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pb-8 mb-8 border-b border-line">
-            <div>
-              <span class="text-[10px] font-mono uppercase tracking-widest text-amber-500 block mb-2 font-semibold">
-                Category 01 // On-Location
-              </span>
-              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
-                Live Events, Conferences & Keynote Summits
-              </h3>
-            </div>
+          <!-- Panel Header: Arm Style (Title + 1-Sentence Summary) -->
+          <div class="pb-8 mb-8 border-b border-line">
             <a 
               href="/services" 
-              class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-amber-400 transition-colors shrink-0"
+              class="group inline-flex items-center gap-2.5 text-2xl sm:text-3xl lg:text-4xl font-black text-white hover:text-amber-400 transition-colors tracking-tight"
             >
-              <span>Explore All Technical Specs</span>
-              <span class="font-bold">&rarr;</span>
+              <span>Live Events, Keynote Summits &amp; Conferences</span>
+              <span class="text-amber-500 text-xl font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
             </a>
+            <p class="mt-3 text-sm sm:text-base text-neutral-400 font-light max-w-3xl leading-relaxed">
+              Turnkey on-location production for corporate stages, multi-track summits, and academic symposia across Cambridge, London, and throughout the UK.
+            </p>
           </div>
 
-          <!-- Panel Body (Split Grid: Links on Left, Featured Visual on Right) -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <!-- Left Column: The 2 Specific Services -->
-            <div class="lg:col-span-7 space-y-5">
+          <!-- Panel Body: 2 Columns (Pure Typographic Links + Clean Image) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <!-- Left Column: Typographic Links (Zero Boxes) -->
+            <div class="lg:col-span-7 divide-y divide-line">
               <a 
                 href="/services/event-coverage"
-                class="group block p-6 sm:p-7 rounded-2xl border border-line bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-amber-500/50 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                class="group block py-6 first:pt-0 last:pb-0"
               >
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-medium">Event Filming</span>
-                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all text-sm font-bold">&rarr;</span>
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    Single &amp; Multi-Camera Event Filming
+                  </h4>
+                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1.5 transition-all text-base font-bold shrink-0">&rarr;</span>
                 </div>
-                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                  Single & Multi-Camera Event Filming
-                </h4>
-                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+                <p class="mt-2 text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
                   Experienced crews delivering cinematic event capture, attendee soundbites, and fast 24–48h highlight reels ready to share while room buzz is trending.
                 </p>
               </a>
 
               <a 
                 href="/services/conference-production"
-                class="group block p-6 sm:p-7 rounded-2xl border border-line bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-amber-500/50 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                class="group block py-6 first:pt-0 last:pb-0"
               >
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-medium">Stage Production</span>
-                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all text-sm font-bold">&rarr;</span>
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    Main Stage Keynote &amp; Stream Production
+                  </h4>
+                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1.5 transition-all text-base font-bold shrink-0">&rarr;</span>
                 </div>
-                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                  Main Stage Keynote & Stream Production
-                </h4>
-                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+                <p class="mt-2 text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
                   Multi-camera plenary capture, synchronized presentation slides, and live switching across major exhibition centers and academic halls.
                 </p>
               </a>
             </div>
 
-            <!-- Right Column: Featured Image Frame -->
+            <!-- Right Column: Clean Cinema Photo Frame -->
             <div class="lg:col-span-5">
-              <div class="group relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-2xl">
+              <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-2xl">
                 <img 
                   src="/cambridge/stage-wide.webp" 
-                  alt="Cambridge Corn Exchange Keynote Stage" 
+                  alt="Cambridge Corn Exchange Keynote Stage Production" 
                   loading="lazy" 
                   decoding="async" 
-                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-neutral-300">
-                  <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-amber-400">
-                    Plenary Scale Capture
-                  </span>
-                  <span class="px-2 py-0.5 rounded bg-black/70 backdrop-blur-md border border-white/10 text-neutral-300">
-                    Cambridge & London
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -476,78 +460,64 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
         <!-- Panel 2: Brand & Thought Leadership -->
         <div id="arm-panel-2" class="arm-tabpanel">
           <!-- Panel Header -->
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pb-8 mb-8 border-b border-line">
-            <div>
-              <span class="text-[10px] font-mono uppercase tracking-widest text-amber-500 block mb-2 font-semibold">
-                Category 02 // Narrative
-              </span>
-              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
-                Executive Narrative & Brand Documentaries
-              </h3>
-            </div>
+          <div class="pb-8 mb-8 border-b border-line">
             <a 
               href="/services" 
-              class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-amber-400 transition-colors shrink-0"
+              class="group inline-flex items-center gap-2.5 text-2xl sm:text-3xl lg:text-4xl font-black text-white hover:text-amber-400 transition-colors tracking-tight"
             >
-              <span>Explore All Technical Specs</span>
-              <span class="font-bold">&rarr;</span>
+              <span>Executive Narrative &amp; Thought Leadership</span>
+              <span class="text-amber-500 text-xl font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
             </a>
+            <p class="mt-3 text-sm sm:text-base text-neutral-400 font-light max-w-3xl leading-relaxed">
+              High-fidelity narrative films that capture authentic leadership insights, technical case studies, and engaging episodic conversations.
+            </p>
           </div>
 
           <!-- Panel Body -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div class="lg:col-span-7 space-y-5">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <!-- Left Column: Typographic Links -->
+            <div class="lg:col-span-7 divide-y divide-line">
               <a 
                 href="/services/corporate-brand"
-                class="group block p-6 sm:p-7 rounded-2xl border border-line bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-amber-500/50 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                class="group block py-6 first:pt-0 last:pb-0"
               >
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-medium">Brand & Culture</span>
-                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all text-sm font-bold">&rarr;</span>
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    Executive Interviews &amp; Brand Documentaries
+                  </h4>
+                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1.5 transition-all text-base font-bold shrink-0">&rarr;</span>
                 </div>
-                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                  Executive Interviews & Brand Documentaries
-                </h4>
-                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+                <p class="mt-2 text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
                   Authentic corporate storytelling, leadership soundbites, and customer success films that turn complex enterprise vision into clear emotional connection.
                 </p>
               </a>
 
               <a 
                 href="/services/video-podcast-production"
-                class="group block p-6 sm:p-7 rounded-2xl border border-line bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-amber-500/50 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                class="group block py-6 first:pt-0 last:pb-0"
               >
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-medium">Podcasting</span>
-                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all text-sm font-bold">&rarr;</span>
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    Multi-Camera Video Podcasting &amp; Vodcasts
+                  </h4>
+                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1.5 transition-all text-base font-bold shrink-0">&rarr;</span>
                 </div>
-                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                  Multi-Camera Video Podcasting & Vodcasts
-                </h4>
-                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+                <p class="mt-2 text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
                   Turnkey video podcast setups with multi-mic audio mastering, dynamic camera switching, and vertical cutdowns formatted for LinkedIn and YouTube Shorts.
                 </p>
               </a>
             </div>
 
+            <!-- Right Column -->
             <div class="lg:col-span-5">
-              <div class="group relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-2xl">
+              <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-2xl">
                 <img 
                   src="/work/onlocation.webp" 
                   alt="On Location Executive Interview Shoot" 
                   loading="lazy" 
                   decoding="async" 
-                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-neutral-300">
-                  <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-amber-400">
-                    On-Location Direction
-                  </span>
-                  <span class="px-2 py-0.5 rounded bg-black/70 backdrop-blur-md border border-white/10 text-neutral-300">
-                    Executive Narrative
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -556,78 +526,64 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
         <!-- Panel 3: Post-House & Motion Design -->
         <div id="arm-panel-3" class="arm-tabpanel">
           <!-- Panel Header -->
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pb-8 mb-8 border-b border-line">
-            <div>
-              <span class="text-[10px] font-mono uppercase tracking-widest text-amber-500 block mb-2 font-semibold">
-                Category 03 // Studio Post
-              </span>
-              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
-                Editorial, Color Science & Motion Design
-              </h3>
-            </div>
+          <div class="pb-8 mb-8 border-b border-line">
             <a 
               href="/services" 
-              class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-amber-400 transition-colors shrink-0"
+              class="group inline-flex items-center gap-2.5 text-2xl sm:text-3xl lg:text-4xl font-black text-white hover:text-amber-400 transition-colors tracking-tight"
             >
-              <span>Explore All Technical Specs</span>
-              <span class="font-bold">&rarr;</span>
+              <span>Editorial, Color Science &amp; Motion Design</span>
+              <span class="text-amber-500 text-xl font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
             </a>
+            <p class="mt-3 text-sm sm:text-base text-neutral-400 font-light max-w-3xl leading-relaxed">
+              Precision finishing for technical footage, complex data workflows, and broadcast-ready brand collateral mastered in-house.
+            </p>
           </div>
 
           <!-- Panel Body -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div class="lg:col-span-7 space-y-5">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <!-- Left Column: Typographic Links -->
+            <div class="lg:col-span-7 divide-y divide-line">
               <a 
                 href="/services/post-production"
-                class="group block p-6 sm:p-7 rounded-2xl border border-line bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-amber-500/50 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                class="group block py-6 first:pt-0 last:pb-0"
               >
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-medium">Post-Production</span>
-                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all text-sm font-bold">&rarr;</span>
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    Editorial, Color Grading &amp; Sound Design
+                  </h4>
+                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1.5 transition-all text-base font-bold shrink-0">&rarr;</span>
                 </div>
-                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                  Editorial, Color Grading & Sound Design
-                </h4>
-                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+                <p class="mt-2 text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
                   Story assembly, broadcast-standard color mastering in DaVinci Resolve, clean dialog restoration, and burned-in accessibility subtitles.
                 </p>
               </a>
 
               <a 
                 href="/services/animation-design"
-                class="group block p-6 sm:p-7 rounded-2xl border border-line bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-amber-500/50 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                class="group block py-6 first:pt-0 last:pb-0"
               >
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-medium">Motion Graphics</span>
-                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all text-sm font-bold">&rarr;</span>
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    2D &amp; 3D Motion Graphics &amp; Animation
+                  </h4>
+                  <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1.5 transition-all text-base font-bold shrink-0">&rarr;</span>
                 </div>
-                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                  2D & 3D Motion Graphics & Animation
-                </h4>
-                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+                <p class="mt-2 text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
                   Explaining technical software workflows, abstract deep-tech concepts, and animated brand collateral for keynotes and high-stakes pitches.
                 </p>
               </a>
             </div>
 
+            <!-- Right Column -->
             <div class="lg:col-span-5">
-              <div class="group relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-2xl">
+              <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-2xl">
                 <img 
                   src="/work/handheld.webp" 
                   alt="In-House Post Production and Camera Rig" 
                   loading="lazy" 
                   decoding="async" 
-                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-neutral-300">
-                  <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-amber-400">
-                    DaVinci Color Science
-                  </span>
-                  <span class="px-2 py-0.5 rounded bg-black/70 backdrop-blur-md border border-white/10 text-neutral-300">
-                    Studio Mastering
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -954,10 +910,15 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
     display: none;
   }
 
+  .arm-tab-btn {
+    position: relative;
+    border-bottom: 2px solid transparent;
+  }
+
   @keyframes armTabFadeIn {
     from {
       opacity: 0;
-      transform: translateY(6px);
+      transform: translateY(4px);
     }
     to {
       opacity: 1;
@@ -970,55 +931,52 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   #arm-tab-2:checked ~ #arm-panels #arm-panel-2,
   #arm-tab-3:checked ~ #arm-panels #arm-panel-3 {
     display: block;
-    animation: armTabFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: armTabFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   /* Dark Noir Active Tab Label */
   #arm-tab-1:checked ~ #arm-tab-bar label[for="arm-tab-1"],
   #arm-tab-2:checked ~ #arm-tab-bar label[for="arm-tab-2"],
   #arm-tab-3:checked ~ #arm-tab-bar label[for="arm-tab-3"] {
-    background-color: rgba(245, 158, 11, 0.12);
-    border-color: rgba(245, 158, 11, 0.6);
     color: #ffffff;
-    box-shadow: 0 0 20px -3px rgba(245, 158, 11, 0.25);
+    border-bottom-color: #f59e0b;
   }
 
   #arm-tab-1:checked ~ #arm-tab-bar label[for="arm-tab-1"] .tab-num,
   #arm-tab-2:checked ~ #arm-tab-bar label[for="arm-tab-2"] .tab-num,
   #arm-tab-3:checked ~ #arm-tab-bar label[for="arm-tab-3"] .tab-num {
     color: #f59e0b;
+    opacity: 1;
   }
 
   /* High-Key Light Mode Active Tab Label */
   :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #arm-tab-1:checked ~ #arm-tab-bar label[for="arm-tab-1"],
   :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #arm-tab-2:checked ~ #arm-tab-bar label[for="arm-tab-2"],
   :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #arm-tab-3:checked ~ #arm-tab-bar label[for="arm-tab-3"] {
-    background-color: rgba(225, 29, 72, 0.08);
-    border-color: rgba(225, 29, 72, 0.5);
     color: #0f172a;
-    box-shadow: 0 4px 12px -2px rgba(225, 29, 72, 0.15);
+    border-bottom-color: #e11d48;
   }
 
   :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #arm-tab-1:checked ~ #arm-tab-bar label[for="arm-tab-1"] .tab-num,
   :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #arm-tab-2:checked ~ #arm-tab-bar label[for="arm-tab-2"] .tab-num,
   :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) #arm-tab-3:checked ~ #arm-tab-bar label[for="arm-tab-3"] .tab-num {
     color: #e11d48;
+    opacity: 1;
   }
 
   /* Supernova Active Tab Label */
   :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) #arm-tab-1:checked ~ #arm-tab-bar label[for="arm-tab-1"],
   :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) #arm-tab-2:checked ~ #arm-tab-bar label[for="arm-tab-2"],
   :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) #arm-tab-3:checked ~ #arm-tab-bar label[for="arm-tab-3"] {
-    background-color: rgba(244, 63, 94, 0.15);
-    border-color: rgba(244, 63, 94, 0.7);
     color: #ffffff;
-    box-shadow: 0 0 24px -2px rgba(244, 63, 94, 0.35);
+    border-bottom-color: #f43f5e;
   }
 
   :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) #arm-tab-1:checked ~ #arm-tab-bar label[for="arm-tab-1"] .tab-num,
   :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) #arm-tab-2:checked ~ #arm-tab-bar label[for="arm-tab-2"] .tab-num,
   :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) #arm-tab-3:checked ~ #arm-tab-bar label[for="arm-tab-3"] .tab-num {
     color: #fb7185;
+    opacity: 1;
   }
 </style>
 
