@@ -179,6 +179,15 @@ type Homepage implements Node & Document {
   bentoDescription: String
   bentoLinkLabel: String
   bentoLinkHref: String
+  service1Title: String
+  service1Image: String
+  service1Link: String
+  service2Title: String
+  service2Image: String
+  service2Link: String
+  service3Title: String
+  service3Image: String
+  service3Link: String
   pipelineTag: String
   pipelineHeading: String
   pipelineDescription: String
@@ -254,6 +263,15 @@ input HomepageFilter {
   bentoDescription: StringFilter
   bentoLinkLabel: StringFilter
   bentoLinkHref: StringFilter
+  service1Title: StringFilter
+  service1Image: ImageFilter
+  service1Link: StringFilter
+  service2Title: StringFilter
+  service2Image: ImageFilter
+  service2Link: StringFilter
+  service3Title: StringFilter
+  service3Image: ImageFilter
+  service3Link: StringFilter
   pipelineTag: StringFilter
   pipelineHeading: StringFilter
   pipelineDescription: StringFilter
@@ -305,6 +323,7 @@ type CambridgePage implements Node & Document {
   expertiseHeading: String!
   expertiseDescription: String!
   keyVenues: [String]
+  hubImage: String
   expertiseBullets: [String]
   cardTitle: String!
   cardBody: String!
@@ -351,6 +370,7 @@ input CambridgePageFilter {
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
   keyVenues: StringFilter
+  hubImage: ImageFilter
   expertiseBullets: StringFilter
   cardTitle: StringFilter
   cardBody: StringFilter
@@ -405,6 +425,7 @@ type LondonPage implements Node & Document {
   expertiseHeading: String!
   expertiseDescription: String!
   keyVenues: [String]
+  hubImage: String
   expertiseBullets: [String]
   cardTitle: String!
   cardBody: String!
@@ -451,6 +472,7 @@ input LondonPageFilter {
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
   keyVenues: StringFilter
+  hubImage: ImageFilter
   expertiseBullets: StringFilter
   cardTitle: StringFilter
   cardBody: StringFilter
@@ -1531,6 +1553,15 @@ input HomepageMutation {
   bentoDescription: String
   bentoLinkLabel: String
   bentoLinkHref: String
+  service1Title: String
+  service1Image: String
+  service1Link: String
+  service2Title: String
+  service2Image: String
+  service2Link: String
+  service3Title: String
+  service3Image: String
+  service3Link: String
   pipelineTag: String
   pipelineHeading: String
   pipelineDescription: String
@@ -1571,6 +1602,7 @@ input CambridgePageMutation {
   expertiseHeading: String
   expertiseDescription: String
   keyVenues: [String]
+  hubImage: String
   expertiseBullets: [String]
   cardTitle: String
   cardBody: String
@@ -1614,6 +1646,7 @@ input LondonPageMutation {
   expertiseHeading: String
   expertiseDescription: String
   keyVenues: [String]
+  hubImage: String
   expertiseBullets: [String]
   cardTitle: String
   cardBody: String

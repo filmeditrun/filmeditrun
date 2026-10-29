@@ -4,7 +4,6 @@ import home from '../content/pages/home.json';
 import servicesPage from '../content/pages/services.json';
 import cambridgePage from '../content/pages/cambridge.json';
 import londonPage from '../content/pages/london.json';
-import { projects } from '../data/projects';
 
 // Helper for asterisk gradient formatting
 const parseHeading = (text: string) => {
@@ -15,10 +14,7 @@ const parseHeading = (text: string) => {
   return text;
 };
 
-// 1. Top 3 projects dynamically pulled from TinaCMS collection
-const featuredProjects = projects.slice(0, 3);
-
-// 2. Dynamically import all 6 services from TinaCMS for the Capabilities Bento Grid
+// 1. Dynamically import all 6 services from TinaCMS for the Capabilities Bento Grid
 interface ServiceEntry {
   order: string;
   title: string;
@@ -50,39 +46,8 @@ const services = Object.values(serviceFiles)
     href: s.link || `/services/${s.slug}`,
   }));
 
-// Asymmetrical 3-column Bento mapping (2+1, 1+2, 1+2 alternating rhythm)
-const conferenceService = services.find((s) => s.href.includes('conference')) || services[1] || services[0];
-const eventService = services.find((s) => s.href.includes('event')) || services[0];
-const podcastService = services.find((s) => s.href.includes('podcast')) || services[4] || services[0];
-const brandService = services.find((s) => s.href.includes('brand')) || services[5] || services[0];
-const animationService = services.find((s) => s.href.includes('animation')) || services[2] || services[0];
-const postService = services.find((s) => s.href.includes('post')) || services[3] || services[0];
-
-const bentoItems = [
-  { service: conferenceService, span: "lg:col-span-2", isAnchor: true },
-  { service: eventService, span: "lg:col-span-1", isAnchor: false },
-  { service: podcastService, span: "lg:col-span-1", isAnchor: false },
-  { service: brandService, span: "lg:col-span-2", isAnchor: true },
-  { service: animationService, span: "lg:col-span-1", isAnchor: false },
-  { service: postService, span: "lg:col-span-2", isAnchor: true },
-].filter((item) => Boolean(item.service && item.service.title));
-
-// 3. Four-stage production pipeline steps (dynamically pulled from services.json)
+// 2. Four-stage production pipeline steps (dynamically pulled from services.json)
 const processSteps = servicesPage.processSteps || [];
-
-// 4. Dual Hub data dynamically fed from cambridge.json and london.json (Single Source of Truth)
-const cambridgeVenues = (cambridgePage as any).keyVenues || [
-  "Historic University of Cambridge Colleges",
-  "Cambridge Science Park",
-  "Cambridge Biomedical Campus",
-];
-
-const londonVenues = (londonPage as any).keyVenues || [
-  "ExCeL London",
-  "QEII Centre",
-  "Olympia London",
-  "The City & Canary Wharf",
-];
 
 // Default telemetry metrics if not provided
 const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemetryMetrics.length > 0
@@ -221,82 +186,183 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
   <!-- ================================================================= -->
-  <!-- 2. SELECTED WORK IN FOCUS (Dynamic TinaCMS Project Showcase)       -->
+  <!-- 2. PRODUCTION SERVICES (Arm Modular Architecture)                 -->
   <!-- ================================================================= -->
-  <section class="relative max-w-7xl mx-auto px-6 pt-4 pb-24 sm:pb-32 overflow-hidden">
-    <!-- Section Header with Direct View All Button -->
-    <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14 border-b border-line pb-8">
+  <section class="max-w-7xl mx-auto px-6 pt-8 pb-24 sm:pb-32">
+    
+    <!-- Section Header with Direct View All Button and Carousel Controls -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14 border-b border-line pb-8">
       <div>
         <div class="flex items-center gap-2 mb-3">
           <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
           <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-            {(home as any).workSpotlightTag || "Selected Work"}
+            {(home as any).bentoTag || "Services"}
           </span>
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading((home as any).workSpotlightHeading || "Selected Films & *Client Highlights*.")} />
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading((home as any).bentoHeading || "Engineered for *Impact & Engagement*.")} />
         <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3 font-light leading-relaxed">
-          {(home as any).workSpotlightDescription || "A glimpse into recent corporate conferences, brand documentaries, and location shoots."}
+          {(home as any).bentoDescription || "Six modular video production disciplines designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time."}
         </p>
       </div>
-      <div class="shrink-0">
+
+      <div class="shrink-0 flex items-center gap-3">
+        <!-- Arm-Style Carousel Slider Controls (< and >) -->
+        <div class="flex items-center gap-2">
+          <button 
+            id="services-prev" 
+            type="button"
+            aria-label="Previous services"
+            class="w-10 h-10 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-neutral-300 hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-md active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button 
+            id="services-next" 
+            type="button"
+            aria-label="Next services"
+            class="w-10 h-10 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-neutral-300 hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-md active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
         <a 
-          href={(home as any).workSpotlightLinkHref || "/work"} 
-          class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
+          href={(home as any).bentoLinkHref || "/services"} 
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
         >
-          <span>{(home as any).workSpotlightLinkLabel || "Explore Full Portfolio →"}</span>
+          <span>{(home as any).bentoLinkLabel || "Explore Services →"}</span>
         </a>
       </div>
     </div>
 
-    <!-- 3-Column Flagship Cards Grid (100% Dynamically Fed from TinaCMS Projects) -->
-    <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-      {featuredProjects.map((project) => (
-        <a 
-          href="/work" 
-          class="group flex flex-col rounded-2xl bg-neutral-900/60 border border-line hover:border-amber-500/60 transition-all duration-300 overflow-hidden shadow-2xl hover:-translate-y-1"
-        >
-          <!-- 16:9 Thumbnail Frame with Smooth 700ms Hover Zoom -->
-          <div class="relative w-full aspect-video overflow-hidden bg-neutral-950">
-            <img 
-              src={project.thumbnail || "/og-image.jpg"} 
-              alt={project.title} 
-              loading="lazy" 
-              decoding="async" 
-              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-            
-            <!-- Category / Client Tag -->
-            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-wider text-amber-400">
-              {project.category || project.client}
-            </div>
+    <!-- ================================================================= -->
+    <!-- Arm-Style Horizontal Carousel Track (All 6 Services Visible)      -->
+    <!-- ================================================================= -->
+    <div 
+      id="services-track"
+      class="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 pt-1 px-1 -mx-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+    >
+      {services.map((service, index) => {
+        const imageSrc = service.imagePath && service.imagePath !== "/og-image.jpg"
+          ? service.imagePath
+          : defaultWatermarks[index % defaultWatermarks.length];
+        
+        return (
+          <div class="w-[85vw] sm:w-[48vw] lg:w-[calc((100%-2.5rem)/3)] shrink-0 snap-start">
+            <a 
+              href={service.href}
+              class="group relative block aspect-[4/3] rounded-xl overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
+            >
+              <!-- Photo that zooms on hover -->
+              <img 
+                src={imageSrc} 
+                alt={service.title} 
+                loading="lazy" 
+                decoding="async" 
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
 
-            <!-- Runtime Tag -->
-            {project.runtime && (
-              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300">
-                {project.runtime}
-              </div>
-            )}
-          </div>
+              <!-- Base subtle scrim (keeps image bright at rest) -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none transition-opacity duration-500"></div>
 
-          <!-- Content Details -->
-          <div class="p-6 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors mb-2 line-clamp-1">
-                {project.title}
-              </h3>
-              <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light line-clamp-2">
-                {project.description}
-              </p>
-            </div>
-            <div class="pt-4 mt-5 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
-              <span>Watch Film</span>
-              <span class="group-hover:translate-x-1 transition-transform font-bold">&rarr;</span>
-            </div>
+              <!-- Darkening hover overlay (image becomes darker on hover for crisp text contrast) -->
+              <div class="absolute inset-0 bg-black/60 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <!-- Figcaption content inside image -->
+              <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
+                <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
+                  <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight drop-shadow-md">
+                    {service.title}
+                  </h3>
+                  <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
+                    <span>Explore</span>
+                    <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+                  </span>
+                </div>
+              </figcaption>
+            </a>
           </div>
-        </a>
+        );
+      })}
+    </div>
+
+    <!-- Arm-Style Pagination Dots Underneath Track -->
+    <div class="flex items-center justify-center gap-2 mt-6 sm:mt-8" aria-label="Services carousel pagination" id="services-dots">
+      {services.map((_, idx) => (
+        <button
+          type="button"
+          data-dot-index={idx}
+          aria-label={`Go to service ${idx + 1}`}
+          class={`h-1.5 transition-all duration-300 rounded-full cursor-pointer ${
+            idx === 0 
+              ? "w-8 bg-amber-400" 
+              : "w-2.5 bg-white/20 hover:bg-white/40"
+          }`}
+        />
       ))}
     </div>
+
+    <!-- Carousel Scroll Controller Script -->
+    <script is:inline>
+      const track = document.getElementById('services-track');
+      const prevBtn = document.getElementById('services-prev');
+      const nextBtn = document.getElementById('services-next');
+      const dots = document.querySelectorAll('#services-dots button');
+      const cards = track ? track.querySelectorAll(':scope > div') : [];
+
+      function updateActiveDot(index) {
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.className = "h-1.5 transition-all duration-300 rounded-full cursor-pointer w-8 bg-amber-400";
+          } else {
+            dot.className = "h-1.5 transition-all duration-300 rounded-full cursor-pointer w-2.5 bg-white/20 hover:bg-white/40";
+          }
+        });
+      }
+
+      if (track && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -(track.clientWidth * 0.95), behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: (track.clientWidth * 0.95), behavior: 'smooth' });
+        });
+
+        dots.forEach((dot) => {
+          dot.addEventListener('click', () => {
+            const idx = parseInt(dot.getAttribute('data-dot-index') || '0', 10);
+            if (cards[idx]) {
+              cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            }
+          });
+        });
+
+        let scrollTimeout;
+        track.addEventListener('scroll', () => {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            const scrollLeft = track.scrollLeft;
+            let closestIdx = 0;
+            let minDistance = Infinity;
+
+            cards.forEach((card, i) => {
+              const distance = Math.abs(card.offsetLeft - track.offsetLeft - scrollLeft);
+              if (distance < minDistance) {
+                minDistance = distance;
+                closestIdx = i;
+              }
+            });
+
+            updateActiveDot(closestIdx);
+          }, 40);
+        }, { passive: true });
+      }
+    </script>
+
   </section>
 
   <!-- ================================================================= -->
@@ -324,149 +390,9 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
   <!-- ================================================================= -->
-  <!-- 4. PRODUCTION SERVICES BENTO GRID (Arm Modular Architecture)      -->
-  <!-- ================================================================= -->
-  <section class="max-w-7xl mx-auto px-6 py-20 sm:py-28">
-    
-    <!-- Section Header with Direct View All Button -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14 border-b border-line pb-8">
-      <div>
-        <div class="flex items-center gap-2 mb-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-            {(home as any).bentoTag || "Services"}
-          </span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading((home as any).bentoHeading || "Engineered for *Impact & Engagement*.")} />
-        <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3 font-light leading-relaxed">
-          {(home as any).bentoDescription || "Six modular video production disciplines designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time."}
-        </p>
-      </div>
-      <div class="shrink-0">
-        <a 
-          href={(home as any).bentoLinkHref || "/services"} 
-          class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
-        >
-          <span>{(home as any).bentoLinkLabel || "Explore Services →"}</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ================================================================= -->
-    <!-- Arm-Inspired Triptych (Tight Gap, Subtle Rounded-XL Corners)        -->
-    <!-- ================================================================= -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
-
-      <!-- Figure 1: Live Events & Conferences -->
-      <a 
-        href="/services/conference-production"
-        class="group relative block aspect-[4/3] rounded-xl overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
-      >
-        <!-- Photo that zooms on hover -->
-        <img 
-          src="/cambridge/stage-wide.webp" 
-          alt="Live Events & Conferences" 
-          loading="lazy" 
-          decoding="async" 
-          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-
-        <!-- Base subtle scrim (keeps image bright at rest) -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none transition-opacity duration-500"></div>
-
-        <!-- Darkening hover overlay (image becomes darker on hover for crisp text contrast) -->
-        <div class="absolute inset-0 bg-black/60 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-        <!-- Figcaption content inside image -->
-        <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
-          <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
-            <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight drop-shadow-md">
-              Live Events &amp; Conferences
-            </h3>
-            <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
-              <span>Explore</span>
-              <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
-            </span>
-          </div>
-        </figcaption>
-      </a>
-
-      <!-- Figure 2: Executive Interviews & Brand Films -->
-      <a 
-        href="/services/corporate-brand"
-        class="group relative block aspect-[4/3] rounded-xl overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
-      >
-        <!-- Photo that zooms on hover -->
-        <img 
-          src="/work/onlocation.webp" 
-          alt="Executive Interviews & Brand Films" 
-          loading="lazy" 
-          decoding="async" 
-          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-
-        <!-- Base subtle scrim (keeps image bright at rest) -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none transition-opacity duration-500"></div>
-
-        <!-- Darkening hover overlay (image becomes darker on hover for crisp text contrast) -->
-        <div class="absolute inset-0 bg-black/60 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-        <!-- Figcaption content inside image -->
-        <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
-          <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
-            <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight drop-shadow-md">
-              Executive Interviews &amp; Brand Films
-            </h3>
-            <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
-              <span>Explore</span>
-              <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
-            </span>
-          </div>
-        </figcaption>
-      </a>
-
-      <!-- Figure 3: Post-House & Motion Design -->
-      <a 
-        href="/services/post-production"
-        class="group relative block aspect-[4/3] rounded-xl overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
-      >
-        <!-- Photo that zooms on hover -->
-        <img 
-          src="/work/handheld.webp" 
-          alt="Post-House & Motion Design" 
-          loading="lazy" 
-          decoding="async" 
-          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-
-        <!-- Base subtle scrim (keeps image bright at rest) -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none transition-opacity duration-500"></div>
-
-        <!-- Darkening hover overlay (image becomes darker on hover for crisp text contrast) -->
-        <div class="absolute inset-0 bg-black/60 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-        <!-- Figcaption content inside image -->
-        <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
-          <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
-            <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight drop-shadow-md">
-              Post-House &amp; Motion Design
-            </h3>
-            <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
-              <span>Explore</span>
-              <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
-            </span>
-          </div>
-        </figcaption>
-      </a>
-
-    </div>
-
-  </section>
-
-  <!-- ================================================================= -->
   <!-- 4. PRODUCTION PIPELINE (Disciplined 4-Stage Methodology)          -->
   <!-- ================================================================= -->
-  <section class="max-w-7xl mx-auto px-6 py-20 sm:py-28 border-t border-line">
+  <section class="max-w-7xl mx-auto px-6 py-20 sm:py-28">
     
     <!-- Section Header with Direct Briefing Button -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 sm:mb-16 border-b border-line pb-8">
@@ -537,14 +463,31 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
         ))}
       </div>
     </div>
+  </section>
 
-    <!-- Bottom Architectural Action Strip -->
-    <div class="mt-10 pt-8 border-t border-line text-center">
+  <!-- ================================================================= -->
+  <!-- 5. WORK (Centered Editorial Bridge to Portfolio)                  -->
+  <!-- ================================================================= -->
+  <section class="max-w-4xl mx-auto px-6 py-20 sm:py-28 text-center border-t border-line">
+    <div class="inline-flex items-center gap-2 mb-4">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+        {(home as any).workSpotlightTag || "Work"}
+      </span>
+    </div>
+    
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight mb-4" set:html={parseHeading((home as any).workSpotlightHeading || "Selected Films & *Client Highlights*.")} />
+    
+    <p class="text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-8">
+      {(home as any).workSpotlightDescription || "A curated archive of recent corporate conferences, brand documentaries, and location shoots."}
+    </p>
+
+    <div class="flex justify-center">
       <a 
-        href={(home as any).pipelineLinkHref || "/contact"} 
-        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-all shadow-lg"
+        href={(home as any).workSpotlightLinkHref || "/work"} 
+        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-widest uppercase text-white transition-all duration-200 group shadow-lg"
       >
-        <span>{(home as any).pipelineLinkLabel || "Discuss Your Timeline →"}</span>
+        <span>{(home as any).workSpotlightLinkLabel || "Explore Work →"}</span>
       </a>
     </div>
   </section>
@@ -568,129 +511,77 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
       </p>
     </div>
 
-    <!-- Dual Hub Architectural Cards (100% Dynamically Fed from cambridge.json & london.json) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Dual Hub Arm-Style Widescreen Figures -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       
       <!-- Hub 1: Cambridge Studio Base -->
       <a
         href="/cambridge"
-        class="group relative flex flex-col justify-between rounded-2xl border border-line bg-neutral-900/40 overflow-hidden hover:border-amber-500/60 hover:bg-neutral-900/70 transition-all duration-300 shadow-xl hover:-translate-y-1"
+        class="group relative block aspect-[16/10] rounded-xl overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
       >
-        <!-- Widescreen Photo Frame (16:9) with smooth hover zoom -->
-        <div class="relative w-full aspect-[16/9] overflow-hidden bg-neutral-950">
-          <img 
-            src={(cambridgePage as any).hubImage || "/cambridge/stage-wide.webp"} 
-            alt="Cambridge Studio Hub" 
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            loading="lazy"
-            decoding="async"
-          />
-          
-          <!-- Top Row Badges Overlay -->
-          <div class="absolute top-4 inset-x-4 flex items-center justify-between gap-4">
-            <span class="px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
-              Studio Base // Cambridge (CB2)
-            </span>
-            <span class="px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300">
-              East of England
-            </span>
-          </div>
-        </div>
+        <!-- Photo with hover zoom -->
+        <img 
+          src={(cambridgePage as any).hubImage || "/cambridge/stage-wide.webp"} 
+          alt="Cambridge Studio Hub" 
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
+        />
+        
+        <!-- Base subtle scrim (keeps image bright at rest) -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none transition-opacity duration-500"></div>
 
-        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-          <div>
-            <!-- Title -->
-            <h3 class="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-tight mb-3">
+        <!-- Darkening hover overlay (for crisp text contrast on hover) -->
+        <div class="absolute inset-0 bg-black/60 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <!-- Figcaption content inside image -->
+        <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
+          <!-- Bottom Headline & Explore Link -->
+          <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
+            <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-3 leading-tight drop-shadow-md">
               Cambridge Studio Hub
             </h3>
-
-            <!-- Subtitle / Focus -->
-            <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light mb-6">
-              {(cambridgePage as any).heroSubtitle || "From keynote stages at Cambridge Science Park to research stories across historic colleges, we film on-location with discrete multi-camera crews."}
-            </p>
-
-            <!-- Key Venues Strip (Single Source of Truth) -->
-            <div>
-              <span class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 block mb-2.5 font-semibold">
-                Key Grounding Locations:
-              </span>
-              <div class="flex flex-wrap gap-2">
-                {cambridgeVenues.map((venue: string) => (
-                  <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 group-hover:border-amber-500/30 group-hover:text-amber-300 transition-colors">
-                    {venue}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
+              <span>Explore Cambridge Hub</span>
+              <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+            </span>
           </div>
-
-          <!-- Bottom Action Prompt -->
-          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
-            <span>Explore Cambridge Hub</span>
-            <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
-          </div>
-        </div>
+        </figcaption>
       </a>
 
       <!-- Hub 2: London Field Unit -->
       <a
         href="/london"
-        class="group relative flex flex-col justify-between rounded-2xl border border-line bg-neutral-900/40 overflow-hidden hover:border-amber-500/60 hover:bg-neutral-900/70 transition-all duration-300 shadow-xl hover:-translate-y-1"
+        class="group relative block aspect-[16/10] rounded-xl overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
       >
-        <!-- Widescreen Photo Frame (16:9) with smooth hover zoom -->
-        <div class="relative w-full aspect-[16/9] overflow-hidden bg-neutral-950">
-          <img 
-            src={(londonPage as any).hubImage || "/work/onlocation.webp"} 
-            alt="London Production Hub" 
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            loading="lazy"
-            decoding="async"
-          />
-          
-          <!-- Top Row Badges Overlay -->
-          <div class="absolute top-4 inset-x-4 flex items-center justify-between gap-4">
-            <span class="px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
-              On-Location // London Field Unit
-            </span>
-            <span class="px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300">
-              Greater London & UK-Wide
-            </span>
-          </div>
-        </div>
+        <!-- Photo with hover zoom -->
+        <img 
+          src={(londonPage as any).hubImage || "/work/onlocation.webp"} 
+          alt="London Production Hub" 
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
+        />
+        
+        <!-- Base subtle scrim (keeps image bright at rest) -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none transition-opacity duration-500"></div>
 
-        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-          <div>
-            <!-- Title -->
-            <h3 class="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-tight mb-3">
-              London Production Hub
+        <!-- Darkening hover overlay (for crisp text contrast on hover) -->
+        <div class="absolute inset-0 bg-black/60 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <!-- Figcaption content inside image -->
+        <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
+          <!-- Bottom Headline & Explore Link -->
+          <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
+            <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-3 leading-tight drop-shadow-md">
+              London Field Unit
             </h3>
-
-            <!-- Subtitle / Focus -->
-            <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light mb-6">
-              {(londonPage as any).heroSubtitle || "From main-stage keynotes at ExCeL and the QEII Centre to boardroom executive interviews across the City and Canary Wharf, we deploy agile cinema camera crews across London."}
-            </p>
-
-            <!-- Key Venues Strip (Single Source of Truth) -->
-            <div>
-              <span class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 block mb-2.5 font-semibold">
-                Key Grounding Locations:
-              </span>
-              <div class="flex flex-wrap gap-2">
-                {londonVenues.map((venue: string) => (
-                  <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 group-hover:border-amber-500/30 group-hover:text-amber-300 transition-colors">
-                    {venue}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
+              <span>Explore London Hub</span>
+              <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+            </span>
           </div>
-
-          <!-- Bottom Action Prompt -->
-          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
-            <span>Explore London Hub</span>
-            <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
-          </div>
-        </div>
+        </figcaption>
       </a>
 
     </div>

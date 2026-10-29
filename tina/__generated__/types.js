@@ -47,6 +47,15 @@ export const HomepagePartsFragmentDoc = gql`
   bentoDescription
   bentoLinkLabel
   bentoLinkHref
+  service1Title
+  service1Image
+  service1Link
+  service2Title
+  service2Image
+  service2Link
+  service3Title
+  service3Image
+  service3Link
   pipelineTag
   pipelineHeading
   pipelineDescription
@@ -84,6 +93,7 @@ export const CambridgePagePartsFragmentDoc = gql`
   expertiseHeading
   expertiseDescription
   keyVenues
+  hubImage
   expertiseBullets
   cardTitle
   cardBody
@@ -128,6 +138,7 @@ export const LondonPagePartsFragmentDoc = gql`
   expertiseHeading
   expertiseDescription
   keyVenues
+  hubImage
   expertiseBullets
   cardTitle
   cardBody

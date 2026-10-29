@@ -39,6 +39,15 @@ fragment HomepageParts on Homepage {
   bentoDescription
   bentoLinkLabel
   bentoLinkHref
+  service1Title
+  service1Image
+  service1Link
+  service2Title
+  service2Image
+  service2Link
+  service3Title
+  service3Image
+  service3Link
   pipelineTag
   pipelineHeading
   pipelineDescription
@@ -75,6 +84,7 @@ fragment CambridgePageParts on CambridgePage {
   expertiseHeading
   expertiseDescription
   keyVenues
+  hubImage
   expertiseBullets
   cardTitle
   cardBody
@@ -118,6 +128,7 @@ fragment LondonPageParts on LondonPage {
   expertiseHeading
   expertiseDescription
   keyVenues
+  hubImage
   expertiseBullets
   cardTitle
   cardBody

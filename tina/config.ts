@@ -293,35 +293,35 @@ export default defineConfig({
             ],
           },
 
-          // ─── 🎬 SELECTED WORK SPOTLIGHT ───────────────────────────────
+          // ─── 🎬 WORK SECTION ─────────────────────────────────────────
           {
             type: "string",
             name: "workSpotlightTag",
-            label: "Work Spotlight Badge Tag",
-            description: "Default: Selected Work",
+            label: "Work Section Badge Tag",
+            description: "Default: Work",
           },
           {
             type: "string",
             name: "workSpotlightHeading",
-            label: "Work Spotlight Heading (Use *word* for gradient)",
+            label: "Work Section Heading (Use *word* for gradient)",
             description: "Default: Selected Films & *Client Highlights*.",
           },
           {
             type: "string",
             name: "workSpotlightDescription",
-            label: "Work Spotlight Description",
+            label: "Work Section Description",
             ui: { component: "textarea" },
           },
           {
             type: "string",
             name: "workSpotlightLinkLabel",
-            label: "Work Spotlight View All Button Text",
-            description: "Default: Explore Full Portfolio →",
+            label: "Work Section Button Text",
+            description: "Default: Explore Work →",
           },
           {
             type: "string",
             name: "workSpotlightLinkHref",
-            label: "Work Spotlight View All Button Link",
+            label: "Work Section Button Link",
             description: "Default: /work",
           },
 
@@ -375,6 +375,60 @@ export default defineConfig({
             name: "bentoLinkHref",
             label: "Bento Grid Directory Link URL",
             description: "Default: /services",
+          },
+          {
+            type: "string",
+            name: "service1Title",
+            label: "Featured Service 1 Title",
+            description: "Default: Live Events & Conferences",
+          },
+          {
+            type: "image",
+            name: "service1Image",
+            label: "Featured Service 1 Image",
+            description: "Default: /cambridge/stage-wide.webp",
+          },
+          {
+            type: "string",
+            name: "service1Link",
+            label: "Featured Service 1 Link URL",
+            description: "Default: /services/conference-production",
+          },
+          {
+            type: "string",
+            name: "service2Title",
+            label: "Featured Service 2 Title",
+            description: "Default: Executive Interviews & Brand Films",
+          },
+          {
+            type: "image",
+            name: "service2Image",
+            label: "Featured Service 2 Image",
+            description: "Default: /work/onlocation.webp",
+          },
+          {
+            type: "string",
+            name: "service2Link",
+            label: "Featured Service 2 Link URL",
+            description: "Default: /services/corporate-brand",
+          },
+          {
+            type: "string",
+            name: "service3Title",
+            label: "Featured Service 3 Title",
+            description: "Default: Post-House & Motion Design",
+          },
+          {
+            type: "image",
+            name: "service3Image",
+            label: "Featured Service 3 Image",
+            description: "Default: /work/handheld.webp",
+          },
+          {
+            type: "string",
+            name: "service3Link",
+            label: "Featured Service 3 Link URL",
+            description: "Default: /services/post-production",
           },
 
           // ─── ⚡ PRODUCTION PIPELINE (STAGE 3) ─────────────────────────
