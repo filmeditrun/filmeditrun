@@ -352,60 +352,38 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
       </div>
     </div>
 
-    <!-- Asymmetric 3-Column Bento Grid (2+1, 1+2, 1+2) -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-      {bentoItems.map((item, idx) => (
+    <!-- Architectural Editorial Capabilities Roster (Zero Boxes, Linear/Arm Pacing) -->
+    <div class="divide-y divide-line border-b border-line">
+      {services.map((service) => (
         <a
-          href={item.service.href}
-          class:list={[
-            "group relative flex flex-col justify-between rounded-2xl border border-line bg-neutral-900/60 p-7 sm:p-9 hover:border-amber-500/50 transition-all duration-300 shadow-xl hover:-translate-y-1 overflow-hidden",
-            item.span,
-          ]}
+          href={service.href}
+          class="group relative flex flex-col lg:flex-row lg:items-center justify-between gap-6 py-7 sm:py-9 transition-all duration-300 hover:pl-3"
         >
-          <!-- Ambient Watermark & Atmospheric Glow Layer -->
-          <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-            <!-- Cinema Photo Watermark (Full Natural Color) -->
-            <img 
-              src={item.service.imagePath && item.service.imagePath !== "/og-image.jpg" ? item.service.imagePath : defaultWatermarks[idx % defaultWatermarks.length]} 
-              alt="" 
-              loading="lazy" 
-              decoding="async" 
-              class="w-full h-full object-cover contrast-110 opacity-55 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700 ease-out" 
-            />
-            <!-- Theme-Adaptive Scrim Mask: Solid behind typography at bottom, opening up at top for full color -->
-            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/65 to-transparent"></div>
+          <!-- Hover Atmospheric Tint Backdrop (Borderless, pure flow) -->
+          <div 
+            class="absolute inset-0 bg-neutral-900/40 -mx-4 px-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -z-10" 
+            aria-hidden="true"
+          />
+
+          <!-- Left: Tag & Bold Title -->
+          <div class="lg:w-1/2 pr-4">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-amber-400 font-medium">
+                {service.tag}
+              </span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl lg:text-3xl font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-snug">
+              {service.title}
+            </h3>
           </div>
 
-          <!-- Card Content (Elevated above watermark) -->
-          <div class="relative z-10 flex flex-col justify-between h-full">
-            <div>
-              <!-- Category Tag Pill -->
-              <div class="flex items-center justify-between gap-4 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-amber-400 font-medium">
-                  {item.service.tag}
-                </span>
-              </div>
-
-              <!-- Heading -->
-              <h3
-                class:list={[
-                  "font-black text-white group-hover:text-amber-400 transition-colors tracking-tight leading-tight mb-3",
-                  item.isAnchor ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl",
-                ]}
-              >
-                {item.service.title}
-              </h3>
-
-              <!-- Description -->
-              <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed font-light line-clamp-3">
-                {item.service.description}
-              </p>
-            </div>
-
-            <!-- Bottom Action Prompt -->
-            <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-400 group-hover:text-amber-400 transition-colors">
-              <span>Explore Service</span>
-              <span class="group-hover:translate-x-1.5 transition-transform font-bold">&rarr;</span>
+          <!-- Right: Description & Action Arrow -->
+          <div class="lg:w-1/2 flex items-center justify-between gap-6 lg:pl-6">
+            <p class="text-neutral-400 text-xs sm:text-sm lg:text-base leading-relaxed font-light max-w-lg">
+              {service.description}
+            </p>
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-line bg-white/5 flex items-center justify-center text-neutral-400 group-hover:border-amber-500/60 group-hover:text-amber-400 group-hover:bg-amber-500/10 shrink-0 transition-all duration-300 group-hover:scale-105">
+              <span class="group-hover:translate-x-0.5 transition-transform font-bold text-sm">&rarr;</span>
             </div>
           </div>
         </a>
@@ -413,7 +391,7 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
     </div>
 
     <!-- Bottom Architectural Directory Pathway Strip -->
-    <div class="mt-8 pt-6 border-t border-line text-center">
+    <div class="mt-12 text-center">
       <a 
         href={(home as any).bentoLinkHref || "/services"} 
         class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-all shadow-lg"
