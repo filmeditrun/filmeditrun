@@ -353,83 +353,86 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
     </div>
 
     <!-- ================================================================= -->
-    <!-- Direct Visual Gateways (Just Titles & Cinema Photography, Zero Fluff) -->
+    <!-- Arm Exact Figure Architecture (Sharp Corners, Text Inside Image)   -->
     <!-- ================================================================= -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
 
-      <!-- Gateway 1: Live Events & Conferences -->
+      <!-- Figure 1: Live Events & Conferences -->
       <a 
         href="/services/conference-production"
-        class="group block"
+        class="group relative block aspect-[4/3] overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
       >
-        <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-lg">
-          <img 
-            src="/cambridge/stage-wide.webp" 
-            alt="Live Events and Conference Filming" 
-            loading="lazy" 
-            decoding="async" 
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-        </div>
-        <div class="flex items-center justify-between gap-4 mt-5">
-          <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors tracking-tight">
-            Live Events &amp; Conferences
-          </h3>
-          <span class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-amber-400 font-bold transition-colors shrink-0">
-            <span>Explore</span>
-            <span class="group-hover:translate-x-1.5 transition-transform text-sm font-bold">&rarr;</span>
-          </span>
-        </div>
+        <img 
+          src="/cambridge/stage-wide.webp" 
+          alt="Live Events & Conferences" 
+          loading="lazy" 
+          decoding="async" 
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+        <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none">
+          <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
+            <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight">
+              Live Events &amp; Conferences
+            </h3>
+            <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
+              <span>Explore</span>
+              <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+            </span>
+          </div>
+        </figcaption>
       </a>
 
-      <!-- Gateway 2: Executive Interviews & Brand Films -->
+      <!-- Figure 2: Executive Interviews & Brand Films -->
       <a 
         href="/services/corporate-brand"
-        class="group block"
+        class="group relative block aspect-[4/3] overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
       >
-        <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-lg">
-          <img 
-            src="/work/onlocation.webp" 
-            alt="Executive Interviews and Brand Documentaries" 
-            loading="lazy" 
-            decoding="async" 
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-        </div>
-        <div class="flex items-center justify-between gap-4 mt-5">
-          <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors tracking-tight">
-            Executive Interviews &amp; Brand Films
-          </h3>
-          <span class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-amber-400 font-bold transition-colors shrink-0">
-            <span>Explore</span>
-            <span class="group-hover:translate-x-1.5 transition-transform text-sm font-bold">&rarr;</span>
-          </span>
-        </div>
+        <img 
+          src="/work/onlocation.webp" 
+          alt="Executive Interviews & Brand Films" 
+          loading="lazy" 
+          decoding="async" 
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+        <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none">
+          <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
+            <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight">
+              Executive Interviews &amp; Brand Films
+            </h3>
+            <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
+              <span>Explore</span>
+              <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+            </span>
+          </div>
+        </figcaption>
       </a>
 
-      <!-- Gateway 3: Post-House & Motion Design -->
+      <!-- Figure 3: Post-House & Motion Design -->
       <a 
         href="/services/post-production"
-        class="group block"
+        class="group relative block aspect-[4/3] overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
       >
-        <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-line bg-neutral-950 shadow-lg">
-          <img 
-            src="/work/handheld.webp" 
-            alt="Post-House, Color Grading and Motion Design" 
-            loading="lazy" 
-            decoding="async" 
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-        </div>
-        <div class="flex items-center justify-between gap-4 mt-5">
-          <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors tracking-tight">
-            Post-House &amp; Motion Design
-          </h3>
-          <span class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-amber-400 font-bold transition-colors shrink-0">
-            <span>Explore</span>
-            <span class="group-hover:translate-x-1.5 transition-transform text-sm font-bold">&rarr;</span>
-          </span>
-        </div>
+        <img 
+          src="/work/handheld.webp" 
+          alt="Post-House & Motion Design" 
+          loading="lazy" 
+          decoding="async" 
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+        <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none">
+          <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
+            <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight">
+              Post-House &amp; Motion Design
+            </h3>
+            <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
+              <span>Explore</span>
+              <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+            </span>
+          </div>
+        </figcaption>
       </a>
 
     </div>
