@@ -10,7 +10,7 @@
   "videoButtonLabel": "WATCH FEATURED FILM ➔",
   "imageButtonLabel": "WATCH PROJECT REEL ➔",
   "scrollIndicatorText": "EXPLORE ALL PRODUCTIONS",
-  "showArchive": false,
+  "showArchive": true,
   "archiveTag": "Production Archive",
   "archiveHeading": "Selected Works & Case Studies",
   "archiveDescription": "Filter through commercial campaigns, narrative films, and multi-camera event productions.",
