@@ -12,6 +12,13 @@
   "heroGradientColor1": "#180d2b",
   "heroGradientColor2": "#09090c",
   "heroFrostedGlass": "very-subtle",
+  "approachTag": "OUR APPROACH",
+  "approachHeading": "Calm leadership on set. *Direct collaboration in the cut.*",
+  "approachBody": "Great corporate films come from a calm, well-run set where speakers feel at ease and technical details are handled quietly in the background. With FilmEditRun, the person listening to your brief is the one framing the shot, monitoring the sound, and cutting the master files. Whether we are filming on-location across the UK or polishing client-supplied footage in our Cambridge suites, you get direct communication, honest technical guidance, and finished films delivered with precision.",
+  "approachPrimaryLinkLabel": "EXPLORE WORK ➔",
+  "approachPrimaryLinkHref": "/work",
+  "approachSecondaryLinkLabel": "EXPLORE SERVICES ➔",
+  "approachSecondaryLinkHref": "/services",
   "btsHeading": "Behind the Slate",
   "btsTag": "BEHIND THE SCENES",
   "btsDescription": "Unfiltered frames from sets, multi-camera live control rooms, and post-production suites.",
@@ -90,8 +97,16 @@
       "badge": "LATEST CUT"
     }
   ],
+  "ctaTag": "START A PROJECT",
   "ctaHeading": "Have a project or event in mind?",
   "ctaText": "Whether you’re planning a multi-camera conference, a flagship brand film, or need fast post-production, we’re ready to help. Let’s talk through your ideas.",
   "ctaButtonLabel": "Start Your Project Brief →",
-  "ctaButtonLink": "/contact"
+  "ctaButtonLink": "/contact",
+  "ctaSecondaryButtonLabel": "Explore Work Archive",
+  "ctaSecondaryButtonLink": "/work",
+  "ctaTrustSignals": [
+    "24h Response",
+    "Clear, Transparent Scope",
+    "Cambridge & London Hubs"
+  ]
 }

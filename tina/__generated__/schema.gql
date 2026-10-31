@@ -667,6 +667,13 @@ type ServicesPage implements Node & Document {
   headerTag: String!
   heading: String!
   description: String!
+  displayAs: String
+  imagePath: String
+  localVideoPath: String
+  heroSolidColor: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   processTag: String
   processHeading: String
   processDescription: String
@@ -693,6 +700,13 @@ input ServicesPageFilter {
   headerTag: StringFilter
   heading: StringFilter
   description: StringFilter
+  displayAs: StringFilter
+  imagePath: ImageFilter
+  localVideoPath: StringFilter
+  heroSolidColor: StringFilter
+  heroGradientDirection: StringFilter
+  heroGradientColor1: StringFilter
+  heroGradientColor2: StringFilter
   processTag: StringFilter
   processHeading: StringFilter
   processDescription: StringFilter
@@ -735,13 +749,25 @@ type Service implements Node & Document {
   heroLead: String!
   breakdownHeading: String
   breakdownBody: String
-  displayAs: String!
-  localVideoPath: String
-  cloudVideoUrl: String
-  imagePath: String
+  cardDisplayAs: String
+  cardImage: String
+  cardVideoPath: String
+  cardSolidColor: String
+  cardGradientDirection: String
+  cardGradientColor1: String
+  cardGradientColor2: String
+  cardTextContrast: String
+  heroDisplayAs: String
+  heroImage: String
+  heroVideoPath: String
+  heroSolidColor: String
   heroGradientDirection: String
   heroGradientColor1: String
   heroGradientColor2: String
+  heroTextContrast: String
+  displayAs: String
+  imagePath: String
+  localVideoPath: String
   deliverables: [ServiceDeliverables]
   ctaHeading: String!
   ctaDescription: String!
@@ -771,13 +797,25 @@ input ServiceFilter {
   heroLead: StringFilter
   breakdownHeading: StringFilter
   breakdownBody: StringFilter
-  displayAs: StringFilter
-  localVideoPath: StringFilter
-  cloudVideoUrl: StringFilter
-  imagePath: ImageFilter
+  cardDisplayAs: StringFilter
+  cardImage: ImageFilter
+  cardVideoPath: StringFilter
+  cardSolidColor: StringFilter
+  cardGradientDirection: StringFilter
+  cardGradientColor1: StringFilter
+  cardGradientColor2: StringFilter
+  cardTextContrast: StringFilter
+  heroDisplayAs: StringFilter
+  heroImage: ImageFilter
+  heroVideoPath: StringFilter
+  heroSolidColor: StringFilter
   heroGradientDirection: StringFilter
   heroGradientColor1: StringFilter
   heroGradientColor2: StringFilter
+  heroTextContrast: StringFilter
+  displayAs: StringFilter
+  imagePath: ImageFilter
+  localVideoPath: StringFilter
   deliverables: ServiceDeliverablesFilter
   ctaHeading: StringFilter
   ctaDescription: StringFilter
@@ -920,6 +958,13 @@ type AboutPage implements Node & Document {
   heroGradientColor1: String
   heroGradientColor2: String
   heroFrostedGlass: String
+  approachTag: String
+  approachHeading: String!
+  approachBody: String!
+  approachPrimaryLinkLabel: String
+  approachPrimaryLinkHref: String
+  approachSecondaryLinkLabel: String
+  approachSecondaryLinkHref: String
   btsHeading: String
   btsTag: String
   btsDescription: String
@@ -928,10 +973,14 @@ type AboutPage implements Node & Document {
   timelineTag: String
   timelineDescription: String
   milestones: [AboutPageMilestones]
+  ctaTag: String
   ctaHeading: String!
   ctaText: String!
   ctaButtonLabel: String!
   ctaButtonLink: String!
+  ctaSecondaryButtonLabel: String
+  ctaSecondaryButtonLink: String
+  ctaTrustSignals: [String]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -968,6 +1017,13 @@ input AboutPageFilter {
   heroGradientColor1: StringFilter
   heroGradientColor2: StringFilter
   heroFrostedGlass: StringFilter
+  approachTag: StringFilter
+  approachHeading: StringFilter
+  approachBody: StringFilter
+  approachPrimaryLinkLabel: StringFilter
+  approachPrimaryLinkHref: StringFilter
+  approachSecondaryLinkLabel: StringFilter
+  approachSecondaryLinkHref: StringFilter
   btsHeading: StringFilter
   btsTag: StringFilter
   btsDescription: StringFilter
@@ -976,10 +1032,14 @@ input AboutPageFilter {
   timelineTag: StringFilter
   timelineDescription: StringFilter
   milestones: AboutPageMilestonesFilter
+  ctaTag: StringFilter
   ctaHeading: StringFilter
   ctaText: StringFilter
   ctaButtonLabel: StringFilter
   ctaButtonLink: StringFilter
+  ctaSecondaryButtonLabel: StringFilter
+  ctaSecondaryButtonLink: StringFilter
+  ctaTrustSignals: StringFilter
 }
 
 type AboutPageConnectionEdges {
@@ -1045,6 +1105,17 @@ type ContactPageServiceOptions {
 type ContactPage implements Node & Document {
   seoTitle: String!
   seoDescription: String!
+  headerTag: String
+  heading: String
+  description: String
+  trustSignals: [String]
+  displayAs: String
+  localVideoPath: String
+  imagePath: String
+  heroSolidColor: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   formEndpoint: String!
   redirectUrl: String
   enableTurnstile: Boolean
@@ -1079,6 +1150,17 @@ input ContactPageServiceOptionsFilter {
 input ContactPageFilter {
   seoTitle: StringFilter
   seoDescription: StringFilter
+  headerTag: StringFilter
+  heading: StringFilter
+  description: StringFilter
+  trustSignals: StringFilter
+  displayAs: StringFilter
+  localVideoPath: StringFilter
+  imagePath: ImageFilter
+  heroSolidColor: StringFilter
+  heroGradientDirection: StringFilter
+  heroGradientColor1: StringFilter
+  heroGradientColor2: StringFilter
   formEndpoint: StringFilter
   redirectUrl: StringFilter
   enableTurnstile: BooleanFilter
@@ -1738,6 +1820,13 @@ input ServicesPageMutation {
   headerTag: String
   heading: String
   description: String
+  displayAs: String
+  imagePath: String
+  localVideoPath: String
+  heroSolidColor: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   processTag: String
   processHeading: String
   processDescription: String
@@ -1769,13 +1858,25 @@ input ServiceMutation {
   heroLead: String
   breakdownHeading: String
   breakdownBody: String
-  displayAs: String
-  localVideoPath: String
-  cloudVideoUrl: String
-  imagePath: String
+  cardDisplayAs: String
+  cardImage: String
+  cardVideoPath: String
+  cardSolidColor: String
+  cardGradientDirection: String
+  cardGradientColor1: String
+  cardGradientColor2: String
+  cardTextContrast: String
+  heroDisplayAs: String
+  heroImage: String
+  heroVideoPath: String
+  heroSolidColor: String
   heroGradientDirection: String
   heroGradientColor1: String
   heroGradientColor2: String
+  heroTextContrast: String
+  displayAs: String
+  imagePath: String
+  localVideoPath: String
   deliverables: [ServiceDeliverablesMutation]
   ctaHeading: String
   ctaDescription: String
@@ -1846,6 +1947,13 @@ input AboutPageMutation {
   heroGradientColor1: String
   heroGradientColor2: String
   heroFrostedGlass: String
+  approachTag: String
+  approachHeading: String
+  approachBody: String
+  approachPrimaryLinkLabel: String
+  approachPrimaryLinkHref: String
+  approachSecondaryLinkLabel: String
+  approachSecondaryLinkHref: String
   btsHeading: String
   btsTag: String
   btsDescription: String
@@ -1854,10 +1962,14 @@ input AboutPageMutation {
   timelineTag: String
   timelineDescription: String
   milestones: [AboutPageMilestonesMutation]
+  ctaTag: String
   ctaHeading: String
   ctaText: String
   ctaButtonLabel: String
   ctaButtonLink: String
+  ctaSecondaryButtonLabel: String
+  ctaSecondaryButtonLink: String
+  ctaTrustSignals: [String]
 }
 
 input AboutSliderSlidesMutation {
@@ -1883,6 +1995,17 @@ input ContactPageServiceOptionsMutation {
 input ContactPageMutation {
   seoTitle: String
   seoDescription: String
+  headerTag: String
+  heading: String
+  description: String
+  trustSignals: [String]
+  displayAs: String
+  localVideoPath: String
+  imagePath: String
+  heroSolidColor: String
+  heroGradientDirection: String
+  heroGradientColor1: String
+  heroGradientColor2: String
   formEndpoint: String
   redirectUrl: String
   enableTurnstile: Boolean

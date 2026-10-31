@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "tina:dev": "tinacms dev -c \"astro dev --force\"",
+    "tina:dev": "tinacms dev -c \"astro dev --ignore-lock\"",
     "build": "astro build",
     "tina:build": "tinacms build && astro build",
     "preview": "astro preview",

@@ -1,0 +1,77 @@
+---
+interface Props {
+  tag?: string;
+  heading?: string;
+  body?: string;
+  primaryLinkLabel?: string;
+  primaryLinkHref?: string;
+  secondaryLinkLabel?: string;
+  secondaryLinkHref?: string;
+}
+
+const {
+  tag = "OUR APPROACH",
+  heading = "Calm leadership on set. *Direct collaboration in the cut.*",
+  body = "Great corporate films come from a calm, well-run set where speakers feel at ease and technical details are handled quietly in the background. With FilmEditRun, the person listening to your brief is the one framing the shot, monitoring the sound, and cutting the master files. Whether we are filming on-location across the UK or polishing client-supplied footage in our Cambridge suites, you get direct communication, honest technical guidance, and finished films delivered with precision.",
+  primaryLinkLabel = "EXPLORE WORK ➔",
+  primaryLinkHref = "/work",
+  secondaryLinkLabel = "EXPLORE SERVICES ➔",
+  secondaryLinkHref = "/services",
+} = Astro.props;
+
+// Server-side regex parser for asterisk gradient formatting
+const parseHeading = (text: string) => {
+  if (!text) return "";
+  if (text.includes('*')) {
+    return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">$1</span>');
+  }
+  return text;
+};
+---
+
+<!-- Subtle Fading Cinema Top Divider -->
+<div class="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" aria-hidden="true"></div>
+
+<!-- Breathable Centered Editorial Breather (Cardless UI Pattern) -->
+<section class="max-w-4xl mx-auto px-6 py-20 sm:py-28 text-center select-none">
+  {tag && (
+    <div class="inline-flex items-center gap-2 mb-4">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+        {tag}
+      </span>
+    </div>
+  )}
+
+  <h2 
+    class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 leading-tight select-text" 
+    set:html={parseHeading(heading)} 
+  />
+
+  <p class="text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-light select-text">
+    {body}
+  </p>
+
+  <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-8 font-mono text-xs uppercase tracking-widest">
+    {primaryLinkLabel && primaryLinkHref && (
+      <a 
+        href={primaryLinkHref} 
+        class="text-amber-500 hover:text-amber-400 transition-colors inline-flex items-center gap-1.5 font-bold"
+      >
+        <span>{primaryLinkLabel}</span>
+      </a>
+    )}
+    {secondaryLinkLabel && secondaryLinkHref && (
+      <a 
+        href={secondaryLinkHref} 
+        class="text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-1.5"
+      >
+        <span>{secondaryLinkLabel}</span>
+      </a>
+    )}
+  </div>
+</section>
+
+<!-- Subtle Fading Cinema Bottom Divider -->
+<div class="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-line to-transparent" aria-hidden="true"></div>
+

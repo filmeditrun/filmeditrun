@@ -38,5 +38,12 @@
   ],
   "ctaHeading": "Planning a video podcast or interview series?",
   "ctaDescription": "Tell us about your format, episode frequency, or recording location. We’ll outline a dependable setup and provide a clear quote.",
-  "ctaButtonLabel": "Discuss Your Podcast →"
+  "ctaButtonLabel": "Discuss Your Podcast →",
+  "heroSolidColor": "#0a0a0c",
+  "cardDisplayAs": "image",
+  "cardImage": "/work/handheld.webp",
+  "cardSolidColor": "#0a0a0c",
+  "heroDisplayAs": "video",
+  "heroVideoPath": "/showreel.mp4",
+  "heroImage": "/work/handheld.webp"
 }

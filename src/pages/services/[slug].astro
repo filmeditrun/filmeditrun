@@ -7,13 +7,29 @@ export interface ServiceData {
   title: string;
   tag: string;
   link: string;
-  displayAs?: "local-video" | "link-video" | "image" | "gradient" | "none" | string;
-  localVideoPath?: string;
-  cloudVideoUrl?: string;
-  imagePath?: string;
+  // Subpage Hero Visuals
+  heroDisplayAs?: "image" | "video" | "gradient" | "solid" | "none" | string;
+  heroImage?: string;
+  heroVideoPath?: string;
+  heroSolidColor?: string;
   heroGradientDirection?: string;
   heroGradientColor1?: string;
   heroGradientColor2?: string;
+  heroTextContrast?: "auto" | "light" | "dark" | string;
+  // Bento Card Visuals
+  cardDisplayAs?: string;
+  cardImage?: string;
+  cardVideoPath?: string;
+  cardSolidColor?: string;
+  cardGradientDirection?: string;
+  cardGradientColor1?: string;
+  cardGradientColor2?: string;
+  cardTextContrast?: "auto" | "light" | "dark" | string;
+  // Legacy compatibility fallbacks
+  displayAs?: string;
+  localVideoPath?: string;
+  cloudVideoUrl?: string;
+  imagePath?: string;
   description: string;
   seoTitle: string;
   seoDescription: string;
@@ -91,13 +107,61 @@ const parseHeading = (text: string) => {
   return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
 };
 
-const heroGradientDirection = service.heroGradientDirection || "to bottom right";
-const heroGradientColor1 = service.heroGradientColor1 || "#180d2b";
-const heroGradientColor2 = service.heroGradientColor2 || "#09090c";
-const isRadial = heroGradientDirection === "radial";
+const defaultWatermarks = [
+  "/cambridge/stage-wide.webp",
+  "/work/onlocation.webp",
+  "/og-image.jpg",
+  "/work/handheld.webp",
+  "/work/onlocation.webp",
+  "/work/handheld.webp",
+];
+
+const heroMode = service.heroDisplayAs || service.displayAs || "video";
+const isVideo = heroMode === "video" || heroMode === "local-video" || heroMode === "link-video";
+const isImage = heroMode === "image";
+const isGradient = heroMode === "gradient";
+const isSolid = heroMode === "solid";
+
+const heroImg = service.heroImage || (service.imagePath && service.imagePath !== "/og-image.jpg" ? service.imagePath : null) || defaultWatermarks[parseInt(service.order || "1", 10) % defaultWatermarks.length];
+const heroVid = service.heroVideoPath || (service.displayAs === "link-video" ? (service.cloudVideoUrl || "/showreel.mp4") : (service.localVideoPath || "/showreel.mp4"));
+const heroSolid = service.heroSolidColor || "#09090c";
+const heroGradDir = service.heroGradientDirection || "to bottom right";
+const heroGrad1 = service.heroGradientColor1 || "#180d2b";
+const heroGrad2 = service.heroGradientColor2 || "#09090c";
+const isRadial = heroGradDir === "radial";
 const gradientStyle = isRadial
-  ? `background: radial-gradient(circle at center, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`
-  : `background: linear-gradient(${heroGradientDirection}, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`;
+  ? `background: radial-gradient(circle at center, ${heroGrad1} 0%, ${heroGrad2} 100%);`
+  : `background: linear-gradient(${heroGradDir}, ${heroGrad1} 0%, ${heroGrad2} 100%);`;
+
+// Calculate relative perceptual luminance (ITU-R BT.709) to ensure perfect contrast across all color grades
+function isColorLight(hexOrRgb?: string): boolean {
+  if (!hexOrRgb) return false;
+  const hex = hexOrRgb.trim();
+  if (hex.startsWith('#')) {
+    const clean = hex.replace('#', '');
+    if (clean.length !== 3 && clean.length !== 6) return false;
+    const r = clean.length === 3 ? parseInt(clean[0] + clean[0], 16) : parseInt(clean.substring(0, 2), 16);
+    const g = clean.length === 3 ? parseInt(clean[1] + clean[1], 16) : parseInt(clean.substring(2, 4), 16);
+    const b = clean.length === 3 ? parseInt(clean[2] + clean[2], 16) : parseInt(clean.substring(4, 6), 16);
+    const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+    return luminance > 0.55;
+  }
+  return false;
+}
+
+// Determine if hero has a light background (auto-detected or manually chosen in TinaCMS)
+let isHeroLight = false;
+if (service.heroTextContrast === "dark") {
+  isHeroLight = true;
+} else if (service.heroTextContrast === "light") {
+  isHeroLight = false;
+} else {
+  if (isSolid) {
+    isHeroLight = isColorLight(heroSolid);
+  } else if (isGradient) {
+    isHeroLight = isColorLight(heroGrad1) && isColorLight(heroGrad2);
+  }
+}
 ---
 
 <Layout
@@ -113,37 +177,47 @@ const gradientStyle = isRadial
   <div class="w-full relative z-10 bg-ink min-h-screen">
 
     <!-- ============================================================== -->
-    <!-- 1. CINEMATIC HERO BANNER (Matches Work Page Lighting & Opacity)-->
+    <!-- 1. CINEMATIC HERO BANNER (Standardized Studio Hero Banner)     -->
     <!-- ============================================================== -->
-    <header data-cinema-darkroom class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
+    <header 
+      data-cinema-darkroom={!isHeroLight ? true : undefined} 
+      class:list={[
+        "relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b select-none",
+        isHeroLight ? "border-black/10 bg-white" : "border-white/10"
+      ]}
+    >
       
-      <!-- Video / Photo Media Backdrop Layer (Clear, vibrant background) -->
-      <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
-        <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Video Feeds) -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
+      <!-- Video / Photo / Gradient / Solid Media Backdrop Layer -->
+      <div class:list={["absolute inset-0 z-0 pointer-events-none overflow-hidden", isHeroLight ? "bg-white" : "bg-[#0c0c11]"]}>
+        {isHeroLight ? (
+          <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white/60 z-10 pointer-events-none" aria-hidden="true"></div>
+        ) : (
+          <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
+        )}
+
+        {!isHeroLight && (
+          <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] sm:w-[56rem] h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none z-10" aria-hidden="true"></div>
+        )}
 
         {/* Video Background (High visibility, matching work page opacity) */}
-        {(service.displayAs === "local-video" || service.displayAs === "link-video" || service.displayAs === "video") && (
+        {isVideo && (
           <video
             autoplay
             muted
             loop
             playsinline
             preload="metadata"
-            poster={service.imagePath}
+            poster={heroImg}
             class="absolute inset-0 w-full h-full object-cover opacity-90 sm:opacity-95 z-0"
           >
-            <source
-              src={service.displayAs === "link-video" ? (service.cloudVideoUrl || "/showreel.mp4") : (service.localVideoPath || "/showreel.mp4")}
-              type="video/mp4"
-            />
+            <source src={heroVid} type="video/mp4" />
           </video>
         )}
 
         {/* Static Image Background */}
-        {service.displayAs === "image" && service.imagePath && (
+        {isImage && (
           <img
-            src={service.imagePath}
+            src={heroImg}
             alt={service.title}
             loading="eager"
             fetchpriority="high"
@@ -153,10 +227,19 @@ const gradientStyle = isRadial
         )}
 
         {/* Dual-Tone Gradient Background */}
-        {service.displayAs === "gradient" && (
+        {isGradient && (
           <div
             class="absolute inset-0 w-full h-full z-0"
             style={gradientStyle}
+            aria-hidden="true"
+          />
+        )}
+
+        {/* Solid Color Background */}
+        {isSolid && (
+          <div
+            class="absolute inset-0 w-full h-full z-0"
+            style={`background-color: ${heroSolid};`}
             aria-hidden="true"
           />
         )}
@@ -166,22 +249,28 @@ const gradientStyle = isRadial
       <div class="relative z-20 max-w-6xl mx-auto px-6">
         
         <!-- Breadcrumb Navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6">
-          <a href="/" class="hover:text-white transition-colors">Home</a>
-          <span class="text-neutral-600">/</span>
-          <a href="/services" class="hover:text-white transition-colors">Services</a>
-          <span class="text-neutral-600">/</span>
-          <span class="text-amber-500 font-semibold">{service.title}</span>
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider mb-6">
+          <a href="/" class:list={["transition-colors", isHeroLight ? "text-[#4b5563] hover:text-[#09090b]" : "text-neutral-400 hover:text-white"]}>Home</a>
+          <span class={isHeroLight ? "text-[#9ca3af]" : "text-neutral-600"}>/</span>
+          <a href="/services" class:list={["transition-colors", isHeroLight ? "text-[#4b5563] hover:text-[#09090b]" : "text-neutral-400 hover:text-white"]}>Services</a>
+          <span class={isHeroLight ? "text-[#9ca3af]" : "text-neutral-600"}>/</span>
+          <span class:list={["font-semibold", isHeroLight ? "text-amber-600" : "text-amber-500"]}>{service.title}</span>
         </nav>
 
         <!-- Large Title -->
         <h1 
-          class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl"
+          class:list={[
+            "text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] mb-6 max-w-4xl",
+            isHeroLight ? "text-[#09090b]" : "text-white keep-white"
+          ]}
           set:html={parseHeading(service.heroHeading || service.title)}
         />
 
         <!-- Value Proposition / Introductory Paragraph -->
-        <p class="text-base sm:text-lg lg:text-xl text-neutral-300 font-normal leading-relaxed max-w-3xl mb-8">
+        <p class:list={[
+          "text-base sm:text-lg lg:text-xl font-normal leading-relaxed max-w-3xl mb-8",
+          isHeroLight ? "text-[#374151]" : "text-neutral-300"
+        ]}>
           {service.heroLead || service.description}
         </p>
 

@@ -13,10 +13,11 @@
   "heroLead": "From industry summits and leadership panels to company celebrations, experienced filming crews deliver a cinematic look to your event. We capture every keynote, genuine reaction, and room atmosphere on location, delivering full session recordings and fast-turnaround highlights ready to share while the buzz is still alive.",
   "breakdownHeading": "Discrete on-location crews, cinematic results.",
   "breakdownBody": "The best event filming captures the energy in the room without getting in the way. Our crews work discretely with high-end cinema cameras and clean audio capture, blending into the background so your speakers and guests stay focused on the day. Whether you need a single mobile operator or a multi-camera setup for main-stage talks, we deliver a calm, dependable service from initial brief to final delivery.",
-  "displayAs": "gradient",
+  "displayAs": "image",
+  "imagePath": "/og-image.jpg",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
-  "imagePath": "/og-image.jpg",
+  "heroSolidColor": "#0a0a0c",
   "heroGradientDirection": "radial",
   "heroGradientColor1": "#FFFFFF",
   "heroGradientColor2": "#09090c",
@@ -39,5 +40,10 @@
   ],
   "ctaHeading": "Planning an upcoming event?",
   "ctaDescription": "Tell us about your event dates, venue location, and what you’d like to capture. We’ll discuss the setup and provide a clear, straightforward quote.",
-  "ctaButtonLabel": "Discuss Your Event →"
+  "ctaButtonLabel": "Discuss Your Event →",
+  "cardDisplayAs": "image",
+  "cardImage": "/cambridge/stage-wide.webp",
+  "heroDisplayAs": "video",
+  "heroVideoPath": "/showreel.mp4",
+  "heroImage": "/cambridge/stage-wide.webp"
 }

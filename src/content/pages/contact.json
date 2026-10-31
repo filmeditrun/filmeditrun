@@ -1,6 +1,22 @@
 {
   "seoTitle": "Start Your Project | FilmEditRun",
   "seoDescription": "Tell us about your upcoming filming, editing, or creative project. We respond with a tailored proposal within 24 hours.",
+  "headerTag": "Start A Brief",
+  "heading": "Let's discuss your next *production.*",
+  "description": "Tell us about your upcoming dates, venue location, or visual goals. We deliver a clear technical production scope and transparent quote within 24 hours.",
+  "trustSignals": [
+    "24-Hour Scope Response",
+    "Collaborate with us",
+    "Draft & AI Briefs Welcome",
+    "Cambridge & London Hubs"
+  ],
+  "displayAs": "gradient",
+  "heroGradientDirection": "to bottom right",
+  "heroGradientColor1": "#180d2b",
+  "heroGradientColor2": "#09090c",
+  "localVideoPath": "/showreel.mp4",
+  "imagePath": "/og-image.jpg",
+  "heroSolidColor": "#09090c",
   "formEndpoint": "https://formtorch.com/f/51wrbqkz2r",
   "redirectUrl": "/thank-you",
   "enableTurnstile": false,

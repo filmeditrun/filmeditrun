@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 import home from '../content/pages/home.json';
 import servicesPage from '../content/pages/services.json';
 import cambridgePage from '../content/pages/cambridge.json';
@@ -24,15 +25,6 @@ interface ServiceEntry {
   slug?: string;
   imagePath?: string;
 }
-
-const defaultWatermarks = [
-  "/cambridge/stage-wide.webp",
-  "/work/onlocation.webp",
-  "/og-image.jpg",
-  "/work/handheld.webp",
-  "/work/onlocation.webp",
-  "/work/handheld.webp",
-];
 
 const serviceFiles = import.meta.glob<ServiceEntry>('../content/services/*.json', {
   eager: true,
@@ -246,48 +238,11 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
       id="services-track"
       class="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 pt-1 px-1 -mx-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
     >
-      {services.map((service, index) => {
-        const imageSrc = service.imagePath && service.imagePath !== "/og-image.jpg"
-          ? service.imagePath
-          : defaultWatermarks[index % defaultWatermarks.length];
-        
-        return (
-          <div class="w-[85vw] sm:w-[48vw] lg:w-[calc((100%-2.5rem)/3)] shrink-0 snap-start">
-            <a 
-              href={service.href}
-              class="group relative block aspect-[4/3] rounded-xl overflow-hidden bg-neutral-950 border border-white/10 shadow-2xl transition-colors duration-300 hover:border-amber-500/70"
-            >
-              <!-- Photo that zooms on hover -->
-              <img 
-                src={imageSrc} 
-                alt={service.title} 
-                loading="lazy" 
-                decoding="async" 
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-
-              <!-- Base subtle scrim (keeps image bright at rest) -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none transition-opacity duration-500"></div>
-
-              <!-- Darkening hover overlay (image becomes darker on hover for crisp text contrast) -->
-              <div class="absolute inset-0 bg-black/60 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <!-- Figcaption content inside image -->
-              <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
-                <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
-                  <h3 class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight drop-shadow-md">
-                    {service.title}
-                  </h3>
-                  <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-neutral-300 group-hover:text-amber-400 transition-colors">
-                    <span>Explore</span>
-                    <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
-                  </span>
-                </div>
-              </figcaption>
-            </a>
-          </div>
-        );
-      })}
+      {services.map((service, index) => (
+        <div class="w-[85vw] sm:w-[48vw] lg:w-[calc((100%-2.5rem)/3)] shrink-0 snap-start">
+          <ServiceCard service={service} index={index} headingLevel="h3" />
+        </div>
+      ))}
     </div>
 
     <!-- Arm-Style Pagination Dots Underneath Track -->

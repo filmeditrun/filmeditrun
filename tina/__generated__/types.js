@@ -232,6 +232,13 @@ export const ServicesPagePartsFragmentDoc = gql`
   headerTag
   heading
   description
+  displayAs
+  imagePath
+  localVideoPath
+  heroSolidColor
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   processTag
   processHeading
   processDescription
@@ -265,13 +272,25 @@ export const ServicePartsFragmentDoc = gql`
   heroLead
   breakdownHeading
   breakdownBody
-  displayAs
-  localVideoPath
-  cloudVideoUrl
-  imagePath
+  cardDisplayAs
+  cardImage
+  cardVideoPath
+  cardSolidColor
+  cardGradientDirection
+  cardGradientColor1
+  cardGradientColor2
+  cardTextContrast
+  heroDisplayAs
+  heroImage
+  heroVideoPath
+  heroSolidColor
   heroGradientDirection
   heroGradientColor1
   heroGradientColor2
+  heroTextContrast
+  displayAs
+  imagePath
+  localVideoPath
   deliverables {
     __typename
     tag
@@ -336,6 +355,13 @@ export const AboutPagePartsFragmentDoc = gql`
   heroGradientColor1
   heroGradientColor2
   heroFrostedGlass
+  approachTag
+  approachHeading
+  approachBody
+  approachPrimaryLinkLabel
+  approachPrimaryLinkHref
+  approachSecondaryLinkLabel
+  approachSecondaryLinkHref
   btsHeading
   btsTag
   btsDescription
@@ -359,10 +385,14 @@ export const AboutPagePartsFragmentDoc = gql`
     description
     badge
   }
+  ctaTag
   ctaHeading
   ctaText
   ctaButtonLabel
   ctaButtonLink
+  ctaSecondaryButtonLabel
+  ctaSecondaryButtonLink
+  ctaTrustSignals
 }
     `;
 export const AboutSliderPartsFragmentDoc = gql`
@@ -386,6 +416,17 @@ export const ContactPagePartsFragmentDoc = gql`
   __typename
   seoTitle
   seoDescription
+  headerTag
+  heading
+  description
+  trustSignals
+  displayAs
+  localVideoPath
+  imagePath
+  heroSolidColor
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   formEndpoint
   redirectUrl
   enableTurnstile

@@ -38,5 +38,11 @@
   ],
   "ctaHeading": "Have a story you want to tell?",
   "ctaDescription": "Whether you're planning an upcoming shoot with our team or have raw footage you'd like to bring to life, let’s talk through your ideas and timeline.",
-  "ctaButtonLabel": "Let's Talk Story →"
+  "ctaButtonLabel": "Let's Talk Story →",
+  "heroSolidColor": "#0a0a0c",
+  "cardDisplayAs": "image",
+  "cardImage": "/work/onlocation.webp",
+  "heroDisplayAs": "video",
+  "heroVideoPath": "/showreel.mp4",
+  "heroImage": "/work/onlocation.webp"
 }

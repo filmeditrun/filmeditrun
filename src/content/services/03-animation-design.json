@@ -38,5 +38,10 @@
   ],
   "ctaHeading": "Have an idea you want to bring to life?",
   "ctaDescription": "Tell us about your product, upcoming campaign, or event graphics. We’ll discuss the creative approach, visual style, and timeline.",
-  "ctaButtonLabel": "Discuss Motion Design →"
+  "ctaButtonLabel": "Discuss Motion Design →",
+  "heroSolidColor": "#0a0a0c",
+  "cardDisplayAs": "image",
+  "cardImage": "/work/handheld.webp",
+  "heroDisplayAs": "image",
+  "heroImage": "/work/handheld.webp"
 }

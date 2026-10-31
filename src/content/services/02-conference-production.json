@@ -12,7 +12,7 @@
   "heroLead": "Large conferences are full of ideas that shouldn't end when the lights go down. We film multi-stage keynotes, main-stage panels, and unscripted attendee conversations across London and Cambridge, turning your annual summit into sharp, engaging video content your community will watch and share all year.",
   "breakdownHeading": "Multi-stage scale, zero distraction.",
   "breakdownBody": "Running a large conference involves hundreds of moving parts. Our experienced filming crews operate with quiet efficiency across plenary halls and breakout tracks, coordinating directly with your AV and staging teams. We capture high-fidelity presentation slides alongside multi-camera speaker angles, delivering clean, reliable video without disrupting your delegates or schedule.",
-  "displayAs": "local-video",
+  "displayAs": "gradient",
   "localVideoPath": "/showreel.mp4",
   "cloudVideoUrl": "https://your-link.mp4",
   "imagePath": "/og-image.jpg",
@@ -38,5 +38,11 @@
   ],
   "ctaHeading": "Planning an upcoming conference?",
   "ctaDescription": "Tell us your dates, stage count, and venue location. We’ll outline a calm, dependable filming plan and provide a straightforward quote.",
-  "ctaButtonLabel": "Discuss Your Conference →"
+  "ctaButtonLabel": "Discuss Your Conference →",
+  "heroSolidColor": "#0a0a0c",
+  "cardDisplayAs": "gradient",
+  "cardGradientDirection": "to bottom right",
+  "cardGradientColor1": "#0f172a",
+  "cardGradientColor2": "#020617",
+  "heroDisplayAs": "gradient"
 }

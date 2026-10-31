@@ -48,11 +48,6 @@ const parseHeading = (text: string) => {
   if (text.includes('*')) {
     return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
   }
-  const parts = text.split(' ');
-  if (parts.length > 1) {
-    const lastWord = parts.pop();
-    return `${parts.join(' ')} <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">${lastWord}</span>`;
-  }
   return text;
 };
 
@@ -92,21 +87,22 @@ const workVideoSchema = {
   <div class="w-full relative z-10 bg-ink">
     
     <!-- ============================================================== -->
-    <!-- 1. FEATURED SHOWREEL HERO SECTION (MATCHES HOMEPAGE HEIGHT)    -->
     <!-- ============================================================== -->
+    <!-- 1. FEATURED SHOWREEL HERO SECTION (Standardized Cinema Banner) -->
     <!-- ============================================================== -->
-    <!-- 1. FEATURED SHOWREEL HERO SECTION (CONCEPT 2: DEAD-CENTER PREMIERE) -->
-    <!-- ============================================================== -->
-    <section 
+    <header 
       data-cinema-darkroom
-      class="relative w-full min-h-[100dvh] pt-20 flex flex-col justify-between p-6 sm:p-12 overflow-hidden border-b border-neutral-900/60 select-none"
+      class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none"
     >
-      <!-- Automated Backdrop Manager Layer (Full-bleed 100vh, Zero White Flash) -->
+      <!-- Media Backdrop Layer (Full-bleed, Zero White Flash) -->
       <div class="absolute inset-0 z-0 bg-[#0a0a0c] pointer-events-none w-full h-full overflow-hidden">
-        <!-- Minimal Top Scrim for Navbar Contrast Only (90% of screen has zero overlay) -->
-        <div class="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-black/70 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+        <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Video Feeds) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
 
-        <!-- 1. Permanent Dark Baseline Poster (Guarantees zero white flash on millisecond 0) -->
+        <!-- Ambient Amber Spotlight Glow at Top Center -->
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] sm:w-[56rem] h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none z-10" aria-hidden="true"></div>
+
+        <!-- 1. Permanent Dark Baseline Poster -->
         <img 
           src={heroPosterPath} 
           alt={featuredProject.title} 
@@ -116,7 +112,7 @@ const workVideoSchema = {
           class="absolute inset-0 w-full h-full object-cover z-0 opacity-100 bg-[#0a0a0c]" 
         />
 
-        <!-- 2. Video Backdrop: Instant Local HTML5 Video or Shielded Transparent Vimeo (100% Zero-JS) -->
+        <!-- 2. Video Backdrop: Instant Local HTML5 Video or Shielded Transparent Vimeo -->
         {isLocalHeroVideo ? (
           <video 
             autoplay 
@@ -125,7 +121,7 @@ const workVideoSchema = {
             playsinline 
             preload="auto"
             poster={heroPosterPath}
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-100"
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-90 sm:opacity-95"
           >
             <source src={heroVideoPath} type="video/mp4" />
           </video>
@@ -143,60 +139,74 @@ const workVideoSchema = {
         ) : null}
       </div>
 
-      <!-- Spacer to balance vertical centering with navbar height -->
-      <div class="h-10 sm:h-16"></div>
+      <!-- Main Banner Content -->
+      <div class="relative z-20 max-w-6xl mx-auto px-6">
+        
+        <!-- Breadcrumb Navigation & Category Badge -->
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span class="text-neutral-600">/</span>
+          <span class="text-amber-500 font-semibold">{workPage.headerTag || "Selected Portfolio"}</span>
+        </nav>
 
-      <!-- DEAD-CENTER "WATCH OUR REEL" BUTTON -->
-      <div class="relative z-30 flex-1 flex flex-col items-center justify-center text-center px-4 my-auto">
-        <button 
-          type="button"
-          data-open-dialog={`dialog-modal-${featuredProject.id}`}
-          class="hero-reel-btn group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-mono font-bold text-sm uppercase tracking-wider hover:scale-[1.03] active:scale-[0.98] transition-all shadow-2xl shadow-amber-500/20 cursor-pointer outline-none"
-          aria-label="Watch our reel"
-        >
-          <!-- Play Icon -->
-          <svg class="w-4 h-4 fill-current translate-x-0.5" viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-          <span>Watch our reel</span>
-          <span class="transform group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">&rarr;</span>
-        </button>
-      </div>
+        <!-- Large Title with Asterisk Gradient Support -->
+        <h1 
+          class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl"
+          set:html={parseHeading(workPage.heading)}
+        />
 
-      <!-- Minimal Bottom Scroll Cue Anchored at Bottom Center (Hidden if Archive is toggled off) -->
-      {showArchive && (
-        <div class="relative z-30 pb-4 sm:pb-6 flex justify-center">
-          <a 
-            href="#archive"
-            class="group inline-flex flex-col items-center gap-1.5 text-neutral-400 hover:text-white font-mono text-[10px] uppercase tracking-[0.25em] transition-colors"
-            aria-label="Scroll to Project Archive"
+        <!-- Value Proposition / Introductory Paragraph -->
+        <p class="text-base sm:text-lg lg:text-xl text-neutral-300 font-normal leading-relaxed max-w-3xl mb-8">
+          {workPage.description}
+        </p>
+
+        <!-- Primary Action Row -->
+        <div class="flex flex-wrap items-center gap-4">
+          <button 
+            type="button"
+            data-open-dialog={`dialog-modal-${featuredProject.id}`}
+            class="hero-reel-btn group inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold text-base hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-amber-500/20 cursor-pointer outline-none"
+            aria-label="Watch Featured Showreel"
           >
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity">Explore Archive</span>
-            <span class="w-7 h-7 rounded-full border border-white/10 group-hover:border-amber-500/50 flex items-center justify-center text-amber-500 group-hover:text-amber-400 animate-bounce text-xs bg-neutral-950/60 backdrop-blur-sm">
-              &darr;
-            </span>
-          </a>
+            <!-- Play Icon -->
+            <svg class="w-4 h-4 fill-current translate-x-0.5" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>{workPage.videoButtonLabel || "Watch Featured Showreel"}</span>
+            <span class="font-mono text-xs opacity-80 font-normal tracking-wider">({featuredProject.runtime || "0:45"})</span>
+          </button>
+
+          {showArchive && (
+            <a 
+              href="#archive"
+              class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white/5 border border-line hover:border-amber-500/40 hover:bg-white/10 text-base font-medium text-white transition-all text-center"
+            >
+              <span>{workPage.scrollIndicatorText || "Browse Selected Films ↓"}</span>
+            </a>
+          )}
         </div>
-      )}
-    </section>
+
+      </div>
+    </header>
 
     <!-- ============================================================== -->
     <!-- 2. SCALABLE BENTO GRID ARCHIVE & CATEGORY FILTER SECTION       -->
     <!-- ============================================================== -->
     {showArchive && (
-      <section id="archive" class="max-w-7xl mx-auto px-6 py-24 sm:py-32 scroll-mt-20">
+      <section id="archive" class="max-w-7xl mx-auto px-6 pt-16 pb-24 sm:pb-32 scroll-mt-20">
       
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/10">
         <div>
-          <span class="text-xs uppercase tracking-[0.25em] text-amber-500 font-mono font-bold block mb-3">
-            {workPage.archiveTag}
-          </span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-            {workPage.archiveHeading}
-          </h2>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+              {workPage.archiveTag}
+            </span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white" set:html={parseHeading(workPage.archiveHeading)} />
         </div>
-        <p class="text-neutral-400 max-w-md text-sm sm:text-base leading-relaxed">
+        <p class="text-neutral-400 max-w-md text-sm sm:text-base leading-relaxed font-light">
           {workPage.archiveDescription}
         </p>
       </div>

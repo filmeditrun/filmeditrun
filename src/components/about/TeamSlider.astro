@@ -99,7 +99,7 @@ const hasMultipleSlides = totalSlides > 1;
       )}
     </div>
 
-    <!-- Main Cinematic Video Showcase: Full Card with Minimalist Overlay -->
+    <!-- Main Cinematic Video Showcase: Full Photo at rest, Title reveals on hover/tap -->
     {hasMultipleSlides ? (
       /* Multi-Slide Mode: Smooth Horizontal Scroll-Snap Track */
       <div
@@ -111,8 +111,9 @@ const hasMultipleSlides = totalSlides > 1;
       >
         {teamMembers.map((member, index) => (
           <div
-            class="crew-slide w-full shrink-0 snap-center relative aspect-video sm:aspect-16/9 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 bg-black shadow-2xl group"
+            class="crew-slide w-full shrink-0 snap-center relative aspect-[16/10] sm:aspect-16/9 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 bg-black shadow-2xl group cursor-pointer focus:outline-none transition-all duration-300 hover:border-amber-500/60 focus:border-amber-500/60"
             data-slide-index={index}
+            tabindex="0"
           >
             <!-- Full-Card Media (Video or Image) -->
             {member.videoLoop ? (
@@ -121,7 +122,7 @@ const hasMultipleSlides = totalSlides > 1;
                 muted
                 playsinline
                 autoplay
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
               >
                 <source src={member.videoLoop} type="video/mp4" />
               </video>
@@ -129,62 +130,49 @@ const hasMultipleSlides = totalSlides > 1;
               <img
                 src={member.avatar}
                 alt={member.name}
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
                 loading="lazy"
                 decoding="async"
               />
             ) : (
               <div class="absolute inset-0 flex items-center justify-center bg-neutral-950 text-neutral-700 font-mono text-2xl font-bold">
-                UNIT 0{index + 1}
+                FILMEDITRUN
               </div>
             )}
 
-            <!-- Top Left Tag Badge -->
-            <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
-              <span class="hud-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono tracking-wider uppercase text-amber-500 font-semibold shadow-lg">
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                {member.badge || (member.videoLoop ? "LIVE PRODUCTION REEL" : "BTS ARCHIVE")}
-              </span>
-            </div>
+            <!-- Smooth darkening scrim on hover / tap only -->
+            <div 
+              class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-400 ease-out"
+              aria-hidden="true"
+            ></div>
 
-            <!-- Top Right Slide Counter (Multi-Slide only) -->
-            <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
-              <span class="hud-pill px-2.5 py-1 rounded-md text-[11px] font-mono text-neutral-400 tracking-wider">
-                0{index + 1} // 0{totalSlides}
-              </span>
-            </div>
-
-            <!-- Full-Width Frosted HUD Dock (Fits full width of card) -->
-            <div class="!absolute !inset-x-0 !bottom-0 !top-auto w-full p-5 sm:p-6 md:p-8 hud-plaque hud-dock flex flex-col sm:flex-row sm:items-end justify-between gap-4 z-10 pointer-events-none">
-              <div class="max-w-2xl">
-                <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+            <!-- Title only: Revealed on hover / tap -->
+            <figcaption class="absolute inset-x-0 bottom-0 p-6 sm:p-10 pointer-events-none z-10">
+              <div class="transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100 transition-all duration-400 ease-out">
+                <h3 class="text-xl sm:text-3xl md:text-4xl font-black text-white keep-white tracking-tight drop-shadow-lg">
                   {member.name}
                 </h3>
-                {member.bio && (
-                  <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 sm:mt-2 line-clamp-2 max-w-xl opacity-90">
-                    {member.bio}
-                  </p>
-                )}
               </div>
-
-              <!-- Brand Stamp -->
-              <div class="hud-pill hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0">
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                <span>FILMEDITRUN</span>
-              </div>
-            </div>
+            </figcaption>
           </div>
         ))}
       </div>
     ) : teamMembers.length > 0 ? (
-      <div class="relative aspect-video sm:aspect-16/9 w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 bg-black shadow-2xl group">
+      /* Single-Card Mode: Full Photo at rest, Title reveals on hover/tap */
+      <div 
+        tabindex="0"
+        role="region"
+        aria-label={teamMembers[0].name}
+        class="relative aspect-[16/10] sm:aspect-16/9 w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 bg-black shadow-2xl group cursor-pointer focus:outline-none transition-all duration-300 hover:border-amber-500/60 focus:border-amber-500/60"
+      >
+        <!-- Full-Card Media (Video or Image) -->
         {teamMembers[0].videoLoop ? (
           <video
             loop
             muted
             playsinline
             autoplay
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
           >
             <source src={teamMembers[0].videoLoop} type="video/mp4" />
           </video>
@@ -192,43 +180,30 @@ const hasMultipleSlides = totalSlides > 1;
           <img
             src={teamMembers[0].avatar}
             alt={teamMembers[0].name}
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
             loading="lazy"
             decoding="async"
           />
         ) : (
           <div class="absolute inset-0 flex items-center justify-center bg-neutral-950 text-neutral-700 font-mono text-2xl font-bold">
-            SHOWCASE
+            FILMEDITRUN
           </div>
         )}
 
-        <!-- Top Left Tag Badge -->
-        <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
-          <span class="hud-pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono tracking-wider uppercase text-amber-500 font-semibold shadow-lg">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-            {teamMembers[0].badge || (teamMembers[0].videoLoop ? "LIVE PRODUCTION REEL" : "BTS ARCHIVE")}
-          </span>
-        </div>
+        <!-- Smooth darkening scrim on hover / tap only -->
+        <div 
+          class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-400 ease-out"
+          aria-hidden="true"
+        ></div>
 
-        <!-- Full-Width Frosted HUD Dock (Fits full width of card) -->
-        <div class="!absolute !inset-x-0 !bottom-0 !top-auto w-full p-5 sm:p-6 md:p-8 hud-plaque hud-dock flex flex-col sm:flex-row sm:items-end justify-between gap-4 z-10 pointer-events-none">
-          <div class="max-w-2xl">
-            <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+        <!-- Title only: Revealed on hover / tap -->
+        <figcaption class="absolute inset-x-0 bottom-0 p-6 sm:p-10 pointer-events-none z-10">
+          <div class="transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100 transition-all duration-400 ease-out">
+            <h3 class="text-xl sm:text-3xl md:text-4xl font-black text-white keep-white tracking-tight drop-shadow-lg">
               {teamMembers[0].name}
             </h3>
-            {teamMembers[0].bio && (
-              <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 sm:mt-2 line-clamp-2 max-w-xl opacity-90">
-                {teamMembers[0].bio}
-              </p>
-            )}
           </div>
-
-          <!-- Brand Stamp -->
-          <div class="hud-pill hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-            <span>FILMEDITRUN</span>
-          </div>
-        </div>
+        </figcaption>
       </div>
     ) : null}
 

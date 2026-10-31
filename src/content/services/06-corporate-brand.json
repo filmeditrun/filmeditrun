@@ -38,6 +38,11 @@
   ],
   "ctaHeading": "Ready to tell your company's story?",
   "ctaDescription": "Tell us about your brand vision, target audience, or upcoming launch. We’ll discuss the creative approach, production schedule, and provide a clear quote.",
-  "ctaButtonLabel": "Discuss Your Brand Film →"
+  "ctaButtonLabel": "Discuss Your Brand Film →",
+  "heroSolidColor": "#0a0a0c",
+  "cardDisplayAs": "image",
+  "cardImage": "/work/onlocation.webp",
+  "heroDisplayAs": "video",
+  "heroVideoPath": "/showreel.mp4",
+  "heroImage": "/work/onlocation.webp"
 }
-

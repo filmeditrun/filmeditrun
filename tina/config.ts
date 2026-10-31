@@ -1512,6 +1512,71 @@ export default defineConfig({
             },
             required: true,
           },
+          {
+            type: "string",
+            name: "displayAs",
+            label: "Hero Background Media Type",
+            description: "Choose whether the Services Hero displays a photograph, cinematic video, duo-tone gradient, or solid color",
+            options: [
+              { label: "📸 Static Photograph / Image", value: "image" },
+              { label: "🎬 Cinematic Video Loop", value: "local-video" },
+              { label: "🎨 Duo-Tone Gradient Background", value: "gradient" },
+              { label: "⬛ Solid Background Color", value: "solid" },
+              { label: "🌑 Solid Darkroom Baseline (No Media)", value: "none" },
+            ],
+          },
+          {
+            type: "image",
+            name: "imagePath",
+            label: "📸 Poster / Background Image",
+            description: "Photograph displayed when 'Image' is selected, or as video poster",
+          },
+          {
+            type: "string",
+            name: "localVideoPath",
+            label: "🎬 Local Video Path (When Video selected)",
+            description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "string",
+            name: "heroSolidColor",
+            label: "⬛ Solid Background Color (Hex)",
+            description: "Pick a hex color when Solid option is selected (e.g. #09090c)",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "heroGradientDirection",
+            label: "🎨 Gradient Direction (When Gradient selected)",
+            options: [
+              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
+              { value: "to bottom", label: "Vertical (Top to Bottom)" },
+              { value: "to right", label: "Horizontal (Left to Right)" },
+              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
+              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
+              { value: "radial", label: "Center Spotlight (Radial)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "heroGradientColor1",
+            label: "🎨 Gradient First Color (Hex)",
+            description: "First color or spotlight center",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "heroGradientColor2",
+            label: "🎨 Gradient Second Color (Hex)",
+            description: "Second color or gradient base",
+            ui: {
+              component: "color",
+            },
+          },
 
           // ─── ⚙️ PRODUCTION PROCESS (HOW IT WORKS) ─────────────────────
           {
@@ -1721,40 +1786,122 @@ export default defineConfig({
               component: "textarea",
             },
           },
+          // ─── 🔲 BENTO GRID CARD VISUALS (Services Directory /services) ────
           {
             type: "string",
-            name: "displayAs",
-            label: "Hero & Card Background Media Type",
+            name: "cardDisplayAs",
+            label: "🔲 Bento Card Media Type",
+            description: "Choose how this card displays in the 6-service Bento Grid on /services",
             options: [
-              { label: "🎬 Cinematic Video Loop", value: "local-video" },
               { label: "📸 Static Photograph / Image", value: "image" },
-              { label: "🎨 Dual-Tone Gradient Background", value: "gradient" },
-              { label: "🌐 External Cloud Video URL", value: "link-video" },
-              { label: "⬛ No Background Media (Solid Dark)", value: "none" },
+              { label: "🎬 Cinematic Video Loop", value: "video" },
+              { label: "🎨 Duo-Tone Gradient Background", value: "gradient" },
+              { label: "⬛ Solid Background Color", value: "solid" },
             ],
-            required: true,
-          },
-          {
-            type: "string",
-            name: "localVideoPath",
-            label: "Local Video Path (When Video selected)",
-            description: "e.g. /showreel.mp4 (placed in public/ folder)",
-          },
-          {
-            type: "string",
-            name: "cloudVideoUrl",
-            label: "Cloud Video URL (When External Video selected)",
-            description: "e.g. https://your-cdn.com/clip.mp4",
           },
           {
             type: "image",
-            name: "imagePath",
-            label: "Poster / Fallback Image",
+            name: "cardImage",
+            label: "🔲 Card Photo",
+            description: "Photograph displayed on this service card when Image mode is active (or as video poster)",
+          },
+          {
+            type: "string",
+            name: "cardVideoPath",
+            label: "🔲 Card Video Path (When Video selected)",
+            description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "string",
+            name: "cardSolidColor",
+            label: "🔲 Card Solid Background Color (Hex)",
+            description: "Hex color when Solid mode is selected (e.g. #0a0a0c)",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "cardGradientDirection",
+            label: "🔲 Card Gradient Direction",
+            options: [
+              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
+              { value: "to bottom", label: "Vertical (Top to Bottom)" },
+              { value: "to right", label: "Horizontal (Left to Right)" },
+              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
+              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
+              { value: "radial", label: "Center Spotlight (Radial)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "cardGradientColor1",
+            label: "🔲 Card Gradient First Color (Hex)",
+            description: "Start color or spotlight center",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "cardGradientColor2",
+            label: "🔲 Card Gradient Second Color (Hex)",
+            description: "End color or gradient base",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "cardTextContrast",
+            label: "🔲 Card Text Contrast Mode",
+            description: "Controls text color on this card. Auto automatically adapts text to background lightness across all visual grades.",
+            options: [
+              { label: "⚡ Auto (Adapts text to background color)", value: "auto" },
+              { label: "⚪ Light / White Text (For dark photos, videos, or dark colors)", value: "light" },
+              { label: "⚫ Dark / Black Text (For white, cream, or light pastel colors)", value: "dark" },
+            ],
+          },
+
+          // ─── 🎬 SUBPAGE HERO BANNER VISUALS (/services/[slug]) ─────────
+          {
+            type: "string",
+            name: "heroDisplayAs",
+            label: "🎬 Subpage Hero Media Type",
+            description: "Choose how the full-width Hero banner displays on this service's own page",
+            options: [
+              { label: "🎬 Cinematic Video Loop", value: "video" },
+              { label: "📸 Static Photograph / Image", value: "image" },
+              { label: "🎨 Duo-Tone Gradient Background", value: "gradient" },
+              { label: "⬛ Solid Background Color", value: "solid" },
+              { label: "🌑 Darkroom Baseline (No Media)", value: "none" },
+            ],
+          },
+          {
+            type: "image",
+            name: "heroImage",
+            label: "🎬 Hero Photo",
+            description: "Photograph displayed in the Hero banner when Image mode is active (or as video poster)",
+          },
+          {
+            type: "string",
+            name: "heroVideoPath",
+            label: "🎬 Hero Video Path (When Video selected)",
+            description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "string",
+            name: "heroSolidColor",
+            label: "🎬 Hero Solid Background Color (Hex)",
+            description: "Hex color code when Solid option is selected (e.g. #0a0a0c)",
+            ui: {
+              component: "color",
+            },
           },
           {
             type: "string",
             name: "heroGradientDirection",
-            label: "Gradient Direction (When Gradient selected)",
+            label: "🎬 Hero Gradient Direction",
             options: [
               { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
               { value: "to bottom", label: "Vertical (Top to Bottom)" },
@@ -1767,8 +1914,8 @@ export default defineConfig({
           {
             type: "string",
             name: "heroGradientColor1",
-            label: "Gradient First Color (Hex)",
-            description: "First color or spotlight center",
+            label: "🎬 Hero Gradient First Color (Hex)",
+            description: "Start color or spotlight center",
             ui: {
               component: "color",
             },
@@ -1776,11 +1923,40 @@ export default defineConfig({
           {
             type: "string",
             name: "heroGradientColor2",
-            label: "Gradient Second Color (Hex)",
-            description: "Second color or gradient base",
+            label: "🎬 Hero Gradient Second Color (Hex)",
+            description: "End color or gradient base",
             ui: {
               component: "color",
             },
+          },
+          {
+            type: "string",
+            name: "heroTextContrast",
+            label: "🎬 Hero Text Contrast Mode",
+            description: "Controls text color in the Hero banner. Auto automatically adapts text to background lightness across all visual grades.",
+            options: [
+              { label: "⚡ Auto (Adapts text to background color)", value: "auto" },
+              { label: "⚪ Light / White Text (For dark photos, videos, or dark colors)", value: "light" },
+              { label: "⚫ Dark / Black Text (For white, cream, or light pastel colors)", value: "dark" },
+            ],
+          },
+
+          // ─── 🔄 LEGACY COMPATIBILITY FIELDS (Hidden Fallbacks) ────────
+          {
+            type: "string",
+            name: "displayAs",
+            label: "Legacy Media Type Fallback",
+            description: "Used automatically if specific Bento or Hero type is not set",
+          },
+          {
+            type: "image",
+            name: "imagePath",
+            label: "Legacy Image Fallback",
+          },
+          {
+            type: "string",
+            name: "localVideoPath",
+            label: "Legacy Video Fallback",
           },
           {
             type: "object",
@@ -2199,6 +2375,47 @@ export default defineConfig({
               { value: "strong", label: "Strong (Heavy 85% ND Tint)" },
             ],
           },
+          // ─── 🎯 OUR APPROACH (EDITORIAL STATEMENT) ───────────────────
+          {
+            type: "string",
+            name: "approachTag",
+            label: "🎯 Approach Eyebrow Tag",
+          },
+          {
+            type: "string",
+            name: "approachHeading",
+            label: "🎯 Approach Headline",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "approachBody",
+            label: "🎯 Approach Body Text",
+            ui: {
+              component: "textarea",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "approachPrimaryLinkLabel",
+            label: "Primary Link Label",
+          },
+          {
+            type: "string",
+            name: "approachPrimaryLinkHref",
+            label: "Primary Link URL",
+          },
+          {
+            type: "string",
+            name: "approachSecondaryLinkLabel",
+            label: "Secondary Link Label",
+          },
+          {
+            type: "string",
+            name: "approachSecondaryLinkHref",
+            label: "Secondary Link URL",
+          },
           // ─── 📸 BEHIND THE SCENES DARKROOM GALLERY ───────────────────
           {
             type: "string",
@@ -2288,6 +2505,11 @@ export default defineConfig({
           // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
           {
             type: "string",
+            name: "ctaTag",
+            label: "⚡ Bottom CTA Eyebrow Tag",
+          },
+          {
+            type: "string",
             name: "ctaHeading",
             label: "⚡ Bottom CTA Heading",
             required: true,
@@ -2312,6 +2534,22 @@ export default defineConfig({
             name: "ctaButtonLink",
             label: "Bottom CTA Button Link",
             required: true,
+          },
+          {
+            type: "string",
+            name: "ctaSecondaryButtonLabel",
+            label: "Bottom CTA Secondary Button Text",
+          },
+          {
+            type: "string",
+            name: "ctaSecondaryButtonLink",
+            label: "Bottom CTA Secondary Button Link",
+          },
+          {
+            type: "string",
+            name: "ctaTrustSignals",
+            label: "Bottom CTA Reassurances (Trust Bullets)",
+            list: true,
           },
         ],
       },
@@ -2402,6 +2640,97 @@ export default defineConfig({
               component: "textarea",
             },
             required: true,
+          },
+
+          // ─── 🎬 HERO & HEADLINE ───────────────────────────────────────
+          {
+            type: "string",
+            name: "headerTag",
+            label: "🎬 Top Eyebrow Tag",
+            description: "e.g. Start A Brief",
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "🎬 Main Page Heading",
+            description: "e.g. Let's discuss your next *production.*",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "🎬 Page Intro Text",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "trustSignals",
+            label: "🛡️ Trust Reassurance Bullets",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "displayAs",
+            label: "Hero Background Media Type",
+            options: [
+              { label: "🎨 Duo-Tone Gradient Background", value: "gradient" },
+              { label: "🎬 Cinematic Video Loop", value: "local-video" },
+              { label: "📸 Static Photograph / Image", value: "image" },
+              { label: "⬛ Solid Background Color", value: "solid" },
+              { label: "🌑 Solid Darkroom Baseline (No Media)", value: "none" },
+            ],
+          },
+          {
+            type: "string",
+            name: "localVideoPath",
+            label: "Local Video Path (When Video selected)",
+            description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "image",
+            name: "imagePath",
+            label: "Poster / Background Image",
+          },
+          {
+            type: "string",
+            name: "heroSolidColor",
+            label: "⬛ Solid Background Color (Hex)",
+            description: "Pick a hex color when Solid option is selected (e.g. #09090c)",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "heroGradientDirection",
+            label: "Gradient Direction (When Gradient selected)",
+            options: [
+              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
+              { value: "to bottom", label: "Vertical (Top to Bottom)" },
+              { value: "to right", label: "Horizontal (Left to Right)" },
+              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
+              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
+              { value: "radial", label: "Center Spotlight (Radial)" },
+            ],
+          },
+          {
+            type: "string",
+            name: "heroGradientColor1",
+            label: "Gradient First Color (Hex)",
+            description: "First color or spotlight center",
+            ui: {
+              component: "color",
+            },
+          },
+          {
+            type: "string",
+            name: "heroGradientColor2",
+            label: "Gradient Second Color (Hex)",
+            description: "Second color or gradient base",
+            ui: {
+              component: "color",
+            },
           },
 
           // ─── 🔌 FORMTORCH & SUBMISSION INTEGRATION ─────────────────────

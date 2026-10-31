@@ -219,6 +219,13 @@ fragment ServicesPageParts on ServicesPage {
   headerTag
   heading
   description
+  displayAs
+  imagePath
+  localVideoPath
+  heroSolidColor
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   processTag
   processHeading
   processDescription
@@ -251,13 +258,25 @@ fragment ServiceParts on Service {
   heroLead
   breakdownHeading
   breakdownBody
-  displayAs
-  localVideoPath
-  cloudVideoUrl
-  imagePath
+  cardDisplayAs
+  cardImage
+  cardVideoPath
+  cardSolidColor
+  cardGradientDirection
+  cardGradientColor1
+  cardGradientColor2
+  cardTextContrast
+  heroDisplayAs
+  heroImage
+  heroVideoPath
+  heroSolidColor
   heroGradientDirection
   heroGradientColor1
   heroGradientColor2
+  heroTextContrast
+  displayAs
+  imagePath
+  localVideoPath
   deliverables {
     __typename
     tag
@@ -319,6 +338,13 @@ fragment AboutPageParts on AboutPage {
   heroGradientColor1
   heroGradientColor2
   heroFrostedGlass
+  approachTag
+  approachHeading
+  approachBody
+  approachPrimaryLinkLabel
+  approachPrimaryLinkHref
+  approachSecondaryLinkLabel
+  approachSecondaryLinkHref
   btsHeading
   btsTag
   btsDescription
@@ -342,10 +368,14 @@ fragment AboutPageParts on AboutPage {
     description
     badge
   }
+  ctaTag
   ctaHeading
   ctaText
   ctaButtonLabel
   ctaButtonLink
+  ctaSecondaryButtonLabel
+  ctaSecondaryButtonLink
+  ctaTrustSignals
 }
 
 fragment AboutSliderParts on AboutSlider {
@@ -367,6 +397,17 @@ fragment ContactPageParts on ContactPage {
   __typename
   seoTitle
   seoDescription
+  headerTag
+  heading
+  description
+  trustSignals
+  displayAs
+  localVideoPath
+  imagePath
+  heroSolidColor
+  heroGradientDirection
+  heroGradientColor1
+  heroGradientColor2
   formEndpoint
   redirectUrl
   enableTurnstile

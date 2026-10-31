@@ -1,61 +1,101 @@
 ---
 interface Props {
+  ctaTag?: string;
   ctaHeading: string;
   ctaText: string;
   ctaButtonLabel: string;
   ctaButtonLink: string;
+  ctaSecondaryButtonLabel?: string;
+  ctaSecondaryButtonLink?: string;
+  ctaTrustSignals?: string[];
 }
 
 const {
+  ctaTag = "START A PROJECT",
   ctaHeading,
   ctaText,
   ctaButtonLabel,
   ctaButtonLink,
+  ctaSecondaryButtonLabel = "Explore Work Archive",
+  ctaSecondaryButtonLink = "/work",
+  ctaTrustSignals = [
+    "24h Response",
+    "Clear, Transparent Scope",
+    "Cambridge & London Hubs"
+  ],
 } = Astro.props;
+
+// Asterisk gradient heading parser
+const parseHeading = (text: string) => {
+  if (!text) return "";
+  if (text.includes('*')) {
+    return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">$1</span>');
+  }
+  return text;
+};
 ---
 
-<section class="relative py-24 md:py-36 overflow-hidden bg-neutral-950">
-  <!-- Glowing ambient light backdrops -->
-  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+<!-- Full-Bleed Dark Gray Atmosphere Section with Top Spotlight Glow (Zero Card Borders) -->
+<section class="relative w-full border-t border-line bg-gradient-to-b from-neutral-900/80 via-neutral-900/40 to-neutral-950 py-24 sm:py-32 overflow-hidden select-none">
+  
+  <!-- Top Hairline Amber Highlight Rule across Full Section Width -->
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent pointer-events-none" aria-hidden="true"></div>
 
-  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+  <!-- Ambient Amber Spotlight Glow Emanating from Top Center -->
+  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] sm:w-[56rem] h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Centered Content Container (No Card, Completely Breathable) -->
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
     
-    <!-- Top Slate Tag -->
-    <div class="inline-flex items-center gap-2 mb-6">
-      <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-        READY FOR THE NEXT TAKE?
-      </span>
-    </div>
+    <!-- Clean Eyebrow Badge -->
+    {ctaTag && (
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+        <span>{ctaTag}</span>
+      </div>
+    )}
 
     <!-- Editorial Headline -->
-    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight text-balance">
-      {ctaHeading}
-    </h2>
+    <h2 
+      class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight max-w-3xl mx-auto select-text"
+      set:html={parseHeading(ctaHeading)}
+    />
 
     <!-- Body Text -->
-    <p class="text-base sm:text-xl text-neutral-400 font-light leading-relaxed max-w-2xl mx-auto mb-10 text-pretty">
+    <p class="text-neutral-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-10 select-text">
       {ctaText}
     </p>
 
-    <!-- High-Contrast CTA Button -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <!-- Action Buttons Row -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
       <a
         href={ctaButtonLink}
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-mono font-bold text-sm uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-amber-500/10"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold text-sm tracking-wide shadow-xl shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
       >
         <span>{ctaButtonLabel}</span>
-        <span aria-hidden="true">&rarr;</span>
       </a>
 
-      <a
-        href="/work"
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-neutral-800 bg-neutral-900/60 text-neutral-300 font-mono text-sm tracking-wider hover:text-white hover:border-neutral-700 hover:bg-neutral-900 transition-all"
-      >
-        <span>Explore Work Archive</span>
-      </a>
+      {ctaSecondaryButtonLabel && ctaSecondaryButtonLink && (
+        <a
+          href={ctaSecondaryButtonLink}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/5 border border-line hover:border-amber-500/40 hover:bg-white/10 text-sm font-medium text-white transition-all"
+        >
+          <span>{ctaSecondaryButtonLabel}</span>
+        </a>
+      )}
     </div>
+
+    <!-- Grounded Reassurances Strip -->
+    {ctaTrustSignals && ctaTrustSignals.length > 0 && (
+      <div class="pt-8 border-t border-white/5 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-mono text-neutral-400">
+        {ctaTrustSignals.map((signal) => (
+          <span class="flex items-center gap-2">
+            <span class="w-1 h-1 rounded-full bg-amber-500"></span>
+            {signal}
+          </span>
+        ))}
+      </div>
+    )}
 
   </div>
 </section>
-

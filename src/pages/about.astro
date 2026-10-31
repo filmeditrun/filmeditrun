@@ -9,6 +9,7 @@ import aboutSlider from '../content/pages/slider.json';
 
 import AboutHero from '../components/about/AboutHero.astro';
 import TeamSlider from '../components/about/TeamSlider.astro';
+import AboutApproach from '../components/about/AboutApproach.astro';
 import BtsGallery from '../components/about/BtsGallery.astro';
 import AboutCta from '../components/about/AboutCta.astro';
 
@@ -73,13 +74,24 @@ const aboutSchema = {
   />
 
 
-  <!-- 3. Production Crew & Showcase Slider -->
+  <!-- 2. Production Crew & Showcase Slider -->
   <TeamSlider
     slider={sliderData}
     heading={sliderData.heading}
     tag={sliderData.tag}
     description={sliderData.description}
     slides={sliderData.slides}
+  />
+
+  <!-- 3. Studio Approach (Centered Editorial Statement - Zero-Card Rhythm) -->
+  <AboutApproach
+    tag={(aboutPage as any).approachTag}
+    heading={(aboutPage as any).approachHeading}
+    body={(aboutPage as any).approachBody}
+    primaryLinkLabel={(aboutPage as any).approachPrimaryLinkLabel}
+    primaryLinkHref={(aboutPage as any).approachPrimaryLinkHref}
+    secondaryLinkLabel={(aboutPage as any).approachSecondaryLinkLabel}
+    secondaryLinkHref={(aboutPage as any).approachSecondaryLinkHref}
   />
 
   <!-- 4. Behind The Scenes (BTS) Production Gallery & Lightbox -->
@@ -90,11 +102,15 @@ const aboutSchema = {
     btsItems={aboutPage.btsItems}
   />
 
-  <!-- 5. Bottom Closer Call-To-Action -->
+  <!-- 5. Bottom Closer Call-To-Action (Atmospheric Dark Gray Closer) -->
   <AboutCta
+    ctaTag={(aboutPage as any).ctaTag}
     ctaHeading={aboutPage.ctaHeading}
     ctaText={aboutPage.ctaText}
     ctaButtonLabel={aboutPage.ctaButtonLabel}
     ctaButtonLink={aboutPage.ctaButtonLink}
+    ctaSecondaryButtonLabel={(aboutPage as any).ctaSecondaryButtonLabel}
+    ctaSecondaryButtonLink={(aboutPage as any).ctaSecondaryButtonLink}
+    ctaTrustSignals={(aboutPage as any).ctaTrustSignals}
   />
 </Layout>

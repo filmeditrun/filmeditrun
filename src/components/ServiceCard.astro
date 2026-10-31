@@ -1,0 +1,193 @@
+---
+export interface ServiceCardData {
+  order?: string;
+  title: string;
+  tag?: string;
+  description?: string;
+  slug?: string;
+  link?: string;
+  href?: string;
+  // Bento Card Visuals
+  cardDisplayAs?: "image" | "video" | "gradient" | "solid" | string;
+  cardImage?: string;
+  cardVideoPath?: string;
+  cardSolidColor?: string;
+  cardGradientDirection?: string;
+  cardGradientColor1?: string;
+  cardGradientColor2?: string;
+  cardTextContrast?: "auto" | "light" | "dark" | string;
+  // Subpage Hero Visuals
+  heroDisplayAs?: string;
+  heroImage?: string;
+  heroVideoPath?: string;
+  heroSolidColor?: string;
+  heroGradientDirection?: string;
+  heroGradientColor1?: string;
+  heroGradientColor2?: string;
+  heroTextContrast?: string;
+  // Legacy compatibility fallbacks
+  displayAs?: string;
+  localVideoPath?: string;
+  cloudVideoUrl?: string;
+  imagePath?: string;
+}
+
+interface Props {
+  service: ServiceCardData;
+  index: number;
+  headingLevel?: "h2" | "h3";
+  class?: string;
+}
+
+const { service, index, headingLevel = "h2", class: className } = Astro.props;
+
+const defaultWatermarks = [
+  "/cambridge/stage-wide.webp",
+  "/work/onlocation.webp",
+  "/og-image.jpg",
+  "/work/handheld.webp",
+  "/work/onlocation.webp",
+  "/work/handheld.webp",
+];
+
+// Calculate relative perceptual luminance (ITU-R BT.709) to ensure perfect contrast across all color grades
+function isColorLight(hexOrRgb?: string): boolean {
+  if (!hexOrRgb) return false;
+  const hex = hexOrRgb.trim();
+  if (hex.startsWith('#')) {
+    const clean = hex.replace('#', '');
+    if (clean.length !== 3 && clean.length !== 6) return false;
+    const r = clean.length === 3 ? parseInt(clean[0] + clean[0], 16) : parseInt(clean.substring(0, 2), 16);
+    const g = clean.length === 3 ? parseInt(clean[1] + clean[1], 16) : parseInt(clean.substring(2, 4), 16);
+    const b = clean.length === 3 ? parseInt(clean[2] + clean[2], 16) : parseInt(clean.substring(4, 6), 16);
+    const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+    return luminance > 0.55;
+  }
+  return false;
+}
+
+const cardMode = service.cardDisplayAs || service.displayAs || "image";
+const cardIsVideo = cardMode === "video" || cardMode === "local-video";
+const cardIsGradient = cardMode === "gradient";
+const cardIsSolid = cardMode === "solid";
+
+const cardImg = service.cardImage || (service.imagePath && service.imagePath !== "/og-image.jpg" ? service.imagePath : null) || defaultWatermarks[index % defaultWatermarks.length];
+const cardVid = service.cardVideoPath || service.localVideoPath || "/showreel.mp4";
+const cardSolid = service.cardSolidColor || service.heroSolidColor || "#0a0a0c";
+const cardGradDir = service.cardGradientDirection || service.heroGradientDirection || "to bottom right";
+const cardGrad1 = service.cardGradientColor1 || service.heroGradientColor1 || "#0f172a";
+const cardGrad2 = service.cardGradientColor2 || service.heroGradientColor2 || "#020617";
+
+// Determine if the card has a light background (auto-detected or manually chosen in TinaCMS)
+let isCardLight = false;
+if (service.cardTextContrast === "dark") {
+  isCardLight = true;
+} else if (service.cardTextContrast === "light") {
+  isCardLight = false;
+} else {
+  if (cardIsSolid) {
+    isCardLight = isColorLight(cardSolid);
+  } else if (cardIsGradient) {
+    isCardLight = isColorLight(cardGrad2) || (isColorLight(cardGrad1) && isColorLight(cardGrad2));
+  }
+}
+
+const cardGradientStyle = cardIsGradient
+  ? (cardGradDir === "radial"
+      ? `background: radial-gradient(circle at center, ${cardGrad1} 0%, ${cardGrad2} 100%);`
+      : `background: linear-gradient(${cardGradDir}, ${cardGrad1} 0%, ${cardGrad2} 100%);`)
+  : "";
+
+const cardSolidStyle = cardIsSolid
+  ? `background-color: ${cardSolid};`
+  : "";
+
+const linkHref = service.link || service.href || `/services/${service.slug}`;
+const HeadingTag = headingLevel;
+---
+
+<a 
+  href={linkHref} 
+  data-cinema-darkroom={!isCardLight ? true : undefined}
+  class:list={[
+    "group relative block aspect-[4/3] rounded-xl overflow-hidden shadow-2xl transition-all duration-300",
+    isCardLight
+      ? "bg-white border border-neutral-300/80 hover:border-amber-500/70"
+      : "bg-[#0c0c11] border border-white/10 hover:border-amber-500/70",
+    className
+  ]}
+>
+  {cardIsVideo ? (
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster={cardImg}
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+    >
+      <source src={cardVid} type="video/mp4" />
+    </video>
+  ) : cardIsGradient ? (
+    <div 
+      class="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
+      style={cardGradientStyle}
+      aria-hidden="true"
+    />
+  ) : cardIsSolid ? (
+    <div 
+      class="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
+      style={cardSolidStyle}
+      aria-hidden="true"
+    />
+  ) : (
+    <img 
+      src={cardImg} 
+      alt={service.title} 
+      loading="lazy" 
+      decoding="async" 
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+    />
+  )}
+
+  {isCardLight ? (
+    <>
+      <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none transition-opacity duration-500"></div>
+      <div class="absolute inset-0 bg-black/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    </>
+  ) : (
+    <>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none transition-opacity duration-500"></div>
+      <div class="absolute inset-0 bg-black/55 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    </>
+  )}
+
+  <!-- Figcaption content inside image -->
+  <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
+    <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
+      {isCardLight ? (
+        <>
+          <HeadingTag class="text-2xl sm:text-3xl font-black text-[#09090b] tracking-tight mb-4 leading-tight">
+            {service.title}
+          </HeadingTag>
+          <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-[#374151] group-hover:text-amber-600 transition-colors">
+            <span>Explore</span>
+            <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+          </span>
+        </>
+      ) : (
+        <>
+          <HeadingTag class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight drop-shadow-md">
+            {service.title}
+          </HeadingTag>
+          <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-white/80 group-hover:text-amber-400 transition-colors">
+            <span>Explore</span>
+            <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+          </span>
+        </>
+      )}
+    </div>
+  </figcaption>
+</a>
+
