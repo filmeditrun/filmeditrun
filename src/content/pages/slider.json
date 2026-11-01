@@ -1,14 +1,42 @@
 {
-  "heading": "The Production Crew",
-  "tag": "OUR TEAM",
-  "description": "Operating as a synchronized production collective across the UK, delivering multi-camera live stages, commercial cinematography, pristine audio engineering, and rapid post-production.",
+  "heading": "The Production Crew & Behind the Scenes",
+  "tag": "OUR TEAM & BTS",
+  "description": "Operating as an agile production collective across Cambridge, London, and the UK. Combining multi-camera live broadcast control, cinema-grade camera rigs, pristine field audio, and dedicated post-production mastering.",
   "slides": [
     {
       "name": "FilmEditRun Production Collective",
-      "bio": "Multi-camera live stages and commercial film operations across the UK.",
+      "badge": "OUR TEAM",
+      "bio": "Multi-camera live stages, commercial cinematography, and rapid film operations across the UK.",
       "avatar": "/filmeditrun-team.avif",
-      "videoLoop": "",
-      "badge": ""
+      "videoLoop": ""
+    },
+    {
+      "name": "Wireless Camera Rig On Location",
+      "badge": "CAMERA OPS",
+      "bio": "Rigged for rapid mobility during high-tempo conference coverage. Anamorphic glass, wireless video transmitter, and 12-hour continuous battery power.",
+      "avatar": "/work/onlocation.webp",
+      "videoLoop": ""
+    },
+    {
+      "name": "Multi-Cam Live Switch Deck",
+      "badge": "LIVE BROADCAST",
+      "bio": "Director's multi-view monitoring 6 live SDI feeds with redundant hardware recording and instant replay triggers.",
+      "avatar": "/og-image.jpg",
+      "videoLoop": ""
+    },
+    {
+      "name": "Colour Timing & Mastering Suite",
+      "badge": "POST-PRODUCTION",
+      "bio": "Calibrated reference monitoring in our Cambridge suite, dialling in natural skin tones and rich cinematic contrast curves.",
+      "avatar": "/og-image.jpg",
+      "videoLoop": ""
+    },
+    {
+      "name": "Field Audio & Spatial Isolation",
+      "badge": "SOUND DECK",
+      "bio": "Dual boom and RF wireless microphones dialed in to reject venue echo and capture crystal-clear speaker nuance.",
+      "avatar": "/og-image.jpg",
+      "videoLoop": ""
     }
   ]
 }

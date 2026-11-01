@@ -1,0 +1,177 @@
+---
+interface Props {
+  // Eyebrow / Tag
+  tag?: string;
+  badge?: string;
+  // Heading & Body
+  heading: string;
+  description?: string;
+  text?: string;
+  // Primary CTA Action
+  primaryButtonLabel?: string;
+  primaryButtonLink?: string;
+  buttonLabel?: string;
+  buttonLink?: string;
+  // Secondary CTA Action (Optional)
+  secondaryButtonLabel?: string;
+  secondaryButtonLink?: string;
+  // Trust Signals / Location Badges (Optional)
+  trustSignals?: string[];
+  class?: string;
+}
+
+const {
+  tag,
+  badge,
+  heading,
+  description,
+  text,
+  primaryButtonLabel,
+  primaryButtonLink,
+  buttonLabel,
+  buttonLink,
+  secondaryButtonLabel,
+  secondaryButtonLink,
+  trustSignals = [],
+  class: className,
+} = Astro.props;
+
+// Normalise prop aliases for complete backwards-compatibility
+const displayTag = tag || badge;
+const displayHeading = heading || "";
+const displayDescription = description || text || "";
+const displayPrimaryLabel = primaryButtonLabel || buttonLabel || "Start Project Brief →";
+const displayPrimaryLink = primaryButtonLink || buttonLink || "/contact";
+const displaySecondaryLabel = secondaryButtonLabel;
+const displaySecondaryLink = secondaryButtonLink;
+
+// Asterisk gradient heading parser (e.g. "Ready to film your next *conference or brand story*?")
+const parseHeading = (content: string) => {
+  if (!content) return "";
+  if (content.includes('*')) {
+    return content.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">$1</span>');
+  }
+  return content;
+};
+---
+
+<!-- =========================================================================
+     CINEMATIC FULL-BLEED STUDIO CTA
+     - Darker graphite/charcoal backdrop (No washed-out pale gray)
+     - Top-edge stage spotlight gradient beaming downward
+     - Guaranteed cinema contrast across Dark Noir, High-Key Light & Supernova
+     ========================================================================= -->
+<section 
+  data-cinema-darkroom="true"
+  class:list={[
+    "relative w-full border-t border-white/10 cta-stage-section py-24 sm:py-32 overflow-hidden select-none",
+    className
+  ]}
+>
+  
+  <!-- 1. Top Hairline Accent Rule with Ambient Amber Laser Glow -->
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-transparent pointer-events-none z-20" aria-hidden="true"></div>
+  <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-amber-500/25 to-transparent blur-xs pointer-events-none z-20" aria-hidden="true"></div>
+
+  <!-- 2. Rich Stage Spotlight Gradient Emanating from Top Center -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[44rem] sm:w-[64rem] h-[26rem] cta-spotlight-beam pointer-events-none z-10" aria-hidden="true"></div>
+
+  <!-- 3. Centered Content Container (Completely Breathable, Zero-Card) -->
+  <div class="relative z-20 max-w-4xl mx-auto px-6 text-center">
+    
+    <!-- Clean Eyebrow Badge -->
+    {displayTag && (
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <span class="keep-white">{displayTag}</span>
+      </div>
+    )}
+
+    <!-- Editorial Headline (Asterisk gradient accent supported) -->
+    <h2 
+      class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white keep-white mb-6 leading-tight max-w-3xl mx-auto select-text drop-shadow-md"
+      set:html={parseHeading(displayHeading)}
+    />
+
+    <!-- Narrative Subtitle / Description -->
+    {displayDescription && (
+      <p class="text-neutral-300 keep-white text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-10 select-text">
+        {displayDescription}
+      </p>
+    )}
+
+    <!-- Action Buttons Row -->
+    <div class:list={[
+      "flex flex-col sm:flex-row items-center justify-center gap-4",
+      trustSignals && trustSignals.length > 0 ? "mb-12" : ""
+    ]}>
+      <!-- Primary High-Contrast Conversion Button -->
+      <a
+        href={displayPrimaryLink}
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold text-sm tracking-wide shadow-xl shadow-amber-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+      >
+        <span>{displayPrimaryLabel}</span>
+      </a>
+
+      <!-- Secondary Glass Button -->
+      {displaySecondaryLabel && displaySecondaryLink && (
+        <a
+          href={displaySecondaryLink}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/5 border border-white/15 hover:border-amber-500/50 hover:bg-white/10 text-sm font-medium text-white keep-white transition-all shadow-lg"
+        >
+          <span>{displaySecondaryLabel}</span>
+        </a>
+      )}
+    </div>
+
+    <!-- Grounded Trust Signals / Studio Locations Strip -->
+    {trustSignals && trustSignals.length > 0 && (
+      <div class="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-mono text-neutral-400 keep-white">
+        {trustSignals.map((signal) => (
+          <span class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span>{signal}</span>
+          </span>
+        ))}
+      </div>
+    )}
+
+  </div>
+</section>
+
+<!-- =========================================================================
+     STAGE COLOR SCIENCE & SPOTLIGHT BEAM ARCHITECTURE
+     ========================================================================= -->
+<style>
+  /* 1. Base Stage Atmosphere: Pitch Obsidian Black (Zero gray haze) */
+  .cta-stage-section {
+    background-color: #000000;
+    background-image: linear-gradient(to bottom, #040406 0%, #000000 100%);
+  }
+
+  /* 2. Top-Edge Stage Spotlight Beam: Pure Studio White Arc Lamp */
+  .cta-spotlight-beam {
+    background: radial-gradient(
+      ellipse 55% 45% at 50% 0%, 
+      rgba(255, 255, 255, 0.16) 0%, 
+      rgba(255, 255, 255, 0.035) 40%, 
+      transparent 70%
+    );
+  }
+
+  /* -------------------------------------------------------------------------
+     SUPERNOVA GRADE ADAPTATION: Electric Neon Rose & Magenta Flare
+     ------------------------------------------------------------------------- */
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .cta-stage-section {
+    background-color: #000000 !important;
+    background-image: linear-gradient(to bottom, #06020c 0%, #000000 100%) !important;
+  }
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .cta-spotlight-beam {
+    background: radial-gradient(
+      ellipse 55% 45% at 50% 0%, 
+      rgba(244, 63, 94, 0.28) 0%, 
+      rgba(139, 92, 246, 0.08) 40%, 
+      transparent 70%
+    ) !important;
+  }
+</style>

@@ -14,7 +14,7 @@
   "breakdownBody": "You don’t need to rent an expensive studio across town to record broadcast-quality video podcasts. Our crews set up quickly and discretely in your office, turning any meeting room into an executive recording space. With dedicated multi-camera angles and broadcast microphones for every speaker, we ensure your team looks sharp, sounds natural, and stays focused on the discussion.",
   "displayAs": "gradient",
   "localVideoPath": "/showreel.mp4",
-  "cloudVideoUrl": "https://your-link.mp4",
+  "cloudVideoUrl": "",
   "imagePath": "/og-image.jpg",
   "heroGradientDirection": "radial",
   "heroGradientColor1": "#f59e0b",

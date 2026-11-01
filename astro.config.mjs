@@ -6,7 +6,15 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://filmeditrun.co.uk',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        !page.includes('/thank-you') &&
+        !page.includes('/sample-page') &&
+        !page.includes('/review') &&
+        !page.includes('/admin'),
+    }),
+  ],
   server: {
     host: true,
   },

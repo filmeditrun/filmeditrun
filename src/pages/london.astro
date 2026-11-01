@@ -3,6 +3,7 @@
 // LONDON LANDING PAGE (Managed via TinaCMS in src/content/pages/london.json)
 // =====================================================================
 import Layout from '../layouts/Layout.astro';
+import CtaSection from '../components/CtaSection.astro';
 import rawLondon from '../content/pages/london.json';
 
 interface LondonData {
@@ -46,7 +47,7 @@ const london = rawLondon as LondonData;
 
 const displayAs = london.displayAs || "local-video";
 const localVideoPath = london.localVideoPath || "/showreel.mp4";
-const cloudVideoUrl = london.cloudVideoUrl || "https://your-link.mp4";
+const cloudVideoUrl = london.cloudVideoUrl || "";
 const imagePath = london.imagePath || "/og-image.jpg";
 const siteUrl = "https://filmeditrun.co.uk";
 const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
@@ -302,22 +303,20 @@ if (faqs.length > 0) {
     )}
 
     <!-- Bottom CTA -->
-    <section class="border-t border-white/10 py-24 sm:py-32 bg-neutral-950">
-      <div class="max-w-3xl mx-auto px-6 text-center">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
-          {london.bottomCtaHeading}
-        </h2>
-        <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
-          {london.bottomCtaBody}
-        </p>
-        <a
-          href={london.bottomCtaLink}
-          class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-all shadow-lg shadow-amber-500/10 hover:scale-[1.02] text-center"
-        >
-          {london.bottomCtaLabel} &rarr;
-        </a>
-      </div>
-    </section>
+    <CtaSection
+      tag="London On-Location Hub"
+      heading={london.bottomCtaHeading || "Planning a shoot or conference in *London*?"}
+      description={london.bottomCtaBody}
+      primaryButtonLabel={london.bottomCtaLabel || "Discuss Your London Project →"}
+      primaryButtonLink={london.bottomCtaLink || "/contact"}
+      secondaryButtonLabel="Explore Selected Work"
+      secondaryButtonLink="/work"
+      trustSignals={[
+        "Full RAMS & Venue Accreditations",
+        "Minimal On-Site Footprint Rigs",
+        "Fast 24–48h Recap Reels"
+      ]}
+    />
 
   </div>
 </Layout>

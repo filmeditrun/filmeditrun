@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import CtaSection from '../../components/CtaSection.astro';
 
 export interface ServiceData {
   order: string;
@@ -388,24 +389,22 @@ if (service.heroTextContrast === "dark") {
     </section>
 
     <!-- ============================================================== -->
-    <!-- 4. DIRECT CTA                                                  -->
+    <!-- 4. DIRECT CTA (Full-Bleed Architectural Atmosphere)            -->
     <!-- ============================================================== -->
-    <section class="border-t border-white/10 py-24 sm:py-32 bg-neutral-950">
-      <div class="max-w-3xl mx-auto px-6 text-center">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
-          {service.ctaHeading || "Ready to Start Your Project?"}
-        </h2>
-        <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-          {service.ctaDescription || "Get in touch to discuss your project brief, timeline, and production requirements."}
-        </p>
-        <a
-          href="/contact"
-          class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-all shadow-lg shadow-amber-500/10 hover:scale-[1.02] text-center"
-        >
-          {service.ctaButtonLabel || "Start a Project Brief"} &rarr;
-        </a>
-      </div>
-    </section>
+    <CtaSection
+      tag={service.tag || "Production Discipline"}
+      heading={service.ctaHeading || "Ready to Start Your *Project*?"}
+      description={service.ctaDescription || "Get in touch to discuss your project brief, timeline, and production requirements."}
+      primaryButtonLabel={`${service.ctaButtonLabel || "Start a Project Brief"} →`}
+      primaryButtonLink="/contact"
+      secondaryButtonLabel="Explore All Services"
+      secondaryButtonLink="/services"
+      trustSignals={[
+        "24h Proposal Turnaround",
+        "Direct Filmmaker Collaboration",
+        "Cambridge & London Base"
+      ]}
+    />
 
   </div>
 </Layout>

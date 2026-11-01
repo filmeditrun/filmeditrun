@@ -74,9 +74,6 @@ const cardIsSolid = cardMode === "solid";
 const cardImg = service.cardImage || (service.imagePath && service.imagePath !== "/og-image.jpg" ? service.imagePath : null) || defaultWatermarks[index % defaultWatermarks.length];
 const cardVid = service.cardVideoPath || service.localVideoPath || "/showreel.mp4";
 const cardSolid = service.cardSolidColor || service.heroSolidColor || "#0a0a0c";
-const cardGradDir = service.cardGradientDirection || service.heroGradientDirection || "to bottom right";
-const cardGrad1 = service.cardGradientColor1 || service.heroGradientColor1 || "#0f172a";
-const cardGrad2 = service.cardGradientColor2 || service.heroGradientColor2 || "#020617";
 
 // Determine if the card has a light background (auto-detected or manually chosen in TinaCMS)
 let isCardLight = false;
@@ -88,15 +85,10 @@ if (service.cardTextContrast === "dark") {
   if (cardIsSolid) {
     isCardLight = isColorLight(cardSolid);
   } else if (cardIsGradient) {
-    isCardLight = isColorLight(cardGrad2) || (isColorLight(cardGrad1) && isColorLight(cardGrad2));
+    // Studio spotlight card has pitch obsidian base, always dark cinema stage
+    isCardLight = false;
   }
 }
-
-const cardGradientStyle = cardIsGradient
-  ? (cardGradDir === "radial"
-      ? `background: radial-gradient(circle at center, ${cardGrad1} 0%, ${cardGrad2} 100%);`
-      : `background: linear-gradient(${cardGradDir}, ${cardGrad1} 0%, ${cardGrad2} 100%);`)
-  : "";
 
 const cardSolidStyle = cardIsSolid
   ? `background-color: ${cardSolid};`
@@ -111,9 +103,11 @@ const HeadingTag = headingLevel;
   data-cinema-darkroom={!isCardLight ? true : undefined}
   class:list={[
     "group relative block aspect-[4/3] rounded-xl overflow-hidden shadow-2xl transition-all duration-300",
-    isCardLight
-      ? "bg-white border border-neutral-300/80 hover:border-amber-500/70"
-      : "bg-[#0c0c11] border border-white/10 hover:border-amber-500/70",
+    cardIsGradient
+      ? "bento-card-spotlight bg-black border border-white/10 hover:border-amber-500/70"
+      : isCardLight
+        ? "bg-white border border-neutral-300/80 hover:border-amber-500/70"
+        : "bg-[#0c0c11] border border-white/10 hover:border-amber-500/70",
     className
   ]}
 >
@@ -130,11 +124,23 @@ const HeadingTag = headingLevel;
       <source src={cardVid} type="video/mp4" />
     </video>
   ) : cardIsGradient ? (
-    <div 
-      class="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
-      style={cardGradientStyle}
-      aria-hidden="true"
-    />
+    <div class="absolute inset-0 w-full h-full bento-stage-card overflow-hidden">
+      {/* 1. Deep Pitch-Black Obsidian Stage Baseline */}
+      <div class="absolute inset-0 w-full h-full bento-stage-base" aria-hidden="true" />
+      
+      {/* 2. Pure Studio White Overhead Arc Lamp Spotlight Cone */}
+      <div 
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bento-spotlight-beam pointer-events-none transition-all duration-700 ease-out opacity-90 group-hover:opacity-100 group-hover:scale-105" 
+        aria-hidden="true" 
+      />
+      
+      {/* 3. Top Hairline Accent Rule with Ambient Amber Laser Glow */}
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-transparent pointer-events-none z-20 bento-hairline" aria-hidden="true" />
+      <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-amber-500/25 to-transparent blur-xs pointer-events-none z-20 bento-hairline-glow" aria-hidden="true" />
+
+      {/* 4. Subtle Grounding Vignette behind typography at card bottom */}
+      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none z-10" aria-hidden="true" />
+    </div>
   ) : cardIsSolid ? (
     <div 
       class="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
@@ -151,20 +157,22 @@ const HeadingTag = headingLevel;
     />
   )}
 
-  {isCardLight ? (
-    <>
-      <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none transition-opacity duration-500"></div>
-      <div class="absolute inset-0 bg-black/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    </>
-  ) : (
-    <>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none transition-opacity duration-500"></div>
-      <div class="absolute inset-0 bg-black/55 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    </>
+  {!cardIsGradient && (
+    isCardLight ? (
+      <>
+        <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none transition-opacity duration-500"></div>
+        <div class="absolute inset-0 bg-black/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </>
+    ) : (
+      <>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none transition-opacity duration-500"></div>
+        <div class="absolute inset-0 bg-black/55 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </>
+    )
   )}
 
-  <!-- Figcaption content inside image -->
-  <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-10">
+  <!-- Figcaption content inside card -->
+  <figcaption class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none z-20">
     <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
       {isCardLight ? (
         <>
@@ -181,8 +189,8 @@ const HeadingTag = headingLevel;
           <HeadingTag class="text-2xl sm:text-3xl font-black text-white keep-white tracking-tight mb-4 leading-tight drop-shadow-md">
             {service.title}
           </HeadingTag>
-          <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-white/80 group-hover:text-amber-400 transition-colors">
-            <span>Explore</span>
+          <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-bold text-white/80 group-hover:text-amber-400 bento-explore-arrow transition-colors keep-white">
+            <span class="keep-white">Explore</span>
             <span class="text-sm font-bold group-hover:translate-x-1.5 transition-transform">&rarr;</span>
           </span>
         </>
@@ -190,4 +198,59 @@ const HeadingTag = headingLevel;
     </div>
   </figcaption>
 </a>
+
+<style>
+  /* =========================================================================
+     STUDIO STAGE BASELINE & SPOTLIGHT ARCHITECTURE (Duo-Tone / Spotlight)
+     ========================================================================= */
+
+  /* 1. Base Stage: Pitch Obsidian Black (#040406 to #000000) */
+  .bento-stage-base {
+    background-color: #000000;
+    background-image: linear-gradient(to bottom, #040406 0%, #000000 100%);
+  }
+
+  /* 2. Top-Edge Studio Spotlight Beam: Pure Daylight White Arc Lamp */
+  .bento-spotlight-beam {
+    background: radial-gradient(
+      ellipse 65% 55% at 50% 0%, 
+      rgba(255, 255, 255, 0.22) 0%, 
+      rgba(255, 255, 255, 0.05) 45%, 
+      transparent 75%
+    );
+  }
+
+  /* -------------------------------------------------------------------------
+     SUPERNOVA GRADE ADAPTATION: Electric Neon Rose & Magenta Flare
+     ------------------------------------------------------------------------- */
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .bento-stage-base {
+    background-color: #000000 !important;
+    background-image: linear-gradient(to bottom, #06020c 0%, #000000 100%) !important;
+  }
+
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .bento-spotlight-beam {
+    background: radial-gradient(
+      ellipse 65% 55% at 50% 0%, 
+      rgba(244, 63, 94, 0.32) 0%, 
+      rgba(139, 92, 246, 0.10) 45%, 
+      transparent 75%
+    ) !important;
+  }
+
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .bento-hairline {
+    background-image: linear-gradient(to right, transparent, rgba(244, 63, 94, 0.9), transparent) !important;
+  }
+
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .bento-hairline-glow {
+    background-image: linear-gradient(to right, transparent, rgba(244, 63, 94, 0.35), transparent) !important;
+  }
+
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .bento-card-spotlight:hover {
+    border-color: rgba(244, 63, 94, 0.7) !important;
+  }
+
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .bento-card-spotlight:hover .bento-explore-arrow {
+    color: #f43f5e !important;
+  }
+</style>
 

@@ -3,6 +3,7 @@
 // CAMBRIDGE LANDING PAGE (Managed via TinaCMS in src/content/pages/cambridge.json)
 // =====================================================================
 import Layout from '../layouts/Layout.astro';
+import CtaSection from '../components/CtaSection.astro';
 import rawCambridge from '../content/pages/cambridge.json';
 
 interface CambridgeData {
@@ -46,7 +47,7 @@ const cambridge = rawCambridge as CambridgeData;
 
 const displayAs = cambridge.displayAs || "local-video";
 const localVideoPath = cambridge.localVideoPath || "/showreel.mp4";
-const cloudVideoUrl = cambridge.cloudVideoUrl || "https://your-link.mp4";
+const cloudVideoUrl = cambridge.cloudVideoUrl || "";
 const imagePath = cambridge.imagePath || "/og-image.jpg";
 const siteUrl = "https://filmeditrun.co.uk";
 const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
@@ -296,22 +297,20 @@ if (faqs.length > 0) {
     )}
 
     <!-- Bottom CTA -->
-    <section class="border-t border-white/10 py-24 sm:py-32 bg-neutral-950">
-      <div class="max-w-3xl mx-auto px-6 text-center">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
-          {cambridge.bottomCtaHeading}
-        </h2>
-        <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light">
-          {cambridge.bottomCtaBody}
-        </p>
-        <a
-          href={cambridge.bottomCtaLink}
-          class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-all shadow-lg shadow-amber-500/10 hover:scale-[1.02] text-center"
-        >
-          {cambridge.bottomCtaLabel} &rarr;
-        </a>
-      </div>
-    </section>
+    <CtaSection
+      tag="Cambridge Production Hub"
+      heading={cambridge.bottomCtaHeading || "Planning a shoot in *Cambridge*?"}
+      description={cambridge.bottomCtaBody}
+      primaryButtonLabel={cambridge.bottomCtaLabel || "Discuss Your Cambridge Project →"}
+      primaryButtonLink={cambridge.bottomCtaLink || "/contact"}
+      secondaryButtonLabel="Explore Selected Work"
+      secondaryButtonLink="/work"
+      trustSignals={[
+        "Historic College Filming Experience",
+        "Cambridge Science Park Fast Dispatch",
+        "24–48h Highlight Reel Turnaround"
+      ]}
+    />
 
   </div>
 </Layout>

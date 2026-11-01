@@ -1,13 +1,13 @@
 {
   "legalName": "FilmEditRun",
-  "telephone": "+44 1223 926450",
-  "email": "contact@filmeditrun.co.uk",
+  "telephone": "",
+  "email": "",
   "priceRange": "££-£££",
   "addressLocality": "Cambridge",
   "addressRegion": "Cambridgeshire",
   "postalCode": "CB1 2JW",
   "addressCountry": "GB",
-  "googleMapsUrl": "https://maps.google.com/?cid=filmeditrun",
+  "googleMapsUrl": "https://g.page/r/Cba1pWWqNcpWEAI",
   "geoLatitude": 52.2053,
   "geoLongitude": 0.1218,
   "backlinkProfiles": [
@@ -15,11 +15,11 @@
       "name": "Cambridge Network",
       "url": "https://www.cambridgenetwork.co.uk",
       "badgeText": "Member",
-      "showInFooter": true
+      "showInFooter": false
     },
     {
       "name": "Google Business Profile",
-      "url": "https://maps.google.com/?cid=filmeditrun",
+      "url": "https://g.page/r/Cba1pWWqNcpWEAI",
       "badgeText": "Verified Studio",
       "showInFooter": true
     },
@@ -33,12 +33,6 @@
       "name": "LinkedIn",
       "url": "https://www.linkedin.com/company/filmeditrun",
       "badgeText": "Company",
-      "showInFooter": true
-    },
-    {
-      "name": "GitHub",
-      "url": "https://github.com/filmeditrun",
-      "badgeText": "Open Source",
       "showInFooter": true
     }
   ]

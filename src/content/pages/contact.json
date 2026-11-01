@@ -1,5 +1,5 @@
 {
-  "seoTitle": "Start Your Project | FilmEditRun",
+  "seoTitle": "Start a Project Brief | Cambridge & London | FilmEditRun",
   "seoDescription": "Tell us about your upcoming filming, editing, or creative project. We respond with a tailored proposal within 24 hours.",
   "headerTag": "Start A Brief",
   "heading": "Let's discuss your next *production.*",
@@ -28,28 +28,28 @@
   "step2Title": "What service do you need? *",
   "serviceOptions": [
     {
-      "label": "Corporate Event Filming & Highlights",
-      "value": "Corporate Event Filming & Highlights"
+      "label": "Single & Multi-Camera Event Filming",
+      "value": "Single & Multi-Camera Event Filming"
     },
     {
       "label": "Corporate & Conference Production",
       "value": "Corporate & Conference Production"
     },
     {
-      "label": "Corporate Brand & Case Study Films",
-      "value": "Corporate Brand & Case Study Films"
-    },
-    {
-      "label": "Video Podcast & Vodcast Production",
-      "value": "Video Podcast & Vodcast Production"
-    },
-    {
-      "label": "Video Editing & Post-Production",
-      "value": "Video Editing & Post-Production"
-    },
-    {
       "label": "Animation & Motion Design",
       "value": "Animation & Motion Design"
+    },
+    {
+      "label": "Commercial & Narrative Video Editing",
+      "value": "Commercial & Narrative Video Editing"
+    },
+    {
+      "label": "Multi-Camera Vodcast & Studio Podcasts",
+      "value": "Multi-Camera Vodcast & Studio Podcasts"
+    },
+    {
+      "label": "Corporate & Brand Case Studies",
+      "value": "Corporate & Brand Case Studies"
     }
   ],
   "step3Tag": "03 ➔ Reachable Contact",

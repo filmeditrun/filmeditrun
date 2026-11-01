@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import CtaSection from '../components/CtaSection.astro';
 import home from '../content/pages/home.json';
 import servicesPage from '../content/pages/services.json';
 import cambridgePage from '../content/pages/cambridge.json';
@@ -377,43 +378,36 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
     <div class="relative">
       <!-- Connecting Rail Line (Desktop: Horizontal) -->
       <div 
-        class="hidden lg:block absolute top-12 left-16 right-16 h-0.5 bg-gradient-to-r from-line via-amber-500/35 to-line z-0 pointer-events-none" 
+        class="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-gradient-to-r from-neutral-800 via-amber-500/40 to-neutral-800 z-0 pointer-events-none" 
         aria-hidden="true"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 relative z-10">
         {processSteps.map((step) => (
-          <div class="group relative flex flex-col justify-between rounded-2xl border border-line bg-neutral-900/40 p-6 sm:p-7 hover:border-amber-500/60 hover:bg-neutral-900/70 transition-all duration-300 shadow-xl hover:-translate-y-1">
-            <div>
-              <!-- Top Node & Stage Tag -->
-              <div class="flex items-center justify-between mb-6">
-                <!-- Step Number Node -->
-                <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-line flex items-center justify-center font-mono font-bold text-amber-400 text-base shadow-inner group-hover:border-amber-500/60 group-hover:text-amber-300 transition-all duration-300">
-                  {step.step}
-                </div>
-
-                <!-- Stage Category Pill -->
-                <span class="text-[10px] uppercase tracking-wider font-mono text-neutral-400 font-medium bg-white/5 border border-white/10 px-2.5 py-1 rounded-md group-hover:text-neutral-200">
-                  {step.tag}
-                </span>
+          <div class="group relative flex flex-col bg-neutral-950/70 hover:bg-neutral-950/95 border border-neutral-800/80 hover:border-amber-500/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/10 backdrop-blur-sm">
+            
+            <!-- Top Node & Stage Tag -->
+            <div class="flex items-center justify-between mb-6">
+              <!-- Step Number Node -->
+              <div class="w-14 h-14 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center font-mono font-bold text-amber-400 text-lg shadow-inner group-hover:border-amber-500/60 group-hover:text-amber-300 transition-all duration-300">
+                {step.step}
               </div>
 
-              <!-- Step Title -->
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-2.5 tracking-tight group-hover:text-amber-400 transition-colors leading-snug">
-                {step.title}
-              </h3>
-
-              <!-- Step Description -->
-              <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
-                {step.description}
-              </p>
+              <!-- Stage Category Pill -->
+              <span class="text-[11px] uppercase tracking-wider font-mono text-neutral-400 font-medium bg-neutral-900/80 border border-neutral-800/80 px-2.5 py-1 rounded-md">
+                {step.tag}
+              </span>
             </div>
 
-            <!-- Bottom Progress Sub-indicator -->
-            <div class="pt-5 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-neutral-500 group-hover:text-neutral-400 transition-colors">
-              <span>Stage {step.step} of 04</span>
-              <span class="w-1.5 h-1.5 rounded-full bg-neutral-700 group-hover:bg-amber-400 transition-colors"></span>
-            </div>
+            <!-- Step Title -->
+            <h3 class="text-lg sm:text-xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
+              {step.title}
+            </h3>
+
+            <!-- Step Description -->
+            <p class="text-neutral-400 text-sm leading-relaxed font-light">
+              {step.description}
+            </p>
           </div>
         ))}
       </div>
@@ -544,69 +538,23 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   </section>
 
   <!-- ================================================================= -->
-  <!-- 6. FINAL STUDIO COMMISSIONING CTA (Arm Architectural Closure)    -->
+  <!-- 6. FINAL STUDIO COMMISSIONING CTA (Full-Bleed Architectural Atmosphere) -->
   <!-- ================================================================= -->
-  <section class="relative max-w-7xl mx-auto px-6 pb-24 sm:pb-32 overflow-hidden">
-    <div class="relative rounded-3xl border border-line bg-gradient-to-br from-neutral-900/80 via-neutral-900/50 to-neutral-950 p-8 sm:p-14 lg:p-16 text-center overflow-hidden shadow-2xl">
-      
-      <!-- Ambient Glow Behind CTA -->
-      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-
-      <!-- Top Intake Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-        <span>{(home as any).ctaBadge || "Direct Studio Intake"}</span>
-      </div>
-
-      <!-- Main Headline -->
-      <h2 
-        class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white max-w-3xl mx-auto leading-tight mb-5" 
-        set:html={parseHeading((home as any).ctaHeading || "Ready to film your next *conference or brand story*?")} 
-      />
-
-      <!-- Subtitle Description -->
-      <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed mb-10">
-        {(home as any).ctaDescription || "Tell us about your upcoming dates, venue location, or creative ideas. We deliver a straightforward technical production scope and transparent quote within 24 hours."}
-      </p>
-
-      <!-- Action Buttons Row -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a 
-          href={(home as any).ctaPrimaryLink || "/contact"} 
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold text-sm tracking-wide shadow-xl shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
-        >
-          <span>{(home as any).ctaPrimaryLabel || "Start Project Brief →"}</span>
-        </a>
-        <a 
-          href={(home as any).ctaSecondaryLink || "/work"} 
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/5 border border-line hover:border-amber-500/40 hover:bg-white/10 text-sm font-medium text-white transition-all"
-        >
-          <span>{(home as any).ctaSecondaryLabel || "Explore Full Portfolio"}</span>
-        </a>
-      </div>
-
-      <!-- Trust Signals Strip -->
-      <div class="mt-12 pt-8 border-t border-white/5 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-mono text-neutral-400">
-        <span class="flex items-center gap-2">
-          <span class="w-1 h-1 rounded-full bg-amber-500"></span>
-          Direct Filmmaker Collaboration
-        </span>
-        <span class="flex items-center gap-2">
-          <span class="w-1 h-1 rounded-full bg-amber-500"></span>
-          Zero Agency Markups
-        </span>
-        <span class="flex items-center gap-2">
-          <span class="w-1 h-1 rounded-full bg-amber-500"></span>
-          24h Proposal Turnaround
-        </span>
-        <span class="flex items-center gap-2">
-          <span class="w-1 h-1 rounded-full bg-amber-500"></span>
-          Full UK Coverage
-        </span>
-      </div>
-
-    </div>
-  </section>
+  <CtaSection
+    tag={(home as any).ctaBadge || "Direct Studio Intake"}
+    heading={(home as any).ctaHeading || "Ready to film your next *conference or brand story*?"}
+    description={(home as any).ctaDescription || "Tell us about your upcoming dates, venue location, or creative ideas. We deliver a straightforward technical production scope and transparent quote within 24 hours."}
+    primaryButtonLabel={(home as any).ctaPrimaryLabel || "Start Project Brief →"}
+    primaryButtonLink={(home as any).ctaPrimaryLink || "/contact"}
+    secondaryButtonLabel={(home as any).ctaSecondaryLabel || "Explore Full Portfolio"}
+    secondaryButtonLink={(home as any).ctaSecondaryLink || "/work"}
+    trustSignals={[
+      "Direct Filmmaker Collaboration",
+      "Zero Agency Markups",
+      "24h Proposal Turnaround",
+      "Full UK Coverage"
+    ]}
+  />
 
 </Layout>
 

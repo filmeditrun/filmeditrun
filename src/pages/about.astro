@@ -10,7 +10,7 @@ import aboutSlider from '../content/pages/slider.json';
 import AboutHero from '../components/about/AboutHero.astro';
 import TeamSlider from '../components/about/TeamSlider.astro';
 import AboutApproach from '../components/about/AboutApproach.astro';
-import BtsGallery from '../components/about/BtsGallery.astro';
+import ScriptTimeline from '../components/about/ScriptTimeline.astro';
 import AboutCta from '../components/about/AboutCta.astro';
 
 interface SlideItem {
@@ -45,7 +45,7 @@ const aboutSchema = {
       "Multi-Camera Live Filming",
       "Conference Video Production",
       "Commercial Post-Production",
-      "Color Grading & Sound Design"
+      "Colour Grading & Sound Design"
     ]
   }
 };
@@ -94,13 +94,15 @@ const aboutSchema = {
     secondaryLinkHref={(aboutPage as any).approachSecondaryLinkHref}
   />
 
-  <!-- 4. Behind The Scenes (BTS) Production Gallery & Lightbox -->
-  <BtsGallery
-    btsHeading={aboutPage.btsHeading}
-    btsTag={aboutPage.btsTag}
-    btsDescription={aboutPage.btsDescription}
-    btsItems={aboutPage.btsItems}
-  />
+  <!-- 4. Studio Evolutionary Timeline & Milestone Reel -->
+  {(aboutPage as any).milestones && (aboutPage as any).milestones.length > 0 && (
+    <ScriptTimeline
+      timelineHeading={(aboutPage as any).timelineHeading || "Studio Evolution & *Milestones*"}
+      timelineTag={(aboutPage as any).timelineTag || "STUDIO TIMELINE"}
+      timelineDescription={(aboutPage as any).timelineDescription}
+      milestones={(aboutPage as any).milestones}
+    />
+  )}
 
   <!-- 5. Bottom Closer Call-To-Action (Atmospheric Dark Gray Closer) -->
   <AboutCta

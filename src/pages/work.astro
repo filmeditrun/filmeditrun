@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CtaSection from '../components/CtaSection.astro';
 import { projects } from '../data/projects';
 import workPage from '../content/pages/work.json';
 
@@ -62,7 +63,7 @@ const workVideoSchema = {
       ? featuredProject.thumbnail
       : `https://filmeditrun.co.uk${featuredProject.thumbnail}`
   ],
-  "uploadDate": "2024-01-01T08:00:00+00:00",
+  "uploadDate": `${new Date().getFullYear()}-01-15T08:00:00+00:00`,
   "contentUrl": featuredProject.videoUrl,
   "embedUrl": featuredProject.videoUrl
 };
@@ -266,43 +267,59 @@ const workVideoSchema = {
               data-project-card
               data-category={categorySlug}
               data-open-dialog={`dialog-modal-${project.id}`}
+              data-cinema-darkroom="true"
               class:list={[
-                "project-card group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-amber-500/50 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xl hover:shadow-2xl hover:shadow-amber-500/5 hover:-translate-y-1.5",
+                "project-card group relative aspect-[16/10] sm:aspect-16/9 rounded-2xl overflow-hidden bg-[#0c0c11] border border-white/10 hover:border-amber-500/60 transition-all duration-500 cursor-pointer shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1.5 select-none",
                 colSpanClass
               ]}
             >
-              <!-- 1. TOP CONTENT CONTAINER (Text on Top for Instant Reading) -->
-              <div class="p-6 pb-5 sm:p-7 sm:pb-6 flex flex-col justify-between flex-1">
-                <!-- Client Eyebrow Tag -->
-                <span class="text-xs uppercase tracking-widest font-mono text-neutral-400 group-hover:text-amber-400 transition-colors duration-300 font-semibold mb-2 block">
-                  {project.client}
-                </span>
+              <!-- 1. FULL-BLEED WIDESCREEN MEDIA (Cinema Aspect Ratio) -->
+              <img 
+                src={project.thumbnail} 
+                alt={project.title} 
+                loading="lazy" 
+                decoding="async" 
+                class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out" 
+              />
 
-                <!-- Bold Project Title (Zero Clutter) -->
-                <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors duration-300 leading-snug">
-                  {project.title}
-                </h3>
-              </div>
+              <!-- Resting Subtle Scrim (Provides crisp contrast for bottom typography) -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none transition-opacity duration-500" aria-hidden="true"></div>
 
-              <!-- 2. BOTTOM WIDESCREEN MEDIA WINDOW (16:9 Cinema Aspect Ratio) -->
-              <div class="relative w-full aspect-16/9 overflow-hidden bg-black select-none border-t border-neutral-800/80">
-                <img 
-                  src={project.thumbnail} 
-                  alt={project.title} 
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
-                />
+              <!-- Darkening Hover Overlay -->
+              <div class="absolute inset-0 bg-black/40 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
 
-                <!-- Dead-Center Amber Play Cue (Soft Glass Resting, Luminous Bloom on Hover) -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-                  <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-neutral-950/75 border border-white/20 backdrop-blur-md text-white flex items-center justify-center shadow-xl group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-amber-500 group-hover:border-transparent group-hover:text-neutral-950 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-amber-500/30 transition-all duration-300 ease-out">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
+              <!-- Top Runtime Badge (Discreet glass pill in top-right corner) -->
+              {project.runtime && (
+                <div class="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 pointer-events-none">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[10px] font-mono tracking-wider text-neutral-300 group-hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                    {project.runtime}
+                  </span>
+                </div>
+              )}
+
+              <!-- Dead-Center Amber Play Cue (Soft Glass Resting, Luminous Bloom on Hover) -->
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-neutral-950/75 border border-white/20 backdrop-blur-md text-white flex items-center justify-center shadow-xl group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-amber-500 group-hover:border-transparent group-hover:text-neutral-950 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-amber-500/30 transition-all duration-300 ease-out">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
                 </div>
               </div>
+
+              <!-- Grounded Bottom Content: Client Eyebrow + Bold Title ONLY (Zero Clutter) -->
+              <figcaption class="absolute inset-x-0 bottom-0 p-6 sm:p-7 flex flex-col justify-end pointer-events-none z-20">
+                <div class="transform transition-transform duration-300 group-hover:-translate-y-1">
+                  {project.client && (
+                    <span class="text-xs uppercase tracking-widest font-mono text-amber-500/90 group-hover:text-amber-400 transition-colors duration-300 font-semibold mb-1.5 block">
+                      {project.client}
+                    </span>
+                  )}
+                  <h3 class="text-xl sm:text-2xl lg:text-3xl font-black text-white keep-white tracking-tight leading-snug drop-shadow-md">
+                    {project.title}
+                  </h3>
+                </div>
+              </figcaption>
             </article>
           );
         })}
@@ -312,7 +329,25 @@ const workVideoSchema = {
     )}
 
     <!-- ============================================================== -->
-    <!-- 3. NATIVE HTML5 THEATER MODAL DIALOGS                          -->
+    <!-- 3. FINAL STUDIO COMMISSIONING CTA                              -->
+    <!-- ============================================================== -->
+    <CtaSection
+      tag="Commission a Production"
+      heading="Have an upcoming shoot or *conference brief*?"
+      description="Whether you need multi-camera coverage in London, an executive brand story in Cambridge, or fast post-production turnaround, let’s talk through your dates and deliverables."
+      primaryButtonLabel="Start Project Brief →"
+      primaryButtonLink="/contact"
+      secondaryButtonLabel="Explore Services & Specs"
+      secondaryButtonLink="/services"
+      trustSignals={[
+        "24h Proposal Turnaround",
+        "Cambridge & London Hubs",
+        "Direct Filmmaker Collaboration"
+      ]}
+    />
+
+    <!-- ============================================================== -->
+    <!-- 4. NATIVE HTML5 THEATER MODAL DIALOGS                          -->
     <!-- ============================================================== -->
     {modalProjects.map((project) => (
       <dialog 

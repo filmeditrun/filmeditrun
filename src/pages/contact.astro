@@ -94,14 +94,6 @@ const parseHeading = (text: string) => {
 const headerTag = (contact as any).headerTag || "Start A Brief";
 const heading = (contact as any).heading || "Let's discuss your next *production.*";
 const description = (contact as any).description || "Tell us about your upcoming dates, venue location, or visual goals. We deliver a clear technical production scope and transparent quote within 24 hours.";
-const trustSignals = (contact as any).trustSignals && (contact as any).trustSignals.length > 0
-  ? (contact as any).trustSignals
-  : [
-      "24-Hour Scope Response",
-      "Collaborate with us",
-      "Draft & AI Briefs Welcome",
-      "Cambridge & London Hubs"
-    ];
 
 const displayAs = (contact as any).displayAs || "gradient";
 const localVideoPath = (contact as any).localVideoPath || "/showreel.mp4";
@@ -222,21 +214,28 @@ const gradientStyle = isRadial
   </header>
 
   <!-- ============================================================== -->
-  <!-- 2. INTERACTIVE BRIEF FORM (Dark Gray Spotlight Atmosphere)     -->
+  <!-- 2. INTERACTIVE BRIEF FORM (Pitch Obsidian Studio Stage)        -->
   <!-- ============================================================== -->
   <section 
     id="brief-form" 
-    class="relative w-full border-t border-line bg-gradient-to-b from-neutral-900/80 via-neutral-900/40 to-neutral-950 pt-10 sm:pt-14 pb-20 sm:pb-28 overflow-hidden select-none scroll-mt-6 sm:scroll-mt-8"
+    data-cinema-darkroom="true"
+    class="relative w-full border-t border-white/10 contact-form-stage pt-12 sm:pt-16 pb-20 sm:pb-28 overflow-hidden select-none scroll-mt-6 sm:scroll-mt-8"
   >
     <!-- Top Hairline Amber Highlight Rule across Full Section Width -->
-    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-transparent pointer-events-none z-20" aria-hidden="true"></div>
+    <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-amber-500/25 to-transparent blur-xs pointer-events-none z-20" aria-hidden="true"></div>
 
-    <!-- Ambient Amber Spotlight Glow Emanating from Top Center -->
-    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] sm:w-[56rem] h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+    <!-- White Studio Arc Spotlight Beam at Top Center -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[44rem] sm:w-[64rem] h-[26rem] contact-spotlight-beam pointer-events-none z-10" aria-hidden="true"></div>
 
     <!-- Centered Form Container (Cardless, Breathable) -->
-    <div class="relative z-10 max-w-2xl mx-auto px-6">
+    <div class="relative z-20 max-w-2xl mx-auto px-6">
       
+      <!-- Visual Step Progress Bar -->
+      <div class="w-full bg-white/10 h-1.5 rounded-full mb-8 overflow-hidden" aria-hidden="true">
+        <div id="stepProgressBar" class="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-300 w-1/5 rounded-full"></div>
+      </div>
+
       <!-- Stepped Form Component (100% original inputs, zero container box) -->
       <form id="typeform" action={formEndpoint} method="POST" class="w-full flex flex-col justify-between gap-6 sm:gap-8 select-text">
         <!-- Anti-Spam Honeypot (Invisible to humans, traps bots) -->
@@ -251,7 +250,7 @@ const gradientStyle = isRadial
       {formSteps.map((step, index) => (
         <div class={`step col-start-1 row-start-1 transition-opacity duration-300 w-full flex flex-col justify-center ${index === 0 ? 'opacity-100 pointer-events-auto z-10' : 'opacity-0 pointer-events-none z-0'}`}>
           <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold mb-2 block">{step.tag}</span>
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6 pr-4 leading-tight">{step.title}</h2>
+          <h2 class="text-2xl md:text-3xl font-bold text-white keep-white mb-4 sm:mb-6 pr-4 leading-tight">{step.title}</h2>
 
           {step.type === "text" && (
             <>
@@ -260,18 +259,18 @@ const gradientStyle = isRadial
                 name={step.nameAttr} 
                 required={step.required} 
                 placeholder={step.placeholder} 
-                class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-xl md:text-3xl py-2 sm:py-3 outline-none text-white transition-colors" 
+                class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-xl md:text-3xl py-2 sm:py-3 outline-none text-white keep-white transition-colors placeholder:text-neutral-500" 
               />
-              {step.nameAttr === 'name' && <p class="text-xs text-neutral-500 mt-3 font-mono hidden sm:block">Press ENTER or click Next</p>}
+              {step.nameAttr === 'name' && <p class="text-xs text-neutral-400 keep-white mt-3 font-mono hidden sm:block">Press ENTER or click Next</p>}
             </>
           )}
 
           {step.type === "radio" && (
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               {step.options.map((opt, optIdx) => (
-                <label class="border border-neutral-800 rounded-xl p-3 sm:p-3.5 flex items-center gap-3 cursor-pointer hover:border-amber-500/50 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-500/10 bg-neutral-900/30 transition-colors">
+                <label class="border border-neutral-800 rounded-xl p-3 sm:p-3.5 flex items-center gap-3 cursor-pointer hover:border-amber-500/50 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-500/10 bg-neutral-900/40 transition-colors">
                   <input type="radio" name="required_service" value={opt.value} required={optIdx === 0} class="accent-amber-500 w-5 h-5 flex-shrink-0" />
-                  <span class="text-sm sm:text-base text-neutral-200">{opt.label}</span>
+                  <span class="text-sm sm:text-base text-neutral-200 keep-white">{opt.label}</span>
                 </label>
               ))}
             </div>
@@ -280,7 +279,7 @@ const gradientStyle = isRadial
           {step.type === "textarea" && (
             <>
               {step.helpText && (
-                <div class="mb-4 p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/5 text-xs font-mono text-neutral-300 leading-relaxed flex items-start gap-2.5">
+                <div class="mb-4 p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/5 text-xs font-mono text-neutral-300 keep-white leading-relaxed flex items-start gap-2.5">
                   <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold text-[10px] uppercase tracking-wider shrink-0">BRIEF TIP</span>
                   <span>{step.helpText}</span>
                 </div>
@@ -290,20 +289,20 @@ const gradientStyle = isRadial
                 required={step.required} 
                 rows="3" 
                 placeholder={step.placeholder} 
-                class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-lg md:text-2xl py-2 outline-none text-white transition-colors resize-none"
+                class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-lg md:text-2xl py-2 outline-none text-white keep-white transition-colors resize-none placeholder:text-neutral-500" 
               ></textarea>
             </>
           )}
 
           {step.type === "final" && (
             <div class="space-y-4">
-              <label class="flex items-start gap-3 p-3 border border-neutral-800 rounded-xl bg-neutral-900/20 cursor-pointer hover:border-neutral-700 transition-colors">
+              <label class="flex items-start gap-3 p-3 border border-neutral-800 rounded-xl bg-neutral-900/30 cursor-pointer hover:border-neutral-700 transition-colors">
                 <input type="checkbox" name="gdpr_consent" required class="accent-amber-500 w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span class="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+                <span class="text-neutral-300 keep-white text-xs sm:text-sm leading-relaxed">
                   {step.gdprText.includes("Privacy Policy") ? (
                     <>
                       {step.gdprText.split("Privacy Policy")[0]}
-                      <a href="/privacy" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 underline underline-offset-4">Privacy Policy</a>
+                      <a href="/privacy" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 underline underline-offset-4 font-medium">Privacy Policy</a>
                       {step.gdprText.split("Privacy Policy").slice(1).join("Privacy Policy")}
                     </>
                   ) : (
@@ -316,7 +315,7 @@ const gradientStyle = isRadial
                 <div class="cf-turnstile scale-90 origin-left" data-theme="dark" data-sitekey={step.turnstileSiteKey}></div>
               )}
 
-              <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-colors shadow-xl shadow-amber-500/10 cursor-pointer">
+              <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-base transition-colors shadow-xl shadow-amber-500/20 cursor-pointer">
                 {step.submitButtonLabel}
               </button>
             </div>
@@ -326,15 +325,15 @@ const gradientStyle = isRadial
       </div>
 
       <!-- Inline Mobile-Safe Step Controls & Progress Indicator -->
-      <div class="flex items-center justify-between border-t border-neutral-900 pt-6">
-        <span id="stepCounter" class="font-mono text-xs uppercase tracking-widest text-neutral-500">
+      <div class="flex items-center justify-between border-t border-white/10 pt-6">
+        <span id="stepCounter" class="font-mono text-xs uppercase tracking-widest text-neutral-400 keep-white">
           Step 01 / 0{formSteps.length}
         </span>
         <div class="flex gap-3">
           <button type="button" id="prevBtn" class="bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white px-4 py-3 rounded-xl opacity-50 cursor-not-allowed transition-all text-sm sm:text-base">
             ← Back
           </button>
-          <button type="button" id="nextBtn" class="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-6 py-3 rounded-xl transition-all text-sm sm:text-base cursor-pointer">
+          <button type="button" id="nextBtn" class="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-6 py-3 rounded-xl transition-all text-sm sm:text-base cursor-pointer shadow-lg shadow-amber-500/15">
             Next →
           </button>
         </div>
@@ -343,6 +342,40 @@ const gradientStyle = isRadial
   </div>
 </section>
 </Layout>
+
+<style>
+  /* 1. Base Stage Atmosphere: Pitch Obsidian Black (Zero gray haze) */
+  .contact-form-stage {
+    background-color: #000000;
+    background-image: linear-gradient(to bottom, #040406 0%, #000000 100%);
+  }
+
+  /* 2. Top-Edge Stage Spotlight Beam: Pure Studio White Arc Lamp */
+  .contact-spotlight-beam {
+    background: radial-gradient(
+      ellipse 55% 45% at 50% 0%, 
+      rgba(255, 255, 255, 0.16) 0%, 
+      rgba(255, 255, 255, 0.035) 40%, 
+      transparent 70%
+    );
+  }
+
+  /* -------------------------------------------------------------------------
+     SUPERNOVA GRADE ADAPTATION: Electric Neon Rose & Magenta Flare
+     ------------------------------------------------------------------------- */
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .contact-form-stage {
+    background-color: #000000 !important;
+    background-image: linear-gradient(to bottom, #06020c 0%, #000000 100%) !important;
+  }
+  :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .contact-spotlight-beam {
+    background: radial-gradient(
+      ellipse 55% 45% at 50% 0%, 
+      rgba(244, 63, 94, 0.28) 0%, 
+      rgba(139, 92, 246, 0.08) 40%, 
+      transparent 70%
+    ) !important;
+  }
+</style>
 
 <!-- Multi-Step Interactivity (Safe for View Transitions) -->
 <script>
@@ -383,6 +416,11 @@ const gradientStyle = isRadial
 
       if (stepCounter) {
         stepCounter.textContent = `Step 0${currentStep + 1} / 0${steps.length}`;
+      }
+
+      const progressBar = document.getElementById('stepProgressBar');
+      if (progressBar) {
+        progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
       }
     }
 

@@ -5,6 +5,7 @@
 // 100% Zero-JS, Semantic HTML, Theme-Aware, Dual Alternating Narrative
 // =====================================================================
 import Layout from '../layouts/Layout.astro';
+import CtaSection from '../components/CtaSection.astro';
 
 export interface CustomPageData {
   slug: string;
@@ -363,27 +364,23 @@ const section2Bullets = page.section2Bullets ?? [];
     )}
 
     <!-- ============================================================== -->
-    <!-- 4. BOTTOM CONVERSION CTA                                       -->
+    <!-- 4. BOTTOM CONVERSION CTA (Full-Bleed Architectural Atmosphere) -->
     <!-- ============================================================== -->
     {page.bottomCtaHeading && (
-      <section class="border-t border-neutral-900 py-24 sm:py-32 bg-neutral-950">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4" set:html={formatRichText(page.bottomCtaHeading)} />
-          
-          {page.bottomCtaBody && (
-            <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto font-light" set:html={formatRichText(page.bottomCtaBody)} />
-          )}
-
-          {page.bottomCtaLabel && page.bottomCtaLink && (
-            <a
-              href={page.bottomCtaLink}
-              class="inline-block bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-9 py-4 rounded-xl text-base transition-all shadow-lg shadow-amber-500/10 hover:scale-[1.02] text-center"
-            >
-              {page.bottomCtaLabel} &rarr;
-            </a>
-          )}
-        </div>
-      </section>
+      <CtaSection
+        tag="FilmEditRun Studio"
+        heading={page.bottomCtaHeading}
+        description={page.bottomCtaBody}
+        primaryButtonLabel={page.bottomCtaLabel ? `${page.bottomCtaLabel} →` : "Discuss Your Project →"}
+        primaryButtonLink={page.bottomCtaLink || "/contact"}
+        secondaryButtonLabel="Explore Selected Work"
+        secondaryButtonLink="/work"
+        trustSignals={[
+          "Cambridge & London Base",
+          "24h Response",
+          "Zero Agency Markup"
+        ]}
+      />
     )}
 
   </div>

@@ -36,7 +36,7 @@
       "description": "Cambridge studio base and London on-location field crews filming UK-wide."
     },
     {
-      "value": "Web & Social",
+      "value": "16:9 & 9:16",
       "label": "Hero Films & Social Cutdowns",
       "description": "Widescreen masters for your site alongside vertical cutdowns for social, complete with titled and untitled masters, plus subtitles."
     }
@@ -57,7 +57,7 @@
   "scaleImage": "/cambridge/stage-wide.webp",
   "bentoTag": "Services",
   "bentoHeading": "Engineered for *Impact & Engagement*.",
-  "bentoDescription": "Six modular video production disciplines designed to eliminate on-site friction, protect tight corporate deadlines, and deliver broadcast-grade films every time.",
+  "bentoDescription": "Six modular video production disciplines built for clarity and impact. From multi-camera live summit coverage to cinematic brand documentaries and rapid post-production.",
   "bentoLinkLabel": "Explore Services →",
   "bentoLinkHref": "/services",
   "service1Title": "Live Events & Conferences",

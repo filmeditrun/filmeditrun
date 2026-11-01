@@ -229,6 +229,7 @@ export const ServicesPagePartsFragmentDoc = gql`
     fragment ServicesPageParts on ServicesPage {
   __typename
   seoTitle
+  seoDescription
   headerTag
   heading
   description
@@ -379,10 +380,10 @@ export const AboutPagePartsFragmentDoc = gql`
   milestones {
     __typename
     year
-    draftLabel
-    takeNumber
     title
     description
+    draftLabel
+    takeNumber
     badge
   }
   ctaTag
@@ -404,10 +405,10 @@ export const AboutSliderPartsFragmentDoc = gql`
   slides {
     __typename
     name
+    badge
     bio
     avatar
     videoLoop
-    badge
   }
 }
     `;

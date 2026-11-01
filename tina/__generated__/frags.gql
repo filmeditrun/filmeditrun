@@ -216,6 +216,7 @@ fragment SiteSettingsParts on SiteSettings {
 fragment ServicesPageParts on ServicesPage {
   __typename
   seoTitle
+  seoDescription
   headerTag
   heading
   description
@@ -362,10 +363,10 @@ fragment AboutPageParts on AboutPage {
   milestones {
     __typename
     year
-    draftLabel
-    takeNumber
     title
     description
+    draftLabel
+    takeNumber
     badge
   }
   ctaTag
@@ -386,10 +387,10 @@ fragment AboutSliderParts on AboutSlider {
   slides {
     __typename
     name
+    badge
     bio
     avatar
     videoLoop
-    badge
   }
 }
 

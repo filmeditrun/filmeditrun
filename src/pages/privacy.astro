@@ -4,14 +4,14 @@ import privacy from '../content/pages/privacy.json';
 import seo from '../content/settings/seo.json';
 
 const studioEmail = seo.email || "contact@filmeditrun.co.uk";
-const studioPhone = seo.telephone || "+44 1223 926450";
+const studioPhone = seo.telephone?.trim() || "";
 
 const deskTag = privacy.deskTag || "Direct Data Rights & DUAA Enquiries";
 const deskTitle = privacy.deskTitle || "Need to exercise your statutory data rights?";
 const deskDescription = privacy.deskDescription || "To request access, rectification, or deletion of your project brief data, contact our Cambridge studio compliance desk directly:";
 const deskEmailLabel = privacy.deskEmailLabel || "Email Data Desk";
 const deskEmail = privacy.deskCustomEmail || studioEmail;
-const deskPhone = privacy.deskCustomPhone || studioPhone;
+const deskPhone = privacy.deskCustomPhone?.trim() || studioPhone;
 
 // Lightweight Zero-JS Markdown Formatter for Sections
 const formatMarkdown = (text: string) => {
@@ -141,12 +141,14 @@ const formatMarkdown = (text: string) => {
             <span>{deskEmailLabel}</span>
             <span aria-hidden="true">&rarr;</span>
           </a>
-          <a 
-            href={`tel:${deskPhone.replace(/\s+/g, '')}`}
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-white/20 text-neutral-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-all"
-          >
-            <span>{deskPhone}</span>
-          </a>
+          {deskPhone && (
+            <a 
+              href={`tel:${deskPhone.replace(/\s+/g, '')}`}
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-white/20 text-neutral-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-all"
+            >
+              <span>{deskPhone}</span>
+            </a>
+          )}
         </div>
       </section>
 

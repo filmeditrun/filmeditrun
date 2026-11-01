@@ -1491,6 +1491,15 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "seoDescription",
+            label: "SEO Meta Description (Optimal: 140–160 chars)",
+            description: "Concise summary for search engine snippets and social sharing",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
             name: "headerTag",
             label: "Top Amber Tagline",
             description: "e.g. Expert Production Solutions",
@@ -1791,11 +1800,11 @@ export default defineConfig({
             type: "string",
             name: "cardDisplayAs",
             label: "🔲 Bento Card Media Type",
-            description: "Choose how this card displays in the 6-service Bento Grid on /services",
+            description: "Choose how this card displays in the 6-service Bento Grid on /services and homepage carousel",
             options: [
               { label: "📸 Static Photograph / Image", value: "image" },
               { label: "🎬 Cinematic Video Loop", value: "video" },
-              { label: "🎨 Duo-Tone Gradient Background", value: "gradient" },
+              { label: "✨ Duo-Tone Studio Spotlight (Hairline & Beam)", value: "gradient" },
               { label: "⬛ Solid Background Color", value: "solid" },
             ],
           },
@@ -2494,12 +2503,12 @@ export default defineConfig({
               }),
             },
             fields: [
-              { type: "string", name: "year", label: "Year", required: true },
-              { type: "string", name: "draftLabel", label: "Draft / Script Revision Label (e.g. DRAFT 01)", required: true },
-              { type: "string", name: "takeNumber", label: "Take Number (e.g. TAKE 01)" },
+              { type: "string", name: "year", label: "Year (e.g. 2016)", required: true },
               { type: "string", name: "title", label: "Milestone Title", required: true },
-              { type: "string", name: "description", label: "Description", ui: { component: "textarea" }, required: true },
-              { type: "string", name: "badge", label: "Badge Label (Optional)" },
+              { type: "string", name: "description", label: "Milestone Story / Description", ui: { component: "textarea" }, required: true },
+              { type: "string", name: "draftLabel", label: "Draft Label (Optional Legacy)" },
+              { type: "string", name: "takeNumber", label: "Take Number (Optional Legacy)" },
+              { type: "string", name: "badge", label: "Badge Label (Optional Legacy)" },
             ],
           },
           // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
@@ -2555,7 +2564,7 @@ export default defineConfig({
       },
       {
         name: "aboutSlider",
-        label: "About: Team & Showcase Slider",
+        label: "About: Our Team & BTS Slider",
         path: "src/content/pages",
         format: "json",
         match: {
@@ -2590,20 +2599,20 @@ export default defineConfig({
           {
             type: "object",
             name: "slides",
-            label: "Slides",
-            description: "Add 1 or more showcase slides (video or image). With 1 slide, it displays as a featured showcase; with 2+ slides, it becomes an interactive slider.",
+            label: "Team & Behind The Scenes Slides",
+            description: "Manage showcase slides (photos or looping video) for crew units and behind-the-scenes equipment setups.",
             list: true,
             ui: {
               itemProps: (item) => ({
-                label: item?.name || "Slide",
+                label: `${item?.badge ? `[${item.badge}] ` : ""}${item?.name || "Slide"}`,
               }),
             },
             fields: [
               { type: "string", name: "name", label: "Title / Unit Name", required: true },
-              { type: "string", name: "bio", label: "Short Note / Scope (Optional)", ui: { component: "textarea" } },
-              { type: "image", name: "avatar", label: "Still Image" },
+              { type: "string", name: "badge", label: "Category Badge (e.g. OUR TEAM, CAMERA OPS, LIVE BROADCAST)" },
+              { type: "string", name: "bio", label: "Caption / Story", ui: { component: "textarea" } },
+              { type: "image", name: "avatar", label: "Slide Image" },
               { type: "string", name: "videoLoop", label: "Video Loop URL/Path (Optional, e.g. /showreel.mp4)" },
-              { type: "string", name: "badge", label: "Custom Badge (Optional, e.g. LIVE REEL)" },
             ],
           },
         ],
@@ -3232,14 +3241,14 @@ export default defineConfig({
           {
             type: "string",
             name: "telephone",
-            label: "📞 Contact Telephone Number",
-            description: "International format (e.g. +44 1223 926450)",
+            label: "📞 Contact Telephone Number (Optional)",
+            description: "Leave empty to prevent cold calls and phone spam. Google Schema does NOT require a phone number.",
           },
           {
             type: "string",
             name: "email",
-            label: "✉️ Primary Contact Email",
-            description: "Used in Schema.org and structured business indexing",
+            label: "✉️ Primary Contact Email (Optional)",
+            description: "Optional email for Schema.org structured data. Leave empty if you only want inquiries through your contact form.",
           },
           {
             type: "string",
@@ -3308,7 +3317,7 @@ export default defineConfig({
                 name: "name",
                 label: "Profile / Platform Name",
                 required: true,
-                description: "e.g. Cambridge Network, Google Business Profile, Vimeo, GitHub",
+                description: "e.g. Cambridge Network, Google Business Profile, Vimeo, LinkedIn",
               },
               {
                 type: "string",

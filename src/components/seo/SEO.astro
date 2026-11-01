@@ -30,8 +30,8 @@ const resolvedOgImage = ogImage.startsWith("http")
 
 const siteName = siteConfig.siteName || "FilmEditRun";
 const legalName = siteConfig.legalName || siteName;
-const telephone = siteConfig.telephone || "+44 1223 926450";
-const email = siteConfig.email || "contact@filmeditrun.co.uk";
+const telephone = siteConfig.telephone?.trim() || undefined;
+const email = siteConfig.email?.trim() || undefined;
 const priceRange = siteConfig.priceRange || "££-£££";
 const locality = siteConfig.addressLocality || "Cambridge";
 const region = siteConfig.addressRegion || "Cambridgeshire";
@@ -40,11 +40,13 @@ const country = siteConfig.addressCountry || "GB";
 const mapsUrl = siteConfig.googleMapsUrl || undefined;
 
 // Dynamic sameAs profile citations array from TinaCMS
-const backlinkUrls = siteConfig.backlinkProfiles?.map((p) => p.url).filter(Boolean) || [
-  "https://www.cambridgenetwork.co.uk",
+const backlinkUrls = siteConfig.backlinkProfiles
+  ?.filter((p) => p.showInFooter !== false)
+  ?.map((p) => p.url)
+  .filter(Boolean) || [
+  "https://g.page/r/Cba1pWWqNcpWEAI",
   "https://vimeo.com/filmeditrun",
-  "https://www.linkedin.com/company/filmeditrun",
-  "https://github.com/filmeditrun"
+  "https://www.linkedin.com/company/filmeditrun"
 ];
 
 // Base Schema.org WebSite & LocalBusiness structured data
@@ -58,8 +60,8 @@ const baseBusinessSchema: Record<string, any> = {
   "logo": `${siteUrl}/logo.svg`,
   "image": resolvedOgImage,
   "description": description,
-  "telephone": telephone,
-  "email": email,
+  ...(telephone ? { "telephone": telephone } : {}),
+  ...(email ? { "email": email } : {}),
   "priceRange": priceRange,
   "address": {
     "@type": "PostalAddress",
@@ -114,6 +116,9 @@ const webpageSchema = {
 
 <!-- Canonical URL -->
 <link rel="canonical" href={currentUrl} />
+
+<!-- Primary Search Engine Meta Description -->
+<meta name="description" content={description} />
 
 <!-- Robots Indexing Control -->
 {noindex ? (

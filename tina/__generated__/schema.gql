@@ -664,6 +664,7 @@ type ServicesPageProcessSteps {
 
 type ServicesPage implements Node & Document {
   seoTitle: String!
+  seoDescription: String
   headerTag: String!
   heading: String!
   description: String!
@@ -697,6 +698,7 @@ input ServicesPageProcessStepsFilter {
 
 input ServicesPageFilter {
   seoTitle: StringFilter
+  seoDescription: StringFilter
   headerTag: StringFilter
   heading: StringFilter
   description: StringFilter
@@ -937,10 +939,10 @@ type AboutPageBtsItems {
 
 type AboutPageMilestones {
   year: String!
-  draftLabel: String!
-  takeNumber: String
   title: String!
   description: String!
+  draftLabel: String
+  takeNumber: String
   badge: String
 }
 
@@ -996,10 +998,10 @@ input AboutPageBtsItemsFilter {
 
 input AboutPageMilestonesFilter {
   year: StringFilter
-  draftLabel: StringFilter
-  takeNumber: StringFilter
   title: StringFilter
   description: StringFilter
+  draftLabel: StringFilter
+  takeNumber: StringFilter
   badge: StringFilter
 }
 
@@ -1055,10 +1057,10 @@ type AboutPageConnection implements Connection {
 
 type AboutSliderSlides {
   name: String!
+  badge: String
   bio: String
   avatar: String
   videoLoop: String
-  badge: String
 }
 
 type AboutSlider implements Node & Document {
@@ -1073,10 +1075,10 @@ type AboutSlider implements Node & Document {
 
 input AboutSliderSlidesFilter {
   name: StringFilter
+  badge: StringFilter
   bio: StringFilter
   avatar: ImageFilter
   videoLoop: StringFilter
-  badge: StringFilter
 }
 
 input AboutSliderFilter {
@@ -1817,6 +1819,7 @@ input ServicesPageProcessStepsMutation {
 
 input ServicesPageMutation {
   seoTitle: String
+  seoDescription: String
   headerTag: String
   heading: String
   description: String
@@ -1926,10 +1929,10 @@ input AboutPageBtsItemsMutation {
 
 input AboutPageMilestonesMutation {
   year: String
-  draftLabel: String
-  takeNumber: String
   title: String
   description: String
+  draftLabel: String
+  takeNumber: String
   badge: String
 }
 
@@ -1974,10 +1977,10 @@ input AboutPageMutation {
 
 input AboutSliderSlidesMutation {
   name: String
+  badge: String
   bio: String
   avatar: String
   videoLoop: String
-  badge: String
 }
 
 input AboutSliderMutation {

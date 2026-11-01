@@ -5,6 +5,7 @@
 // =====================================================================
 import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import CtaSection from '../components/CtaSection.astro';
 import servicesPage from '../content/pages/services.json';
 
 interface ServiceCard {
@@ -97,7 +98,7 @@ const gradientStyle = isRadial
 
 <Layout 
   title={servicesPage.seoTitle} 
-  description={servicesPage.description}
+  description={(servicesPage as any).seoDescription || servicesPage.description}
   fullBleed={true}
 >
   
@@ -382,57 +383,20 @@ const gradientStyle = isRadial
   <!-- ============================================================== -->
   <!-- HIGH-CONVERTING BOTTOM STUDIO COMMISSION DOCK                  -->
   <!-- ============================================================== -->
-  <section class="relative py-20 sm:py-28 overflow-hidden bg-neutral-950 border-t border-neutral-900">
-    <!-- Ambient gold glow backdrop -->
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-140 h-70 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
-
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      
-      <!-- Top Slate Tag -->
-      <div class="inline-flex items-center gap-2 mb-6">
-        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-          {ctaTag}
-        </span>
-      </div>
-
-      <!-- Headline -->
-      <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6 leading-tight">
-        {ctaHeading}
-      </h2>
-
-      <!-- Description -->
-      <p class="text-base sm:text-lg text-neutral-400 font-light leading-relaxed max-w-2xl mx-auto mb-10">
-        {ctaText}
-      </p>
-
-      <!-- Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href={ctaButtonLink}
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-mono font-bold text-sm uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-amber-500/10"
-        >
-          <span>{ctaButtonLabel}</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-
-        <a
-          href="/work"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-neutral-800 bg-neutral-900/60 text-neutral-300 font-mono text-sm tracking-wider hover:text-white hover:border-neutral-700 hover:bg-neutral-900 transition-all"
-        >
-          <span>Explore Selected Work</span>
-        </a>
-      </div>
-
-      <!-- Studio Dispatch Locations Footer -->
-      <div class="mt-12 pt-8 border-t border-neutral-900/80 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-mono text-neutral-500">
-        <span>● London Base</span>
-        <span>● Cambridge Studio</span>
-        <span>● UK-Wide & Global Dispatch</span>
-      </div>
-
-    </div>
-  </section>
+  <CtaSection
+    tag={ctaTag}
+    heading={ctaHeading}
+    description={ctaText}
+    primaryButtonLabel={`${ctaButtonLabel} →`}
+    primaryButtonLink={ctaButtonLink}
+    secondaryButtonLabel="Explore Selected Work"
+    secondaryButtonLink="/work"
+    trustSignals={[
+      "London On-Location Base",
+      "Cambridge Studio & Suites",
+      "UK-Wide & Global Dispatch"
+    ]}
+  />
 
 </Layout>
 

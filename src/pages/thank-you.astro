@@ -4,7 +4,7 @@ import thankYou from '../content/pages/thank-you.json';
 import seo from '../content/settings/seo.json';
 
 const studioEmail = seo.email || "contact@filmeditrun.co.uk";
-const studioPhone = seo.telephone || "+44 1223 926450";
+const studioPhone = seo.telephone?.trim() || "";
 
 const seoTitle = thankYou.seoTitle || "Brief Received | FilmEditRun";
 const seoDescription = thankYou.seoDescription || "Thank you for submitting your project brief. We review every brief carefully and respond with a tailored proposal within 24 hours.";
@@ -44,6 +44,7 @@ if (highlight && heading.includes(highlight)) {
 <Layout 
   title={seoTitle} 
   description={seoDescription}
+  noindex={true}
 >
   <main class="min-h-[calc(100dvh-5rem)] w-full flex items-center justify-center px-6 py-16 sm:py-24 relative overflow-hidden">
     
@@ -142,10 +143,14 @@ if (highlight && heading.includes(highlight)) {
           <a href={`mailto:${studioEmail}`} class="text-amber-500 hover:text-amber-400 underline underline-offset-4 ml-1">
             Email our desk directly
           </a>
-          <span class="mx-2 text-neutral-700">•</span>
-          <a href={`tel:${studioPhone.replace(/\s+/g, '')}`} class="text-neutral-400 hover:text-white transition-colors">
-            {studioPhone}
-          </a>
+          {studioPhone && (
+            <>
+              <span class="mx-2 text-neutral-700">•</span>
+              <a href={`tel:${studioPhone.replace(/\s+/g, '')}`} class="text-neutral-400 hover:text-white transition-colors">
+                {studioPhone}
+              </a>
+            </>
+          )}
         </p>
       </div>
 

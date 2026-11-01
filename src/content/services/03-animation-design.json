@@ -1,4 +1,5 @@
 {
+  "cloudVideoUrl": "",
   "order": "03",
   "title": "Animation & Motion Design",
   "tag": "Motion Graphics & Design",
@@ -12,13 +13,17 @@
   "heroLead": "Whether you’re explaining deep tech, unveiling new software, or launching an annual summit, motion brings clarity to what words alone can't. We design clean 2D and 3D animations, technical product explainers, and branded motion systems that help your audience immediately understand what you do and why it matters.",
   "breakdownHeading": "Clarity through movement, not visual noise.",
   "breakdownBody": "Great motion design clarifies; it doesn’t distract. Working alongside Cambridge’s tech and science clusters and London’s enterprise leaders, we translate complex architecture, data, and workflows into elegant visual sequences. From bold conference openers to modular on-screen brand toolkits, every frame is built with precision to match your brand guidelines.",
-  "displayAs": "image",
-  "localVideoPath": "/showreel.mp4",
-  "cloudVideoUrl": "https://your-link.mp4",
-  "imagePath": "/og-image.jpg",
+  "cardDisplayAs": "gradient",
+  "cardImage": "/work/handheld.webp",
+  "heroDisplayAs": "image",
+  "heroImage": "/work/handheld.webp",
+  "heroSolidColor": "#0a0a0c",
   "heroGradientDirection": "to bottom right",
   "heroGradientColor1": "#1e1b4b",
   "heroGradientColor2": "#09090b",
+  "displayAs": "image",
+  "imagePath": "/og-image.jpg",
+  "localVideoPath": "/showreel.mp4",
   "deliverables": [
     {
       "tag": "Explainers",
@@ -38,10 +43,5 @@
   ],
   "ctaHeading": "Have an idea you want to bring to life?",
   "ctaDescription": "Tell us about your product, upcoming campaign, or event graphics. We’ll discuss the creative approach, visual style, and timeline.",
-  "ctaButtonLabel": "Discuss Motion Design →",
-  "heroSolidColor": "#0a0a0c",
-  "cardDisplayAs": "image",
-  "cardImage": "/work/handheld.webp",
-  "heroDisplayAs": "image",
-  "heroImage": "/work/handheld.webp"
+  "ctaButtonLabel": "Discuss Motion Design →"
 }
