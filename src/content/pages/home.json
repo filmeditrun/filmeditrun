@@ -41,8 +41,9 @@
       "description": "Full-length masters for your website, plus captioned vertical and square cutdowns built for social feeds."
     }
   ],
-  "introHeading": "A dedicated on-location partner.",
+  "introHeading": "A dedicated *on-location partner.*",
   "introBody": "Working alongside corporate brands, event organisers, and creative agencies, we produce films that feel authentic and alive. With quiet discretion so your speakers feel at ease, we turn real energy and complex ideas into films that connect.",
+  "introImage": "/work/onlocation.webp",
   "introPrimaryLinkLabel": "",
   "introPrimaryLinkHref": "",
   "introSecondaryLinkLabel": "",

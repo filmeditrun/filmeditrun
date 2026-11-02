@@ -161,6 +161,7 @@ type Homepage implements Node & Document {
   expertiseList: [String]
   introHeading: String!
   introBody: String!
+  introImage: String
   introPrimaryLinkLabel: String
   introPrimaryLinkHref: String
   introSecondaryLinkLabel: String
@@ -245,6 +246,7 @@ input HomepageFilter {
   expertiseList: StringFilter
   introHeading: StringFilter
   introBody: StringFilter
+  introImage: ImageFilter
   introPrimaryLinkLabel: StringFilter
   introPrimaryLinkHref: StringFilter
   introSecondaryLinkLabel: StringFilter
@@ -1619,6 +1621,7 @@ input HomepageMutation {
   expertiseList: [String]
   introHeading: String
   introBody: String
+  introImage: String
   introPrimaryLinkLabel: String
   introPrimaryLinkHref: String
   introSecondaryLinkLabel: String

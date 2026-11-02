@@ -24,6 +24,7 @@ export const HomepagePartsFragmentDoc = gql`
   expertiseList
   introHeading
   introBody
+  introImage
   introPrimaryLinkLabel
   introPrimaryLinkHref
   introSecondaryLinkLabel

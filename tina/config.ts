@@ -238,7 +238,7 @@ export default defineConfig({
           {
             type: "string",
             name: "introHeading",
-            label: "📝 Intro Section Heading",
+            label: "📝 Intro Section Heading (Use *word* for gradient)",
             required: true,
           },
           {
@@ -249,6 +249,12 @@ export default defineConfig({
               component: "textarea",
             },
             required: true,
+          },
+          {
+            type: "image",
+            name: "introImage",
+            label: "Intro Background Image (Parallax)",
+            description: "Default: /work/onlocation.webp",
           },
           {
             type: "string",

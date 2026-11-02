@@ -229,7 +229,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "introHeading",
-            label: "\u{1F4DD} Intro Section Heading",
+            label: "\u{1F4DD} Intro Section Heading (Use *word* for gradient)",
             required: true
           },
           {
@@ -240,6 +240,12 @@ var config_default = defineConfig({
               component: "textarea"
             },
             required: true
+          },
+          {
+            type: "image",
+            name: "introImage",
+            label: "Intro Background Image (Parallax)",
+            description: "Default: /work/onlocation.webp"
           },
           {
             type: "string",

@@ -159,15 +159,28 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
     </div>
   </section>
 
-  <!-- Fading Cinematic Divider -->
-  <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-30"></div>
+  <!-- ================================================================= -->
+  <!-- 2. STUDIO MANIFESTO (Full-Bleed Parallax Immersion)               -->
+  <!-- ================================================================= -->
+  <section 
+    data-cinema-darkroom
+    class="relative w-full py-20 sm:py-28 lg:py-36 bg-scroll lg:bg-fixed bg-center bg-cover select-none text-white overflow-hidden border-b border-line" 
+    style={`background-image: url('${(home as any).introImage || "/work/onlocation.webp"}');`}
+  >
+    <!-- Dark Cinema Scrim Overlay -->
+    <div class="absolute inset-0 bg-black/75 pointer-events-none" aria-hidden="true"></div>
 
-  <!-- Brief Introduction Section -->
-  <section class="max-w-5xl mx-auto px-6 py-20 sm:py-28 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-6">{home.introHeading}</h2>
-    <p class="text-neutral-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-      {home.introBody}
-    </p>
+    <!-- Centered Content (Protected Cinema Darkroom: Pure White in All Grades) -->
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center bg-transparent">
+      <h2 
+        class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-6 keep-white" 
+        set:html={parseHeading(home.introHeading || "A dedicated *on-location partner.*")} 
+      />
+
+      <p class="text-neutral-200 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed keep-white">
+        {home.introBody}
+      </p>
+    </div>
   </section>
 
   <!-- ================================================================= -->

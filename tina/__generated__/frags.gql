@@ -16,6 +16,7 @@ fragment HomepageParts on Homepage {
   expertiseList
   introHeading
   introBody
+  introImage
   introPrimaryLinkLabel
   introPrimaryLinkHref
   introSecondaryLinkLabel
