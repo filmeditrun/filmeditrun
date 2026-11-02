@@ -300,6 +300,30 @@ html.theme-transitioning *::after {
   }
 }
 
+/* Animated Accent Underline for Section Headings */
+.animated-accent-underline {
+  background-image: linear-gradient(90deg, var(--color-amber-400), var(--color-amber-500), var(--color-amber-600), var(--color-amber-400));
+  background-size: 200% 3px;
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  padding-bottom: 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  animation: accent-line-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes accent-line-shimmer {
+  0% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
