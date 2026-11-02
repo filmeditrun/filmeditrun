@@ -21,9 +21,9 @@
   ],
   "telemetryMetrics": [
     {
-      "value": "100%",
-      "label": "Independent Filmmakers",
-      "description": "Direct collaboration with experienced directors and camera operators. No agency bloat or markups."
+      "value": "10+",
+      "label": "Years On-Location",
+      "description": "Over a decade of commercial filming, live conference stages, and post-production craft."
     },
     {
       "value": "48h",
@@ -37,12 +37,12 @@
     },
     {
       "value": "16:9 & 9:16",
-      "label": "Hero Films & Social Cutdowns",
-      "description": "Widescreen masters for your site alongside vertical cutdowns for social, complete with titled and untitled masters, plus subtitles."
+      "label": "Multi-Format Delivery",
+      "description": "Widescreen masters for your site alongside vertical cutdowns with subtitles for social."
     }
   ],
   "introHeading": "Grounded storytelling. Broadcast craft.",
-  "introBody": "Great video isn’t about flashy agency jargon or rigid scripts. It’s about capturing real energy, genuine voices, and clear ideas. Operating from Cambridge with agile crews on-location across London and the UK, we handle everything from multi-stage summit recordings to intimate brand documentaries and rapid post-production.",
+  "introBody": "Great video isn’t about agency jargon or rigid scripts. It’s about capturing real energy, genuine voices, and clear ideas. Operating from Cambridge with agile crews filming across London and the UK, we handle everything from multi-camera event stages to executive boardroom interviews and rapid post-production.",
   "introPrimaryLinkLabel": "Explore Our Services ➔",
   "introPrimaryLinkHref": "/services",
   "introSecondaryLinkLabel": "Cambridge Studio Hub ➔",
