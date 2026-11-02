@@ -32,10 +32,10 @@ const parseHeading = (text: string) => {
 };
 ---
 
-<section class="max-w-7xl mx-auto px-6 py-20 sm:py-28 border-t border-line" id="timeline-section">
+<section class="max-w-7xl mx-auto px-6 py-16 sm:py-24 border-t border-line" id="timeline-section">
   
   <!-- Standardized Section Header -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14 border-b border-line pb-8">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12 border-b border-line pb-6">
     <div>
       {timelineTag && (
         <div class="flex items-center gap-2 mb-3">
@@ -55,38 +55,37 @@ const parseHeading = (text: string) => {
   </div>
 
   <!-- Studio Evolution Spine & Cards -->
-  <div class="relative max-w-4xl mx-auto pt-4">
+  <div class="relative max-w-3xl mx-auto pt-2">
     
     <!-- Central/Left Spine Track -->
-    <div class="absolute left-4 sm:left-8 top-4 bottom-8 w-px bg-gradient-to-b from-amber-500 via-line to-transparent" aria-hidden="true"></div>
+    <div class="absolute left-4 sm:left-6 top-3 bottom-6 w-px bg-gradient-to-b from-amber-500 via-line to-transparent" aria-hidden="true"></div>
 
     <!-- Timeline Items -->
-    <div class="space-y-8 sm:space-y-12">
+    <div class="space-y-3.5 sm:space-y-4">
       {milestones.map((item, idx) => (
-        <div class="relative pl-12 sm:pl-20 group">
+        <div class="relative pl-10 sm:pl-16 group">
           
           <!-- Timeline Node -->
-          <div class="absolute left-4 sm:left-8 top-8 sm:top-10 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-line bg-neutral-950 group-hover:border-amber-400 group-hover:bg-amber-400/20 transition-all duration-300 flex items-center justify-center shadow-lg">
-            <span class="w-1.5 h-1.5 rounded-full bg-neutral-600 group-hover:bg-amber-400 transition-colors"></span>
+          <div class="absolute left-4 sm:left-6 top-6 sm:top-6 -translate-x-1/2 w-3.5 h-3.5 rounded-full border-2 border-line bg-neutral-950 group-hover:border-amber-400 group-hover:bg-amber-400/20 transition-all duration-300 flex items-center justify-center shadow-md">
+            <span class="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-amber-400 transition-colors"></span>
           </div>
 
-          <!-- Milestone Architectural Card -->
-          <div class="p-6 sm:p-8 rounded-2xl border border-neutral-800/80 bg-neutral-950/70 hover:bg-neutral-950/95 hover:border-amber-500/50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1 backdrop-blur-sm">
+          <!-- Milestone Compact Architectural Card -->
+          <div class="py-4 px-5 sm:py-4.5 sm:px-6 rounded-xl border border-neutral-800/80 bg-neutral-950/70 hover:bg-neutral-950/95 hover:border-amber-500/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-0.5 backdrop-blur-sm">
             
-            <!-- Year Indicator Node -->
-            <div class="mb-4">
-              <span class="text-xl sm:text-2xl font-black text-amber-400 font-mono tracking-tight group-hover:text-amber-300 transition-colors">
+            <!-- Horizontal Year & Title Row -->
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1.5">
+              <span class="text-base sm:text-lg font-black text-amber-400 font-mono tracking-tight group-hover:text-amber-300 transition-colors">
                 {item.year}
               </span>
+              <span class="text-neutral-600 text-xs font-mono select-none" aria-hidden="true">&bull;</span>
+              <h3 class="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors leading-snug">
+                {item.title}
+              </h3>
             </div>
 
-            <!-- Main Title -->
-            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-3 group-hover:text-amber-400 transition-colors leading-snug">
-              {item.title}
-            </h3>
-
-            <!-- Narrative / Description -->
-            <p class="text-neutral-400 text-sm leading-relaxed font-light">
+            <!-- Narrative / Description (Punchy 1-Liner) -->
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">
               {item.description}
             </p>
 
