@@ -254,25 +254,25 @@ export default defineConfig({
             type: "string",
             name: "introPrimaryLinkLabel",
             label: "Intro First Link Text",
-            required: true,
+            required: false,
           },
           {
             type: "string",
             name: "introPrimaryLinkHref",
             label: "Intro First Link URL",
-            required: true,
+            required: false,
           },
           {
             type: "string",
             name: "introSecondaryLinkLabel",
             label: "Intro Second Link Text",
-            required: true,
+            required: false,
           },
           {
             type: "string",
             name: "introSecondaryLinkHref",
             label: "Intro Second Link URL",
-            required: true,
+            required: false,
           },
 
           // ─── 📊 STUDIO TELEMETRY METRICS ──────────────────────────────

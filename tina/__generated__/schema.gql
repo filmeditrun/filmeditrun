@@ -161,10 +161,10 @@ type Homepage implements Node & Document {
   expertiseList: [String]
   introHeading: String!
   introBody: String!
-  introPrimaryLinkLabel: String!
-  introPrimaryLinkHref: String!
-  introSecondaryLinkLabel: String!
-  introSecondaryLinkHref: String!
+  introPrimaryLinkLabel: String
+  introPrimaryLinkHref: String
+  introSecondaryLinkLabel: String
+  introSecondaryLinkHref: String
   telemetryMetrics: [HomepageTelemetryMetrics]
   workSpotlightTag: String
   workSpotlightHeading: String
