@@ -52,49 +52,34 @@
       "aspectRatio": "4/3"
     }
   ],
-  "timelineHeading": "Studio Evolution & *Milestones*.",
-  "timelineTag": "STUDIO TIMELINE",
-  "timelineDescription": "How FilmEditRun evolved from an independent camera unit and edit suite into a full-scale cinematic production house filming across the UK.",
+  "timelineHeading": "Ten years behind the lens. *Built for today.*",
+  "timelineTag": "FILMEDITRUN // TIMELINE",
+  "timelineDescription": "A decade of on-location filming and live conference production, refined into an agile independent studio.",
   "milestones": [
     {
       "year": "2016",
-      "draftLabel": "DRAFT 01: THE COFFEE SHOP SUITE",
-      "takeNumber": "TAKE 01",
-      "title": "One Camera, Two Lenses, Boundless Caffeine",
-      "description": "FilmEditRun begins as an independent guerrilla post-production and camera unit in the UK, cutting short docs and music reels until 4 AM on single SSD arrays.",
-      "badge": "ORIGIN CUT"
+      "title": "Production Roots",
+      "description": "Independent camera and post-production work across the UK."
     },
     {
       "year": "2019",
-      "draftLabel": "BLUE REVISION: LIVE PRODUCTION BREAKTHROUGH",
-      "takeNumber": "TAKE 02",
-      "title": "Multi-Camera Live Switch Debut",
-      "description": "Engineered our first zero-latency 6-camera broadcast pipeline for high-stakes tech conferences, bridging television broadcast reliability with cinema-grade image capture.",
-      "badge": "LIVE ARENA"
+      "title": "Multi-Camera Live Stages",
+      "description": "Keynote capture and live conference summit recordings."
     },
     {
       "year": "2022",
-      "draftLabel": "PINK REVISION: CAMBRIDGE HUB",
-      "takeNumber": "TAKE 03",
-      "title": "Expanding Regional Studio Footprint",
-      "description": "Established dedicated operational presence across Cambridge's science & tech cluster and London corridor, capturing global innovation summits, biomedical symposiums, and brand launches.",
-      "badge": "EXPANSION"
+      "title": "Cambridge & London Corridors",
+      "description": "On-location filming across research campuses and London venues."
     },
     {
       "year": "2024",
-      "draftLabel": "YELLOW REVISION: FULL CINEMA ACES PIPELINE",
-      "takeNumber": "TAKE 04",
-      "title": "Zero-Compromise 4K HDR Workflows",
-      "description": "Standardized end-to-end cinema colour pipelines with 10-bit 4:2:2 ProRes master captures, wireless director feeds, and cloud-synced daily review suites for clients worldwide.",
-      "badge": "TECH REVOLUTION"
+      "title": "Compact Cinema Rigs",
+      "description": "Fast-turnaround filming and frame-accurate review."
     },
     {
       "year": "2026",
-      "draftLabel": "FINAL SHOOTING SCRIPT: THE STUDIO TODAY",
-      "takeNumber": "CURRENT TAKE",
-      "title": "500+ Projects Mastered, Ready for Roll Call",
-      "description": "A dynamic, agile collective of filmmakers, editors, and sound artists delivering commercial prestige without the sluggish bloat of traditional legacy agencies.",
-      "badge": "LATEST CUT"
+      "title": "FilmEditRun Studio",
+      "description": "A decade of craft, built for direct collaboration."
     }
   ],
   "ctaTag": "START A PROJECT",

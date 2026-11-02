@@ -1,4 +1,5 @@
 {
+  "cloudVideoUrl": "",
   "order": "05",
   "title": "Video Podcast & Vodcast Production",
   "tag": "Video Podcasts & Vodcasts",
@@ -12,13 +13,19 @@
   "heroLead": "The most compelling B2B content doesn't feel like a pitch. It feels like a genuine conversation. We bring a complete multi-camera studio directly to your boardroom, office, or event green room, capturing clean audio, cinematic lighting, and relaxed dialogue with zero travel hassle for your leadership team.",
   "breakdownHeading": "Studio-grade recording, right in your space.",
   "breakdownBody": "You don’t need to rent an expensive studio across town to record broadcast-quality video podcasts. Our crews set up quickly and discreetly in your office, turning any meeting room into an executive recording space. With dedicated multi-camera angles and broadcast microphones for every speaker, we ensure your team looks sharp, sounds natural, and stays focused on the discussion.",
-  "displayAs": "gradient",
-  "localVideoPath": "/showreel.mp4",
-  "cloudVideoUrl": "",
-  "imagePath": "/og-image.jpg",
+  "cardDisplayAs": "gradient",
+  "cardImage": "/work/handheld.webp",
+  "cardSolidColor": "#0a0a0c",
+  "heroDisplayAs": "video",
+  "heroImage": "/work/handheld.webp",
+  "heroVideoPath": "/showreel.mp4",
+  "heroSolidColor": "#0a0a0c",
   "heroGradientDirection": "radial",
   "heroGradientColor1": "#f59e0b",
   "heroGradientColor2": "#09090c",
+  "displayAs": "gradient",
+  "imagePath": "/og-image.jpg",
+  "localVideoPath": "/showreel.mp4",
   "deliverables": [
     {
       "tag": "Video Masters",
@@ -38,12 +45,5 @@
   ],
   "ctaHeading": "Planning a video podcast or interview series?",
   "ctaDescription": "Tell us about your format, episode frequency, or recording location. We’ll outline a dependable setup and provide a clear quote.",
-  "ctaButtonLabel": "Discuss Your Podcast →",
-  "heroSolidColor": "#0a0a0c",
-  "cardDisplayAs": "image",
-  "cardImage": "/work/handheld.webp",
-  "cardSolidColor": "#0a0a0c",
-  "heroDisplayAs": "video",
-  "heroVideoPath": "/showreel.mp4",
-  "heroImage": "/work/handheld.webp"
+  "ctaButtonLabel": "Discuss Your Podcast →"
 }

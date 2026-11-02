@@ -1,4 +1,5 @@
 {
+  "cloudVideoUrl": "",
   "order": "06",
   "title": "Corporate Brand & Case Study Films",
   "tag": "Brand Storytelling",
@@ -12,13 +13,18 @@
   "heroLead": "The strongest corporate films aren't corporate at all. They are human stories. Whether you’re spotlighting a major customer success, attracting top-tier engineering talent, or explaining your company's mission to investors, we capture genuine voices on location with cinema-grade cameras, lighting, and aerial drone visuals.",
   "breakdownHeading": "Grounded storytelling with cinematic polish.",
   "breakdownBody": "A great brand film requires trust before the cameras even roll. We spend time understanding your business goals and key messages, guiding non-actors to speak naturally without rigid scripts. With discreet crews, cinematic lighting, and CAA-certified 4K drone capability, we film across your offices, labs, and customer sites with minimal disruption to your daily operations.",
-  "displayAs": "local-video",
-  "localVideoPath": "/showreel.mp4",
-  "cloudVideoUrl": "",
-  "imagePath": "/og-image.jpg",
+  "cardDisplayAs": "gradient",
+  "cardImage": "/work/onlocation.webp",
+  "heroDisplayAs": "video",
+  "heroImage": "/work/onlocation.webp",
+  "heroVideoPath": "/showreel.mp4",
+  "heroSolidColor": "#0a0a0c",
   "heroGradientDirection": "to bottom right",
   "heroGradientColor1": "#1e1b4b",
   "heroGradientColor2": "#0a0a0c",
+  "displayAs": "local-video",
+  "imagePath": "/og-image.jpg",
+  "localVideoPath": "/showreel.mp4",
   "deliverables": [
     {
       "tag": "Customer Stories",
@@ -38,11 +44,5 @@
   ],
   "ctaHeading": "Ready to tell your company's story?",
   "ctaDescription": "Tell us about your brand vision, target audience, or upcoming launch. We’ll discuss the creative approach, production schedule, and provide a clear quote.",
-  "ctaButtonLabel": "Discuss Your Brand Film →",
-  "heroSolidColor": "#0a0a0c",
-  "cardDisplayAs": "image",
-  "cardImage": "/work/onlocation.webp",
-  "heroDisplayAs": "video",
-  "heroVideoPath": "/showreel.mp4",
-  "heroImage": "/work/onlocation.webp"
+  "ctaButtonLabel": "Discuss Your Brand Film →"
 }

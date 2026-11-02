@@ -1,4 +1,5 @@
 {
+  "cloudVideoUrl": "",
   "order": "04",
   "title": "Video Editing & Post-Production",
   "tag": "Creative Post-Production",
@@ -12,13 +13,18 @@
   "heroLead": "A great edit doesn’t just cut out the pauses; it builds momentum. From the moment our crews capture your interviews, live event, or brand story on location, we’re already shaping how it all comes together. By layering dynamic B-roll, custom motion graphics, and rich sound design, we turn raw footage (whether filmed by us or supplied by your team) into polished videos that look and sound brilliant across your website, keynotes, and social feeds.",
   "breakdownHeading": "Where the shoot comes to life.",
   "breakdownBody": "Every project has a pulse. The edit is where we take the energy of the day (the key insights from an interview, the atmosphere in the venue, the unscripted moments) and shape it into a story that actually connects. By pairing on-camera voices with dynamic B-roll, clean animated graphics, and thoughtful sound design, we make sure your message isn’t just seen, but understood and remembered.",
-  "displayAs": "local-video",
-  "localVideoPath": "/showreel.mp4",
-  "cloudVideoUrl": "",
-  "imagePath": "/og-image.jpg",
+  "cardDisplayAs": "gradient",
+  "cardImage": "/work/onlocation.webp",
+  "heroDisplayAs": "video",
+  "heroImage": "/work/onlocation.webp",
+  "heroVideoPath": "/showreel.mp4",
+  "heroSolidColor": "#0a0a0c",
   "heroGradientDirection": "to bottom right",
   "heroGradientColor1": "#1c1917",
   "heroGradientColor2": "#0c0a09",
+  "displayAs": "local-video",
+  "imagePath": "/og-image.jpg",
+  "localVideoPath": "/showreel.mp4",
   "deliverables": [
     {
       "tag": "Story & Pacing",
@@ -38,11 +44,5 @@
   ],
   "ctaHeading": "Have a story you want to tell?",
   "ctaDescription": "Whether you're planning an upcoming shoot with our team or have raw footage you'd like to bring to life, let’s talk through your ideas and timeline.",
-  "ctaButtonLabel": "Let's Talk Story →",
-  "heroSolidColor": "#0a0a0c",
-  "cardDisplayAs": "image",
-  "cardImage": "/work/onlocation.webp",
-  "heroDisplayAs": "video",
-  "heroVideoPath": "/showreel.mp4",
-  "heroImage": "/work/onlocation.webp"
+  "ctaButtonLabel": "Let's Talk Story →"
 }
