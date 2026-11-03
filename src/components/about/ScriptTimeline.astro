@@ -22,11 +22,11 @@ const {
   milestones = [],
 } = Astro.props;
 
-// Asterisk gradient heading parser
+// Asterisk animated accent underline heading parser
 const parseHeading = (text: string) => {
   if (!text) return "";
   if (text.includes('*')) {
-    return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">$1</span>');
+    return text.replace(/\*(.*?)\*/g, '<span class="animated-accent-underline">$1</span>');
   }
   return text;
 };
@@ -34,24 +34,22 @@ const parseHeading = (text: string) => {
 
 <section class="max-w-7xl mx-auto px-6 py-16 sm:py-24 border-t border-line" id="timeline-section">
   
-  <!-- Standardized Section Header -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12 border-b border-line pb-6">
-    <div>
-      {timelineTag && (
-        <div class="flex items-center gap-2 mb-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-            {timelineTag}
-          </span>
-        </div>
-      )}
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading(timelineHeading)} />
-      {timelineDescription && (
-        <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3 font-light leading-relaxed">
-          {timelineDescription}
-        </p>
-      )}
-    </div>
+  <!-- Centered Section Header -->
+  <div class="mb-12 sm:mb-16 border-b border-line pb-8 text-center max-w-3xl mx-auto">
+    {timelineTag && (
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+          {timelineTag}
+        </span>
+      </div>
+    )}
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeading(timelineHeading)} />
+    {timelineDescription && (
+      <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mt-3 font-light leading-relaxed mx-auto">
+        {timelineDescription}
+      </p>
+    )}
   </div>
 
   <!-- Studio Evolution Spine & Cards -->
