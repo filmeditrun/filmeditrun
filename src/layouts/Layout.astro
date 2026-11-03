@@ -116,6 +116,14 @@ const supernovaSecondary = siteConfig.supernovaSecondaryColor || "#8b5cf6";
 
     <!-- CRITICAL ADDITION: This accepts custom page schemas like the Cambridge JSON-LD -->
     <slot name="head" />
+
+    <noscript>
+      <style>
+        .animated-accent-underline {
+          background-size: 100% 3px !important;
+        }
+      </style>
+    </noscript>
   </head>
   <body class="min-h-screen bg-ink text-paper font-sans antialiased flex flex-col">
     <Header />
@@ -137,5 +145,43 @@ const supernovaSecondary = siteConfig.supernovaSecondaryColor || "#8b5cf6";
         supernovaSecondary={supernovaSecondary}
       />
     )}
+
+    <!-- ACCENT LINE DRAW CONTROLLER (Smooth left-to-right draw when scrolled into view) -->
+    <script is:inline>
+      (function () {
+        function initAccentLines() {
+          var elements = document.querySelectorAll('.animated-accent-underline:not(.is-visible)');
+          if (!elements.length) return;
+
+          if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function (entries, obs) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  obs.unobserve(entry.target);
+                }
+              });
+            }, {
+              threshold: 0.15,
+              rootMargin: '0px 0px -40px 0px'
+            });
+
+            elements.forEach(function (el) {
+              observer.observe(el);
+            });
+          } else {
+            elements.forEach(function (el) {
+              el.classList.add('is-visible');
+            });
+          }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initAccentLines);
+        } else {
+          initAccentLines();
+        }
+      })();
+    </script>
   </body>
 </html>

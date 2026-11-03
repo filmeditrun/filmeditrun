@@ -300,27 +300,26 @@ html.theme-transitioning *::after {
   }
 }
 
-/* Animated Accent Underline for Section Headings */
+/* Animated Accent Underline for Section Headings (Scroll-Triggered Draw) */
 .animated-accent-underline {
-  background-image: linear-gradient(90deg, var(--color-amber-400), var(--color-amber-500), var(--color-amber-600), var(--color-amber-400));
-  background-size: 200% 3px;
+  background-image: linear-gradient(90deg, var(--color-amber-400), var(--color-amber-500), var(--color-amber-600));
+  background-size: 0% 3px;
   background-repeat: no-repeat;
-  background-position: 0% 100%;
+  background-position: left bottom;
   padding-bottom: 6px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  animation: accent-line-shimmer 4s ease-in-out infinite;
+  transition: background-size 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
 
-@keyframes accent-line-shimmer {
-  0% {
-    background-position: 0% 100%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 100%;
+.animated-accent-underline.is-visible {
+  background-size: 100% 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-accent-underline {
+    background-size: 100% 3px !important;
+    transition: none !important;
   }
 }
 
