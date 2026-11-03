@@ -2,7 +2,7 @@
   "seoTitle": "About FilmEditRun | Video Production Cambridge & London",
   "seoDescription": "Meet FilmEditRun: an independent video production studio and post-house based in Cambridge. Filming conferences, brand stories, and podcasts across the UK.",
   "headline": "Films crafted with care, clarity, and *purpose*.",
-  "manifestoLead": "FilmEditRun was built on a simple premise: corporate and brand films should feel alive, not manufactured. Based in Cambridge with agile crews filming on-location across London and the UK, we give clients direct access to experienced filmmakers who shoot and edit your story. You get cinema-grade results with clear communication and zero agency bloat.",
+  "manifestoLead": "FilmEditRun was built on a straightforward principle: corporate and brand films should feel authentic, cinematic, and clear. Operating from our Cambridge base with agile crews on-location across London and the UK, we give clients direct access to the filmmakers who frame the shots and cut the masters. Cinema-grade production, transparent communication, and an agile workflow from first brief to delivery.",
   "manifestoQuote": "Every project deserves a dedicated filmmaker, not a conveyor belt of account handlers. We shoot with intent and cut with discipline.",
   "manifestoAuthor": "Scott Sartain | Founder & Director",
   "heroBackgroundType": "gradient",
@@ -82,13 +82,13 @@
       "description": "A decade of craft, built for direct collaboration."
     }
   ],
-  "ctaTag": "START A PROJECT",
+  "ctaTag": "",
   "ctaHeading": "Have a project or event in mind?",
-  "ctaText": "Whether you’re planning a multi-camera conference, a flagship brand film, or need fast post-production, we’re ready to help. Let’s talk through your ideas.",
+  "ctaText": "Whether you are planning a multi-camera conference, an executive brand film, or require dedicated post-production, we are ready to collaborate. Tell us about your venue, goals, or timeline.",
   "ctaButtonLabel": "Start Your Project Brief →",
   "ctaButtonLink": "/contact",
-  "ctaSecondaryButtonLabel": "Explore Work Archive",
-  "ctaSecondaryButtonLink": "/work",
+  "ctaSecondaryButtonLabel": "",
+  "ctaSecondaryButtonLink": "",
   "ctaTrustSignals": [
     "24h Response",
     "Clear, Transparent Scope",
