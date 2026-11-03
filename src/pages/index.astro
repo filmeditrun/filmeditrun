@@ -466,12 +466,12 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
       <div class="flex items-center gap-2 mb-3">
         <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
         <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-          {(home as any).hubsTag || "Dual Hubs"}
+          {(home as any).hubsTag || "Operational Locations"}
         </span>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeadingWithLine((home as any).hubsHeading || "Rooted in Cambridge. *On-location across London.*")} />
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight" set:html={parseHeadingWithLine((home as any).hubsHeading || "Based in *Cambridge.* On-location across *London.*")} />
       <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mt-3 font-light leading-relaxed">
-        {(home as any).hubsDescription || "Operating with permanent post-production suites in Cambridge and agile cinema camera field units filming on-location across London and throughout the UK."}
+        {(home as any).hubsDescription || "Operating from our Cambridge studio base, with agile field units deployed across London and nationwide. Single-source production designed for fast turnaround and seamless delivery."}
       </p>
     </div>
 
