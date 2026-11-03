@@ -41,6 +41,15 @@ const {
 
 const totalSlides = teamMembers.length;
 const hasMultipleSlides = totalSlides > 1;
+
+// Asterisk animated accent underline heading parser
+const parseHeading = (text: string) => {
+  if (!text) return "";
+  if (text.includes('*')) {
+    return text.replace(/\*(.*?)\*/g, '<span class="animated-accent-underline">$1</span>');
+  }
+  return text;
+};
 ---
 
 <section class="py-20 md:py-32 border-b border-neutral-900 bg-neutral-950" id="team-section">
@@ -54,9 +63,10 @@ const hasMultipleSlides = totalSlides > 1;
             {teamTag}
           </span>
         )}
-        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
-          {teamHeading}
-        </h2>
+        <h2 
+          class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4"
+          set:html={parseHeading(teamHeading)}
+        />
         {teamDescription && (
           <p class="text-neutral-400 text-base sm:text-lg leading-relaxed font-light">
             {teamDescription}
