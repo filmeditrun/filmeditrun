@@ -318,12 +318,16 @@ const gradientStyle = isRadial
       <div class="relative z-10 max-w-7xl mx-auto px-6">
         <!-- Section Header -->
         <div class="text-center md:text-left mb-16 sm:mb-20">
-          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold block mb-3">
-            {processTag}
-          </span>
-          <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
-            {processHeading}
-          </h2>
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+              {processTag}
+            </span>
+          </div>
+          <h2 
+            class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4"
+            set:html={parseHeading(processHeading)}
+          />
           <p class="text-neutral-400 max-w-2xl text-base sm:text-lg leading-relaxed font-light mx-auto md:mx-0">
             {processDescription}
           </p>
