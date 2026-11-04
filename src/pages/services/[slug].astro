@@ -395,14 +395,12 @@ if (service.heroTextContrast === "dark") {
       tag={service.tag || "Production Discipline"}
       heading={service.ctaHeading || "Ready to Start Your *Project*?"}
       description={service.ctaDescription || "Get in touch to discuss your project brief, timeline, and production requirements."}
-      primaryButtonLabel={`${service.ctaButtonLabel || "Start a Project Brief"} →`}
+      primaryButtonLabel={service.ctaButtonLabel?.includes("→") ? service.ctaButtonLabel : `${service.ctaButtonLabel || "Start a Project Brief"} →`}
       primaryButtonLink="/contact"
-      secondaryButtonLabel="Explore All Services"
-      secondaryButtonLink="/services"
       trustSignals={[
         "24h Proposal Turnaround",
         "Direct Filmmaker Collaboration",
-        "Cambridge & London Base"
+        "Cambridge & London Hubs"
       ]}
     />
 

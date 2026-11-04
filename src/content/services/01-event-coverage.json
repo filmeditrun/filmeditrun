@@ -4,16 +4,16 @@
   "order": "01",
   "title": "Single & Multi-Camera Event Filming",
   "tag": "Event Filming",
-  "description": "Experienced filming crews delivering a cinematic look to your corporate events, keynotes, and panel discussions with fast-turnaround highlights.",
+  "description": "Low-profile filming crews capturing corporate events, keynotes, and attendee energy with fast-turnaround highlights across Cambridge and London.",
   "slug": "event-coverage",
   "link": "/services/event-coverage",
   "seoTitle": "Event Filming & Multi-Camera Coverage | Cambridge & London",
-  "seoDescription": "Experienced filming crews delivering cinematic event video, multi-camera keynote capture, and fast-turnaround highlight reels across Cambridge and London.",
+  "seoDescription": "Single and multi-camera event filming across Cambridge and London. Full session keynote masters and fast-turnaround highlight reels ready to publish.",
   "heroTag": "Event Filming",
   "heroHeading": "Great events happen once. We make sure the *momentum* lasts.",
-  "heroLead": "From industry summits and leadership panels to company celebrations, experienced filming crews deliver a cinematic look to your event. We capture every keynote, genuine reaction, and room atmosphere on location, delivering full session recordings and fast-turnaround highlights ready to share while the buzz is still alive.",
-  "breakdownHeading": "Discreet on-location crews, cinematic results.",
-  "breakdownBody": "The best event filming captures the energy in the room without getting in the way. Our crews work discreetly with high-end cinema cameras and clean audio capture, blending into the background so your speakers and guests stay focused on the day. Whether you need a single mobile operator or a multi-camera setup for main-stage talks, we deliver a calm, dependable service from initial brief to final delivery.",
+  "heroLead": "From industry summits and executive panels to company celebrations, great live events only happen once. We deploy low-profile crews to record every keynote, attendee reaction, and room atmosphere on location—delivering full session masters and fast-turnaround social highlights ready to publish while the momentum is alive.",
+  "breakdownHeading": "Discreet on-location crews, polished results.",
+  "breakdownBody": "The best event filming captures the energy in the room without getting in the way. Our crews work quietly with low-profile camera setups and clean audio feeds, blending into the background so your speakers and guests stay focused on the day. Whether you need a single mobile operator or multi-camera coverage for main-stage talks, we deliver a calm, dependable service from initial brief to final delivery.",
   "cardDisplayAs": "gradient",
   "cardImage": "/cambridge/stage-wide.webp",
   "heroDisplayAs": "video",
@@ -34,16 +34,16 @@
     },
     {
       "tag": "Full Sessions",
-      "title": "Multi-Camera Stage & Keynote Recordings",
-      "description": "Complete, multi-cam recordings of your keynotes, fireside chats, and panel discussions, synchronized with presentation slides and clean audio for on-demand viewing across your channels."
+      "title": "Multi-Camera Keynote Recordings",
+      "description": "Complete, multi-camera recordings of your keynotes, fireside chats, and panel discussions, synchronized with presentation slide decks and clean direct audio feeds for on-demand viewing across your channels."
     },
     {
       "tag": "Interviews & B-Roll",
       "title": "Attendee Vox Pops & Atmosphere Stills",
-      "description": "On-the-floor interviews with attendees, executive soundbites, and a rich library of venue cutaways and branded details you can use across future marketing campaigns."
+      "description": "On-the-floor attendee interviews, executive soundbites, and a curated library of venue cutaways and branded details you can use across future marketing campaigns and press releases."
     }
   ],
   "ctaHeading": "Planning an upcoming event?",
-  "ctaDescription": "Tell us about your event dates, venue location, and what you’d like to capture. We’ll discuss the setup and provide a clear, straightforward quote.",
+  "ctaDescription": "Tell us about your event dates, venue location, and what you’d like to capture. We’ll outline a dependable setup and provide a clear quote.",
   "ctaButtonLabel": "Discuss Your Event →"
 }
