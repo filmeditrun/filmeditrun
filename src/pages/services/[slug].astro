@@ -108,6 +108,15 @@ const parseHeading = (text: string) => {
   return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
 };
 
+// parseHeadingWithLine: Solid Text with Animated Gradient Underline (used on in-page sections)
+const parseHeadingWithLine = (text: string) => {
+  if (!text) return "";
+  if (text.includes('*')) {
+    return text.replace(/\*(.*?)\*/g, '<span class="animated-accent-underline">$1</span>');
+  }
+  return text;
+};
+
 const defaultWatermarks = [
   "/cambridge/stage-wide.webp",
   "/work/onlocation.webp",
@@ -302,9 +311,10 @@ if (service.heroTextContrast === "dark") {
           <span class="text-xs font-mono uppercase tracking-widest text-amber-500 font-semibold block">
             {service.heroTag || service.tag || "Production Scope"}
           </span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12]">
-            {service.breakdownHeading || "Engineered for Precision & Impact."}
-          </h2>
+          <h2 
+            class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12]"
+            set:html={parseHeadingWithLine(service.breakdownHeading || "Engineered for Precision & Impact.")}
+          />
           <p class="text-neutral-300 text-base sm:text-lg leading-relaxed font-light">
             {service.breakdownBody || service.description}
           </p>
