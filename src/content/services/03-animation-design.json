@@ -10,9 +10,9 @@
   "seoDescription": "Bespoke 2D/3D motion graphics, technical product explainers, and event title sequences designed for tech, science, and corporate brands across the UK.",
   "heroTag": "Motion Graphics & Design",
   "heroHeading": "Complex ideas move faster when you *show* them.",
-  "heroLead": "Whether you’re explaining deep tech, unveiling new software, or launching an annual summit, motion brings clarity to what words alone can't. We design clean 2D and 3D animations, technical product explainers, and branded motion systems that help your audience immediately understand what you do and why it matters.",
-  "breakdownHeading": "Clarity through movement, not visual noise.",
-  "breakdownBody": "Great motion design clarifies; it doesn’t distract. Working alongside Cambridge’s tech and science clusters and London’s enterprise leaders, we translate complex architecture, data, and workflows into elegant visual sequences. From bold conference openers to modular on-screen brand toolkits, every frame is built with precision to match your brand guidelines.",
+  "heroLead": "Complex technology and abstract products move faster when your audience can see them in action. We design clean 2D and 3D animations, technical explainers, and modular motion systems that bring immediate clarity to what you do.",
+  "breakdownHeading": "Clarity through movement, *not visual noise.*",
+  "breakdownBody": "Motion should illuminate your message, not distract from it. Working with Cambridge tech hubs and London teams, we translate intricate product architecture, data, and workflows into elegant motion sequences tailored strictly to your brand guidelines.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/handheld.webp",
   "heroDisplayAs": "image",
@@ -41,7 +41,7 @@
       "description": "A modular suite of animated logo idents, lower-thirds, transitions, and title templates to keep all your ongoing video content cohesive."
     }
   ],
-  "ctaHeading": "Have an idea you want to bring to life?",
+  "ctaHeading": "Have an idea you want to bring *to life?*",
   "ctaDescription": "Tell us about your product, upcoming campaign, or event graphics. We’ll discuss the creative approach, visual style, and timeline.",
   "ctaButtonLabel": "Discuss Motion Design →"
 }
