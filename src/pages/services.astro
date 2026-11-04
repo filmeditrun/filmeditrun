@@ -77,6 +77,15 @@ const parseHeading = (text: string) => {
   return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
 };
 
+// parseHeadingWithLine: Solid Text with Animated Gradient Underline (used on in-page sections)
+const parseHeadingWithLine = (text: string) => {
+  if (!text) return "";
+  if (text.includes('*')) {
+    return text.replace(/\*(.*?)\*/g, '<span class="animated-accent-underline">$1</span>');
+  }
+  return text;
+};
+
 const displayAs = (servicesPage as any).displayAs || "local-video";
 const isVideo = displayAs === "video" || displayAs === "local-video";
 const isImage = displayAs === "image";
@@ -305,72 +314,75 @@ const gradientStyle = isRadial
   </section>
 
   <!-- ============================================================== -->
-  <!-- PRODUCTION PROCESS (HOW IT WORKS) - CONTRAST STUDIO STAGE      -->
+  <!-- PRODUCTION PROCESS (HOW IT WORKS) - 4-STAGE METHODOLOGY        -->
   <!-- ============================================================== -->
   {processSteps && processSteps.length > 0 && (
-    <section class="relative w-full py-20 sm:py-28 border-y border-neutral-800/80 bg-neutral-900/40 overflow-hidden">
-      <!-- Ambient Studio Atmosphere Mesh -->
-      <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-amber-500/5 rounded-full blur-[120px]"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(232,197,71,0.06),transparent)]"></div>
-      </div>
-
-      <div class="relative z-10 max-w-7xl mx-auto px-6">
-        <!-- Section Header -->
-        <div class="text-center md:text-left mb-16 sm:mb-20">
-          <div class="inline-flex items-center gap-2 mb-3">
+    <section class="max-w-7xl mx-auto px-6 py-20 sm:py-28">
+      
+      <!-- Section Header with Direct Timeline Briefing Button -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 sm:mb-16 border-b border-line pb-8">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
             <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
             <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
               {processTag}
             </span>
           </div>
           <h2 
-            class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4"
-            set:html={parseHeading(processHeading)}
+            class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight"
+            set:html={parseHeadingWithLine(processHeading)}
           />
-          <p class="text-neutral-400 max-w-2xl text-base sm:text-lg leading-relaxed font-light mx-auto md:mx-0">
+          <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3 font-light leading-relaxed">
             {processDescription}
           </p>
         </div>
+        <div class="shrink-0">
+          <a 
+            href="/contact" 
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 text-xs font-mono tracking-wider uppercase text-white transition-all duration-200 group shadow-lg"
+          >
+            <span>Discuss Your Timeline →</span>
+          </a>
+        </div>
+      </div>
 
-        <!-- Horizontal Timeline Rail (Clean Nodes - No Timecodes) -->
-        <div class="relative">
-          <!-- Connecting Rail Line (Desktop: Horizontal) -->
-          <div 
-            class="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-gradient-to-r from-neutral-800 via-amber-500/40 to-neutral-800 z-0 pointer-events-none" 
-            aria-hidden="true"
-          />
+      <!-- Horizontal Timeline Rail (Clean Nodes - No Timecodes) -->
+      <div class="relative">
+        <!-- Connecting Rail Line (Desktop: Horizontal) -->
+        <div 
+          class="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-gradient-to-r from-neutral-800 via-amber-500/40 to-neutral-800 z-0 pointer-events-none" 
+          aria-hidden="true"
+        />
 
-          <!-- Step Grid (1 col mobile, 2 cols tablet, 4 cols desktop) -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 relative z-10">
-            {processSteps.map((step) => (
-              <div class="group relative flex flex-col bg-neutral-950/70 hover:bg-neutral-950/95 border border-neutral-800/80 hover:border-amber-500/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/10 backdrop-blur-sm">
-                
-                <!-- Top Node & Stage Tag -->
-                <div class="flex items-center justify-between mb-6">
-                  <!-- Step Number Node -->
-                  <div class="w-14 h-14 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center font-mono font-bold text-amber-400 text-lg shadow-inner group-hover:border-amber-500/60 group-hover:text-amber-300 transition-all duration-300">
-                    {step.step}
-                  </div>
-
-                  <!-- Stage Category Pill -->
-                  <span class="text-[11px] uppercase tracking-wider font-mono text-neutral-400 font-medium bg-neutral-900/80 border border-neutral-800/80 px-2.5 py-1 rounded-md">
-                    {step.tag}
-                  </span>
+        <!-- Step Grid (1 col mobile, 2 cols tablet, 4 cols desktop) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 relative z-10">
+          {processSteps.map((step) => (
+            <div class="group relative flex flex-col bg-neutral-950/70 hover:bg-neutral-950/95 border border-neutral-800/80 hover:border-amber-500/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/10 backdrop-blur-sm">
+              
+              <!-- Top Node & Stage Tag -->
+              <div class="flex items-center justify-between mb-6">
+                <!-- Step Number Node -->
+                <div class="w-14 h-14 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center font-mono font-bold text-amber-400 text-lg shadow-inner group-hover:border-amber-500/60 group-hover:text-amber-300 transition-all duration-300">
+                  {step.step}
                 </div>
 
-                <!-- Step Title -->
-                <h3 class="text-lg sm:text-xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
-                  {step.title}
-                </h3>
-
-                <!-- Step Description -->
-                <p class="text-neutral-400 text-sm leading-relaxed font-light">
-                  {step.description}
-                </p>
+                <!-- Stage Category Pill -->
+                <span class="text-[11px] uppercase tracking-wider font-mono text-neutral-400 font-medium bg-neutral-900/80 border border-neutral-800/80 px-2.5 py-1 rounded-md">
+                  {step.tag}
+                </span>
               </div>
-            ))}
-          </div>
+
+              <!-- Step Title -->
+              <h3 class="text-lg sm:text-xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
+                {step.title}
+              </h3>
+
+              <!-- Step Description -->
+              <p class="text-neutral-400 text-sm leading-relaxed font-light">
+                {step.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
