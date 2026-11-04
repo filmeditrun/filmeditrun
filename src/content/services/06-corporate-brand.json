@@ -9,10 +9,10 @@
   "seoTitle": "Corporate Video Production | Cambridge & London | FilmEditRun",
   "seoDescription": "Cinematic corporate brand films, customer case studies, and company showcases filmed across Cambridge and London. Clear storytelling that drives B2B growth.",
   "heroTag": "Brand & Case Study Filming",
-  "heroHeading": "People don't buy what you do. They buy *why* it matters.",
-  "heroLead": "The strongest corporate films aren't corporate at all. They are human stories. Whether you’re spotlighting a major customer success, attracting top-tier engineering talent, or explaining your company's mission to investors, we capture genuine voices on location with cinema-grade cameras, lighting, and aerial drone visuals.",
-  "breakdownHeading": "Grounded storytelling with cinematic polish.",
-  "breakdownBody": "A great brand film requires trust before the cameras even roll. We spend time understanding your business goals and key messages, guiding non-actors to speak naturally without rigid scripts. With discreet crews, cinematic lighting, and CAA-certified 4K drone capability, we film across your offices, labs, and customer sites with minimal disruption to your daily operations.",
+  "heroHeading": "Stories that prove why your company *matters.*",
+  "heroLead": "The strongest corporate films aren't corporate at all; they are human stories. We capture authentic client voices and leadership vision on location across Cambridge and London, delivering films that build genuine commercial trust.",
+  "breakdownHeading": "Grounded storytelling, *cinematic polish.*",
+  "breakdownBody": "We guide non-actors to speak naturally without rigid scripts, turning complex business achievements into engaging narratives. Operating discreetly across your offices and research labs, our low-profile crews ensure daily operations continue without disruption.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/onlocation.webp",
   "heroDisplayAs": "video",
@@ -29,20 +29,20 @@
     {
       "tag": "Customer Stories",
       "title": "Customer Case Studies & Testimonials",
-      "description": "Compelling, interview-led stories featuring your real clients discussing the impact of your technology or service, cut with dynamic on-site cutaways and B-roll."
+      "description": "Authentic, interview-led customer stories showcasing real business impact, layered with cinematic on-site B-roll and contextual graphics to provide unshakeable proof for prospective buyers."
     },
     {
       "tag": "Brand Showcase",
       "title": "Flagship Company Brand Films",
-      "description": "High-production narrative films capturing your leadership vision, company culture, and core technology, ready for your website homepage, keynote presentations, and investor decks."
+      "description": "High-production narrative films capturing company culture, leadership vision, and technical capability, designed for your homepage, investor pitches, and keynote opening reels."
     },
     {
       "tag": "Internal & Social",
       "title": "Leadership Updates & Social Cutdowns",
-      "description": "Concise executive addresses for company-wide town halls alongside 30-to-60 second vertical cutdowns optimized to drive organic reach on LinkedIn."
+      "description": "Polished executive addresses for company-wide town halls alongside 30-to-60 second vertical cutdowns optimized to drive organic reach and recruitment on LinkedIn."
     }
   ],
-  "ctaHeading": "Ready to tell your company's story?",
+  "ctaHeading": "Ready to tell your company's *story?*",
   "ctaDescription": "Tell us about your brand vision, target audience, or upcoming launch. We’ll discuss the creative approach, production schedule, and provide a clear quote.",
   "ctaButtonLabel": "Discuss Your Brand Film →"
 }

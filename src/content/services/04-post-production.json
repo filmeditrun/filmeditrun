@@ -9,10 +9,10 @@
   "seoTitle": "Video Editing & Post-Production | Cambridge & London",
   "seoDescription": "Professional video editing, colour balancing, and audio cleanup for business, event, and promotional videos. Fast turnaround across Cambridge and London.",
   "heroTag": "Creative Post-Production",
-  "heroHeading": "*Great footage* is only half the battle. The rest happens in the *edit*.",
-  "heroLead": "A great edit doesn’t just cut out the pauses; it builds momentum. From the moment our crews capture your interviews, live event, or brand story on location, we’re already shaping how it all comes together. By layering dynamic B-roll, custom motion graphics, and rich sound design, we turn raw footage (whether filmed by us or supplied by your team) into polished videos that look and sound brilliant across your website, keynotes, and social feeds.",
-  "breakdownHeading": "Where the shoot comes to life.",
-  "breakdownBody": "Every project has a pulse. The edit is where we take the energy of the day (the key insights from an interview, the atmosphere in the venue, the unscripted moments) and shape it into a story that actually connects. By pairing on-camera voices with dynamic B-roll, clean animated graphics, and thoughtful sound design, we make sure your message isn’t just seen, but understood and remembered.",
+  "heroHeading": "Great footage is only half the battle. The story happens in the *edit.*",
+  "heroLead": "Pacing and structure turn raw footage into a compelling narrative. We assemble interviews, multi-camera angles, and contextual cutaways into focused films with custom motion graphics, balanced colour, and broadcast-level audio.",
+  "breakdownHeading": "Where raw footage becomes *a finished film.*",
+  "breakdownBody": "Whether working with rushes filmed by our crews or material supplied by your team, we find the core story. We refine dialogue, remove background noise, and grade colour to match your brand across all deliverables.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/onlocation.webp",
   "heroDisplayAs": "video",
@@ -27,22 +27,22 @@
   "localVideoPath": "/showreel.mp4",
   "deliverables": [
     {
-      "tag": "Story & Pacing",
-      "title": "Narrative Flow & B-Roll",
-      "description": "We find the thread that holds your story together. By weaving your primary dialogue with purposeful B-roll and cutaways, we create a rich, visual rhythm that keeps viewers engaged from the first second to the final frame."
+      "tag": "Story & Flow",
+      "title": "Narrative Assembly & Pacing",
+      "description": "Meticulous assembly of primary dialogue, multicam angles, and purposeful B-roll cutaways to create a natural rhythm that holds viewer attention from the first second."
     },
     {
       "tag": "Motion Design",
-      "title": "Motion Graphics & Animated Titles",
-      "description": "Graphics should clarify, not distract. We build clean animated titles, lower-thirds, and visual callouts that support your story, emphasize key takeaways, and match your brand guidelines with precision."
+      "title": "Branded Motion & On-Screen Graphics",
+      "description": "Clean animated lower-thirds, kinetic typography, slide callouts, and logo idents built to clarify complex information and align strictly with your brand guidelines."
     },
     {
-      "tag": "Sound & Delivery",
-      "title": "Sound Design & Multi-Format Delivery",
-      "description": "Audio is half the experience. We clear out background noise, level dialogue so every voice is crisp, and mix music that drives the pace, delivering polished master films alongside vertical cutdowns and captions ready for social feeds."
+      "tag": "Sound & Export",
+      "title": "Master Sound Mix & Multi-Format Delivery",
+      "description": "Dialogue cleanup, noise reduction, loudness mastering, and licensed music mixing, delivered as full-resolution master files alongside vertical 9:16 social cutdowns with burned-in captions."
     }
   ],
-  "ctaHeading": "Have a story you want to tell?",
-  "ctaDescription": "Whether you're planning an upcoming shoot with our team or have raw footage you'd like to bring to life, let’s talk through your ideas and timeline.",
-  "ctaButtonLabel": "Let's Talk Story →"
+  "ctaHeading": "Have raw footage you want to bring *to life?*",
+  "ctaDescription": "Whether you’re planning an upcoming shoot with our team or have raw rushes ready for editorial assembly, tell us about your project and timeline.",
+  "ctaButtonLabel": "Discuss Post-Production →"
 }
