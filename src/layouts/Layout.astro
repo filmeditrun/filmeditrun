@@ -122,6 +122,9 @@ const supernovaSecondary = siteConfig.supernovaSecondaryColor || "#8b5cf6";
         .animated-accent-underline {
           background-size: 100% 3px !important;
         }
+        .animated-accent-line {
+          transform: none !important;
+        }
       </style>
     </noscript>
   </head>
@@ -150,7 +153,7 @@ const supernovaSecondary = siteConfig.supernovaSecondaryColor || "#8b5cf6";
     <script is:inline>
       (function () {
         function initAccentLines() {
-          var elements = document.querySelectorAll('.animated-accent-underline:not(.is-visible)');
+          var elements = document.querySelectorAll('.animated-accent-underline:not(.is-visible), .animated-accent-line:not(.is-visible)');
           if (!elements.length) return;
 
           if ('IntersectionObserver' in window) {

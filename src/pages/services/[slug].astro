@@ -299,11 +299,11 @@ if (service.heroTextContrast === "dark") {
     </header>
 
     <!-- ============================================================== -->
-    <!-- 2. APPROACH & CAPABILITIES (Sequential Editorial Flow)         -->
+    <!-- 2. APPROACH & PHILOSOPHY (Sequential Editorial Flow)           -->
     <!-- ============================================================== -->
-    <section class="max-w-6xl mx-auto px-6 py-24 sm:py-32">
+    <section class="max-w-6xl mx-auto px-6 py-20 sm:py-28">
       
-      <!-- Top Tier: Approach Narrative (Left) & Production Still (Right) -->
+      <!-- Approach Narrative (Left) & Production Still (Right) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         
         <!-- Left: Approach & Philosophy -->
@@ -338,34 +338,58 @@ if (service.heroTextContrast === "dark") {
 
       </div>
 
-      <!-- Bottom Tier: 3 Core Capabilities Row -->
-      {service.deliverables && service.deliverables.length > 0 && (
-        <div class="border-t border-white/10 pt-16 sm:pt-20 mt-16 sm:mt-24">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {service.deliverables.slice(0, 3).map((item) => (
-              <div class="space-y-3">
-                <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 3. DELIVERABLES (Architectural 3-Column Column Dividers)        -->
+    <!-- ============================================================== -->
+    {service.deliverables && service.deliverables.length > 0 && (
+      <section class="deliverables-grid-band relative w-full py-20 sm:py-28 border-y transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 relative">
+            {service.deliverables.slice(0, 3).map((item, idx) => (
+              <div class:list={[
+                "group relative space-y-3 py-8 md:py-0 transition-colors duration-200",
+                idx === 0 ? "md:pr-10 lg:pr-12 md:pl-0" : "",
+                idx === 1 ? "md:px-10 lg:px-12" : "",
+                idx === 2 ? "md:pl-10 lg:pl-12 md:pr-0" : "",
+              ]}>
+                <h3 class="deliverables-item-title text-xl sm:text-2xl font-bold tracking-tight leading-snug transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p class="text-neutral-400 text-sm sm:text-base leading-relaxed font-light">
+                <p class="deliverables-item-desc text-sm sm:text-base leading-relaxed font-light transition-colors duration-300">
                   {item.description}
                 </p>
+
+                {/* Animated Accent Divider Line (Horizontal on mobile, Vertical on desktop) */}
+                {idx < 2 && (
+                  <div class="deliverables-animated-divider" aria-hidden="true">
+                    <!-- Faint structural track for baseline architectural grid -->
+                    <div class="deliverables-divider-track"></div>
+                    <!-- Animated laser gradient line that draws smoothly on scroll -->
+                    <div 
+                      class:list={[
+                        "deliverables-divider-laser animated-accent-line",
+                        idx === 1 ? "deliverables-laser-delay" : ""
+                      ]}
+                    ></div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
-      )}
-
-    </section>
+      </section>
+    )}
 
     <!-- ============================================================== -->
-    <!-- 3. OTHER SERVICES NAVIGATION                                   -->
+    <!-- 4. OTHER SERVICES NAVIGATION                                   -->
     <!-- ============================================================== -->
-    <section class="max-w-6xl mx-auto px-6 mb-24 border-t border-white/10 pt-16">
+    <section class="max-w-6xl mx-auto px-6 pt-20 sm:pt-24 mb-24">
       <div class="flex items-center justify-between mb-8">
         <div class="flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-          <h3 class="text-xs uppercase tracking-widest font-mono text-neutral-400">Additional Disciplines</h3>
+          <h3 class="text-xs uppercase tracking-widest font-mono text-neutral-400">Additional Services</h3>
         </div>
         <a href="/services" class="text-xs font-mono uppercase tracking-widest text-amber-500 hover:text-amber-400 transition-colors">
           View All Services &rarr;
@@ -376,17 +400,14 @@ if (service.heroTextContrast === "dark") {
         {otherServices.map((other) => (
           <a
             href={other.link}
-            class="group flex flex-col justify-between p-5 rounded-xl border border-white/10 bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-amber-500/50 transition-all duration-300 shadow-md hover:-translate-y-1 min-h-[130px]"
+            class="group relative flex items-start justify-between gap-3 p-5 rounded-xl border border-line bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-amber-500/50 transition-all duration-300 shadow-md hover:-translate-y-1 h-full"
           >
-            <div>
-              <h4 class="text-sm font-bold text-white group-hover:text-amber-400 transition-colors leading-snug">
-                {other.title}
-              </h4>
-            </div>
-            <div class="pt-3 mt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-neutral-500 group-hover:text-amber-400 transition-colors">
-              <span>Explore</span>
-              <span class="group-hover:translate-x-1 transition-transform font-bold">&rarr;</span>
-            </div>
+            <h4 class="text-sm font-bold text-white group-hover:text-amber-400 transition-colors leading-snug">
+              {other.title}
+            </h4>
+            <span class="text-neutral-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all duration-200 text-sm font-bold shrink-0 mt-0.5" aria-hidden="true">
+              &rarr;
+            </span>
           </a>
         ))}
       </div>
@@ -410,4 +431,152 @@ if (service.heroTextContrast === "dark") {
 
   </div>
 </Layout>
+
+<style is:global>
+  /* -------------------------------------------------------------------------
+     DELIVERABLES SECTION GRADE ADAPTATION (Pure CSS Zero-JS)
+     ------------------------------------------------------------------------- */
+  /* Default: Dark Noir */
+  .deliverables-grid-band {
+    background-color: #0c0d14;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .deliverables-item-title {
+    color: #ffffff;
+  }
+  .deliverables-grid-band .group:hover .deliverables-item-title {
+    color: #e8c547;
+  }
+  .deliverables-item-desc {
+    color: #a3a3a3;
+  }
+  .deliverables-grid-band .group:hover .deliverables-item-desc {
+    color: #e5e5e5;
+  }
+
+  /* High-Key Light Active: Crisp White Drafting Canvas with Obsidian Typography */
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .deliverables-grid-band {
+    background-color: #ffffff !important;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px) !important;
+    background-size: 24px 24px !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .deliverables-item-title {
+    color: #09090b !important;
+  }
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .deliverables-grid-band .group:hover .deliverables-item-title {
+    color: var(--highKeyAccent, #e11d48) !important;
+  }
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .deliverables-item-desc {
+    color: #52525b !important;
+  }
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .deliverables-grid-band .group:hover .deliverables-item-desc {
+    color: #09090b !important;
+  }
+
+  /* Supernova Active: Cyber-Noir Cosmic Obsidian with Neon Accents */
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .deliverables-grid-band {
+    background-color: #0c061a !important;
+    background-image: radial-gradient(rgba(244, 63, 94, 0.08) 1px, transparent 1px) !important;
+    background-size: 24px 24px !important;
+    border-color: rgba(244, 63, 94, 0.2) !important;
+  }
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .deliverables-item-title {
+    color: #ffffff !important;
+  }
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .deliverables-grid-band .group:hover .deliverables-item-title {
+    color: var(--supernovaAccent, #f43f5e) !important;
+  }
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .deliverables-item-desc {
+    color: #c4b5fd !important;
+  }
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .deliverables-grid-band .group:hover .deliverables-item-desc {
+    color: #fdf2f8 !important;
+  }
+
+  /* -------------------------------------------------------------------------
+     ANIMATED ACCENT DIVIDER LINES (Top-to-Bottom Draw on Scroll)
+     Uses the same dynamic gradient as animated-accent-underline
+     ------------------------------------------------------------------------- */
+  .deliverables-animated-divider {
+    position: absolute;
+    pointer-events: none;
+    overflow: hidden;
+    /* Mobile: Horizontal hairline at card bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+  }
+
+  @media (min-width: 768px) {
+    .deliverables-animated-divider {
+      /* Desktop: Vertical hairline at right edge */
+      bottom: 0;
+      top: 0;
+      right: 0;
+      left: auto;
+      width: 2px;
+      height: auto;
+    }
+  }
+
+  /* Underlying structural track (Subtle guide before animation) */
+  .deliverables-divider-track {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) .deliverables-divider-track {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+  :is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked)) .deliverables-divider-track {
+    background-color: rgba(244, 63, 94, 0.15);
+  }
+
+  /* Vibrant Accent Laser Line (Draws into view) */
+  .deliverables-divider-laser {
+    position: absolute;
+    inset: 0;
+    /* Mobile: Horizontal gradient from left to right */
+    background-image: linear-gradient(90deg, var(--color-amber-400), var(--color-amber-500), var(--color-amber-600));
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+  }
+  .deliverables-divider-laser.is-visible {
+    transform: scaleX(1);
+  }
+
+  @media (min-width: 768px) {
+    .deliverables-divider-laser {
+      /* Desktop: Vertical gradient from top to bottom */
+      background-image: linear-gradient(180deg, var(--color-amber-400), var(--color-amber-500), var(--color-amber-600));
+      transform-origin: top center;
+      transform: scaleY(0);
+      transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+    }
+    .deliverables-divider-laser.is-visible {
+      transform: scaleY(1);
+    }
+    /* Stagger Line 2 slightly for an organic cascade */
+    .deliverables-laser-delay {
+      transition-delay: 0.3s;
+    }
+  }
+
+  /* Subtle brightness lift on column hover */
+  .group:hover .deliverables-divider-laser {
+    filter: brightness(1.2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .deliverables-divider-laser {
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
 
