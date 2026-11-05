@@ -52,6 +52,14 @@ const parseHeading = (text: string) => {
   return text;
 };
 
+const parseUnderlineHeading = (text: string) => {
+  if (!text) return "";
+  if (text.includes('*')) {
+    return text.replace(/\*(.*?)\*/g, '<span class="animated-accent-underline">$1</span>');
+  }
+  return text;
+};
+
 const siteUrl = "https://filmeditrun.co.uk";
 
 // Schema.org VideoObject for Google & AI Video search carousels
@@ -83,7 +91,7 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Selected Portfolio",
+      "name": "Selected Work",
       "item": `${siteUrl}/work`
     }
   ]
@@ -169,7 +177,7 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
         <!-- Studio Category Eyebrow Badge -->
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono tracking-widest text-amber-400 uppercase mb-6 backdrop-blur-sm">
           <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-          <span>{workPage.headerTag || "Selected Portfolio"}</span>
+          <span>{workPage.headerTag || "Selected Work"}</span>
         </div>
 
         <!-- Large Title with Asterisk Gradient Support -->
@@ -219,19 +227,14 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
       <section id="archive" class="max-w-7xl mx-auto px-6 pt-16 pb-24 sm:pb-32 scroll-mt-20">
       
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/10">
-        <div>
-          <div class="flex items-center gap-2 mb-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-            <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-              {workPage.archiveTag}
-            </span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white" set:html={parseHeading(workPage.archiveHeading)} />
+      <div class="pb-8 border-b border-white/10">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
+            {workPage.archiveTag}
+          </span>
         </div>
-        <p class="text-neutral-400 max-w-md text-sm sm:text-base leading-relaxed font-light">
-          {workPage.archiveDescription}
-        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white" set:html={parseUnderlineHeading(workPage.archiveHeading)} />
       </div>
 
       <!-- 1. Pure CSS Category Filter Radio Inputs (Zero-JS) -->
@@ -310,16 +313,6 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
               <!-- Darkening Hover Overlay -->
               <div class="absolute inset-0 bg-black/40 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
 
-              <!-- Top Runtime Badge (Discreet glass pill in top-right corner) -->
-              {project.runtime && (
-                <div class="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 pointer-events-none">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/10 text-[10px] font-mono tracking-wider text-neutral-300 group-hover:text-white transition-colors">
-                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                    {project.runtime}
-                  </span>
-                </div>
-              )}
-
               <!-- Dead-Center Amber Play Cue (Soft Glass Resting, Luminous Bloom on Hover) -->
               <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
                 <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-neutral-950/75 border border-white/20 backdrop-blur-md text-white flex items-center justify-center shadow-xl group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-amber-500 group-hover:border-transparent group-hover:text-neutral-950 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-amber-500/30 transition-all duration-300 ease-out">
@@ -356,7 +349,7 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
     <CtaSection
       tag="Commission a Production"
       heading="Have an upcoming shoot or *conference brief*?"
-      description="Whether you need multi-camera coverage in London, an executive brand story in Cambridge, or fast post-production turnaround, let’s talk through your dates and deliverables."
+      description="Whether you're planning multi-camera keynote coverage in London, an executive case study in Cambridge, or need rapid post-production tell us your dates and deliverables."
       primaryButtonLabel="Start Project Brief →"
       primaryButtonLink="/contact"
       secondaryButtonLabel="Explore Services & Specs"
