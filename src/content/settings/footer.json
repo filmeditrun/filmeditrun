@@ -1,9 +1,9 @@
 {
-  "studioTagline": "Independent video production studio and post-house. Single and multi-camera coverage on location across Cambridge, London, and nationwide.",
+  "studioTagline": "Independent video production studio and post-house. On-location filming and commercial editorial across Cambridge, London, and nationwide.",
   "commissionButtonLabel": "Commission a Production",
   "commissionButtonLink": "/contact",
-  "capabilitiesHeading": "Capabilities",
-  "servicesLinkLabel": "All Services & Specs →",
+  "capabilitiesHeading": "Services",
+  "servicesLinkLabel": "All Services →",
   "servicesLinkUrl": "/services",
   "studioHeading": "Studio",
   "studioLinks": [
@@ -28,15 +28,15 @@
       "href": "/privacy"
     }
   ],
-  "presenceHeading": "Presence",
+  "presenceHeading": "Locations",
   "cambridgeTitle": "Cambridge Studio",
-  "cambridgeSubtitle": "Silicon Fen, Science Parks & East",
+  "cambridgeSubtitle": "Silicon Fen & Cambridge Science Parks",
   "cambridgeLink": "/cambridge",
   "londonTitle": "London Base",
-  "londonSubtitle": "ExCeL, QEII, City & Central Venues",
+  "londonSubtitle": "Corporate HQs, Summit Stages & Central Venues",
   "londonLink": "/london",
   "worldwideTitle": "UK-Wide Deployments",
-  "worldwideSubtitle": "Agile on-location field production",
+  "worldwideSubtitle": "On-location field production nationwide",
   "directHeading": "Direct",
   "inquiriesLabel": "Project Intake",
   "inquiriesActionText": "Start a Project Brief →",
@@ -47,5 +47,5 @@
   "capturePipeline": "",
   "studioStatusLabel": "Studio Status",
   "studioStatus": "Accepting Commissions",
-  "copyrightTagline": "We Capture, Create, and Produce."
+  "copyrightTagline": "Picture, sound, and story."
 }
