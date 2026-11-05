@@ -33,6 +33,23 @@ var config_default = defineConfig({
             color-scheme: dark !important;
           }
 
+          /* 0. Root Layout & Base Canvas (Neutralize Tina's hardcoded #F6F6F9 inline styles) */
+          #root,
+          #root > div,
+          .tina-tailwind,
+          div[style*="z-index: 9999"],
+          div[style*="zIndex: 9999"],
+          div[style*="F6F6F9"],
+          div[style*="f6f6f9"],
+          div[style*="246, 246, 249"],
+          .flex.items-stretch.h-dvh,
+          .h-dvh,
+          .h-screen,
+          div.w-full.relative {
+            background-color: #0c0c0f !important;
+            background: #0c0c0f !important;
+          }
+
           /* 1. Surfaces & Form Containers */
           #root,
           main,
@@ -60,11 +77,18 @@ var config_default = defineConfig({
           nav,
           aside,
           header,
+          .py-2.w-full,
           [data-test="sidebar"],
           [class*="sidebar"],
           div.relative.left-0.w-full.h-full > div:first-child {
             background-color: #08080a !important;
             border-color: #1f1f23 !important;
+          }
+          aside a:hover,
+          nav a:hover,
+          [data-test="sidebar"] a:hover {
+            background-color: rgba(255, 255, 255, 0.06) !important;
+            color: #ffffff !important;
           }
 
           /* 4. Text Contrast & Typography */
@@ -76,13 +100,16 @@ var config_default = defineConfig({
           .text-gray-900,
           .text-gray-800,
           .text-gray-700,
+          .text-2xl.font-sans,
+          h3.text-gray-700,
+          h3.font-sans,
           [class*="text-gray-900"],
           [class*="text-gray-800"],
           [class*="text-gray-700"] {
-            color: #f4f4f5 !important;
+            color: #ffffff !important;
           }
 
-          /* Descriptions and sub-labels */
+          /* Descriptions, welcome body, and sub-labels */
           p,
           span.text-gray-600,
           span.text-gray-500,
@@ -94,6 +121,13 @@ var config_default = defineConfig({
           [class*="text-gray-500"],
           [class*="text-gray-400"] {
             color: #a1a1aa !important;
+          }
+
+          /* Welcome Screen / Dashboard Copy */
+          div.p-6 {
+            color: #a1a1aa !important;
+            max-width: 680px !important;
+            line-height: 1.6 !important;
           }
 
           /* 5. Borders & Dividers */
