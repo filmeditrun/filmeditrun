@@ -120,6 +120,7 @@ var config_default = defineConfig({
           include: "home"
         },
         ui: {
+          router: () => "/",
           allowedActions: {
             create: false,
             delete: false
@@ -247,30 +248,6 @@ var config_default = defineConfig({
             label: "Intro Background Image (Parallax)",
             description: "Default: /work/onlocation.webp"
           },
-          {
-            type: "string",
-            name: "introPrimaryLinkLabel",
-            label: "Intro First Link Text",
-            required: false
-          },
-          {
-            type: "string",
-            name: "introPrimaryLinkHref",
-            label: "Intro First Link URL",
-            required: false
-          },
-          {
-            type: "string",
-            name: "introSecondaryLinkLabel",
-            label: "Intro Second Link Text",
-            required: false
-          },
-          {
-            type: "string",
-            name: "introSecondaryLinkHref",
-            label: "Intro Second Link URL",
-            required: false
-          },
           // ─── 📊 STUDIO TELEMETRY METRICS ──────────────────────────────
           {
             type: "object",
@@ -368,60 +345,6 @@ var config_default = defineConfig({
             name: "bentoLinkHref",
             label: "Bento Grid Directory Link URL",
             description: "Default: /services"
-          },
-          {
-            type: "string",
-            name: "service1Title",
-            label: "Featured Service 1 Title",
-            description: "Default: Live Events & Conferences"
-          },
-          {
-            type: "image",
-            name: "service1Image",
-            label: "Featured Service 1 Image",
-            description: "Default: /cambridge/stage-wide.webp"
-          },
-          {
-            type: "string",
-            name: "service1Link",
-            label: "Featured Service 1 Link URL",
-            description: "Default: /services/conference-production"
-          },
-          {
-            type: "string",
-            name: "service2Title",
-            label: "Featured Service 2 Title",
-            description: "Default: Executive Interviews & Brand Films"
-          },
-          {
-            type: "image",
-            name: "service2Image",
-            label: "Featured Service 2 Image",
-            description: "Default: /work/onlocation.webp"
-          },
-          {
-            type: "string",
-            name: "service2Link",
-            label: "Featured Service 2 Link URL",
-            description: "Default: /services/corporate-brand"
-          },
-          {
-            type: "string",
-            name: "service3Title",
-            label: "Featured Service 3 Title",
-            description: "Default: Post-House & Motion Design"
-          },
-          {
-            type: "image",
-            name: "service3Image",
-            label: "Featured Service 3 Image",
-            description: "Default: /work/handheld.webp"
-          },
-          {
-            type: "string",
-            name: "service3Link",
-            label: "Featured Service 3 Link URL",
-            description: "Default: /services/post-production"
           },
           // ─── ⚡ PRODUCTION PIPELINE (STAGE 3) ─────────────────────────
           {
@@ -527,6 +450,7 @@ var config_default = defineConfig({
           include: "cambridge"
         },
         ui: {
+          router: () => "/cambridge",
           allowedActions: {
             create: false,
             delete: false
@@ -644,18 +568,6 @@ var config_default = defineConfig({
               component: "textarea"
             },
             required: true
-          },
-          {
-            type: "string",
-            name: "keyVenues",
-            label: "Key Hub Venues (Shown on Hub & Homepage)",
-            list: true
-          },
-          {
-            type: "image",
-            name: "hubImage",
-            label: "Homepage Hub Card Photo",
-            description: "Default: /cambridge/stage-wide.webp"
           },
           {
             type: "string",
@@ -800,6 +712,7 @@ var config_default = defineConfig({
           include: "london"
         },
         ui: {
+          router: () => "/london",
           allowedActions: {
             create: false,
             delete: false
@@ -920,18 +833,6 @@ var config_default = defineConfig({
               component: "textarea"
             },
             required: true
-          },
-          {
-            type: "string",
-            name: "keyVenues",
-            label: "Key Hub Venues (Shown on Hub & Homepage)",
-            list: true
-          },
-          {
-            type: "image",
-            name: "hubImage",
-            label: "Homepage Hub Card Photo",
-            description: "Default: /work/onlocation.webp"
           },
           {
             type: "string",
@@ -1072,6 +973,9 @@ var config_default = defineConfig({
         label: "Custom Pages",
         path: "src/content/pages/custom",
         format: "json",
+        ui: {
+          router: ({ document: document2 }) => `/${document2?.slug || document2?._sys?.filename || ""}`
+        },
         fields: [
           // ─── 🔍 SEO & ROUTING ──────────────────────────────────────────
           {
@@ -1086,6 +990,7 @@ var config_default = defineConfig({
             name: "seoTitle",
             label: "\u{1F50D} SEO Title (Browser Tab & Google)",
             description: "Optimal length: 50\u201360 characters",
+            isTitle: true,
             required: true
           },
           {
@@ -1389,6 +1294,7 @@ var config_default = defineConfig({
           include: "site"
         },
         ui: {
+          global: true,
           allowedActions: {
             create: false,
             delete: false
@@ -1455,6 +1361,7 @@ var config_default = defineConfig({
           include: "services"
         },
         ui: {
+          router: () => "/services",
           allowedActions: {
             create: false,
             delete: false
@@ -1667,6 +1574,10 @@ var config_default = defineConfig({
         path: "src/content/services",
         format: "json",
         ui: {
+          router: ({ document: document2 }) => {
+            const slug = document2?.slug || document2?._sys?.filename?.replace(/^\d+-/, "") || "";
+            return `/services/${slug}`;
+          },
           filename: {
             slugify: (values) => {
               const order = values?.order ? `${values.order}-` : "";
@@ -2009,6 +1920,7 @@ var config_default = defineConfig({
           include: "work"
         },
         ui: {
+          router: () => "/work",
           allowedActions: {
             create: false,
             delete: false
@@ -2071,23 +1983,9 @@ var config_default = defineConfig({
           },
           {
             type: "string",
-            name: "aspectBadge",
-            label: "Technical Aspect Badge (Optional)",
-            description: "e.g. ASPECT // 16:9",
-            required: false
-          },
-          {
-            type: "string",
             name: "videoButtonLabel",
             label: "Hero Play Button Label",
             description: "e.g. WATCH FEATURED FILM \u2794",
-            required: true
-          },
-          {
-            type: "string",
-            name: "imageButtonLabel",
-            label: "Archive Card Play Button Label",
-            description: "e.g. WATCH PROJECT REEL \u2794",
             required: true
           },
           {
@@ -2120,15 +2018,6 @@ var config_default = defineConfig({
           },
           {
             type: "string",
-            name: "archiveDescription",
-            label: "Archive Section Subtitle",
-            ui: {
-              component: "textarea"
-            },
-            required: true
-          },
-          {
-            type: "string",
             name: "filterAllLabel",
             label: "Filter 'All' Button Label",
             description: "e.g. All Productions",
@@ -2148,6 +2037,9 @@ var config_default = defineConfig({
         label: "Portfolio Projects",
         path: "src/content/projects",
         format: "json",
+        ui: {
+          router: () => "/work"
+        },
         fields: [
           // ─── 🎬 PROJECT IDENTITY ──────────────────────────────────────
           {
@@ -2237,6 +2129,7 @@ var config_default = defineConfig({
           include: "about"
         },
         ui: {
+          router: () => "/about",
           allowedActions: {
             create: false,
             delete: false
@@ -2398,52 +2291,6 @@ var config_default = defineConfig({
             name: "approachSecondaryLinkHref",
             label: "Secondary Link URL"
           },
-          // ─── 📸 BEHIND THE SCENES DARKROOM GALLERY ───────────────────
-          {
-            type: "string",
-            name: "btsHeading",
-            label: "\u{1F4F8} BTS Gallery Section Heading"
-          },
-          {
-            type: "string",
-            name: "btsTag",
-            label: "\u{1F4F8} BTS Eyebrow Tag"
-          },
-          {
-            type: "string",
-            name: "btsDescription",
-            label: "\u{1F4F8} BTS Section Description",
-            ui: {
-              component: "textarea"
-            }
-          },
-          {
-            type: "object",
-            name: "btsItems",
-            label: "\u{1F4F8} Behind the Scenes Gallery Stills",
-            list: true,
-            ui: {
-              itemProps: (item) => ({
-                label: `${item?.category || "BTS"} \u2014 ${item?.title || "Item"}`
-              })
-            },
-            fields: [
-              { type: "string", name: "title", label: "Title", required: true },
-              { type: "string", name: "category", label: "Category (e.g. CAMERA OPS, SOUND DECK)", required: true },
-              { type: "image", name: "image", label: "Image Still" },
-              { type: "string", name: "caption", label: "Caption / Story", ui: { component: "textarea" } },
-              {
-                type: "string",
-                name: "aspectRatio",
-                label: "Aspect Ratio",
-                options: [
-                  { label: "16:9 Cinema Wide", value: "16/9" },
-                  { label: "4:3 Academy Ratio", value: "4/3" },
-                  { label: "1:1 Square", value: "1/1" }
-                ]
-              }
-            ]
-          },
           // ─── ⏱️ PRODUCTION SCRIPT TIMELINE & LOG ──────────────────────
           {
             type: "string",
@@ -2543,6 +2390,7 @@ var config_default = defineConfig({
           include: "slider"
         },
         ui: {
+          router: () => "/about",
           allowedActions: {
             create: false,
             delete: false
@@ -2598,6 +2446,7 @@ var config_default = defineConfig({
           include: "contact"
         },
         ui: {
+          router: () => "/contact",
           allowedActions: {
             create: false,
             delete: false
@@ -2888,6 +2737,7 @@ var config_default = defineConfig({
           include: "thank-you"
         },
         ui: {
+          router: () => "/thank-you",
           allowedActions: {
             create: false,
             delete: false
@@ -3037,6 +2887,7 @@ var config_default = defineConfig({
           include: "privacy"
         },
         ui: {
+          router: () => "/privacy",
           allowedActions: {
             create: false,
             delete: false
@@ -3183,6 +3034,7 @@ var config_default = defineConfig({
           include: "seo"
         },
         ui: {
+          global: true,
           allowedActions: {
             create: false,
             delete: false
@@ -3308,6 +3160,7 @@ var config_default = defineConfig({
           include: "theme"
         },
         ui: {
+          global: true,
           allowedActions: {
             create: false,
             delete: false
@@ -3415,6 +3268,7 @@ var config_default = defineConfig({
           include: "footer"
         },
         ui: {
+          global: true,
           allowedActions: {
             create: false,
             delete: false
@@ -3567,25 +3421,15 @@ var config_default = defineConfig({
           },
           {
             type: "string",
-            name: "capturePipelineLabel",
-            label: "Col 4: Capture Pipeline Label",
-            description: "Default: Capture Pipeline"
-          },
-          {
-            type: "string",
-            name: "capturePipeline",
-            label: "Col 4: Capture Pipeline Specs"
-          },
-          {
-            type: "string",
             name: "studioStatusLabel",
-            label: "Col 4: Studio Status Label",
+            label: "Header Status Badge Label",
             description: "Default: Studio Status"
           },
           {
             type: "string",
             name: "studioStatus",
-            label: "Col 4: Studio Status Text"
+            label: "Header Status Badge Text",
+            description: "Default: Accepting Commissions"
           },
           // Bottom Colophon
           {

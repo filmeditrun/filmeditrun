@@ -17,10 +17,6 @@ fragment HomepageParts on Homepage {
   introHeading
   introBody
   introImage
-  introPrimaryLinkLabel
-  introPrimaryLinkHref
-  introSecondaryLinkLabel
-  introSecondaryLinkHref
   telemetryMetrics {
     __typename
     value
@@ -40,15 +36,6 @@ fragment HomepageParts on Homepage {
   bentoDescription
   bentoLinkLabel
   bentoLinkHref
-  service1Title
-  service1Image
-  service1Link
-  service2Title
-  service2Image
-  service2Link
-  service3Title
-  service3Image
-  service3Link
   pipelineTag
   pipelineHeading
   pipelineDescription
@@ -84,8 +71,6 @@ fragment CambridgePageParts on CambridgePage {
   expertiseTag
   expertiseHeading
   expertiseDescription
-  keyVenues
-  hubImage
   expertiseBullets
   cardTitle
   cardBody
@@ -128,8 +113,6 @@ fragment LondonPageParts on LondonPage {
   expertiseTag
   expertiseHeading
   expertiseDescription
-  keyVenues
-  hubImage
   expertiseBullets
   cardTitle
   cardBody
@@ -299,14 +282,11 @@ fragment WorkPageParts on WorkPage {
   description
   heroVideoPath
   heroPosterPath
-  aspectBadge
   videoButtonLabel
-  imageButtonLabel
   scrollIndicatorText
   showArchive
   archiveTag
   archiveHeading
-  archiveDescription
   filterAllLabel
   closeModalLabel
 }
@@ -347,17 +327,6 @@ fragment AboutPageParts on AboutPage {
   approachPrimaryLinkHref
   approachSecondaryLinkLabel
   approachSecondaryLinkHref
-  btsHeading
-  btsTag
-  btsDescription
-  btsItems {
-    __typename
-    title
-    category
-    image
-    caption
-    aspectRatio
-  }
   timelineHeading
   timelineTag
   timelineDescription
@@ -549,8 +518,6 @@ fragment FooterSettingsParts on FooterSettings {
   inquiriesActionLink
   productionHubLabel
   productionHub
-  capturePipelineLabel
-  capturePipeline
   studioStatusLabel
   studioStatus
   copyrightTagline

@@ -6,14 +6,11 @@
   "description": "Commercial productions, conference stages, and executive stories filmed across London, Cambridge, and nationwide.",
   "heroVideoPath": "/showreel.mp4",
   "heroPosterPath": "/og-image.jpg",
-  "aspectBadge": "ASPECT // 16:9",
   "videoButtonLabel": "Watch Featured Showreel",
-  "imageButtonLabel": "Watch Project Reel →",
-  "scrollIndicatorText": "Browse Selected Films ↓",
+  "scrollIndicatorText": "Browse Selected Films \u2193",
   "showArchive": true,
   "archiveTag": "Production Archive",
   "archiveHeading": "Explore our *work.*",
-  "archiveDescription": "",
   "filterAllLabel": "All Productions",
-  "closeModalLabel": "ESC ✕ CLOSE"
+  "closeModalLabel": "ESC \u2715 CLOSE"
 }

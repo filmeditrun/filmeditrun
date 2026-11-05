@@ -13,30 +13,24 @@
   "cloudVideoUrl": "",
   "imagePath": "/og-image.jpg",
   "expertiseTag": "Local Expertise",
-  "expertiseHeading": "Filming Across Cambridge’s Key Innovation Hubs",
+  "expertiseHeading": "Filming Across Cambridge\u2019s Key Innovation Hubs",
   "expertiseDescription": "Whether you're recording symposia across historic University of Cambridge colleges, hosting a multi-stage keynote at Cambridge Science Park, or producing executive interviews across the Cambridge Biomedical Campus, our crews work with calm discretion and a minimal footprint.",
-  "hubImage": "/cambridge/stage-wide.webp",
-  "keyVenues": [
-    "Historic University of Cambridge Colleges",
-    "Cambridge Science Park",
-    "Cambridge Biomedical Campus"
-  ],
   "expertiseBullets": [
     "Multi-camera conference & keynote capture",
     "Executive interviews & research case studies",
-    "Fast-turnaround 24–48hr event highlight reels"
+    "Fast-turnaround 24\u201348hr event highlight reels"
   ],
   "cardTitle": "Why Cambridge Brands Choose Us",
   "cardBody": "Cambridge's tech, biotech, and research teams need technical accuracy without dry presentation. Working directly with our filmmakers, you get clean audio in challenging venues, natural on-camera interviews, and polished films that connect with global partners and investors.",
-  "cardLinkLabel": "View Selected Works →",
+  "cardLinkLabel": "View Selected Works \u2192",
   "cardLinkHref": "/work",
   "lookbookTag": "Field Dispatches // Cambridge",
   "lookbookHeroImage": "/cambridge/stage-wide.webp",
-  "lookbookHeroBadge": "Cambridge Corn Exchange • Multi-Cam Keynote",
+  "lookbookHeroBadge": "Cambridge Corn Exchange \u2022 Multi-Cam Keynote",
   "lookbookDetail1Image": "/og-image.jpg",
-  "lookbookDetail1Badge": "Historic Colleges • Symposia & Panels",
+  "lookbookDetail1Badge": "Historic Colleges \u2022 Symposia & Panels",
   "lookbookDetail2Image": "/og-image.jpg",
-  "lookbookDetail2Badge": "Cambridge Biomedical Campus • Executive Interviews",
+  "lookbookDetail2Badge": "Cambridge Biomedical Campus \u2022 Executive Interviews",
   "faqHeading": "Frequently Asked Questions",
   "faqs": [
     {
@@ -53,7 +47,7 @@
     }
   ],
   "bottomCtaHeading": "Planning a shoot in *Cambridge?*",
-  "bottomCtaBody": "Tell us about your event dates, venue location, or project ideas. We’ll discuss the setup and provide a clear, straightforward quote.",
-  "bottomCtaLabel": "Discuss Your Cambridge Project →",
+  "bottomCtaBody": "Tell us about your event dates, venue location, or project ideas. We\u2019ll discuss the setup and provide a clear, straightforward quote.",
+  "bottomCtaLabel": "Discuss Your Cambridge Project \u2192",
   "bottomCtaLink": "/contact"
 }

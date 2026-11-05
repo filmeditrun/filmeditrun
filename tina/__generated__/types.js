@@ -25,10 +25,6 @@ export const HomepagePartsFragmentDoc = gql`
   introHeading
   introBody
   introImage
-  introPrimaryLinkLabel
-  introPrimaryLinkHref
-  introSecondaryLinkLabel
-  introSecondaryLinkHref
   telemetryMetrics {
     __typename
     value
@@ -48,15 +44,6 @@ export const HomepagePartsFragmentDoc = gql`
   bentoDescription
   bentoLinkLabel
   bentoLinkHref
-  service1Title
-  service1Image
-  service1Link
-  service2Title
-  service2Image
-  service2Link
-  service3Title
-  service3Image
-  service3Link
   pipelineTag
   pipelineHeading
   pipelineDescription
@@ -93,8 +80,6 @@ export const CambridgePagePartsFragmentDoc = gql`
   expertiseTag
   expertiseHeading
   expertiseDescription
-  keyVenues
-  hubImage
   expertiseBullets
   cardTitle
   cardBody
@@ -138,8 +123,6 @@ export const LondonPagePartsFragmentDoc = gql`
   expertiseTag
   expertiseHeading
   expertiseDescription
-  keyVenues
-  hubImage
   expertiseBullets
   cardTitle
   cardBody
@@ -314,14 +297,11 @@ export const WorkPagePartsFragmentDoc = gql`
   description
   heroVideoPath
   heroPosterPath
-  aspectBadge
   videoButtonLabel
-  imageButtonLabel
   scrollIndicatorText
   showArchive
   archiveTag
   archiveHeading
-  archiveDescription
   filterAllLabel
   closeModalLabel
 }
@@ -364,17 +344,6 @@ export const AboutPagePartsFragmentDoc = gql`
   approachPrimaryLinkHref
   approachSecondaryLinkLabel
   approachSecondaryLinkHref
-  btsHeading
-  btsTag
-  btsDescription
-  btsItems {
-    __typename
-    title
-    category
-    image
-    caption
-    aspectRatio
-  }
   timelineHeading
   timelineTag
   timelineDescription
@@ -573,8 +542,6 @@ export const FooterSettingsPartsFragmentDoc = gql`
   inquiriesActionLink
   productionHubLabel
   productionHub
-  capturePipelineLabel
-  capturePipeline
   studioStatusLabel
   studioStatus
   copyrightTagline

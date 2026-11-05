@@ -162,10 +162,6 @@ type Homepage implements Node & Document {
   introHeading: String!
   introBody: String!
   introImage: String
-  introPrimaryLinkLabel: String
-  introPrimaryLinkHref: String
-  introSecondaryLinkLabel: String
-  introSecondaryLinkHref: String
   telemetryMetrics: [HomepageTelemetryMetrics]
   workSpotlightTag: String
   workSpotlightHeading: String
@@ -180,15 +176,6 @@ type Homepage implements Node & Document {
   bentoDescription: String
   bentoLinkLabel: String
   bentoLinkHref: String
-  service1Title: String
-  service1Image: String
-  service1Link: String
-  service2Title: String
-  service2Image: String
-  service2Link: String
-  service3Title: String
-  service3Image: String
-  service3Link: String
   pipelineTag: String
   pipelineHeading: String
   pipelineDescription: String
@@ -247,10 +234,6 @@ input HomepageFilter {
   introHeading: StringFilter
   introBody: StringFilter
   introImage: ImageFilter
-  introPrimaryLinkLabel: StringFilter
-  introPrimaryLinkHref: StringFilter
-  introSecondaryLinkLabel: StringFilter
-  introSecondaryLinkHref: StringFilter
   telemetryMetrics: HomepageTelemetryMetricsFilter
   workSpotlightTag: StringFilter
   workSpotlightHeading: StringFilter
@@ -265,15 +248,6 @@ input HomepageFilter {
   bentoDescription: StringFilter
   bentoLinkLabel: StringFilter
   bentoLinkHref: StringFilter
-  service1Title: StringFilter
-  service1Image: ImageFilter
-  service1Link: StringFilter
-  service2Title: StringFilter
-  service2Image: ImageFilter
-  service2Link: StringFilter
-  service3Title: StringFilter
-  service3Image: ImageFilter
-  service3Link: StringFilter
   pipelineTag: StringFilter
   pipelineHeading: StringFilter
   pipelineDescription: StringFilter
@@ -324,8 +298,6 @@ type CambridgePage implements Node & Document {
   expertiseTag: String!
   expertiseHeading: String!
   expertiseDescription: String!
-  keyVenues: [String]
-  hubImage: String
   expertiseBullets: [String]
   cardTitle: String!
   cardBody: String!
@@ -371,8 +343,6 @@ input CambridgePageFilter {
   expertiseTag: StringFilter
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
-  keyVenues: StringFilter
-  hubImage: ImageFilter
   expertiseBullets: StringFilter
   cardTitle: StringFilter
   cardBody: StringFilter
@@ -426,8 +396,6 @@ type LondonPage implements Node & Document {
   expertiseTag: String!
   expertiseHeading: String!
   expertiseDescription: String!
-  keyVenues: [String]
-  hubImage: String
   expertiseBullets: [String]
   cardTitle: String!
   cardBody: String!
@@ -473,8 +441,6 @@ input LondonPageFilter {
   expertiseTag: StringFilter
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
-  keyVenues: StringFilter
-  hubImage: ImageFilter
   expertiseBullets: StringFilter
   cardTitle: StringFilter
   cardBody: StringFilter
@@ -845,14 +811,11 @@ type WorkPage implements Node & Document {
   description: String!
   heroVideoPath: String
   heroPosterPath: String
-  aspectBadge: String
   videoButtonLabel: String!
-  imageButtonLabel: String!
   scrollIndicatorText: String!
   showArchive: Boolean
   archiveTag: String!
   archiveHeading: String!
-  archiveDescription: String!
   filterAllLabel: String!
   closeModalLabel: String!
   id: ID!
@@ -868,14 +831,11 @@ input WorkPageFilter {
   description: StringFilter
   heroVideoPath: StringFilter
   heroPosterPath: ImageFilter
-  aspectBadge: StringFilter
   videoButtonLabel: StringFilter
-  imageButtonLabel: StringFilter
   scrollIndicatorText: StringFilter
   showArchive: BooleanFilter
   archiveTag: StringFilter
   archiveHeading: StringFilter
-  archiveDescription: StringFilter
   filterAllLabel: StringFilter
   closeModalLabel: StringFilter
 }
@@ -931,14 +891,6 @@ type ProjectConnection implements Connection {
   edges: [ProjectConnectionEdges]
 }
 
-type AboutPageBtsItems {
-  title: String!
-  category: String!
-  image: String
-  caption: String
-  aspectRatio: String
-}
-
 type AboutPageMilestones {
   year: String!
   title: String!
@@ -969,10 +921,6 @@ type AboutPage implements Node & Document {
   approachPrimaryLinkHref: String
   approachSecondaryLinkLabel: String
   approachSecondaryLinkHref: String
-  btsHeading: String
-  btsTag: String
-  btsDescription: String
-  btsItems: [AboutPageBtsItems]
   timelineHeading: String!
   timelineTag: String
   timelineDescription: String
@@ -988,14 +936,6 @@ type AboutPage implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input AboutPageBtsItemsFilter {
-  title: StringFilter
-  category: StringFilter
-  image: ImageFilter
-  caption: StringFilter
-  aspectRatio: StringFilter
 }
 
 input AboutPageMilestonesFilter {
@@ -1028,10 +968,6 @@ input AboutPageFilter {
   approachPrimaryLinkHref: StringFilter
   approachSecondaryLinkLabel: StringFilter
   approachSecondaryLinkHref: StringFilter
-  btsHeading: StringFilter
-  btsTag: StringFilter
-  btsDescription: StringFilter
-  btsItems: AboutPageBtsItemsFilter
   timelineHeading: StringFilter
   timelineTag: StringFilter
   timelineDescription: StringFilter
@@ -1456,8 +1392,6 @@ type FooterSettings implements Node & Document {
   inquiriesActionLink: String
   productionHubLabel: String
   productionHub: String
-  capturePipelineLabel: String
-  capturePipeline: String
   studioStatusLabel: String
   studioStatus: String
   copyrightTagline: String
@@ -1496,8 +1430,6 @@ input FooterSettingsFilter {
   inquiriesActionLink: StringFilter
   productionHubLabel: StringFilter
   productionHub: StringFilter
-  capturePipelineLabel: StringFilter
-  capturePipeline: StringFilter
   studioStatusLabel: StringFilter
   studioStatus: StringFilter
   copyrightTagline: StringFilter
@@ -1622,10 +1554,6 @@ input HomepageMutation {
   introHeading: String
   introBody: String
   introImage: String
-  introPrimaryLinkLabel: String
-  introPrimaryLinkHref: String
-  introSecondaryLinkLabel: String
-  introSecondaryLinkHref: String
   telemetryMetrics: [HomepageTelemetryMetricsMutation]
   workSpotlightTag: String
   workSpotlightHeading: String
@@ -1640,15 +1568,6 @@ input HomepageMutation {
   bentoDescription: String
   bentoLinkLabel: String
   bentoLinkHref: String
-  service1Title: String
-  service1Image: String
-  service1Link: String
-  service2Title: String
-  service2Image: String
-  service2Link: String
-  service3Title: String
-  service3Image: String
-  service3Link: String
   pipelineTag: String
   pipelineHeading: String
   pipelineDescription: String
@@ -1688,8 +1607,6 @@ input CambridgePageMutation {
   expertiseTag: String
   expertiseHeading: String
   expertiseDescription: String
-  keyVenues: [String]
-  hubImage: String
   expertiseBullets: [String]
   cardTitle: String
   cardBody: String
@@ -1732,8 +1649,6 @@ input LondonPageMutation {
   expertiseTag: String
   expertiseHeading: String
   expertiseDescription: String
-  keyVenues: [String]
-  hubImage: String
   expertiseBullets: [String]
   cardTitle: String
   cardBody: String
@@ -1897,14 +1812,11 @@ input WorkPageMutation {
   description: String
   heroVideoPath: String
   heroPosterPath: String
-  aspectBadge: String
   videoButtonLabel: String
-  imageButtonLabel: String
   scrollIndicatorText: String
   showArchive: Boolean
   archiveTag: String
   archiveHeading: String
-  archiveDescription: String
   filterAllLabel: String
   closeModalLabel: String
 }
@@ -1920,14 +1832,6 @@ input ProjectMutation {
   videoUrl: String
   thumbnail: String
   brightnessStyle: String
-}
-
-input AboutPageBtsItemsMutation {
-  title: String
-  category: String
-  image: String
-  caption: String
-  aspectRatio: String
 }
 
 input AboutPageMilestonesMutation {
@@ -1960,10 +1864,6 @@ input AboutPageMutation {
   approachPrimaryLinkHref: String
   approachSecondaryLinkLabel: String
   approachSecondaryLinkHref: String
-  btsHeading: String
-  btsTag: String
-  btsDescription: String
-  btsItems: [AboutPageBtsItemsMutation]
   timelineHeading: String
   timelineTag: String
   timelineDescription: String
@@ -2145,8 +2045,6 @@ input FooterSettingsMutation {
   inquiriesActionLink: String
   productionHubLabel: String
   productionHub: String
-  capturePipelineLabel: String
-  capturePipeline: String
   studioStatusLabel: String
   studioStatus: String
   copyrightTagline: String

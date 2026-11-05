@@ -15,43 +15,10 @@
   "approachTag": "OUR APPROACH",
   "approachHeading": "Calm leadership. *Direct collaboration.*",
   "approachBody": "With FilmEditRun, we listen to your brief, direct the narrative, and cut the story. Direct communication, honest guidance, and zero translation loss.",
-  "approachPrimaryLinkLabel": "Explore Work →",
+  "approachPrimaryLinkLabel": "Explore Work \u2192",
   "approachPrimaryLinkHref": "/work",
-  "approachSecondaryLinkLabel": "Explore Services →",
+  "approachSecondaryLinkLabel": "Explore Services \u2192",
   "approachSecondaryLinkHref": "/services",
-  "btsHeading": "Behind the Slate",
-  "btsTag": "BEHIND THE SCENES",
-  "btsDescription": "Unfiltered frames from sets, multi-camera live control rooms, and post-production suites.",
-  "btsItems": [
-    {
-      "title": "Wireless Camera Rig On Location",
-      "category": "CAMERA OPS",
-      "image": "/work/onlocation.webp",
-      "caption": "Rigged for rapid mobility during high-tempo conference coverage. Anamorphic glass, wireless video transmitter, and 12-hour continuous battery power.",
-      "aspectRatio": "16/9"
-    },
-    {
-      "title": "Multi-Cam Live Switch Deck",
-      "category": "LIVE BROADCAST",
-      "image": "/og-image.jpg",
-      "caption": "Director's multi-view monitoring 6 live SDI feeds with redundant hardware recording and instant replay triggers.",
-      "aspectRatio": "4/3"
-    },
-    {
-      "title": "Colour Timing & Mastering Suite",
-      "category": "POST-PRODUCTION",
-      "image": "/og-image.jpg",
-      "caption": "Calibrated reference monitoring in our darkroom suite, dialling in skin tones and rich cinematic contrast curves.",
-      "aspectRatio": "16/9"
-    },
-    {
-      "title": "Field Audio & Spatial Isolation",
-      "category": "SOUND DECK",
-      "image": "/og-image.jpg",
-      "caption": "Dual boom and RF wireless microphones dialed in to reject venue echo and capture crystal-clear speaker nuance.",
-      "aspectRatio": "4/3"
-    }
-  ],
   "timelineHeading": "Ten years behind the lens. *Built for today.*",
   "timelineTag": "FILMEDITRUN // TIMELINE",
   "timelineDescription": "A decade of on-location filming and live conference production, refined into an agile independent studio.",
@@ -85,7 +52,7 @@
   "ctaTag": "",
   "ctaHeading": "Have a project or event in mind?",
   "ctaText": "Whether you are planning a multi-camera conference, an executive brand film, or require dedicated post-production, we are ready to collaborate. Tell us about your venue, goals, or timeline.",
-  "ctaButtonLabel": "Start Your Project Brief →",
+  "ctaButtonLabel": "Start Your Project Brief \u2192",
   "ctaButtonLink": "/contact",
   "ctaSecondaryButtonLabel": "",
   "ctaSecondaryButtonLink": "",

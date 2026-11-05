@@ -3,7 +3,7 @@
   "commissionButtonLabel": "Commission a Production",
   "commissionButtonLink": "/contact",
   "capabilitiesHeading": "Services",
-  "servicesLinkLabel": "All Services →",
+  "servicesLinkLabel": "All Services \u2192",
   "servicesLinkUrl": "/services",
   "studioHeading": "Studio",
   "studioLinks": [
@@ -39,12 +39,10 @@
   "worldwideSubtitle": "On-location field production nationwide",
   "directHeading": "Direct",
   "inquiriesLabel": "Project Intake",
-  "inquiriesActionText": "Start a Project Brief →",
+  "inquiriesActionText": "Start a Project Brief \u2192",
   "inquiriesActionLink": "/contact",
   "productionHubLabel": "Production Hubs",
-  "productionHub": "Cambridge • London, UK",
-  "capturePipelineLabel": "",
-  "capturePipeline": "",
+  "productionHub": "Cambridge \u2022 London, UK",
   "studioStatusLabel": "Studio Status",
   "studioStatus": "Accepting Commissions",
   "copyrightTagline": "Picture, sound, and story."
