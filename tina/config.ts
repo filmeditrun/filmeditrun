@@ -71,15 +71,47 @@ export default defineConfig({
             box-sizing: border-box !important;
           }
 
-          /* Split-screen active layout overrides: form adjusts to left pane */
+          /* Universal Form Control Styling: Guaranteed dark background and crisp white text */
+          textarea,
+          input[type="text"],
+          input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+          select,
+          [data-test*="textarea"],
+          [data-slate-editor="true"],
+          .ProseMirror {
+            background-color: #ffffff !important;
+            color: #111827 !important;
+            border-color: #d1d5db !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          textarea:focus,
+          input[type="text"]:focus,
+          input:not([type="checkbox"]):not([type="radio"]):focus,
+          [data-slate-editor="true"]:focus {
+            background-color: #fbfbfb !important;
+            color: #000000 !important;
+            border-color: #3b82f6 !important;
+            outline: none !important;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4) !important;
+          }
+
+          /* Split-screen active layout overrides: strict 50vw containment so form NEVER slides under preview */
           body.tina-split-mode {
             padding-right: 50vw !important;
             box-sizing: border-box !important;
+            overflow-x: hidden !important;
           }
           body.tina-split-mode #root {
+            width: 50vw !important;
             max-width: 50vw !important;
+            overflow-x: hidden !important;
             box-sizing: border-box !important;
+            contain: layout !important;
           }
+          body.tina-split-mode [data-test^="form:"],
+          body.tina-split-mode div:has(> [data-test^="form:"]),
           body.tina-split-mode form,
           body.tina-split-mode form > div,
           body.tina-split-mode [data-test*="form"],
@@ -87,9 +119,11 @@ export default defineConfig({
           body.tina-split-mode .max-w-form,
           body.tina-split-mode div:has(> form) {
             max-width: 100% !important;
+            width: 100% !important;
             margin: 0 !important;
-            padding-left: 16px !important;
-            padding-right: 16px !important;
+            padding-left: 20px !important;
+            padding-right: 40px !important;
+            box-sizing: border-box !important;
           }
 
           /* Grade Switcher collection specifically: wider layout (1280px) */
