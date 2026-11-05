@@ -173,7 +173,7 @@ export default defineConfig({
 
           /* Eliminate bright grey background gradients and pillars */
           :root {
-            --tina-color-grey-1: #09090b !important;
+            --tina-color-grey-1: #0c0c0f !important;
             --tina-color-grey-2: #0e0e12 !important;
             --tina-color-grey-3: #121216 !important;
           }
@@ -181,22 +181,28 @@ export default defineConfig({
           .to-gray-50,
           [class*="from-gray-"],
           [class*="to-gray-"],
+          .bg-gradient-to-b,
           [class*="bg-gradient-"],
           .bg-gray-50,
           .bg-gray-100,
           .bg-white,
           div.relative.left-0.w-full.h-full {
-            background: #09090b !important;
+            background-color: #0c0c0f !important;
             background-image: none !important;
+            --tw-gradient-from: #0c0c0f !important;
+            --tw-gradient-to: #0c0c0f !important;
+            --tw-gradient-stops: #0c0c0f, #0c0c0f !important;
           }
 
-          /* Full-Screen Form: Left-justified with comfortable width */
+          /* Full-Screen Form: Wrapper fills 100% width with dark canvas; inner form is comfortably left-aligned */
+          [data-test^="form:"] {
+            width: 100% !important;
+            max-width: 100% !important;
+            background-color: #0c0c0f !important;
+          }
           body:not(.tina-split-mode) form,
           body:not(.tina-split-mode) form > div,
-          body:not(.tina-split-mode) [data-test*="form"],
           body:not(.tina-split-mode) [data-test*="form"] > div,
-          body:not(.tina-split-mode) [data-test^="form:"],
-          body:not(.tina-split-mode) [data-test^="form:"] > div,
           body:not(.tina-split-mode) .max-w-form,
           body:not(.tina-split-mode) div:has(> form) {
             max-width: 960px !important;
