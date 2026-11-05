@@ -30,10 +30,11 @@ export default defineConfig({
         const style = document.createElement("style");
         style.id = styleId;
         style.textContent = `
-          /* Deep Dark Mode for comfortable reading */
+          /* Deep Dark Mode for comfortable reading (Exact 1.0 mathematical inversion for 0 IRE black parity) */
           html {
-            filter: invert(0.92) hue-rotate(180deg);
-            background: #121212 !important;
+            filter: invert(1) hue-rotate(180deg);
+            background: #000000 !important;
+            color-scheme: dark;
           }
           /* Counter-invert media, swatches, iframes, preview cards, and preview dock so colors stay true */
           iframe:not(#tina-live-preview-iframe),
@@ -208,7 +209,7 @@ export default defineConfig({
           right: "0",
           width: "50vw",
           height: "100vh",
-          background: "#09090b",
+          background: "#0a0a0c",
           borderLeft: "2px solid #27272a",
           zIndex: "999990",
           display: "none",
@@ -253,7 +254,7 @@ export default defineConfig({
           flex: "1",
           width: "100%",
           height: "calc(100vh - 46px)",
-          background: "#000000",
+          background: "#0a0a0c",
           display: "flex",
           justifyContent: "center",
           alignItems: "stretch",
@@ -268,7 +269,7 @@ export default defineConfig({
           height: "100%",
           border: "none",
           transition: "max-width 0.25s ease",
-          background: "#050508",
+          background: "#0a0a0c",
         });
 
         frameArea.appendChild(iframe);
