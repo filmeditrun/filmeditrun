@@ -353,7 +353,7 @@
 ### The 3 Deliverables
 1. **Customer Case Studies & Testimonials** (`Customer Stories`): Authentic, interview-led customer stories showcasing real business impact, layered with cinematic on-site B-roll and contextual graphics to provide unshakeable proof for prospective buyers.
 2. **Flagship Company Brand Films** (`Brand Showcase`): High-production narrative films capturing company culture, leadership vision, and technical capability, designed for your homepage, investor pitches, and keynote opening reels.
-3. **Leadership Updates & Social Cutdowns** (`Internal & Social`): Polished executive addresses for company-wide town halls alongside 30-to-60 second vertical cutdowns optimized to drive organic reach and recruitment on LinkedIn.
+3. **Leadership Updates & Social Cutdowns** (`Internal & Social`): Polished executive addresses for company-wide town halls alongside 30-to-60 second vertical cutdowns optimised to drive organic reach and recruitment on LinkedIn.
 
 ### Bottom CTA
 * **Heading:** `Ready to tell your company's *story?*` *(with "story?" in amber gradient)*
@@ -558,7 +558,7 @@
 
 ### The 3-Phase Client Roadmap
 1. **Phase 01 // Discovery (`Review & Needs`):** We assess your target dates, creative requirements, filming locations, and turnaround expectations.
-2. **Phase 02 // Scoping (`Proposal & Quote`):** We prepare a tailored production treatment with equipment specs, crew allocation, and clear itemized costing.
+2. **Phase 02 // Scoping (`Proposal & Quote`):** We prepare a tailored production treatment with equipment specs, crew allocation, and clear itemised costing.
 3. **Phase 03 // Launch (`Calendar Lock`):** Upon approval, dates are secured in our shoot calendar and pre-production commences immediately.
 
 ### Action Buttons
