@@ -30,27 +30,145 @@ export default defineConfig({
         const style = document.createElement("style");
         style.id = styleId;
         style.textContent = `
-          /* Deep Dark Mode for comfortable reading (Exact 1.0 mathematical inversion for 0 IRE black parity) */
-          html {
-            filter: invert(1) hue-rotate(180deg);
-            background: #000000 !important;
-            color-scheme: dark;
+          /* ===================================================================
+             AUTHENTIC STUDIO DARK THEME (PURE NATIVE CSS - ZERO INVERT HACKS)
+             Deep 35mm obsidian canvas with high-legibility white text
+             =================================================================== */
+          html, body {
+            background-color: #0c0c0f !important;
+            color: #f4f4f5 !important;
+            color-scheme: dark !important;
           }
-          /* Counter-invert media, swatches, iframes, preview cards, and preview dock so colors stay true */
-          iframe:not(#tina-live-preview-iframe),
-          img,
-          video,
-          svg image,
-          .swatch-inner,
-          [class*="swatch"],
-          [class*="sketch-picker"],
-          [class*="color-picker"],
-          [class*="media-item"],
-          [data-testid="media-image"],
-          .filmeditrun-welcome-card,
-          #tina-preview-dock,
-          #tina-preview-toggle-btn {
-            filter: invert(1) hue-rotate(180deg) !important;
+
+          /* 1. Surfaces & Form Containers */
+          #root,
+          main,
+          [data-test="form"],
+          [data-test*="form:"],
+          [data-test^="form:"],
+          .bg-white,
+          .bg-gray-50,
+          .bg-gray-100,
+          .bg-gray-200,
+          .bg-gray-300,
+          [class*="bg-gray-50"],
+          [class*="bg-gray-100"],
+          div.relative.left-0.w-full.h-full {
+            background-color: #0c0c0f !important;
+          }
+
+          /* 2. Secondary Card Panels & Wrappers */
+          .shadow-inner,
+          div:has(> form) {
+            background-color: #121216 !important;
+          }
+
+          /* 3. Sidebar Navigation & Top Bar */
+          nav,
+          aside,
+          header,
+          [data-test="sidebar"],
+          [class*="sidebar"],
+          div.relative.left-0.w-full.h-full > div:first-child {
+            background-color: #08080a !important;
+            border-color: #1f1f23 !important;
+          }
+
+          /* 4. Text Contrast & Typography */
+          h1, h2, h3, h4, h5, h6,
+          label,
+          span.text-gray-900,
+          span.text-gray-800,
+          span.text-gray-700,
+          .text-gray-900,
+          .text-gray-800,
+          .text-gray-700,
+          [class*="text-gray-900"],
+          [class*="text-gray-800"],
+          [class*="text-gray-700"] {
+            color: #f4f4f5 !important;
+          }
+
+          /* Descriptions and sub-labels */
+          p,
+          span.text-gray-600,
+          span.text-gray-500,
+          span.text-gray-400,
+          .text-gray-600,
+          .text-gray-500,
+          .text-gray-400,
+          [class*="text-gray-600"],
+          [class*="text-gray-500"],
+          [class*="text-gray-400"] {
+            color: #a1a1aa !important;
+          }
+
+          /* 5. Borders & Dividers */
+          .border,
+          .border-t,
+          .border-b,
+          .border-l,
+          .border-r,
+          .border-gray-50,
+          .border-gray-100,
+          .border-gray-150,
+          .border-gray-200,
+          .border-gray-300,
+          [class*="border-gray-"] {
+            border-color: #1f1f23 !important;
+          }
+
+          /* 6. Form Controls: Deep Charcoal Box + Crisp White Text */
+          input[type="text"],
+          input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+          textarea,
+          select,
+          [data-test*="textarea"],
+          [data-slate-editor="true"],
+          .ProseMirror {
+            background-color: #16161a !important;
+            color: #ffffff !important;
+            border: 1px solid #2e2e38 !important;
+            border-radius: 6px !important;
+            padding: 10px 14px !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+          }
+
+          input[type="text"]:focus,
+          input:focus,
+          textarea:focus,
+          [data-slate-editor="true"]:focus {
+            background-color: #1c1c22 !important;
+            color: #ffffff !important;
+            border-color: #f59e0b !important;
+            outline: none !important;
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25) !important;
+          }
+
+          /* Placeholder text */
+          ::placeholder,
+          .placeholder-gray-300,
+          .placeholder-gray-400 {
+            color: #71717a !important;
+          }
+
+          /* 7. Collection List Tables */
+          table,
+          [role="table"],
+          thead,
+          tbody,
+          tr,
+          th,
+          td {
+            background-color: transparent !important;
+            border-color: #1f1f23 !important;
+            color: #f4f4f5 !important;
+          }
+          tr:hover {
+            background-color: rgba(255, 255, 255, 0.04) !important;
           }
 
           /* Standard centered form width for all document editor forms (860px) */
@@ -71,33 +189,7 @@ export default defineConfig({
             box-sizing: border-box !important;
           }
 
-          /* Universal Form Control Styling: Guaranteed dark background and crisp white text */
-          textarea,
-          input[type="text"],
-          input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
-          select,
-          [data-test*="textarea"],
-          [data-slate-editor="true"],
-          .ProseMirror {
-            background-color: #ffffff !important;
-            color: #111827 !important;
-            border-color: #d1d5db !important;
-            box-sizing: border-box !important;
-            width: 100% !important;
-            max-width: 100% !important;
-          }
-          textarea:focus,
-          input[type="text"]:focus,
-          input:not([type="checkbox"]):not([type="radio"]):focus,
-          [data-slate-editor="true"]:focus {
-            background-color: #fbfbfb !important;
-            color: #000000 !important;
-            border-color: #3b82f6 !important;
-            outline: none !important;
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4) !important;
-          }
-
-          /* Split-screen active layout overrides: strict 50vw containment so form NEVER slides under preview */
+          /* Split-screen active layout overrides: form adjusts cleanly to left 50vw */
           body.tina-split-mode {
             padding-right: 50vw !important;
             box-sizing: border-box !important;
@@ -108,7 +200,6 @@ export default defineConfig({
             max-width: 50vw !important;
             overflow-x: hidden !important;
             box-sizing: border-box !important;
-            contain: layout !important;
           }
           body.tina-split-mode [data-test^="form:"],
           body.tina-split-mode div:has(> [data-test^="form:"]),
@@ -121,8 +212,8 @@ export default defineConfig({
             max-width: 100% !important;
             width: 100% !important;
             margin: 0 !important;
-            padding-left: 20px !important;
-            padding-right: 40px !important;
+            padding-left: 16px !important;
+            padding-right: 36px !important;
             box-sizing: border-box !important;
           }
 
