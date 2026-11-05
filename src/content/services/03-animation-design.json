@@ -15,6 +15,8 @@
   "breakdownBody": "Motion should illuminate your message, not distract from it. Working with Cambridge tech hubs and London teams, we translate intricate product architecture, data, and workflows into elegant motion sequences tailored strictly to your brand guidelines.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/handheld.webp",
+  "cardSolidColor": "",
+  "cardGradientColor1": "",
   "heroDisplayAs": "image",
   "heroImage": "/work/handheld.webp",
   "heroSolidColor": "#0a0a0c",

@@ -6,7 +6,7 @@
   "description": "Tell us about your upcoming dates, venue location, or visual goals. We deliver a clear technical production scope and transparent quote within 24 hours.",
   "trustSignals": [
     "24-Hour Scope Response",
-    "Collaborate with us",
+    "Direct Filmmaker Collaboration",
     "Draft & AI Briefs Welcome",
     "Cambridge & London Hubs"
   ],
@@ -21,10 +21,10 @@
   "redirectUrl": "/thank-you",
   "enableTurnstile": false,
   "turnstileSiteKey": "",
-  "step1Tag": "01 ➔ Introduce Yourself",
+  "step1Tag": "01 // Introduce Yourself",
   "step1Title": "What is your first and surname? *",
   "step1Placeholder": "Type your full name here...",
-  "step2Tag": "02 ➔ Project Requirement",
+  "step2Tag": "02 // Project Requirement",
   "step2Title": "What service do you need? *",
   "serviceOptions": [
     {
@@ -32,34 +32,34 @@
       "value": "Single & Multi-Camera Event Filming"
     },
     {
-      "label": "Corporate & Conference Production",
-      "value": "Corporate & Conference Production"
+      "label": "Conference Video Production",
+      "value": "Conference Video Production"
     },
     {
-      "label": "Animation & Motion Design",
-      "value": "Animation & Motion Design"
+      "label": "2D & 3D Animation & Motion Design",
+      "value": "2D & 3D Animation & Motion Design"
     },
     {
-      "label": "Commercial & Narrative Video Editing",
-      "value": "Commercial & Narrative Video Editing"
+      "label": "Video Editing & Post-Production",
+      "value": "Video Editing & Post-Production"
     },
     {
-      "label": "Multi-Camera Vodcast & Studio Podcasts",
-      "value": "Multi-Camera Vodcast & Studio Podcasts"
+      "label": "Video Podcasts & Vodcasts",
+      "value": "Video Podcasts & Vodcasts"
     },
     {
-      "label": "Corporate & Brand Case Studies",
-      "value": "Corporate & Brand Case Studies"
+      "label": "Corporate & Brand Storytelling",
+      "value": "Corporate & Brand Storytelling"
     }
   ],
-  "step3Tag": "03 ➔ Reachable Contact",
+  "step3Tag": "03 // Contact Details",
   "step3Title": "What is your contact email address? *",
   "step3Placeholder": "name@company.com",
-  "step4Tag": "04 ➔ Project Brief",
+  "step4Tag": "04 // Project Brief",
   "step4Title": "How can we help? *",
   "step4HelpText": "Have an AI-generated brief, ChatGPT storyboard, or draft dates? Paste it straight in. We translate your ideas into broadcast schedules and camera execution.",
   "step4Placeholder": "Tell us about your event dates, venue location, or project brief (AI / ChatGPT drafts welcome!)...",
-  "step5Tag": "05 ➔ Verification & Consent",
+  "step5Tag": "05 // Verification & Consent",
   "step5Title": "Final Step *",
   "gdprText": "I confirm that FilmEditRun may process my contact details and project brief to prepare a production proposal in accordance with their Privacy Policy.",
   "submitButtonLabel": "Submit Brief"
