@@ -30,6 +30,28 @@ export default defineConfig({
         const style = document.createElement("style");
         style.id = styleId;
         style.textContent = `
+          /* Deep Dark Mode for comfortable reading */
+          html {
+            filter: invert(0.92) hue-rotate(180deg);
+            background: #121212 !important;
+          }
+          /* Counter-invert media, swatches, iframes, preview cards, and preview dock so colors stay true */
+          iframe:not(#tina-live-preview-iframe),
+          img,
+          video,
+          svg image,
+          .swatch-inner,
+          [class*="swatch"],
+          [class*="sketch-picker"],
+          [class*="color-picker"],
+          [class*="media-item"],
+          [data-testid="media-image"],
+          .filmeditrun-welcome-card,
+          #tina-preview-dock,
+          #tina-preview-toggle-btn {
+            filter: invert(1) hue-rotate(180deg) !important;
+          }
+
           /* Standard centered form width for all document editor forms (860px) */
           form,
           form > div,
@@ -48,15 +70,36 @@ export default defineConfig({
             box-sizing: border-box !important;
           }
 
+          /* Split-screen active layout overrides: form adjusts to left pane */
+          body.tina-split-mode {
+            padding-right: 50vw !important;
+            box-sizing: border-box !important;
+          }
+          body.tina-split-mode #root {
+            max-width: 50vw !important;
+            box-sizing: border-box !important;
+          }
+          body.tina-split-mode form,
+          body.tina-split-mode form > div,
+          body.tina-split-mode [data-test*="form"],
+          body.tina-split-mode [data-test*="form"] > div,
+          body.tina-split-mode .max-w-form,
+          body.tina-split-mode div:has(> form) {
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
           /* Grade Switcher collection specifically: wider layout (1280px) */
-          form:has([data-test*="theme"]),
-          [data-test*="theme"] form,
-          [data-test*="theme"] > div {
+          body:not(.tina-split-mode) form:has([data-test*="theme"]),
+          body:not(.tina-split-mode) [data-test*="theme"] form,
+          body:not(.tina-split-mode) [data-test*="theme"] > div {
             max-width: 1280px !important;
             padding-left: 28px !important;
             padding-right: 28px !important;
           }
-          div:has(> [data-test*="theme"]) ~ div .max-w-form {
+          body:not(.tina-split-mode) div:has(> [data-test*="theme"]) ~ div .max-w-form {
             max-width: 1280px !important;
           }
 
@@ -92,6 +135,234 @@ export default defineConfig({
           }
         `;
         document.head.appendChild(style);
+      }
+
+      // ─── DUAL-PANE LIVE PREVIEW DOCK INJECTION ────────────────────────
+      const initPreviewDock = () => {
+        if (document.getElementById("tina-preview-toggle-btn")) return;
+
+        const getRouteForHash = (hash: string) => {
+          if (!hash) return "/";
+          if (hash.includes("/collections/home/")) return "/";
+          if (hash.includes("/collections/cambridge/")) return "/cambridge";
+          if (hash.includes("/collections/london/")) return "/london";
+          if (hash.includes("/collections/services/")) return "/services";
+          if (hash.includes("/collections/work/")) return "/work";
+          if (hash.includes("/collections/about/")) return "/about";
+          if (hash.includes("/collections/contact/")) return "/contact";
+          if (hash.includes("/collections/thank-you/")) return "/thank-you";
+          if (hash.includes("/collections/privacy/")) return "/privacy";
+          if (hash.includes("/collections/theme/")) return "/";
+          if (hash.includes("/collections/siteSettings/")) return "/";
+          if (hash.includes("/collections/seoSettings/")) return "/";
+          if (hash.includes("/collections/footerSettings/")) return "/";
+
+          const serviceMatch = hash.match(/\/collections\/service\/([^\/?#]+)/);
+          if (serviceMatch && serviceMatch[1]) {
+            const slug = serviceMatch[1].replace(/^\d+-/, "");
+            return `/services/${slug}`;
+          }
+
+          if (hash.includes("/collections/project/")) return "/work";
+
+          const pageMatch = hash.match(/\/collections\/customPages\/([^\/?#]+)/);
+          if (pageMatch && pageMatch[1]) {
+            return `/${pageMatch[1]}`;
+          }
+
+          return "/";
+        };
+
+        // Create Toggle Button
+        const toggleBtn = document.createElement("button");
+        toggleBtn.id = "tina-preview-toggle-btn";
+        toggleBtn.type = "button";
+        toggleBtn.innerHTML = `<span>👁️</span> <span id="tina-preview-btn-label">Split Preview</span>`;
+        Object.assign(toggleBtn.style, {
+          position: "fixed",
+          top: "10px",
+          right: "20px",
+          zIndex: "999999",
+          background: "#18181b",
+          color: "#f4f4f5",
+          border: "1px solid #3f3f46",
+          borderRadius: "9999px",
+          padding: "6px 14px",
+          fontSize: "12px",
+          fontWeight: "600",
+          fontFamily: "system-ui, sans-serif",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+          boxShadow: "0 4px 14px rgba(0,0,0,0.4)",
+          transition: "all 0.2s ease",
+        });
+
+        // Create Dock Container
+        const dock = document.createElement("div");
+        dock.id = "tina-preview-dock";
+        Object.assign(dock.style, {
+          position: "fixed",
+          top: "0",
+          right: "0",
+          width: "50vw",
+          height: "100vh",
+          background: "#09090b",
+          borderLeft: "2px solid #27272a",
+          zIndex: "999990",
+          display: "none",
+          flexDirection: "column",
+          boxShadow: "-8px 0 24px rgba(0,0,0,0.5)",
+          boxSizing: "border-box",
+        });
+
+        // Dock Header
+        const header = document.createElement("div");
+        Object.assign(header.style, {
+          height: "46px",
+          background: "#121215",
+          borderBottom: "1px solid #27272a",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 12px",
+          color: "#a1a1aa",
+          fontSize: "12px",
+          fontFamily: "system-ui, sans-serif",
+          userSelect: "none",
+        });
+
+        header.innerHTML = `
+          <div style="display:flex;align-items:center;gap:8px;overflow:hidden;">
+            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;"></span>
+            <span style="font-weight:600;color:#f4f4f5;">Live Preview</span>
+            <span id="tina-preview-route-badge" style="background:#27272a;color:#e4e4e7;padding:2px 8px;border-radius:6px;font-family:monospace;font-size:11px;">/</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <button id="tina-preview-refresh-btn" type="button" title="Refresh Page Preview" style="background:#1f1f23;color:#e4e4e7;border:1px solid #3f3f46;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;">🔄 Refresh</button>
+            <button id="tina-preview-mobile-btn" type="button" title="Toggle Mobile / Full Width" style="background:#1f1f23;color:#e4e4e7;border:1px solid #3f3f46;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;">📱 Viewport</button>
+            <a id="tina-preview-open-link" href="/" target="_blank" rel="noopener noreferrer" title="Open Page in New Tab" style="background:#1f1f23;color:#e4e4e7;border:1px solid #3f3f46;border-radius:6px;padding:3px 8px;font-size:11px;text-decoration:none;display:inline-flex;align-items:center;">↗️</a>
+            <button id="tina-preview-close-btn" type="button" title="Close Preview" style="background:transparent;color:#71717a;border:none;padding:4px 6px;font-size:14px;cursor:pointer;">✕</button>
+          </div>
+        `;
+
+        // Dock Iframe Frame Area
+        const frameArea = document.createElement("div");
+        Object.assign(frameArea.style, {
+          flex: "1",
+          width: "100%",
+          height: "calc(100vh - 46px)",
+          background: "#000000",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "stretch",
+          overflow: "hidden",
+        });
+
+        const iframe = document.createElement("iframe");
+        iframe.id = "tina-live-preview-iframe";
+        iframe.src = "/";
+        Object.assign(iframe.style, {
+          width: "100%",
+          height: "100%",
+          border: "none",
+          transition: "max-width 0.25s ease",
+          background: "#050508",
+        });
+
+        frameArea.appendChild(iframe);
+        dock.appendChild(header);
+        dock.appendChild(frameArea);
+        document.body.appendChild(toggleBtn);
+        document.body.appendChild(dock);
+
+        let isSplit = false;
+        let isMobile = false;
+
+        const updatePreviewRoute = () => {
+          const targetRoute = getRouteForHash(window.location.hash);
+          const badge = document.getElementById("tina-preview-route-badge");
+          const openLink = document.getElementById("tina-preview-open-link") as HTMLAnchorElement | null;
+          if (badge) badge.textContent = targetRoute;
+          if (openLink) openLink.href = targetRoute;
+          try {
+            const currentSrc = iframe.contentWindow?.location.pathname;
+            if (currentSrc !== targetRoute) {
+              iframe.src = targetRoute;
+            }
+          } catch (e) {
+            iframe.src = targetRoute;
+          }
+        };
+
+        const setSplitMode = (active: boolean) => {
+          isSplit = active;
+          if (active) {
+            dock.style.display = "flex";
+            document.body.classList.add("tina-split-mode");
+            toggleBtn.style.right = "calc(50vw + 20px)";
+            toggleBtn.style.background = "#e11d48";
+            toggleBtn.style.borderColor = "#f43f5e";
+            toggleBtn.innerHTML = `<span>✕</span> <span>Close Preview</span>`;
+            updatePreviewRoute();
+          } else {
+            dock.style.display = "none";
+            document.body.classList.remove("tina-split-mode");
+            toggleBtn.style.right = "20px";
+            toggleBtn.style.background = "#18181b";
+            toggleBtn.style.borderColor = "#3f3f46";
+            toggleBtn.innerHTML = `<span>👁️</span> <span>Split Preview</span>`;
+          }
+        };
+
+        toggleBtn.addEventListener("click", () => setSplitMode(!isSplit));
+
+        const closeBtn = document.getElementById("tina-preview-close-btn");
+        if (closeBtn) closeBtn.addEventListener("click", () => setSplitMode(false));
+
+        const refreshBtn = document.getElementById("tina-preview-refresh-btn");
+        if (refreshBtn) {
+          refreshBtn.addEventListener("click", () => {
+            try {
+              iframe.contentWindow?.location.reload();
+            } catch (e) {
+              iframe.src = iframe.src;
+            }
+          });
+        }
+
+        const mobileBtn = document.getElementById("tina-preview-mobile-btn");
+        if (mobileBtn) {
+          mobileBtn.addEventListener("click", () => {
+            isMobile = !isMobile;
+            if (isMobile) {
+              iframe.style.maxWidth = "390px";
+              iframe.style.borderLeft = "1px solid #27272a";
+              iframe.style.borderRight = "1px solid #27272a";
+              iframe.style.boxShadow = "0 0 20px rgba(0,0,0,0.8)";
+              mobileBtn.textContent = "🖥️ Desktop";
+            } else {
+              iframe.style.maxWidth = "100%";
+              iframe.style.borderLeft = "none";
+              iframe.style.borderRight = "none";
+              iframe.style.boxShadow = "none";
+              mobileBtn.textContent = "📱 Mobile";
+            }
+          });
+        }
+
+        window.addEventListener("hashchange", () => {
+          if (isSplit) {
+            updatePreviewRoute();
+          }
+        });
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initPreviewDock);
+      } else {
+        setTimeout(initPreviewDock, 500);
       }
     }
     return cms;
