@@ -164,49 +164,93 @@ var config_default = defineConfig({
             background-color: rgba(255, 255, 255, 0.04) !important;
           }
 
-          /* Standard centered form width for all document editor forms (860px) */
-          form,
-          form > div,
-          [data-test*="form"],
-          [data-test*="form"] > div,
-          [data-test^="form:"],
-          [data-test^="form:"] > div,
-          .max-w-form,
-          div:has(> form) {
-            max-width: 860px !important;
-            margin-left: auto !important;
+          /* Eliminate bright grey background gradients and pillars */
+          :root {
+            --tina-color-grey-1: #09090b !important;
+            --tina-color-grey-2: #0e0e12 !important;
+            --tina-color-grey-3: #121216 !important;
+          }
+          .from-gray-50/50,
+          .to-gray-50,
+          [class*="from-gray-"],
+          [class*="to-gray-"],
+          [class*="bg-gradient-"],
+          .bg-gray-50,
+          .bg-gray-100,
+          .bg-white,
+          div.relative.left-0.w-full.h-full {
+            background: #09090b !important;
+            background-image: none !important;
+          }
+
+          /* Full-Screen Form: Left-justified with comfortable width */
+          body:not(.tina-split-mode) form,
+          body:not(.tina-split-mode) form > div,
+          body:not(.tina-split-mode) [data-test*="form"],
+          body:not(.tina-split-mode) [data-test*="form"] > div,
+          body:not(.tina-split-mode) [data-test^="form:"],
+          body:not(.tina-split-mode) [data-test^="form:"] > div,
+          body:not(.tina-split-mode) .max-w-form,
+          body:not(.tina-split-mode) div:has(> form) {
+            max-width: 960px !important;
+            margin-left: 0 !important;
             margin-right: auto !important;
-            padding-left: 24px !important;
-            padding-right: 24px !important;
+            padding-left: 32px !important;
+            padding-right: 32px !important;
             width: 100% !important;
             box-sizing: border-box !important;
           }
 
-          /* Split-screen active layout overrides: form adjusts cleanly to left 50vw */
+          /* Dynamic Split-Screen Layout: Left pane dynamically scales to fill available space */
           body.tina-split-mode {
             padding-right: 50vw !important;
             box-sizing: border-box !important;
             overflow-x: hidden !important;
           }
-          body.tina-split-mode #root {
+          body.tina-split-mode #root,
+          body.tina-split-mode #root > div,
+          body.tina-split-mode .h-dvh,
+          body.tina-split-mode .h-screen {
             width: 50vw !important;
             max-width: 50vw !important;
             overflow-x: hidden !important;
             box-sizing: border-box !important;
           }
-          body.tina-split-mode [data-test^="form:"],
-          body.tina-split-mode div:has(> [data-test^="form:"]),
+
+          /* The main content area next to the sidebar dynamically takes remaining space */
+          body.tina-split-mode .h-dvh > div.relative,
+          body.tina-split-mode .h-screen > div.relative,
+          body.tina-split-mode div.relative.left-0.w-full.h-full {
+            flex: 1 1 0% !important;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            box-sizing: border-box !important;
+          }
+
+          /* The form dynamically scales with 28px right gutter */
           body.tina-split-mode form,
           body.tina-split-mode form > div,
           body.tina-split-mode [data-test*="form"],
           body.tina-split-mode [data-test*="form"] > div,
+          body.tina-split-mode [data-test^="form:"],
+          body.tina-split-mode [data-test^="form:"] > div,
           body.tina-split-mode .max-w-form,
           body.tina-split-mode div:has(> form) {
             max-width: 100% !important;
             width: 100% !important;
             margin: 0 !important;
             padding-left: 16px !important;
-            padding-right: 36px !important;
+            padding-right: 28px !important;
+            box-sizing: border-box !important;
+          }
+
+          /* Input and textarea width constraints */
+          body.tina-split-mode input[type="text"],
+          body.tina-split-mode textarea,
+          body.tina-split-mode select {
+            width: 100% !important;
+            max-width: 100% !important;
             box-sizing: border-box !important;
           }
 
@@ -248,7 +292,6 @@ var config_default = defineConfig({
           /* Top-left brand icon: clean white */
           svg.text-orange-500,
           svg.fill-tina-orange {
-            filter: invert(1) hue-rotate(180deg) !important;
             color: #ffffff !important;
             fill: #ffffff !important;
           }
