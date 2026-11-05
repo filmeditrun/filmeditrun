@@ -246,11 +246,12 @@ const HeadingTag = headingLevel;
   }
 
   :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .bento-card-spotlight:hover {
-    border-color: rgba(244, 63, 94, 0.7) !important;
+    border-color: var(--supernovaAccent, var(--color-accent, #9013FE)) !important;
+    box-shadow: 0 0 35px -5px color-mix(in srgb, var(--supernovaAccent, var(--color-accent, #9013FE)) 35%, transparent) !important;
   }
 
   :global(:is(html[data-theme="supernova"], html:has(#theme-choice-supernova:checked))) .bento-card-spotlight:hover .bento-explore-arrow {
-    color: #f43f5e !important;
+    color: var(--supernovaAccent, var(--color-accent, #9013FE)) !important;
   }
 </style>
 

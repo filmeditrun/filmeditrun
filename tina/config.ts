@@ -30,26 +30,6 @@ export default defineConfig({
         const style = document.createElement("style");
         style.id = styleId;
         style.textContent = `
-          /* Smart Invert Dimmer for comfortable dark reading */
-          html {
-            filter: invert(0.92) hue-rotate(180deg);
-            background: #121212 !important;
-          }
-          /* Counter-invert media, swatches, iframes, and welcome card */
-          iframe,
-          img,
-          video,
-          svg image,
-          .swatch-inner,
-          [class*="swatch"],
-          [class*="sketch-picker"],
-          [class*="color-picker"],
-          [class*="media-item"],
-          [data-testid="media-image"],
-          .filmeditrun-welcome-card {
-            filter: invert(1) hue-rotate(180deg) !important;
-          }
-
           /* Standard centered form width for all document editor forms (860px) */
           form,
           form > div,
@@ -127,7 +107,6 @@ export default defineConfig({
           include: "home",
         },
         ui: {
-          router: () => "/",
           allowedActions: {
             create: false,
             delete: false,
@@ -466,7 +445,6 @@ export default defineConfig({
           include: "cambridge",
         },
         ui: {
-          router: () => "/cambridge",
           allowedActions: {
             create: false,
             delete: false,
@@ -730,7 +708,6 @@ export default defineConfig({
           include: "london",
         },
         ui: {
-          router: () => "/london",
           allowedActions: {
             create: false,
             delete: false,
@@ -994,9 +971,6 @@ export default defineConfig({
         label: "Custom Pages",
         path: "src/content/pages/custom",
         format: "json",
-        ui: {
-          router: ({ document }) => `/${(document as any)?.slug || document?._sys?.filename || ""}`,
-        },
         fields: [
           // ─── 🔍 SEO & ROUTING ──────────────────────────────────────────
           {
@@ -1387,7 +1361,6 @@ export default defineConfig({
           include: "services",
         },
         ui: {
-          router: () => "/services",
           allowedActions: {
             create: false,
             delete: false,
@@ -1601,10 +1574,6 @@ export default defineConfig({
         path: "src/content/services",
         format: "json",
         ui: {
-          router: ({ document }) => {
-            const slug = (document as any)?.slug || document?._sys?.filename?.replace(/^\d+-/, '') || '';
-            return `/services/${slug}`;
-          },
           filename: {
             slugify: (values) => {
               const order = values?.order ? `${values.order}-` : "";
@@ -1949,7 +1918,6 @@ export default defineConfig({
           include: "work",
         },
         ui: {
-          router: () => "/work",
           allowedActions: {
             create: false,
             delete: false,
@@ -2067,9 +2035,6 @@ export default defineConfig({
         label: "Portfolio Projects",
         path: "src/content/projects",
         format: "json",
-        ui: {
-          router: () => "/work",
-        },
         fields: [
           // ─── 🎬 PROJECT IDENTITY ──────────────────────────────────────
           {
@@ -2160,7 +2125,6 @@ export default defineConfig({
           include: "about",
         },
         ui: {
-          router: () => "/about",
           allowedActions: {
             create: false,
             delete: false,
@@ -2423,7 +2387,6 @@ export default defineConfig({
           include: "slider",
         },
         ui: {
-          router: () => "/about",
           allowedActions: {
             create: false,
             delete: false,
@@ -2479,7 +2442,6 @@ export default defineConfig({
           include: "contact",
         },
         ui: {
-          router: () => "/contact",
           allowedActions: {
             create: false,
             delete: false,
@@ -2778,7 +2740,6 @@ export default defineConfig({
           include: "thank-you",
         },
         ui: {
-          router: () => "/thank-you",
           allowedActions: {
             create: false,
             delete: false,
@@ -2931,7 +2892,6 @@ export default defineConfig({
           include: "privacy",
         },
         ui: {
-          router: () => "/privacy",
           allowedActions: {
             create: false,
             delete: false,
