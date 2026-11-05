@@ -18,8 +18,9 @@ pnpm-debug.log*
 .env.*
 .env*.local
 
-# macOS-specific files
+# macOS & Office temporary files
 .DS_Store
+~$*
 
 # jetbrains setting folder
 .idea/
