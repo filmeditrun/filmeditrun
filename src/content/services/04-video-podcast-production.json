@@ -1,16 +1,16 @@
 {
   "order": "04",
   "title": "Video Podcast & Executive Series",
-  "tag": "Video Podcasts & Vodcasts",
+  "tag": "Video Podcasts & Series",
   "description": "Turnkey multi-camera video podcast production filmed right in your boardroom, delivering full episodes and high-impact vertical clips for LinkedIn.",
   "slug": "video-podcast-production",
   "link": "/services/video-podcast-production",
   "seoTitle": "Video Podcast Production Studio | Cambridge & London",
   "seoDescription": "Multi-camera video podcast and vodcast production filmed in your Cambridge or London office. Full YouTube episodes and vertical clips built for LinkedIn reach.",
-  "heroTag": "Executive Vodcasts",
-  "heroHeading": "Build continuous market authority from *your own boardroom.*",
-  "heroLead": "Senior executives rarely have time to travel across town to an external recording studio. We bring broadcast cameras, studio lighting, and vocal microphones directly to your office—recording engaging conversations in half a day, and delivering weekly video content for your audience across LinkedIn, YouTube, and Spotify.",
-  "breakdownHeading": "Studio-grade recording, *zero travel hassle.*",
+  "heroTag": "Video Podcasts & Series",
+  "heroHeading": "Studio-grade video podcasts filmed in *your own boardroom.*",
+  "heroLead": "Senior leadership rarely has time to travel to an external recording studio. We bring cinema cameras, acoustic mics, and studio lighting directly to your boardroom, recording a month of episodic content in a single afternoon.",
+  "breakdownHeading": "Broadcast production configured for *your meeting room.*",
   "breakdownBody": "We turn your meeting room into an executive recording space within minutes. Our low-profile crews set up multiple camera angles, manage sound levels, and guide discussions so leadership looks composed, sounds natural, and stays focused entirely on the conversation.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/handheld.webp",
@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "Video Masters",
-      "title": "Full-Length Multi-Camera Episodes",
-      "description": "Dynamic narrative cuts with smooth multi-angle switching, branded lower-thirds, and balanced audio mastering, formatted ready for YouTube, Spotify Video, and your website resource hub."
+      "tag": "Full Episodes",
+      "title": "Multi-Camera Master Episodes",
+      "description": "Multi-angle narrative cuts with smooth camera switching, branded graphics, and calibrated audio mastering, ready for YouTube, Spotify Video, and internal company channels."
     },
     {
-      "tag": "Social Cutdowns",
-      "title": "Vertical LinkedIn Hook Cutdowns",
-      "description": "Fast-turnaround vertical 9:16 clips with styled on-screen captions and engaging hooks, cut specifically to drive organic engagement and comments across executive LinkedIn feeds."
+      "tag": "Social Clips",
+      "title": "Vertical Social & LinkedIn Cutdowns",
+      "description": "High-impact vertical 9:16 clips with styled burned-in captions, spotlighting key executive insights to build reach and discussion across LinkedIn feeds."
     },
     {
       "tag": "Master Audio",
       "title": "Mastered Audio Feeds for RSS",
-      "description": "Clean vocal audio tracks with background ambient noise removed and loudness mastered to industry broadcast standards, ready for instant RSS publishing to Apple Podcasts and Spotify."
+      "description": "Pristine vocal tracks with ambient noise reduction and loudness mastering, delivered ready for instant RSS feed distribution across Apple Podcasts and Spotify."
     }
   ],
-  "ctaHeading": "Planning a video podcast or *interview series?*",
-  "ctaDescription": "Tell us about your format, episode frequency, or recording location. We'll outline a dependable setup and provide a clear quote.",
-  "ctaButtonLabel": "Discuss Your Podcast →"
+  "ctaHeading": "Planning an executive podcast or *interview series?*",
+  "ctaDescription": "Tell us about your format, episode frequency, and recording location. We'll outline a dependable setup and provide a clear quote.",
+  "ctaButtonLabel": "Discuss Your Series →"
 }
