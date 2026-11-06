@@ -33,21 +33,21 @@
   "deliverables": [
     {
       "tag": "Explainers",
-      "title": "Technical & Product Explainer Films",
-      "description": "Visual 2D and 3D walkthroughs and animated architectural diagrams that explain complex software features, medical devices, or data workflows in clear, intuitive visual sequences."
+      "title": "Technical & Product Explainers",
+      "description": "Visual 2D and 3D walkthroughs that explain software features, physical hardware, or data workflows in intuitive, easy-to-follow sequences."
     },
     {
       "tag": "Event Visuals",
-      "title": "Summit Openers & Stage Screen Graphics",
-      "description": "High-energy title sequences, speaker introduction stingers, and large-format screen animations designed to capture attention and elevate live conference stages."
+      "title": "Summit Openers & Stage Graphics",
+      "description": "High-impact title sequences, speaker introduction stingers, and stage animations designed to command attention at live corporate summits."
     },
     {
-      "tag": "Brand Motion",
-      "title": "Modular Brand Motion Design Toolkits",
-      "description": "A standardized suite of animated logo idents, lower-third overlays, and title cards to ensure all your ongoing video outputs remain visually unified and on-brand."
+      "tag": "Brand Systems",
+      "title": "Modular Motion Toolkits",
+      "description": "Reusable animated logo reveals, lower-third straps, and transitions delivered with transparent alphas for your in-house video team."
     }
   ],
   "ctaHeading": "Have an idea you want to bring *to life?*",
-  "ctaDescription": "Tell us about your product, upcoming campaign, or event graphics. We'll discuss the creative approach, visual style, and timeline.",
+  "ctaDescription": "Send us your brief, script, or rough idea. We'll map out the right visual style, project timeline, and a clear quote.",
   "ctaButtonLabel": "Discuss Motion Design →"
 }
