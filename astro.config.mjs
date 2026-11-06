@@ -22,6 +22,8 @@ export default defineConfig({
     '/admin': '/admin/index.html',
     '/review': 'https://g.page/r/Cba1pWWqNcpWEAI/review',
     '/reviews': 'https://g.page/r/Cba1pWWqNcpWEAI/review',
+    '/services/conference-production': '/services/conference-event-filming',
+    '/services/event-coverage': '/services/conference-event-filming',
   },
   vite: {
     plugins: [tailwindcss()],

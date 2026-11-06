@@ -1,0 +1,54 @@
+{
+  "order": "03",
+  "title": "Corporate Brand & Company Showcase Films",
+  "tag": "Brand Storytelling",
+  "description": "Cinematic company overview films and culture narratives that communicate your vision to investors, enterprise clients, and top talent.",
+  "slug": "corporate-brand",
+  "link": "/services/corporate-brand",
+  "seoTitle": "Corporate Brand Video Production | Cambridge & London",
+  "seoDescription": "Cinematic corporate brand films and company showcases filmed across Cambridge and London. Clear brand storytelling that inspires clients, investors, and talent.",
+  "heroTag": "Brand & Company Showcase",
+  "heroHeading": "Films that articulate why your organization *truly matters.*",
+  "heroLead": "The strongest corporate films aren't corporate at all; they are focused human stories. We capture leadership vision, technical capability, and workplace culture on location across Cambridge and London, producing films that build genuine commercial standing with clients, investors, and future recruits.",
+  "breakdownHeading": "Cinematic craft tailored to *daily operations.*",
+  "breakdownBody": "Filming inside working offices, research laboratories, and engineering facilities demands respect for your schedule. Our agile crews deploy compact cinema optics and discreet lighting rigs that create high production value with minimal operational footprint, ensuring your team works without interruption.",
+  "cardDisplayAs": "gradient",
+  "cardImage": "/work/onlocation.webp",
+  "cardSolidColor": "#0a0a0c",
+  "cardGradientDirection": "to bottom right",
+  "cardGradientColor1": "#1c1917",
+  "cardGradientColor2": "#0c0a09",
+  "cardTextContrast": "light",
+  "heroDisplayAs": "video",
+  "heroImage": "/work/onlocation.webp",
+  "heroVideoPath": "/showreel.mp4",
+  "heroSolidColor": "#0a0a0c",
+  "heroGradientDirection": "to bottom right",
+  "heroGradientColor1": "#1c1917",
+  "heroGradientColor2": "#0c0a09",
+  "heroTextContrast": "light",
+  "displayAs": "local-video",
+  "imagePath": "/og-image.jpg",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "",
+  "deliverables": [
+    {
+      "tag": "Flagship Film",
+      "title": "Company Overview & Brand Showcase",
+      "description": "A cinematic narrative film capturing your mission, market difference, and technical ambition, designed to anchor your homepage, open keynote presentations, and impress prospective partners."
+    },
+    {
+      "tag": "Culture & People",
+      "title": "Talent Recruitment & Workplace Culture",
+      "description": "Engaging profiles of team members, shared company values, and real workplace dynamics, cut to attract world-class talent and accelerate recruitment campaigns across digital channels."
+    },
+    {
+      "tag": "Leadership",
+      "title": "Executive Vision & Investor Briefings",
+      "description": "Polished boardroom addresses and annual milestone summaries designed for investor pitches, global stakeholder updates, and company-wide town halls with crystal-clear audio and graphics."
+    }
+  ],
+  "ctaHeading": "Ready to tell your company's *story?*",
+  "ctaDescription": "Tell us about your brand goals, target audience, or upcoming launch. We'll outline a creative approach, production schedule, and transparent quote.",
+  "ctaButtonLabel": "Discuss Your Brand Film →"
+}

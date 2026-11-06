@@ -1,0 +1,54 @@
+{
+  "order": "01",
+  "title": "Conference & Live Event Filming",
+  "tag": "Conference & Event Filming",
+  "description": "Low-profile multi-camera crews capturing live conference stages, executive keynotes, and fast-turnaround event highlights across Cambridge and London.",
+  "slug": "conference-event-filming",
+  "link": "/services/conference-event-filming",
+  "seoTitle": "Conference & Event Filming | Cambridge & London | FilmEditRun",
+  "seoDescription": "Multi-camera conference filming and live event video capture across Cambridge and London. Full session keynote masters and fast 48h social highlight reels.",
+  "heroTag": "Conference & Live Events",
+  "heroHeading": "Capture the keynote. Deliver the *lasting momentum.*",
+  "heroLead": "Great summits generate ideas that shouldn't fade when delegates head home. We capture plenary stages, panel debates, and attendee buzz across Cambridge and London—synchronizing slides and soundboard audio to deliver master recordings and fast-turnaround social films while your event is trending.",
+  "breakdownHeading": "Multi-camera scale, *zero disruption.*",
+  "breakdownBody": "Operating with quiet efficiency across your venue, our low-profile crews ensure speakers feel at ease and audience sightlines stay clear. We coordinate directly with venue AV teams, capturing high-resolution presentation decks alongside multi-angle cinema cameras so your talks are archived cleanly and ready to broadcast.",
+  "cardDisplayAs": "gradient",
+  "cardImage": "/cambridge/stage-wide.webp",
+  "cardSolidColor": "#0a0a0c",
+  "cardGradientDirection": "to bottom right",
+  "cardGradientColor1": "#0f172a",
+  "cardGradientColor2": "#020617",
+  "cardTextContrast": "light",
+  "heroDisplayAs": "video",
+  "heroImage": "/cambridge/stage-wide.webp",
+  "heroVideoPath": "/showreel.mp4",
+  "heroSolidColor": "#0a0a0c",
+  "heroGradientDirection": "to bottom right",
+  "heroGradientColor1": "#0f172a",
+  "heroGradientColor2": "#020617",
+  "heroTextContrast": "light",
+  "displayAs": "gradient",
+  "imagePath": "/og-image.jpg",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "",
+  "deliverables": [
+    {
+      "tag": "Full Sessions",
+      "title": "Synchronized Keynote & Panel Masters",
+      "description": "Multi-camera 4K recordings of every stage presentation, synchronized with presentation slide decks and clean direct soundboard feeds for on-demand streaming across your corporate channels."
+    },
+    {
+      "tag": "Highlights",
+      "title": "Fast-Turnaround Social Highlight Films",
+      "description": "High-energy recap films delivered within 24 to 48 hours, cut to licensed music with on-screen titles to share the buzz on LinkedIn while your event is still trending."
+    },
+    {
+      "tag": "Interviews",
+      "title": "Speaker Soundbites & Attendee Vox Pops",
+      "description": "On-the-floor delegate reactions and brief executive soundbites captured between sessions, creating an authentic library of quotes and cutaways for press releases and next year's ticket launch."
+    }
+  ],
+  "ctaHeading": "Planning an upcoming *conference or summit?*",
+  "ctaDescription": "Tell us about your event dates, venue location, and technical brief. We'll outline a dependable setup and provide a clear quote.",
+  "ctaButtonLabel": "Discuss Your Event →"
+}

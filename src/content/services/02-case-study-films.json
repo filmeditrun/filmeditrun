@@ -1,0 +1,54 @@
+{
+  "order": "02",
+  "title": "Customer Case Study & Testimonial Films",
+  "tag": "Customer Case Studies",
+  "description": "Authentic, interview-led customer stories and peer testimonials that build unshakeable commercial trust and accelerate enterprise sales cycles.",
+  "slug": "case-study-films",
+  "link": "/services/case-study-films",
+  "seoTitle": "Client Case Study Video Production | Cambridge & London",
+  "seoDescription": "B2B customer case study films and client testimonials filmed across Cambridge and London. Authentic peer-proof videos that shorten sales cycles and win trust.",
+  "heroTag": "Client Case Studies",
+  "heroHeading": "Peer proof that turns prospective buyers into *committed clients.*",
+  "heroLead": "Enterprise decision-makers rarely buy complex products without hearing from peers who solved the same challenges. We interview your clients on-location across Cambridge, London, and nationwide—capturing authentic voices and measurable business outcomes that give your sales pipeline unstoppable credibility.",
+  "breakdownHeading": "Grounded conversations, *unrehearsed authenticity.*",
+  "breakdownBody": "Non-actors speak best when they feel comfortable. We skip rigid scripts in favor of structured conversations, drawing out natural customer stories and genuine enthusiasm. Supported by cinematic B-roll of your product in real-world use, we turn complex technical implementations into human proof that resonates with buyers.",
+  "cardDisplayAs": "gradient",
+  "cardImage": "/work/onlocation.webp",
+  "cardSolidColor": "#0a0a0c",
+  "cardGradientDirection": "to bottom right",
+  "cardGradientColor1": "#1e1b4b",
+  "cardGradientColor2": "#0a0a0c",
+  "cardTextContrast": "light",
+  "heroDisplayAs": "video",
+  "heroImage": "/work/onlocation.webp",
+  "heroVideoPath": "/showreel.mp4",
+  "heroSolidColor": "#0a0a0c",
+  "heroGradientDirection": "to bottom right",
+  "heroGradientColor1": "#1e1b4b",
+  "heroGradientColor2": "#0a0a0c",
+  "heroTextContrast": "light",
+  "displayAs": "local-video",
+  "imagePath": "/og-image.jpg",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "",
+  "deliverables": [
+    {
+      "tag": "Narrative Cut",
+      "title": "Flagship Customer Success Films",
+      "description": "A focused two-to-three minute narrative tracing the customer's challenge, implementation, and verified ROI, complete with on-site B-roll and contextual graphics to anchor your website sales pages."
+    },
+    {
+      "tag": "Social Proof",
+      "title": "Vertical LinkedIn Problem-Solution Cutdowns",
+      "description": "Bite-sized 30-to-60 second vertical clips with styled burned-in captions, engineered for your sales team to drop directly into prospect outreach and LinkedIn marketing campaigns."
+    },
+    {
+      "tag": "Asset Library",
+      "title": "Soundbite Stills & Transcript Pull-Quotes",
+      "description": "High-resolution video frame grabs, verified testimonial transcripts, and standalone soundbite audio snippets formatted for your written case studies, pitch decks, and investor presentations."
+    }
+  ],
+  "ctaHeading": "Have a client story ready to *share?*",
+  "ctaDescription": "Tell us about your customer, their location, and your target campaign. We'll handle the interview planning, filming, and delivery.",
+  "ctaButtonLabel": "Discuss Your Case Study →"
+}

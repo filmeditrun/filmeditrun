@@ -1,0 +1,53 @@
+{
+  "order": "05",
+  "title": "Animation & Technical Motion Design",
+  "tag": "Motion Graphics & Explainers",
+  "description": "Bespoke 2D/3D motion graphics, technical product explainers, and event screen title sequences for tech, science, and corporate brands.",
+  "slug": "animation-design",
+  "link": "/services/animation-design",
+  "seoTitle": "Motion Design & Explainer Animation | Cambridge & London",
+  "seoDescription": "Bespoke 2D/3D motion design, technical product explainers, and event graphics for tech, science, and corporate brands across Cambridge, London, and the UK.",
+  "heroTag": "Motion Graphics & Explainers",
+  "heroHeading": "Complex technology moves faster when your audience can *see it work.*",
+  "heroLead": "Abstract software architectures, deep-tech mechanisms, and biotech workflows are often difficult to convey through live filming alone. We design bespoke 2D and 3D animations, product explainers, and modular motion systems that bring immediate visual clarity to what you do.",
+  "breakdownHeading": "Clarity through motion, *not visual clutter.*",
+  "breakdownBody": "Motion graphics should illuminate your message, not distract from it. Working alongside Cambridge science teams and London enterprise brands, we translate complex product data and intricate workflows into elegant animated sequences tailored strictly to your visual brand guidelines.",
+  "cardDisplayAs": "gradient",
+  "cardImage": "/work/handheld.webp",
+  "cardSolidColor": "#0a0a0c",
+  "cardGradientDirection": "to bottom right",
+  "cardGradientColor1": "#1e1b4b",
+  "cardGradientColor2": "#09090b",
+  "cardTextContrast": "light",
+  "heroDisplayAs": "image",
+  "heroImage": "/work/handheld.webp",
+  "heroSolidColor": "#0a0a0c",
+  "heroGradientDirection": "to bottom right",
+  "heroGradientColor1": "#1e1b4b",
+  "heroGradientColor2": "#09090b",
+  "heroTextContrast": "light",
+  "displayAs": "image",
+  "imagePath": "/og-image.jpg",
+  "localVideoPath": "/showreel.mp4",
+  "cloudVideoUrl": "",
+  "deliverables": [
+    {
+      "tag": "Explainers",
+      "title": "Technical & Product Explainer Films",
+      "description": "Visual 2D and 3D walkthroughs and animated architectural diagrams that explain complex software features, medical devices, or data workflows in clear, intuitive visual sequences."
+    },
+    {
+      "tag": "Event Visuals",
+      "title": "Summit Openers & Stage Screen Graphics",
+      "description": "High-energy title sequences, speaker introduction stingers, and large-format screen animations designed to capture attention and elevate live conference stages."
+    },
+    {
+      "tag": "Brand Motion",
+      "title": "Modular Brand Motion Design Toolkits",
+      "description": "A standardized suite of animated logo idents, lower-third overlays, and title cards to ensure all your ongoing video outputs remain visually unified and on-brand."
+    }
+  ],
+  "ctaHeading": "Have an idea you want to bring *to life?*",
+  "ctaDescription": "Tell us about your product, upcoming campaign, or event graphics. We'll discuss the creative approach, visual style, and timeline.",
+  "ctaButtonLabel": "Discuss Motion Design →"
+}
