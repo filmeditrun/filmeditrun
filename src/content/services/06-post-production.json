@@ -1,17 +1,17 @@
 {
   "order": "06",
   "title": "Video Editing & Creative Post-Production",
-  "tag": "Creative Post-Production",
+  "tag": "Video Editing & Post-Production",
   "description": "Transforming rushes into compelling films with narrative pacing, dialogue clarity, balanced colour, and multi-format social exports.",
   "slug": "post-production",
   "link": "/services/post-production",
   "seoTitle": "Video Editing & Post-Production | Cambridge & London",
   "seoDescription": "Professional video editing, colour grading, and sound mixing for business, event, and brand films. Fast turnaround across Cambridge, London, and UK-wide.",
-  "heroTag": "Creative Post-Production",
-  "heroHeading": "Great footage is only the beginning. The story happens in the *edit.*",
-  "heroLead": "Pacing, structure, and sound design turn raw footage into a compelling film. Whether working from rushes captured by our field crews or raw material supplied by your team, we assemble interviews, multi-camera angles, and cutaways into focused films with clean audio and balanced colour.",
-  "breakdownHeading": "Where raw footage becomes *a finished film.*",
-  "breakdownBody": "Editorial discipline means finding the core message and stripping away the noise. We refine dialogue, remove room reverberation, balance colour tones to match your brand palette, and add subtle motion graphics that give your content broadcast-level polish.",
+  "heroTag": "Video Editing & Post-Production",
+  "heroHeading": "Turn raw footage into *finished films.*",
+  "heroLead": "Raw footage only works when it is cut with precision. We take your rushes, assemble the narrative, clean up audio, and grade colour to deliver films that hold attention.",
+  "breakdownHeading": "Finding the story, *cutting the noise.*",
+  "breakdownBody": "We strip away the filler and shape your message. From multi-camera sync and vocal cleanup to brand colour grading, we deliver broadcast polish with dependable turnaround.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/onlocation.webp",
   "cardSolidColor": "#0a0a0c",
@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "Story & Flow",
-      "title": "Narrative Assembly & Editorial Pacing",
-      "description": "Careful assembly of primary dialogue, multicam angles, and purposeful B-roll cutaways, establishing a natural rhythm that holds viewer attention from the opening frame."
+      "tag": "The Edit",
+      "title": "Multi-Camera Editing & Assembly",
+      "description": "Multi-angle switching, dialogue pacing, and purposeful B-roll cutting that keeps your message focused and engaging from start to finish."
     },
     {
       "tag": "Sound & Grade",
-      "title": "Dialogue Cleanup, Sound Mix & Colour Grade",
-      "description": "Advanced audio restoration, background hum removal, licensed score mixing, and tone-matched colour grading across mixed camera sources to ensure high production value."
+      "title": "Audio Restoration & Colour Grading",
+      "description": "Vocal cleanup, background noise removal, balanced audio mastering, and tone-matched colour grading across mixed camera sources."
     },
     {
-      "tag": "Social Delivery",
-      "title": "Multi-Format Exports & Captioned Cutdowns",
-      "description": "Full-resolution master files alongside vertical 9:16 and square 1:1 social cutdowns with styled burned-in captions, ready for immediate publication across web and social feeds."
+      "tag": "Delivery",
+      "title": "Master Films & Social Cutdowns",
+      "description": "High-resolution widescreen masters delivered alongside vertical 9:16 social cutdowns with styled burned-in captions for LinkedIn and web."
     }
   ],
-  "ctaHeading": "Have raw footage you want to bring *to life?*",
-  "ctaDescription": "Whether you're planning an upcoming shoot with our team or have raw rushes ready for editorial assembly, tell us about your project and timeline.",
-  "ctaButtonLabel": "Discuss Post-Production →"
+  "ctaHeading": "Have footage ready for *the edit?*",
+  "ctaDescription": "Tell us about your raw footage, target format, and deadline. Send over your rushes and we'll provide a clear quote.",
+  "ctaButtonLabel": "Discuss Your Edit →"
 }
