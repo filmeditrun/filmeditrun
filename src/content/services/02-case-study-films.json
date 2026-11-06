@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "Narrative Cut",
-      "title": "Flagship Customer Success Films",
-      "description": "A focused two-to-three minute narrative tracing the customer's challenge, implementation, and verified ROI, complete with on-site B-roll and contextual graphics to anchor your website sales pages."
+      "tag": "Full Case Study",
+      "title": "The Core Customer Film (2–3 Mins)",
+      "description": "A clear, documentary-style film tracing the deployment, technical challenge, and real-world results, combining focused interviews with cinematic B-roll of your product, team, and facility in daily operation."
     },
     {
-      "tag": "Social Proof",
-      "title": "Vertical LinkedIn Problem-Solution Cutdowns",
-      "description": "Bite-sized 30-to-60 second vertical clips with styled burned-in captions, engineered for your sales team to drop directly into prospect outreach and LinkedIn marketing campaigns."
+      "tag": "Short-Form",
+      "title": "Topic-Specific Cutdowns & Social Clips",
+      "description": "Focused 30-to-60 second vertical and widescreen excerpts with styled subtitles. Each clip isolates a single challenge or outcome, ready for LinkedIn and direct email exchanges with prospective buyers."
     },
     {
-      "tag": "Asset Library",
-      "title": "Soundbite Stills & Transcript Pull-Quotes",
-      "description": "High-resolution video frame grabs, verified testimonial transcripts, and standalone soundbite audio snippets formatted for your written case studies, pitch decks, and investor presentations."
+      "tag": "Collateral Pack",
+      "title": "Production Stills & Verified Transcripts",
+      "description": "High-resolution on-location photography of your partner in their workspace, delivered alongside timecoded interview transcripts and approved pull-quotes for your written case studies, proposals, and press releases."
     }
   ],
-  "ctaHeading": "Have a client story ready to *share?*",
-  "ctaDescription": "Tell us about your customer, their location, and your target campaign. We'll handle the interview planning, filming, and delivery.",
+  "ctaHeading": "Planning your next *customer case study?*",
+  "ctaDescription": "Tell us about your partner, their location, and your preferred timeline. We'll outline a dependable shoot schedule and provide a clear quote.",
   "ctaButtonLabel": "Discuss Your Case Study →"
 }
