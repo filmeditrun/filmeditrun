@@ -688,7 +688,7 @@ var config_default = defineConfig({
             list: true,
             ui: {
               itemProps: (item) => ({
-                label: item?.value ? `${item.value} \u2014 ${item?.label || ""}` : "Metric"
+                label: item?.value ? `${item.value} : ${item?.label || ""}` : "Metric"
               })
             },
             fields: [
@@ -2735,7 +2735,7 @@ var config_default = defineConfig({
             list: true,
             ui: {
               itemProps: (item) => ({
-                label: `${item?.year || ""} \u2014 ${item?.title || "Milestone"}`
+                label: `${item?.year || ""} - ${item?.title || "Milestone"}`
               })
             },
             fields: [

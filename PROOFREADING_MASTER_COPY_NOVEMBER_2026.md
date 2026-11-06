@@ -1,4 +1,4 @@
-# 🎬 FilmEditRun — Complete Website Copy Proofreading Master
+# 🎬 FilmEditRun : Complete Website Copy Proofreading Master
 **Studio:** FilmEditRun (https://filmeditrun.co.uk)  
 **Version:** 2.0 (Master Synchronized Edition)  
 **Date:** November 2026  
@@ -63,10 +63,10 @@
   - `Post-Production`
 
 ### Studio Telemetry Metric Bar
-* **Metric 1:** `10+` • `Years On-Location` — Over a decade of commercial filming, live conference stages, and post-production craft.
-* **Metric 2:** `48h` • `Creative Event Wrap-Ups` — Polished wrap-up edits and speaker soundbites delivered while your event is still trending.
-* **Metric 3:** `2` • `Operational Hubs` — Cambridge studio base and London on-location field crews filming UK-wide.
-* **Metric 4:** `Edits` • `Widescreen, Vertical & Square` — Full-length masters for your website, plus captioned vertical and square cutdowns built for social feeds.
+* **Metric 1:** `10+` • `Years On-Location` : Over a decade of commercial filming, live conference stages, and post-production craft.
+* **Metric 2:** `48h` • `Creative Event Wrap-Ups` : Polished wrap-up edits and speaker soundbites delivered while your event is still trending.
+* **Metric 3:** `2` • `Operational Hubs` : Cambridge studio base and London on-location field crews filming UK-wide.
+* **Metric 4:** `Edits` • `Widescreen, Vertical & Square` : Full-length masters for your website, plus captioned vertical and square cutdowns built for social feeds.
 
 ### Studio Manifesto (Full-Bleed Parallax Immersion)
 * **Visual Background:** `/work/onlocation.webp` (On-Location Production Scrim)
@@ -82,7 +82,7 @@
 ### Full-Bleed Parallax Immersion (Production Ethos)
 * **Visual Background:** `/cambridge/stage-wide.webp` (Flexible Background Layer)
 * **Heading:** `Driven by the task. Not the tool.` *(with "Not the tool." in amber gradient)*
-* **Description:** `High-spec production technology is only as effective as the intention behind it. From multi-camera live coverage to cinema optics, we configure our setup around the specific demands of your brief—ensuring the technology serves the task and delivers the right result.`
+* **Description:** `High-spec production technology is only as effective as the intention behind it. From multi-camera live coverage to cinema optics, we configure our setup around the specific demands of your brief, ensuring the technology serves the task and delivers the right result.`
 
 ### Services Carousel (Modular Capabilities)
 * **Tag:** `SERVICES`
@@ -116,7 +116,7 @@
 
 ### Final Studio Commissioning CTA
 * **Heading:** `Have an upcoming project or live event?` *(with "or live event?" in animated gradient underline)*
-* **Description:** `Whether you have a finalized brief or an early date in mind, we're ready to collaborate. Tell us about your venue, goals, or timeline—we'll deliver a clear technical production scope and transparent quote within 24 hours.`
+* **Description:** `Whether you have a finalized brief or an early date in mind, we're ready to collaborate. Tell us about your venue, goals, or timeline. We'll deliver a clear technical production scope and transparent quote within 24 hours.`
 * **Primary Button:** `Start Project Brief →` → `/contact`
 * **Trust Signals:** `Direct Filmmaker Collaboration` • `Clear, Transparent Scope` • `24h Proposal Turnaround` • `Cambridge & London Hubs`
 
@@ -211,7 +211,7 @@
 ### Hero Section
 * **Hero Tag:** `Event Filming`
 * **Hero Heading (6 words):** `We make sure the *momentum* lasts.` *(with "momentum" in amber gradient)*
-* **Hero Lead (32 words):** `Great events happen once. Operating with low-profile crews on location, we capture every keynote, panel discussion, and attendee reaction—delivering full session masters and fast-turnaround social highlights while your event is trending.`
+* **Hero Lead (32 words):** `Great events happen once. Operating with low-profile crews on location, we capture every keynote, panel discussion, and attendee reaction, delivering full session masters and fast-turnaround social highlights while your event is trending.`
 
 ### Breakdown Section
 * **Heading:** `Discreet on-location crews, *polished results.*` *(with "polished results." in animated gradient underline)*
@@ -239,7 +239,7 @@
 ### Hero Section
 * **Hero Tag:** `Conference & Summit Filming`
 * **Hero Heading (7 words):** `Capture the keynotes. Share the *conversations.*` *(with "conversations." in amber gradient)*
-* **Hero Lead (33 words):** `Great conferences generate ideas that shouldn’t end when the lights go down. We capture multi-stage keynotes, executive panels, and unscripted conversations across Cambridge and London—delivering sharp films your audience watches all year.`
+* **Hero Lead (33 words):** `Great conferences generate ideas that shouldn’t end when the lights go down. We capture multi-stage keynotes, executive panels, and unscripted conversations across Cambridge and London, delivering sharp films your audience watches all year.`
 
 ### Breakdown Section
 * **Heading:** `Multi-stage scale, *zero distraction.*` *(with "zero distraction." in animated gradient underline)*
