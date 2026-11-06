@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "Flagship Film",
+      "tag": "Overview Film",
       "title": "Company Overview & Brand Showcase",
-      "description": "A cinematic narrative film capturing your mission, market difference, and technical ambition, designed to anchor your homepage, open keynote presentations, and impress prospective partners."
+      "description": "A cinematic film capturing your mission, operational scale, and technical capability. Built to establish immediate authority on your website, open keynote presentations, and introduce your business to partners."
     },
     {
-      "tag": "Culture & People",
-      "title": "Talent Recruitment & Workplace Culture",
-      "description": "Engaging profiles of team members, shared company values, and real workplace dynamics, cut to attract world-class talent and accelerate recruitment campaigns across digital channels."
+      "tag": "Culture & Talent",
+      "title": "Workplace Culture & Recruitment Films",
+      "description": "Authentic profiles of team members, shared technical values, and real working environments, designed to attract top engineering, commercial, and research talent through your careers channels."
     },
     {
-      "tag": "Leadership",
-      "title": "Executive Vision & Investor Briefings",
-      "description": "Polished boardroom addresses and annual milestone summaries designed for investor pitches, global stakeholder updates, and company-wide town halls with crystal-clear audio and graphics."
+      "tag": "Leadership & Impact",
+      "title": "Executive Vision, ESG & Internal Comms",
+      "description": "Composed executive addresses, sustainability milestones, and strategy rollouts formatted for company-wide town halls, global team broadcasts, and annual investor reporting."
     }
   ],
-  "ctaHeading": "Ready to tell your company's *story?*",
-  "ctaDescription": "Tell us about your brand goals, target audience, or upcoming launch. We'll outline a creative approach, production schedule, and transparent quote.",
+  "ctaHeading": "Ready to showcase your company's *story?*",
+  "ctaDescription": "Tell us about your corporate goals and upcoming brief. We'll outline a clear approach, dependable schedule, and transparent quote.",
   "ctaButtonLabel": "Discuss Your Brand Film →"
 }
