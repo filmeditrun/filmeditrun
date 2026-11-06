@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "Full Sessions",
-      "title": "Synchronized Keynote & Panel Masters",
-      "description": "Multi-camera 4K recordings of every stage presentation, synchronized with presentation slide decks and clean direct soundboard feeds for on-demand streaming across your corporate channels."
+      "tag": "Videography",
+      "title": "On-Location Event Videography",
+      "description": "Discreet roaming camera coverage capturing delegate networking, venue atmosphere, speaker soundbites, and behind-the-scenes moments—building a rich visual library for your future marketing campaigns and press releases."
+    },
+    {
+      "tag": "Stage Capture",
+      "title": "Live-Mixed Keynotes & Slide Integration",
+      "description": "Multi-camera stage recording synchronized with presentation slide decks. Using our on-site live mix, we top-and-tail each session with your corporate branding and clean audio for rapid publishing."
     },
     {
       "tag": "Highlights",
-      "title": "Fast-Turnaround Social Highlight Films",
-      "description": "High-energy recap films delivered within 24 to 48 hours, cut to licensed music with on-screen titles to share the buzz on LinkedIn while your event is still trending."
-    },
-    {
-      "tag": "Interviews",
-      "title": "Speaker Soundbites & Attendee Vox Pops",
-      "description": "On-the-floor delegate reactions and brief executive soundbites captured between sessions, creating an authentic library of quotes and cutaways for press releases and next year's ticket launch."
+      "title": "Wrap-Up Highlights & Social Cutdowns",
+      "description": "Polished 24-to-48-hour event wrap-up films cut to licensed music, delivered alongside vertical 9:16 social cutdowns with styled captions to share the momentum on LinkedIn while your event is trending."
     }
   ],
-  "ctaHeading": "Planning an upcoming *conference or summit?*",
+  "ctaHeading": "Planning an upcoming *conference or live event?*",
   "ctaDescription": "Tell us about your event dates, venue location, and technical brief. We'll outline a dependable setup and provide a clear quote.",
   "ctaButtonLabel": "Discuss Your Event →"
 }
