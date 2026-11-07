@@ -3144,7 +3144,7 @@ export default defineConfig({
             type: "string",
             name: "step3Title",
             label: "Step 3 Question Title",
-            description: "e.g. What is your contact email address? *",
+            description: "e.g. What is your business email address? *",
             required: true,
           },
           {
@@ -3152,6 +3152,12 @@ export default defineConfig({
             name: "step3Placeholder",
             label: "Step 3 Field Placeholder",
             description: "e.g. name@company.com",
+          },
+          {
+            type: "string",
+            name: "step3HelpText",
+            label: "Step 3 Business Email Requirement Note",
+            description: "Helper note clarifying business email requirement (e.g. no Gmail/Yahoo)",
           },
 
           // ─── 04. STEP 4: PROJECT BRIEF ─────────────────────────────────

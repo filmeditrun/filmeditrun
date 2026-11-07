@@ -64,12 +64,13 @@ const formSteps = [
   },
   {
     id: "email",
-    type: "text",
+    type: "email",
     tag: contact.step3Tag || "03 // Contact Details",
-    title: contact.step3Title || "What is your contact email address? *",
+    title: contact.step3Title || "What is your business email address? *",
     inputType: "email",
     nameAttr: "email",
     placeholder: contact.step3Placeholder || "name@company.com",
+    helpText: (contact as any).step3HelpText || "Please provide your company or institutional work email. Inquiries from personal webmail accounts (such as Gmail or Yahoo) are not accepted.",
     required: true
   },
   {
@@ -357,6 +358,25 @@ const gradientStyle = isRadial
             </div>
           )}
 
+          {step.type === "email" && (
+            <div>
+              <input 
+                type="email" 
+                name={step.nameAttr} 
+                required={step.required} 
+                placeholder={step.placeholder} 
+                class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-xl md:text-3xl py-2 sm:py-3 outline-none text-white keep-white transition-colors placeholder:text-neutral-500" 
+              />
+              {step.helpText && (
+                <p class="text-xs text-neutral-400 keep-white mt-3 font-mono flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
+                  <span>{step.helpText}</span>
+                </p>
+              )}
+              <p class="text-xs text-neutral-500 keep-white mt-2 font-mono hidden sm:block">Press ENTER or click Next</p>
+            </div>
+          )}
+
           {step.type === "text" && (
             <>
               <input 
@@ -382,9 +402,9 @@ const gradientStyle = isRadial
           )}
 
           {step.type === "textarea" && (
-            <>
+            <div class="space-y-4">
               {step.helpText && (
-                <div class="mb-4 p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/5 text-xs font-mono text-neutral-300 keep-white leading-relaxed flex items-start gap-2.5">
+                <div class="p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/5 text-xs font-mono text-neutral-300 keep-white leading-relaxed flex items-start gap-2.5">
                   <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold text-[10px] uppercase tracking-wider shrink-0">BRIEF TIP</span>
                   <span>{step.helpText}</span>
                 </div>
@@ -392,11 +412,11 @@ const gradientStyle = isRadial
               <textarea 
                 name={step.nameAttr} 
                 required={step.required} 
-                rows="3" 
+                rows="4" 
                 placeholder={step.placeholder} 
-                class="w-full bg-transparent border-b-2 border-neutral-700 focus:border-amber-500 text-lg md:text-2xl py-2 outline-none text-white keep-white transition-colors resize-none placeholder:text-neutral-500" 
+                class="w-full rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 focus:border-amber-500 focus:bg-neutral-900/70 text-base md:text-lg outline-none text-white keep-white transition-all resize-y min-h-[130px] placeholder:text-neutral-500" 
               ></textarea>
-            </>
+            </div>
           )}
 
           {step.type === "final" && (
@@ -556,6 +576,26 @@ const gradientStyle = isRadial
         }
       }
 
+      // Ensure business email address when leaving step 3
+      const emailInput = steps[currentStep].querySelector('input[type="email"]') as HTMLInputElement;
+      if (emailInput && emailInput.value) {
+        const emailVal = emailInput.value.trim().toLowerCase();
+        const freeDomains = [
+          'gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.co.uk',
+          'hotmail.com', 'hotmail.co.uk', 'outlook.com', 'live.com',
+          'icloud.com', 'aol.com', 'mail.com', 'proton.me', 'protonmail.com'
+        ];
+        const atParts = emailVal.split('@');
+        const domain = atParts.length > 1 ? atParts[1] : '';
+        if (domain && freeDomains.includes(domain)) {
+          emailInput.setCustomValidity("Please provide a business or organisation email address. Personal webmail accounts (such as Gmail or Yahoo) are not accepted.");
+          emailInput.reportValidity();
+          return;
+        } else {
+          emailInput.setCustomValidity("");
+        }
+      }
+
       if (currentStep < steps.length - 1) {
         currentStep++;
         updateForm(true);
@@ -589,6 +629,13 @@ const gradientStyle = isRadial
       cb.addEventListener('change', () => {
         const firstCb = form.querySelector('input[type="checkbox"][name="services[]"]') as HTMLInputElement;
         if (firstCb) firstCb.setCustomValidity("");
+      });
+    });
+
+    // Clear email custom validity on input
+    form.querySelectorAll('input[type="email"]').forEach(input => {
+      input.addEventListener('input', () => {
+        (input as HTMLInputElement).setCustomValidity("");
       });
     });
 

@@ -416,6 +416,7 @@ export const ContactPagePartsFragmentDoc = gql`
   step3Tag
   step3Title
   step3Placeholder
+  step3HelpText
   step4Tag
   step4Title
   step4Placeholder

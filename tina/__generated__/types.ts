@@ -1430,6 +1430,7 @@ export type ContactPage = Node & Document & {
   step3Tag?: Maybe<Scalars['String']['output']>;
   step3Title: Scalars['String']['output'];
   step3Placeholder?: Maybe<Scalars['String']['output']>;
+  step3HelpText?: Maybe<Scalars['String']['output']>;
   step4Tag?: Maybe<Scalars['String']['output']>;
   step4Title: Scalars['String']['output'];
   step4Placeholder?: Maybe<Scalars['String']['output']>;
@@ -1476,6 +1477,7 @@ export type ContactPageFilter = {
   step3Tag?: InputMaybe<StringFilter>;
   step3Title?: InputMaybe<StringFilter>;
   step3Placeholder?: InputMaybe<StringFilter>;
+  step3HelpText?: InputMaybe<StringFilter>;
   step4Tag?: InputMaybe<StringFilter>;
   step4Title?: InputMaybe<StringFilter>;
   step4Placeholder?: InputMaybe<StringFilter>;
@@ -2546,6 +2548,7 @@ export type ContactPageMutation = {
   step3Tag?: InputMaybe<Scalars['String']['input']>;
   step3Title?: InputMaybe<Scalars['String']['input']>;
   step3Placeholder?: InputMaybe<Scalars['String']['input']>;
+  step3HelpText?: InputMaybe<Scalars['String']['input']>;
   step4Tag?: InputMaybe<Scalars['String']['input']>;
   step4Title?: InputMaybe<Scalars['String']['input']>;
   step4Placeholder?: InputMaybe<Scalars['String']['input']>;
@@ -3087,6 +3090,7 @@ export type ContactPageFilter = {
   step3Tag?: StringFilter | null | undefined;
   step3Title?: StringFilter | null | undefined;
   step3Placeholder?: StringFilter | null | undefined;
+  step3HelpText?: StringFilter | null | undefined;
   step4Tag?: StringFilter | null | undefined;
   step4Title?: StringFilter | null | undefined;
   step4Placeholder?: StringFilter | null | undefined;
@@ -3245,7 +3249,7 @@ export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string
 
 export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutSliderSlides', name: string, badge: string | null, bio: string | null, avatar: string | null, videoLoop: string | null } | null> | null };
 
-export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
+export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
 
 export type ThankYouPagePartsFragment = { __typename: 'ThankYouPage', seoTitle: string, seoDescription: string, statusBadge: string | null, heading: string, highlight: string | null, description: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, primaryBtnLabel: string | null, primaryBtnLink: string | null, secondaryBtnLabel: string | null, secondaryBtnLink: string | null };
 
@@ -3471,7 +3475,7 @@ export type ContactPageQueryVariables = Exact<{
 }>;
 
 
-export type ContactPageQuery = { contactPage: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } };
+export type ContactPageQuery = { contactPage: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } };
 
 export type ContactPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3483,7 +3487,7 @@ export type ContactPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ContactPageConnectionQuery = { contactPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } | null } | null> | null } };
+export type ContactPageConnectionQuery = { contactPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } | null } | null> | null } };
 
 export type ThankYouPageQueryVariables = Exact<{
   relativePath: string;
@@ -3991,6 +3995,7 @@ export const ContactPagePartsFragmentDoc = gql`
   step3Tag
   step3Title
   step3Placeholder
+  step3HelpText
   step4Tag
   step4Title
   step4Placeholder
