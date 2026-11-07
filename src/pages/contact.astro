@@ -70,7 +70,7 @@ const formSteps = [
     inputType: "email",
     nameAttr: "email",
     placeholder: contact.step3Placeholder || "name@company.com",
-    helpText: (contact as any).step3HelpText || "Please provide your company or institutional work email. Inquiries from personal webmail accounts (such as Gmail or Yahoo) are not accepted.",
+    helpText: (contact as any).step3HelpText || "Please provide your company or institutional work email. Inquiries from personal accounts are not accepted.",
     required: true
   },
   {
@@ -287,11 +287,6 @@ const gradientStyle = isRadial
 
     <!-- Centered Form Container (Cardless, Breathable) -->
     <div class="relative z-20 max-w-2xl mx-auto px-6">
-      
-      <!-- Visual Step Progress Bar -->
-      <div class="w-full bg-white/10 h-1.5 rounded-full mb-8 overflow-hidden" aria-hidden="true">
-        <div id="stepProgressBar" class="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-300 w-1/5 rounded-full"></div>
-      </div>
 
       <!-- Stepped Form Component (100% original inputs, zero container box) -->
       <form id="typeform" action={formEndpoint} method="POST" class="w-full flex flex-col justify-between gap-6 sm:gap-8 select-text">
@@ -450,17 +445,24 @@ const gradientStyle = isRadial
       </div>
 
       <!-- Inline Mobile-Safe Step Controls & Progress Indicator -->
-      <div class="flex items-center justify-between border-t border-white/10 pt-6">
-        <span id="stepCounter" class="font-mono text-xs uppercase tracking-widest text-neutral-400 keep-white">
-          Step 01 / 0{formSteps.length}
-        </span>
-        <div class="flex gap-3">
-          <button type="button" id="prevBtn" class="bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white px-4 py-3 rounded-xl opacity-50 cursor-not-allowed transition-all text-sm sm:text-base">
-            ← Back
-          </button>
-          <button type="button" id="nextBtn" class="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-6 py-3 rounded-xl transition-all text-sm sm:text-base cursor-pointer shadow-lg shadow-amber-500/15">
-            Next →
-          </button>
+      <div class="border-t border-white/10 pt-6 space-y-4">
+        <!-- Visual Step Progress Bar (Positioned directly above Step 01 / 05) -->
+        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden" aria-hidden="true">
+          <div id="stepProgressBar" class="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-300 w-1/5 rounded-full"></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span id="stepCounter" class="font-mono text-xs uppercase tracking-widest text-neutral-400 keep-white">
+            Step 01 / 0{formSteps.length}
+          </span>
+          <div class="flex gap-3">
+            <button type="button" id="prevBtn" class="bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white px-4 py-3 rounded-xl opacity-50 cursor-not-allowed transition-all text-sm sm:text-base">
+              ← Back
+            </button>
+            <button type="button" id="nextBtn" class="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-6 py-3 rounded-xl transition-all text-sm sm:text-base cursor-pointer shadow-lg shadow-amber-500/15">
+              Next →
+            </button>
+          </div>
         </div>
       </div>
     </form>
@@ -588,7 +590,7 @@ const gradientStyle = isRadial
         const atParts = emailVal.split('@');
         const domain = atParts.length > 1 ? atParts[1] : '';
         if (domain && freeDomains.includes(domain)) {
-          emailInput.setCustomValidity("Please provide a business or organisation email address. Personal webmail accounts (such as Gmail or Yahoo) are not accepted.");
+          emailInput.setCustomValidity("Please provide your company or institutional work email. Inquiries from personal accounts are not accepted.");
           emailInput.reportValidity();
           return;
         } else {

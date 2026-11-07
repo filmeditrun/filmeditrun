@@ -3157,7 +3157,7 @@ export default defineConfig({
             type: "string",
             name: "step3HelpText",
             label: "Step 3 Business Email Requirement Note",
-            description: "Helper note clarifying business email requirement (e.g. no Gmail/Yahoo)",
+            description: "Helper note clarifying business email requirement (e.g. personal accounts not accepted)",
           },
 
           // ─── 04. STEP 4: PROJECT BRIEF ─────────────────────────────────

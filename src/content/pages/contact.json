@@ -60,7 +60,7 @@
   "step3Tag": "03 // Contact Details",
   "step3Title": "What is your business email address? *",
   "step3Placeholder": "name@company.com",
-  "step3HelpText": "Please provide your company or institutional work email. Inquiries from personal webmail accounts (such as Gmail or Yahoo) are not accepted.",
+  "step3HelpText": "Please provide your company or institutional work email. Inquiries from personal accounts are not accepted.",
   "step4Tag": "04 // Project Brief",
   "step4Title": "How can we help? *",
   "step4HelpText": "Draft dates, rough ideas, or bullet points are completely fine. You do not need a finalized brief: tell us what you have in mind and we will help shape the scope.",
