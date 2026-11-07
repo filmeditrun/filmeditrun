@@ -3076,7 +3076,7 @@ export default defineConfig({
             type: "string",
             name: "step1Title",
             label: "Step 1 Question Title",
-            description: "e.g. What is your name and company or organisation? *",
+            description: "e.g. What is your *name* and *company* or organisation? * (asterisks add amber underline)",
             required: true,
           },
           {

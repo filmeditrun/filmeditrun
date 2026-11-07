@@ -22,7 +22,7 @@
   "enableTurnstile": false,
   "turnstileSiteKey": "",
   "step1Tag": "01 // Introduce Yourself",
-  "step1Title": "What is your name and company or organisation? *",
+  "step1Title": "What is your *name* and *company* or organisation? *",
   "step1Placeholder": "Your full name *",
   "step1CompanyPlaceholder": "Company or organisation name (optional)",
   "step2Tag": "02 // Project Requirement",

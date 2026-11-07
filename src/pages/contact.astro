@@ -101,6 +101,14 @@ const parseHeading = (text: string) => {
   return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
 };
 
+// parseHeadingWithLine: Solid Text with Animated Amber Gradient Underline (used on in-page sections & step titles)
+const parseHeadingWithLine = (text: string) => {
+  if (!text) return "";
+  let parsed = text.replace(/\*([^*\n]+)\*/g, '<span class="animated-accent-underline is-visible">$1</span>');
+  parsed = parsed.replace(/\s\*(?!\w)/g, ' <span class="text-amber-500 font-normal">*</span>');
+  return parsed;
+};
+
 const headerTag = (contact as any).headerTag || "Start A Brief";
 const heading = (contact as any).heading || "Let's discuss your next *production.*";
 const description = (contact as any).description || "Tell us about your upcoming dates, venue location, or visual goals. We deliver a clear technical production scope and transparent quote within 24 hours.";
@@ -302,7 +310,7 @@ const gradientStyle = isRadial
       {formSteps.map((step, index) => (
         <div class={`step col-start-1 row-start-1 transition-opacity duration-300 w-full flex flex-col justify-center ${index === 0 ? 'opacity-100 pointer-events-auto z-10' : 'opacity-0 pointer-events-none z-0'}`}>
           <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold mb-2 block">{step.tag}</span>
-          <h2 class="text-2xl md:text-3xl font-bold text-white keep-white mb-4 sm:mb-6 pr-4 leading-tight">{step.title}</h2>
+          <h2 class="text-2xl md:text-3xl font-bold text-white keep-white mb-4 sm:mb-6 pr-4 leading-tight" set:html={parseHeadingWithLine(step.title)} />
 
           {step.type === "name-company" && (
             <div class="space-y-4 sm:space-y-5">
