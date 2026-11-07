@@ -112,10 +112,11 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
     <!-- Hero Copy Context -->
     <div class="relative z-20 max-w-4xl mx-auto px-6 my-auto py-16 text-center">
       <span class="text-[11px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-amber-500 font-mono font-bold block mb-4">{home.locations}</span>
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white keep-white leading-[1.08] sm:leading-none mb-6">
-        {home.heroHeadingPrefix} <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">{home.heroHeadingHighlight}</span>
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white keep-white leading-[1.08] sm:leading-[1.12] mb-6 text-balance">
+        <Fragment set:html={home.heroHeadingPrefix} /> <br class="hidden sm:inline" /><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">{home.heroHeadingHighlight}</span>
       </h1>
-      <p class="text-neutral-300 max-w-xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed mb-10 keep-white">
+      <!-- Hero Lead Hook / Value Proposition -->
+      <p class="text-neutral-300 max-w-xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed tracking-[-0.01em] mb-10 keep-white">
         {home.tagline}
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">

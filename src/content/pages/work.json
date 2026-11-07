@@ -2,7 +2,7 @@
   "seoTitle": "Selected Portfolio & Case Studies | FilmEditRun",
   "seoDescription": "Explore selected corporate films, conference recordings, brand case studies, and event highlights filmed across Cambridge, London, and nationwide.",
   "headerTag": "Selected Work",
-  "heading": "Films that capture *energy* and momentum.",
+  "heading": "Films that capture <br class=\"hidden sm:inline\" />*energy* and momentum.",
   "description": "Commercial productions, conference stages, and executive stories filmed across London, Cambridge, and nationwide.",
   "heroVideoPath": "/showreel.mp4",
   "heroPosterPath": "/og-image.jpg",

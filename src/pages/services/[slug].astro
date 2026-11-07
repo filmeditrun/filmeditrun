@@ -300,18 +300,18 @@ if (service.heroTextContrast === "dark") {
           </div>
         </div>
 
-        <!-- Large Title -->
+        <!-- Large Title with Asterisk Gradient Support -->
         <h1 
           class:list={[
-            "text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] mb-6 max-w-4xl",
+            "text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] mb-6 max-w-4xl text-balance",
             isHeroLight ? "text-[#09090b]" : "text-white keep-white"
           ]}
           set:html={parseHeading(service.heroHeading || service.title)}
         />
 
-        <!-- Value Proposition / Introductory Paragraph -->
+        <!-- Hero Lead Hook / Value Proposition -->
         <p class:list={[
-          "text-base sm:text-lg lg:text-xl font-normal leading-relaxed max-w-3xl mb-8",
+          "text-base sm:text-lg lg:text-xl font-normal leading-relaxed tracking-[-0.01em] max-w-2xl mb-8",
           isHeroLight ? "text-[#374151]" : "text-neutral-300"
         ]}>
           {service.heroLead || service.description}

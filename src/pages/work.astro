@@ -182,12 +182,12 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
 
         <!-- Large Title with Asterisk Gradient Support -->
         <h1 
-          class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl"
+          class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl text-balance"
           set:html={parseHeading(workPage.heading)}
         />
 
-        <!-- Value Proposition / Introductory Paragraph -->
-        <p class="text-base sm:text-lg lg:text-xl text-neutral-300 font-normal leading-relaxed max-w-3xl mb-8">
+        <!-- Hero Lead Hook / Value Proposition -->
+        <p class="text-base sm:text-lg lg:text-xl text-neutral-300 font-normal leading-relaxed tracking-[-0.01em] max-w-2xl mb-8">
           {workPage.description}
         </p>
 
