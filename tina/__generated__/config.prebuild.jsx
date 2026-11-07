@@ -3013,14 +3013,20 @@ var config_default = defineConfig({
             type: "string",
             name: "step1Title",
             label: "Step 1 Question Title",
-            description: "e.g. What is your first and surname? *",
+            description: "e.g. What is your name and company or organisation? *",
             required: true
           },
           {
             type: "string",
             name: "step1Placeholder",
-            label: "Step 1 Field Placeholder",
-            description: "e.g. Type your full name here..."
+            label: "Step 1 Name Field Placeholder",
+            description: "e.g. Your full name *"
+          },
+          {
+            type: "string",
+            name: "step1CompanyPlaceholder",
+            label: "Step 1 Company Field Placeholder",
+            description: "e.g. Company or organisation name (optional)"
           },
           // ─── 02. STEP 2: SERVICES ──────────────────────────────────────
           {
@@ -3033,14 +3039,14 @@ var config_default = defineConfig({
             type: "string",
             name: "step2Title",
             label: "Step 2 Question Title",
-            description: "e.g. What service do you need? *",
+            description: "e.g. Which services are you looking for? *",
             required: true
           },
           {
             type: "object",
             name: "serviceOptions",
             label: "Service Requirement Options",
-            description: "Radio options users can select for their project brief",
+            description: "Service options users can select for their project brief",
             list: true,
             ui: {
               itemProps: (item) => ({

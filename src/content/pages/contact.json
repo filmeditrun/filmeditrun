@@ -22,34 +22,39 @@
   "enableTurnstile": false,
   "turnstileSiteKey": "",
   "step1Tag": "01 // Introduce Yourself",
-  "step1Title": "What is your first and surname? *",
-  "step1Placeholder": "Type your full name here...",
+  "step1Title": "What is your name and company or organisation? *",
+  "step1Placeholder": "Your full name *",
+  "step1CompanyPlaceholder": "Company or organisation name (optional)",
   "step2Tag": "02 // Project Requirement",
-  "step2Title": "What service do you need? *",
+  "step2Title": "Which services are you looking for? *",
   "serviceOptions": [
     {
-      "label": "Single & Multi-Camera Event Filming",
-      "value": "Single & Multi-Camera Event Filming"
+      "label": "Conference & Live Event Filming",
+      "value": "Conference & Live Event Filming"
     },
     {
-      "label": "Conference Video Production",
-      "value": "Conference Video Production"
+      "label": "Customer Case Study & Testimonial Films",
+      "value": "Customer Case Study & Testimonial Films"
     },
     {
-      "label": "2D & 3D Animation & Motion Design",
-      "value": "2D & 3D Animation & Motion Design"
+      "label": "Corporate Brand & Company Showcase Films",
+      "value": "Corporate Brand & Company Showcase Films"
     },
     {
-      "label": "Video Editing & Post-Production",
-      "value": "Video Editing & Post-Production"
+      "label": "Video Podcast & Executive Series",
+      "value": "Video Podcast & Executive Series"
     },
     {
-      "label": "Video Podcasts & Vodcasts",
-      "value": "Video Podcasts & Vodcasts"
+      "label": "Animation & Technical Motion Design",
+      "value": "Animation & Technical Motion Design"
     },
     {
-      "label": "Corporate & Brand Storytelling",
-      "value": "Corporate & Brand Storytelling"
+      "label": "Video Editing & Creative Post-Production",
+      "value": "Video Editing & Creative Post-Production"
+    },
+    {
+      "label": "Not sure yet / Exploring options",
+      "value": "Not sure yet / Exploring options"
     }
   ],
   "step3Tag": "03 // Contact Details",
@@ -57,8 +62,8 @@
   "step3Placeholder": "name@company.com",
   "step4Tag": "04 // Project Brief",
   "step4Title": "How can we help? *",
-  "step4HelpText": "Have an AI-generated brief, ChatGPT storyboard, or draft dates? Paste it straight in. We translate your ideas into broadcast schedules and camera execution.",
-  "step4Placeholder": "Tell us about your event dates, venue location, or project brief (AI / ChatGPT drafts welcome!)...",
+  "step4HelpText": "Draft dates, rough ideas, or bullet points are completely fine. You do not need a finalized brief: tell us what you have in mind and we will help shape the scope.",
+  "step4Placeholder": "Tell us what you have in mind (rough dates, location, or just an initial idea)...",
   "step5Tag": "05 // Verification & Consent",
   "step5Title": "Final Step *",
   "gdprText": "I confirm that FilmEditRun may process my contact details and project brief to prepare a production proposal in accordance with their Privacy Policy.",

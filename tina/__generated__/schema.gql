@@ -1063,6 +1063,7 @@ type ContactPage implements Node & Document {
   step1Tag: String
   step1Title: String!
   step1Placeholder: String
+  step1CompanyPlaceholder: String
   step2Tag: String
   step2Title: String!
   serviceOptions: [ContactPageServiceOptions]
@@ -1108,6 +1109,7 @@ input ContactPageFilter {
   step1Tag: StringFilter
   step1Title: StringFilter
   step1Placeholder: StringFilter
+  step1CompanyPlaceholder: StringFilter
   step2Tag: StringFilter
   step2Title: StringFilter
   serviceOptions: ContactPageServiceOptionsFilter
@@ -1919,6 +1921,7 @@ input ContactPageMutation {
   step1Tag: String
   step1Title: String
   step1Placeholder: String
+  step1CompanyPlaceholder: String
   step2Tag: String
   step2Title: String
   serviceOptions: [ContactPageServiceOptionsMutation]
