@@ -25,12 +25,12 @@
   "cardLinkLabel": "View Selected Works \u2192",
   "cardLinkHref": "/work",
   "lookbookTag": "Field Dispatches // London",
-  "lookbookHeroImage": "/og-image.jpg",
-  "lookbookHeroBadge": "ExCeL London \u2022 4K Multi-Cam Stage",
-  "lookbookDetail1Image": "/og-image.jpg",
-  "lookbookDetail1Badge": "City of London \u2022 Executive Profiles",
-  "lookbookDetail2Image": "/og-image.jpg",
-  "lookbookDetail2Badge": "Kings Cross \u2022 Live Audio & Cinema Rigs",
+  "lookbookHeroImage": "/work/onlocation.webp",
+  "lookbookHeroBadge": "ExCeL London • 4K Multi-Cam Stage",
+  "lookbookDetail1Image": "/cambridge/stage-wide.webp",
+  "lookbookDetail1Badge": "City of London • Executive Profiles",
+  "lookbookDetail2Image": "/work/handheld.webp",
+  "lookbookDetail2Badge": "Kings Cross • Live Audio & Cinema Rigs",
   "faqHeading": "Frequently Asked Questions",
   "faqs": [
     {

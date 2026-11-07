@@ -6,7 +6,7 @@
   "runtime": "2:15",
   "description": "Multi-camera keynote stage capture, clean soundboard audio sync, and rapid 24-hour social highlight cutdowns delivered across a three-day international symposium.",
   "videoUrl": "https://player.vimeo.com/video/828757840",
-  "thumbnail": "/og-image.jpg",
+  "thumbnail": "/cambridge/stage-wide.webp",
   "backgroundStyle": "image",
   "brightnessStyle": "normal"
 }

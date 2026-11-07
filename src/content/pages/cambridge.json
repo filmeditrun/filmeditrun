@@ -26,11 +26,11 @@
   "cardLinkHref": "/work",
   "lookbookTag": "Field Dispatches // Cambridge",
   "lookbookHeroImage": "/cambridge/stage-wide.webp",
-  "lookbookHeroBadge": "Cambridge Corn Exchange \u2022 Multi-Cam Keynote",
-  "lookbookDetail1Image": "/og-image.jpg",
-  "lookbookDetail1Badge": "Historic Colleges \u2022 Symposia & Panels",
-  "lookbookDetail2Image": "/og-image.jpg",
-  "lookbookDetail2Badge": "Cambridge Biomedical Campus \u2022 Executive Interviews",
+  "lookbookHeroBadge": "Cambridge Corn Exchange • Multi-Cam Keynote",
+  "lookbookDetail1Image": "/work/onlocation.webp",
+  "lookbookDetail1Badge": "Historic Colleges • Symposia & Panels",
+  "lookbookDetail2Image": "/work/handheld.webp",
+  "lookbookDetail2Badge": "Cambridge Biomedical Campus • Executive Interviews",
   "faqHeading": "Frequently Asked Questions",
   "faqs": [
     {
