@@ -13,12 +13,12 @@
   "secondaryCtaLink": "/work",
   "brandName": "FilmEditRun",
   "expertiseList": [
-    "Conference & Event Filming",
-    "Customer Case Study Films",
-    "Corporate Brand Showcases",
-    "Video Podcasts & Vodcasts",
-    "Technical Motion Design",
-    "Creative Post-Production"
+    "Conference & Live Event Filming",
+    "Customer Case Study & Testimonial Films",
+    "Corporate Brand & Company Showcase Films",
+    "Video Podcast & Executive Series",
+    "Animation & Technical Motion Design",
+    "Video Editing & Creative Post-Production"
   ],
   "introHeading": "A dedicated *on-location partner.*",
   "introBody": "Working alongside corporate brands, event organisers, and creative agencies, we produce films that feel authentic and alive. With quiet discretion so your speakers feel at ease, we turn real energy and complex ideas into films that connect.",
@@ -40,8 +40,8 @@
       "description": "Cambridge studio base and London on-location field crews filming UK-wide."
     },
     {
-      "value": "Edits",
-      "label": "Widescreen, Vertical & Square",
+      "value": "16:9 & 9:16",
+      "label": "Widescreen & Social Cutdowns",
       "description": "Full-length masters for your website, plus captioned vertical and square cutdowns built for social feeds."
     }
   ],
