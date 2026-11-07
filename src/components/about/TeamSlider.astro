@@ -164,14 +164,9 @@ const parseHeading = (text: string) => {
                     {member.badge}
                   </span>
                 )}
-                <h3 class="text-xl sm:text-3xl md:text-4xl font-black text-white keep-white tracking-tight drop-shadow-lg mb-2 leading-tight">
+                <h3 class="text-xl sm:text-3xl md:text-4xl font-black text-white keep-white tracking-tight drop-shadow-lg leading-tight">
                   {member.name}
                 </h3>
-                {member.bio && (
-                  <p class="text-neutral-300 keep-white text-xs sm:text-sm font-light leading-relaxed drop-shadow line-clamp-2 sm:line-clamp-3">
-                    {member.bio}
-                  </p>
-                )}
               </div>
             </figcaption>
           </div>
@@ -224,14 +219,9 @@ const parseHeading = (text: string) => {
                 {teamMembers[0].badge}
               </span>
             )}
-            <h3 class="text-xl sm:text-3xl md:text-4xl font-black text-white keep-white tracking-tight drop-shadow-lg mb-2 leading-tight">
+            <h3 class="text-xl sm:text-3xl md:text-4xl font-black text-white keep-white tracking-tight drop-shadow-lg leading-tight">
               {teamMembers[0].name}
             </h3>
-            {teamMembers[0].bio && (
-              <p class="text-neutral-300 keep-white text-xs sm:text-sm font-light leading-relaxed drop-shadow line-clamp-2 sm:line-clamp-3">
-                {teamMembers[0].bio}
-              </p>
-            )}
           </div>
         </figcaption>
       </div>
