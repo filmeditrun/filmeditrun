@@ -61,6 +61,15 @@ const lookbookDetail1Badge = london.lookbookDetail1Badge || "City of London • 
 const lookbookDetail2Image = london.lookbookDetail2Image || "/og-image.jpg";
 const lookbookDetail2Badge = london.lookbookDetail2Badge || "Kings Cross • Live Audio & Cinema Rigs";
 
+const parseBadge = (badgeStr?: string) => {
+  if (!badgeStr) return { tag: '', title: '' };
+  const parts = badgeStr.split('•').map(s => s.trim());
+  if (parts.length >= 2) {
+    return { tag: parts[0], title: parts[1] };
+  }
+  return { tag: badgeStr, title: '' };
+};
+
 // Specific LocalBusiness, FAQPage & BreadcrumbList Schema for London
 const londonSchemas: Record<string, any>[] = [
   {
@@ -251,51 +260,126 @@ if (faqs.length > 0) {
 
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6 items-stretch">
         <!-- Large Left Hero Frame (3 of 5 cols) -->
-        <div class="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 min-h-[300px] sm:min-h-[420px]">
+        <div 
+          tabindex="0"
+          class="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 focus:border-amber-500/60 min-h-[300px] sm:min-h-[420px] cursor-pointer"
+        >
           <img
             src={lookbookHeroImage}
             alt={lookbookHeroBadge}
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
             loading="lazy"
           />
-          {lookbookHeroBadge && (
-            <div class="absolute bottom-3.5 left-3.5 px-3 py-1.5 rounded-lg bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-300 uppercase tracking-wider flex items-center gap-2 shadow-lg">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span>{lookbookHeroBadge}</span>
-            </div>
-          )}
+
+          <!-- Atmospheric Dark Scrim on Hover / Tap -->
+          <div 
+            class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 ease-out" 
+            aria-hidden="true"
+          ></div>
+
+          <!-- Content Revealed on Hover / Tap -->
+          {lookbookHeroBadge && (() => {
+            const { tag, title } = parseBadge(lookbookHeroBadge);
+            return (
+              <figcaption data-cinema-darkroom="true" class="absolute inset-x-0 bottom-0 p-5 sm:p-7 pointer-events-none z-10">
+                <div class="transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100 transition-all duration-300 ease-out max-w-xl">
+                  {tag && (
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-mono uppercase tracking-wider font-semibold mb-2 backdrop-blur-md">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                      {tag}
+                    </span>
+                  )}
+                  {title && (
+                    <h3 class="text-xl sm:text-2xl font-bold text-white keep-white tracking-tight drop-shadow-md leading-tight">
+                      {title}
+                    </h3>
+                  )}
+                </div>
+              </figcaption>
+            );
+          })()}
         </div>
 
         <!-- Stacked Right Detail Frames (2 of 5 cols) -->
         <div class="lg:col-span-2 flex flex-col gap-4 sm:gap-6">
-          <div class="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 aspect-[16/10] sm:aspect-[16/9] flex-1">
+          <div 
+            tabindex="0"
+            class="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 focus:border-amber-500/60 aspect-[16/10] sm:aspect-[16/9] flex-1 cursor-pointer"
+          >
             <img
               src={lookbookDetail1Image}
               alt={lookbookDetail1Badge}
-              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
               loading="lazy"
             />
-            {lookbookDetail1Badge && (
-              <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300 uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
-                <span class="w-1 h-1 rounded-full bg-amber-400"></span>
-                <span>{lookbookDetail1Badge}</span>
-              </div>
-            )}
+
+            <!-- Atmospheric Dark Scrim on Hover / Tap -->
+            <div 
+              class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 ease-out" 
+              aria-hidden="true"
+            ></div>
+
+            <!-- Content Revealed on Hover / Tap -->
+            {lookbookDetail1Badge && (() => {
+              const { tag, title } = parseBadge(lookbookDetail1Badge);
+              return (
+                <figcaption data-cinema-darkroom="true" class="absolute inset-x-0 bottom-0 p-4 sm:p-5 pointer-events-none z-10">
+                  <div class="transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100 transition-all duration-300 ease-out">
+                    {tag && (
+                      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-500/20 border border-amber-500/30 text-amber-400 text-[10px] sm:text-xs font-mono uppercase tracking-wider font-semibold mb-1.5 backdrop-blur-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                        {tag}
+                      </span>
+                    )}
+                    {title && (
+                      <h3 class="text-base sm:text-lg font-bold text-white keep-white tracking-tight drop-shadow-md leading-tight">
+                        {title}
+                      </h3>
+                    )}
+                  </div>
+                </figcaption>
+              );
+            })()}
           </div>
 
-          <div class="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 aspect-[16/10] sm:aspect-[16/9] flex-1">
+          <div 
+            tabindex="0"
+            class="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl transition-all duration-300 hover:border-amber-500/60 focus:border-amber-500/60 aspect-[16/10] sm:aspect-[16/9] flex-1 cursor-pointer"
+          >
             <img
               src={lookbookDetail2Image}
               alt={lookbookDetail2Badge}
-              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
               loading="lazy"
             />
-            {lookbookDetail2Badge && (
-              <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-neutral-950/85 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300 uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
-                <span class="w-1 h-1 rounded-full bg-amber-400"></span>
-                <span>{lookbookDetail2Badge}</span>
-              </div>
-            )}
+
+            <!-- Atmospheric Dark Scrim on Hover / Tap -->
+            <div 
+              class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 ease-out" 
+              aria-hidden="true"
+            ></div>
+
+            <!-- Content Revealed on Hover / Tap -->
+            {lookbookDetail2Badge && (() => {
+              const { tag, title } = parseBadge(lookbookDetail2Badge);
+              return (
+                <figcaption data-cinema-darkroom="true" class="absolute inset-x-0 bottom-0 p-4 sm:p-5 pointer-events-none z-10">
+                  <div class="transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100 transition-all duration-300 ease-out">
+                    {tag && (
+                      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-500/20 border border-amber-500/30 text-amber-400 text-[10px] sm:text-xs font-mono uppercase tracking-wider font-semibold mb-1.5 backdrop-blur-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                        {tag}
+                      </span>
+                    )}
+                    {title && (
+                      <h3 class="text-base sm:text-lg font-bold text-white keep-white tracking-tight drop-shadow-md leading-tight">
+                        {title}
+                      </h3>
+                    )}
+                  </div>
+                </figcaption>
+              );
+            })()}
           </div>
         </div>
       </div>
