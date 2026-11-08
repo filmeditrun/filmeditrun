@@ -5,7 +5,7 @@
   "heroTag": "London Production Hub",
   "heroHeadingPrefix": "Corporate Video Production",
   "heroHeadingHighlight": "in London.",
-  "heroSubtitle": "From main-stage keynotes at ExCeL and the QEII Centre to boardroom executive interviews across the City and Canary Wharf, we deploy agile cinema camera crews across London, capturing high-stakes events and brand stories with calm, dependable precision.",
+  "heroSubtitle": "Multi-camera production for London conferences, summits, and corporate headquarters. High-impact stage coverage and executive interviews delivered with calm composure and technical discipline.",
   "heroCtaLabel": "Discuss Your London Project",
   "heroCtaLink": "/contact",
   "displayAs": "local-video",
@@ -13,16 +13,16 @@
   "cloudVideoUrl": "",
   "imagePath": "/og-image.jpg",
   "expertiseTag": "Capital Production",
-  "expertiseHeading": "Filming Across London's Leading Venues & Headquarters",
-  "expertiseDescription": "Whether you're hosting an annual summit at ExCeL London, a financial keynote at the QEII Centre, or recording executive thought leadership in Canary Wharf, our crews handle venue logistics, RAMS, and multi-camera setups with zero friction.",
+  "expertiseHeading": "Filming Across London’s Venues & Corporate Headquarters",
+  "expertiseDescription": "From multi-stage keynotes at major exhibition centres to executive thought leadership in Central London boardrooms, our crews work seamlessly alongside event producers and internal communications teams.",
   "expertiseBullets": [
-    "Multi-camera summit & keynote capture",
+    "Multi-camera summit & keynote recording",
     "Executive boardroom interviews & case studies",
-    "Fast-turnaround 24\u201348hr highlight films for LinkedIn"
+    "Optional fast-turnaround cutdowns for LinkedIn & press"
   ],
-  "cardTitle": "Why London Enterprise Brands Choose Us",
-  "cardBody": "High-stakes London events leave zero room for technical second takes. Working directly with our experienced filmmakers, you get calm on-site direction, redundant multi-camera recording, and rapid post-production that keeps your stakeholders and global audience engaged.",
-  "cardLinkLabel": "View Selected Works \u2192",
+  "cardTitle": "Composure Under Pressure",
+  "cardBody": "Live corporate events leave no margin for error. Working directly with experienced filmmakers, you get composed on-site direction, broadcast-standard audio and vision, and dependable delivery configured around your campaign timeline.",
+  "cardLinkLabel": "View Selected Works →",
   "cardLinkHref": "/work",
   "lookbookTag": "Field Dispatches // London",
   "lookbookHeroImage": "/work/onlocation.webp",
@@ -34,16 +34,16 @@
   "faqHeading": "Frequently Asked Questions",
   "faqs": [
     {
-      "question": "Do you provide multi-camera event filming across Central London?",
-      "answer": "Yes. We regularly film corporate conferences, symposiums, and leadership summits across Central London, the City, Canary Wharf, and major exhibition centres with multi-camera 4K setups."
+      "question": "Can you deliver keynote highlights while our conference is still underway?",
+      "answer": "Yes. For summits with immediate press or social requirements, we offer dedicated fast-turnaround workflows, delivering polished keynote soundbites and vertical LinkedIn cutdowns within 24 to 48 hours while event momentum is highest."
     },
     {
-      "question": "How do you handle equipment load-in and strict London venue rules?",
-      "answer": "We are fully experienced with London venue logistics, security sign-ins, risk assessments (RAMS), and loading bay access. Our compact cinema rigs are designed for rapid deployment with minimal footprint."
+      "question": "Can you capture stage presentations and executive interviews simultaneously?",
+      "answer": "Yes. We configure modular camera setups tailored to your programme. While main cameras capture the stage keynote and direct presentation slides, a dedicated unit can record 1-on-1 executive interviews in a quiet breakout room."
     },
     {
-      "question": "Can you deliver same-day or 24-hour highlight reels for social media?",
-      "answer": "Yes. For conferences and summits with immediate press or LinkedIn requirements, we offer on-site editing and rapid 24-to-48-hour delivery for social cutdowns and highlight reels."
+      "question": "How do you coordinate with our event production team and venue schedule?",
+      "answer": "We liaise directly with your event organizers and venue AV teams in advance to confirm technical inputs, stage audio feeds, and schedules, ensuring filming runs smoothly alongside your live agenda without obstructing delegates."
     }
   ],
   "bottomCtaHeading": "Planning a conference or shoot in *London?*",

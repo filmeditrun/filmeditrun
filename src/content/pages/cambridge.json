@@ -5,7 +5,7 @@
   "heroTag": "Cambridge Production Hub",
   "heroHeadingPrefix": "Corporate Video Production",
   "heroHeadingHighlight": "in Cambridge.",
-  "heroSubtitle": "From keynote stages at Cambridge Science Park to research stories across historic colleges, we film on-location with discreet multi-camera crews, turning complex innovation into sharp, engaging video your audience will actually watch.",
+  "heroSubtitle": "On-location filming for Cambridge’s technology, science, and academic leaders. We capture conferences, research stories, and executive interviews with calm focus and technical precision.",
   "heroCtaLabel": "Discuss Your Cambridge Project",
   "heroCtaLink": "/contact",
   "displayAs": "local-video",
@@ -13,16 +13,16 @@
   "cloudVideoUrl": "",
   "imagePath": "/og-image.jpg",
   "expertiseTag": "Local Expertise",
-  "expertiseHeading": "Filming Across Cambridge\u2019s Key Innovation Hubs",
-  "expertiseDescription": "Whether you're recording symposia across historic University of Cambridge colleges, hosting a multi-stage keynote at Cambridge Science Park, or producing executive interviews across the Cambridge Biomedical Campus, our crews work with calm discretion and a minimal footprint.",
+  "expertiseHeading": "Filming Across Cambridge’s Research & Innovation Hubs",
+  "expertiseDescription": "Whether documenting academic symposia in historic college settings or profiling breakthrough technologies on the science parks, we ensure your speakers, researchers, and venue teams experience a calm, well-planned production with minimal demand on their time.",
   "expertiseBullets": [
     "Multi-camera conference & keynote capture",
     "Executive interviews & research case studies",
-    "Fast-turnaround 24\u201348hr event highlight reels"
+    "Clean presentation slide & audio integration"
   ],
-  "cardTitle": "Why Cambridge Brands Choose Us",
-  "cardBody": "Cambridge's tech, biotech, and research teams need technical accuracy without dry presentation. Working directly with our filmmakers, you get clean audio in challenging venues, natural on-camera interviews, and polished films that connect with global partners and investors.",
-  "cardLinkLabel": "View Selected Works \u2192",
+  "cardTitle": "Clarity for Complex Ideas",
+  "cardBody": "Cambridge innovation demands technical understanding without dry presentation. Working directly with our lead filmmakers, you get articulate on-camera interviews, clear sound in challenging rooms, and polished films that resonate with global partners and investors.",
+  "cardLinkLabel": "View Selected Works →",
   "cardLinkHref": "/work",
   "lookbookTag": "Field Dispatches // Cambridge",
   "lookbookHeroImage": "/cambridge/stage-wide.webp",
@@ -34,16 +34,16 @@
   "faqHeading": "Frequently Asked Questions",
   "faqs": [
     {
-      "question": "Do you provide multi-camera event filming in Cambridge?",
-      "answer": "Yes, we specialise in multi-camera setups for corporate conferences, hybrid events, and panel discussions throughout Cambridge and surrounding areas."
+      "question": "How do you help executives, scientists, and non-actors feel confident on camera?",
+      "answer": "We adapt to your team: conducting relaxed conversational interviews to draw out natural authority, or providing on-camera teleprompters so leadership and technical teams can deliver approved, scripted messaging with complete confidence."
     },
     {
-      "question": "Are you familiar with filming restrictions at Cambridge venues?",
-      "answer": "Absolutely. We are experienced in working within strict venue guidelines across science parks, conference centres, and historic institutional properties with minimal footprint and maximum discretion."
+      "question": "Can you align the films with our brand guidelines and technical assets?",
+      "answer": "Yes. We work directly with your brand guidelines, typography, and colour palettes. From on-brand lower thirds and motion graphics to high-resolution slide integration, every deliverable is built to sit natively within your corporate identity."
     },
     {
-      "question": "What is your typical turnaround time for conference highlights?",
-      "answer": "For fast-turnaround event highlights or social media cutdowns, we can deliver initial drafts within 24 to 48 hours post-event."
+      "question": "How does the review and sign-off process work with multiple stakeholders?",
+      "answer": "We share draft cuts via timecoded, frame-accurate review links. Communications leads, scientific advisors, and project stakeholders can leave precise feedback directly on the timeline, eliminating confusing email chains and streamlining final sign-off."
     }
   ],
   "bottomCtaHeading": "Planning a shoot or event in *Cambridge?*",
