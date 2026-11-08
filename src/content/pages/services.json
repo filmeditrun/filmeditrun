@@ -40,9 +40,9 @@
       "description": "Exporting finished deliverables configured for your specific channels: high-resolution widescreen films for keynotes and web, plus optional subtitled 9:16 and 1:1 cutdowns built for LinkedIn and digital campaigns."
     }
   ],
-  "ctaTag": "",
-  "ctaHeading": "Have an upcoming project *or production brief?*",
-  "ctaText": "Tell us about your event dates, venue location, or creative ideas. We deliver a tailored technical scope and quote within 24 hours.",
+  "ctaTag": "PROJECT SCOPING",
+  "ctaHeading": "Let’s discuss your *production brief.*",
+  "ctaText": "Tell us about your upcoming project, venue, or timeline. We configure the setup around your brief and provide a transparent quote.",
   "ctaButtonLabel": "Start Project Brief",
   "ctaButtonLink": "/contact"
 }

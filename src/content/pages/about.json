@@ -49,16 +49,16 @@
       "description": "A decade of craft, built for direct collaboration."
     }
   ],
-  "ctaTag": "GET IN TOUCH",
-  "ctaHeading": "Have an upcoming project or *event in mind?*",
-  "ctaText": "Whether you are planning a multi-camera conference, an executive brand film, or require dedicated post-production, we are ready to collaborate. Tell us about your venue, goals, or timeline.",
-  "ctaButtonLabel": "Start Your Project Brief \u2192",
+  "ctaTag": "DIRECT COLLABORATION",
+  "ctaHeading": "Direct partnership from *the first conversation.*",
+  "ctaText": "You collaborate directly with the filmmakers behind the lens and edit. Clear communication, disciplined execution, and zero translation loss.",
+  "ctaButtonLabel": "Start Your Project Brief →",
   "ctaButtonLink": "/contact",
   "ctaSecondaryButtonLabel": "",
   "ctaSecondaryButtonLink": "",
   "ctaTrustSignals": [
-    "24h Response",
+    "Direct Filmmaker Access",
     "Clear, Transparent Scope",
-    "Cambridge & London Hubs"
+    "Cambridge & London Studio Hubs"
   ]
 }
