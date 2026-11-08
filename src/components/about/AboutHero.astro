@@ -61,7 +61,7 @@ const gradientStyle = isRadial
   : `background: linear-gradient(${heroGradientDirection}, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`;
 ---
 
-<header data-cinema-darkroom class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
+<header data-cinema-darkroom class="relative w-full pt-28 pb-14 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 sm:min-h-[600px] lg:min-h-[640px] flex flex-col justify-center overflow-hidden border-b border-white/10 select-none">
   <!-- Media Backdrop Layer (Video, Image, or Dual-Tone Gradient) -->
   <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden bg-black">
     <!-- Master Cinematic Directional ND Filter (Unified Site-Wide Standard) -->
@@ -85,7 +85,7 @@ const gradientStyle = isRadial
         playsinline
         preload="metadata"
         poster={heroImagePath}
-        class="w-full h-full object-cover opacity-90 sm:opacity-95 z-0"
+        class="absolute inset-0 w-full h-full object-cover opacity-90 sm:opacity-95 z-0"
       >
         <source src={heroVideoPath} type="video/mp4" />
       </video>
@@ -99,21 +99,21 @@ const gradientStyle = isRadial
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        class="w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
+        class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
       />
     )}
 
     {/* 3. Dual-Tone Gradient Background */}
     {bgType === "gradient" && (
       <div
-        class="w-full h-full z-0"
+        class="absolute inset-0 w-full h-full z-0"
         style={gradientStyle}
         aria-hidden="true"
       />
     )}
   </div>
 
-  <div class="relative z-20 max-w-6xl mx-auto px-6">
+  <div class="relative z-20 max-w-6xl mx-auto px-6 w-full">
     <!-- Studio Category Eyebrow Badge -->
     <div class="mb-6">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest font-semibold backdrop-blur-md bg-amber-500/10 border border-amber-500/25 text-amber-400 shadow-sm shadow-amber-500/10 select-none">

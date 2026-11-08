@@ -139,12 +139,15 @@ if (faqs.length > 0) {
     <!-- ============================================================== -->
     <!-- 1. CINEMATIC HERO BANNER (Matches Services Subpage Lighting)   -->
     <!-- ============================================================== -->
-    <header data-cinema-darkroom class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
+    <header data-cinema-darkroom class="relative w-full pt-28 pb-14 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 sm:min-h-[600px] lg:min-h-[640px] flex flex-col justify-center overflow-hidden border-b border-white/10 select-none">
       
       <!-- Video / Photo Media Backdrop Layer (Clear, vibrant background) -->
       <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
         <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Video Feeds) -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
+
+        <!-- Ambient Amber Spotlight Glow at Top Center -->
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] sm:w-[56rem] h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none z-10" aria-hidden="true"></div>
 
         {/* Video Background (Local or Cloud) */}
         {(displayAs === "local-video" || displayAs === "link-video") && (
@@ -178,7 +181,7 @@ if (faqs.length > 0) {
       </div>
 
       <!-- Main Banner Content -->
-      <div class="relative z-20 max-w-6xl mx-auto px-6">
+      <div class="relative z-20 max-w-6xl mx-auto px-6 w-full">
         
         <!-- Studio Category Eyebrow Badge (TinaCMS Editable) -->
         <div class="mb-6">
