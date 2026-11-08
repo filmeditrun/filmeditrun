@@ -162,11 +162,61 @@ html:has(#theme-choice-high-key:checked) {
   box-shadow: 0 12px 32px -4px rgba(225, 29, 72, 0.12) !important;
 }
 
+/* High-Key: Glass pill buttons & secondary action buttons outside cinema darkroom */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) a.bg-white\/5,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) button.bg-white\/5,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) [class*="bg-white\/5"] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #09090b !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) a.bg-white\/5 *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) button.bg-white\/5 *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) [class*="bg-white\/5"] * {
+  color: #09090b !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) a.bg-white\/5:hover,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) button.bg-white\/5:hover,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) [class*="bg-white\/5"]:hover {
+  background-color: rgba(0, 0, 0, 0.07) !important;
+  border-color: rgba(225, 29, 72, 0.5) !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) a.bg-white\/5:hover *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) button.bg-white\/5:hover *,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) main:not([data-cinema-darkroom]) [class*="bg-white\/5"]:hover * {
+  color: #e11d48 !important;
+}
+
 /* High-Key: Guarantee pure white text and dark background inside cinema video players, heroes, modals & docks */
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom],
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] [class*="bg-ink"],
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .bg-neutral-950 {
   background-color: #0c0c11 !important;
+}
+
+/* High-Key: Guarantee permanent darkroom containers keep dark neutrals (prevents white citation boxes & cards) */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .bg-neutral-900,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] [class*="bg-neutral-900"],
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .bg-neutral-800,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] [class*="bg-neutral-800"] {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .border-neutral-900,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .border-neutral-800,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] [class*="border-neutral-800"],
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] [class*="border-neutral-900"] {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* High-Key: Figcaptions over photo cards must remain transparent scrim overlays (no opaque black box) */
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) figcaption,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] figcaption,
+:is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) figcaption[data-cinema-darkroom] {
+  background-color: transparent !important;
 }
 
 :is(html[data-theme="high-key"], html:has(#theme-choice-high-key:checked)) [data-cinema-darkroom] .text-white,
