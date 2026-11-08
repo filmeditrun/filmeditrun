@@ -49,8 +49,37 @@ const services = Object.values(serviceFiles)
     href: s.link || `/services/${s.slug}`,
   }));
 
-// 2. Four-stage production pipeline steps (dynamically pulled from services.json)
-const processSteps = servicesPage.processSteps || [];
+// 2. Four-stage collaborative process steps for homepage (executive overview)
+const homeProcessSteps = [
+  {
+    step: "01",
+    tag: "PHASE 01",
+    title: "Discovery & Pre-Production",
+    description: "We establish your business objectives, target audience, and key messaging upfront, shaping a tailored production scope and transparent quote around your project requirements."
+  },
+  {
+    step: "02",
+    tag: "PHASE 02",
+    title: "On-Location Filming",
+    description: "Low-profile crews configured around your brief: capturing conference stages, executive interviews, and workplace stories with calm professionalism and minimal disruption."
+  },
+  {
+    step: "03",
+    tag: "PHASE 03",
+    title: "Editorial & Review",
+    description: "We shape the story with clear narrative focus, incorporating your brand assets, typography, and palette. Simple review links make stakeholder feedback and sign-off effortless."
+  },
+  {
+    step: "04",
+    tag: "PHASE 04",
+    title: "Versioning & Delivery",
+    description: "Delivering films tailored to your campaign requirements: from widescreen website masters to captioned vertical and square cutdowns formatted for social reach."
+  }
+];
+
+const processSteps = (home as any).processSteps && (home as any).processSteps.length > 0
+  ? (home as any).processSteps
+  : homeProcessSteps;
 
 // Default telemetry metrics if not provided
 const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemetryMetrics.length > 0

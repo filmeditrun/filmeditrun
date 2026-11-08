@@ -11,33 +11,33 @@
   "heroGradientDirection": "to bottom right",
   "heroGradientColor1": "#180d2b",
   "heroGradientColor2": "#09090c",
-  "processTag": "Production Methodology",
+  "processTag": "PRODUCTION METHODOLOGY",
   "processHeading": "Designed for clarity. *Delivered with confidence.*",
-  "processDescription": "A disciplined four-stage process that removes friction regardless of location, protects your schedule, and ensures technical precision from concept to delivery.",
+  "processDescription": "A transparent four-stage methodology built around your schedule, ensuring technical precision and narrative focus at every step.",
   "processSteps": [
     {
       "step": "01",
-      "title": "Discovery & Briefing",
-      "tag": "Pre-Production",
-      "description": "We establish your core objectives, shooting schedule, visual treatment, and technical audio requirements before touching a camera."
+      "title": "Discovery & Pre-Production",
+      "tag": "STAGE 01",
+      "description": "We align with your team on core messaging, audience intent, and required formats. From interview preparation to shooting schedules, we plan the setup around your brief with minimal demand on your team's time."
     },
     {
       "step": "02",
       "title": "On-Location Filming",
-      "tag": "Filming & Audio",
-      "description": "Specialist multi-camera setups and clean broadcast audio capture ensure every keynote, interview, and critical moment is recorded with quiet precision."
+      "tag": "STAGE 02",
+      "description": "Configuring single or multi-camera setups, wireless vocal audio, and clean slide integration according to the demands of your venue, ensuring speakers stay composed and look authoritative on camera."
     },
     {
       "step": "03",
       "title": "Editorial & Review",
-      "tag": "Post-Production",
-      "description": "Story assembly and pacing cuts are shared via private, frame-accurate review links for fast, friction-free stakeholder feedback."
+      "tag": "STAGE 03",
+      "description": "Structuring your film for clarity and impact, integrating your on-brand assets, lower thirds, and colour palette. Direct review links let stakeholders leave frame-accurate feedback on the timeline, ensuring smooth internal sign-off."
     },
     {
       "step": "04",
-      "title": "Master & Delivery",
-      "tag": "Final Output",
-      "description": "Final colour-graded masters, vertical social cutdowns, and burned-in caption files packaged for instant publishing across your website and social channels."
+      "title": "Versioning & Delivery",
+      "tag": "STAGE 04",
+      "description": "Exporting finished deliverables configured for your specific channels: high-resolution widescreen films for keynotes and web, plus optional subtitled 9:16 and 1:1 cutdowns built for LinkedIn and digital campaigns."
     }
   ],
   "ctaTag": "",
