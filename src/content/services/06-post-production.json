@@ -7,11 +7,11 @@
   "link": "/services/post-production",
   "seoTitle": "Video Editing & Post-Production | Cambridge & London",
   "seoDescription": "Professional video editing, colour grading, and sound mixing for business, event, and brand films. Fast turnaround across Cambridge, London, and UK-wide.",
-  "heroTag": "Video Editing & Post-Production",
-  "heroHeading": "Turn raw footage <br class=\"hidden sm:inline\" />into *finished films.*",
-  "heroLead": "Raw footage only works when it is cut with precision. We take your rushes, assemble the narrative, clean up audio, and grade colour to deliver films that hold attention.",
-  "breakdownHeading": "Finding the story, *cutting the noise.*",
-  "breakdownBody": "We strip away the filler and shape your message. From multi-camera sync and vocal cleanup to brand colour grading, we deliver broadcast polish with dependable turnaround.",
+  "heroTag": "EDITING & POST-PRODUCTION",
+  "heroHeading": "Create the timeline. <br class=\"hidden sm:inline\" />Shape the *story.*",
+  "heroLead": "We take your rushes and extract the narrative core: refining dialogue pacing, integrating on-brand motion assets, and mastering sound to deliver finished films that work across your audience.",
+  "breakdownHeading": "Engineered for clarity. *Direct collaboration.*",
+  "breakdownBody": "Post-production is where raw material becomes a corporate asset. Working directly with our editors, your team gets transparent turnaround with faster collaborative reviews. From multi-camera synchronization to colour grading and brand asset integration, we eliminate production friction so your stakeholders can review and approve with complete confidence.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/onlocation.webp",
   "cardSolidColor": "#0a0a0c",
@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "The Edit",
-      "title": "Multi-Camera Editing & Assembly",
-      "description": "Multi-angle switching, dialogue pacing, and purposeful B-roll cutting that keeps your message focused and engaging from start to finish."
+      "tag": "THE PROCESS",
+      "title": "Assembly to Online Finishing",
+      "description": "Bringing ideas to life directly on the timeline. We ingest and synchronize content from a multitude of sources: multi-camera feeds, slide decks, screen captures, and archive assets, shaping fragmented rushes into a unified, articulate, on-brand film."
     },
     {
-      "tag": "Sound & Grade",
-      "title": "Audio Restoration & Colour Grading",
-      "description": "Vocal cleanup, background noise removal, balanced audio mastering, and tone-matched colour grading across mixed camera sources."
+      "tag": "FORMATS",
+      "title": "Event Wrap-Ups, Sizzles & Pitch Reels",
+      "description": "Tailored to your commercial goals: high-energy sizzle reels, rapid 24–48h event wrap-ups, executive pitch films, brand teasers, and full conference keynote cuts designed to command audience attention."
     },
     {
-      "tag": "Delivery",
-      "title": "Master Films & Social Cutdowns",
-      "description": "High-resolution widescreen masters delivered alongside vertical 9:16 social cutdowns with styled burned-in captions for LinkedIn and web."
+      "tag": "FINISHING",
+      "title": "Colour, Sound & Campaign Cutdowns",
+      "description": "Finishing every edit with brand-matched colour grading, speech clarity mixed against licensed soundtracks, and collaborative review links for fast sign-off. Delivered in full-res widescreen alongside captioned vertical (9:16) social cutdowns."
     }
   ],
-  "ctaHeading": "Have footage ready for *the edit?*",
-  "ctaDescription": "Tell us about your raw footage, target format, and deadline. Send over your rushes and we'll provide a clear quote.",
-  "ctaButtonLabel": "Discuss Your Edit →"
+  "ctaHeading": "Looking for a dedicated *editorial partner?*",
+  "ctaDescription": "From high-energy sizzle reels and investor pitch films to rapid conference wrap-ups and executive keynotes. We craft on-brand films ready for upload.",
+  "ctaButtonLabel": "Start Your Edit →"
 }
