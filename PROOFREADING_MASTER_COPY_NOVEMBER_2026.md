@@ -48,7 +48,7 @@
 
 ### Hero Section
 * **Location Strip:** `Cambridge • London • UK-Wide`
-* **Main Headline:** `Capture the room. Cut the story. Deliver the momentum.` *(with "Deliver the momentum." in amber gradient)*
+* **Main Headline:** `Capture the room. Deliver the story.` *(with "Deliver the story." in amber gradient)*
 * **Tagline / Lead:** `From conference stages to corporate boardrooms. We film live events, executive interviews, and brand stories across Cambridge, London, and nationwide.`
 * **Primary Button:** `Start a Project Brief` → `/contact`
 * **Secondary Button:** `Watch Selected Work` → `/work`
@@ -96,8 +96,8 @@
 
 ### Production Methodology (Disciplined 4-Stage Process)
 * **Tag:** `PRODUCTION METHODOLOGY`
-* **Heading:** `Designed for clarity. Delivered with confidence.` *(with animated gradient underline under "Delivered with confidence.")*
-* **Description:** `A disciplined four-stage process that removes friction regardless of location, protects your schedule, and ensures technical precision from concept to delivery.`
+* **Heading:** `Clear collaboration creates results.` *(with animated gradient underline)*
+* **Description:** `A structured four-stage workflow that keeps your production on schedule and eliminates surprise revisions.`
 * **Primary Button:** `Discuss Your Timeline →` → `/contact`
 * **The 4 Process Stages:**
   - `01. Discovery & Briefing` (`Pre-Production`): We establish your core objectives, shooting schedule, visual treatment, and technical audio requirements before touching a camera.
@@ -131,7 +131,7 @@
 * **Eyebrow Tag:** `STUDIO ETHOS`
 * **Headline:** `Films crafted with care, clarity, and purpose.` *(with "purpose" in amber gradient)*
 * **Hero Lead:** `Operating with agile crews on-location, we partner directly with your team from concept to final delivery. Technical precision, transparent communication, and a disciplined workflow built around your schedule.`
-* **Manifesto Quote (Dormant):** *"Every project deserves a dedicated filmmaker, not a conveyor belt of account handlers. We shoot with intent and cut with discipline."*
+* **Manifesto Quote (Dormant):** *"Every project deserves a dedicated filmmaker who listens closely and cuts with discipline. Direct collaboration from initial brief to final delivery."*
 * **Manifesto Attribution:** `Scott Sartain | Founder & Director`
 
 ### Unified Carousel: The Crew & BTS
@@ -164,10 +164,11 @@
   - **2026** • `FilmEditRun Studio`: A decade of craft, built for direct collaboration.
 
 ### Bottom CTA
-* **Heading:** `Have a project or event in mind?`
-* **Description:** `Whether you are planning a multi-camera conference, an executive brand film, or require dedicated post-production, we are ready to collaborate. Tell us about your venue, goals, or timeline.`
+* **Tag:** `DIRECT COLLABORATION`
+* **Heading:** `Direct partnership from *the first conversation.*` *(with "the first conversation." in amber gradient)*
+* **Description:** `You collaborate directly with the filmmakers behind the lens and edit. Clear communication, disciplined execution, and zero translation loss.`
 * **Primary Button:** `Start Your Project Brief →` → `/contact`
-* **Trust Signals:** `24h Response` • `Clear, Transparent Scope` • `Cambridge & London Hubs`
+* **Trust Signals:** `Direct Filmmaker Access` • `Clear, Transparent Scope` • `Cambridge & London Studio Hubs`
 
 ---
 
@@ -178,27 +179,27 @@
 
 ### Header Section
 * **Eyebrow Tag:** `SERVICES` *(with amber indicator dot)*
-* **Heading:** `Modular filming. *Agile post-production.*` *(with "Agile post-production." in amber gradient)*
-* **Description:** `From live conference stages to executive boardrooms and post-production suites, we deploy crews that capture authentic stories quietly, cleanly, and without disrupting your schedule.`
+* **Heading:** `Modular *filming.* Agile *post-production.*` *(with "filming." and "post-production." in amber gradient)*
+* **Description:** `End-to-end production capabilities configured around your brief: from multi-camera live stage capture to precision editing, colour timing, and motion design.`
 * **Primary Button:** `Start Project Brief →` → `/contact`
 
 ### Mid-Page Parallax Breather
 * **Heading:** `Precision with *passion.*` *(with "passion." in amber gradient, standalone billboard format)*
 
 ### The 4-Stage Production Process
-* **Eyebrow Tag:** `Production Methodology` *(with amber indicator dot)*
+* **Eyebrow Tag:** `PRODUCTION METHODOLOGY` *(with amber indicator dot)*
 * **Heading:** `Designed for clarity. *Delivered with confidence.*` *(with "Delivered with confidence." in amber gradient)*
-* **Description:** `A disciplined four-stage process that removes friction regardless of location, protects your schedule, and ensures technical precision from concept to delivery.`
-* **Step 01: Discovery & Briefing** (`Pre-Production`): We establish your core objectives, shooting schedule, visual treatment, and technical audio requirements before touching a camera.
-* **Step 02: On-Location Filming** (`Filming & Audio`): Specialist multi-camera setups and clean broadcast audio capture ensure every keynote, interview, and critical moment is recorded with quiet precision.
-* **Step 03: Editorial & Review** (`Post-Production`): Story assembly and pacing cuts are shared via private, frame-accurate review links for fast, friction-free stakeholder feedback.
-* **Step 04: Master & Delivery** (`Final Output`): Final colour-graded masters, vertical social cutdowns, and burned-in caption files packaged for instant publishing across your website and social channels.
+* **Description:** `A transparent four-stage methodology built around your schedule, ensuring technical precision and narrative focus at every step.`
+* **Step 01: Discovery & Pre-Production** (`STAGE 01`): We align with your team on core messaging, audience intent, and required formats. From interview preparation to shooting schedules, we plan the setup around your brief with minimal demand on your team's time.
+* **Step 02: On-Location Filming** (`STAGE 02`): Configuring single or multi-camera setups, wireless vocal audio, and clean slide integration according to the demands of your venue, ensuring speakers stay composed and look authoritative on camera.
+* **Step 03: Editorial & Review** (`STAGE 03`): Structuring your film for clarity and impact, integrating your on-brand assets, lower thirds, and colour palette. Direct review links let stakeholders leave frame-accurate feedback on the timeline, ensuring smooth internal sign-off.
+* **Step 04: Versioning & Delivery** (`STAGE 04`): Exporting finished deliverables configured for your specific channels: high-resolution widescreen films for keynotes and web, plus optional subtitled 9:16 and 1:1 cutdowns built for LinkedIn and digital campaigns.
 
 ### Bottom CTA
-* **Heading:** `Have an upcoming project *or production brief?*` *(with "or production brief?" in amber gradient)*
-* **Description:** `Tell us about your event dates, venue location, or creative ideas. We deliver a tailored technical scope and quote within 24 hours.`
+* **Tag:** `PROJECT SCOPING`
+* **Heading:** `Let’s discuss your *production brief.*` *(with "production brief." in amber gradient)*
+* **Description:** `Tell us about your upcoming project, venue, or timeline. We configure the setup around your brief and provide a transparent quote.`
 * **Button:** `Start Project Brief →` → `/contact`
-* **Trust Signals:** `24h Proposal Turnaround` • `Direct Filmmaker Collaboration` • `Cambridge & London Hubs`
 
 ---
 
@@ -284,29 +285,29 @@
 
 ---
 
-## 8. Service 04: Video Editing & Post-Production (`/services/post-production`)
+## 8. Service 04: Video Editing & Creative Post-Production (`/services/post-production`)
 
 * **SEO Title (53 chars):** `Video Editing & Post-Production | Cambridge & London`
-* **SEO Description (154 chars):** `Professional video editing, colour balancing, and audio cleanup for business, event, and promotional videos. Fast turnaround across Cambridge and London.`
+* **SEO Description (154 chars):** `Professional video editing, colour grading, and sound mixing for business, event, and brand films. Fast turnaround across Cambridge, London, and UK-wide.`
 
 ### Hero Section
-* **Hero Tag:** `Creative Post-Production`
-* **Hero Heading (11 words):** `Great footage is only half the battle. The story happens in the *edit.*` *(with "edit." in amber gradient)*
-* **Hero Lead (32 words):** `Pacing and structure turn raw footage into a compelling narrative. We assemble interviews, multi-camera angles, and contextual cutaways into focused films with custom motion graphics, balanced colour, and broadcast-level audio.`
+* **Hero Tag:** `EDITING & POST-PRODUCTION`
+* **Hero Heading (6 words):** `Create the timeline. Shape the *story.*` *(with "story." in amber gradient)*
+* **Hero Lead (32 words):** `We take your rushes and extract the narrative core: refining dialogue pacing, integrating on-brand motion assets, and mastering sound to deliver finished films that work across your audience.`
 
 ### Approach Section
-* **Heading:** `Where raw footage becomes *a finished film.*` *(with "a finished film." in animated gradient underline)*
-* **Body (34 words):** `Whether working with rushes filmed by our crews or material supplied by your team, we find the core story. We refine dialogue, remove background noise, and grade colour to match your brand across all deliverables.`
+* **Heading:** `Engineered for clarity. *Direct collaboration.*` *(with "Direct collaboration." in animated gradient underline)*
+* **Body (47 words):** `Post-production is where raw material becomes a corporate asset. Working directly with our editors, your team gets transparent turnaround with faster collaborative reviews. From multi-camera synchronization to colour grading and brand asset integration, we eliminate production friction so your stakeholders can review and approve with complete confidence.`
 
 ### The 3 Deliverables
-1. **Narrative Assembly & Pacing** (`Story & Flow`): Meticulous assembly of primary dialogue, multicam angles, and purposeful B-roll cutaways to create a natural rhythm that holds viewer attention from the first second.
-2. **Branded Motion & On-Screen Graphics** (`Motion Design`): Clean animated lower-thirds, kinetic typography, slide callouts, and logo idents built to clarify complex information and align strictly with your brand guidelines.
-3. **Master Sound Mix & Multi-Format Delivery** (`Sound & Export`): Dialogue cleanup, noise reduction, loudness mastering, and licensed music mixing, delivered as full-resolution master files alongside vertical 9:16 social cutdowns with burned-in captions.
+1. **Assembly to Online Finishing** (`THE PROCESS`): Bringing ideas to life directly on the timeline. We ingest and synchronize content from a multitude of sources: multi-camera feeds, slide decks, screen captures, and archive assets, shaping fragmented rushes into a unified, articulate, on-brand film.
+2. **Event Wrap-Ups, Sizzles & Pitch Reels** (`FORMATS`): Tailored to your commercial goals: high-energy sizzle reels, rapid 24–48h event wrap-ups, executive pitch films, brand teasers, and full conference keynote cuts designed to command audience attention.
+3. **Colour, Sound & Campaign Cutdowns** (`FINISHING`): Finishing every edit with brand-matched colour grading, speech clarity mixed against licensed soundtracks, and collaborative review links for fast sign-off. Delivered in full-res widescreen alongside captioned vertical (9:16) social cutdowns.
 
 ### Bottom CTA
-* **Heading:** `Have raw footage you want to bring *to life?*` *(with "to life?" in amber gradient)*
-* **Description:** `Whether you’re planning an upcoming shoot with our team or have raw rushes ready for editorial assembly, tell us about your project and timeline.`
-* **Button:** `Discuss Post-Production →`
+* **Heading:** `Looking for a dedicated *editorial partner?*` *(with "editorial partner?" in amber gradient)*
+* **Description:** `From high-energy sizzle reels and investor pitch films to rapid conference wrap-ups and executive keynotes. We craft on-brand films ready for upload.`
+* **Button:** `Start Your Edit →`
 
 ---
 
@@ -371,23 +372,23 @@
 
 ### Hero Section
 * **Hero Tag:** `Cambridge Production Hub`
-* **Headline:** `Corporate Video Production in Cambridge.` *(with "Cambridge." in amber gradient)*
-* **Subtitle (Lead):** `From keynote stages at Cambridge Science Park to research stories across historic colleges, we film on-location with discreet multi-camera crews, turning complex innovation into sharp, engaging video your audience will actually watch.`
+* **Headline:** `Corporate Video Production in Cambridge.` *(with "in Cambridge." in amber gradient)*
+* **Subtitle (Lead):** `On-location filming for Cambridge’s technology, science, and academic leaders. We capture conferences, research stories, and executive interviews with calm focus and technical precision.`
 * **Primary Button:** `Discuss Your Cambridge Project` → `/contact`
 
 ### Local Expertise & Venues
 * **Tag:** `Local Expertise`
-* **Heading:** `Filming Across Cambridge’s Key Innovation Hubs`
-* **Description:** `Whether you're recording symposia across historic University of Cambridge colleges, hosting a multi-stage keynote at Cambridge Science Park, or producing executive interviews across the Cambridge Biomedical Campus, our crews work with calm discretion and a minimal footprint.`
+* **Heading:** `Filming Across Cambridge’s Research & Innovation Hubs`
+* **Description:** `Whether documenting academic symposia in historic college settings or profiling breakthrough technologies on the science parks, we ensure your speakers, researchers, and venue teams experience a calm, well-planned production with minimal demand on their time.`
 * **Key Grounding Locations:** `Historic University of Cambridge Colleges`, `Cambridge Science Park`, `Cambridge Biomedical Campus`
 * **Key Bullets:**
   - `Multi-camera conference & keynote capture`
   - `Executive interviews & research case studies`
-  - `Fast-turnaround 24–48hr event highlight reels`
+  - `Clean presentation slide & audio integration`
 
 ### Why Cambridge Brands Choose Us
-* **Card Title:** `Why Cambridge Brands Choose Us`
-* **Card Body:** `Cambridge's tech, biotech, and research teams need technical accuracy without dry presentation. Working directly with our filmmakers, you get clean audio in challenging venues, natural on-camera interviews, and polished films that connect with global partners and investors.`
+* **Card Title:** `Clarity for Complex Ideas`
+* **Card Body:** `Cambridge innovation demands technical understanding without dry presentation. Working directly with our lead filmmakers, you get articulate on-camera interviews, clear sound in challenging rooms, and polished films that resonate with global partners and investors.`
 * **Link:** `View Selected Works →` → `/work`
 
 ### Field Dispatches Lookbook
@@ -399,12 +400,12 @@
 * **Cross-Hub Corridor Bridge:** `Filming across the capital or major London venues?` → `Explore our London Production Hub →` (`/london`)
 
 ### Local FAQs
-1. **Q:** `Do you provide multi-camera event filming in Cambridge?`  
-   **A:** `Yes, we specialise in multi-camera setups for corporate conferences, hybrid events, and panel discussions throughout Cambridge and surrounding areas.`
-2. **Q:** `Are you familiar with filming restrictions at Cambridge venues?`  
-   **A:** `Absolutely. We are experienced in working within strict venue guidelines across science parks, conference centres, and historic institutional properties with minimal footprint and maximum discretion.`
-3. **Q:** `What is your typical turnaround time for conference highlights?`  
-   **A:** `For fast-turnaround event highlights or social media cutdowns, we can deliver initial drafts within 24 to 48 hours post-event.`
+1. **Q:** `How do you help executives, scientists, and non-actors feel confident on camera?`  
+   **A:** `We adapt to your team: conducting relaxed conversational interviews to draw out natural authority, or providing on-camera teleprompters so leadership and technical teams can deliver approved, scripted messaging with complete confidence.`
+2. **Q:** `How do you coordinate with venue management in historic colleges and science parks?`  
+   **A:** `We work within strict institutional and venue guidelines with calm discretion, minimal footprint, and direct coordination with site facilities.`
+3. **Q:** `Can you deliver conference session videos for on-demand platforms?`  
+   **A:** `Yes. We provide complete keynote and breakout session recordings synchronized with slide decks and board-level audio, ready for internal intranets or public hosting.`
 
 ### Bottom CTA
 * **Heading:** `Planning a shoot in *Cambridge?*` *(with "Cambridge?" in amber gradient)*
@@ -422,22 +423,22 @@
 ### Hero Section
 * **Hero Tag:** `London Production Hub`
 * **Headline:** `Corporate Video Production in London.` *(with "London." in amber gradient)*
-* **Subtitle (Lead):** `From main-stage keynotes at ExCeL and the QEII Centre to boardroom executive interviews across the City and Canary Wharf, we deploy agile cinema camera crews across London, capturing high-stakes events and brand stories with calm, dependable precision.`
+* **Subtitle (Lead):** `On-location filming across Central London, Canary Wharf, and the City. We film multi-stage conferences, executive keynotes, and corporate brand stories with quiet discretion and broadcast polish.`
 * **Primary Button:** `Discuss Your London Project` → `/contact`
 
 ### Venue Logistics & Expertise
 * **Tag:** `Capital Production`
-* **Heading:** `Filming Across London's Leading Venues & Headquarters`
-* **Description:** `Whether you're hosting an annual summit at ExCeL London, a financial keynote at the QEII Centre, or recording executive thought leadership in Canary Wharf, our crews handle venue logistics, RAMS, and multi-camera setups with zero friction.`
+* **Heading:** `Filming Across London’s Venues & Corporate Headquarters`
+* **Description:** `From multi-stage keynotes at major exhibition centres to executive thought leadership in Central London boardrooms, our crews work seamlessly alongside event producers and internal communications teams.`
 * **Key Grounding Locations:** `ExCeL London`, `QEII Centre`, `Olympia London`, `The City & Canary Wharf`
 * **Key Bullets:**
-  - `Multi-camera summit & keynote capture`
+  - `Multi-camera summit & keynote recording`
   - `Executive boardroom interviews & case studies`
-  - `Fast-turnaround 24–48hr highlight films for LinkedIn`
+  - `Optional fast-turnaround cutdowns for LinkedIn & press`
 
 ### Why London Enterprise Brands Choose Us
-* **Card Title:** `Why London Enterprise Brands Choose Us`
-* **Card Body:** `High-stakes London events leave zero room for technical second takes. Working directly with our experienced filmmakers, you get calm on-site direction, redundant multi-camera recording, and rapid post-production that keeps your stakeholders and global audience engaged.`
+* **Card Title:** `Composure Under Pressure`
+* **Card Body:** `Live corporate events leave no margin for error. Working directly with experienced filmmakers, you get composed on-site direction, broadcast-standard audio and vision, and dependable delivery configured around your campaign timeline.`
 * **Link:** `View Selected Works →` → `/work`
 
 ### Field Dispatches Lookbook
@@ -449,16 +450,16 @@
 * **Cross-Hub Corridor Bridge:** `Filming in the Cambridge science & tech cluster?` → `Explore our Cambridge Production Hub →` (`/cambridge`)
 
 ### Local FAQs
-1. **Q:** `Do you provide multi-camera event filming across Central London?`  
-   **A:** `Yes. We regularly film corporate conferences, symposiums, and leadership summits across Central London, the City, Canary Wharf, and major exhibition centres with multi-camera 4K setups.`
-2. **Q:** `How do you handle equipment load-in and strict London venue rules?`  
-   **A:** `We are fully experienced with London venue logistics, security sign-ins, risk assessments (RAMS), and loading bay access. Our compact cinema rigs are designed for rapid deployment with minimal footprint.`
-3. **Q:** `Can you deliver same-day or 24-hour highlight reels for social media?`  
-   **A:** `Yes. For conferences and summits with immediate press or LinkedIn requirements, we offer on-site editing and rapid 24-to-48-hour delivery for social cutdowns and highlight reels.`
+1. **Q:** `Can you deliver keynote highlights while our conference is still underway?`  
+   **A:** `Yes. For summits with immediate press or social requirements, we offer dedicated fast-turnaround workflows, delivering polished keynote soundbites and vertical LinkedIn cutdowns within 24 to 48 hours while event momentum is highest.`
+2. **Q:** `Can you capture stage presentations and executive interviews simultaneously?`  
+   **A:** `Yes. We configure modular camera setups tailored to your programme. While main cameras capture the stage keynote and direct presentation slides, a dedicated unit can record 1-on-1 executive interviews in a quiet breakout room.`
+3. **Q:** `How do you coordinate with our event production team and venue schedule?`  
+   **A:** `We liaise directly with your event organizers and venue AV teams in advance to confirm technical inputs, stage audio feeds, and schedules, ensuring filming runs smoothly alongside your live agenda without obstructing delegates.`
 
 ### Bottom CTA
-* **Heading:** `Planning a shoot or conference in *London?*` *(with "London?" in amber gradient)*
-* **Body:** `Tell us about your event dates, venue location, or project brief. We’ll discuss the setup and provide a clear, straightforward quote.`
+* **Heading:** `Planning a conference or shoot in *London?*` *(with "London?" in amber gradient)*
+* **Body:** `From Central London keynotes to executive interviews, our agile crews deliver high-impact filming with a compact on-site footprint.`
 * **Button:** `Discuss Your London Project →` → `/contact`
 
 ---
@@ -471,7 +472,7 @@
 ### Header Section
 * **Eyebrow Tag:** `[ • SELECTED WORK ]` *(with pulsing amber LED dot)*
 * **Heading:** `Films that capture energy and momentum.` *(with "energy" in amber gradient)*
-* **Description:** `Commercial productions, conference stages, and executive stories filmed across London, Cambridge, and nationwide.`
+* **Description:** `A curated archive of keynote presentations, customer case studies, and corporate films produced for technology leaders and enterprise organisations.`
 * **Aspect Badge:** `ASPECT // 16:9`
 * **Action Buttons:**
   - `Watch Featured Showreel` (launches modal)
