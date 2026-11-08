@@ -61,7 +61,7 @@ const gradientStyle = isRadial
   : `background: linear-gradient(${heroGradientDirection}, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`;
 ---
 
-<section data-cinema-darkroom class="relative overflow-hidden pt-28 pb-20 sm:pt-36 md:pt-40 md:pb-32 border-b border-neutral-900 select-none">
+<header data-cinema-darkroom class="relative w-full pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden border-b border-white/10 select-none">
   <!-- Media Backdrop Layer (Video, Image, or Dual-Tone Gradient) -->
   <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden bg-black">
     <!-- Master Cinematic Directional ND Filter (Unified Site-Wide Standard) -->
@@ -72,6 +72,9 @@ const gradientStyle = isRadial
       ]} 
       aria-hidden="true"
     />
+
+    <!-- Ambient Amber Spotlight Glow at Top Center -->
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] sm:w-[56rem] h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none z-10" aria-hidden="true"></div>
 
     {/* 1. Video Background */}
     {bgType === "video" && heroVideoPath && (
@@ -110,41 +113,41 @@ const gradientStyle = isRadial
     )}
   </div>
 
-  <div class="relative z-10 max-w-5xl mx-auto px-6">
-    <!-- Eyebrow Tag -->
-    <div class="inline-flex items-center gap-2 mb-6">
-      <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-mono font-semibold">
-        {tag || "STUDIO ETHOS"}
-      </span>
+  <div class="relative z-20 max-w-6xl mx-auto px-6">
+    <!-- Studio Category Eyebrow Badge -->
+    <div class="mb-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest font-semibold backdrop-blur-md bg-amber-500/10 border border-amber-500/25 text-amber-400 shadow-sm shadow-amber-500/10 select-none">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <span>{tag || "STUDIO ETHOS"}</span>
+      </div>
     </div>
 
     <!-- Large Title with Asterisk Gradient Support -->
     <h1 
-      class="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white keep-white leading-[1.08] mb-8 max-w-4xl text-balance"
+      class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white keep-white leading-[1.08] mb-6 max-w-4xl text-balance"
       set:html={parseHeadline(headline)}
     />
 
     <!-- Hero Lead Hook / Value Proposition -->
-    <p class="text-base sm:text-lg lg:text-xl text-neutral-300 font-normal leading-relaxed tracking-[-0.01em] max-w-2xl mb-10 keep-white">
+    <p class="text-base sm:text-lg lg:text-xl text-neutral-300 font-normal leading-relaxed tracking-[-0.01em] max-w-2xl mb-8 keep-white">
       {manifestoLead}
     </p>
 
-    <!-- Quick Jump Navigation Pills -->
-    <div class="flex flex-wrap items-center gap-4 pt-2 font-mono text-xs">
+    <!-- Primary & Secondary Navigation Actions -->
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
       <a
         href="#team-section"
-        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold uppercase tracking-wider transition-all shadow-xl shadow-amber-500/10 hover:scale-[1.02]"
+        class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold text-base transition-all shadow-xl shadow-amber-500/20 hover:scale-[1.02] text-center"
       >
         <span>Meet The Crew</span>
-        <span class="text-sm font-sans">&darr;</span>
+        <span class="text-lg leading-none">&darr;</span>
       </a>
       <a
         href="/services"
-        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-line hover:border-amber-500/50 hover:bg-white/10 uppercase tracking-wider text-white transition-all shadow-lg"
+        class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-white/5 border border-white/15 hover:border-amber-500/50 hover:bg-white/10 text-white font-medium text-base transition-all shadow-lg text-center"
       >
         <span>Explore Services &rarr;</span>
       </a>
     </div>
   </div>
-</section>
+</header>
