@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FilmEditRun Proofreading v1 (Print & Word Ready)</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 25mm 20mm 25mm 20mm;
+    }
+    body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      color: #111827;
+      background-color: #ffffff;
+      line-height: 1.65;
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 24px 0;
+    }
+    header.doc-header {
+      border-bottom: 2pt solid #111827;
+      padding-bottom: 16pt;
+      margin-bottom: 24pt;
+    }
+    h1.doc-title {
+      font-size: 24pt;
+      font-weight: 700;
+      color: #000000;
+      margin: 0 0 6pt 0;
+      letter-spacing: -0.02em;
+    }
+    .doc-subtitle {
+      font-size: 12pt;
+      color: #4b5563;
+      font-style: italic;
+      margin-bottom: 8pt;
+    }
+    .doc-meta {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 9pt;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .section-block {
+      page-break-inside: avoid;
+      margin-bottom: 24pt;
+      padding-bottom: 16pt;
+      border-bottom: 1pt solid #e5e7eb;
+    }
+    h2.section-heading {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14pt;
+      font-weight: 700;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 22pt 0 10pt 0;
+      padding-bottom: 4pt;
+      border-bottom: 1.5pt solid #d1d5db;
+    }
+    h3.sub-heading {
+      font-size: 12.5pt;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 14pt 0 6pt 0;
+    }
+    h4.item-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #374151;
+      margin: 10pt 0 4pt 0;
+    }
+    p {
+      margin: 0 0 8pt 0;
+      text-align: justify;
+    }
+    .headline-callout {
+      font-size: 12.5pt;
+      font-weight: bold;
+      color: #111827;
+      margin: 8pt 0 10pt 0;
+      line-height: 1.4;
+    }
+    ul, ol {
+      margin: 6pt 0 12pt 0;
+      padding-left: 20pt;
+    }
+    li {
+      margin-bottom: 5pt;
+    }
+    .lead-text {
+      font-size: 11pt;
+      color: #374151;
+    }
+    .deliverable-box {
+      background-color: #f9fafb;
+      border-left: 3pt solid #d97706;
+      padding: 10pt 14pt;
+      margin: 10pt 0 14pt 0;
+    }
+    .deliverable-box p {
+      margin: 0 0 6pt 0;
+    }
+    .deliverable-box p:last-child {
+      margin-bottom: 0;
+    }
+    .cta-box {
+      background-color: #fffbeb;
+      border: 1pt solid #fde68a;
+      border-radius: 4pt;
+      padding: 10pt 14pt;
+      margin: 12pt 0;
+    }
+    .cta-box p {
+      margin: 0 0 4pt 0;
+    }
+    .cta-box p:last-child {
+      margin-bottom: 0;
+    }
+    code {
+      font-family: Menlo, Monaco, "Courier New", monospace;
+      font-size: 9.5pt;
+      background-color: #f3f4f6;
+      padding: 1pt 3pt;
+      border-radius: 2pt;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="doc-header">
+      <h1 class="doc-title">FilmEditRun Proofreading v1</h1>
+      <div class="doc-subtitle">Master Website Copy Proofreading (100% Code Synchronized)</div>
+      <div class="doc-meta">Studio: FilmEditRun &bull; Version 1.0 &bull; November 2026 &bull; Excludes SEO Metadata</div>
+    </header>
+    <div class="section-block">
+      <h2 class="section-heading">1. Global Header & Navigation</h2>
+      <ul>
+        <li><strong>Brand Wordmark:</strong> <code>FilmEditRun</code></li>
+        <li><strong>Primary Navigation Links:</strong></li>
+        <li><code>Home</code> → <code>/</code></li>
+        <li><code>Services</code> → <code>/services</code></li>
+        <li><code>Work</code> → <code>/work</code></li>
+        <li><code>About</code> → <code>/about</code></li>
+        <li><code>Contact</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">2. Homepage (`/`)</h2>
+      <h3 class="sub-heading">Hero Section</h3>
+      <ul>
+        <li><strong>Location Strip:</strong> <code>Cambridge • London • UK-Wide</code></li>
+        <li><strong>Main Headline:</strong> <code>Capture the room. Deliver the story.</code> <em>(with "Deliver the story." in amber accent)</em></li>
+        <li><strong>Tagline / Lead:</strong> <code>From conference stages to corporate boardrooms. We film live events, executive interviews, and brand stories across Cambridge, London, and the UK.</code></li>
+        <li><strong>Primary Button:</strong> <code>Start a Project Brief</code> → <code>/contact</code></li>
+        <li><strong>Secondary Button:</strong> <code>Watch Selected Work</code> → <code>/work</code></li>
+      </ul>
+      <h3 class="sub-heading">Cinematic Spec Strip</h3>
+      <ul>
+        <li><strong>Brand Label:</strong> <code>FilmEditRun</code></li>
+        <li><strong>Capabilities Roster:</strong></li>
+        <li><code>Conferences & Live Events</code></li>
+        <li><code>Customer Case Studies</code></li>
+        <li><code>Corporate Brand Films</code></li>
+        <li><code>Video Podcasts</code></li>
+        <li><code>Motion Design</code></li>
+        <li><code>Post-Production</code></li>
+      </ul>
+      <h3 class="sub-heading">Studio Telemetry Metric Bar</h3>
+      <ul>
+        <li><strong>Metric 1:</strong> <code>10+</code> • <code>Years On-Location</code> : Over a decade of commercial filming, live conference stages, and post-production craft.</li>
+        <li><strong>Metric 2:</strong> <code>48h</code> • <code>Creative Event Wrap-Ups</code> : Polished wrap-up edits and speaker soundbites delivered while event momentum is highest.</li>
+        <li><strong>Metric 3:</strong> <code>2</code> • <code>Operational Hubs</code> : Cambridge studio base and London on-location field crews filming UK-wide.</li>
+        <li><strong>Metric 4:</strong> <code>16:9 & 9:16</code> • <code>Widescreen & Social Cutdowns</code> : Full-length masters for your website, plus captioned vertical and square cutdowns built for social feeds.</li>
+      </ul>
+      <h3 class="sub-heading">Studio Manifesto (Full-Bleed Parallax Break)</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>A dedicated on-location partner.</code> <em>(with "on-location partner." in amber accent)</em></li>
+        <li><strong>Body:</strong> <code>Working alongside corporate brands, event organisers, and creative agencies, we produce films that feel authentic and alive. Putting speakers at ease so they communicate naturally, we turn real energy and complex ideas into films that connect.</code></li>
+      </ul>
+      <h3 class="sub-heading">Production Ethos (Full-Bleed Parallax Break)</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Driven by the task. Not the tool.</code> <em>(with "Not the tool." in amber accent)</em></li>
+        <li><strong>Body:</strong> <code>High-spec production technology is only as effective as the intention behind it. From multi-camera live coverage to cinema optics, we configure our setup around the specific demands of your brief, ensuring the technology serves the task and delivers the right result.</code></li>
+      </ul>
+      <h3 class="sub-heading">Services Overview (Modular Capabilities)</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>Services</code></li>
+        <li><strong>Heading:</strong> <code>Services engineered to deliver.</code> <em>(with "engineered to deliver." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Modular filming, post-production, and motion capabilities built for corporate brands and live events. From multi-camera conference stages and executive interviews to bespoke motion design and rapid-turnaround edits.</code></li>
+        <li><strong>Action:</strong> <code>Explore Services →</code> → <code>/services</code></li>
+      </ul>
+      <h3 class="sub-heading">Production Pipeline (Disciplined 4-Stage Methodology)</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>HOW WE WORK</code></li>
+        <li><strong>Heading:</strong> <code>Clear collaboration creates results.</code> <em>(with "creates results." in animated accent underline)</em></li>
+        <li><strong>Description:</strong> <code>A disciplined four-stage process that removes friction, protects your schedule, and ensures clarity from initial brief to final delivery.</code></li>
+        <li><strong>Action:</strong> <code>Discuss Your Timeline →</code> → <code>/contact</code></li>
+        <li><strong>The 4 Stages:</strong></li>
+        <li><strong>Stage 01 // PHASE 01:</strong> <code>Discovery & Pre-Production</code></li>
+      </ul>
+      <p><em>We establish your business objectives, target audience, and key messaging upfront, shaping a tailored production scope and transparent quote around your project requirements.</em></p>
+      <ul>
+        <li><strong>Stage 02 // PHASE 02:</strong> <code>On-Location Filming</code></li>
+      </ul>
+      <p><em>Low-profile crews configured around your brief: capturing conference stages, executive interviews, and workplace stories with calm professionalism and minimal disruption.</em></p>
+      <ul>
+        <li><strong>Stage 03 // PHASE 03:</strong> <code>Editorial & Review</code></li>
+      </ul>
+      <p><em>We shape the story with clear narrative focus, incorporating your brand assets, typography, and palette. Simple review links make stakeholder feedback and sign-off effortless.</em></p>
+      <ul>
+        <li><strong>Stage 04 // PHASE 04:</strong> <code>Versioning & Delivery</code></li>
+      </ul>
+      <p><em>Delivering films tailored to your campaign requirements: from widescreen website masters to captioned vertical and square cutdowns formatted for social reach.</em></p>
+      <h3 class="sub-heading">Selected Work in Focus</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>Archive</code></li>
+        <li><strong>Heading:</strong> <code>Stories that connect.</code> <em>(with "that connect." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Watch our archive of recent conference keynotes, brand stories, and fast-turnaround social edits delivered across the UK.</code></li>
+        <li><strong>Action:</strong> <code>Explore Work →</code> → <code>/work</code></li>
+      </ul>
+      <h3 class="sub-heading">Operational Locations (Cambridge & London Single-Source)</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>Operational Locations</code></li>
+        <li><strong>Heading:</strong> <code>Based in Cambridge. On-location across London.</code> <em>(with "Cambridge." and "London." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Operating from our Cambridge studio base, with agile field units deployed across London and nationwide. Single-source production designed for fast turnaround and seamless delivery.</code></li>
+        <li><strong>Card 1: Cambridge Studio:</strong> <code>Explore →</code> → <code>/cambridge</code></li>
+        <li><strong>Card 2: London Field Units:</strong> <code>Explore →</code> → <code>/london</code></li>
+      </ul>
+      <h3 class="sub-heading">Closing Commissioning Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Have an upcoming project or live event?</code> <em>(with "or live event?" in animated accent underline)</em></li>
+        <li><strong>Description:</strong> <code>Whether you have a finalized brief or an early date in mind, we're ready to collaborate. Tell us about your venue, goals, or timeline. We'll deliver a clear technical production scope and transparent quote within 24 hours.</code></li>
+        <li><strong>Primary Button:</strong> <code>Start Project Brief →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">3. About FilmEditRun (`/about`)</h2>
+      <h3 class="sub-heading">Hero Manifesto</h3>
+      <ul>
+        <li><strong>Eyebrow Tag:</strong> <code>STUDIO ETHOS</code></li>
+        <li><strong>Headline:</strong> <code>Films crafted with care, clarity, and purpose.</code> <em>(with "purpose" in amber accent)</em></li>
+        <li><strong>Hero Lead:</strong> <code>Operating with agile crews on-location, we partner directly with your team from concept to final delivery. Technical precision, transparent communication, and a disciplined workflow built around your schedule.</code></li>
+        <li><strong>Studio Director Quote:</strong> <em>"Every project deserves a dedicated filmmaker who listens closely and cuts with discipline. Direct collaboration from initial brief to final delivery."</em></li>
+      </ul>
+      <p>— <code>Scott Sartain | Founder & Director</code></p>
+      <h3 class="sub-heading">The Crew & BTS (On-Location Carousel)</h3>
+      <ul>
+        <li><strong>Eyebrow Tag:</strong> <code>ON-LOCATION PRODUCTION</code></li>
+        <li><strong>Heading:</strong> <code>The Crew & BTS</code> <em>(with "Crew" and "BTS" in animated accent underline)</em></li>
+        <li><strong>Description:</strong> <code>Behind every seamless film is a dedicated crew whose unseen effort elevates the audience experience.</code></li>
+        <li><strong>The 5 Interactive Slides:</strong></li>
+      </ul>
+      <ol>
+        <li><code>[OUR TEAM] FilmEditRun Production Collective</code>: Specialist camera operators, sound engineers, and post-production craftspeople deployed across Cambridge, London, and nationwide venues. Single-source execution with direct creative collaboration.</li>
+        <li><code>[CAMERA OPS] Wireless Camera Rig On Location</code>: Configured for agile mobility in live conference auditoriums and executive boardrooms. Quiet on-set presence, fluid movement, and uninterrupted coverage throughout high-tempo events.</li>
+        <li><code>[LIVE BROADCAST] Multi-Cam Live Switch Deck</code>: Real-time multi-view vision mixing for plenary keynotes and hybrid summits. Redundant recording, isolated camera feeds, and clean direct audio capture for immediate post-event turnaround.</li>
+        <li><code>[POST-PRODUCTION] Colour Timing & Mastering Suite</code>: Precision colour timing and mastering in our Cambridge suites. Natural skin tones, refined narrative pacing, and frame-accurate review links for fast stakeholder feedback.</li>
+        <li><code>[SOUND DECK] Field Audio & Acoustic Isolation</code>: Dual-source wireless audio engineered for acoustically challenging conference halls. Active ambient echo rejection and pristine vocal clarity for executive speakers and panel discussions.</li>
+      </ol>
+      <h3 class="sub-heading">Studio Approach (Editorial Statement)</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>OUR APPROACH</code></li>
+        <li><strong>Heading:</strong> <code>Calm leadership. Direct collaboration.</code> <em>(with "Direct collaboration." in amber accent)</em></li>
+        <li><strong>Body:</strong> <code>With FilmEditRun, we listen to your brief, direct the narrative, and cut the story. Direct communication, honest guidance, and zero translation loss.</code></li>
+        <li><strong>Links:</strong> <code>Explore Work →</code> → <code>/work</code> | <code>Explore Services →</code> → <code>/services</code></li>
+      </ul>
+      <h3 class="sub-heading">Studio Evolution Timeline</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>FILMEDITRUN // TIMELINE</code></li>
+        <li><strong>Heading:</strong> <code>Ten years behind the lens. Built for today.</code> <em>(with "Built for today." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>A decade of on-location filming and live conference production, refined into an agile independent studio.</code></li>
+        <li><strong>Milestones:</strong></li>
+        <li><strong>2016</strong> • <code>Production Roots</code>: Independent camera and post-production work across the UK.</li>
+        <li><strong>2019</strong> • <code>Multi-Camera Live Stages</code>: Keynote capture and live conference summit recordings.</li>
+        <li><strong>2022</strong> • <code>Cambridge & London Corridors</code>: On-location filming across research campuses and London venues.</li>
+        <li><strong>2024</strong> • <code>Compact Cinema Rigs</code>: Fast-turnaround filming and frame-accurate review.</li>
+        <li><strong>2026</strong> • <code>FilmEditRun Studio</code>: A decade of craft, built for direct collaboration.</li>
+      </ul>
+      <h3 class="sub-heading">Closing Call to Action</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>DIRECT COLLABORATION</code></li>
+        <li><strong>Heading:</strong> <code>Direct partnership from the first conversation.</code> <em>(with "the first conversation." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>You collaborate directly with the filmmakers behind the lens and edit. Clear communication, disciplined execution, and zero translation loss.</code></li>
+        <li><strong>Primary Button:</strong> <code>Start Your Project Brief →</code> → <code>/contact</code></li>
+        <li><strong>Trust Signals:</strong> <code>Direct Filmmaker Access</code> • <code>Clear, Transparent Scope</code> • <code>Cambridge & London Studio Hubs</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">4. Services Overview (`/services`)</h2>
+      <h3 class="sub-heading">Header Section</h3>
+      <ul>
+        <li><strong>Eyebrow Tag:</strong> <code>SERVICES</code></li>
+        <li><strong>Heading:</strong> <code>Modular filming. Agile post-production.</code> <em>(with "filming." and "post-production." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>End-to-end production capabilities configured around your brief: from multi-camera live stage capture to precision editing, colour timing, and motion design.</code></li>
+        <li><strong>Primary Button:</strong> <code>Start Project Brief →</code> → <code>/contact</code></li>
+      </ul>
+      <h3 class="sub-heading">Mid-Page Parallax Breather</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Precision with passion.</code> <em>(with "passion." in amber accent)</em></li>
+      </ul>
+      <h3 class="sub-heading">Production Methodology (4-Stage Process)</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>PRODUCTION METHODOLOGY</code></li>
+        <li><strong>Heading:</strong> <code>Designed for clarity. Delivered with confidence.</code> <em>(with "Delivered with confidence." in animated accent underline)</em></li>
+        <li><strong>Description:</strong> <code>A transparent four-stage methodology built around your schedule, ensuring technical precision and narrative focus at every step.</code></li>
+        <li><strong>Action:</strong> <code>Discuss Your Timeline →</code> → <code>/contact</code></li>
+        <li><strong>The 4 Process Stages:</strong></li>
+        <li><strong>Stage 01 // STAGE 01:</strong> <code>Discovery & Pre-Production</code></li>
+      </ul>
+      <p><em>We align with your team on core messaging, audience intent, and required formats. From interview preparation to shooting schedules, we plan the setup around your brief with minimal demand on your team's time.</em></p>
+      <ul>
+        <li><strong>Stage 02 // STAGE 02:</strong> <code>On-Location Filming</code></li>
+      </ul>
+      <p><em>Configuring single or multi-camera setups, wireless vocal audio, and clean slide integration according to the demands of your venue, ensuring speakers stay composed and look authoritative on camera.</em></p>
+      <ul>
+        <li><strong>Stage 03 // STAGE 03:</strong> <code>Editorial & Review</code></li>
+      </ul>
+      <p><em>Structuring your film for clarity and impact, integrating your on-brand assets, lower thirds, and colour palette. Direct review links let stakeholders leave frame-accurate feedback on the timeline, ensuring smooth internal sign-off.</em></p>
+      <ul>
+        <li><strong>Stage 04 // STAGE 04:</strong> <code>Versioning & Delivery</code></li>
+      </ul>
+      <p><em>Exporting finished deliverables configured for your specific channels: high-resolution widescreen films for keynotes and web, plus optional subtitled 9:16 and 1:1 cutdowns built for LinkedIn and digital campaigns.</em></p>
+      <h3 class="sub-heading">Closing Call to Action</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>PROJECT SCOPING</code></li>
+        <li><strong>Heading:</strong> <code>Let’s discuss your production brief.</code> <em>(with "production brief." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Tell us about your upcoming project, venue, or timeline. We configure the setup around your brief and provide a transparent quote.</code></li>
+        <li><strong>Primary Button:</strong> <code>Start Project Brief</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">5. Service 01: Conference & Live Event Filming (`/services/conference-event-filming`)</h2>
+      <ul>
+        <li><strong>Roster Card Summary:</strong> <code>Low-profile multi-camera crews capturing live conference stages, executive keynotes, and fast-turnaround event highlights across Cambridge and London.</code></li>
+        <li><strong>Hero Tag:</strong> <code>Conference & Event Filming</code></li>
+        <li><strong>Hero Heading:</strong> <code>Capture the keynote. Deliver momentum.</code> <em>(with "momentum." in amber accent)</em></li>
+        <li><strong>Hero Lead:</strong> <code>Conferences spark ideas. We make sure they don't stay in the room. Operating with agile crews across Cambridge and London, we capture every keynote and panel, delivering edited sessions and fast-turnaround social films while event momentum is highest.</code></li>
+      </ul>
+      <h3 class="sub-heading">Approach Section</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Single or multi-camera filming.</code> <em>(with "multi-camera filming." in animated accent underline)</em></li>
+        <li><strong>Body:</strong> <code>Operating with scale and efficiency across your venue and AV, our crews ensure speakers feel at ease. Configured for single or multi-camera setups, we live mix presentation slides and camera angles to reduce post-production turnaround and deliver fast.</code></li>
+      </ul>
+      <h3 class="sub-heading">The 3 Deliverables</h3>
+      <ol>
+        <li><strong>On-Location Event Videography</strong> (<code>Videography</code>): Discreet roaming camera coverage capturing delegate networking, venue atmosphere, speaker soundbites, and behind-the-scenes moments, building a rich visual library for your future marketing campaigns and press releases.</li>
+        <li><strong>Live-Mixed Keynotes & Slide Integration</strong> (<code>Stage Capture</code>): Multi-camera stage recording synchronized with presentation slide decks. Using our on-site live mix, we top-and-tail each session with your corporate branding and clean audio for rapid publishing.</li>
+        <li><strong>Wrap-Up Highlights & Social Cutdowns</strong> (<code>Highlights</code>): Polished 24-to-48-hour event wrap-up films cut to licensed music, delivered alongside vertical 9:16 social cutdowns with styled captions to share the momentum on LinkedIn while the conversation is live.</li>
+      </ol>
+      <h3 class="sub-heading">Bottom Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Planning an upcoming conference or live event?</code> <em>(with "conference or live event?" in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Tell us about your event dates, venue location, and technical brief. We'll outline a dependable setup and provide a clear quote.</code></li>
+        <li><strong>Button:</strong> <code>Discuss Your Event →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">6. Service 02: Customer Case Study & Testimonial Films (`/services/case-study-films`)</h2>
+      <ul>
+        <li><strong>Roster Card Summary:</strong> <code>Authentic, interview-led customer stories and peer testimonials that build unshakeable commercial trust and accelerate enterprise sales cycles.</code></li>
+        <li><strong>Hero Tag:</strong> <code>Customer Case Studies</code></li>
+        <li><strong>Hero Heading:</strong> <code>Let your clients do the talking for you.</code> <em>(with "talking for you." in amber accent)</em></li>
+        <li><strong>Hero Lead:</strong> <code>Enterprise buyers rarely commit without hearing from peers who solved the same challenges. We film your clients in their workplace, capturing authentic voices, real-world deployments, and clear outcomes that give decision-makers commercial confidence.</code></li>
+      </ul>
+      <h3 class="sub-heading">Approach Section</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Candid insight or scripted precision.</code> <em>(with "scripted precision." in animated accent underline)</em></li>
+        <li><strong>Body:</strong> <code>Some contributors shine in relaxed conversation, while others rely on an on-camera teleprompter to stay strictly on-message. We adapt our setup on-site, ensuring technical experts and executives speak comfortably, clearly, and without rehearsed stiffness.</code></li>
+      </ul>
+      <h3 class="sub-heading">The 3 Deliverables</h3>
+      <ol>
+        <li><strong>The Core Customer Film (2–3 Mins)</strong> (<code>Full Case Study</code>): A clear, documentary-style film tracing the deployment, technical challenge, and real-world results, combining focused interviews with cinematic B-roll of your product, team, and facility in daily operation.</li>
+        <li><strong>Topic-Specific Cutdowns & Social Clips</strong> (<code>Short-Form</code>): Focused 30-to-60 second vertical and widescreen excerpts with styled subtitles. Each clip isolates a single challenge or outcome, ready for LinkedIn and direct email exchanges with prospective buyers.</li>
+        <li><strong>Production Stills & Verified Transcripts</strong> (<code>Collateral Pack</code>): High-resolution on-location photography of your client in their workspace, delivered alongside timecoded interview transcripts and approved pull-quotes for your written case studies, proposals, and press releases.</li>
+      </ol>
+      <h3 class="sub-heading">Bottom Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Have a client story ready to document?</code> <em>(with "document?" in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Tell us about your client, their location, and your preferred timeline. We can then provide a clear quote.</code></li>
+        <li><strong>Button:</strong> <code>Discuss Your Case Study →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">7. Service 03: Corporate Brand & Company Showcase Films (`/services/corporate-brand`)</h2>
+      <ul>
+        <li><strong>Roster Card Summary:</strong> <code>Cinematic company overview films and culture narratives that communicate your vision to investors, enterprise clients, and top talent.</code></li>
+        <li><strong>Hero Tag:</strong> <code>Brand & Company Showcase</code></li>
+        <li><strong>Hero Heading:</strong> <code>Articulate your ambition, culture, and capability.</code> <em>(with "capability." in amber accent)</em></li>
+        <li><strong>Hero Lead:</strong> <code>Great companies are built on culture and engineering discipline. We document your workplace, leadership, and daily operations to produce brand films that build genuine commercial standing with investors, clients, and talent.</code></li>
+      </ul>
+      <h3 class="sub-heading">Approach Section</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Cinematic showcase of your people and business.</code> <em>(with "people and business." in animated accent underline)</em></li>
+        <li><strong>Body:</strong> <code>Filming inside working offices, research laboratories, and engineering facilities demands respect for your schedule. Our crews create high production value with minimal operational footprint, ensuring your team works without interruption.</code></li>
+      </ul>
+      <h3 class="sub-heading">The 3 Deliverables</h3>
+      <ol>
+        <li><strong>Company Overview & Brand Showcase</strong> (<code>Overview Film</code>): A cinematic film capturing your mission, operational scale, and technical capability. Built to establish immediate authority on your website, open keynote presentations, and introduce your business to partners.</li>
+        <li><strong>Workplace Culture & Recruitment Films</strong> (<code>Culture & Talent</code>): Authentic profiles of team members, shared technical values, and real working environments, designed to attract top engineering, commercial, and research talent through your careers channels.</li>
+        <li><strong>Executive Vision, ESG & Internal Comms</strong> (<code>Leadership & Impact</code>): Composed executive addresses, sustainability milestones, and strategy rollouts formatted for company-wide town halls, global team broadcasts, and annual investor reporting.</li>
+      </ol>
+      <h3 class="sub-heading">Bottom Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Ready to showcase your company's story?</code> <em>(with "story?" in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Tell us about your corporate goals and upcoming brief. We'll outline a clear approach, dependable schedule, and transparent quote.</code></li>
+        <li><strong>Button:</strong> <code>Discuss Your Brand Film →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">8. Service 04: Video Podcast & Executive Series (`/services/video-podcast-production`)</h2>
+      <ul>
+        <li><strong>Roster Card Summary:</strong> <code>Turnkey multi-camera video podcast production filmed right in your boardroom, delivering full episodes and high-impact vertical clips for LinkedIn.</code></li>
+        <li><strong>Hero Tag:</strong> <code>Video Podcasts & Series</code></li>
+        <li><strong>Hero Heading:</strong> <code>Studio-grade video podcasts filmed in your own boardroom.</code> <em>(with "your own boardroom." in amber accent)</em></li>
+        <li><strong>Hero Lead:</strong> <code>Senior leadership rarely has time to travel to an external recording studio. We bring cinema cameras, acoustic mics, and studio lighting directly to your boardroom, recording a month of episodic content in a single afternoon.</code></li>
+      </ul>
+      <h3 class="sub-heading">Approach Section</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Broadcast production configured for your meeting room.</code> <em>(with "your meeting room." in animated accent underline)</em></li>
+        <li><strong>Body:</strong> <code>We turn your meeting room into an executive recording space within minutes. Our agile production crews configure multiple camera angles, manage sound levels, and guide discussions so leadership looks composed, sounds natural, and stays focused entirely on the conversation.</code></li>
+      </ul>
+      <h3 class="sub-heading">The 3 Deliverables</h3>
+      <ol>
+        <li><strong>Multi-Camera Master Episodes</strong> (<code>Full Episodes</code>): Multi-angle narrative cuts with smooth camera switching, branded graphics, and calibrated audio mastering, ready for YouTube, Spotify Video, and internal company channels.</li>
+        <li><strong>Vertical Social & LinkedIn Cutdowns</strong> (<code>Social Clips</code>): High-impact vertical 9:16 clips with styled burned-in captions, spotlighting key executive insights to build reach and discussion across LinkedIn feeds.</li>
+        <li><strong>Mastered Audio Feeds for RSS</strong> (<code>Master Audio</code>): Pristine vocal tracks with ambient noise reduction and loudness mastering, delivered ready for instant RSS feed distribution across Apple Podcasts and Spotify.</li>
+      </ol>
+      <h3 class="sub-heading">Bottom Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Planning an executive podcast or interview series?</code> <em>(with "interview series?" in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Tell us about your format, episode frequency, and recording location. We'll outline a dependable setup and provide a clear quote.</code></li>
+        <li><strong>Button:</strong> <code>Discuss Your Series →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">9. Service 05: Animation & Technical Motion Design (`/services/animation-design`)</h2>
+      <ul>
+        <li><strong>Roster Card Summary:</strong> <code>Bespoke 2D/3D motion graphics, technical product explainers, and event screen title sequences for tech, science, and corporate brands.</code></li>
+        <li><strong>Hero Tag:</strong> <code>Animation & Motion Graphics</code></li>
+        <li><strong>Hero Heading:</strong> <code>Simplifying complex ideas.</code> <em>(with "complex ideas." in amber accent)</em></li>
+        <li><strong>Hero Lead:</strong> <code>Animation allows us to illustrate complex ideas directly, bypassing narrative clutter to make intricate concepts immediately obvious and engaging.</code></li>
+      </ul>
+      <h3 class="sub-heading">Approach Section</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Clarity through animated motion.</code> <em>(with "animated motion." in animated accent underline)</em></li>
+        <li><strong>Body:</strong> <code>Great animation and motion graphics should illuminate your message, not distract from it. We translate your ideas into lively animations tailored to your brand.</code></li>
+      </ul>
+      <h3 class="sub-heading">The 3 Deliverables</h3>
+      <ol>
+        <li><strong>Technical & Product Explainers</strong> (<code>Explainers</code>): Visual 2D and 3D walkthroughs that explain software features, physical hardware, or data workflows in intuitive, easy-to-follow sequences.</li>
+        <li><strong>Summit Openers & Stage Graphics</strong> (<code>Event Visuals</code>): High-impact title sequences, speaker introduction stingers, and stage animations designed to command attention at live corporate summits.</li>
+        <li><strong>Modular Motion Toolkits</strong> (<code>Brand Systems</code>): Reusable animated logo reveals, lower-third straps, and transitions delivered with transparent alphas for your in-house video team.</li>
+      </ol>
+      <h3 class="sub-heading">Bottom Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Have an idea you want to bring to life?</code> <em>(with "to life?" in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Send us your brief, script, or rough idea. We'll map out the right visual style, project timeline, and a clear quote.</code></li>
+        <li><strong>Button:</strong> <code>Discuss Motion Design →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">10. Service 06: Video Editing & Creative Post-Production (`/services/post-production`)</h2>
+      <ul>
+        <li><strong>Roster Card Summary:</strong> <code>Transforming rushes into compelling films with narrative pacing, dialogue clarity, balanced colour, and multi-format social exports.</code></li>
+        <li><strong>Hero Tag:</strong> <code>EDITING & POST-PRODUCTION</code></li>
+        <li><strong>Hero Heading:</strong> <code>Create the timeline. Shape the story.</code> <em>(with "story." in amber accent)</em></li>
+        <li><strong>Hero Lead:</strong> <code>We take your rushes and extract the narrative core: refining dialogue pacing, integrating on-brand motion assets, and mastering sound to deliver finished films that work across your audience.</code></li>
+      </ul>
+      <h3 class="sub-heading">Approach Section</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Engineered for clarity. Direct collaboration.</code> <em>(with "Direct collaboration." in animated accent underline)</em></li>
+        <li><strong>Body:</strong> <code>Post-production is where raw material becomes a corporate asset. Working directly with our editors, your team gets transparent turnaround with faster collaborative reviews. From multi-camera synchronization to colour grading and brand asset integration, we eliminate production friction so your stakeholders can review and approve with complete confidence.</code></li>
+      </ul>
+      <h3 class="sub-heading">The 3 Deliverables</h3>
+      <ol>
+        <li><strong>Assembly to Online Finishing</strong> (<code>THE PROCESS</code>): Bringing ideas to life directly on the timeline. We ingest and synchronize content from a multitude of sources: multi-camera feeds, slide decks, screen captures, and archive assets, shaping fragmented rushes into a unified, articulate, on-brand film.</li>
+        <li><strong>Event Wrap-Ups, Sizzles & Pitch Reels</strong> (<code>FORMATS</code>): Tailored to your commercial goals: high-energy sizzle reels, rapid 24–48h event wrap-ups, executive pitch films, brand teasers, and full conference keynote cuts designed to command audience attention.</li>
+        <li><strong>Colour, Sound & Campaign Cutdowns</strong> (<code>FINISHING</code>): Finishing every edit with brand-matched colour grading, speech clarity mixed against licensed soundtracks, and collaborative review links for fast sign-off. Delivered in full-res widescreen alongside captioned vertical (9:16) social cutdowns.</li>
+      </ol>
+      <h3 class="sub-heading">Bottom Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Looking for a dedicated editorial partner?</code> <em>(with "editorial partner?" in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>From high-energy sizzle reels and investor pitch films to rapid conference wrap-ups and executive keynotes. We craft on-brand films ready for upload.</code></li>
+        <li><strong>Button:</strong> <code>Start Your Edit →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">11. Cambridge Production Hub (`/cambridge`)</h2>
+      <h3 class="sub-heading">Hero Section</h3>
+      <ul>
+        <li><strong>Hero Tag:</strong> <code>Cambridge Production Hub</code></li>
+        <li><strong>Headline:</strong> <code>Corporate Video Production in Cambridge.</code> <em>(with "in Cambridge." in amber accent)</em></li>
+        <li><strong>Subtitle (Lead):</strong> <code>On-location filming for Cambridge’s technology, science, and academic leaders. We capture conferences, research stories, and executive interviews with calm focus and technical precision.</code></li>
+        <li><strong>Primary Button:</strong> <code>Discuss Your Cambridge Project</code> → <code>/contact</code></li>
+      </ul>
+      <h3 class="sub-heading">Local Expertise & Venues</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>Local Expertise</code></li>
+        <li><strong>Heading:</strong> <code>Filming Across Cambridge’s Research & Innovation Hubs</code></li>
+        <li><strong>Description:</strong> <code>Whether documenting academic symposia in historic college settings or profiling breakthrough technologies on the science parks, we ensure your speakers, researchers, and venue teams experience a calm, well-planned production with minimal demand on their time.</code></li>
+        <li><strong>Key Regional Bullets:</strong></li>
+        <li><code>Multi-camera conference & keynote capture</code></li>
+        <li><code>Executive interviews & research case studies</code></li>
+        <li><code>Clean presentation slide & audio integration</code></li>
+      </ul>
+      <h3 class="sub-heading">Why Cambridge Brands Choose Us</h3>
+      <ul>
+        <li><strong>Card Title:</strong> <code>Clarity for Complex Ideas</code></li>
+        <li><strong>Card Body:</strong> <code>Cambridge innovation demands technical understanding without dry presentation. Working directly with our lead filmmakers, you get articulate on-camera interviews, clear sound in challenging rooms, and polished films that resonate with global partners and investors.</code></li>
+        <li><strong>Action:</strong> <code>View Selected Works →</code> → <code>/work</code></li>
+      </ul>
+      <h3 class="sub-heading">Field Dispatches Lookbook</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>Field Dispatches // Cambridge</code></li>
+        <li><strong>Dispatches:</strong></li>
+        <li><code>Cambridge Corn Exchange • Multi-Cam Keynote</code></li>
+        <li><code>Historic Colleges • Symposia & Panels</code></li>
+        <li><code>Cambridge Biomedical Campus • Executive Interviews</code></li>
+      </ul>
+      <h3 class="sub-heading">Frequently Asked Questions</h3>
+      <ol>
+        <li><strong>Q:</strong> <code>How do you help executives, scientists, and non-actors feel confident on camera?</code></li>
+      </ol>
+      <p><strong>A:</strong> <code>We adapt to your team: conducting relaxed conversational interviews to draw out natural authority, or providing on-camera teleprompters so leadership and technical teams can deliver approved, scripted messaging with complete confidence.</code></p>
+      <ol>
+        <li><strong>Q:</strong> <code>Can you align the films with our brand guidelines and technical assets?</code></li>
+      </ol>
+      <p><strong>A:</strong> <code>Yes. We work directly with your brand guidelines, typography, and colour palettes. From on-brand lower thirds and motion graphics to high-resolution slide integration, every deliverable is built to sit natively within your corporate identity.</code></p>
+      <ol>
+        <li><strong>Q:</strong> <code>How does the review and sign-off process work with multiple stakeholders?</code></li>
+      </ol>
+      <p><strong>A:</strong> <code>We share draft cuts via timecoded, frame-accurate review links. Communications leads, scientific advisors, and project stakeholders can leave precise feedback directly on the timeline, eliminating confusing email chains and streamlining final sign-off.</code></p>
+      <h3 class="sub-heading">Bottom Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Planning a shoot or event in Cambridge?</code> <em>(with "Cambridge?" in amber accent)</em></li>
+        <li><strong>Body:</strong> <code>Calm, low-profile filming configured around your venue and schedule, from historic college halls to science park campuses.</code></li>
+        <li><strong>Button:</strong> <code>Discuss Your Cambridge Project →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">12. London Production Hub (`/london`)</h2>
+      <h3 class="sub-heading">Hero Section</h3>
+      <ul>
+        <li><strong>Hero Tag:</strong> <code>London Production Hub</code></li>
+        <li><strong>Headline:</strong> <code>Corporate Video Production in London.</code> <em>(with "in London." in amber accent)</em></li>
+        <li><strong>Subtitle (Lead):</strong> <code>Multi-camera production for London conferences, summits, and corporate headquarters. High-impact stage coverage and executive interviews delivered with calm composure and technical discipline.</code></li>
+        <li><strong>Primary Button:</strong> <code>Discuss Your London Project</code> → <code>/contact</code></li>
+      </ul>
+      <h3 class="sub-heading">Venue Logistics & Expertise</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>Capital Production</code></li>
+        <li><strong>Heading:</strong> <code>Filming Across London’s Venues & Corporate Headquarters</code></li>
+        <li><strong>Description:</strong> <code>From multi-stage keynotes at major exhibition centres to executive thought leadership in Central London boardrooms, our crews work seamlessly alongside event producers and internal communications teams.</code></li>
+        <li><strong>Key Regional Bullets:</strong></li>
+        <li><code>Multi-camera summit & keynote recording</code></li>
+        <li><code>Executive boardroom interviews & case studies</code></li>
+        <li><code>Optional fast-turnaround cutdowns for LinkedIn & press</code></li>
+      </ul>
+      <h3 class="sub-heading">Why London Enterprise Brands Choose Us</h3>
+      <ul>
+        <li><strong>Card Title:</strong> <code>Composure Under Pressure</code></li>
+        <li><strong>Card Body:</strong> <code>Live corporate events leave no margin for error. Working directly with experienced filmmakers, you get composed on-site direction, broadcast-standard audio and vision, and dependable delivery configured around your campaign timeline.</code></li>
+        <li><strong>Action:</strong> <code>View Selected Works →</code> → <code>/work</code></li>
+      </ul>
+      <h3 class="sub-heading">Field Dispatches Lookbook</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>Field Dispatches // London</code></li>
+        <li><strong>Dispatches:</strong></li>
+        <li><code>ExCeL London • 4K Multi-Cam Stage</code></li>
+        <li><code>City of London • Executive Profiles</code></li>
+        <li><code>Kings Cross • Live Audio & Cinema Rigs</code></li>
+      </ul>
+      <h3 class="sub-heading">Frequently Asked Questions</h3>
+      <ol>
+        <li><strong>Q:</strong> <code>Can you deliver keynote highlights while our conference is still underway?</code></li>
+      </ol>
+      <p><strong>A:</strong> <code>Yes. For summits with immediate press or social requirements, we offer dedicated fast-turnaround workflows, delivering polished keynote soundbites and vertical LinkedIn cutdowns within 24 to 48 hours while event momentum is highest.</code></p>
+      <ol>
+        <li><strong>Q:</strong> <code>Can you capture stage presentations and executive interviews simultaneously?</code></li>
+      </ol>
+      <p><strong>A:</strong> <code>Yes. We configure modular camera setups tailored to your programme. While main cameras capture the stage keynote and direct presentation slides, a dedicated unit can record 1-on-1 executive interviews in a quiet breakout room.</code></p>
+      <ol>
+        <li><strong>Q:</strong> <code>How do you coordinate with our event production team and venue schedule?</code></li>
+      </ol>
+      <p><strong>A:</strong> <code>We liaise directly with your event organizers and venue AV teams in advance to confirm technical inputs, stage audio feeds, and schedules, ensuring filming runs smoothly alongside your live agenda without obstructing delegates.</code></p>
+      <h3 class="sub-heading">Bottom Call to Action</h3>
+      <ul>
+        <li><strong>Heading:</strong> <code>Planning a conference or shoot in London?</code> <em>(with "London?" in amber accent)</em></li>
+        <li><strong>Body:</strong> <code>From Central London keynotes to executive interviews, our agile crews deliver high-impact filming with a compact on-site footprint.</code></li>
+        <li><strong>Button:</strong> <code>Discuss Your London Project →</code> → <code>/contact</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">13. Portfolio & Selected Work (`/work`)</h2>
+      <h3 class="sub-heading">Header Section</h3>
+      <ul>
+        <li><strong>Eyebrow Tag:</strong> <code>Selected Work</code></li>
+        <li><strong>Heading:</strong> <code>Films that capture energy and momentum.</code> <em>(with "energy" in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>A curated archive of keynote presentations, customer case studies, and corporate films produced for technology leaders and enterprise organisations.</code></li>
+        <li><strong>Action Buttons:</strong></li>
+        <li><code>Watch Featured Showreel</code> (0:45 modal player)</li>
+        <li><code>Browse Selected Films ↓</code></li>
+      </ul>
+      <h3 class="sub-heading">Production Archive Grid</h3>
+      <ul>
+        <li><strong>Archive Tag:</strong> <code>Production Archive</code></li>
+        <li><strong>Archive Heading:</strong> <code>Explore our work.</code> <em>(with "work." in animated accent underline)</em></li>
+        <li><strong>Category Filters:</strong> <code>All Productions</code>, <code>Commercial & Brand</code>, <code>Conferences</code>, <code>Post-Production</code>, <code>Motion & Visuals</code></li>
+      </ul>
+      <h3 class="sub-heading">The 4 Active Showcase Projects</h3>
+      <ol>
+        <li><strong>01. FilmEditRun Studio Showreel</strong> (<code>Commercial & Brand</code> • 0:45)</li>
+      </ol>
+      <ul>
+        <li>Client: Commercial Production & Field Capture</li>
+        <li>Description: A recent edit of on-location filming, keynote coverage, and commercial storytelling delivered across the UK.</li>
+      </ul>
+      <ol>
+        <li><strong>02. Echoes of Silence // Narrative Post-Production</strong> (<code>Post-Production</code> • 8:12)</li>
+      </ol>
+      <ul>
+        <li>Client: Independent Editorial Showcase</li>
+        <li>Description: A demonstration of long-form editorial discipline, dialogue pacing, multi-track audio sync, and immersive cinematic sound design.</li>
+      </ul>
+      <ol>
+        <li><strong>03. Lumina: Neon Horizons</strong> (<code>Motion & Visuals</code> • 3:40)</li>
+      </ol>
+      <ul>
+        <li>Client: Astral Records</li>
+        <li>Description: Multi-location shoot highlighting low-light sensor performance, anamorphic lens craft, and precision colour grading under mixed-frequency practical lighting.</li>
+      </ul>
+      <ol>
+        <li><strong>04. Apex Global Leadership Summit</strong> (<code>Conferences</code> • 2:15)</li>
+      </ol>
+      <ul>
+        <li>Client: Apex Global</li>
+        <li>Description: Multi-camera keynote stage capture, clean soundboard audio sync, and rapid 24-hour social highlight cutdowns delivered across a three-day international symposium.</li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">14. Project Brief & Contact Experience (`/contact`)</h2>
+      <h3 class="sub-heading">Header Section</h3>
+      <ul>
+        <li><strong>Eyebrow Tag:</strong> <code>Start A Brief</code></li>
+        <li><strong>Heading:</strong> <code>Every great film starts with a conversation.</code> <em>(with "conversation." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Whether you have locked dates and a detailed schedule, client-supplied footage ready for the edit, or just an initial idea. Tell us what you need, and we'll deliver a clear technical production scope and transparent quote within 24 hours.</code></li>
+        <li><strong>Trust Signals:</strong> <code>24-Hour Scope Response</code> • <code>Direct Filmmaker Collaboration</code> • <code>Draft & AI Briefs Welcome</code> • <code>Cambridge & London Hubs</code></li>
+      </ul>
+      <h3 class="sub-heading">The 5-Step Inquiries Form Flow</h3>
+      <ul>
+        <li><strong>Step 01 // Introduce Yourself:</strong></li>
+        <li><em>Prompt:</em> <code>What is your name and company or organisation? *</code></li>
+        <li><em>Fields:</em> <code>Your full name *</code> | <code>Company or organisation name (optional)</code></li>
+        <li><strong>Step 02 // Project Requirement:</strong></li>
+        <li><em>Prompt:</em> <code>Which services are you looking for? *</code></li>
+        <li><em>Dropdown Options (aligned 1:1 with services):</em></li>
+      </ul>
+      <ol>
+        <li><code>Conference & Live Event Filming</code></li>
+        <li><code>Customer Case Study & Testimonial Films</code></li>
+        <li><code>Corporate Brand & Company Showcase Films</code></li>
+        <li><code>Video Podcast & Executive Series</code></li>
+        <li><code>Animation & Technical Motion Design</code></li>
+        <li><code>Video Editing & Creative Post-Production</code></li>
+        <li><code>Not sure yet / Exploring options</code></li>
+      </ol>
+      <ul>
+        <li><strong>Step 03 // Contact Details:</strong></li>
+        <li><em>Prompt:</em> <code>What is your business email address? *</code></li>
+        <li><em>Helper Note:</em> <code>Please provide your company or institutional work email. Inquiries from personal accounts are not accepted.</code></li>
+        <li><em>Field Placeholder:</em> <code>name@company.com</code></li>
+        <li><strong>Step 04 // Project Brief:</strong></li>
+        <li><em>Prompt:</em> <code>How can we help? *</code></li>
+        <li><em>Helper Note:</em> <code>Draft dates, rough ideas, or bullet points are completely fine. You do not need a finalized brief: tell us what you have in mind and we will help shape the scope.</code></li>
+        <li><em>Field Placeholder:</em> <code>Tell us what you have in mind (rough dates, location, or just an initial idea)...</code></li>
+        <li><strong>Step 05 // Verification & Consent:</strong></li>
+        <li><em>Prompt:</em> <code>Final Step *</code></li>
+        <li><em>Consent Text:</em> <code>I confirm that FilmEditRun may process my contact details and project brief to prepare a production proposal in accordance with their Privacy Policy.</code></li>
+        <li><em>Action Button:</em> <code>Submit Brief</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">15. Post-Submission & Next Steps (`/thank-you`)</h2>
+      <h3 class="sub-heading">Header & Status</h3>
+      <ul>
+        <li><strong>Status Badge:</strong> <code>Brief Dispatch Confirmed • 24hr Response</code></li>
+        <li><strong>Heading:</strong> <code>We've received your project brief.</code> <em>(with "project brief." in amber accent)</em></li>
+        <li><strong>Description:</strong> <code>Thank you for getting in touch. Your requirements have been safely delivered to our production desk. We review every brief carefully and will get back to you with a tailored scope within 24 hours.</code></li>
+      </ul>
+      <h3 class="sub-heading">The 3-Phase Client Roadmap</h3>
+      <ol>
+        <li><strong>Phase 01 // Discovery (<code>Review & Needs</code>):</strong> We assess your target dates, creative requirements, filming locations, and turnaround expectations.</li>
+        <li><strong>Phase 02 // Scoping (<code>Proposal & Quote</code>):</strong> We prepare a tailored production treatment with equipment specs, crew allocation, and clear itemised costing.</li>
+        <li><strong>Phase 03 // Launch (<code>Calendar Lock</code>):</strong> Upon approval, dates are secured in our shoot calendar and pre-production commences immediately.</li>
+      </ol>
+      <h3 class="sub-heading">Action Buttons</h3>
+      <ul>
+        <li><strong>Primary Button:</strong> <code>Explore Recent Work</code> → <code>/work</code></li>
+        <li><strong>Secondary Button:</strong> <code>Back to Homepage</code> → <code>/</code></li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">16. Privacy & Cookie Policy (`/privacy`)</h2>
+      <ul>
+        <li><strong>Header Tag:</strong> <code>Legal & Compliance</code></li>
+        <li><strong>Heading:</strong> <code>Privacy & Cookie Policy</code></li>
+        <li><strong>Effective Date:</strong> <code>Updated June 2026 (DUAA 2025 Compliant)</code></li>
+        <li><strong>Preamble:</strong> <code>FilmEditRun is committed to respecting your privacy, protecting your personal data, and maintaining transparency about how we handle information. This policy sets out our data processing practices for visitors, clients, and prospective clients in accordance with the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018 (DPA 2018), and the Data (Use and Access) Act 2025 (DUAA).</code></li>
+      </ul>
+      <h3 class="sub-heading">Policy Sections Summary</h3>
+      <ul>
+        <li><strong>01. Data Controller & Contact Information:</strong></li>
+      </ul>
+      <p>FilmEditRun, Cambridge, Cambridgeshire, CB1 2JW, United Kingdom (<code>contact@filmeditrun.co.uk</code>).</p>
+      <ul>
+        <li><strong>02. What Personal Data We Collect:</strong></li>
+        <li><code>Identity & Contact Details:</code> Your first name, surname, and professional email address submitted through our project brief form.</li>
+        <li><code>Project Requirements:</code> The services you request and the details, dates, visual references, and location information provided in your project brief.</li>
+        <li><code>Client Communications:</code> Follow-up correspondence, meeting notes, creative briefs, scripts, or storyboards shared during discovery and quoting discussions.</li>
+        <li><code>Technical Metadata:</code> Minimal non-identifying server headers (such as browser user-agent and timestamp).</li>
+        <li><strong>03. Lawful Basis for Processing:</strong></li>
+        <li><code>Steps Prior to Contract (Article 6(1)(b)):</code> Reviewing your scope and providing a tailored commercial proposal.</li>
+        <li><code>Performance of a Contract (Article 6(1)(b)):</code> Delivering commissioned video production, cinematography, editing, and mastering services.</li>
+        <li><code>Recognised Legitimate Interests (Article 6(1)(f) & DUAA 2025):</code> Responding to business inquiries, preventing fraud, and maintaining website security.</li>
+        <li><strong>04. Third-Party Data Processors & Infrastructure:</strong></li>
+        <li>FormTorch (secure form ingestion & email routing).</li>
+        <li>Cloudflare Turnstile (bot mitigation).</li>
+        <li>Vimeo (<code>dnt=1</code> privacy embeds suppressing third-party tracking).</li>
+        <li>Zero selling, renting, or trading of personal data.</li>
+        <li><strong>05. Cookies & Local Storage (Zero-Tracking Policy):</strong></li>
+        <li>Strict zero-tracking architecture. No advertising, marketing, or cross-site profiling cookies.</li>
+        <li>Browser <code>localStorage</code> used solely to remember your chosen interface theme (Dark Noir, High-Key Light, or Supernova; exempt under PECR Reg 6 / DUAA 2025).</li>
+        <li>All website fonts are self-hosted directly on our servers (zero third-party IP logging). No cookie banner needed.</li>
+        <li><strong>06. Data Retention Periods:</strong></li>
+        <li>12 months for uncommissioned project inquiries.</li>
+        <li>6 years for commissioned client contracts and financial records.</li>
+        <li>Video rushes archived per individual production agreements.</li>
+        <li><strong>07. Your Statutory Rights Under UK GDPR:</strong></li>
+        <li>Access, Rectification, Erasure, Restriction & Objection.</li>
+        <li>1 calendar month turnaround without charge (<code>contact@filmeditrun.co.uk</code>).</li>
+        <li><strong>08. DUAA 2025 Complaints Procedure & ICO Escalation:</strong></li>
+        <li>30-day internal investigation process (<code>contact@filmeditrun.co.uk</code>).</li>
+        <li>Right to escalate to the Information Commissioner's Office (ICO, Wycliffe House, Wilmslow, Cheshire, SK9 5AF).</li>
+      </ul>
+      <h3 class="sub-heading">Direct Compliance Desk</h3>
+      <ul>
+        <li><strong>Tag:</strong> <code>Direct Data Rights & DUAA Enquiries</code></li>
+        <li><strong>Title:</strong> <code>Need to exercise your statutory data rights?</code></li>
+        <li><strong>Description:</strong> <code>To request access, rectification, or deletion of your project brief data, contact our Cambridge studio compliance desk directly:</code></li>
+        <li><strong>Action:</strong> <code>Email Data Desk</code> (<code>contact@filmeditrun.co.uk</code>)</li>
+      </ul>
+      <p>---</p>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-heading">17. Global Studio Footer & Colophon</h2>
+      <ul>
+        <li><strong>Studio Scope Statement:</strong> <code>Independent video production studio and post-house. On-location filming and commercial editorial across Cambridge, London, and nationwide.</code></li>
+        <li><strong>Live Studio Status:</strong> <code>● Studio Status: Accepting Commissions</code></li>
+        <li><strong>Commission Button:</strong> <code>Commission a Production</code> → <code>/contact</code></li>
+      </ul>
+      <h3 class="sub-heading">Navigation Columns</h3>
+      <ul>
+        <li><strong>Services:</strong></li>
+        <li><code>Conference & Live Event Filming</code> → <code>/services/conference-event-filming</code></li>
+        <li><code>Customer Case Study & Testimonial Films</code> → <code>/services/case-study-films</code></li>
+        <li><code>Corporate Brand & Company Showcase Films</code> → <code>/services/corporate-brand</code></li>
+        <li><code>Video Podcast & Executive Series</code> → <code>/services/video-podcast-production</code></li>
+        <li><code>Animation & Technical Motion Design</code> → <code>/services/animation-design</code></li>
+        <li><code>Video Editing & Creative Post-Production</code> → <code>/services/post-production</code></li>
+        <li><code>All Services →</code> → <code>/services</code></li>
+        <li><strong>Studio:</strong></li>
+        <li><code>Selected Work</code> → <code>/work</code></li>
+        <li><code>About FilmEditRun</code> → <code>/about</code></li>
+        <li><code>Cambridge Studio Hub</code> → <code>/cambridge</code></li>
+        <li><code>London Production Base</code> → <code>/london</code></li>
+        <li><code>Privacy & Data Notice</code> → <code>/privacy</code></li>
+        <li><strong>Locations:</strong></li>
+        <li><code>Cambridge Studio</code>: Silicon Fen & Cambridge Science Parks → <code>/cambridge</code></li>
+        <li><code>London Base</code>: Corporate HQs, Summit Stages & Central Venues → <code>/london</code></li>
+        <li><code>UK-Wide Deployments</code>: On-location field production nationwide</li>
+        <li><strong>Direct Hub Contact:</strong></li>
+        <li><code>Project Intake</code>: Start a Project Brief → (<code>/contact</code>)</li>
+        <li><code>Production Hubs</code>: Cambridge • London, UK</li>
+      </ul>
+      <h3 class="sub-heading">Verified Citations Strip</h3>
+      <ul>
+        <li><strong>Google Business Profile:</strong> <code>Verified Studio</code> (<code>https://g.page/r/Cba1pWWqNcpWEAI</code>)</li>
+        <li><strong>Vimeo Pro:</strong> <code>Portfolio</code> (<code>https://vimeo.com/filmeditrun</code>)</li>
+        <li><strong>LinkedIn:</strong> <code>Company</code> (<code>https://www.linkedin.com/company/filmeditrun</code>)</li>
+      </ul>
+      <h3 class="sub-heading">Legal Copyright Line</h3>
+      <ul>
+        <li><code>© 2026 FilmEditRun. Picture, sound, and story. All rights reserved.</code></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

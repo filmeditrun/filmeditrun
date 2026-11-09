@@ -44,7 +44,7 @@
 ### Hero Section
 * **Location Strip:** `Cambridge • London • UK-Wide`
 * **Main Headline:** `Capture the room. Deliver the story.` *(with "Deliver the story." in amber accent)*
-* **Tagline / Lead:** `From conference stages to corporate boardrooms. We film live events, executive interviews, and brand stories across Cambridge, London, and nationwide.`
+* **Tagline / Lead:** `From conference stages to corporate boardrooms. We film live events, executive interviews, and brand stories across Cambridge, London, and the UK.`
 * **Primary Button:** `Start a Project Brief` → `/contact`
 * **Secondary Button:** `Watch Selected Work` → `/work`
 
