@@ -8,10 +8,10 @@
   "seoTitle": "Client Case Study Video Production | Cambridge & London",
   "seoDescription": "B2B customer case study films and client testimonials filmed across Cambridge and London. Authentic peer-proof videos that shorten sales cycles and win trust.",
   "heroTag": "Customer Case Studies",
-  "heroHeading": "Let your clients do <br class=\"hidden sm:inline\" />the *talking for you.*",
-  "heroLead": "Enterprise buyers rarely commit without hearing from peers who solved the same challenges. We film your clients in their workplace, capturing authentic voices, real-world deployments, and clear outcomes that give decision-makers commercial confidence.",
-  "breakdownHeading": "Candid insight or *scripted precision.*",
-  "breakdownBody": "Some contributors shine in relaxed conversation, while others rely on an on-camera teleprompter to stay strictly on-message. We adapt our setup on-site, ensuring technical experts and executives speak comfortably, clearly, and without rehearsed stiffness.",
+  "heroHeading": "Film the partnership. <br class=\"hidden sm:inline\" />Deliver the *proof.*",
+  "heroLead": "Great partnerships speak for themselves. We film your clients in their workplace, capturing authentic voices while keeping their story in sync with your core messaging, translating real-world experience into your narrative.",
+  "breakdownHeading": "Putting *partners at ease.*",
+  "breakdownBody": "Great interviews happen when people feel comfortable. We keep our direction calm and supportive, whether having a relaxed discussion or using a prompter for scripted talking points. Your partners look composed and speak with natural confidence.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/onlocation.webp",
   "cardSolidColor": "#0a0a0c",
@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "Full Case Study",
+      "tag": "Hero Narrative",
       "title": "The Core Customer Film (2–3 Mins)",
-      "description": "A clear, documentary-style film tracing the deployment, technical challenge, and real-world results, combining focused interviews with cinematic B-roll of your product, team, and facility in daily operation."
+      "description": "A cinematic documentary tracing the real-world challenge, technical deployment, and measurable results. We blend relaxed, conversational interviews with dynamic B-roll of your product, team, and customer facility in daily operation."
     },
     {
-      "tag": "Short-Form",
-      "title": "Topic-Specific Cutdowns & Social Clips",
-      "description": "Focused 30-to-60 second vertical and widescreen excerpts with styled subtitles. Each clip isolates a single challenge or outcome, ready for LinkedIn and direct email exchanges with prospective buyers."
+      "tag": "Sales & Social",
+      "title": "Challenge-Specific Cutdowns (30–60s)",
+      "description": "Focused 30-to-60 second excerpts delivered in vertical (9:16) and widescreen formats with styled captions. Each clip isolates a single hurdle or commercial win, tailored for LinkedIn feeds and direct sales outreach."
     },
     {
-      "tag": "Collateral Pack",
+      "tag": "Marketing Assets",
       "title": "Production Stills & Verified Transcripts",
-      "description": "High-resolution on-location photography of your client in their workspace, delivered alongside timecoded interview transcripts and approved pull-quotes for your written case studies, proposals, and press releases."
+      "description": "High-resolution photography of your partner in their workspace, delivered alongside timecoded transcripts and approved pull-quotes—giving your marketing team the exact collateral needed for written case studies, proposals, and press releases."
     }
   ],
-  "ctaHeading": "Have a client story ready to *document?*",
-  "ctaDescription": "Tell us about your client, their location, and your preferred timeline. We can then provide a clear quote.",
-  "ctaButtonLabel": "Discuss Your Case Study →"
+  "ctaHeading": "Ready to document the *partnership?*",
+  "ctaDescription": "We work alongside your team to make filming effortless for your partner.",
+  "ctaButtonLabel": "Plan Your Case Study →"
 }
