@@ -22,5 +22,8 @@ pnpm-debug.log*
 .DS_Store
 ~$*
 
+# Local Proofreading & Editorial Documents
+FilmEditRun Proofreading*
+
 # jetbrains setting folder
 .idea/
