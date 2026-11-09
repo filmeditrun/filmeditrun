@@ -11,7 +11,8 @@
     "build": "astro build",
     "tina:build": "tinacms build && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sync-proofreading": "node scripts/sync-proofreading.js"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
