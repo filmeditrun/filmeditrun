@@ -912,29 +912,29 @@ var config_default = defineConfig({
             label: "\u{1F50D} Canonical URL",
             required: true
           },
-          // ─── 🎨 HERO & CINEMA BANNER ──────────────────────────────────
+          // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
             type: "string",
             name: "heroTag",
-            label: "\u{1F3A8} Hero Badge Tag",
+            label: "Section 1: Hero Tag",
             required: true
           },
           {
             type: "string",
             name: "heroHeadingPrefix",
-            label: "Hero Heading (Main White Text)",
+            label: "Section 1: Hero Heading (Main Text)",
             required: true
           },
           {
             type: "string",
             name: "heroHeadingHighlight",
-            label: "Hero Heading (Amber Highlight Word)",
+            label: "Section 1: Hero Heading (Highlight Text)",
             required: true
           },
           {
             type: "string",
             name: "heroSubtitle",
-            label: "Hero Subtitle",
+            label: "Section 1: Hero Lead",
             ui: {
               component: "textarea"
             },
@@ -943,13 +943,13 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heroCtaLabel",
-            label: "Hero Button Text",
+            label: "Section 1: Hero Button Text",
             required: true
           },
           {
             type: "string",
             name: "heroCtaLink",
-            label: "Hero Button Link",
+            label: "Section 1: Hero Button Link",
             required: true
           },
           {
@@ -979,22 +979,23 @@ var config_default = defineConfig({
             name: "imagePath",
             label: "Hero Background Image / Fallback Poster"
           },
+          // ─── 📄 SECTION 2: OVERVIEW ──────────────────────────────────────
           {
             type: "string",
             name: "expertiseTag",
-            label: "Expertise Section Tag",
+            label: "Section 2: Overview Tag",
             required: true
           },
           {
             type: "string",
             name: "expertiseHeading",
-            label: "Expertise Section Heading",
+            label: "Section 2: Overview Heading",
             required: true
           },
           {
             type: "string",
             name: "expertiseDescription",
-            label: "Expertise Section Description",
+            label: "Section 2: Overview Description",
             ui: {
               component: "textarea"
             },
@@ -1003,19 +1004,19 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "expertiseBullets",
-            label: "Expertise Checkmark Bullet Points",
+            label: "Section 2: Overview Bullet Points",
             list: true
           },
           {
             type: "string",
             name: "cardTitle",
-            label: "Right Feature Card Title",
+            label: "Section 2: Feature Card Title",
             required: true
           },
           {
             type: "string",
             name: "cardBody",
-            label: "Right Feature Card Body",
+            label: "Section 2: Feature Card Body",
             ui: {
               component: "textarea"
             },
@@ -1024,62 +1025,62 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "cardLinkLabel",
-            label: "Right Feature Card Link Text",
+            label: "Section 2: Feature Card Link Text",
             required: true
           },
           {
             type: "string",
             name: "cardLinkHref",
-            label: "Right Feature Card Link URL",
+            label: "Section 2: Feature Card Link URL",
             required: true
           },
-          // ─── 📸 ON-LOCATION EDITORIAL LOOKBOOK ─────────────────────────
+          // ─── 🖼️ SECTION 3: SHOWCASE ────────────────────────────────────
           {
             type: "string",
             name: "lookbookTag",
-            label: "\u{1F4F8} Lookbook Section Tag"
+            label: "Section 3: Showcase Tag"
           },
           {
             type: "image",
             name: "lookbookHeroImage",
-            label: "\u{1F4F8} Large Hero Frame (Left)"
+            label: "Section 3: Large Frame (Left)"
           },
           {
             type: "string",
             name: "lookbookHeroBadge",
-            label: "Large Hero Badge (e.g. Cambridge Science Park \u2022 Multi-Cam Keynote)"
+            label: "Section 3: Large Frame Badge"
           },
           {
             type: "image",
             name: "lookbookDetail1Image",
-            label: "\u{1F4F8} Detail Frame 1 (Top Right)"
+            label: "Section 3: Detail Frame 1 (Top Right)"
           },
           {
             type: "string",
             name: "lookbookDetail1Badge",
-            label: "Detail 1 Badge (e.g. Historic Colleges \u2022 Symposia & Panels)"
+            label: "Section 3: Detail Frame 1 Badge"
           },
           {
             type: "image",
             name: "lookbookDetail2Image",
-            label: "\u{1F4F8} Detail Frame 2 (Bottom Right)"
+            label: "Section 3: Detail Frame 2 (Bottom Right)"
           },
           {
             type: "string",
             name: "lookbookDetail2Badge",
-            label: "Detail 2 Badge (e.g. The Bradfield Centre \u2022 Executive Interviews)"
+            label: "Section 3: Detail Frame 2 Badge"
           },
-          // ─── ❓ FREQUENTLY ASKED QUESTIONS (AI SEARCH SCHEMA) ────────
+          // ─── ❓ SECTION 4: FREQUENTLY ASKED QUESTIONS ────────────────────
           {
             type: "string",
             name: "faqHeading",
-            label: "\u2753 FAQ Section Heading",
+            label: "Section 4: FAQ Heading",
             required: true
           },
           {
             type: "object",
             name: "faqs",
-            label: "\u2753 FAQ Items (Auto-indexed for AI Search)",
+            label: "Section 4: FAQ Items",
             list: true,
             ui: {
               itemProps: (item) => ({
@@ -1104,17 +1105,17 @@ var config_default = defineConfig({
               }
             ]
           },
-          // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
+          // ─── 🎯 SECTION 5: CALL TO ACTION ────────────────────────────────
           {
             type: "string",
             name: "bottomCtaHeading",
-            label: "\u26A1 Bottom CTA Heading",
+            label: "Section 5: Call to Action Heading",
             required: true
           },
           {
             type: "string",
             name: "bottomCtaBody",
-            label: "Bottom CTA Subtitle",
+            label: "Section 5: Call to Action Description",
             ui: {
               component: "textarea"
             },
@@ -1123,13 +1124,13 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "bottomCtaLabel",
-            label: "Bottom CTA Button Text",
+            label: "Section 5: Call to Action Button Text",
             required: true
           },
           {
             type: "string",
             name: "bottomCtaLink",
-            label: "Bottom CTA Button Link",
+            label: "Section 5: Call to Action Button Link",
             required: true
           }
         ]
@@ -1173,29 +1174,29 @@ var config_default = defineConfig({
             label: "\u{1F50D} Canonical URL",
             required: true
           },
-          // ─── 🎨 HERO & CINEMA BANNER ──────────────────────────────────
+          // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
             type: "string",
             name: "heroTag",
-            label: "\u{1F3A8} Hero Badge Tag",
+            label: "Section 1: Hero Tag",
             required: true
           },
           {
             type: "string",
             name: "heroHeadingPrefix",
-            label: "Hero Heading (Main White Text)",
+            label: "Section 1: Hero Heading (Main Text)",
             required: true
           },
           {
             type: "string",
             name: "heroHeadingHighlight",
-            label: "Hero Heading (Amber Highlight Word)",
+            label: "Section 1: Hero Heading (Highlight Text)",
             required: true
           },
           {
             type: "string",
             name: "heroSubtitle",
-            label: "Hero Lead Paragraph",
+            label: "Section 1: Hero Lead",
             ui: {
               component: "textarea"
             },
@@ -1204,13 +1205,13 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heroCtaLabel",
-            label: "Hero CTA Button Text",
+            label: "Section 1: Hero Button Text",
             required: true
           },
           {
             type: "string",
             name: "heroCtaLink",
-            label: "Hero CTA Button Link",
+            label: "Section 1: Hero Button Link",
             required: true
           },
           {
@@ -1242,23 +1243,23 @@ var config_default = defineConfig({
             label: "Static Background Image / Fallback Poster",
             description: "High-resolution photo used as background or video poster"
           },
-          // ─── 📍 LOCAL EXPERTISE & VENUE SPECIFICATIONS ───────────────
+          // ─── 📄 SECTION 2: OVERVIEW ──────────────────────────────────────
           {
             type: "string",
             name: "expertiseTag",
-            label: "\u{1F4CD} Local Hub Section Tag",
+            label: "Section 2: Overview Tag",
             required: true
           },
           {
             type: "string",
             name: "expertiseHeading",
-            label: "Local Hub Main Heading",
+            label: "Section 2: Overview Heading",
             required: true
           },
           {
             type: "string",
             name: "expertiseDescription",
-            label: "Local Production Overview",
+            label: "Section 2: Overview Description",
             ui: {
               component: "textarea"
             },
@@ -1267,19 +1268,19 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "expertiseBullets",
-            label: "Key Production Capabilities (Bullet List)",
+            label: "Section 2: Overview Bullet Points",
             list: true
           },
           {
             type: "string",
             name: "cardTitle",
-            label: "Right Feature Card Title",
+            label: "Section 2: Feature Card Title",
             required: true
           },
           {
             type: "string",
             name: "cardBody",
-            label: "Right Feature Card Body Text",
+            label: "Section 2: Feature Card Body",
             ui: {
               component: "textarea"
             },
@@ -1288,62 +1289,62 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "cardLinkLabel",
-            label: "Right Feature Card Link Text",
+            label: "Section 2: Feature Card Link Text",
             required: true
           },
           {
             type: "string",
             name: "cardLinkHref",
-            label: "Right Feature Card Link URL",
+            label: "Section 2: Feature Card Link URL",
             required: true
           },
-          // ─── 📸 ON-LOCATION EDITORIAL LOOKBOOK ─────────────────────────
+          // ─── 🖼️ SECTION 3: SHOWCASE ────────────────────────────────────
           {
             type: "string",
             name: "lookbookTag",
-            label: "\u{1F4F8} Lookbook Section Tag"
+            label: "Section 3: Showcase Tag"
           },
           {
             type: "image",
             name: "lookbookHeroImage",
-            label: "\u{1F4F8} Large Hero Frame (Left)"
+            label: "Section 3: Large Frame (Left)"
           },
           {
             type: "string",
             name: "lookbookHeroBadge",
-            label: "Large Hero Badge (e.g. ExCeL London \u2022 4K Multi-Cam Stage)"
+            label: "Section 3: Large Frame Badge"
           },
           {
             type: "image",
             name: "lookbookDetail1Image",
-            label: "\u{1F4F8} Detail Frame 1 (Top Right)"
+            label: "Section 3: Detail Frame 1 (Top Right)"
           },
           {
             type: "string",
             name: "lookbookDetail1Badge",
-            label: "Detail 1 Badge (e.g. City of London \u2022 Executive Profiles)"
+            label: "Section 3: Detail Frame 1 Badge"
           },
           {
             type: "image",
             name: "lookbookDetail2Image",
-            label: "\u{1F4F8} Detail Frame 2 (Bottom Right)"
+            label: "Section 3: Detail Frame 2 (Bottom Right)"
           },
           {
             type: "string",
             name: "lookbookDetail2Badge",
-            label: "Detail 2 Badge (e.g. Kings Cross \u2022 Live Audio & Cinema Rigs)"
+            label: "Section 3: Detail Frame 2 Badge"
           },
-          // ─── ❓ FREQUENTLY ASKED QUESTIONS (AI SEARCH SCHEMA) ────────
+          // ─── ❓ SECTION 4: FREQUENTLY ASKED QUESTIONS ────────────────────
           {
             type: "string",
             name: "faqHeading",
-            label: "\u2753 FAQ Section Heading",
+            label: "Section 4: FAQ Heading",
             required: true
           },
           {
             type: "object",
             name: "faqs",
-            label: "\u2753 FAQ Items (Auto-indexed for AI Search)",
+            label: "Section 4: FAQ Items",
             list: true,
             ui: {
               itemProps: (item) => ({
@@ -1368,17 +1369,17 @@ var config_default = defineConfig({
               }
             ]
           },
-          // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
+          // ─── 🎯 SECTION 5: CALL TO ACTION ────────────────────────────────
           {
             type: "string",
             name: "bottomCtaHeading",
-            label: "\u26A1 Bottom CTA Heading",
+            label: "Section 5: Call to Action Heading",
             required: true
           },
           {
             type: "string",
             name: "bottomCtaBody",
-            label: "Bottom CTA Subtitle",
+            label: "Section 5: Call to Action Description",
             ui: {
               component: "textarea"
             },
@@ -1387,13 +1388,13 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "bottomCtaLabel",
-            label: "Bottom CTA Button Text",
+            label: "Section 5: Call to Action Button Text",
             required: true
           },
           {
             type: "string",
             name: "bottomCtaLink",
-            label: "Bottom CTA Button Link",
+            label: "Section 5: Call to Action Button Link",
             required: true
           }
         ]

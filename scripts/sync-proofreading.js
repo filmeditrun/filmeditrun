@@ -248,77 +248,75 @@ ${(s.deliverables || []).map((d, dIdx) => `${dIdx + 1}. **${d.title}** (\`${d.ta
 });
 
 // Add Cambridge
-md += `## 11. Cambridge Production Hub (\`/cambridge\`)
+md += `## 11. Cambridge Regional Hub (\`/cambridge\`)
 
-### Hero Section
-* **Hero Tag:** \`${cambridge.heroTag}\`
-* **Headline:** \`${clean(cambridge.heroHeadingPrefix)} ${clean(cambridge.heroHeadingHighlight)}\`
-* **Subtitle (Lead):** \`${cambridge.heroSubtitle}\`
-* **Primary Button:** \`${cambridge.heroCtaLabel}\` → \`${cambridge.heroCtaLink}\`
+### Section 1: Hero
+* **Tag (\`heroTag\`):** \`${cambridge.heroTag}\`
+* **Heading (\`heroHeadingPrefix\` + \`heroHeadingHighlight\`):** \`${clean(cambridge.heroHeadingPrefix)} ${clean(cambridge.heroHeadingHighlight)}\`
+* **Lead (\`heroSubtitle\`):** \`${cambridge.heroSubtitle}\`
+* **Button (\`heroCtaLabel\`):** \`${cambridge.heroCtaLabel}\` → \`${cambridge.heroCtaLink}\`
 
-### Local Expertise & Venues
-* **Tag:** \`${cambridge.expertiseTag}\`
-* **Heading:** \`${cambridge.expertiseHeading}\`
-* **Description:** \`${cambridge.expertiseDescription}\`
-* **Key Regional Bullets:**
+### Section 2: Overview
+* **Tag (\`expertiseTag\`):** \`${cambridge.expertiseTag}\`
+* **Heading (\`expertiseHeading\`):** \`${cambridge.expertiseHeading}\`
+* **Description (\`expertiseDescription\`):** \`${cambridge.expertiseDescription}\`
+* **Key Bullets (\`expertiseBullets\`):**
 ${(cambridge.expertiseBullets || []).map(b => `  - \`${b}\``).join('\n')}
+* **Feature Card Title (\`cardTitle\`):** \`${cambridge.cardTitle}\`
+* **Feature Card Body (\`cardBody\`):** \`${cambridge.cardBody}\`
+* **Feature Card Link (\`cardLinkLabel\`):** \`${cambridge.cardLinkLabel}\` → \`${cambridge.cardLinkHref}\`
 
-### Why Cambridge Brands Choose Us
-* **Card Title:** \`${cambridge.cardTitle}\`
-* **Card Body:** \`${cambridge.cardBody}\`
-* **Action:** \`${cambridge.cardLinkLabel}\` → \`${cambridge.cardLinkHref}\`
-
-### Field Dispatches Lookbook
-* **Tag:** \`${cambridge.lookbookTag}\`
-* **Dispatches:**
+### Section 3: Showcase
+* **Tag (\`lookbookTag\`):** \`${cambridge.lookbookTag}\`
+* **Frames:**
   - \`${cambridge.lookbookHeroBadge}\`
   - \`${cambridge.lookbookDetail1Badge}\`
   - \`${cambridge.lookbookDetail2Badge}\`
 
-### Frequently Asked Questions
+### Section 4: Frequently Asked Questions
+* **Heading (\`faqHeading\`):** \`${cambridge.faqHeading}\`
 ${(cambridge.faqs || []).map((f, i) => `${i + 1}. **Q:** \`${f.question}\`  \n   **A:** \`${f.answer}\``).join('\n')}
 
-### Bottom Call to Action
-* **Heading:** \`${cambridge.bottomCtaHeading}\`
-* **Body:** \`${cambridge.bottomCtaBody}\`
-* **Button:** \`${cambridge.bottomCtaLabel}\` → \`${cambridge.bottomCtaLink}\`
+### Section 5: Call to Action
+* **Heading (\`bottomCtaHeading\`):** \`${cambridge.bottomCtaHeading}\`
+* **Description (\`bottomCtaBody\`):** \`${cambridge.bottomCtaBody}\`
+* **Button (\`bottomCtaLabel\`):** \`${cambridge.bottomCtaLabel}\` → \`${cambridge.bottomCtaLink}\`
 
 ---
 
-## 12. London Production Hub (\`/london\`)
+## 12. London Regional Hub (\`/london\`)
 
-### Hero Section
-* **Hero Tag:** \`${london.heroTag}\`
-* **Headline:** \`${clean(london.heroHeadingPrefix)} ${clean(london.heroHeadingHighlight)}\`
-* **Subtitle (Lead):** \`${london.heroSubtitle}\`
-* **Primary Button:** \`${london.heroCtaLabel}\` → \`${london.heroCtaLink}\`
+### Section 1: Hero
+* **Tag (\`heroTag\`):** \`${london.heroTag}\`
+* **Heading (\`heroHeadingPrefix\` + \`heroHeadingHighlight\`):** \`${clean(london.heroHeadingPrefix)} ${clean(london.heroHeadingHighlight)}\`
+* **Lead (\`heroSubtitle\`):** \`${london.heroSubtitle}\`
+* **Button (\`heroCtaLabel\`):** \`${london.heroCtaLabel}\` → \`${london.heroCtaLink}\`
 
-### Venue Logistics & Expertise
-* **Tag:** \`${london.expertiseTag}\`
-* **Heading:** \`${london.expertiseHeading}\`
-* **Description:** \`${london.expertiseDescription}\`
-* **Key Regional Bullets:**
+### Section 2: Overview
+* **Tag (\`expertiseTag\`):** \`${london.expertiseTag}\`
+* **Heading (\`expertiseHeading\`):** \`${london.expertiseHeading}\`
+* **Description (\`expertiseDescription\`):** \`${london.expertiseDescription}\`
+* **Key Bullets (\`expertiseBullets\`):**
 ${(london.expertiseBullets || []).map(b => `  - \`${b}\``).join('\n')}
+* **Feature Card Title (\`cardTitle\`):** \`${london.cardTitle}\`
+* **Feature Card Body (\`cardBody\`):** \`${london.cardBody}\`
+* **Feature Card Link (\`cardLinkLabel\`):** \`${london.cardLinkLabel}\` → \`${london.cardLinkHref}\`
 
-### Why London Enterprise Brands Choose Us
-* **Card Title:** \`${london.cardTitle}\`
-* **Card Body:** \`${london.cardBody}\`
-* **Action:** \`${london.cardLinkLabel}\` → \`${london.cardLinkHref}\`
-
-### Field Dispatches Lookbook
-* **Tag:** \`${london.lookbookTag}\`
-* **Dispatches:**
+### Section 3: Showcase
+* **Tag (\`lookbookTag\`):** \`${london.lookbookTag}\`
+* **Frames:**
   - \`${london.lookbookHeroBadge}\`
   - \`${london.lookbookDetail1Badge}\`
   - \`${london.lookbookDetail2Badge}\`
 
-### Frequently Asked Questions
+### Section 4: Frequently Asked Questions
+* **Heading (\`faqHeading\`):** \`${london.faqHeading}\`
 ${(london.faqs || []).map((f, i) => `${i + 1}. **Q:** \`${f.question}\`  \n   **A:** \`${f.answer}\``).join('\n')}
 
-### Bottom Call to Action
-* **Heading:** \`${london.bottomCtaHeading}\`
-* **Body:** \`${london.bottomCtaBody}\`
-* **Button:** \`${london.bottomCtaLabel}\` → \`${london.bottomCtaLink}\`
+### Section 5: Call to Action
+* **Heading (\`bottomCtaHeading\`):** \`${london.bottomCtaHeading}\`
+* **Description (\`bottomCtaBody\`):** \`${london.bottomCtaBody}\`
+* **Button (\`bottomCtaLabel\`):** \`${london.bottomCtaLabel}\` → \`${london.bottomCtaLink}\`
 
 ---
 
