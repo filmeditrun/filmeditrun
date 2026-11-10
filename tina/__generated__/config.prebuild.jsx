@@ -2577,17 +2577,17 @@ var config_default = defineConfig({
             },
             required: true
           },
-          // ─── 🎬 DIRECTOR'S MANIFESTO ──────────────────────────────────
+          // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
             type: "string",
             name: "headline",
-            label: "\u{1F3AC} Studio Headline / Manifesto Hook",
+            label: "Section 1: Hero Heading",
             required: true
           },
           {
             type: "string",
             name: "manifestoLead",
-            label: "Manifesto Lead Paragraph",
+            label: "Section 1: Hero Lead",
             ui: {
               component: "textarea"
             },
@@ -2596,7 +2596,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "manifestoQuote",
-            label: "Featured Manifesto Quote",
+            label: "Section 1: Featured Quote",
             ui: {
               component: "textarea"
             }
@@ -2604,7 +2604,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "manifestoAuthor",
-            label: "Manifesto Quote Attribution"
+            label: "Section 1: Quote Attribution"
           },
           {
             type: "string",
@@ -2673,22 +2673,22 @@ var config_default = defineConfig({
               { value: "strong", label: "Strong (Heavy 85% ND Tint)" }
             ]
           },
-          // ─── 🎯 OUR APPROACH (EDITORIAL STATEMENT) ───────────────────
+          // ─── 📄 SECTION 3: OVERVIEW & APPROACH ──────────────────────────
           {
             type: "string",
             name: "approachTag",
-            label: "\u{1F3AF} Approach Eyebrow Tag"
+            label: "Section 3: Overview Tag"
           },
           {
             type: "string",
             name: "approachHeading",
-            label: "\u{1F3AF} Approach Headline",
+            label: "Section 3: Overview Heading",
             required: true
           },
           {
             type: "string",
             name: "approachBody",
-            label: "\u{1F3AF} Approach Body Text",
+            label: "Section 3: Overview Body",
             ui: {
               component: "textarea"
             },
@@ -2697,39 +2697,39 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "approachPrimaryLinkLabel",
-            label: "Primary Link Label"
+            label: "Section 3: Primary Link Text"
           },
           {
             type: "string",
             name: "approachPrimaryLinkHref",
-            label: "Primary Link URL"
+            label: "Section 3: Primary Link URL"
           },
           {
             type: "string",
             name: "approachSecondaryLinkLabel",
-            label: "Secondary Link Label"
+            label: "Section 3: Secondary Link Text"
           },
           {
             type: "string",
             name: "approachSecondaryLinkHref",
-            label: "Secondary Link URL"
+            label: "Section 3: Secondary Link URL"
           },
-          // ─── ⏱️ PRODUCTION SCRIPT TIMELINE & LOG ──────────────────────
+          // ─── ⏱️ SECTION 4: TIMELINE ─────────────────────────────────────
           {
             type: "string",
             name: "timelineHeading",
-            label: "\u23F1\uFE0F Timeline Heading",
+            label: "Section 4: Timeline Heading",
             required: true
           },
           {
             type: "string",
             name: "timelineTag",
-            label: "Timeline Tag"
+            label: "Section 4: Timeline Tag"
           },
           {
             type: "string",
             name: "timelineDescription",
-            label: "Timeline Description",
+            label: "Section 4: Timeline Description",
             ui: {
               component: "textarea"
             }
@@ -2737,7 +2737,7 @@ var config_default = defineConfig({
           {
             type: "object",
             name: "milestones",
-            label: "Milestones / Script Revision Log",
+            label: "Section 4: Timeline Milestones",
             list: true,
             ui: {
               itemProps: (item) => ({
@@ -2747,28 +2747,28 @@ var config_default = defineConfig({
             fields: [
               { type: "string", name: "year", label: "Year (e.g. 2016)", required: true },
               { type: "string", name: "title", label: "Milestone Title", required: true },
-              { type: "string", name: "description", label: "Milestone Story / Description", ui: { component: "textarea" }, required: true },
+              { type: "string", name: "description", label: "Milestone Description", ui: { component: "textarea" }, required: true },
               { type: "string", name: "draftLabel", label: "Draft Label (Optional Legacy)" },
               { type: "string", name: "takeNumber", label: "Take Number (Optional Legacy)" },
               { type: "string", name: "badge", label: "Badge Label (Optional Legacy)" }
             ]
           },
-          // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
+          // ─── 🎯 SECTION 5: CALL TO ACTION ────────────────────────────────
           {
             type: "string",
             name: "ctaTag",
-            label: "\u26A1 Bottom CTA Eyebrow Tag"
+            label: "Section 5: Call to Action Tag"
           },
           {
             type: "string",
             name: "ctaHeading",
-            label: "\u26A1 Bottom CTA Heading",
+            label: "Section 5: Call to Action Heading",
             required: true
           },
           {
             type: "string",
             name: "ctaText",
-            label: "Bottom CTA Body Text",
+            label: "Section 5: Call to Action Description",
             ui: {
               component: "textarea"
             },
@@ -2777,36 +2777,36 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "ctaButtonLabel",
-            label: "Bottom CTA Button Text",
+            label: "Section 5: Call to Action Button Text",
             required: true
           },
           {
             type: "string",
             name: "ctaButtonLink",
-            label: "Bottom CTA Button Link",
+            label: "Section 5: Call to Action Button Link",
             required: true
           },
           {
             type: "string",
             name: "ctaSecondaryButtonLabel",
-            label: "Bottom CTA Secondary Button Text"
+            label: "Section 5: Call to Action Secondary Button Text"
           },
           {
             type: "string",
             name: "ctaSecondaryButtonLink",
-            label: "Bottom CTA Secondary Button Link"
+            label: "Section 5: Call to Action Secondary Button Link"
           },
           {
             type: "string",
             name: "ctaTrustSignals",
-            label: "Bottom CTA Reassurances (Trust Bullets)",
+            label: "Section 5: Call to Action Trust Signals",
             list: true
           }
         ]
       },
       {
         name: "aboutSlider",
-        label: "About: Our Team & BTS Slider",
+        label: "About: Team Carousel",
         path: "src/content/pages",
         format: "json",
         match: {
@@ -2822,18 +2822,18 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heading",
-            label: "Slider Heading",
+            label: "Section 2: Carousel Heading",
             required: true
           },
           {
             type: "string",
             name: "tag",
-            label: "Slider Eyebrow Tag"
+            label: "Section 2: Carousel Tag"
           },
           {
             type: "string",
             name: "description",
-            label: "Slider Intro Description",
+            label: "Section 2: Carousel Description",
             ui: {
               component: "textarea"
             }
@@ -2841,8 +2841,8 @@ var config_default = defineConfig({
           {
             type: "object",
             name: "slides",
-            label: "Team & Behind The Scenes Slides",
-            description: "Manage showcase slides (photos or looping video) for crew units and behind-the-scenes equipment setups.",
+            label: "Section 2: Carousel Slides",
+            description: "Showcase slides for team members and key capabilities.",
             list: true,
             ui: {
               itemProps: (item) => ({
@@ -2850,9 +2850,9 @@ var config_default = defineConfig({
               })
             },
             fields: [
-              { type: "string", name: "name", label: "Title / Unit Name", required: true },
-              { type: "string", name: "badge", label: "Category Badge (e.g. OUR TEAM, CAMERA OPS, LIVE BROADCAST)" },
-              { type: "string", name: "bio", label: "Caption / Story", ui: { component: "textarea" } },
+              { type: "string", name: "name", label: "Title / Name", required: true },
+              { type: "string", name: "badge", label: "Category Badge (e.g. OUR TEAM, CAMERA OPS)" },
+              { type: "string", name: "bio", label: "Bio / Description", ui: { component: "textarea" } },
               { type: "image", name: "avatar", label: "Slide Image" },
               { type: "string", name: "videoLoop", label: "Video Loop URL/Path (Optional, e.g. /showreel.mp4)" }
             ]

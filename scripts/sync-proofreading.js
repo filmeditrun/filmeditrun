@@ -153,40 +153,40 @@ ${(home.telemetryMetrics || []).map((m, i) => `* **Metric ${i + 1}:** \`${m.valu
 
 ---
 
-## 3. About FilmEditRun (\`/about\`)
+## 3. About Us (\`/about\`)
 
-### Hero Manifesto
-* **Eyebrow Tag:** \`STUDIO ETHOS\`
-* **Headline:** \`${clean(about.headline)}\`
-* **Hero Lead:** \`${about.manifestoLead}\`
-* **Studio Director Quote:** *"${about.manifestoQuote}"*  
+### Section 1: Hero
+* **Tag:** \`STUDIO ETHOS\`
+* **Heading (\`headline\`):** \`${clean(about.headline)}\`
+* **Lead (\`manifestoLead\`):** \`${about.manifestoLead}\`
+* **Featured Quote (\`manifestoQuote\`):** *"${about.manifestoQuote}"*  
   — \`${about.manifestoAuthor}\`
 
-### The Crew & BTS (On-Location Carousel)
-* **Eyebrow Tag:** \`${slider.tag}\`
-* **Heading:** \`${slider.heading}\`
-* **Description:** \`${slider.description}\`
-* **The 5 Interactive Slides:**
+### Section 2: Team Carousel (\`slider.json\`)
+* **Tag (\`tag\`):** \`${slider.tag}\`
+* **Heading (\`heading\`):** \`${slider.heading}\`
+* **Description (\`description\`):** \`${slider.description}\`
+* **Slides:**
 ${(slider.slides || []).map((sl, i) => `  ${i + 1}. \`[${sl.badge}] ${sl.name}\`: ${sl.bio}`).join('\n')}
 
-### Studio Approach (Editorial Statement)
-* **Tag:** \`${about.approachTag}\`
-* **Heading:** \`${about.approachHeading}\`
-* **Body:** \`${about.approachBody}\`
+### Section 3: Overview & Approach
+* **Tag (\`approachTag\`):** \`${about.approachTag}\`
+* **Heading (\`approachHeading\`):** \`${about.approachHeading}\`
+* **Body (\`approachBody\`):** \`${about.approachBody}\`
 * **Links:** \`${about.approachPrimaryLinkLabel}\` → \`${about.approachPrimaryLinkHref}\` | \`${about.approachSecondaryLinkLabel}\` → \`${about.approachSecondaryLinkHref}\`
 
-### Studio Evolution Timeline
-* **Tag:** \`${about.timelineTag}\`
-* **Heading:** \`${about.timelineHeading}\`
-* **Description:** \`${about.timelineDescription}\`
+### Section 4: Timeline
+* **Tag (\`timelineTag\`):** \`${about.timelineTag}\`
+* **Heading (\`timelineHeading\`):** \`${about.timelineHeading}\`
+* **Description (\`timelineDescription\`):** \`${about.timelineDescription}\`
 * **Milestones:**
 ${(about.milestones || []).map(m => `  - **${m.year}** • \`${m.title}\`: ${m.description}`).join('\n')}
 
-### Closing Call to Action
-* **Tag:** \`${about.ctaTag}\`
-* **Heading:** \`${about.ctaHeading}\`
-* **Description:** \`${about.ctaText}\`
-* **Primary Button:** \`${about.ctaButtonLabel}\` → \`${about.ctaButtonLink}\`
+### Section 5: Call to Action
+* **Tag (\`ctaTag\`):** \`${about.ctaTag}\`
+* **Heading (\`ctaHeading\`):** \`${about.ctaHeading}\`
+* **Description (\`ctaText\`):** \`${about.ctaText}\`
+* **Button (\`ctaButtonLabel\`):** \`${about.ctaButtonLabel}\` → \`${about.ctaButtonLink}\`
 * **Trust Signals:** ${(about.ctaTrustSignals || []).map(t => `\`${t}\``).join(' • ')}
 
 ---
