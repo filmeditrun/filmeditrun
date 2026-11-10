@@ -2068,40 +2068,43 @@ var config_default = defineConfig({
             },
             required: true
           },
+          // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
             type: "string",
             name: "heroTag",
-            label: "Subpage Hero Tag",
-            description: "e.g. Live Production Pipeline",
+            label: "Section 1: Hero Tag",
+            description: "Category badge displayed above the main heading (e.g. Multi-Camera Filming)",
             required: true
           },
           {
             type: "string",
             name: "heroHeading",
-            label: "Subpage Hero Heading",
-            description: "Wrap words in asterisks for the amber gradient. e.g. Dynamic *Multi-Camera* Coverage.",
+            label: "Section 1: Hero Heading",
+            description: "Wrap words in asterisks for the amber highlight. e.g. Put *ideas* in motion.",
             required: true
           },
           {
             type: "string",
             name: "heroLead",
-            label: "Subpage Hero Value Proposition",
+            label: "Section 1: Hero Lead",
+            description: "Primary opening paragraph on the service page",
             ui: {
               component: "textarea"
             },
             required: true
           },
+          // ─── 📄 SECTION 2: OVERVIEW ──────────────────────────────────────
           {
             type: "string",
             name: "breakdownHeading",
-            label: "Breakdown Section Heading",
-            description: "Editorial subheadline explaining the service execution approach"
+            label: "Section 2: Overview Heading",
+            description: "Subheading explaining the service approach"
           },
           {
             type: "string",
             name: "breakdownBody",
-            label: "Breakdown Section Paragraph",
-            description: "Crisp paragraph explaining how we approach and execute this service",
+            label: "Section 2: Overview Body",
+            description: "Paragraph explaining how the service is delivered",
             ui: {
               component: "textarea"
             }
@@ -2276,11 +2279,12 @@ var config_default = defineConfig({
             name: "localVideoPath",
             label: "Legacy Video Fallback"
           },
+          // ─── 📦 SECTION 3: DELIVERABLES ──────────────────────────────────
           {
             type: "object",
             list: true,
             name: "deliverables",
-            label: "Service Deliverables",
+            label: "Section 3: Deliverables",
             ui: {
               itemProps: (item) => ({
                 label: item?.title || "Deliverable"
@@ -2290,7 +2294,7 @@ var config_default = defineConfig({
               {
                 type: "string",
                 name: "tag",
-                label: "Deliverable Badge Tag",
+                label: "Deliverable Tag",
                 required: true
               },
               {
@@ -2310,16 +2314,17 @@ var config_default = defineConfig({
               }
             ]
           },
+          // ─── 🎯 SECTION 4: CALL TO ACTION ────────────────────────────────
           {
             type: "string",
             name: "ctaHeading",
-            label: "Bottom CTA Heading",
+            label: "Section 4: Call to Action Heading",
             required: true
           },
           {
             type: "string",
             name: "ctaDescription",
-            label: "Bottom CTA Description",
+            label: "Section 4: Call to Action Description",
             ui: {
               component: "textarea"
             },
@@ -2328,7 +2333,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "ctaButtonLabel",
-            label: "Bottom CTA Button Text",
+            label: "Section 4: Call to Action Button Text",
             required: true
           }
         ]

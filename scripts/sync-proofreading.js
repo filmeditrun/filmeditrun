@@ -225,22 +225,23 @@ services.forEach((s, idx) => {
   const secNum = num + 4;
   md += `## ${secNum}. Service 0${num}: ${s.title} (\`${s.link || `/services/${s.slug}`}\`)
 
-* **Roster Card Summary:** \`${s.description}\`
-* **Hero Tag:** \`${s.heroTag || s.tag}\`
-* **Hero Heading:** \`${clean(s.heroHeading || s.title)}\`
-* **Hero Lead:** \`${s.heroLead || s.description}\`
+### Section 1: Hero
+* **Tag (\`heroTag\`):** \`${s.heroTag || s.tag}\`
+* **Heading (\`heroHeading\`):** \`${clean(s.heroHeading || s.title)}\`
+* **Lead (\`heroLead\`):** \`${s.heroLead || s.description}\`
+* **Directory Summary (\`description\`):** \`${s.description}\`
 
-### Approach Section
-* **Heading:** \`${s.breakdownHeading || 'Our Approach'}\`
-* **Body:** \`${s.breakdownBody || ''}\`
+### Section 2: Overview
+* **Heading (\`breakdownHeading\`):** \`${s.breakdownHeading || ''}\`
+* **Body (\`breakdownBody\`):** \`${s.breakdownBody || ''}\`
 
-### The 3 Deliverables
+### Section 3: Deliverables
 ${(s.deliverables || []).map((d, dIdx) => `${dIdx + 1}. **${d.title}** (\`${d.tag}\`): ${d.description}`).join('\n')}
 
-### Bottom Call to Action
-* **Heading:** \`${s.ctaHeading}\`
-* **Description:** \`${s.ctaDescription}\`
-* **Button:** \`${s.ctaButtonLabel}\` → \`/contact\`
+### Section 4: Call to Action
+* **Heading (\`ctaHeading\`):** \`${s.ctaHeading}\`
+* **Description (\`ctaDescription\`):** \`${s.ctaDescription}\`
+* **Button (\`ctaButtonLabel\`):** \`${s.ctaButtonLabel}\` → \`/contact\`
 
 ---
 \n`;

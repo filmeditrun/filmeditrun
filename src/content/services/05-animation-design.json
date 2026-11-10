@@ -8,10 +8,10 @@
   "seoTitle": "Motion Design & Explainer Animation | Cambridge & London",
   "seoDescription": "Bespoke 2D/3D motion design, technical product explainers, and event graphics for tech, science, and corporate brands across Cambridge, London, and the UK.",
   "heroTag": "Animation & Motion Graphics",
-  "heroHeading": "Simplifying *complex ideas.*",
-  "heroLead": "Animation allows us to illustrate complex ideas directly, bypassing narrative clutter to make intricate concepts immediately obvious and engaging.",
+  "heroHeading": "Put *ideas* in motion.",
+  "heroLead": "Not every concept can be captured through a camera lens. We design bespoke 2D and 3D motion graphics that illustrate complex ideas directly—bypassing narrative clutter to make intricate technologies immediately obvious and engaging.",
   "breakdownHeading": "Clarity through *animated motion.*",
-  "breakdownBody": "Great animation and motion graphics should illuminate your message, not distract from it. We translate your ideas into lively animations tailored to your brand.",
+  "breakdownBody": "Great animation should illuminate your message. We translate your ideas into bespoke 2D and 3D motion graphics tailored to your brand, bypassing visual clutter to turn intricate technologies into clear, engaging stories.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/handheld.webp",
   "cardSolidColor": "#0a0a0c",
@@ -48,6 +48,6 @@
     }
   ],
   "ctaHeading": "Have an idea you want to bring *to life?*",
-  "ctaDescription": "Send us your brief, script, or rough idea. We'll map out the right visual style, project timeline, and a clear quote.",
-  "ctaButtonLabel": "Discuss Motion Design →"
+  "ctaDescription": "Send us your brief, script, or concept. We’ll outline the visual approach and production timeline.",
+  "ctaButtonLabel": "Discuss Animation →"
 }
