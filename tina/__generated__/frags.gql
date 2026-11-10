@@ -379,10 +379,6 @@ fragment ContactPageParts on ContactPage {
   heroGradientDirection
   heroGradientColor1
   heroGradientColor2
-  formEndpoint
-  redirectUrl
-  enableTurnstile
-  turnstileSiteKey
   step1Tag
   step1Title
   step1Placeholder
@@ -406,6 +402,10 @@ fragment ContactPageParts on ContactPage {
   step5Title
   gdprText
   submitButtonLabel
+  formEndpoint
+  redirectUrl
+  enableTurnstile
+  turnstileSiteKey
 }
 
 fragment ThankYouPageParts on ThankYouPage {

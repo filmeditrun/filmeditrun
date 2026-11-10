@@ -1729,33 +1729,34 @@ var config_default = defineConfig({
           }
         },
         fields: [
+          // ─── 🏷️ SECTION 1: BRANDING & LOGO ──────────────────────────────
           {
             type: "string",
             name: "siteName",
-            label: "Site Name (Metadata & Copyright)",
+            label: "Section 1: Site Name (Metadata & Copyright)",
             required: true
           },
           {
             type: "string",
             name: "logoText",
-            label: "Text Logo",
+            label: "Section 1: Text Logo",
             required: true
           },
           {
             type: "boolean",
             name: "useImageLogo",
-            label: "Use Image Logo Instead of Text?"
+            label: "Section 1: Use Image Logo Instead of Text?"
           },
           {
             type: "image",
             name: "logoImagePath",
-            label: "Logo Image"
+            label: "Section 1: Logo Image"
           },
-          // ─── 🧭 MAIN NAVIGATION BAR (HEADER) ──────────────────────────
+          // ─── 🧭 SECTION 2: NAVIGATION LINKS ──────────────────────────────
           {
             type: "object",
             name: "navLinks",
-            label: "\u{1F9ED} Header Navigation Links",
+            label: "Section 2: Header Navigation Links",
             description: "Manage and reorder menu links in the top header",
             list: true,
             ui: {
@@ -2373,25 +2374,25 @@ var config_default = defineConfig({
             },
             required: true
           },
-          // ─── 🎬 HERO & HEADLINE ───────────────────────────────────────
+          // ─── 📌 SECTION 1: HERO & SHOWREEL ───────────────────────────────
           {
             type: "string",
             name: "headerTag",
-            label: "\u{1F3AC} Top Eyebrow Tag",
+            label: "Section 1: Hero Tag",
             description: "e.g. Selected Portfolio",
             required: true
           },
           {
             type: "string",
             name: "heading",
-            label: "\u{1F3AC} Main Page Heading",
+            label: "Section 1: Hero Heading",
             description: "e.g. Our Work.",
             required: true
           },
           {
             type: "string",
             name: "description",
-            label: "\u{1F3AC} Page Intro Text",
+            label: "Section 1: Hero Lead",
             ui: {
               component: "textarea"
             },
@@ -2400,61 +2401,61 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heroVideoPath",
-            label: "\u{1F3AC} Hero Background Video Path",
-            description: "Default: /showreel.mp4 (instant local video playback, zero buffering, zero white flash)"
+            label: "Section 1: Hero Video Path",
+            description: "Default: /showreel.mp4"
           },
           {
             type: "image",
             name: "heroPosterPath",
-            label: "\u{1F3AC} Hero Fallback Poster Frame",
-            description: "Dark image displayed at millisecond 0 while video loads (e.g. /og-image.jpg)"
+            label: "Section 1: Hero Fallback Poster Frame",
+            description: "Image displayed while video loads (e.g. /og-image.jpg)"
           },
           {
             type: "string",
             name: "videoButtonLabel",
-            label: "Hero Play Button Label",
+            label: "Section 1: Hero Play Button Label",
             description: "e.g. WATCH FEATURED FILM \u2794",
             required: true
           },
           {
             type: "string",
             name: "scrollIndicatorText",
-            label: "Hero Scroll Indicator Text",
+            label: "Section 1: Hero Scroll Indicator Text",
             description: "e.g. EXPLORE ALL PRODUCTIONS",
             required: true
           },
-          // ─── 🎞️ PRODUCTION ARCHIVE & BENTO GRID ───────────────────────
+          // ─── 🎞️ SECTION 2: ARCHIVE GRID & FILTERS ────────────────────────
           {
             type: "boolean",
             name: "showArchive",
-            label: "\u{1F39E}\uFE0F Display Production Archive & Bento Grid?",
-            description: "Toggle ON to display the archive grid and category filter, or OFF to feature only the cinema hero showreel."
+            label: "Section 2: Display Archive Grid?",
+            description: "Toggle ON to display the archive grid and category filter."
           },
           {
             type: "string",
             name: "archiveTag",
-            label: "\u{1F39E}\uFE0F Archive Section Tag",
+            label: "Section 2: Archive Tag",
             description: "e.g. Production Archive",
             required: true
           },
           {
             type: "string",
             name: "archiveHeading",
-            label: "Archive Section Main Heading",
+            label: "Section 2: Archive Heading",
             description: "e.g. Selected Works & Case Studies",
             required: true
           },
           {
             type: "string",
             name: "filterAllLabel",
-            label: "Filter 'All' Button Label",
+            label: "Section 2: Filter All Button Label",
             description: "e.g. All Productions",
             required: true
           },
           {
             type: "string",
             name: "closeModalLabel",
-            label: "Modal Close Button Text",
+            label: "Section 2: Modal Close Button Text",
             description: "e.g. ESC \u2715 CLOSE",
             required: true
           }
@@ -2893,23 +2894,23 @@ var config_default = defineConfig({
             },
             required: true
           },
-          // ─── 🎬 HERO & HEADLINE ───────────────────────────────────────
+          // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
             type: "string",
             name: "headerTag",
-            label: "\u{1F3AC} Top Eyebrow Tag",
+            label: "Section 1: Hero Tag",
             description: "e.g. Start A Brief"
           },
           {
             type: "string",
             name: "heading",
-            label: "\u{1F3AC} Main Page Heading",
+            label: "Section 1: Hero Heading",
             description: "e.g. Let's discuss your next *production.*"
           },
           {
             type: "string",
             name: "description",
-            label: "\u{1F3AC} Page Intro Text",
+            label: "Section 1: Hero Lead",
             ui: {
               component: "textarea"
             }
@@ -2917,7 +2918,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "trustSignals",
-            label: "\u{1F6E1}\uFE0F Trust Reassurance Bullets",
+            label: "Section 1: Trust Reassurance Bullets",
             list: true
           },
           {
@@ -2983,76 +2984,49 @@ var config_default = defineConfig({
               component: "color"
             }
           },
-          // ─── 🔌 FORMTORCH & SUBMISSION INTEGRATION ─────────────────────
-          {
-            type: "string",
-            name: "formEndpoint",
-            label: "\u{1F50C} FormTorch Endpoint URL",
-            description: "Paste your unique FormTorch endpoint here (e.g. https://formtorch.com/f/your-key)",
-            required: true
-          },
-          {
-            type: "string",
-            name: "redirectUrl",
-            label: "Redirect URL After Submission (Optional)",
-            description: "Optional custom thank-you page URL (e.g. / or /thank-you). Leave empty to use FormTorch default confirmation."
-          },
-          {
-            type: "boolean",
-            name: "enableTurnstile",
-            label: "Enable Cloudflare Turnstile Anti-Spam",
-            description: "Turn on if you want Cloudflare bot verification before submission."
-          },
-          {
-            type: "string",
-            name: "turnstileSiteKey",
-            label: "Cloudflare Turnstile Site Key (Optional)",
-            description: "Site Key from your Cloudflare Turnstile dashboard."
-          },
-          // ─── 01. STEP 1: NAME ──────────────────────────────────────────
+          // ─── 📝 SECTION 2: 5-STEP INQUIRIES FORM FLOW ─────────────────────
           {
             type: "string",
             name: "step1Tag",
-            label: "Step 1 Tagline",
+            label: "Section 2: Step 1 Tagline",
             description: "e.g. 01 \u2794 Introduce Yourself"
           },
           {
             type: "string",
             name: "step1Title",
-            label: "Step 1 Question Title",
+            label: "Section 2: Step 1 Question Title",
             description: "e.g. What is your *name* and *company* or organisation? * (asterisks add amber underline)",
             required: true
           },
           {
             type: "string",
             name: "step1Placeholder",
-            label: "Step 1 Name Field Placeholder",
+            label: "Section 2: Step 1 Name Placeholder",
             description: "e.g. Your full name *"
           },
           {
             type: "string",
             name: "step1CompanyPlaceholder",
-            label: "Step 1 Company Field Placeholder",
+            label: "Section 2: Step 1 Company Placeholder",
             description: "e.g. Company or organisation name (optional)"
           },
-          // ─── 02. STEP 2: SERVICES ──────────────────────────────────────
           {
             type: "string",
             name: "step2Tag",
-            label: "Step 2 Tagline",
+            label: "Section 2: Step 2 Tagline",
             description: "e.g. 02 \u2794 Project Requirement"
           },
           {
             type: "string",
             name: "step2Title",
-            label: "Step 2 Question Title",
+            label: "Section 2: Step 2 Question Title",
             description: "e.g. Which services are you looking for? *",
             required: true
           },
           {
             type: "object",
             name: "serviceOptions",
-            label: "Service Requirement Options",
+            label: "Section 2: Step 2 Requirement Options",
             description: "Service options users can select for their project brief",
             list: true,
             ui: {
@@ -3075,78 +3049,75 @@ var config_default = defineConfig({
               }
             ]
           },
-          // ─── 03. STEP 3: EMAIL ─────────────────────────────────────────
           {
             type: "string",
             name: "step3Tag",
-            label: "Step 3 Tagline",
+            label: "Section 2: Step 3 Tagline",
             description: "e.g. 03 \u2794 Reachable Contact"
           },
           {
             type: "string",
             name: "step3Title",
-            label: "Step 3 Question Title",
+            label: "Section 2: Step 3 Question Title",
             description: "e.g. What is your business email address? *",
             required: true
           },
           {
             type: "string",
             name: "step3Placeholder",
-            label: "Step 3 Field Placeholder",
+            label: "Section 2: Step 3 Field Placeholder",
             description: "e.g. name@company.com"
           },
           {
             type: "string",
             name: "step3HelpText",
-            label: "Step 3 Business Email Requirement Note",
+            label: "Section 2: Step 3 Business Email Requirement Note",
             description: "Helper note clarifying business email requirement (e.g. personal accounts not accepted)"
           },
-          // ─── 04. STEP 4: PROJECT BRIEF ─────────────────────────────────
           {
             type: "string",
             name: "step4Tag",
-            label: "Step 4 Tagline",
+            label: "Section 2: Step 4 Tagline",
             description: "e.g. 04 \u2794 Project Brief"
           },
           {
             type: "string",
             name: "step4Title",
-            label: "Step 4 Question Title",
+            label: "Section 2: Step 4 Question Title",
             description: "e.g. How can we help? *",
             required: true
           },
           {
             type: "string",
             name: "step4Placeholder",
-            label: "Step 4 Field Placeholder",
+            label: "Section 2: Step 4 Field Placeholder",
             description: "e.g. Tell us about your event, dates, or visual goals..."
           },
           {
             type: "string",
             name: "step4HelpText",
-            label: "Step 4 Guidance / AI Brief Tip Banner",
-            description: "Helpful tip banner displayed above the brief input (welcoming ChatGPT drafts, event dates, etc.)",
+            label: "Section 2: Step 4 Guidance / AI Brief Tip Banner",
+            description: "Helpful tip banner displayed above the brief input",
             ui: {
               component: "textarea"
             }
           },
-          // ─── 05. STEP 5: VERIFICATION & CONSENT ─────────────────────────
           {
             type: "string",
             name: "step5Tag",
-            label: "Step 5 Tagline",
+            label: "Section 2: Step 5 Tagline",
             description: "e.g. 05 \u2794 Verification & Consent"
           },
           {
             type: "string",
             name: "step5Title",
-            label: "Step 5 Question Title",
+            label: "Section 2: Step 5 Question Title",
             description: "e.g. Final Step *"
           },
           {
             type: "string",
             name: "gdprText",
-            label: "GDPR Consent Statement",
+            label: "Section 2: GDPR Consent Statement",
             description: "Consent text shown next to the verification checkbox",
             ui: {
               component: "textarea"
@@ -3156,9 +3127,35 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "submitButtonLabel",
-            label: "Submit Button Text",
+            label: "Section 2: Submit Button Text",
             description: "e.g. Submit Brief",
             required: true
+          },
+          // ─── ⚙️ SECTION 3: FORM CONFIGURATION ─────────────────────────────
+          {
+            type: "string",
+            name: "formEndpoint",
+            label: "Section 3: FormTorch Endpoint URL",
+            description: "Paste your unique FormTorch endpoint here (e.g. https://formtorch.com/f/your-key)",
+            required: true
+          },
+          {
+            type: "string",
+            name: "redirectUrl",
+            label: "Section 3: Redirect URL After Submission",
+            description: "Optional custom thank-you page URL (e.g. /thank-you)."
+          },
+          {
+            type: "boolean",
+            name: "enableTurnstile",
+            label: "Section 3: Enable Cloudflare Turnstile Anti-Spam",
+            description: "Turn on if you want Cloudflare bot verification before submission."
+          },
+          {
+            type: "string",
+            name: "turnstileSiteKey",
+            label: "Section 3: Cloudflare Turnstile Site Key",
+            description: "Site Key from your Cloudflare Turnstile dashboard."
           }
         ]
       },
@@ -3195,51 +3192,51 @@ var config_default = defineConfig({
             },
             required: true
           },
-          // ─── 🏷️ HERO & CONFIRMATION MESSAGE ────────────────────────────
+          // ─── 📌 SECTION 1: HERO & CONFIRMATION ────────────────────────────
           {
             type: "string",
             name: "statusBadge",
-            label: "Status Badge Text",
+            label: "Section 1: Status Badge Text",
             description: "Default: Brief Dispatch Confirmed \u2022 24hr Response"
           },
           {
             type: "string",
             name: "heading",
-            label: "Main Headline",
+            label: "Section 1: Main Headline",
             description: "Default: We've received your project brief.",
             required: true
           },
           {
             type: "string",
             name: "highlight",
-            label: "Amber Gradient Highlight Words",
+            label: "Section 1: Highlight Words",
             description: "Words in headline to highlight with amber gradient (e.g. project brief.)"
           },
           {
             type: "string",
             name: "description",
-            label: "Subtitle Reassurance Note",
+            label: "Section 1: Subtitle Reassurance Note",
             ui: {
               component: "textarea"
             }
           },
-          // ─── 🛣️ 3-PHASE PRODUCTION ROADMAP ─────────────────────────────
+          // ─── 📌 SECTION 2: 3-PHASE ROADMAP ────────────────────────────────
           {
             type: "string",
             name: "phase1Tag",
-            label: "Phase 1 Eyebrow Tag",
+            label: "Section 2: Phase 1 Eyebrow Tag",
             description: "e.g. Phase 01 // Discovery"
           },
           {
             type: "string",
             name: "phase1Title",
-            label: "Phase 1 Title",
+            label: "Section 2: Phase 1 Title",
             description: "e.g. Review & Needs"
           },
           {
             type: "string",
             name: "phase1Desc",
-            label: "Phase 1 Description",
+            label: "Section 2: Phase 1 Description",
             ui: {
               component: "textarea"
             }
@@ -3247,19 +3244,19 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "phase2Tag",
-            label: "Phase 2 Eyebrow Tag",
+            label: "Section 2: Phase 2 Eyebrow Tag",
             description: "e.g. Phase 02 // Scoping"
           },
           {
             type: "string",
             name: "phase2Title",
-            label: "Phase 2 Title",
+            label: "Section 2: Phase 2 Title",
             description: "e.g. Proposal & Quote"
           },
           {
             type: "string",
             name: "phase2Desc",
-            label: "Phase 2 Description",
+            label: "Section 2: Phase 2 Description",
             ui: {
               component: "textarea"
             }
@@ -3267,46 +3264,46 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "phase3Tag",
-            label: "Phase 3 Eyebrow Tag",
+            label: "Section 2: Phase 3 Eyebrow Tag",
             description: "e.g. Phase 03 // Launch"
           },
           {
             type: "string",
             name: "phase3Title",
-            label: "Phase 3 Title",
+            label: "Section 2: Phase 3 Title",
             description: "e.g. Calendar Lock"
           },
           {
             type: "string",
             name: "phase3Desc",
-            label: "Phase 3 Description",
+            label: "Section 2: Phase 3 Description",
             ui: {
               component: "textarea"
             }
           },
-          // ─── 🔘 ACTION BUTTONS ─────────────────────────────────────────
+          // ─── 📌 SECTION 3: ACTION BUTTONS ─────────────────────────────────
           {
             type: "string",
             name: "primaryBtnLabel",
-            label: "Primary Button Text",
+            label: "Section 3: Primary Button Text",
             description: "Default: Explore Recent Work"
           },
           {
             type: "string",
             name: "primaryBtnLink",
-            label: "Primary Button Link",
+            label: "Section 3: Primary Button Link",
             description: "Default: /work"
           },
           {
             type: "string",
             name: "secondaryBtnLabel",
-            label: "Secondary Button Text",
+            label: "Section 3: Secondary Button Text",
             description: "Default: Back to Homepage"
           },
           {
             type: "string",
             name: "secondaryBtnLink",
-            label: "Secondary Button Link",
+            label: "Section 3: Secondary Button Link",
             description: "Default: /"
           }
         ]
@@ -3344,39 +3341,39 @@ var config_default = defineConfig({
             },
             required: true
           },
-          // ─── 🏷️ PAGE HEADER & BADGES ────────────────────────────────────
+          // ─── 📌 SECTION 1: HEADER & PREAMBLE ─────────────────────────────
           {
             type: "string",
             name: "heroTag",
-            label: "Eyebrow Tag",
+            label: "Section 1: Eyebrow Tag",
             description: "Default: Legal & Compliance"
           },
           {
             type: "string",
             name: "heading",
-            label: "Main Heading",
+            label: "Section 1: Main Heading",
             description: "Default: Privacy & Cookie Policy",
             required: true
           },
           {
             type: "string",
             name: "lastUpdated",
-            label: "Last Updated Date / Version Badge",
+            label: "Section 1: Last Updated Date / Version Badge",
             description: "e.g. Updated June 2026 (DUAA 2025 Compliant)"
           },
           {
             type: "string",
             name: "introText",
-            label: "Introductory Statement",
+            label: "Section 1: Introductory Statement",
             ui: {
               component: "textarea"
             }
           },
-          // ─── 📜 POLICY SECTIONS ─────────────────────────────────────────
+          // ─── 📌 SECTION 2: POLICY ARTICLES ────────────────────────────────
           {
             type: "object",
             name: "sections",
-            label: "Policy Clauses & Sections",
+            label: "Section 2: Policy Articles & Clauses",
             description: "Add, reorder, or edit the individual clauses of the privacy policy.",
             list: true,
             ui: {
@@ -3416,23 +3413,23 @@ var config_default = defineConfig({
               }
             ]
           },
-          // ─── 📞 COMPLIANCE DESK CONTACT CALLOUT ────────────────────────
+          // ─── 📌 SECTION 3: COMPLIANCE DESK ────────────────────────────────
           {
             type: "string",
             name: "deskTag",
-            label: "Compliance Desk: Eyebrow Tag",
+            label: "Section 3: Compliance Desk Eyebrow Tag",
             description: "Default: Direct Data Rights & DUAA Enquiries"
           },
           {
             type: "string",
             name: "deskTitle",
-            label: "Compliance Desk: Box Title",
+            label: "Section 3: Compliance Desk Box Title",
             description: "Default: Need to exercise your statutory data rights?"
           },
           {
             type: "string",
             name: "deskDescription",
-            label: "Compliance Desk: Subtitle / Description",
+            label: "Section 3: Compliance Desk Subtitle / Description",
             ui: {
               component: "textarea"
             }
@@ -3440,19 +3437,19 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "deskEmailLabel",
-            label: "Compliance Desk: Email Button Label",
+            label: "Section 3: Compliance Desk Email Button Label",
             description: "Default: Email Data Desk"
           },
           {
             type: "string",
             name: "deskCustomEmail",
-            label: "Compliance Desk: Dedicated Email (Optional)",
+            label: "Section 3: Compliance Desk Dedicated Email (Optional)",
             description: "Leave empty to use the studio email (contact@filmeditrun.co.uk)"
           },
           {
             type: "string",
             name: "deskCustomPhone",
-            label: "Compliance Desk: Dedicated Telephone (Optional)",
+            label: "Section 3: Compliance Desk Dedicated Telephone (Optional)",
             description: "Leave empty to use main studio telephone"
           }
         ]
@@ -3473,78 +3470,78 @@ var config_default = defineConfig({
           }
         },
         fields: [
-          // ─── 🏢 LOCAL BUSINESS & NAP CITATION (SCHEMA.ORG) ────────────
+          // ─── 📌 SECTION 1: BUSINESS DETAILS & SCHEMA.ORG ─────────────────
           {
             type: "string",
             name: "legalName",
-            label: "\u{1F3E2} Legal Business Entity Name",
+            label: "Section 1: Legal Business Entity Name",
             description: "Official registered name (e.g. FilmEditRun Ltd)"
           },
           {
             type: "string",
             name: "telephone",
-            label: "\u{1F4DE} Contact Telephone Number (Optional)",
+            label: "Section 1: Contact Telephone Number (Optional)",
             description: "Leave empty to prevent cold calls and phone spam. Google Schema does NOT require a phone number."
           },
           {
             type: "string",
             name: "email",
-            label: "\u2709\uFE0F Primary Contact Email (Optional)",
+            label: "Section 1: Primary Contact Email (Optional)",
             description: "Optional email for Schema.org structured data. Leave empty if you only want inquiries through your contact form."
           },
           {
             type: "string",
             name: "priceRange",
-            label: "\u{1F4B7} Studio Price Range Tier",
+            label: "Section 1: Studio Price Range Tier",
             description: "Standard Schema tier (e.g. \xA3\xA3-\xA3\xA3\xA3)"
           },
           {
             type: "string",
             name: "addressLocality",
-            label: "\u{1F4CD} Primary City / Locality",
+            label: "Section 1: Primary City / Locality",
             description: "e.g. Cambridge"
           },
           {
             type: "string",
             name: "addressRegion",
-            label: "\u{1F4CD} County / Region",
+            label: "Section 1: County / Region",
             description: "e.g. Cambridgeshire"
           },
           {
             type: "string",
             name: "postalCode",
-            label: "\u{1F4EE} Postal Code",
+            label: "Section 1: Postal Code",
             description: "e.g. CB1 2JW"
           },
           {
             type: "string",
             name: "addressCountry",
-            label: "\u{1F1EC}\u{1F1E7} Country Code",
+            label: "Section 1: Country Code",
             description: "Default: GB"
           },
           {
             type: "string",
             name: "googleMapsUrl",
-            label: "\u{1F5FA}\uFE0F Google Business Profile / Maps URL",
+            label: "Section 1: Google Business Profile / Maps URL",
             description: "Direct link to your verified Google Maps listing"
           },
           {
             type: "number",
             name: "geoLatitude",
-            label: "\u{1F310} Geo Latitude (Optional Pinpoint)",
+            label: "Section 1: Geo Latitude (Optional Pinpoint)",
             description: "e.g. 52.2053 for Cambridge"
           },
           {
             type: "number",
             name: "geoLongitude",
-            label: "\u{1F310} Geo Longitude (Optional Pinpoint)",
+            label: "Section 1: Geo Longitude (Optional Pinpoint)",
             description: "e.g. 0.1218 for Cambridge"
           },
-          // ─── 🔗 VERIFIED BACKLINK & DIRECTORY PROFILES (sameAs) ───────
+          // ─── 📌 SECTION 2: CITATION PROFILES & DIRECTORY LINKS ────────────
           {
             type: "object",
             name: "backlinkProfiles",
-            label: "\u{1F517} Verified Citation Profiles & Directory Links",
+            label: "Section 2: Verified Citation Profiles & Directory Links",
             description: "Manage authoritative backlink profiles (Cambridge Network, Google Business, Vimeo, GitHub, etc.) for both Schema.org entity linking and the sub-footer citation strip",
             list: true,
             ui: {
@@ -3599,11 +3596,11 @@ var config_default = defineConfig({
           }
         },
         fields: [
-          // ─── 🎛️ DEFAULT GRADE & FLOATING DOCK ─────────────────────────
+          // ─── 📌 SECTION 1: DEFAULT GRADE & FLOATING DOCK ─────────────────
           {
             type: "string",
             name: "defaultTheme",
-            label: "\u{1F39B}\uFE0F Default Global Aesthetic / Grade",
+            label: "Section 1: Default Global Aesthetic / Grade",
             description: "Baseline visual grade for visitors (Dark Noir, High-Key Light, or Supernova Gradient)",
             options: [
               { value: "dark-noir", label: "Dark Noir (Obsidian Low-Key Cinema)" },
@@ -3614,42 +3611,42 @@ var config_default = defineConfig({
           {
             type: "boolean",
             name: "enableThemeSwitcher",
-            label: "\u{1F39B}\uFE0F Enable Floating Grade Switcher Dock?",
+            label: "Section 1: Enable Floating Grade Switcher Dock?",
             description: "Show the slide-out Grade Switcher dock on the right edge of the viewport"
           },
           {
             type: "string",
             name: "themeSwitcherTitle",
-            label: "\u{1F39B}\uFE0F Grade Switcher Dock Title (Optional)",
+            label: "Section 1: Grade Switcher Dock Title (Optional)",
             description: "Header label for the compact grade dock (default: GRADE)"
           },
-          // ─── 🌑 GRADE 1: DARK NOIR ─────────────────────────────────────
+          // ─── 📌 SECTION 2: GRADE 1 - DARK NOIR ────────────────────────────
           {
             type: "string",
             name: "darkNoirTitle",
-            label: "\u{1F311} Dark Noir: Display Name",
+            label: "Section 2: Dark Noir Display Name",
             description: "Display title in the floating grade switcher dock (e.g. Dark Noir)"
           },
           {
             type: "string",
             name: "darkNoirAccentColor",
-            label: "\u{1F311} Dark Noir Accent Color (Hex)",
+            label: "Section 2: Dark Noir Accent Color (Hex)",
             description: "Default: #e8c547 (Warm Tungsten Amber)",
             ui: {
               component: "color"
             }
           },
-          // ─── ☀️ GRADE 2: HIGH-KEY LIGHT ────────────────────────────────
+          // ─── 📌 SECTION 3: GRADE 2 - HIGH-KEY LIGHT ───────────────────────
           {
             type: "string",
             name: "highKeyTitle",
-            label: "\u2600\uFE0F High-Key Light: Display Name",
+            label: "Section 3: High-Key Light Display Name",
             description: "Display title in the floating grade switcher dock (e.g. High-Key Light)"
           },
           {
             type: "string",
             name: "highKeyAccentColor",
-            label: "\u2600\uFE0F High-Key Light Accent Color (Hex)",
+            label: "Section 3: High-Key Light Accent Color (Hex)",
             description: "Default: #e11d48 (Cinema Tally Red)",
             ui: {
               component: "color"
@@ -3658,23 +3655,23 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "highKeyBgColor",
-            label: "\u2600\uFE0F High-Key Light Canvas Background (Hex)",
+            label: "Section 3: High-Key Light Canvas Background (Hex)",
             description: "Default: #ffffff (Pure Studio White)",
             ui: {
               component: "color"
             }
           },
-          // ─── ✨ GRADE 3: SUPERNOVA DUOTONE ─────────────────────────────
+          // ─── 📌 SECTION 4: GRADE 3 - SUPERNOVA DUOTONE ────────────────────
           {
             type: "string",
             name: "supernovaTitle",
-            label: "\u2728 Supernova: Display Name",
+            label: "Section 4: Supernova Display Name",
             description: "Display title in the floating grade switcher dock (e.g. Supernova)"
           },
           {
             type: "string",
             name: "supernovaAccentColor",
-            label: "\u2728 Supernova Primary Accent (Hex)",
+            label: "Section 4: Supernova Primary Accent (Hex)",
             description: "Primary neon gradient glow (Default: #f43f5e)",
             ui: {
               component: "color"
@@ -3683,7 +3680,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "supernovaSecondaryColor",
-            label: "\u2728 Supernova Secondary Mesh Color (Hex)",
+            label: "Section 4: Supernova Secondary Mesh Color (Hex)",
             description: "Secondary mesh duotone glow (Default: #8b5cf6)",
             ui: {
               component: "color"
@@ -3707,11 +3704,11 @@ var config_default = defineConfig({
           }
         },
         fields: [
-          // Top Tier: Tagline & Commission Button
+          // ─── 📌 SECTION 1: TOP BAR & TAGLINE ─────────────────────────────
           {
             type: "string",
             name: "studioTagline",
-            label: "Top: Studio Scope Tagline",
+            label: "Section 1: Studio Scope Tagline",
             description: "Descriptive studio capability sentence under the brand wordmark",
             ui: {
               component: "textarea"
@@ -3720,41 +3717,41 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "commissionButtonLabel",
-            label: "Top: Commission Button Label"
+            label: "Section 1: Commission Button Label"
           },
           {
             type: "string",
             name: "commissionButtonLink",
-            label: "Top: Commission Button Link"
+            label: "Section 1: Commission Button Link"
           },
-          // Column 1: Capabilities / Services
+          // ─── 📌 SECTION 2: COLUMN 1 - SERVICES ────────────────────────────
           {
             type: "string",
             name: "capabilitiesHeading",
-            label: "Col 1: Capabilities Heading"
+            label: "Section 2: Column 1 - Services Heading"
           },
           {
             type: "string",
             name: "servicesLinkLabel",
-            label: "Col 1: Bottom Link Label",
+            label: "Section 2: Column 1 - Link Label",
             description: "e.g. All Services & Specs \u2192"
           },
           {
             type: "string",
             name: "servicesLinkUrl",
-            label: "Col 1: Bottom Link URL",
+            label: "Section 2: Column 1 - Link URL",
             description: "e.g. /services"
           },
-          // Column 2: Studio / Navigation Links
+          // ─── 📌 SECTION 3: COLUMN 2 - NAVIGATION ──────────────────────────
           {
             type: "string",
             name: "studioHeading",
-            label: "Col 2: Navigation Heading"
+            label: "Section 3: Column 2 - Navigation Heading"
           },
           {
             type: "object",
             name: "studioLinks",
-            label: "Col 2: Navigation Links",
+            label: "Section 3: Column 2 - Navigation Links",
             list: true,
             ui: {
               itemProps: (item) => ({
@@ -3766,113 +3763,113 @@ var config_default = defineConfig({
               { type: "string", name: "href", label: "Link URL", required: true }
             ]
           },
-          // Column 3: Presence / Locations
+          // ─── 📌 SECTION 4: COLUMN 3 - LOCATIONS ───────────────────────────
           {
             type: "string",
             name: "presenceHeading",
-            label: "Col 3: Presence Heading"
+            label: "Section 4: Column 3 - Locations Heading"
           },
           {
             type: "string",
             name: "cambridgeTitle",
-            label: "Col 3: Cambridge Title / Label",
+            label: "Section 4: Column 3 - Cambridge Title",
             description: "Default: Cambridge Studio"
           },
           {
             type: "string",
             name: "cambridgeSubtitle",
-            label: "Col 3: Cambridge Subtitle"
+            label: "Section 4: Column 3 - Cambridge Subtitle"
           },
           {
             type: "string",
             name: "cambridgeLink",
-            label: "Col 3: Cambridge Link URL"
+            label: "Section 4: Column 3 - Cambridge Link URL"
           },
           {
             type: "string",
             name: "londonTitle",
-            label: "Col 3: London Title / Label",
+            label: "Section 4: Column 3 - London Title",
             description: "Default: London Base"
           },
           {
             type: "string",
             name: "londonSubtitle",
-            label: "Col 3: London Subtitle"
+            label: "Section 4: Column 3 - London Subtitle"
           },
           {
             type: "string",
             name: "londonLink",
-            label: "Col 3: London Link URL",
+            label: "Section 4: Column 3 - London Link URL",
             description: "Default: /london"
           },
           {
             type: "string",
             name: "worldwideTitle",
-            label: "Col 3: Worldwide Title / Label",
+            label: "Section 4: Column 3 - Worldwide Title",
             description: "Default: UK-Wide & Worldwide"
           },
           {
             type: "string",
             name: "worldwideSubtitle",
-            label: "Col 3: Worldwide Subtitle"
+            label: "Section 4: Column 3 - Worldwide Subtitle"
           },
-          // Column 4: Direct Inquiries & Specs
+          // ─── 📌 SECTION 5: COLUMN 4 - CONTACT & STATUS ────────────────────
           {
             type: "string",
             name: "directHeading",
-            label: "Col 4: Direct Heading"
+            label: "Section 5: Column 4 - Contact Heading"
           },
           {
             type: "string",
             name: "inquiriesLabel",
-            label: "Col 4: Inquiries Section Label",
+            label: "Section 5: Column 4 - Inquiries Label",
             description: "Default: Inquiries"
           },
           {
             type: "string",
             name: "inquiriesActionText",
-            label: "Col 4: Inquiries Button / Link Text",
+            label: "Section 5: Column 4 - Inquiries Button / Link Text",
             description: "Default: Start Project Brief \u2192"
           },
           {
             type: "string",
             name: "inquiriesActionLink",
-            label: "Col 4: Inquiries Link URL",
+            label: "Section 5: Column 4 - Inquiries Link URL",
             description: "Default: /contact"
           },
           {
             type: "string",
             name: "productionHubLabel",
-            label: "Col 4: Production Hub Label",
+            label: "Section 5: Column 4 - Production Hub Label",
             description: "Default: Production Hub"
           },
           {
             type: "string",
             name: "productionHub",
-            label: "Col 4: Production Hub Text"
+            label: "Section 5: Column 4 - Production Hub Text"
           },
           {
             type: "string",
             name: "studioStatusLabel",
-            label: "Header Status Badge Label",
+            label: "Section 5: Column 4 - Studio Status Badge Label",
             description: "Default: Studio Status"
           },
           {
             type: "string",
             name: "studioStatus",
-            label: "Header Status Badge Text",
+            label: "Section 5: Column 4 - Studio Status Badge Text",
             description: "Default: Accepting Commissions"
           },
-          // Bottom Colophon
+          // ─── 📌 SECTION 6: COPYRIGHT & LEGAL ──────────────────────────────
           {
             type: "string",
             name: "copyrightTagline",
-            label: "Bottom Colophon: Tagline"
+            label: "Section 6: Copyright Tagline"
           },
           {
             type: "string",
             name: "backToTopLabel",
-            label: "Bottom Colophon: Back to Top Label",
+            label: "Section 6: Back to Top Label",
             description: "Default: Back to top"
           }
         ]

@@ -1056,10 +1056,6 @@ type ContactPage implements Node & Document {
   heroGradientDirection: String
   heroGradientColor1: String
   heroGradientColor2: String
-  formEndpoint: String!
-  redirectUrl: String
-  enableTurnstile: Boolean
-  turnstileSiteKey: String
   step1Tag: String
   step1Title: String!
   step1Placeholder: String
@@ -1079,6 +1075,10 @@ type ContactPage implements Node & Document {
   step5Title: String
   gdprText: String!
   submitButtonLabel: String!
+  formEndpoint: String!
+  redirectUrl: String
+  enableTurnstile: Boolean
+  turnstileSiteKey: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -1103,10 +1103,6 @@ input ContactPageFilter {
   heroGradientDirection: StringFilter
   heroGradientColor1: StringFilter
   heroGradientColor2: StringFilter
-  formEndpoint: StringFilter
-  redirectUrl: StringFilter
-  enableTurnstile: BooleanFilter
-  turnstileSiteKey: StringFilter
   step1Tag: StringFilter
   step1Title: StringFilter
   step1Placeholder: StringFilter
@@ -1126,6 +1122,10 @@ input ContactPageFilter {
   step5Title: StringFilter
   gdprText: StringFilter
   submitButtonLabel: StringFilter
+  formEndpoint: StringFilter
+  redirectUrl: StringFilter
+  enableTurnstile: BooleanFilter
+  turnstileSiteKey: StringFilter
 }
 
 type ContactPageConnectionEdges {
@@ -1916,10 +1916,6 @@ input ContactPageMutation {
   heroGradientDirection: String
   heroGradientColor1: String
   heroGradientColor2: String
-  formEndpoint: String
-  redirectUrl: String
-  enableTurnstile: Boolean
-  turnstileSiteKey: String
   step1Tag: String
   step1Title: String
   step1Placeholder: String
@@ -1939,6 +1935,10 @@ input ContactPageMutation {
   step5Title: String
   gdprText: String
   submitButtonLabel: String
+  formEndpoint: String
+  redirectUrl: String
+  enableTurnstile: Boolean
+  turnstileSiteKey: String
 }
 
 input ThankYouPageMutation {

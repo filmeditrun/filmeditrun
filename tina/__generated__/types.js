@@ -398,10 +398,6 @@ export const ContactPagePartsFragmentDoc = gql`
   heroGradientDirection
   heroGradientColor1
   heroGradientColor2
-  formEndpoint
-  redirectUrl
-  enableTurnstile
-  turnstileSiteKey
   step1Tag
   step1Title
   step1Placeholder
@@ -425,6 +421,10 @@ export const ContactPagePartsFragmentDoc = gql`
   step5Title
   gdprText
   submitButtonLabel
+  formEndpoint
+  redirectUrl
+  enableTurnstile
+  turnstileSiteKey
 }
     `;
 export const ThankYouPagePartsFragmentDoc = gql`

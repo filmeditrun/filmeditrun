@@ -35,6 +35,8 @@ const work = readJson('src/content/pages/work.json');
 const contact = readJson('src/content/pages/contact.json');
 const thankYou = readJson('src/content/pages/thank-you.json');
 const privacy = readJson('src/content/pages/privacy.json');
+const site = readJson('src/content/settings/site.json');
+const seo = readJson('src/content/settings/seo.json');
 const footer = readJson('src/content/settings/footer.json');
 
 // Ingest services
@@ -60,30 +62,33 @@ let md = `# 🎬 FilmEditRun Proofreading v1
 ---
 
 ## 📑 Table of Contents
-1. [Global Header & Navigation](#1-global-header--navigation)
+1. [Header & Site Branding](#1-header--site-branding)
 2. [Homepage (\`/\`)](#2-homepage-)
 3. [About FilmEditRun (\`/about\`)](#3-about-filmeditrun-about)
 4. [Services Overview (\`/services\`)](#4-services-overview-services)
 ${services.map((s, i) => `${i + 5}. [Service 0${i + 1}: ${s.title} (\`${s.link || `/services/${s.slug}`}\`)](#${i + 5}-service-0${i + 1}-${s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${(s.link || `/services/${s.slug}`).replace(/[^a-z0-9]+/g, '-')})`).join('\n')}
-11. [Cambridge Production Hub (\`/cambridge\`)](#11-cambridge-production-hub-cambridge)
-12. [London Production Hub (\`/london\`)](#12-london-production-hub-london)
+11. [Cambridge Regional Hub (\`/cambridge\`)](#11-cambridge-regional-hub-cambridge)
+12. [London Regional Hub (\`/london\`)](#12-london-regional-hub-london)
 13. [Portfolio & Selected Work (\`/work\`)](#13-portfolio--selected-work-work)
 14. [Project Brief & Contact Experience (\`/contact\`)](#14-project-brief--contact-experience-contact)
 15. [Post-Submission & Next Steps (\`/thank-you\`)](#15-post-submission--next-steps-thank-you)
 16. [Privacy & Cookie Policy (\`/privacy\`)](#16-privacy--cookie-policy-privacy)
-17. [Global Studio Footer & Colophon](#17-global-studio-footer--colophon)
+17. [Global Studio Footer](#17-global-studio-footer)
+18. [SEO & Local Citations](#18-seo--local-citations)
 
 ---
 
-## 1. Global Header & Navigation
+## 1. Header & Site Branding
 
-* **Brand Wordmark:** \`FilmEditRun\`
-* **Primary Navigation Links:**
-  - \`Home\` → \`/\`
-  - \`Services\` → \`/services\`
-  - \`Work\` → \`/work\`
-  - \`About\` → \`/about\`
-  - \`Contact\` → \`/contact\`
+### Section 1: Brand & Logo
+* **Site Name (\`siteName\`):** \`${site.siteName}\`
+* **Text Logo (\`logoText\`):** \`${site.logoText}\`
+* **Use Image Logo (\`useImageLogo\`):** \`${site.useImageLogo}\`
+* **Logo Image (\`logoImagePath\`):** \`${site.logoImagePath}\`
+
+### Section 2: Navigation Links
+* **Header Navigation Links (\`navLinks\`):**
+${(site.navLinks || []).map(link => `  - \`${link.label}\` → \`${link.href}\``).join('\n')}
 
 ---
 
@@ -324,118 +329,159 @@ ${(london.faqs || []).map((f, i) => `${i + 1}. **Q:** \`${f.question}\`  \n   **
 
 ## 13. Portfolio & Selected Work (\`/work\`)
 
-### Header Section
-* **Eyebrow Tag:** \`${work.headerTag}\`
-* **Heading:** \`${clean(work.heading)}\`
-* **Description:** \`${work.description}\`
-* **Action Buttons:**
-  - \`${work.videoButtonLabel}\` (0:45 modal player)
-  - \`${work.scrollIndicatorText}\`
+### Section 1: Hero & Showreel
+* **Hero Tag (\`headerTag\`):** \`${work.headerTag}\`
+* **Hero Heading (\`heading\`):** \`${clean(work.heading)}\`
+* **Hero Lead (\`description\`):** \`${work.description}\`
+* **Hero Video Path (\`heroVideoPath\`):** \`${work.heroVideoPath}\`
+* **Hero Fallback Poster Frame (\`heroPosterPath\`):** \`${work.heroPosterPath}\`
+* **Hero Play Button Label (\`videoButtonLabel\`):** \`${work.videoButtonLabel}\`
+* **Hero Scroll Indicator Text (\`scrollIndicatorText\`):** \`${work.scrollIndicatorText}\`
 
-### Production Archive Grid
-* **Archive Tag:** \`${work.archiveTag}\`
-* **Archive Heading:** \`${work.archiveHeading}\`
-* **Category Filters:** \`All Productions\`, \`Commercial & Brand\`, \`Conferences\`, \`Post-Production\`, \`Motion & Visuals\`
+### Section 2: Archive Grid & Filters
+* **Display Production Archive (\`showArchive\`):** \`${work.showArchive}\`
+* **Archive Tag (\`archiveTag\`):** \`${work.archiveTag}\`
+* **Archive Heading (\`archiveHeading\`):** \`${work.archiveHeading}\`
+* **Filter All Label (\`filterAllLabel\`):** \`${work.filterAllLabel}\`
+* **Close Modal Label (\`closeModalLabel\`):** \`${work.closeModalLabel}\`
 
-### The 4 Active Showcase Projects
+### Active Showcase Projects
 ${projects.map((pr, i) => `${i + 1}. **${pr.order}. ${pr.title}** (\`${pr.category}\` • ${pr.runtime})  \n   - Client: ${pr.client}  \n   - Description: ${pr.description}`).join('\n')}
 
 ---
 
 ## 14. Project Brief & Contact Experience (\`/contact\`)
 
-### Header Section
-* **Eyebrow Tag:** \`${contact.headerTag}\`
-* **Heading:** \`${clean(contact.heading)}\`
-* **Description:** \`${contact.description}\`
-* **Trust Signals:** ${(contact.trustSignals || []).map(t => `\`${t}\``).join(' • ')}
+### Section 1: Hero
+* **Hero Tag (\`headerTag\`):** \`${contact.headerTag}\`
+* **Hero Heading (\`heading\`):** \`${clean(contact.heading)}\`
+* **Hero Lead (\`description\`):** \`${contact.description}\`
+* **Trust Signals (\`trustSignals\`):** ${(contact.trustSignals || []).map(t => `\`${t}\``).join(' • ')}
 
-### The 5-Step Inquiries Form Flow
+### Section 2: 5-Step Inquiries Form Flow
 * **Step 01 // Introduce Yourself:**  
-  - *Prompt:* \`${contact.step1Title}\`  
-  - *Fields:* \`${contact.step1Placeholder}\` | \`${contact.step1CompanyPlaceholder}\`
+  - *Tag (\`step1Tag\`):* \`${contact.step1Tag}\`  
+  - *Prompt (\`step1Title\`):* \`${contact.step1Title}\`  
+  - *Fields (\`step1Placeholder\` / \`step1CompanyPlaceholder\`):* \`${contact.step1Placeholder}\` | \`${contact.step1CompanyPlaceholder}\`
 * **Step 02 // Project Requirement:**  
-  - *Prompt:* \`${contact.step2Title}\`  
-  - *Dropdown Options (aligned 1:1 with services):*  
+  - *Tag (\`step2Tag\`):* \`${contact.step2Tag}\`  
+  - *Prompt (\`step2Title\`):* \`${contact.step2Title}\`  
+  - *Dropdown Options (\`serviceOptions\`):*  
 ${(contact.serviceOptions || []).map((so, i) => `    ${i + 1}. \`${so.label}\``).join('\n')}
 * **Step 03 // Contact Details:**  
-  - *Prompt:* \`${contact.step3Title}\`  
-  - *Helper Note:* \`${contact.step3HelpText}\`  
-  - *Field Placeholder:* \`${contact.step3Placeholder}\`
+  - *Tag (\`step3Tag\`):* \`${contact.step3Tag}\`  
+  - *Prompt (\`step3Title\`):* \`${contact.step3Title}\`  
+  - *Helper Note (\`step3HelpText\`):* \`${contact.step3HelpText}\`  
+  - *Field Placeholder (\`step3Placeholder\`):* \`${contact.step3Placeholder}\`
 * **Step 04 // Project Brief:**  
-  - *Prompt:* \`${contact.step4Title}\`  
-  - *Helper Note:* \`${contact.step4HelpText}\`  
-  - *Field Placeholder:* \`${contact.step4Placeholder}\`
+  - *Tag (\`step4Tag\`):* \`${contact.step4Tag}\`  
+  - *Prompt (\`step4Title\`):* \`${contact.step4Title}\`  
+  - *Helper Note (\`step4HelpText\`):* \`${contact.step4HelpText}\`  
+  - *Field Placeholder (\`step4Placeholder\`):* \`${contact.step4Placeholder}\`
 * **Step 05 // Verification & Consent:**  
-  - *Prompt:* \`${contact.step5Title}\`  
-  - *Consent Text:* \`${contact.gdprText}\`  
-  - *Action Button:* \`${contact.submitButtonLabel}\`
+  - *Tag (\`step5Tag\`):* \`${contact.step5Tag}\`  
+  - *Prompt (\`step5Title\`):* \`${contact.step5Title}\`  
+  - *Consent Statement (\`gdprText\`):* \`${contact.gdprText}\`  
+  - *Submit Button (\`submitButtonLabel\`):* \`${contact.submitButtonLabel}\`
+
+### Section 3: Form Configuration
+* **FormTorch Endpoint URL (\`formEndpoint\`):** \`${contact.formEndpoint}\`
+* **Redirect URL After Submission (\`redirectUrl\`):** \`${contact.redirectUrl}\`
+* **Enable Turnstile Anti-Spam (\`enableTurnstile\`):** \`${contact.enableTurnstile}\`
 
 ---
 
 ## 15. Post-Submission & Next Steps (\`/thank-you\`)
 
-### Header & Status
-* **Status Badge:** \`${thankYou.statusBadge}\`
-* **Heading:** \`${thankYou.heading}\`
-* **Description:** \`${thankYou.description}\`
+### Section 1: Hero & Confirmation
+* **Status Badge Text (\`statusBadge\`):** \`${thankYou.statusBadge}\`
+* **Main Headline (\`heading\`):** \`${thankYou.heading}\`
+* **Highlight Words (\`highlight\`):** \`${thankYou.highlight}\`
+* **Subtitle Reassurance Note (\`description\`):** \`${thankYou.description}\`
 
-### The 3-Phase Client Roadmap
+### Section 2: 3-Phase Production Roadmap
 1. **${thankYou.phase1Tag} (\`${thankYou.phase1Title}\`):** ${thankYou.phase1Desc}
 2. **${thankYou.phase2Tag} (\`${thankYou.phase2Title}\`):** ${thankYou.phase2Desc}
 3. **${thankYou.phase3Tag} (\`${thankYou.phase3Title}\`):** ${thankYou.phase3Desc}
 
-### Action Buttons
-* **Primary Button:** \`${thankYou.primaryBtnLabel}\` → \`${thankYou.primaryBtnLink}\`
-* **Secondary Button:** \`${thankYou.secondaryBtnLabel}\` → \`${thankYou.secondaryBtnLink}\`
+### Section 3: Action Buttons
+* **Primary Button (\`primaryBtnLabel\`):** \`${thankYou.primaryBtnLabel}\` → \`${thankYou.primaryBtnLink}\`
+* **Secondary Button (\`secondaryBtnLabel\`):** \`${thankYou.secondaryBtnLabel}\` → \`${thankYou.secondaryBtnLink}\`
 
 ---
 
 ## 16. Privacy & Cookie Policy (\`/privacy\`)
 
-* **Header Tag:** \`${privacy.heroTag}\`
-* **Heading:** \`${privacy.heading}\`
-* **Effective Date:** \`${privacy.lastUpdated}\`
-* **Preamble:** \`${privacy.introText}\`
+### Section 1: Header & Preamble
+* **Eyebrow Tag (\`heroTag\`):** \`${privacy.heroTag}\`
+* **Main Heading (\`heading\`):** \`${privacy.heading}\`
+* **Last Updated Date (\`lastUpdated\`):** \`${privacy.lastUpdated}\`
+* **Introductory Statement (\`introText\`):** \`${privacy.introText}\`
 
-### Policy Sections Summary
-${(privacy.sections || []).map(sec => `* **${sec.number}. ${sec.title}:**  \n  ${sec.content.replace(/\n\n/g, '\n  ')}`).join('\n')}
+### Section 2: Policy Articles
+${(privacy.sections || []).map(sec => `* **${sec.number}. ${sec.title} (\`sections[${sec.number}]\`):**  \n  ${sec.content.replace(/\n\n/g, '\n  ')}`).join('\n')}
 
-### Direct Compliance Desk
-* **Tag:** \`${privacy.deskTag}\`
-* **Title:** \`${privacy.deskTitle}\`
-* **Description:** \`${privacy.deskDescription}\`
-* **Action:** \`${privacy.deskEmailLabel}\` (\`contact@filmeditrun.co.uk\`)
+### Section 3: Compliance Desk
+* **Eyebrow Tag (\`deskTag\`):** \`${privacy.deskTag}\`
+* **Box Title (\`deskTitle\`):** \`${privacy.deskTitle}\`
+* **Subtitle / Description (\`deskDescription\`):** \`${privacy.deskDescription}\`
+* **Email Button Label (\`deskEmailLabel\`):** \`${privacy.deskEmailLabel}\`
 
 ---
 
-## 17. Global Studio Footer & Colophon
+## 17. Global Studio Footer
 
-* **Studio Scope Statement:** \`${footer.studioTagline}\`
-* **Live Studio Status:** \`● Studio Status: ${footer.studioStatus}\`
-* **Commission Button:** \`${footer.commissionButtonLabel}\` → \`${footer.commissionButtonLink}\`
+### Section 1: Top Bar & Tagline
+* **Studio Scope Tagline (\`studioTagline\`):** \`${footer.studioTagline}\`
+* **Commission Button Label (\`commissionButtonLabel\`):** \`${footer.commissionButtonLabel}\` → \`${footer.commissionButtonLink}\`
 
-### Navigation Columns
-* **Services:**
+### Section 2: Column 1 - Services
+* **Heading (\`capabilitiesHeading\`):** \`${footer.capabilitiesHeading}\`
+* **Link Label (\`servicesLinkLabel\`):** \`${footer.servicesLinkLabel}\` → \`${footer.servicesLinkUrl}\`
+* **Live Services:**
 ${services.map(s => `  - \`${s.title}\` → \`${s.link || `/services/${s.slug}`}\``).join('\n')}
-  - \`${footer.servicesLinkLabel}\` → \`${footer.servicesLinkUrl}\`
-* **Studio:**
+
+### Section 3: Column 2 - Navigation
+* **Heading (\`studioHeading\`):** \`${footer.studioHeading}\`
+* **Navigation Links (\`studioLinks\`):**
 ${(footer.studioLinks || []).map(sl => `  - \`${sl.label}\` → \`${sl.href}\``).join('\n')}
-* **Locations:**
-  - \`${footer.cambridgeTitle}\`: ${footer.cambridgeSubtitle} → \`${footer.cambridgeLink}\`
-  - \`${footer.londonTitle}\`: ${footer.londonSubtitle} → \`${footer.londonLink}\`
-  - \`${footer.worldwideTitle}\`: ${footer.worldwideSubtitle} → \`/\`
-* **Direct Hub Contact:**
-  - \`${footer.inquiriesLabel}\`: ${footer.inquiriesActionText} (\`${footer.inquiriesActionLink}\`)
-  - \`${footer.productionHubLabel}\`: ${footer.productionHub}
 
-### Verified Citations Strip
-* **Google Business Profile:** \`Verified Studio\` (\`https://g.page/r/Cba1pWWqNcpWEAI\`)
-* **Vimeo Pro:** \`Portfolio\` (\`https://vimeo.com/filmeditrun\`)
-* **LinkedIn:** \`Company\` (\`https://www.linkedin.com/company/filmeditrun\`)
+### Section 4: Column 3 - Locations
+* **Heading (\`presenceHeading\`):** \`${footer.presenceHeading}\`
+* **Cambridge Studio (\`cambridgeTitle\`):** ${footer.cambridgeSubtitle} → \`${footer.cambridgeLink}\`
+* **London Base (\`londonTitle\`):** ${footer.londonSubtitle} → \`${footer.londonLink}\`
+* **Worldwide Hub (\`worldwideTitle\`):** ${footer.worldwideSubtitle}
 
-### Legal Copyright Line
-* \`© 2026 FilmEditRun. ${footer.copyrightTagline} All rights reserved.\`
+### Section 5: Column 4 - Contact & Status
+* **Heading (\`directHeading\`):** \`${footer.directHeading}\`
+* **Inquiries Label (\`inquiriesLabel\`):** ${footer.inquiriesActionText} (\`${footer.inquiriesActionLink}\`)
+* **Production Hub (\`productionHubLabel\`):** ${footer.productionHub}
+* **Studio Status (\`studioStatusLabel\`):** \`● ${footer.studioStatus}\`
+
+### Section 6: Copyright & Legal
+* **Copyright Tagline (\`copyrightTagline\`):** \`${footer.copyrightTagline}\`
+* **Back to Top Label (\`backToTopLabel\`):** \`${footer.backToTopLabel || 'Back to top'}\`
+* **Copyright Notice:** \`© 2026 FilmEditRun. ${footer.copyrightTagline} All rights reserved.\`
+
+---
+
+## 18. SEO & Local Citations
+
+### Section 1: Business Details & Schema.org
+* **Legal Business Entity Name (\`legalName\`):** \`${seo.legalName}\`
+* **Contact Telephone (\`telephone\`):** \`${seo.telephone || 'None configured (form-only)'}\`
+* **Contact Email (\`email\`):** \`${seo.email || 'None configured (form-only)'}\`
+* **Studio Price Range Tier (\`priceRange\`):** \`${seo.priceRange}\`
+* **Primary Locality (\`addressLocality\`):** \`${seo.addressLocality}\`
+* **Region / County (\`addressRegion\`):** \`${seo.addressRegion}\`
+* **Postal Code (\`postalCode\`):** \`${seo.postalCode}\`
+* **Country Code (\`addressCountry\`):** \`${seo.addressCountry}\`
+* **Google Maps URL (\`googleMapsUrl\`):** \`${seo.googleMapsUrl}\`
+* **Geo Coordinates (\`geoLatitude\`, \`geoLongitude\`):** \`${seo.geoLatitude}, ${seo.geoLongitude}\`
+
+### Section 2: Citation Profiles & Directory Links
+${(seo.backlinkProfiles || []).map((bp, i) => `${i + 1}. **${bp.name}** (\`${bp.badgeText || ''}\`): \`${bp.url}\` (Show in footer: \`${bp.showInFooter}\`)`).join('\n')}
+
 `;
 
 // Write Markdown
