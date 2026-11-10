@@ -6,6 +6,7 @@
 // =====================================================================
 import Layout from '../layouts/Layout.astro';
 import CtaSection from '../components/CtaSection.astro';
+import { parseHeroHeading, parseSectionHeading } from '../utils/headingParser';
 
 export interface CustomPageData {
   slug: string;
@@ -15,8 +16,9 @@ export interface CustomPageData {
   
   // Hero
   heroTag?: string;
-  heroHeadingPrefix: string;
-  heroHeadingHighlight: string;
+  heroHeading?: string;
+  heroHeadingPrefix?: string;
+  heroHeadingHighlight?: string;
   heroSubtitle: string;
   heroCtaLabel?: string;
   heroCtaLink?: string;
@@ -190,12 +192,10 @@ const section2Bullets = page.section2Bullets ?? [];
         )}
 
         <!-- Large Title with Dynamic Gradient Highlight -->
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl">
-          {page.heroHeadingPrefix}{" "}
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
-            {page.heroHeadingHighlight}
-          </span>
-        </h1>
+        <h1 
+          class="text-4xl sm:text-6xl lg:text-7xl font-black text-white keep-white tracking-tight leading-[1.08] mb-6 max-w-4xl"
+          set:html={parseHeroHeading(page.heroHeading || (page.heroHeadingPrefix ? `${page.heroHeadingPrefix}\n*${page.heroHeadingHighlight}*` : "Cinematic Visuals for\n*Modern Brands.*"))}
+        />
 
         <!-- Subtitle with Rich Formatting -->
         <p class="text-lg sm:text-xl lg:text-2xl text-neutral-200 font-light leading-relaxed max-w-3xl mb-8" set:html={formatRichText(page.heroSubtitle)} />

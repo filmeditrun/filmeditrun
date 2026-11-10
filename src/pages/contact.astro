@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import contact from '../content/pages/contact.json';
+import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../utils/headingParser';
 
 const seoTitle = contact.seoTitle || "Start Your Project | FilmEditRun";
 const seoDescription = contact.seoDescription || "Tell us about your upcoming filming, editing, or creative project across Cambridge, London, or nationwide. We deliver a clear technical proposal within 24 hours.";
@@ -94,20 +95,6 @@ const formSteps = [
     submitButtonLabel: contact.submitButtonLabel || "Submit Brief"
   }
 ];
-
-// Asterisk gradient parser
-const parseHeading = (text: string) => {
-  if (!text) return "";
-  return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
-};
-
-// parseHeadingWithLine: Solid Text with Animated Amber Gradient Underline (used on in-page sections & step titles)
-const parseHeadingWithLine = (text: string) => {
-  if (!text) return "";
-  let parsed = text.replace(/\*([^*\n]+)\*/g, '<span class="animated-accent-underline is-visible">$1</span>');
-  parsed = parsed.replace(/\s\*(?!\w)/g, ' <span class="text-amber-500 font-normal">*</span>');
-  return parsed;
-};
 
 const headerTag = (contact as any).headerTag || "Start A Brief";
 const heading = (contact as any).heading || "Let's discuss your next *production.*";

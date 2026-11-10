@@ -7,6 +7,7 @@ import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CtaSection from '../components/CtaSection.astro';
 import servicesPage from '../content/pages/services.json';
+import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../utils/headingParser';
 
 interface ServiceCard {
   order: string;
@@ -70,21 +71,6 @@ const ctaHeading = servicesPage.ctaHeading || "Have an Upcoming Event or Product
 const ctaText = servicesPage.ctaText || "Tell us about your event dates, venue location, or creative ideas. We deliver a tailored technical production proposal within 24 hours.";
 const ctaButtonLabel = servicesPage.ctaButtonLabel || "Start Project Brief";
 const ctaButtonLink = servicesPage.ctaButtonLink || "/contact";
-
-// Asterisk gradient parser
-const parseHeading = (text: string) => {
-  if (!text) return "";
-  return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
-};
-
-// parseHeadingWithLine: Solid Text with Animated Gradient Underline (used on in-page sections)
-const parseHeadingWithLine = (text: string) => {
-  if (!text) return "";
-  if (text.includes('*')) {
-    return text.replace(/\*(.*?)\*/g, '<span class="animated-accent-underline">$1</span>');
-  }
-  return text;
-};
 
 const displayAs = (servicesPage as any).displayAs || "local-video";
 const isVideo = displayAs === "video" || displayAs === "local-video";

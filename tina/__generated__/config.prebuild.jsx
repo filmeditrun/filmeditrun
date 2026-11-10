@@ -587,17 +587,12 @@ var config_default = defineConfig({
           },
           {
             type: "string",
-            name: "heroHeadingPrefix",
-            label: "Section 1: Hero Heading (Main Text)",
-            description: "e.g. We Capture, Create, and",
-            required: true
-          },
-          {
-            type: "string",
-            name: "heroHeadingHighlight",
-            label: "Section 1: Hero Heading (Highlight Text)",
-            description: "e.g. Produce.",
-            required: true
+            name: "heroHeading",
+            label: "Section 1: Hero Heading",
+            description: "Use *asterisks* to highlight with amber gradient (e.g. Deliver the *story.*). Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            }
           },
           {
             type: "string",
@@ -921,15 +916,12 @@ var config_default = defineConfig({
           },
           {
             type: "string",
-            name: "heroHeadingPrefix",
-            label: "Section 1: Hero Heading (Main Text)",
-            required: true
-          },
-          {
-            type: "string",
-            name: "heroHeadingHighlight",
-            label: "Section 1: Hero Heading (Highlight Text)",
-            required: true
+            name: "heroHeading",
+            label: "Section 1: Hero Heading",
+            description: "Use *asterisks* to highlight with amber gradient (e.g. *Cambridge*). Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            }
           },
           {
             type: "string",
@@ -1183,15 +1175,12 @@ var config_default = defineConfig({
           },
           {
             type: "string",
-            name: "heroHeadingPrefix",
-            label: "Section 1: Hero Heading (Main Text)",
-            required: true
-          },
-          {
-            type: "string",
-            name: "heroHeadingHighlight",
-            label: "Section 1: Hero Heading (Highlight Text)",
-            required: true
+            name: "heroHeading",
+            label: "Section 1: Hero Heading",
+            description: "Use *asterisks* to highlight with amber gradient (e.g. *London*). Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            }
           },
           {
             type: "string",
@@ -1446,17 +1435,12 @@ var config_default = defineConfig({
           },
           {
             type: "string",
-            name: "heroHeadingPrefix",
-            label: "Section 1: Hero Heading (Main Text)",
-            description: "Initial headline copy before the highlight",
-            required: true
-          },
-          {
-            type: "string",
-            name: "heroHeadingHighlight",
-            label: "Section 1: Hero Heading (Highlight Text)",
-            description: "Accent word(s) highlighted with dynamic theme gradient color",
-            required: true
+            name: "heroHeading",
+            label: "Section 1: Hero Heading",
+            description: "Use *asterisks* to highlight with amber gradient. Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            }
           },
           {
             type: "string",
@@ -1824,7 +1808,10 @@ var config_default = defineConfig({
             type: "string",
             name: "heading",
             label: "Section 1: Hero Heading",
-            description: "e.g. What We Do.",
+            description: "Use *asterisks* to highlight with amber gradient. Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            },
             required: true
           },
           {
@@ -1912,7 +1899,7 @@ var config_default = defineConfig({
             type: "string",
             name: "processHeading",
             label: "Section 2: Methodology Heading",
-            description: "Default: The Process."
+            description: "Default: Designed for clarity. *Delivered with confidence.* Use _underscores_ (or *asterisks*) for animated underline."
           },
           {
             type: "string",
@@ -2083,7 +2070,10 @@ var config_default = defineConfig({
             type: "string",
             name: "heroHeading",
             label: "Section 1: Hero Heading",
-            description: "Wrap words in asterisks for the amber highlight. e.g. Put *ideas* in motion.",
+            description: "Use *asterisks* to highlight with amber gradient. Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            },
             required: true
           },
           {
@@ -2101,7 +2091,7 @@ var config_default = defineConfig({
             type: "string",
             name: "breakdownHeading",
             label: "Section 2: Overview Heading",
-            description: "Subheading explaining the service approach"
+            description: "Subheading explaining the service approach. Use _underscores_ (or *asterisks*) for animated underline."
           },
           {
             type: "string",
@@ -2386,7 +2376,10 @@ var config_default = defineConfig({
             type: "string",
             name: "heading",
             label: "Section 1: Hero Heading",
-            description: "e.g. Our Work.",
+            description: "Use *asterisks* to highlight with amber gradient. Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            },
             required: true
           },
           {
@@ -2442,7 +2435,7 @@ var config_default = defineConfig({
             type: "string",
             name: "archiveHeading",
             label: "Section 2: Archive Heading",
-            description: "e.g. Selected Works & Case Studies",
+            description: "Default: Explore our *work.* Use _underscores_ (or *asterisks*) for animated underline.",
             required: true
           },
           {
@@ -2584,6 +2577,10 @@ var config_default = defineConfig({
             type: "string",
             name: "headline",
             label: "Section 1: Hero Heading",
+            description: "Use *asterisks* to highlight with amber gradient. Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            },
             required: true
           },
           {
@@ -2685,6 +2682,7 @@ var config_default = defineConfig({
             type: "string",
             name: "approachHeading",
             label: "Section 3: Overview Heading",
+            description: "Use *asterisks* to highlight with amber gradient.",
             required: true
           },
           {
@@ -2721,6 +2719,7 @@ var config_default = defineConfig({
             type: "string",
             name: "timelineHeading",
             label: "Section 4: Timeline Heading",
+            description: "Default: Ten years behind the lens. *Built for today.* Use _underscores_ (or *asterisks*) for animated underline.",
             required: true
           },
           {
@@ -2905,7 +2904,10 @@ var config_default = defineConfig({
             type: "string",
             name: "heading",
             label: "Section 1: Hero Heading",
-            description: "e.g. Every great project starts with a conversation."
+            description: "Use *asterisks* to highlight with amber gradient. Use _underscores_ for underline. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            }
           },
           {
             type: "string",
@@ -3203,14 +3205,11 @@ var config_default = defineConfig({
             type: "string",
             name: "heading",
             label: "Section 1: Main Headline",
-            description: "Default: We've received your project brief.",
+            description: "Default: We've received your *project brief.* Wrap words in *asterisks* to highlight with amber gradient. Press Enter for a line break.",
+            ui: {
+              component: "textarea"
+            },
             required: true
-          },
-          {
-            type: "string",
-            name: "highlight",
-            label: "Section 1: Highlight Words",
-            description: "Words in headline to highlight with amber gradient (e.g. project brief.)"
           },
           {
             type: "string",

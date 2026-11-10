@@ -148,8 +148,7 @@ type Homepage implements Node & Document {
   seoTitle: String!
   seoDescription: String!
   locations: String!
-  heroHeadingPrefix: String!
-  heroHeadingHighlight: String!
+  heroHeading: String
   tagline: String!
   heroVideoPath: String!
   heroPosterPath: String
@@ -220,8 +219,7 @@ input HomepageFilter {
   seoTitle: StringFilter
   seoDescription: StringFilter
   locations: StringFilter
-  heroHeadingPrefix: StringFilter
-  heroHeadingHighlight: StringFilter
+  heroHeading: StringFilter
   tagline: StringFilter
   heroVideoPath: StringFilter
   heroPosterPath: ImageFilter
@@ -286,8 +284,7 @@ type CambridgePage implements Node & Document {
   seoDescription: String!
   canonicalURL: String!
   heroTag: String!
-  heroHeadingPrefix: String!
-  heroHeadingHighlight: String!
+  heroHeading: String
   heroSubtitle: String!
   heroCtaLabel: String!
   heroCtaLink: String!
@@ -331,8 +328,7 @@ input CambridgePageFilter {
   seoDescription: StringFilter
   canonicalURL: StringFilter
   heroTag: StringFilter
-  heroHeadingPrefix: StringFilter
-  heroHeadingHighlight: StringFilter
+  heroHeading: StringFilter
   heroSubtitle: StringFilter
   heroCtaLabel: StringFilter
   heroCtaLink: StringFilter
@@ -384,8 +380,7 @@ type LondonPage implements Node & Document {
   seoDescription: String!
   canonicalURL: String!
   heroTag: String!
-  heroHeadingPrefix: String!
-  heroHeadingHighlight: String!
+  heroHeading: String
   heroSubtitle: String!
   heroCtaLabel: String!
   heroCtaLink: String!
@@ -429,8 +424,7 @@ input LondonPageFilter {
   seoDescription: StringFilter
   canonicalURL: StringFilter
   heroTag: StringFilter
-  heroHeadingPrefix: StringFilter
-  heroHeadingHighlight: StringFilter
+  heroHeading: StringFilter
   heroSubtitle: StringFilter
   heroCtaLabel: StringFilter
   heroCtaLink: StringFilter
@@ -478,8 +472,7 @@ type CustomPages implements Node & Document {
   seoDescription: String!
   canonicalURL: String
   heroTag: String
-  heroHeadingPrefix: String!
-  heroHeadingHighlight: String!
+  heroHeading: String
   heroSubtitle: String!
   heroCtaLabel: String
   heroCtaLink: String
@@ -527,8 +520,7 @@ input CustomPagesFilter {
   seoDescription: StringFilter
   canonicalURL: StringFilter
   heroTag: StringFilter
-  heroHeadingPrefix: StringFilter
-  heroHeadingHighlight: StringFilter
+  heroHeading: StringFilter
   heroSubtitle: StringFilter
   heroCtaLabel: StringFilter
   heroCtaLink: StringFilter
@@ -1144,7 +1136,6 @@ type ThankYouPage implements Node & Document {
   seoDescription: String!
   statusBadge: String
   heading: String!
-  highlight: String
   description: String
   phase1Tag: String
   phase1Title: String
@@ -1169,7 +1160,6 @@ input ThankYouPageFilter {
   seoDescription: StringFilter
   statusBadge: StringFilter
   heading: StringFilter
-  highlight: StringFilter
   description: StringFilter
   phase1Tag: StringFilter
   phase1Title: StringFilter
@@ -1544,8 +1534,7 @@ input HomepageMutation {
   seoTitle: String
   seoDescription: String
   locations: String
-  heroHeadingPrefix: String
-  heroHeadingHighlight: String
+  heroHeading: String
   tagline: String
   heroVideoPath: String
   heroPosterPath: String
@@ -1599,8 +1588,7 @@ input CambridgePageMutation {
   seoDescription: String
   canonicalURL: String
   heroTag: String
-  heroHeadingPrefix: String
-  heroHeadingHighlight: String
+  heroHeading: String
   heroSubtitle: String
   heroCtaLabel: String
   heroCtaLink: String
@@ -1641,8 +1629,7 @@ input LondonPageMutation {
   seoDescription: String
   canonicalURL: String
   heroTag: String
-  heroHeadingPrefix: String
-  heroHeadingHighlight: String
+  heroHeading: String
   heroSubtitle: String
   heroCtaLabel: String
   heroCtaLink: String
@@ -1679,8 +1666,7 @@ input CustomPagesMutation {
   seoDescription: String
   canonicalURL: String
   heroTag: String
-  heroHeadingPrefix: String
-  heroHeadingHighlight: String
+  heroHeading: String
   heroSubtitle: String
   heroCtaLabel: String
   heroCtaLink: String
@@ -1946,7 +1932,6 @@ input ThankYouPageMutation {
   seoDescription: String
   statusBadge: String
   heading: String
-  highlight: String
   description: String
   phase1Tag: String
   phase1Title: String

@@ -1,4 +1,6 @@
 ---
+import { parseHeroHeading as parseHeading } from '../../utils/headingParser';
+
 interface Props {
   tag?: string;
   heading?: string;
@@ -18,15 +20,6 @@ const {
   secondaryLinkLabel = "Explore Services →",
   secondaryLinkHref = "/services",
 } = Astro.props;
-
-// Server-side regex parser for asterisk gradient formatting
-const parseHeading = (text: string) => {
-  if (!text) return "";
-  if (text.includes('*')) {
-    return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">$1</span>');
-  }
-  return text;
-};
 ---
 
 <!-- Subtle Fading Cinema Top Divider -->

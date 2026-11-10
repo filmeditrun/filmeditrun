@@ -96,7 +96,7 @@ ${(site.navLinks || []).map(link => `  - \`${link.label}\` → \`${link.href}\``
 
 ### Section 1: Hero & Showreel
 * **Locations Tag (\`locations\`):** \`${home.locations}\`
-* **Heading (\`heroHeadingPrefix\` + \`heroHeadingHighlight\`):** \`${clean(home.heroHeadingPrefix)} ${clean(home.heroHeadingHighlight)}\`
+* **Heading (\`heroHeading\`):** \`${home.heroHeading || `${clean(home.heroHeadingPrefix)} ${clean(home.heroHeadingHighlight)}`}\`
 * **Lead (\`tagline\`):** \`${home.tagline}\`
 * **Primary Button (\`primaryCtaLabel\`):** \`${home.primaryCtaLabel}\` → \`${home.primaryCtaLink}\`
 * **Secondary Button (\`secondaryCtaLabel\`):** \`${home.secondaryCtaLabel}\` → \`${home.secondaryCtaLink}\`
@@ -259,7 +259,7 @@ md += `## 11. Cambridge Regional Hub (\`/cambridge\`)
 
 ### Section 1: Hero
 * **Tag (\`heroTag\`):** \`${cambridge.heroTag}\`
-* **Heading (\`heroHeadingPrefix\` + \`heroHeadingHighlight\`):** \`${clean(cambridge.heroHeadingPrefix)} ${clean(cambridge.heroHeadingHighlight)}\`
+* **Heading (\`heroHeading\`):** \`${cambridge.heroHeading || `${clean(cambridge.heroHeadingPrefix)} ${clean(cambridge.heroHeadingHighlight)}`}\`
 * **Lead (\`heroSubtitle\`):** \`${cambridge.heroSubtitle}\`
 * **Button (\`heroCtaLabel\`):** \`${cambridge.heroCtaLabel}\` → \`${cambridge.heroCtaLink}\`
 
@@ -295,7 +295,7 @@ ${(cambridge.faqs || []).map((f, i) => `${i + 1}. **Q:** \`${f.question}\`  \n  
 
 ### Section 1: Hero
 * **Tag (\`heroTag\`):** \`${london.heroTag}\`
-* **Heading (\`heroHeadingPrefix\` + \`heroHeadingHighlight\`):** \`${clean(london.heroHeadingPrefix)} ${clean(london.heroHeadingHighlight)}\`
+* **Heading (\`heroHeading\`):** \`${london.heroHeading || `${clean(london.heroHeadingPrefix)} ${clean(london.heroHeadingHighlight)}`}\`
 * **Lead (\`heroSubtitle\`):** \`${london.heroSubtitle}\`
 * **Button (\`heroCtaLabel\`):** \`${london.heroCtaLabel}\` → \`${london.heroCtaLink}\`
 
@@ -396,7 +396,6 @@ ${(contact.serviceOptions || []).map((so, i) => `    ${i + 1}. \`${so.label}\``)
 ### Section 1: Hero & Confirmation
 * **Status Badge Text (\`statusBadge\`):** \`${thankYou.statusBadge}\`
 * **Main Headline (\`heading\`):** \`${thankYou.heading}\`
-* **Highlight Words (\`highlight\`):** \`${thankYou.highlight}\`
 * **Subtitle Reassurance Note (\`description\`):** \`${thankYou.description}\`
 
 ### Section 2: 3-Phase Production Roadmap

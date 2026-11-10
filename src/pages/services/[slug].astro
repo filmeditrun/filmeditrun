@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CtaSection from '../../components/CtaSection.astro';
+import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../../utils/headingParser';
 
 export interface ServiceData {
   order: string;
@@ -131,20 +132,6 @@ const breadcrumbSchema = {
 };
 
 const jsonLd = [serviceSchema, breadcrumbSchema];
-
-const parseHeading = (text: string) => {
-  if (!text) return "";
-  return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
-};
-
-// parseHeadingWithLine: Solid Text with Animated Gradient Underline (used on in-page sections)
-const parseHeadingWithLine = (text: string) => {
-  if (!text) return "";
-  if (text.includes('*')) {
-    return text.replace(/\*(.*?)\*/g, '<span class="animated-accent-underline">$1</span>');
-  }
-  return text;
-};
 
 const defaultWatermarks = [
   "/cambridge/stage-wide.webp",

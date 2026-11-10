@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { projects } from '../data/projects';
 import workPage from '../content/pages/work.json';
+import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../utils/headingParser';
 
 const isEmbeddableVideo = (url: string) => url.includes('player.vimeo.com/video/');
 
@@ -43,22 +44,6 @@ const modalProjects = showArchive ? archiveProjects : [featuredProject];
 const featuredVimeoBgUrl = !isLocalHeroVideo && isEmbeddableVideo(heroVideoPath || featuredProject.videoUrl)
   ? buildVimeoUrl(heroVideoPath || featuredProject.videoUrl, { background: "1", autoplay: "1", loop: "1", muted: "1", dnt: "1", transparent: "1" })
   : "";
-
-const parseHeading = (text: string) => {
-  if (!text) return "";
-  if (text.includes('*')) {
-    return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
-  }
-  return text;
-};
-
-const parseUnderlineHeading = (text: string) => {
-  if (!text) return "";
-  if (text.includes('*')) {
-    return text.replace(/\*(.*?)\*/g, '<span class="animated-accent-underline">$1</span>');
-  }
-  return text;
-};
 
 const siteUrl = "https://filmeditrun.co.uk";
 
@@ -234,7 +219,7 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
             {workPage.archiveTag}
           </span>
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white" set:html={parseUnderlineHeading(workPage.archiveHeading)} />
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white" set:html={parseSectionHeading(workPage.archiveHeading)} />
       </div>
 
       <!-- 1. Pure CSS Category Filter Radio Inputs (Zero-JS) -->

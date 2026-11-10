@@ -11,8 +11,7 @@ export const HomepagePartsFragmentDoc = gql`
   seoTitle
   seoDescription
   locations
-  heroHeadingPrefix
-  heroHeadingHighlight
+  heroHeading
   tagline
   heroVideoPath
   heroPosterPath
@@ -68,8 +67,7 @@ export const CambridgePagePartsFragmentDoc = gql`
   seoDescription
   canonicalURL
   heroTag
-  heroHeadingPrefix
-  heroHeadingHighlight
+  heroHeading
   heroSubtitle
   heroCtaLabel
   heroCtaLink
@@ -111,8 +109,7 @@ export const LondonPagePartsFragmentDoc = gql`
   seoDescription
   canonicalURL
   heroTag
-  heroHeadingPrefix
-  heroHeadingHighlight
+  heroHeading
   heroSubtitle
   heroCtaLabel
   heroCtaLink
@@ -155,8 +152,7 @@ export const CustomPagesPartsFragmentDoc = gql`
   seoDescription
   canonicalURL
   heroTag
-  heroHeadingPrefix
-  heroHeadingHighlight
+  heroHeading
   heroSubtitle
   heroCtaLabel
   heroCtaLink
@@ -434,7 +430,6 @@ export const ThankYouPagePartsFragmentDoc = gql`
   seoDescription
   statusBadge
   heading
-  highlight
   description
   phase1Tag
   phase1Title

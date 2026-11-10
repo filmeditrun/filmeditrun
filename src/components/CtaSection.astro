@@ -1,4 +1,6 @@
 ---
+import { parseHeroHeading as parseHeading } from '../utils/headingParser';
+
 interface Props {
   // Eyebrow / Tag
   tag?: string;
@@ -44,15 +46,6 @@ const displayPrimaryLabel = primaryButtonLabel || buttonLabel || "Start Project 
 const displayPrimaryLink = primaryButtonLink || buttonLink || "/contact";
 const displaySecondaryLabel = secondaryButtonLabel;
 const displaySecondaryLink = secondaryButtonLink;
-
-// Asterisk gradient heading parser (e.g. "Ready to film your next *conference or brand story*?")
-const parseHeading = (content: string) => {
-  if (!content) return "";
-  if (content.includes('*')) {
-    return content.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">$1</span>');
-  }
-  return content;
-};
 ---
 
 <!-- =========================================================================

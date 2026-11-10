@@ -1,4 +1,6 @@
 ---
+import { parseHeroHeading } from '../../utils/headingParser';
+
 interface Props {
   tag?: string;
   headline: string;
@@ -28,21 +30,6 @@ const {
   heroGradientColor2 = "#09090c",
   heroFrostedGlass = "very-subtle",
 } = Astro.props;
-
-// Parse headline: support asterisks for gradient highlight, or fallback to period split
-const parseHeadline = (text: string) => {
-  if (!text) return "";
-  if (text.includes("*")) {
-    return text.replace(/\*(.*?)\*/g, '<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">$1</span>');
-  }
-  const dotIndex = text.indexOf('. ');
-  if (dotIndex !== -1) {
-    const prefix = text.slice(0, dotIndex + 1);
-    const accent = text.slice(dotIndex + 2);
-    return `<span class="block mb-2">${prefix}</span><span class="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">${accent}</span>`;
-  }
-  return text;
-};
 
 const ndDensityMap: Record<string, string> = {
   none: "opacity-0",
@@ -125,7 +112,7 @@ const gradientStyle = isRadial
     <!-- Large Title with Asterisk Gradient Support -->
     <h1 
       class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white keep-white leading-[1.08] mb-6 max-w-4xl text-balance"
-      set:html={parseHeadline(headline)}
+      set:html={parseHeroHeading(headline)}
     />
 
     <!-- Hero Lead Hook / Value Proposition -->

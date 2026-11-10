@@ -3,8 +3,7 @@ fragment HomepageParts on Homepage {
   seoTitle
   seoDescription
   locations
-  heroHeadingPrefix
-  heroHeadingHighlight
+  heroHeading
   tagline
   heroVideoPath
   heroPosterPath
@@ -59,8 +58,7 @@ fragment CambridgePageParts on CambridgePage {
   seoDescription
   canonicalURL
   heroTag
-  heroHeadingPrefix
-  heroHeadingHighlight
+  heroHeading
   heroSubtitle
   heroCtaLabel
   heroCtaLink
@@ -101,8 +99,7 @@ fragment LondonPageParts on LondonPage {
   seoDescription
   canonicalURL
   heroTag
-  heroHeadingPrefix
-  heroHeadingHighlight
+  heroHeading
   heroSubtitle
   heroCtaLabel
   heroCtaLink
@@ -144,8 +141,7 @@ fragment CustomPagesParts on CustomPages {
   seoDescription
   canonicalURL
   heroTag
-  heroHeadingPrefix
-  heroHeadingHighlight
+  heroHeading
   heroSubtitle
   heroCtaLabel
   heroCtaLink
@@ -414,7 +410,6 @@ fragment ThankYouPageParts on ThankYouPage {
   seoDescription
   statusBadge
   heading
-  highlight
   description
   phase1Tag
   phase1Title

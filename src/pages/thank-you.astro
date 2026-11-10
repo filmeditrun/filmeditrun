@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import thankYou from '../content/pages/thank-you.json';
 import seo from '../content/settings/seo.json';
+import { parseHeroHeading } from '../utils/headingParser';
 
 const studioEmail = seo.email || "contact@filmeditrun.co.uk";
 const studioPhone = seo.telephone?.trim() || "";
@@ -10,8 +11,7 @@ const seoTitle = thankYou.seoTitle || "Brief Received | FilmEditRun";
 const seoDescription = thankYou.seoDescription || "Thank you for submitting your project brief. We review every brief carefully and respond with a tailored proposal within 24 hours.";
 
 const statusBadge = thankYou.statusBadge || "Brief Dispatch Confirmed • 24hr Response";
-const heading = thankYou.heading || "We've received your project brief.";
-const highlight = thankYou.highlight || "project brief.";
+const heading = thankYou.heading || "We've received your *project brief.*";
 const description = thankYou.description || "Thank you for getting in touch. Your requirements have been safely delivered to our production desk. We review every brief carefully and will get back to you with a tailored scope within 24 hours.";
 
 const phase1Tag = thankYou.phase1Tag || "Phase 01 // Discovery";
@@ -30,15 +30,6 @@ const primaryBtnLabel = thankYou.primaryBtnLabel || "Explore Recent Work";
 const primaryBtnLink = thankYou.primaryBtnLink || "/work";
 const secondaryBtnLabel = thankYou.secondaryBtnLabel || "Back to Homepage";
 const secondaryBtnLink = thankYou.secondaryBtnLink || "/";
-
-// Helper to highlight gradient text in heading
-let headingPrefix = heading;
-let headingSuffix = "";
-if (highlight && heading.includes(highlight)) {
-  const parts = heading.split(highlight);
-  headingPrefix = parts[0];
-  headingSuffix = parts.slice(1).join(highlight);
-}
 ---
 
 <Layout 
@@ -60,15 +51,10 @@ if (highlight && heading.includes(highlight)) {
       </div>
 
       <!-- Main Headline -->
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6">
-        {highlight && heading.includes(highlight) ? (
-          <>
-            {headingPrefix}<span class="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">{highlight}</span>{headingSuffix}
-          </>
-        ) : (
-          heading
-        )}
-      </h1>
+      <h1 
+        class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6"
+        set:html={parseHeroHeading(heading)}
+      />
 
       <!-- Intro Subtitle -->
       <p class="text-base sm:text-xl text-neutral-300 max-w-2xl leading-relaxed mb-12 font-light">
