@@ -101,7 +101,7 @@ ${(site.navLinks || []).map(link => `  - \`${link.label}\` → \`${link.href}\``
 * **Primary Button (\`primaryCtaLabel\`):** \`${home.primaryCtaLabel}\` → \`${home.primaryCtaLink}\`
 * **Secondary Button (\`secondaryCtaLabel\`):** \`${home.secondaryCtaLabel}\` → \`${home.secondaryCtaLink}\`
 
-### Section 2: Capabilities Spec Strip
+### Section 2: Capabilities Strip
 * **Brand Label (\`brandName\`):** \`${home.brandName || 'FilmEditRun'}\`
 * **Capabilities List (\`expertiseList\`):**
 ${(home.expertiseList || []).map(e => `  - \`${e}\``).join('\n')}
@@ -152,7 +152,7 @@ ${(home.telemetryMetrics || []).map((m, i) => `* **Metric ${i + 1} (\`telemetryM
 * **Card 2: London Field Units:** \`Explore →\` → \`/london\`
 
 ### Section 10: Call to Action
-* **Tag (\`ctaBadge\`):** \`${home.ctaBadge || 'Direct Studio Intake'}\`
+* **Tag (\`ctaBadge\`):** \`${home.ctaBadge || 'Direct Intake'}\`
 * **Heading (\`ctaHeading\`):** \`${home.ctaHeading}\`
 * **Description (\`ctaDescription\`):** \`${home.ctaDescription}\`
 * **Primary Button (\`ctaPrimaryLabel\`):** \`${home.ctaPrimaryLabel}\` → \`${home.ctaPrimaryLink}\`
@@ -432,8 +432,8 @@ ${(privacy.sections || []).map(sec => `* **${sec.number}. ${sec.title} (\`sectio
 ## 17. Global Studio Footer
 
 ### Section 1: Top Bar & Tagline
-* **Studio Scope Tagline (\`studioTagline\`):** \`${footer.studioTagline}\`
-* **Commission Button Label (\`commissionButtonLabel\`):** \`${footer.commissionButtonLabel}\` → \`${footer.commissionButtonLink}\`
+* **Tagline (\`studioTagline\`):** \`${footer.studioTagline}\`
+* **Button Label (\`commissionButtonLabel\`):** \`${footer.commissionButtonLabel}\` → \`${footer.commissionButtonLink}\`
 
 ### Section 2: Column 1 - Services
 * **Heading (\`capabilitiesHeading\`):** \`${footer.capabilitiesHeading}\`
@@ -443,20 +443,20 @@ ${services.map(s => `  - \`${s.title}\` → \`${s.link || `/services/${s.slug}`}
 
 ### Section 3: Column 2 - Navigation
 * **Heading (\`studioHeading\`):** \`${footer.studioHeading}\`
-* **Navigation Links (\`studioLinks\`):**
+* **Links (\`studioLinks\`):**
 ${(footer.studioLinks || []).map(sl => `  - \`${sl.label}\` → \`${sl.href}\``).join('\n')}
 
 ### Section 4: Column 3 - Locations
 * **Heading (\`presenceHeading\`):** \`${footer.presenceHeading}\`
-* **Cambridge Studio (\`cambridgeTitle\`):** ${footer.cambridgeSubtitle} → \`${footer.cambridgeLink}\`
-* **London Base (\`londonTitle\`):** ${footer.londonSubtitle} → \`${footer.londonLink}\`
-* **Worldwide Hub (\`worldwideTitle\`):** ${footer.worldwideSubtitle}
+* **Cambridge Title (\`cambridgeTitle\`):** ${footer.cambridgeSubtitle} → \`${footer.cambridgeLink}\`
+* **London Title (\`londonTitle\`):** ${footer.londonSubtitle} → \`${footer.londonLink}\`
+* **Worldwide Title (\`worldwideTitle\`):** ${footer.worldwideSubtitle}
 
 ### Section 5: Column 4 - Contact & Status
 * **Heading (\`directHeading\`):** \`${footer.directHeading}\`
-* **Inquiries Label (\`inquiriesLabel\`):** ${footer.inquiriesActionText} (\`${footer.inquiriesActionLink}\`)
-* **Production Hub (\`productionHubLabel\`):** ${footer.productionHub}
-* **Studio Status (\`studioStatusLabel\`):** \`● ${footer.studioStatus}\`
+* **Item 1 Label (\`inquiriesLabel\`):** ${footer.inquiriesActionText} (\`${footer.inquiriesActionLink}\`)
+* **Item 2 Text (\`productionHub\`):** ${footer.productionHub}
+* **Status Badge Text (\`studioStatus\`):** \`● ${footer.studioStatus}\`
 
 ### Section 6: Copyright & Legal
 * **Copyright Tagline (\`copyrightTagline\`):** \`${footer.copyrightTagline}\`
@@ -471,7 +471,7 @@ ${(footer.studioLinks || []).map(sl => `  - \`${sl.label}\` → \`${sl.href}\``)
 * **Legal Business Entity Name (\`legalName\`):** \`${seo.legalName}\`
 * **Contact Telephone (\`telephone\`):** \`${seo.telephone || 'None configured (form-only)'}\`
 * **Contact Email (\`email\`):** \`${seo.email || 'None configured (form-only)'}\`
-* **Studio Price Range Tier (\`priceRange\`):** \`${seo.priceRange}\`
+* **Price Range Tier (\`priceRange\`):** \`${seo.priceRange}\`
 * **Primary Locality (\`addressLocality\`):** \`${seo.addressLocality}\`
 * **Region / County (\`addressRegion\`):** \`${seo.addressRegion}\`
 * **Postal Code (\`postalCode\`):** \`${seo.postalCode}\`

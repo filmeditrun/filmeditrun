@@ -649,7 +649,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "brandName",
-            label: "Section 2: Spec Strip Brand Label",
+            label: "Section 2: Brand Label",
             required: true
           },
           {
@@ -783,7 +783,7 @@ var config_default = defineConfig({
             type: "string",
             name: "pipelineTag",
             label: "Section 8: Methodology Tag",
-            description: "Default: Production Pipeline"
+            description: "Default: Methodology Pipeline"
           },
           {
             type: "string",
@@ -833,7 +833,7 @@ var config_default = defineConfig({
             type: "string",
             name: "ctaBadge",
             label: "Section 10: Call to Action Tag",
-            description: "Default: Direct Studio Intake"
+            description: "Default: Direct Intake"
           },
           {
             type: "string",
@@ -1218,12 +1218,12 @@ var config_default = defineConfig({
             type: "string",
             name: "displayAs",
             label: "Hero Background Media Type",
-            description: "Select whether the hero displays a looping video, photo, or transparent darkroom",
+            description: "Select whether the hero displays a looping video, photo, or solid background",
             options: [
-              { value: "local-video", label: "\u{1F3AC} Local Video Loop (Fastest, e.g. /showreel.mp4)" },
-              { value: "link-video", label: "\u{1F517} Hosted Video URL (.mp4 / cloud stream)" },
-              { value: "image", label: "\u{1F4F8} Static Photograph" },
-              { value: "none", label: "\u2B1B Pure Minimalist Darkroom (No Media)" }
+              { value: "local-video", label: "Local Video Loop (e.g. /showreel.mp4)" },
+              { value: "link-video", label: "Hosted Video URL (.mp4 / cloud stream)" },
+              { value: "image", label: "Static Photograph" },
+              { value: "none", label: "Pure Minimalist (No Media)" }
             ]
           },
           {
@@ -1437,31 +1437,31 @@ var config_default = defineConfig({
             label: "\u{1F50D} Canonical URL (Optional)",
             description: "Defaults to https://filmeditrun.co.uk/{slug}"
           },
-          // ─── 🎨 HERO BANNER ───────────────────────────────────────────
+          // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
             type: "string",
             name: "heroTag",
-            label: "\u{1F3A8} Hero Eyebrow Tag",
+            label: "Section 1: Hero Tag",
             description: "Small uppercase category tag above the headline"
           },
           {
             type: "string",
             name: "heroHeadingPrefix",
-            label: "Hero Heading (Main White Text)",
+            label: "Section 1: Hero Heading (Main Text)",
             description: "Initial headline copy before the highlight",
             required: true
           },
           {
             type: "string",
             name: "heroHeadingHighlight",
-            label: "Hero Heading Highlight Word(s)",
+            label: "Section 1: Hero Heading (Highlight Text)",
             description: "Accent word(s) highlighted with dynamic theme gradient color",
             required: true
           },
           {
             type: "string",
             name: "heroSubtitle",
-            label: "Hero Subtitle Copy",
+            label: "Section 1: Hero Lead",
             description: "Supports *highlight* formatting",
             ui: {
               component: "textarea"
@@ -1471,23 +1471,23 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heroCtaLabel",
-            label: "Hero Button Label"
+            label: "Section 1: Hero Button Text"
           },
           {
             type: "string",
             name: "heroCtaLink",
-            label: "Hero Button Link"
+            label: "Section 1: Hero Button Link"
           },
           {
             type: "string",
             name: "displayAs",
             label: "Hero Background Media Type",
             options: [
-              { label: "\u{1F3AC} Cinematic Video Loop", value: "local-video" },
-              { label: "\u{1F4F8} Static Photograph / Image", value: "image" },
-              { label: "\u{1F3A8} Dual-Tone Gradient Background", value: "gradient" },
-              { label: "\u{1F310} External Cloud Video URL", value: "link-video" },
-              { label: "\u2B1B Minimalist Dark Void (No Media)", value: "none" }
+              { label: "Video Loop", value: "local-video" },
+              { label: "Static Photograph / Image", value: "image" },
+              { label: "Dual-Tone Gradient Background", value: "gradient" },
+              { label: "External Cloud Video URL", value: "link-video" },
+              { label: "Minimalist (No Media)", value: "none" }
             ]
           },
           {
@@ -1538,24 +1538,24 @@ var config_default = defineConfig({
               component: "color"
             }
           },
-          // ─── 💡 NARRATIVE STORY 1 (Left: Copy, Right: Card or Photo) ───
+          // ─── 📌 SECTION 2: OVERVIEW ───────────────────────────────────────
           {
             type: "string",
             name: "section1Tag",
-            label: "Story 1: Eyebrow Tag",
+            label: "Section 2: Overview Tag",
             description: "e.g. Our Approach, Scope Overview"
           },
           {
             type: "string",
             name: "section1Heading",
-            label: "Story 1: Section Heading",
+            label: "Section 2: Overview Heading",
             description: "Main section title. Wrap in *asterisks* to highlight text with theme gradient color.",
             required: true
           },
           {
             type: "string",
             name: "section1Description",
-            label: "Story 1: Section Body Copy",
+            label: "Section 2: Overview Body Copy",
             description: "Editorial paragraph. Supports **bold**, <u>underline</u>, and *highlight*.",
             ui: {
               component: "textarea"
@@ -1565,14 +1565,14 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "section1Bullets",
-            label: "Story 1: Checkmark Bullet Points",
+            label: "Section 2: Checkmark Bullet Points",
             description: "Key deliverables or assurances (\u2713 rendered automatically)",
             list: true
           },
           {
             type: "string",
             name: "section1RightType",
-            label: "Story 1: Right Column Display Mode",
+            label: "Section 2: Right Column Display Mode",
             description: "Choose whether to display an informative plaque card or a featured photograph",
             options: [
               { label: "Informative Plaque Card (Title, Text & Link)", value: "card" },
@@ -1582,13 +1582,13 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "section1CardTitle",
-            label: "Story 1: Plaque Card Title",
+            label: "Section 2: Plaque Card Title",
             description: "e.g. Why Clients Choose Us"
           },
           {
             type: "string",
             name: "section1CardBody",
-            label: "Story 1: Plaque Card Body Copy",
+            label: "Section 2: Plaque Card Body Copy",
             ui: {
               component: "textarea"
             }
@@ -1596,42 +1596,42 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "section1CardLinkLabel",
-            label: "Story 1: Plaque Card Link Text",
+            label: "Section 2: Plaque Card Link Text",
             description: "e.g. Explore Selected Work \u2192"
           },
           {
             type: "string",
             name: "section1CardLinkHref",
-            label: "Story 1: Plaque Card Link URL",
+            label: "Section 2: Plaque Card Link URL",
             description: "e.g. /work or /contact"
           },
           {
             type: "image",
             name: "section1CardImage",
-            label: "Story 1: Showcase Photograph (When Display Mode is Image)"
+            label: "Section 2: Showcase Photograph (When Display Mode is Image)"
           },
           {
             type: "string",
             name: "section1CardImageCaption",
-            label: "Story 1: Showcase Photo Caption (Optional)"
+            label: "Section 2: Showcase Photo Caption (Optional)"
           },
-          // ─── 🔄 NARRATIVE STORY 2 (Left: Card or Photo, Right: Copy) ───
+          // ─── 📌 SECTION 3: DETAILS ────────────────────────────────────────
           {
             type: "string",
             name: "section2Tag",
-            label: "Story 2: Eyebrow Tag",
-            description: "e.g. Production Standards, Technical Capabilities"
+            label: "Section 3: Details Tag",
+            description: "e.g. Technical Standards, Core Capabilities"
           },
           {
             type: "string",
             name: "section2Heading",
-            label: "Story 2: Section Heading",
+            label: "Section 3: Details Heading",
             description: "Main section title. Wrap in *asterisks* to highlight text with theme gradient color."
           },
           {
             type: "string",
             name: "section2Description",
-            label: "Story 2: Section Body Copy",
+            label: "Section 3: Details Body Copy",
             description: "Editorial paragraph. Supports **bold**, <u>underline</u>, and *highlight*.",
             ui: {
               component: "textarea"
@@ -1640,14 +1640,14 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "section2Bullets",
-            label: "Story 2: Checkmark Bullet Points",
+            label: "Section 3: Checkmark Bullet Points",
             description: "Key deliverables or assurances (\u2713 rendered automatically)",
             list: true
           },
           {
             type: "string",
             name: "section2LeftType",
-            label: "Story 2: Left Column Display Mode",
+            label: "Section 3: Left Column Display Mode",
             description: "Choose whether to display a featured photograph or an informative plaque card",
             options: [
               { label: "Featured Photograph / Showcase Image", value: "image" },
@@ -1657,12 +1657,12 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "section2CardTitle",
-            label: "Story 2: Plaque Card Title"
+            label: "Section 3: Plaque Card Title"
           },
           {
             type: "string",
             name: "section2CardBody",
-            label: "Story 2: Plaque Card Body Copy",
+            label: "Section 3: Plaque Card Body Copy",
             ui: {
               component: "textarea"
             }
@@ -1670,33 +1670,33 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "section2CardLinkLabel",
-            label: "Story 2: Plaque Card Link Text"
+            label: "Section 3: Plaque Card Link Text"
           },
           {
             type: "string",
             name: "section2CardLinkHref",
-            label: "Story 2: Plaque Card Link URL"
+            label: "Section 3: Plaque Card Link URL"
           },
           {
             type: "image",
             name: "section2CardImage",
-            label: "Story 2: Showcase Photograph (When Display Mode is Image)"
+            label: "Section 3: Showcase Photograph (When Display Mode is Image)"
           },
           {
             type: "string",
             name: "section2CardImageCaption",
-            label: "Story 2: Showcase Photo Caption (Optional)"
+            label: "Section 3: Showcase Photo Caption (Optional)"
           },
-          // ─── ⚡ CALL TO ACTION (CLOSER) ──────────────────────────────
+          // ─── 📌 SECTION 4: CALL TO ACTION ─────────────────────────────────
           {
             type: "string",
             name: "bottomCtaHeading",
-            label: "Bottom CTA Heading"
+            label: "Section 4: Call to Action Heading"
           },
           {
             type: "string",
             name: "bottomCtaBody",
-            label: "Bottom CTA Subtitle",
+            label: "Section 4: Call to Action Description",
             ui: {
               component: "textarea"
             }
@@ -1704,12 +1704,12 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "bottomCtaLabel",
-            label: "Bottom CTA Button Text"
+            label: "Section 4: Call to Action Button Text"
           },
           {
             type: "string",
             name: "bottomCtaLink",
-            label: "Bottom CTA Button Link"
+            label: "Section 4: Call to Action Button Link"
           }
         ]
       },
@@ -1817,7 +1817,7 @@ var config_default = defineConfig({
             type: "string",
             name: "headerTag",
             label: "Section 1: Hero Tag",
-            description: "e.g. Expert Production Solutions",
+            description: "e.g. Expert Solutions",
             required: true
           },
           {
@@ -1840,31 +1840,31 @@ var config_default = defineConfig({
             type: "string",
             name: "displayAs",
             label: "Hero Background Media Type",
-            description: "Choose whether the Services Hero displays a photograph, cinematic video, duo-tone gradient, or solid color",
+            description: "Choose whether the Services Hero displays a photograph, video, duo-tone gradient, or solid color",
             options: [
-              { label: "\u{1F4F8} Static Photograph / Image", value: "image" },
-              { label: "\u{1F3AC} Cinematic Video Loop", value: "local-video" },
-              { label: "\u{1F3A8} Duo-Tone Gradient Background", value: "gradient" },
-              { label: "\u2B1B Solid Background Color", value: "solid" },
-              { label: "\u{1F311} Solid Darkroom Baseline (No Media)", value: "none" }
+              { label: "Static Photograph / Image", value: "image" },
+              { label: "Video Loop", value: "local-video" },
+              { label: "Duo-Tone Gradient Background", value: "gradient" },
+              { label: "Solid Background Color", value: "solid" },
+              { label: "Solid Background (No Media)", value: "none" }
             ]
           },
           {
             type: "image",
             name: "imagePath",
-            label: "\u{1F4F8} Poster / Background Image",
+            label: "Poster / Background Image",
             description: "Photograph displayed when 'Image' is selected, or as video poster"
           },
           {
             type: "string",
             name: "localVideoPath",
-            label: "\u{1F3AC} Local Video Path (When Video selected)",
+            label: "Local Video Path",
             description: "e.g. /showreel.mp4"
           },
           {
             type: "string",
             name: "heroSolidColor",
-            label: "\u2B1B Solid Background Color (Hex)",
+            label: "Solid Background Color (Hex)",
             description: "Pick a hex color when Solid option is selected (e.g. #09090c)",
             ui: {
               component: "color"
@@ -1873,7 +1873,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heroGradientDirection",
-            label: "\u{1F3A8} Gradient Direction (When Gradient selected)",
+            label: "Gradient Direction",
             options: [
               { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
               { value: "to bottom", label: "Vertical (Top to Bottom)" },
@@ -1886,7 +1886,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heroGradientColor1",
-            label: "\u{1F3A8} Gradient First Color (Hex)",
+            label: "Gradient First Color (Hex)",
             description: "First color or spotlight center",
             ui: {
               component: "color"
@@ -1895,7 +1895,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heroGradientColor2",
-            label: "\u{1F3A8} Gradient Second Color (Hex)",
+            label: "Gradient Second Color (Hex)",
             description: "Second color or gradient base",
             ui: {
               component: "color"
@@ -1912,7 +1912,7 @@ var config_default = defineConfig({
             type: "string",
             name: "processHeading",
             label: "Section 2: Methodology Heading",
-            description: "Default: The Production Process."
+            description: "Default: The Process."
           },
           {
             type: "string",
@@ -1948,7 +1948,7 @@ var config_default = defineConfig({
               {
                 type: "string",
                 name: "tag",
-                label: "Stage Category Tag (e.g. Pre-Production, Filming)",
+                label: "Stage Category Tag (e.g. Discovery, Review)",
                 required: true
               },
               {
@@ -1967,13 +1967,13 @@ var config_default = defineConfig({
             type: "string",
             name: "ctaTag",
             label: "Section 3: Call to Action Tag",
-            description: "Default: READY FOR THE NEXT TAKE?"
+            description: "Default: READY FOR NEXT STEPS?"
           },
           {
             type: "string",
             name: "ctaHeading",
             label: "Section 3: Call to Action Heading",
-            description: "Default: Have an Upcoming Event or Production Brief?"
+            description: "Default: Have an Upcoming Project or Brief?"
           },
           {
             type: "string",
@@ -1992,7 +1992,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "ctaButtonLink",
-            label: "Bottom CTA Button Link",
+            label: "Section 3: Call to Action Button Link",
             description: "Default: /contact"
           }
         ]
@@ -2112,35 +2112,35 @@ var config_default = defineConfig({
               component: "textarea"
             }
           },
-          // ─── 🔲 BENTO GRID CARD VISUALS (Services Directory /services) ────
+          // ─── 📌 SERVICE CARD DISPLAY (Overview Grid) ─────────────────────
           {
             type: "string",
             name: "cardDisplayAs",
-            label: "\u{1F532} Bento Card Media Type",
-            description: "Choose how this card displays in the 6-service Bento Grid on /services and homepage carousel",
+            label: "Card Media Type",
+            description: "Choose how this card displays in the 6-service grid on /services and homepage",
             options: [
-              { label: "\u{1F4F8} Static Photograph / Image", value: "image" },
-              { label: "\u{1F3AC} Cinematic Video Loop", value: "video" },
-              { label: "\u2728 Duo-Tone Studio Spotlight (Hairline & Beam)", value: "gradient" },
-              { label: "\u2B1B Solid Background Color", value: "solid" }
+              { label: "Static Photograph / Image", value: "image" },
+              { label: "Video Loop", value: "video" },
+              { label: "Duo-Tone Gradient Spotlight", value: "gradient" },
+              { label: "Solid Background Color", value: "solid" }
             ]
           },
           {
             type: "image",
             name: "cardImage",
-            label: "\u{1F532} Card Photo",
+            label: "Card Photo",
             description: "Photograph displayed on this service card when Image mode is active (or as video poster)"
           },
           {
             type: "string",
             name: "cardVideoPath",
-            label: "\u{1F532} Card Video Path (When Video selected)",
+            label: "Card Video Path",
             description: "e.g. /showreel.mp4"
           },
           {
             type: "string",
             name: "cardSolidColor",
-            label: "\u{1F532} Card Solid Background Color (Hex)",
+            label: "Card Solid Background Color (Hex)",
             description: "Hex color when Solid mode is selected (e.g. #0a0a0c)",
             ui: {
               component: "color"
@@ -2149,7 +2149,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "cardGradientDirection",
-            label: "\u{1F532} Card Gradient Direction",
+            label: "Card Gradient Direction",
             options: [
               { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
               { value: "to bottom", label: "Vertical (Top to Bottom)" },
@@ -2162,7 +2162,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "cardGradientColor1",
-            label: "\u{1F532} Card Gradient First Color (Hex)",
+            label: "Card Gradient First Color (Hex)",
             description: "Start color or spotlight center",
             ui: {
               component: "color"
@@ -2171,7 +2171,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "cardGradientColor2",
-            label: "\u{1F532} Card Gradient Second Color (Hex)",
+            label: "Card Gradient Second Color (Hex)",
             description: "End color or gradient base",
             ui: {
               component: "color"
@@ -2180,26 +2180,26 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "cardTextContrast",
-            label: "\u{1F532} Card Text Contrast Mode",
+            label: "Card Text Contrast Mode",
             description: "Controls text color on this card. Auto automatically adapts text to background lightness across all visual grades.",
             options: [
-              { label: "\u26A1 Auto (Adapts text to background color)", value: "auto" },
-              { label: "\u26AA Light / White Text (For dark photos, videos, or dark colors)", value: "light" },
-              { label: "\u26AB Dark / Black Text (For white, cream, or light pastel colors)", value: "dark" }
+              { label: "Auto (Adapts text to background color)", value: "auto" },
+              { label: "Light / White Text (For dark photos, videos, or dark colors)", value: "light" },
+              { label: "Dark / Black Text (For white, cream, or light pastel colors)", value: "dark" }
             ]
           },
-          // ─── 🎬 SUBPAGE HERO BANNER VISUALS (/services/[slug]) ─────────
+          // ─── 📌 SERVICE PAGE HERO MEDIA ──────────────────────────────────
           {
             type: "string",
             name: "heroDisplayAs",
-            label: "\u{1F3AC} Subpage Hero Media Type",
+            label: "Hero Media Type",
             description: "Choose how the full-width Hero banner displays on this service's own page",
             options: [
-              { label: "\u{1F3AC} Cinematic Video Loop", value: "video" },
-              { label: "\u{1F4F8} Static Photograph / Image", value: "image" },
-              { label: "\u{1F3A8} Duo-Tone Gradient Background", value: "gradient" },
-              { label: "\u2B1B Solid Background Color", value: "solid" },
-              { label: "\u{1F311} Darkroom Baseline (No Media)", value: "none" }
+              { label: "Video Loop", value: "video" },
+              { label: "Static Photograph / Image", value: "image" },
+              { label: "Duo-Tone Gradient Background", value: "gradient" },
+              { label: "Solid Background Color", value: "solid" },
+              { label: "Solid Background (No Media)", value: "none" }
             ]
           },
           {
@@ -2270,7 +2270,7 @@ var config_default = defineConfig({
             type: "string",
             name: "displayAs",
             label: "Legacy Media Type Fallback",
-            description: "Used automatically if specific Bento or Hero type is not set"
+            description: "Used automatically if specific Card or Hero type is not set"
           },
           {
             type: "image",
@@ -2414,14 +2414,14 @@ var config_default = defineConfig({
             type: "string",
             name: "videoButtonLabel",
             label: "Section 1: Hero Play Button Label",
-            description: "e.g. WATCH FEATURED FILM \u2794",
+            description: "e.g. WATCH SHOWREEL \u2794",
             required: true
           },
           {
             type: "string",
             name: "scrollIndicatorText",
             label: "Section 1: Hero Scroll Indicator Text",
-            description: "e.g. EXPLORE ALL PRODUCTIONS",
+            description: "e.g. EXPLORE WORK",
             required: true
           },
           // ─── 🎞️ SECTION 2: ARCHIVE GRID & FILTERS ────────────────────────
@@ -2435,7 +2435,7 @@ var config_default = defineConfig({
             type: "string",
             name: "archiveTag",
             label: "Section 2: Archive Tag",
-            description: "e.g. Production Archive",
+            description: "e.g. Archive",
             required: true
           },
           {
@@ -2449,7 +2449,7 @@ var config_default = defineConfig({
             type: "string",
             name: "filterAllLabel",
             label: "Section 2: Filter All Button Label",
-            description: "e.g. All Productions",
+            description: "e.g. All Work",
             required: true
           },
           {
@@ -2467,18 +2467,18 @@ var config_default = defineConfig({
         path: "src/content/projects",
         format: "json",
         fields: [
-          // ─── 🎬 PROJECT IDENTITY ──────────────────────────────────────
+          // ─── 📌 PROJECT IDENTITY ──────────────────────────────────────────
           {
             type: "string",
             name: "order",
-            label: "\u{1F3AC} Display Order (01, 02, etc.)",
+            label: "Display Order (01, 02, etc.)",
             description: "Controls the display sequence on the /work page",
             required: true
           },
           {
             type: "string",
             name: "title",
-            label: "\u{1F3AC} Project Title",
+            label: "Project Title",
             isTitle: true,
             required: true
           },
@@ -2492,7 +2492,7 @@ var config_default = defineConfig({
             type: "string",
             name: "category",
             label: "Category Badge",
-            description: "e.g. Commercial / Filming, Narrative / Editing",
+            description: "e.g. Commercial, Editorial, Conferences",
             required: true
           },
           {
@@ -2516,7 +2516,7 @@ var config_default = defineConfig({
             name: "backgroundStyle",
             label: "Background Display Mode",
             options: [
-              { label: "Moving Cinema Video (Vimeo)", value: "video" },
+              { label: "Video (Vimeo)", value: "video" },
               { label: "Static Photograph", value: "image" }
             ],
             required: true
@@ -2614,9 +2614,9 @@ var config_default = defineConfig({
             label: "Hero Background Type",
             description: "Choose between video loop, photo image, or dual-tone gradient",
             options: [
-              { value: "video", label: "\u{1F3AC} Cinematic Video Loop" },
-              { value: "image", label: "\u{1F4F8} Static Photograph / Image" },
-              { value: "gradient", label: "\u{1F3A8} Dual-Tone Gradient Background" }
+              { value: "video", label: "Video Loop" },
+              { value: "image", label: "Static Photograph / Image" },
+              { value: "gradient", label: "Dual-Tone Gradient Background" }
             ]
           },
           {
@@ -2853,7 +2853,7 @@ var config_default = defineConfig({
             },
             fields: [
               { type: "string", name: "name", label: "Title / Name", required: true },
-              { type: "string", name: "badge", label: "Category Badge (e.g. OUR TEAM, CAMERA OPS)" },
+              { type: "string", name: "badge", label: "Category Badge (e.g. Leadership, Team)" },
               { type: "string", name: "bio", label: "Bio / Description", ui: { component: "textarea" } },
               { type: "image", name: "avatar", label: "Slide Image" },
               { type: "string", name: "videoLoop", label: "Video Loop URL/Path (Optional, e.g. /showreel.mp4)" }
@@ -2905,7 +2905,7 @@ var config_default = defineConfig({
             type: "string",
             name: "heading",
             label: "Section 1: Hero Heading",
-            description: "e.g. Let's discuss your next *production.*"
+            description: "e.g. Every great project starts with a conversation."
           },
           {
             type: "string",
@@ -2926,11 +2926,11 @@ var config_default = defineConfig({
             name: "displayAs",
             label: "Hero Background Media Type",
             options: [
-              { label: "\u{1F3A8} Duo-Tone Gradient Background", value: "gradient" },
-              { label: "\u{1F3AC} Cinematic Video Loop", value: "local-video" },
-              { label: "\u{1F4F8} Static Photograph / Image", value: "image" },
-              { label: "\u2B1B Solid Background Color", value: "solid" },
-              { label: "\u{1F311} Solid Darkroom Baseline (No Media)", value: "none" }
+              { label: "Duo-Tone Gradient Background", value: "gradient" },
+              { label: "Video Loop", value: "local-video" },
+              { label: "Static Photograph / Image", value: "image" },
+              { label: "Solid Background Color", value: "solid" },
+              { label: "Solid Background (No Media)", value: "none" }
             ]
           },
           {
@@ -3444,13 +3444,13 @@ var config_default = defineConfig({
             type: "string",
             name: "deskCustomEmail",
             label: "Section 3: Compliance Desk Dedicated Email (Optional)",
-            description: "Leave empty to use the studio email (contact@filmeditrun.co.uk)"
+            description: "Leave empty to use main contact email (contact@filmeditrun.co.uk)"
           },
           {
             type: "string",
             name: "deskCustomPhone",
             label: "Section 3: Compliance Desk Dedicated Telephone (Optional)",
-            description: "Leave empty to use main studio telephone"
+            description: "Leave empty to use main contact telephone"
           }
         ]
       },
@@ -3492,7 +3492,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "priceRange",
-            label: "Section 1: Studio Price Range Tier",
+            label: "Section 1: Price Range Tier",
             description: "Standard Schema tier (e.g. \xA3\xA3-\xA3\xA3\xA3)"
           },
           {
@@ -3568,7 +3568,7 @@ var config_default = defineConfig({
                 type: "string",
                 name: "badgeText",
                 label: "Sub-Badge Text (Optional)",
-                description: "Short label displayed next to the link (e.g. Member, Verified Studio, Portfolio, Company)"
+                description: "Short label displayed next to the link (e.g. Member, Verified, Portfolio, Company)"
               },
               {
                 type: "boolean",
@@ -3603,8 +3603,8 @@ var config_default = defineConfig({
             label: "Section 1: Default Global Aesthetic / Grade",
             description: "Baseline visual grade for visitors (Dark Noir, High-Key Light, or Supernova Gradient)",
             options: [
-              { value: "dark-noir", label: "Dark Noir (Obsidian Low-Key Cinema)" },
-              { value: "high-key", label: "High-Key Light (Crisp Minimalist Studio)" },
+              { value: "dark-noir", label: "Dark Noir (Obsidian Low-Key)" },
+              { value: "high-key", label: "High-Key Light (Crisp Minimalist)" },
               { value: "supernova", label: "Supernova Gradient (Cosmic Duotone Mesh)" }
             ]
           },
@@ -3631,7 +3631,7 @@ var config_default = defineConfig({
             type: "string",
             name: "darkNoirAccentColor",
             label: "Section 2: Dark Noir Accent Color (Hex)",
-            description: "Default: #e8c547 (Warm Tungsten Amber)",
+            description: "Default: #e8c547 (Warm Amber)",
             ui: {
               component: "color"
             }
@@ -3647,7 +3647,7 @@ var config_default = defineConfig({
             type: "string",
             name: "highKeyAccentColor",
             label: "Section 3: High-Key Light Accent Color (Hex)",
-            description: "Default: #e11d48 (Cinema Tally Red)",
+            description: "Default: #e11d48 (Accent Red)",
             ui: {
               component: "color"
             }
@@ -3656,7 +3656,7 @@ var config_default = defineConfig({
             type: "string",
             name: "highKeyBgColor",
             label: "Section 3: High-Key Light Canvas Background (Hex)",
-            description: "Default: #ffffff (Pure Studio White)",
+            description: "Default: #ffffff (Pure White)",
             ui: {
               component: "color"
             }
@@ -3708,8 +3708,8 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "studioTagline",
-            label: "Section 1: Studio Scope Tagline",
-            description: "Descriptive studio capability sentence under the brand wordmark",
+            label: "Section 1: Tagline",
+            description: "Descriptive sentence under the brand wordmark",
             ui: {
               component: "textarea"
             }
@@ -3717,18 +3717,18 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "commissionButtonLabel",
-            label: "Section 1: Commission Button Label"
+            label: "Section 1: Button Label"
           },
           {
             type: "string",
             name: "commissionButtonLink",
-            label: "Section 1: Commission Button Link"
+            label: "Section 1: Button Link"
           },
           // ─── 📌 SECTION 2: COLUMN 1 - SERVICES ────────────────────────────
           {
             type: "string",
             name: "capabilitiesHeading",
-            label: "Section 2: Column 1 - Services Heading"
+            label: "Section 2: Column 1 - Heading"
           },
           {
             type: "string",
@@ -3746,12 +3746,12 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "studioHeading",
-            label: "Section 3: Column 2 - Navigation Heading"
+            label: "Section 3: Column 2 - Heading"
           },
           {
             type: "object",
             name: "studioLinks",
-            label: "Section 3: Column 2 - Navigation Links",
+            label: "Section 3: Column 2 - Links",
             list: true,
             ui: {
               itemProps: (item) => ({
@@ -3767,13 +3767,13 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "presenceHeading",
-            label: "Section 4: Column 3 - Locations Heading"
+            label: "Section 4: Column 3 - Heading"
           },
           {
             type: "string",
             name: "cambridgeTitle",
             label: "Section 4: Column 3 - Cambridge Title",
-            description: "Default: Cambridge Studio"
+            description: "Default: Cambridge"
           },
           {
             type: "string",
@@ -3789,7 +3789,7 @@ var config_default = defineConfig({
             type: "string",
             name: "londonTitle",
             label: "Section 4: Column 3 - London Title",
-            description: "Default: London Base"
+            description: "Default: London"
           },
           {
             type: "string",
@@ -3817,48 +3817,48 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "directHeading",
-            label: "Section 5: Column 4 - Contact Heading"
+            label: "Section 5: Column 4 - Heading"
           },
           {
             type: "string",
             name: "inquiriesLabel",
-            label: "Section 5: Column 4 - Inquiries Label",
+            label: "Section 5: Column 4 - Item 1 Label",
             description: "Default: Inquiries"
           },
           {
             type: "string",
             name: "inquiriesActionText",
-            label: "Section 5: Column 4 - Inquiries Button / Link Text",
+            label: "Section 5: Column 4 - Item 1 Action Text",
             description: "Default: Start Project Brief \u2192"
           },
           {
             type: "string",
             name: "inquiriesActionLink",
-            label: "Section 5: Column 4 - Inquiries Link URL",
+            label: "Section 5: Column 4 - Item 1 Action Link",
             description: "Default: /contact"
           },
           {
             type: "string",
             name: "productionHubLabel",
-            label: "Section 5: Column 4 - Production Hub Label",
-            description: "Default: Production Hub"
+            label: "Section 5: Column 4 - Item 2 Label",
+            description: "Default: Hubs"
           },
           {
             type: "string",
             name: "productionHub",
-            label: "Section 5: Column 4 - Production Hub Text"
+            label: "Section 5: Column 4 - Item 2 Text"
           },
           {
             type: "string",
             name: "studioStatusLabel",
-            label: "Section 5: Column 4 - Studio Status Badge Label",
-            description: "Default: Studio Status"
+            label: "Section 5: Column 4 - Status Badge Label",
+            description: "Default: Status"
           },
           {
             type: "string",
             name: "studioStatus",
-            label: "Section 5: Column 4 - Studio Status Badge Text",
-            description: "Default: Accepting Commissions"
+            label: "Section 5: Column 4 - Status Badge Text",
+            description: "Default: Available"
           },
           // ─── 📌 SECTION 6: COPYRIGHT & LEGAL ──────────────────────────────
           {
