@@ -8,10 +8,10 @@
   "seoTitle": "Video Podcast Production Studio | Cambridge & London",
   "seoDescription": "Multi-camera video podcast and vodcast production filmed in your Cambridge or London office. Full YouTube episodes and vertical clips built for LinkedIn reach.",
   "heroTag": "Video Podcasts & Series",
-  "heroHeading": "Studio-grade video podcasts <br class=\"hidden sm:inline\" />filmed in *your own boardroom.*",
-  "heroLead": "Senior leadership rarely has time to travel to an external recording studio. We bring cinema cameras, acoustic mics, and studio lighting directly to your boardroom, recording a month of episodic content in a single afternoon.",
-  "breakdownHeading": "Broadcast production configured for *your meeting room.*",
-  "breakdownBody": "We turn your meeting room into an executive recording space within minutes. Our agile production crews configure multiple camera angles, manage sound levels, and guide discussions so leadership looks composed, sounds natural, and stays focused entirely on the conversation.",
+  "heroHeading": "One conversation. <br class=\"hidden sm:inline\" />Multiply your *reach.*",
+  "heroLead": "The most powerful thought leadership starts with a conversation. We can design and build a modular, acoustically controlled set inside your workspace, turning one half-day recording into full master episodes and a month of high-reach LinkedIn cutdowns.",
+  "breakdownHeading": "One recording session. *An ongoing content engine.*",
+  "breakdownBody": "We turn a single morning of conversation into weeks of multi-platform reach. Full-length master episodes, vertical cutdowns for LinkedIn, and calibrated audio deliver continuous thought leadership without recurring time drain.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/handheld.webp",
   "cardSolidColor": "#0a0a0c",
@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "Full Episodes",
-      "title": "Multi-Camera Master Episodes",
-      "description": "Multi-angle narrative cuts with smooth camera switching, branded graphics, and calibrated audio mastering, ready for YouTube, Spotify Video, and internal company channels."
+      "tag": "Visual Identity",
+      "title": "Show Identity & Bespoke Staging",
+      "description": "We design the complete aesthetic for your series: reusable set styling, cinematic camera angles, studio lighting, and on-brand graphics that command immediate visual authority."
     },
     {
-      "tag": "Social Clips",
-      "title": "Vertical Social & LinkedIn Cutdowns",
-      "description": "High-impact vertical 9:16 clips with styled burned-in captions, spotlighting key executive insights to build reach and discussion across LinkedIn feeds."
+      "tag": "Social Cutdowns",
+      "title": "Vertical LinkedIn & Social Cutdowns",
+      "description": "High-impact vertical 9:16 clips with styled burned-in captions, spotlighting key executive insights to build organic reach and discussion across LinkedIn feeds."
     },
     {
-      "tag": "Master Audio",
-      "title": "Mastered Audio Feeds for RSS",
-      "description": "Pristine vocal tracks with ambient noise reduction and loudness mastering, delivered ready for instant RSS feed distribution across Apple Podcasts and Spotify."
+      "tag": "Multi-Platform",
+      "title": "Multi-Platform Master Delivery",
+      "description": "Full-resolution 4K master episodes for YouTube, video exports for Spotify, and mastered audio feeds—complete with timecoded chapter markers for effortless multi-channel publishing."
     }
   ],
-  "ctaHeading": "Planning an executive podcast or *interview series?*",
-  "ctaDescription": "Tell us about your format, episode frequency, and recording location. We'll outline a dependable setup and provide a clear quote.",
-  "ctaButtonLabel": "Discuss Your Series →"
+  "ctaHeading": "Start your executive *series.*",
+  "ctaDescription": "We design the set and manage the tech, so leadership can focus entirely on the conversation.",
+  "ctaButtonLabel": "Discuss Your Interview Series →"
 }

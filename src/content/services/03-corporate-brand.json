@@ -8,10 +8,10 @@
   "seoTitle": "Corporate Brand Video Production | Cambridge & London",
   "seoDescription": "Cinematic corporate brand films and company showcases filmed across Cambridge and London. Clear brand storytelling that inspires clients, investors, and talent.",
   "heroTag": "Brand & Company Showcase",
-  "heroHeading": "Articulate your ambition, <br class=\"hidden sm:inline\" />culture, and *capability.*",
-  "heroLead": "Great companies are built on culture and engineering discipline. We document your workplace, leadership, and daily operations to produce brand films that build genuine commercial standing with investors, clients, and talent.",
-  "breakdownHeading": "Cinematic showcase of your *people and business.*",
-  "breakdownBody": "Filming inside working offices, research laboratories, and engineering facilities demands respect for your schedule. Our crews create high production value with minimal operational footprint, ensuring your team works without interruption.",
+  "heroHeading": "Pride in your culture. <br class=\"hidden sm:inline\" />Clarity in your *vision.*",
+  "heroLead": "Great companies are built on culture. We film your people, facilities, and leadership, crafting cinematic brand films that rally your team around a shared vision, mission and strategy.",
+  "breakdownHeading": "Showcase your *people*, organisation and *culture.*",
+  "breakdownBody": "Filming inside working offices, research laboratories, and engineering facilities demands respect for your schedule. Our crews create high production value with minimal interruption.",
   "cardDisplayAs": "gradient",
   "cardImage": "/work/onlocation.webp",
   "cardSolidColor": "#0a0a0c",
@@ -33,22 +33,22 @@
   "cloudVideoUrl": "",
   "deliverables": [
     {
-      "tag": "Overview Film",
+      "tag": "Brand Showcase",
       "title": "Company Overview & Brand Showcase",
-      "description": "A cinematic film capturing your mission, operational scale, and technical capability. Built to establish immediate authority on your website, open keynote presentations, and introduce your business to partners."
+      "description": "A cinematic film capturing your mission, operational scale, and technical capability. Built to anchor your website, open keynotes, and introduce your business to partners."
     },
     {
-      "tag": "Culture & Talent",
-      "title": "Workplace Culture & Recruitment Films",
-      "description": "Authentic profiles of team members, shared technical values, and real working environments, designed to attract top engineering, commercial, and research talent through your careers channels."
+      "tag": "Culture & Engagement",
+      "title": "Workplace Culture & Internal Alignment",
+      "description": "Authentic profiles of your team, shared values, and everyday working environments. Built to rally your workforce around a shared vision."
     },
     {
       "tag": "Leadership & Impact",
       "title": "Executive Vision, ESG & Internal Comms",
-      "description": "Composed executive addresses, sustainability milestones, and strategy rollouts formatted for company-wide town halls, global team broadcasts, and annual investor reporting."
+      "description": "Executive team addresses, sustainability milestones, and strategy rollouts formatted for company-wide all-hands, global broadcasts, and investor relations."
     }
   ],
-  "ctaHeading": "Ready to showcase your company's *story?*",
-  "ctaDescription": "Tell us about your corporate goals and upcoming brief. We'll outline a clear approach, dependable schedule, and transparent quote.",
-  "ctaButtonLabel": "Discuss Your Brand Film →"
+  "ctaHeading": "Share your *company story.*",
+  "ctaDescription": "We work alongside your teams to capture your culture.",
+  "ctaButtonLabel": "Discuss →"
 }
