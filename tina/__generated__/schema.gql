@@ -159,10 +159,10 @@ type Homepage implements Node & Document {
   secondaryCtaLink: String!
   brandName: String!
   expertiseList: [String]
+  telemetryMetrics: [HomepageTelemetryMetrics]
   introHeading: String!
   introBody: String!
   introImage: String
-  telemetryMetrics: [HomepageTelemetryMetrics]
   workSpotlightTag: String
   workSpotlightHeading: String
   workSpotlightDescription: String
@@ -231,10 +231,10 @@ input HomepageFilter {
   secondaryCtaLink: StringFilter
   brandName: StringFilter
   expertiseList: StringFilter
+  telemetryMetrics: HomepageTelemetryMetricsFilter
   introHeading: StringFilter
   introBody: StringFilter
   introImage: ImageFilter
-  telemetryMetrics: HomepageTelemetryMetricsFilter
   workSpotlightTag: StringFilter
   workSpotlightHeading: StringFilter
   workSpotlightDescription: StringFilter
@@ -1555,10 +1555,10 @@ input HomepageMutation {
   secondaryCtaLink: String
   brandName: String
   expertiseList: [String]
+  telemetryMetrics: [HomepageTelemetryMetricsMutation]
   introHeading: String
   introBody: String
   introImage: String
-  telemetryMetrics: [HomepageTelemetryMetricsMutation]
   workSpotlightTag: String
   workSpotlightHeading: String
   workSpotlightDescription: String

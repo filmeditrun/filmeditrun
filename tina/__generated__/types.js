@@ -22,15 +22,15 @@ export const HomepagePartsFragmentDoc = gql`
   secondaryCtaLink
   brandName
   expertiseList
-  introHeading
-  introBody
-  introImage
   telemetryMetrics {
     __typename
     value
     label
     description
   }
+  introHeading
+  introBody
+  introImage
   workSpotlightTag
   workSpotlightHeading
   workSpotlightDescription

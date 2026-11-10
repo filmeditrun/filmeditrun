@@ -89,40 +89,46 @@ ${services.map((s, i) => `${i + 5}. [Service 0${i + 1}: ${s.title} (\`${s.link |
 
 ## 2. Homepage (\`/\`)
 
-### Hero Section
-* **Location Strip:** \`${home.locations}\`
-* **Main Headline:** \`${clean(home.heroHeadingPrefix)} ${clean(home.heroHeadingHighlight)}\`
-* **Tagline / Lead:** \`${home.tagline}\`
-* **Primary Button:** \`${home.primaryCtaLabel}\` → \`${home.primaryCtaLink}\`
-* **Secondary Button:** \`${home.secondaryCtaLabel}\` → \`${home.secondaryCtaLink}\`
+### Section 1: Hero & Showreel
+* **Locations Tag (\`locations\`):** \`${home.locations}\`
+* **Heading (\`heroHeadingPrefix\` + \`heroHeadingHighlight\`):** \`${clean(home.heroHeadingPrefix)} ${clean(home.heroHeadingHighlight)}\`
+* **Lead (\`tagline\`):** \`${home.tagline}\`
+* **Primary Button (\`primaryCtaLabel\`):** \`${home.primaryCtaLabel}\` → \`${home.primaryCtaLink}\`
+* **Secondary Button (\`secondaryCtaLabel\`):** \`${home.secondaryCtaLabel}\` → \`${home.secondaryCtaLink}\`
 
-### Cinematic Spec Strip
-* **Brand Label:** \`FilmEditRun\`
-* **Capabilities Roster:**
+### Section 2: Capabilities Spec Strip
+* **Brand Label (\`brandName\`):** \`${home.brandName || 'FilmEditRun'}\`
+* **Capabilities List (\`expertiseList\`):**
 ${(home.expertiseList || []).map(e => `  - \`${e}\``).join('\n')}
 
-### Studio Telemetry Metric Bar
-${(home.telemetryMetrics || []).map((m, i) => `* **Metric ${i + 1}:** \`${m.value}\` • \`${m.label}\` : ${m.description}`).join('\n')}
+### Section 3: Key Metrics
+${(home.telemetryMetrics || []).map((m, i) => `* **Metric ${i + 1} (\`telemetryMetrics[${i}]\`):** \`${m.value}\` • \`${m.label}\` : ${m.description}`).join('\n')}
 
-### Studio Manifesto (Full-Bleed Parallax Break)
-* **Heading:** \`${home.introHeading}\`
-* **Body:** \`${home.introBody}\`
+### Section 4: Statement 1 (Intro)
+* **Heading (\`introHeading\`):** \`${home.introHeading}\`
+* **Body (\`introBody\`):** \`${home.introBody}\`
 
-### Production Ethos (Full-Bleed Parallax Break)
-* **Heading:** \`${home.scaleHeading}\`
-* **Body:** \`${home.scaleDescription}\`
+### Section 5: Featured Work
+* **Tag (\`workSpotlightTag\`):** \`${home.workSpotlightTag}\`
+* **Heading (\`workSpotlightHeading\`):** \`${home.workSpotlightHeading}\`
+* **Description (\`workSpotlightDescription\`):** \`${home.workSpotlightDescription}\`
+* **Link (\`workSpotlightLinkLabel\`):** \`${home.workSpotlightLinkLabel}\` → \`${home.workSpotlightLinkHref}\`
 
-### Services Overview (Modular Capabilities)
-* **Tag:** \`${home.bentoTag}\`
-* **Heading:** \`${home.bentoHeading}\`
-* **Description:** \`${home.bentoDescription}\`
-* **Action:** \`${home.bentoLinkLabel}\` → \`${home.bentoLinkHref}\`
+### Section 6: Statement 2 (Scale)
+* **Heading (\`scaleHeading\`):** \`${home.scaleHeading}\`
+* **Body (\`scaleDescription\`):** \`${home.scaleDescription}\`
 
-### Production Pipeline (Disciplined 4-Stage Methodology)
-* **Tag:** \`${home.pipelineTag}\`
-* **Heading:** \`${home.pipelineHeading}\`
-* **Description:** \`${home.pipelineDescription}\`
-* **Action:** \`${home.pipelineLinkLabel}\` → \`${home.pipelineLinkHref}\`
+### Section 7: Services Overview
+* **Tag (\`bentoTag\`):** \`${home.bentoTag}\`
+* **Heading (\`bentoHeading\`):** \`${home.bentoHeading}\`
+* **Description (\`bentoDescription\`):** \`${home.bentoDescription}\`
+* **Link (\`bentoLinkLabel\`):** \`${home.bentoLinkLabel}\` → \`${home.bentoLinkHref}\`
+
+### Section 8: 4-Stage Methodology
+* **Tag (\`pipelineTag\`):** \`${home.pipelineTag}\`
+* **Heading (\`pipelineHeading\`):** \`${home.pipelineHeading}\`
+* **Description (\`pipelineDescription\`):** \`${home.pipelineDescription}\`
+* **Link (\`pipelineLinkLabel\`):** \`${home.pipelineLinkLabel}\` → \`${home.pipelineLinkHref}\`
 * **The 4 Stages:**
   - **Stage 01 // PHASE 01:** \`Discovery & Pre-Production\`  
     *We establish your business objectives, target audience, and key messaging upfront, shaping a tailored production scope and transparent quote around your project requirements.*
@@ -133,23 +139,19 @@ ${(home.telemetryMetrics || []).map((m, i) => `* **Metric ${i + 1}:** \`${m.valu
   - **Stage 04 // PHASE 04:** \`Versioning & Delivery\`  
     *Delivering films tailored to your campaign requirements: from widescreen website masters to captioned vertical and square cutdowns formatted for social reach.*
 
-### Selected Work in Focus
-* **Tag:** \`${home.workSpotlightTag}\`
-* **Heading:** \`${home.workSpotlightHeading}\`
-* **Description:** \`${home.workSpotlightDescription}\`
-* **Action:** \`${home.workSpotlightLinkLabel}\` → \`${home.workSpotlightLinkHref}\`
-
-### Operational Locations (Cambridge & London Single-Source)
-* **Tag:** \`${home.hubsTag}\`
-* **Heading:** \`${home.hubsHeading}\`
-* **Description:** \`${home.hubsDescription}\`
+### Section 9: Regional Hubs
+* **Tag (\`hubsTag\`):** \`${home.hubsTag}\`
+* **Heading (\`hubsHeading\`):** \`${home.hubsHeading}\`
+* **Description (\`hubsDescription\`):** \`${home.hubsDescription}\`
 * **Card 1: Cambridge Studio:** \`Explore →\` → \`/cambridge\`
 * **Card 2: London Field Units:** \`Explore →\` → \`/london\`
 
-### Closing Commissioning Call to Action
-* **Heading:** \`${home.ctaHeading}\`
-* **Description:** \`${home.ctaDescription}\`
-* **Primary Button:** \`${home.ctaPrimaryLabel}\` → \`${home.ctaPrimaryLink}\`
+### Section 10: Call to Action
+* **Tag (\`ctaBadge\`):** \`${home.ctaBadge || 'Direct Studio Intake'}\`
+* **Heading (\`ctaHeading\`):** \`${home.ctaHeading}\`
+* **Description (\`ctaDescription\`):** \`${home.ctaDescription}\`
+* **Primary Button (\`ctaPrimaryLabel\`):** \`${home.ctaPrimaryLabel}\` → \`${home.ctaPrimaryLink}\`
+* **Secondary Button (\`ctaSecondaryLabel\`):** \`${home.ctaSecondaryLabel}\` → \`${home.ctaSecondaryLink}\`
 
 ---
 
@@ -193,28 +195,28 @@ ${(about.milestones || []).map(m => `  - **${m.year}** • \`${m.title}\`: ${m.d
 
 ## 4. Services Overview (\`/services\`)
 
-### Header Section
-* **Eyebrow Tag:** \`${servicesPage.headerTag}\`
-* **Heading:** \`${clean(servicesPage.heading)}\`
-* **Description:** \`${servicesPage.description}\`
+### Section 1: Hero
+* **Tag (\`headerTag\`):** \`${servicesPage.headerTag}\`
+* **Heading (\`heading\`):** \`${clean(servicesPage.heading)}\`
+* **Lead (\`description\`):** \`${servicesPage.description}\`
 * **Primary Button:** \`Start Project Brief →\` → \`/contact\`
 
-### Mid-Page Parallax Breather
+### Section 2: Statement Break
 * **Heading:** \`Precision with passion.\`
 
-### Production Methodology (4-Stage Process)
-* **Tag:** \`${servicesPage.processTag}\`
-* **Heading:** \`${servicesPage.processHeading}\`
-* **Description:** \`${servicesPage.processDescription}\`
-* **Action:** \`Discuss Your Timeline →\` → \`/contact\`
-* **The 4 Process Stages:**
+### Section 3: 4-Stage Methodology
+* **Tag (\`processTag\`):** \`${servicesPage.processTag}\`
+* **Heading (\`processHeading\`):** \`${servicesPage.processHeading}\`
+* **Description (\`processDescription\`):** \`${servicesPage.processDescription}\`
+* **Link:** \`Discuss Your Timeline →\` → \`/contact\`
+* **The 4 Process Stages (\`processSteps\`):**
 ${(servicesPage.processSteps || []).map(p => `  - **Stage ${p.step} // ${p.tag}:** \`${p.title}\`  \n    *${p.description}*`).join('\n')}
 
-### Closing Call to Action
-* **Tag:** \`${servicesPage.ctaTag}\`
-* **Heading:** \`${servicesPage.ctaHeading}\`
-* **Description:** \`${servicesPage.ctaText}\`
-* **Primary Button:** \`${servicesPage.ctaButtonLabel}\` → \`${servicesPage.ctaButtonLink}\`
+### Section 4: Call to Action
+* **Tag (\`ctaTag\`):** \`${servicesPage.ctaTag}\`
+* **Heading (\`ctaHeading\`):** \`${servicesPage.ctaHeading}\`
+* **Description (\`ctaText\`):** \`${servicesPage.ctaText}\`
+* **Button (\`ctaButtonLabel\`):** \`${servicesPage.ctaButtonLabel}\` → \`${servicesPage.ctaButtonLink}\`
 
 ---
 `;

@@ -577,32 +577,32 @@ var config_default = defineConfig({
             },
             required: true
           },
-          // ─── 🎨 HERO & CINEMA BANNER ──────────────────────────────────
+          // ─── 📌 SECTION 1: HERO & SHOWREEL ───────────────────────────────
           {
             type: "string",
             name: "locations",
-            label: "\u{1F3A8} Hero Locations Badge",
+            label: "Section 1: Hero Locations Tag",
             description: "e.g. London \u2022 Cambridge \u2022 UK Wide",
             required: true
           },
           {
             type: "string",
             name: "heroHeadingPrefix",
-            label: "Hero Heading (Main White Text)",
+            label: "Section 1: Hero Heading (Main Text)",
             description: "e.g. We Capture, Create, and",
             required: true
           },
           {
             type: "string",
             name: "heroHeadingHighlight",
-            label: "Hero Heading (Amber Highlight Word)",
+            label: "Section 1: Hero Heading (Highlight Text)",
             description: "e.g. Produce.",
             required: true
           },
           {
             type: "string",
             name: "tagline",
-            label: "Hero Subtitle / Tagline",
+            label: "Section 1: Hero Subtitle / Lead",
             ui: {
               component: "textarea"
             },
@@ -611,64 +611,81 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "heroVideoPath",
-            label: "Hero Background Video Path",
+            label: "Section 1: Hero Video Path",
             description: "e.g. /showreel.mp4 (placed in public/ folder)",
             required: true
           },
           {
             type: "image",
             name: "heroPosterPath",
-            label: "Hero Video Fallback Poster Image",
-            description: "Poster frame displayed before video loads or on mobile low-power mode (e.g. /og-image.jpg)"
+            label: "Section 1: Hero Fallback Poster Image",
+            description: "Poster frame displayed before video loads (e.g. /og-image.jpg)"
           },
           {
             type: "string",
             name: "primaryCtaLabel",
-            label: "Primary Button Text",
+            label: "Section 1: Primary Button Text",
             required: true
           },
           {
             type: "string",
             name: "primaryCtaLink",
-            label: "Primary Button Link",
+            label: "Section 1: Primary Button Link",
             required: true
           },
           {
             type: "string",
             name: "secondaryCtaLabel",
-            label: "Secondary Button Text",
+            label: "Section 1: Secondary Button Text",
             required: true
           },
           {
             type: "string",
             name: "secondaryCtaLink",
-            label: "Secondary Button Link",
+            label: "Section 1: Secondary Button Link",
             required: true
           },
-          // ─── 🎞️ SPEC STRIP ───────────────────────────────────────────
+          // ─── 🎞️ SECTION 2: CAPABILITIES STRIP ───────────────────────────
           {
             type: "string",
             name: "brandName",
-            label: "\u{1F39E}\uFE0F Spec Strip Brand Label",
+            label: "Section 2: Spec Strip Brand Label",
             required: true
           },
           {
             type: "string",
             name: "expertiseList",
-            label: "\u{1F39E}\uFE0F Spec Strip Expertise Items",
+            label: "Section 2: Capabilities List",
             list: true
           },
-          // ─── 📝 EDITORIAL INTRO SECTION ───────────────────────────────
+          // ─── 📊 SECTION 3: KEY METRICS ──────────────────────────────────
+          {
+            type: "object",
+            name: "telemetryMetrics",
+            label: "Section 3: Key Metrics",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.value ? `${item.value} : ${item?.label || ""}` : "Metric"
+              })
+            },
+            fields: [
+              { type: "string", name: "value", label: "Metric Value (e.g. 100%, 48h)", required: true },
+              { type: "string", name: "label", label: "Metric Title / Label", required: true },
+              { type: "string", name: "description", label: "Short Description", ui: { component: "textarea" }, required: true }
+            ]
+          },
+          // ─── 📝 SECTION 4: STATEMENT 1 (INTRO) ──────────────────────────
           {
             type: "string",
             name: "introHeading",
-            label: "\u{1F4DD} Intro Section Heading (Use *word* for gradient)",
+            label: "Section 4: Statement 1 Heading",
             required: true
           },
           {
             type: "string",
             name: "introBody",
-            label: "\u{1F4DD} Intro Section Body Text",
+            label: "Section 4: Statement 1 Body",
             ui: {
               component: "textarea"
             },
@@ -677,198 +694,181 @@ var config_default = defineConfig({
           {
             type: "image",
             name: "introImage",
-            label: "Intro Background Image (Parallax)",
+            label: "Section 4: Statement 1 Background Image",
             description: "Default: /work/onlocation.webp"
           },
-          // ─── 📊 STUDIO TELEMETRY METRICS ──────────────────────────────
-          {
-            type: "object",
-            name: "telemetryMetrics",
-            label: "\u{1F4CA} Studio Telemetry Metrics",
-            list: true,
-            ui: {
-              itemProps: (item) => ({
-                label: item?.value ? `${item.value} : ${item?.label || ""}` : "Metric"
-              })
-            },
-            fields: [
-              { type: "string", name: "value", label: "Metric Number / Value (e.g. 100%, 48h)", required: true },
-              { type: "string", name: "label", label: "Metric Title / Label", required: true },
-              { type: "string", name: "description", label: "Short Description", ui: { component: "textarea" }, required: true }
-            ]
-          },
-          // ─── 🎬 WORK SECTION ─────────────────────────────────────────
+          // ─── 🎬 SECTION 5: FEATURED WORK ─────────────────────────────────
           {
             type: "string",
             name: "workSpotlightTag",
-            label: "Work Section Badge Tag",
+            label: "Section 5: Featured Work Tag",
             description: "Default: Work"
           },
           {
             type: "string",
             name: "workSpotlightHeading",
-            label: "Work Section Heading (Use *word* for gradient)",
+            label: "Section 5: Featured Work Heading",
             description: "Default: Selected Films & *Client Highlights*."
           },
           {
             type: "string",
             name: "workSpotlightDescription",
-            label: "Work Section Description",
+            label: "Section 5: Featured Work Description",
             ui: { component: "textarea" }
           },
           {
             type: "string",
             name: "workSpotlightLinkLabel",
-            label: "Work Section Button Text",
+            label: "Section 5: Featured Work Button Text",
             description: "Default: Explore Work \u2192"
           },
           {
             type: "string",
             name: "workSpotlightLinkHref",
-            label: "Work Section Button Link",
+            label: "Section 5: Featured Work Button Link",
             description: "Default: /work"
           },
-          // ─── 🌌 FULL-BLEED PARALLAX IMMERSION ─────────────────────────
+          // ─── 🌌 SECTION 6: STATEMENT 2 (SCALE) ───────────────────────────
           {
             type: "string",
             name: "scaleHeading",
-            label: "Parallax Section Heading (Use *word* for gradient)",
+            label: "Section 6: Statement 2 Heading",
             description: "Default: Low-profile crews. *Plenary-scale capture.*"
           },
           {
             type: "string",
             name: "scaleDescription",
-            label: "Parallax Section Description",
+            label: "Section 6: Statement 2 Body",
             ui: { component: "textarea" }
           },
           {
             type: "image",
             name: "scaleImage",
-            label: "Parallax Background Image",
+            label: "Section 6: Statement 2 Background Image",
             description: "Default: /cambridge/stage-wide.webp"
           },
-          // ─── 🍱 SERVICES BENTO GRID ───────────────────────────────────
+          // ─── 🍱 SECTION 7: SERVICES OVERVIEW ─────────────────────────────
           {
             type: "string",
             name: "bentoTag",
-            label: "Bento Grid Tag / Badge",
+            label: "Section 7: Services Overview Tag",
             description: "Default: Services"
           },
           {
             type: "string",
             name: "bentoHeading",
-            label: "Bento Grid Heading (Use *word* for gradient)",
+            label: "Section 7: Services Overview Heading",
             description: "Default: Engineered for *Impact & Engagement*."
           },
           {
             type: "string",
             name: "bentoDescription",
-            label: "Bento Grid Description",
+            label: "Section 7: Services Overview Description",
             ui: { component: "textarea" }
           },
           {
             type: "string",
             name: "bentoLinkLabel",
-            label: "Bento Grid Directory Link Label",
+            label: "Section 7: Services Overview Link Text",
             description: "Default: Explore Services \u2192"
           },
           {
             type: "string",
             name: "bentoLinkHref",
-            label: "Bento Grid Directory Link URL",
+            label: "Section 7: Services Overview Link URL",
             description: "Default: /services"
           },
-          // ─── ⚡ PRODUCTION PIPELINE (STAGE 3) ─────────────────────────
+          // ─── ⚡ SECTION 8: 4-STAGE METHODOLOGY ───────────────────────────
           {
             type: "string",
             name: "pipelineTag",
-            label: "Pipeline Section Tag / Badge",
+            label: "Section 8: Methodology Tag",
             description: "Default: Production Pipeline"
           },
           {
             type: "string",
             name: "pipelineHeading",
-            label: "Pipeline Heading (Use *word* for gradient)",
+            label: "Section 8: Methodology Heading",
             description: "Default: Calm execution. *Predictable excellence.*"
           },
           {
             type: "string",
             name: "pipelineDescription",
-            label: "Pipeline Description",
+            label: "Section 8: Methodology Description",
             ui: { component: "textarea" }
           },
           {
             type: "string",
             name: "pipelineLinkLabel",
-            label: "Pipeline Link Button Label",
+            label: "Section 8: Methodology Link Text",
             description: "Default: Discuss Your Timeline \u2192"
           },
           {
             type: "string",
             name: "pipelineLinkHref",
-            label: "Pipeline Link Button URL",
+            label: "Section 8: Methodology Link URL",
             description: "Default: /contact"
           },
-          // ─── 🏛️ DUAL HUBS (STAGE 4 - PART 1) ──────────────────────────
+          // ─── 🏛️ SECTION 9: REGIONAL HUBS ────────────────────────────────
           {
             type: "string",
             name: "hubsTag",
-            label: "Dual Hubs Section Tag / Badge",
+            label: "Section 9: Regional Hubs Tag",
             description: "Default: Dual Hubs"
           },
           {
             type: "string",
             name: "hubsHeading",
-            label: "Dual Hubs Heading (Use *word* for gradient)",
+            label: "Section 9: Regional Hubs Heading",
             description: "Default: Rooted in Cambridge. *On-location across London.*"
           },
           {
             type: "string",
             name: "hubsDescription",
-            label: "Dual Hubs Description",
+            label: "Section 9: Regional Hubs Description",
             ui: { component: "textarea" }
           },
-          // ─── 🚀 FINAL COMMISSIONING CTA (STAGE 4 - PART 2) ───────────
+          // ─── 🎯 SECTION 10: CALL TO ACTION ──────────────────────────────
           {
             type: "string",
             name: "ctaBadge",
-            label: "Final CTA Badge",
+            label: "Section 10: Call to Action Tag",
             description: "Default: Direct Studio Intake"
           },
           {
             type: "string",
             name: "ctaHeading",
-            label: "Final CTA Heading (Use *word* for gradient)",
+            label: "Section 10: Call to Action Heading",
             description: "Default: Ready to film your next *conference or brand story*?"
           },
           {
             type: "string",
             name: "ctaDescription",
-            label: "Final CTA Description",
+            label: "Section 10: Call to Action Description",
             ui: { component: "textarea" }
           },
           {
             type: "string",
             name: "ctaPrimaryLabel",
-            label: "Final CTA Primary Button Label",
+            label: "Section 10: Call to Action Primary Button Text",
             description: "Default: Start Project Brief \u2192"
           },
           {
             type: "string",
             name: "ctaPrimaryLink",
-            label: "Final CTA Primary Button URL",
+            label: "Section 10: Call to Action Primary Button Link",
             description: "Default: /contact"
           },
           {
             type: "string",
             name: "ctaSecondaryLabel",
-            label: "Final CTA Secondary Button Label",
+            label: "Section 10: Call to Action Secondary Button Text",
             description: "Default: Explore Full Portfolio"
           },
           {
             type: "string",
             name: "ctaSecondaryLink",
-            label: "Final CTA Secondary Button URL",
+            label: "Section 10: Call to Action Secondary Button Link",
             description: "Default: /work"
           }
         ]
@@ -1811,24 +1811,25 @@ var config_default = defineConfig({
               component: "textarea"
             }
           },
+          // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
             type: "string",
             name: "headerTag",
-            label: "Top Amber Tagline",
+            label: "Section 1: Hero Tag",
             description: "e.g. Expert Production Solutions",
             required: true
           },
           {
             type: "string",
             name: "heading",
-            label: "Main Page Heading",
+            label: "Section 1: Hero Heading",
             description: "e.g. What We Do.",
             required: true
           },
           {
             type: "string",
             name: "description",
-            label: "Page Subtitle & Meta Description",
+            label: "Section 1: Hero Lead",
             ui: {
               component: "textarea"
             },
@@ -1899,23 +1900,23 @@ var config_default = defineConfig({
               component: "color"
             }
           },
-          // ─── ⚙️ PRODUCTION PROCESS (HOW IT WORKS) ─────────────────────
+          // ─── ⚙️ SECTION 2: 4-STAGE METHODOLOGY ──────────────────────────
           {
             type: "string",
             name: "processTag",
-            label: "Process Eyebrow Tag",
+            label: "Section 2: Methodology Tag",
             description: "Default: Workflow Architecture"
           },
           {
             type: "string",
             name: "processHeading",
-            label: "Process Section Heading",
+            label: "Section 2: Methodology Heading",
             description: "Default: The Production Process."
           },
           {
             type: "string",
             name: "processDescription",
-            label: "Process Subtitle",
+            label: "Section 2: Methodology Description",
             ui: {
               component: "textarea"
             }
@@ -1924,7 +1925,7 @@ var config_default = defineConfig({
             type: "object",
             list: true,
             name: "processSteps",
-            label: "Production Process Steps",
+            label: "Section 2: Process Steps",
             ui: {
               itemProps: (item) => ({
                 label: item?.step && item?.title ? `${item.step}. ${item.title}` : "Process Step"
@@ -1960,23 +1961,23 @@ var config_default = defineConfig({
               }
             ]
           },
-          // ─── 🚀 BOTTOM CTA ─────────────────────────────────────────────
+          // ─── 🎯 SECTION 3: CALL TO ACTION ────────────────────────────────
           {
             type: "string",
             name: "ctaTag",
-            label: "Bottom CTA Eyebrow Tag",
+            label: "Section 3: Call to Action Tag",
             description: "Default: READY FOR THE NEXT TAKE?"
           },
           {
             type: "string",
             name: "ctaHeading",
-            label: "Bottom CTA Heading",
+            label: "Section 3: Call to Action Heading",
             description: "Default: Have an Upcoming Event or Production Brief?"
           },
           {
             type: "string",
             name: "ctaText",
-            label: "Bottom CTA Description",
+            label: "Section 3: Call to Action Description",
             ui: {
               component: "textarea"
             }
@@ -1984,7 +1985,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "ctaButtonLabel",
-            label: "Bottom CTA Button Text",
+            label: "Section 3: Call to Action Button Text",
             description: "Default: Start Project Brief"
           },
           {

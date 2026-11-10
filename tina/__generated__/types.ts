@@ -478,10 +478,10 @@ export type Homepage = Node & Document & {
   secondaryCtaLink: Scalars['String']['output'];
   brandName: Scalars['String']['output'];
   expertiseList?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  telemetryMetrics?: Maybe<Array<Maybe<HomepageTelemetryMetrics>>>;
   introHeading: Scalars['String']['output'];
   introBody: Scalars['String']['output'];
   introImage?: Maybe<Scalars['String']['output']>;
-  telemetryMetrics?: Maybe<Array<Maybe<HomepageTelemetryMetrics>>>;
   workSpotlightTag?: Maybe<Scalars['String']['output']>;
   workSpotlightHeading?: Maybe<Scalars['String']['output']>;
   workSpotlightDescription?: Maybe<Scalars['String']['output']>;
@@ -550,10 +550,10 @@ export type HomepageFilter = {
   secondaryCtaLink?: InputMaybe<StringFilter>;
   brandName?: InputMaybe<StringFilter>;
   expertiseList?: InputMaybe<StringFilter>;
+  telemetryMetrics?: InputMaybe<HomepageTelemetryMetricsFilter>;
   introHeading?: InputMaybe<StringFilter>;
   introBody?: InputMaybe<StringFilter>;
   introImage?: InputMaybe<ImageFilter>;
-  telemetryMetrics?: InputMaybe<HomepageTelemetryMetricsFilter>;
   workSpotlightTag?: InputMaybe<StringFilter>;
   workSpotlightHeading?: InputMaybe<StringFilter>;
   workSpotlightDescription?: InputMaybe<StringFilter>;
@@ -2173,10 +2173,10 @@ export type HomepageMutation = {
   secondaryCtaLink?: InputMaybe<Scalars['String']['input']>;
   brandName?: InputMaybe<Scalars['String']['input']>;
   expertiseList?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  telemetryMetrics?: InputMaybe<Array<InputMaybe<HomepageTelemetryMetricsMutation>>>;
   introHeading?: InputMaybe<Scalars['String']['input']>;
   introBody?: InputMaybe<Scalars['String']['input']>;
   introImage?: InputMaybe<Scalars['String']['input']>;
-  telemetryMetrics?: InputMaybe<Array<InputMaybe<HomepageTelemetryMetricsMutation>>>;
   workSpotlightTag?: InputMaybe<Scalars['String']['input']>;
   workSpotlightHeading?: InputMaybe<Scalars['String']['input']>;
   workSpotlightDescription?: InputMaybe<Scalars['String']['input']>;
@@ -2710,10 +2710,10 @@ export type HomepageFilter = {
   secondaryCtaLink?: StringFilter | null | undefined;
   brandName?: StringFilter | null | undefined;
   expertiseList?: StringFilter | null | undefined;
+  telemetryMetrics?: HomepageTelemetryMetricsFilter | null | undefined;
   introHeading?: StringFilter | null | undefined;
   introBody?: StringFilter | null | undefined;
   introImage?: ImageFilter | null | undefined;
-  telemetryMetrics?: HomepageTelemetryMetricsFilter | null | undefined;
   workSpotlightTag?: StringFilter | null | undefined;
   workSpotlightHeading?: StringFilter | null | undefined;
   workSpotlightDescription?: StringFilter | null | undefined;
@@ -3601,15 +3601,15 @@ export const HomepagePartsFragmentDoc = gql`
   secondaryCtaLink
   brandName
   expertiseList
-  introHeading
-  introBody
-  introImage
   telemetryMetrics {
     __typename
     value
     label
     description
   }
+  introHeading
+  introBody
+  introImage
   workSpotlightTag
   workSpotlightHeading
   workSpotlightDescription
