@@ -35,7 +35,7 @@ const email = siteConfig.email?.trim() || undefined;
 const priceRange = siteConfig.priceRange || "££-£££";
 const locality = siteConfig.addressLocality || "Cambridge";
 const region = siteConfig.addressRegion || "Cambridgeshire";
-const postalCode = siteConfig.postalCode || "CB1 2JW";
+const postalCode = siteConfig.postalCode?.trim() || undefined;
 const country = siteConfig.addressCountry || "GB";
 const mapsUrl = siteConfig.googleMapsUrl || undefined;
 
@@ -68,7 +68,7 @@ const baseBusinessSchema: Record<string, any> = {
     "@type": "PostalAddress",
     "addressLocality": locality,
     "addressRegion": region,
-    "postalCode": postalCode,
+    ...(postalCode ? { "postalCode": postalCode } : {}),
     "addressCountry": country
   },
   "areaServed": [

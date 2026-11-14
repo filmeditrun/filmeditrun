@@ -10,7 +10,7 @@
       "id": "controller",
       "number": "01",
       "title": "Data Controller & Contact Information",
-      "content": "For the purposes of UK data protection law, the Data Controller is:\n\n**FilmEditRun Ltd** (Company No. 17576533)  \nRegistered in England & Wales  \nCambridge, Cambridgeshire, CB1 2JW, United Kingdom  \nEmail: contact@filmeditrun.co.uk  \nWebsite: https://filmeditrun.co.uk\n\nIf you have any questions about this Privacy Policy, your rights, or our handling of your personal data, please contact our data compliance desk using the email above."
+      "content": "For the purposes of UK data protection law, the Data Controller is:\n\n**FilmEditRun Ltd** (Company No. 17576533)  \nRegistered in England & Wales  \nLocation: Cambridge, Cambridgeshire, United Kingdom  \nOnline Contact Desk: [https://filmeditrun.co.uk/contact](/contact)  \nWebsite: [https://filmeditrun.co.uk](https://filmeditrun.co.uk)\n\nIf you have any questions about this Privacy Policy, your rights, or our handling of your personal data, please contact our data compliance desk using our secure online contact form at the link above."
     },
     {
       "id": "data-collected",
@@ -46,19 +46,19 @@
       "id": "rights",
       "number": "07",
       "title": "Your Statutory Rights Under UK GDPR",
-      "content": "Under UK data protection law, you possess key rights regarding your personal data:\n\n* **Right of Access (Subject Access Request):** You may request a copy of the personal data we hold about you.\n* **Right to Rectification:** You can ask us to correct inaccurate or incomplete information.\n* **Right to Erasure ('Right to be Forgotten'):** You may request the deletion of your personal data where there is no compelling legal reason for its continued processing.\n* **Right to Restriction & Objection:** You may request that we limit our processing or object to processing based on legitimate interests.\n\nTo exercise any of these rights, please email contact@filmeditrun.co.uk. We will respond within one calendar month without charge."
+      "content": "Under UK data protection law, you possess key rights regarding your personal data:\n\n* **Right of Access (Subject Access Request):** You may request a copy of the personal data we hold about you.\n* **Right to Rectification:** You can ask us to correct inaccurate or incomplete information.\n* **Right to Erasure ('Right to be Forgotten'):** You may request the deletion of your personal data where there is no compelling legal reason for its continued processing.\n* **Right to Restriction & Objection:** You may request that we limit our processing or object to processing based on legitimate interests.\n\nTo exercise any of these rights, please submit a request via our secure online contact form at [filmeditrun.co.uk/contact](/contact). We will respond within one calendar month without charge."
     },
     {
       "id": "complaints",
       "number": "08",
       "title": "DUAA 2025 Complaints Procedure & ICO Escalation",
-      "content": "In accordance with the dispute resolution provisions of the Data (Use and Access) Act 2025 (DUAA):\n\n1. **Direct Complaint to FilmEditRun:** If you have concerns about our handling of your data, please contact our compliance desk at contact@filmeditrun.co.uk. Under DUAA 2025, we maintain an established internal complaints process and will acknowledge and investigate your complaint within 30 days.\n\n2. **Escalation to the Supervisory Authority:** If you are not satisfied with our response, you have the right to lodge a complaint with the UK supervisory authority:\n\n**Information Commissioner's Office (ICO)**  \nWycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF  \nTelephone: 0303 123 1113  \nWebsite: https://ico.org.uk"
+      "content": "In accordance with the dispute resolution provisions of the Data (Use and Access) Act 2025 (DUAA):\n\n1. **Direct Complaint to FilmEditRun:** If you have concerns about our handling of your data, please contact our compliance desk via our secure web form at [filmeditrun.co.uk/contact](/contact). Under DUAA 2025, we maintain an established internal complaints process and will acknowledge and investigate your complaint within 30 days.\n\n2. **Escalation to the Supervisory Authority:** If you are not satisfied with our response, you have the right to lodge a complaint with the UK supervisory authority:\n\n**Information Commissioner's Office (ICO)**  \nWycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF  \nTelephone: 0303 123 1113  \nWebsite: https://ico.org.uk"
     }
   ],
   "deskTag": "Direct Data Rights & DUAA Enquiries",
   "deskTitle": "Need to exercise your statutory data rights?",
-  "deskDescription": "To request access, rectification, or deletion of your project brief data, contact our Cambridge studio compliance desk directly:",
-  "deskEmailLabel": "Email Data Desk",
+  "deskDescription": "To request access, rectification, or deletion of your project brief data, contact our Cambridge studio compliance desk directly via our secure form:",
+  "deskEmailLabel": "Contact Compliance Desk",
   "deskCustomEmail": "",
   "deskCustomPhone": ""
 }

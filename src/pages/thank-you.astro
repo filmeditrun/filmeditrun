@@ -4,7 +4,7 @@ import thankYou from '../content/pages/thank-you.json';
 import seo from '../content/settings/seo.json';
 import { parseHeroHeading } from '../utils/headingParser';
 
-const studioEmail = seo.email || "contact@filmeditrun.co.uk";
+const studioEmail = seo.email?.trim() || "";
 const studioPhone = seo.telephone?.trim() || "";
 
 const seoTitle = thankYou.seoTitle || "Brief Received | FilmEditRun";
@@ -123,22 +123,24 @@ const secondaryBtnLink = thankYou.secondaryBtnLink || "/";
       </div>
 
       <!-- Urgent Contact Callout -->
-      <div class="pt-8 border-t border-neutral-900 w-full text-center">
-        <p class="text-xs text-neutral-500 font-mono">
-          Have immediate scripts, storyboards, or tight deadlines? 
-          <a href={`mailto:${studioEmail}`} class="text-amber-500 hover:text-amber-400 underline underline-offset-4 ml-1">
-            Email our desk directly
-          </a>
-          {studioPhone && (
-            <>
-              <span class="mx-2 text-neutral-700">•</span>
-              <a href={`tel:${studioPhone.replace(/\s+/g, '')}`} class="text-neutral-400 hover:text-white transition-colors">
-                {studioPhone}
-              </a>
-            </>
-          )}
-        </p>
-      </div>
+      {studioEmail && (
+        <div class="pt-8 border-t border-neutral-900 w-full text-center">
+          <p class="text-xs text-neutral-500 font-mono">
+            Have immediate scripts, storyboards, or tight deadlines? 
+            <a href={`mailto:${studioEmail}`} class="text-amber-500 hover:text-amber-400 underline underline-offset-4 ml-1">
+              Email our desk directly
+            </a>
+            {studioPhone && (
+              <>
+                <span class="mx-2 text-neutral-700">•</span>
+                <a href={`tel:${studioPhone.replace(/\s+/g, '')}`} class="text-neutral-400 hover:text-white transition-colors">
+                  {studioPhone}
+                </a>
+              </>
+            )}
+          </p>
+        </div>
+      )}
 
     </div>
   </main>

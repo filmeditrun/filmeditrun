@@ -135,10 +135,10 @@ const formatMarkdown = (text: string) => {
         </p>
         <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
-            href={`mailto:${deskEmail}`}
+            href={privacy.deskCustomEmail?.includes('@') ? `mailto:${privacy.deskCustomEmail}` : "/contact"}
             class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-amber-500/10"
           >
-            <span>{deskEmailLabel}</span>
+            <span>{deskEmailLabel || "Contact Compliance Desk"}</span>
             <span aria-hidden="true">&rarr;</span>
           </a>
           {deskPhone && (
