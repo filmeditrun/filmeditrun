@@ -100,7 +100,6 @@ ${(home.telemetryMetrics || []).map(m => `  - **${m.value} ${m.label}:** ${m.des
 
 * **Hero Headline:** ${clean(about.headline)}
 * **Manifesto Lead:** ${about.manifestoLead}
-* **Featured Quote:** "${about.manifestoQuote}" — ${about.manifestoAuthor}
 * **Our Approach:** ${about.approachHeading}  
   ${about.approachBody}
 * **Studio Timeline:** ${about.timelineHeading}  
