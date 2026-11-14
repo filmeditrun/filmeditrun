@@ -1549,6 +1549,8 @@ export type SeoSettingsBacklinkProfiles = {
 export type SeoSettings = Node & Document & {
   __typename?: 'SeoSettings';
   legalName?: Maybe<Scalars['String']['output']>;
+  companyNumber?: Maybe<Scalars['String']['output']>;
+  companyRegistration?: Maybe<Scalars['String']['output']>;
   telephone?: Maybe<Scalars['String']['output']>;
   email?: Maybe<Scalars['String']['output']>;
   priceRange?: Maybe<Scalars['String']['output']>;
@@ -1584,6 +1586,8 @@ export type SeoSettingsBacklinkProfilesFilter = {
 
 export type SeoSettingsFilter = {
   legalName?: InputMaybe<StringFilter>;
+  companyNumber?: InputMaybe<StringFilter>;
+  companyRegistration?: InputMaybe<StringFilter>;
   telephone?: InputMaybe<StringFilter>;
   email?: InputMaybe<StringFilter>;
   priceRange?: InputMaybe<StringFilter>;
@@ -2482,6 +2486,8 @@ export type SeoSettingsBacklinkProfilesMutation = {
 
 export type SeoSettingsMutation = {
   legalName?: InputMaybe<Scalars['String']['input']>;
+  companyNumber?: InputMaybe<Scalars['String']['input']>;
+  companyRegistration?: InputMaybe<Scalars['String']['input']>;
   telephone?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   priceRange?: InputMaybe<Scalars['String']['input']>;
@@ -3007,6 +3013,8 @@ export type SeoSettingsBacklinkProfilesFilter = {
 
 export type SeoSettingsFilter = {
   legalName?: StringFilter | null | undefined;
+  companyNumber?: StringFilter | null | undefined;
+  companyRegistration?: StringFilter | null | undefined;
   telephone?: StringFilter | null | undefined;
   email?: StringFilter | null | undefined;
   priceRange?: StringFilter | null | undefined;
@@ -3095,7 +3103,7 @@ export type ThankYouPagePartsFragment = { __typename: 'ThankYouPage', seoTitle: 
 
 export type PrivacyPagePartsFragment = { __typename: 'PrivacyPage', seoTitle: string, seoDescription: string, heroTag: string | null, heading: string, lastUpdated: string | null, introText: string | null, deskTag: string | null, deskTitle: string | null, deskDescription: string | null, deskEmailLabel: string | null, deskCustomEmail: string | null, deskCustomPhone: string | null, sections: Array<{ __typename: 'PrivacyPageSections', id: string, number: string, title: string, content: string } | null> | null };
 
-export type SeoSettingsPartsFragment = { __typename: 'SeoSettings', legalName: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null };
+export type SeoSettingsPartsFragment = { __typename: 'SeoSettings', legalName: string | null, companyNumber: string | null, companyRegistration: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null };
 
 export type GradeSettingsPartsFragment = { __typename: 'GradeSettings', defaultTheme: string | null, enableThemeSwitcher: boolean | null, themeSwitcherTitle: string | null, darkNoirTitle: string | null, darkNoirAccentColor: string | null, highKeyTitle: string | null, highKeyAccentColor: string | null, highKeyBgColor: string | null, supernovaTitle: string | null, supernovaAccentColor: string | null, supernovaSecondaryColor: string | null };
 
@@ -3353,7 +3361,7 @@ export type SeoSettingsQueryVariables = Exact<{
 }>;
 
 
-export type SeoSettingsQuery = { seoSettings: { __typename: 'SeoSettings', id: string, legalName: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null } };
+export type SeoSettingsQuery = { seoSettings: { __typename: 'SeoSettings', id: string, legalName: string | null, companyNumber: string | null, companyRegistration: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null } };
 
 export type SeoSettingsConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3365,7 +3373,7 @@ export type SeoSettingsConnectionQueryVariables = Exact<{
 }>;
 
 
-export type SeoSettingsConnectionQuery = { seoSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'SeoSettings', id: string, legalName: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null } | null } | null> | null } };
+export type SeoSettingsConnectionQuery = { seoSettingsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'SeoSettings', id: string, legalName: string | null, companyNumber: string | null, companyRegistration: string | null, telephone: string | null, email: string | null, priceRange: string | null, addressLocality: string | null, addressRegion: string | null, postalCode: string | null, addressCountry: string | null, googleMapsUrl: string | null, geoLatitude: number | null, geoLongitude: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, backlinkProfiles: Array<{ __typename: 'SeoSettingsBacklinkProfiles', name: string, url: string, badgeText: string | null, showInFooter: boolean | null } | null> | null } | null } | null> | null } };
 
 export type GradeSettingsQueryVariables = Exact<{
   relativePath: string;
@@ -3849,6 +3857,8 @@ export const SeoSettingsPartsFragmentDoc = gql`
     fragment SeoSettingsParts on SeoSettings {
   __typename
   legalName
+  companyNumber
+  companyRegistration
   telephone
   email
   priceRange

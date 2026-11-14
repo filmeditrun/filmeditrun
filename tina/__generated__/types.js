@@ -449,6 +449,8 @@ export const SeoSettingsPartsFragmentDoc = gql`
     fragment SeoSettingsParts on SeoSettings {
   __typename
   legalName
+  companyNumber
+  companyRegistration
   telephone
   email
   priceRange

@@ -428,6 +428,8 @@ fragment PrivacyPageParts on PrivacyPage {
 fragment SeoSettingsParts on SeoSettings {
   __typename
   legalName
+  companyNumber
+  companyRegistration
   telephone
   email
   priceRange

@@ -3298,6 +3298,18 @@ var config_default = defineConfig({
           },
           {
             type: "string",
+            name: "companyNumber",
+            label: "Section 1: UK Companies House Number",
+            description: "Registered company number (e.g. 17576533)"
+          },
+          {
+            type: "string",
+            name: "companyRegistration",
+            label: "Section 1: Statutory Registration Notice",
+            description: "Displayed in the footer legal strip (e.g. Registered in England & Wales (No. 17576533))"
+          },
+          {
+            type: "string",
             name: "telephone",
             label: "Section 1: Contact Telephone Number (Optional)",
             description: "Leave empty to prevent cold calls and phone spam. Google Schema does NOT require a phone number."

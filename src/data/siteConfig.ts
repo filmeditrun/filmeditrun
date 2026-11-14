@@ -31,6 +31,8 @@ export interface SiteConfig {
   supernovaSecondaryColor?: string;
   // Local Business & Citations
   legalName?: string;
+  companyNumber?: string;
+  companyRegistration?: string;
   telephone?: string;
   email?: string;
   priceRange?: string;

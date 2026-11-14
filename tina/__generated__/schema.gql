@@ -1195,6 +1195,8 @@ type SeoSettingsBacklinkProfiles {
 
 type SeoSettings implements Node & Document {
   legalName: String
+  companyNumber: String
+  companyRegistration: String
   telephone: String
   email: String
   priceRange: String
@@ -1230,6 +1232,8 @@ input SeoSettingsBacklinkProfilesFilter {
 
 input SeoSettingsFilter {
   legalName: StringFilter
+  companyNumber: StringFilter
+  companyRegistration: StringFilter
   telephone: StringFilter
   email: StringFilter
   priceRange: StringFilter
@@ -1893,6 +1897,8 @@ input SeoSettingsBacklinkProfilesMutation {
 
 input SeoSettingsMutation {
   legalName: String
+  companyNumber: String
+  companyRegistration: String
   telephone: String
   email: String
   priceRange: String

@@ -56,6 +56,7 @@ const baseBusinessSchema: Record<string, any> = {
   "@id": `${siteUrl}/#organization`,
   "name": siteName,
   "legalName": legalName,
+  ...(siteConfig.companyNumber ? { "identifier": siteConfig.companyNumber, "taxID": siteConfig.companyNumber } : {}),
   "url": siteUrl,
   "logo": `${siteUrl}/logo.svg`,
   "image": resolvedOgImage,
