@@ -132,7 +132,6 @@ services.forEach((s, idx) => {
 
 * **Hero Headline:** ${clean(s.heroHeading || s.title)}
 * **Hero Lead:** ${s.heroLead || s.description}
-* **Directory Summary:** ${s.description}
 * **Approach Overview:** ${s.breakdownHeading || ''}  
   ${s.breakdownBody || ''}
 * **Deliverables:**

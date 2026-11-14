@@ -15,7 +15,6 @@ import AboutCta from '../components/about/AboutCta.astro';
 
 interface SlideItem {
   name: string;
-  bio?: string;
   avatar?: string;
   videoLoop?: string;
   badge?: string;
@@ -63,8 +62,6 @@ const aboutSchema = {
     tag={(aboutPage as any).heroTag || (aboutPage as any).tag || "STUDIO ETHOS"}
     headline={aboutPage.headline}
     manifestoLead={aboutPage.manifestoLead}
-    manifestoQuote={aboutPage.manifestoQuote}
-    manifestoAuthor={aboutPage.manifestoAuthor}
     heroBackgroundType={(aboutPage as any).heroBackgroundType}
     heroVideoPath={aboutPage.heroVideoPath}
     heroImagePath={(aboutPage as any).heroImagePath}

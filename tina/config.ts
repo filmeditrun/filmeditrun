@@ -2661,19 +2661,6 @@ export default defineConfig({
           },
           {
             type: "string",
-            name: "manifestoQuote",
-            label: "Section 1: Featured Quote",
-            ui: {
-              component: "textarea",
-            },
-          },
-          {
-            type: "string",
-            name: "manifestoAuthor",
-            label: "Section 1: Quote Attribution",
-          },
-          {
-            type: "string",
             name: "heroBackgroundType",
             label: "Hero Background Type",
             description: "Choose between video loop, photo image, or dual-tone gradient",
@@ -2921,7 +2908,6 @@ export default defineConfig({
             fields: [
               { type: "string", name: "name", label: "Title / Name", required: true },
               { type: "string", name: "badge", label: "Category Badge (e.g. Leadership, Team)" },
-              { type: "string", name: "bio", label: "Bio / Description", ui: { component: "textarea" } },
               { type: "image", name: "avatar", label: "Slide Image" },
               { type: "string", name: "videoLoop", label: "Video Loop URL/Path (Optional, e.g. /showreel.mp4)" },
             ],

@@ -897,8 +897,6 @@ type AboutPage implements Node & Document {
   seoDescription: String!
   headline: String!
   manifestoLead: String!
-  manifestoQuote: String
-  manifestoAuthor: String
   heroBackgroundType: String
   heroVideoPath: String
   heroImagePath: String
@@ -944,8 +942,6 @@ input AboutPageFilter {
   seoDescription: StringFilter
   headline: StringFilter
   manifestoLead: StringFilter
-  manifestoQuote: StringFilter
-  manifestoAuthor: StringFilter
   heroBackgroundType: StringFilter
   heroVideoPath: StringFilter
   heroImagePath: ImageFilter
@@ -988,7 +984,6 @@ type AboutPageConnection implements Connection {
 type AboutSliderSlides {
   name: String!
   badge: String
-  bio: String
   avatar: String
   videoLoop: String
 }
@@ -1006,7 +1001,6 @@ type AboutSlider implements Node & Document {
 input AboutSliderSlidesFilter {
   name: StringFilter
   badge: StringFilter
-  bio: StringFilter
   avatar: ImageFilter
   videoLoop: StringFilter
 }
@@ -1838,8 +1832,6 @@ input AboutPageMutation {
   seoDescription: String
   headline: String
   manifestoLead: String
-  manifestoQuote: String
-  manifestoAuthor: String
   heroBackgroundType: String
   heroVideoPath: String
   heroImagePath: String
@@ -1871,7 +1863,6 @@ input AboutPageMutation {
 input AboutSliderSlidesMutation {
   name: String
   badge: String
-  bio: String
   avatar: String
   videoLoop: String
 }

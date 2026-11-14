@@ -6,35 +6,30 @@
     {
       "name": "FilmEditRun Production Collective",
       "badge": "OUR TEAM",
-      "bio": "Specialist camera operators, sound engineers, and post-production craftspeople deployed across Cambridge, London, and nationwide venues. Single-source execution with direct creative collaboration.",
       "avatar": "/filmeditrun-team.avif",
       "videoLoop": ""
     },
     {
       "name": "Wireless Camera Rig On Location",
       "badge": "CAMERA OPS",
-      "bio": "Configured for agile mobility in live conference auditoriums and executive boardrooms. Quiet on-set presence, fluid movement, and uninterrupted coverage throughout high-tempo events.",
       "avatar": "/work/onlocation.webp",
       "videoLoop": ""
     },
     {
       "name": "Multi-Cam Live Switch Deck",
       "badge": "LIVE BROADCAST",
-      "bio": "Real-time multi-view vision mixing for plenary keynotes and hybrid summits. Redundant recording, isolated camera feeds, and clean direct audio capture for immediate post-event turnaround.",
       "avatar": "/cambridge/stage-wide.webp",
       "videoLoop": ""
     },
     {
       "name": "Colour Timing & Mastering Suite",
       "badge": "POST-PRODUCTION",
-      "bio": "Precision colour timing and mastering in our Cambridge suites. Natural skin tones, refined narrative pacing, and frame-accurate review links for fast stakeholder feedback.",
       "avatar": "/og-image.jpg",
       "videoLoop": ""
     },
     {
       "name": "Field Audio & Acoustic Isolation",
       "badge": "SOUND DECK",
-      "bio": "Dual-source wireless audio engineered for acoustically challenging conference halls. Active ambient echo rejection and pristine vocal clarity for executive speakers and panel discussions.",
       "avatar": "/work/handheld.webp",
       "videoLoop": ""
     }

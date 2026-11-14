@@ -307,8 +307,6 @@ fragment AboutPageParts on AboutPage {
   seoDescription
   headline
   manifestoLead
-  manifestoQuote
-  manifestoAuthor
   heroBackgroundType
   heroVideoPath
   heroImagePath
@@ -354,7 +352,6 @@ fragment AboutSliderParts on AboutSlider {
     __typename
     name
     badge
-    bio
     avatar
     videoLoop
   }

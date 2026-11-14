@@ -324,8 +324,6 @@ export const AboutPagePartsFragmentDoc = gql`
   seoDescription
   headline
   manifestoLead
-  manifestoQuote
-  manifestoAuthor
   heroBackgroundType
   heroVideoPath
   heroImagePath
@@ -372,7 +370,6 @@ export const AboutSliderPartsFragmentDoc = gql`
     __typename
     name
     badge
-    bio
     avatar
     videoLoop
   }

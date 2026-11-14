@@ -1249,8 +1249,6 @@ export type AboutPage = Node & Document & {
   seoDescription: Scalars['String']['output'];
   headline: Scalars['String']['output'];
   manifestoLead: Scalars['String']['output'];
-  manifestoQuote?: Maybe<Scalars['String']['output']>;
-  manifestoAuthor?: Maybe<Scalars['String']['output']>;
   heroBackgroundType?: Maybe<Scalars['String']['output']>;
   heroVideoPath?: Maybe<Scalars['String']['output']>;
   heroImagePath?: Maybe<Scalars['String']['output']>;
@@ -1296,8 +1294,6 @@ export type AboutPageFilter = {
   seoDescription?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   manifestoLead?: InputMaybe<StringFilter>;
-  manifestoQuote?: InputMaybe<StringFilter>;
-  manifestoAuthor?: InputMaybe<StringFilter>;
   heroBackgroundType?: InputMaybe<StringFilter>;
   heroVideoPath?: InputMaybe<StringFilter>;
   heroImagePath?: InputMaybe<ImageFilter>;
@@ -1343,7 +1339,6 @@ export type AboutSliderSlides = {
   __typename?: 'AboutSliderSlides';
   name: Scalars['String']['output'];
   badge?: Maybe<Scalars['String']['output']>;
-  bio?: Maybe<Scalars['String']['output']>;
   avatar?: Maybe<Scalars['String']['output']>;
   videoLoop?: Maybe<Scalars['String']['output']>;
 };
@@ -1362,7 +1357,6 @@ export type AboutSlider = Node & Document & {
 export type AboutSliderSlidesFilter = {
   name?: InputMaybe<StringFilter>;
   badge?: InputMaybe<StringFilter>;
-  bio?: InputMaybe<StringFilter>;
   avatar?: InputMaybe<ImageFilter>;
   videoLoop?: InputMaybe<StringFilter>;
 };
@@ -2456,8 +2450,6 @@ export type AboutPageMutation = {
   seoDescription?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   manifestoLead?: InputMaybe<Scalars['String']['input']>;
-  manifestoQuote?: InputMaybe<Scalars['String']['input']>;
-  manifestoAuthor?: InputMaybe<Scalars['String']['input']>;
   heroBackgroundType?: InputMaybe<Scalars['String']['input']>;
   heroVideoPath?: InputMaybe<Scalars['String']['input']>;
   heroImagePath?: InputMaybe<Scalars['String']['input']>;
@@ -2489,7 +2481,6 @@ export type AboutPageMutation = {
 export type AboutSliderSlidesMutation = {
   name?: InputMaybe<Scalars['String']['input']>;
   badge?: InputMaybe<Scalars['String']['input']>;
-  bio?: InputMaybe<Scalars['String']['input']>;
   avatar?: InputMaybe<Scalars['String']['input']>;
   videoLoop?: InputMaybe<Scalars['String']['input']>;
 };
@@ -2993,8 +2984,6 @@ export type AboutPageFilter = {
   seoDescription?: StringFilter | null | undefined;
   headline?: StringFilter | null | undefined;
   manifestoLead?: StringFilter | null | undefined;
-  manifestoQuote?: StringFilter | null | undefined;
-  manifestoAuthor?: StringFilter | null | undefined;
   heroBackgroundType?: StringFilter | null | undefined;
   heroVideoPath?: StringFilter | null | undefined;
   heroImagePath?: ImageFilter | null | undefined;
@@ -3026,7 +3015,6 @@ export type AboutPageFilter = {
 export type AboutSliderSlidesFilter = {
   name?: StringFilter | null | undefined;
   badge?: StringFilter | null | undefined;
-  bio?: StringFilter | null | undefined;
   avatar?: ImageFilter | null | undefined;
   videoLoop?: StringFilter | null | undefined;
 };
@@ -3225,9 +3213,9 @@ export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, 
 
 export type ProjectPartsFragment = { __typename: 'Project', order: string, title: string, client: string, category: string, runtime: string, description: string, backgroundStyle: string, videoUrl: string, thumbnail: string, brightnessStyle: string };
 
-export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null };
+export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null };
 
-export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutSliderSlides', name: string, badge: string | null, bio: string | null, avatar: string | null, videoLoop: string | null } | null> | null };
+export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutSliderSlides', name: string, badge: string | null, avatar: string | null, videoLoop: string | null } | null> | null };
 
 export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
 
@@ -3417,7 +3405,7 @@ export type AboutPageQueryVariables = Exact<{
 }>;
 
 
-export type AboutPageQuery = { aboutPage: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null } };
+export type AboutPageQuery = { aboutPage: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null } };
 
 export type AboutPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3429,14 +3417,14 @@ export type AboutPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AboutPageConnectionQuery = { aboutPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, manifestoQuote: string | null, manifestoAuthor: string | null, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null } | null } | null> | null } };
+export type AboutPageConnectionQuery = { aboutPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null } | null } | null> | null } };
 
 export type AboutSliderQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type AboutSliderQuery = { aboutSlider: { __typename: 'AboutSlider', id: string, heading: string, tag: string | null, description: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, slides: Array<{ __typename: 'AboutSliderSlides', name: string, badge: string | null, bio: string | null, avatar: string | null, videoLoop: string | null } | null> | null } };
+export type AboutSliderQuery = { aboutSlider: { __typename: 'AboutSlider', id: string, heading: string, tag: string | null, description: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, slides: Array<{ __typename: 'AboutSliderSlides', name: string, badge: string | null, avatar: string | null, videoLoop: string | null } | null> | null } };
 
 export type AboutSliderConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3448,7 +3436,7 @@ export type AboutSliderConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AboutSliderConnectionQuery = { aboutSliderConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutSlider', id: string, heading: string, tag: string | null, description: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, slides: Array<{ __typename: 'AboutSliderSlides', name: string, badge: string | null, bio: string | null, avatar: string | null, videoLoop: string | null } | null> | null } | null } | null> | null } };
+export type AboutSliderConnectionQuery = { aboutSliderConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutSlider', id: string, heading: string, tag: string | null, description: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, slides: Array<{ __typename: 'AboutSliderSlides', name: string, badge: string | null, avatar: string | null, videoLoop: string | null } | null> | null } | null } | null> | null } };
 
 export type ContactPageQueryVariables = Exact<{
   relativePath: string;
@@ -3883,8 +3871,6 @@ export const AboutPagePartsFragmentDoc = gql`
   seoDescription
   headline
   manifestoLead
-  manifestoQuote
-  manifestoAuthor
   heroBackgroundType
   heroVideoPath
   heroImagePath
@@ -3931,7 +3917,6 @@ export const AboutSliderPartsFragmentDoc = gql`
     __typename
     name
     badge
-    bio
     avatar
     videoLoop
   }
