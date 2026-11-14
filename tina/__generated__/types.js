@@ -300,21 +300,14 @@ export const WorkPagePartsFragmentDoc = gql`
   archiveHeading
   filterAllLabel
   closeModalLabel
-}
-    `;
-export const ProjectPartsFragmentDoc = gql`
-    fragment ProjectParts on Project {
-  __typename
-  order
-  title
-  client
-  category
-  runtime
-  description
-  backgroundStyle
-  videoUrl
-  thumbnail
-  brightnessStyle
+  projects {
+    __typename
+    title
+    client
+    category
+    thumbnail
+    videoUrl
+  }
 }
     `;
 export const AboutPagePartsFragmentDoc = gql`
@@ -998,63 +991,6 @@ export const WorkPageConnectionDocument = gql`
   }
 }
     ${WorkPagePartsFragmentDoc}`;
-export const ProjectDocument = gql`
-    query project($relativePath: String!) {
-  project(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...ProjectParts
-  }
-}
-    ${ProjectPartsFragmentDoc}`;
-export const ProjectConnectionDocument = gql`
-    query projectConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ProjectFilter) {
-  projectConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...ProjectParts
-      }
-    }
-  }
-}
-    ${ProjectPartsFragmentDoc}`;
 export const AboutPageDocument = gql`
     query aboutPage($relativePath: String!) {
   aboutPage(relativePath: $relativePath) {
@@ -1560,12 +1496,6 @@ export function getSdk(requester) {
     },
     workPageConnection(variables, options) {
       return requester(WorkPageConnectionDocument, variables, options);
-    },
-    project(variables, options) {
-      return requester(ProjectDocument, variables, options);
-    },
-    projectConnection(variables, options) {
-      return requester(ProjectConnectionDocument, variables, options);
     },
     aboutPage(variables, options) {
       return requester(AboutPageDocument, variables, options);

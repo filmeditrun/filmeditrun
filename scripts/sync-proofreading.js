@@ -52,10 +52,8 @@ const servicesDir = path.join(rootDir, 'src/content/services');
 const serviceFiles = fs.readdirSync(servicesDir).filter(f => f.endsWith('.json')).sort();
 const services = serviceFiles.map(f => JSON.parse(fs.readFileSync(path.join(servicesDir, f), 'utf8')));
 
-// Ingest projects
-const projectsDir = path.join(rootDir, 'src/content/projects');
-const projectFiles = fs.readdirSync(projectsDir).filter(f => f.endsWith('.json')).sort();
-const projects = projectFiles.map(f => JSON.parse(fs.readFileSync(path.join(projectsDir, f), 'utf8')));
+// Ingest projects directly from work.json
+const projects = work.projects || [];
 
 // Clean helper: strip line breaks and multiple spaces
 const clean = (t) => t ? t.replace(/<br\s*[\/]?>/gi, ' ').replace(/\s+/g, ' ').trim() : '';
@@ -180,7 +178,7 @@ ${(london.faqs || []).map((f, i) => `  ${i + 1}. **Q: ${f.question}**  \n     A:
 * **Hero Lead:** ${work.description}
 * **Archive Section:** ${work.archiveHeading}
 * **Active Showcase Projects:**
-${projects.map((pr, i) => `  ${i + 1}. **${pr.title}** (${pr.client} • ${pr.runtime}): ${pr.description}`).join('\n')}
+${projects.map((pr, i) => `  ${i + 1}. **${pr.title}** (${pr.client} • ${pr.category})`).join('\n')}
 
 ---
 

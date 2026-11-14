@@ -1,29 +1,25 @@
+import workPage from "../content/pages/work.json";
+
 export interface Project {
   id: string;
-  order: string;
   title: string;
   client: string;
   category: string;
-  runtime: string;
-  description: string;
   videoUrl: string;
   thumbnail: string;
-  backgroundStyle: "video" | "image";
-  brightnessStyle: "bright" | "normal";
 }
 
-const projectFiles = import.meta.glob<Omit<Project, "id">>(
-  "../content/projects/*.json",
-  {
-    eager: true,
-    import: "default",
-  }
-);
+interface RawProject {
+  title: string;
+  client: string;
+  category: string;
+  videoUrl: string;
+  thumbnail: string;
+}
 
-export const projects: Project[] = Object.entries(projectFiles)
-  .filter(([_, data]) => Boolean(data && typeof data === "object" && data.title))
-  .map(([filePath, data], idx) => ({
-    ...data,
-    id: `project-${data.order || idx + 1}-${filePath.split("/").pop()?.replace(".json", "")}`,
-  }))
-  .sort((a, b) => (a.order || "").localeCompare(b.order || "", undefined, { numeric: true }));
+const rawProjects = ((workPage as any).projects || []) as RawProject[];
+
+export const projects: Project[] = rawProjects.map((p, idx) => ({
+  ...p,
+  id: `project-${idx + 1}-${(p.title || `item-${idx + 1}`).toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+}));

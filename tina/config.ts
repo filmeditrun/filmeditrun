@@ -2517,91 +2517,62 @@ export default defineConfig({
             description: "e.g. ESC ✕ CLOSE",
             required: true,
           },
-        ],
-      },
-      {
-        name: "project",
-        label: "Portfolio Projects",
-        path: "src/content/projects",
-        format: "json",
-        fields: [
-          // ─── 📌 PROJECT IDENTITY ──────────────────────────────────────────
+
+          // ─── 🎬 SECTION 3: PORTFOLIO PROJECTS ────────────────────────────
           {
-            type: "string",
-            name: "order",
-            label: "Display Order (01, 02, etc.)",
-            description: "Controls the display sequence on the /work page",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "title",
-            label: "Project Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "string",
-            name: "client",
-            label: "Client Name",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "category",
-            label: "Category Badge",
-            description: "e.g. Commercial, Editorial, Conferences",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "runtime",
-            label: "Total Run Time (TRT)",
-            description: "e.g. 0:45 or 8:12",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "Project Description",
+            type: "object",
+            name: "projects",
+            label: "Section 3: Portfolio Projects",
+            description: "Curated portfolio projects displayed in the interactive grid. Drag items to reorder.",
+            list: true,
             ui: {
-              component: "textarea",
+              itemProps: (item) => ({
+                label: item?.title ? `${item.title}${item?.client ? ` (${item.client})` : ""}` : "Portfolio Project",
+              }),
             },
-            required: true,
-          },
-          {
-            type: "string",
-            name: "backgroundStyle",
-            label: "Background Display Mode",
-            options: [
-              { label: "Video (Vimeo)", value: "video" },
-              { label: "Static Photograph", value: "image" },
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Project Title",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "client",
+                label: "Client / Eyebrow Label",
+                description: "e.g. Commercial Production & Field Capture",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "category",
+                label: "Category",
+                description: "Select the category filter tab for this project",
+                options: [
+                  { label: "Conferences & Live Events", value: "Conferences & Live Events" },
+                  { label: "Customer Case Studies", value: "Customer Case Studies" },
+                  { label: "Corporate & Brand Films", value: "Corporate & Brand Films" },
+                  { label: "Video Podcasts", value: "Video Podcasts" },
+                  { label: "Post-Production", value: "Post-Production" },
+                  { label: "Animation & Motion Design", value: "Animation & Motion Design" },
+                ],
+                required: true,
+              },
+              {
+                type: "image",
+                name: "thumbnail",
+                label: "Thumbnail / Cover Still Image",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "videoUrl",
+                label: "Vimeo Player URL",
+                description: "e.g. https://player.vimeo.com/video/828757840",
+                required: true,
+              },
             ],
-            required: true,
-          },
-          {
-            type: "string",
-            name: "videoUrl",
-            label: "Vimeo Embed URL",
-            description:
-              "Use format: https://player.vimeo.com/video/828757840",
-            required: true,
-          },
-          {
-            type: "image",
-            name: "thumbnail",
-            label: "Thumbnail / Backdrop Still Image",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "brightnessStyle",
-            label: "Video Brightness Tuning",
-            options: [
-              { label: "Normal (Deep Moody Contrast)", value: "normal" },
-              { label: "Bright (Boosted Exposure)", value: "bright" },
-            ],
-            required: true,
           },
         ],
       },

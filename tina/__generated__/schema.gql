@@ -73,8 +73,6 @@ type Query {
   serviceConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ServiceFilter): ServiceConnection!
   workPage(relativePath: String): WorkPage!
   workPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: WorkPageFilter): WorkPageConnection!
-  project(relativePath: String): Project!
-  projectConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ProjectFilter): ProjectConnection!
   aboutPage(relativePath: String): AboutPage!
   aboutPageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutPageFilter): AboutPageConnection!
   aboutSlider(relativePath: String): AboutSlider!
@@ -102,7 +100,6 @@ input DocumentFilter {
   servicesPage: ServicesPageFilter
   service: ServiceFilter
   workPage: WorkPageFilter
-  project: ProjectFilter
   aboutPage: AboutPageFilter
   aboutSlider: AboutSliderFilter
   contactPage: ContactPageFilter
@@ -136,7 +133,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Homepage | CambridgePage | LondonPage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | Project | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder
+union DocumentNode = Homepage | CambridgePage | LondonPage | CustomPages | SiteSettings | ServicesPage | Service | WorkPage | AboutPage | AboutSlider | ContactPage | ThankYouPage | PrivacyPage | SeoSettings | GradeSettings | FooterSettings | Folder
 
 type HomepageTelemetryMetrics {
   value: String!
@@ -795,6 +792,14 @@ type ServiceConnection implements Connection {
   edges: [ServiceConnectionEdges]
 }
 
+type WorkPageProjects {
+  title: String!
+  client: String!
+  category: String!
+  thumbnail: String!
+  videoUrl: String!
+}
+
 type WorkPage implements Node & Document {
   seoTitle: String!
   seoDescription: String!
@@ -810,9 +815,18 @@ type WorkPage implements Node & Document {
   archiveHeading: String!
   filterAllLabel: String!
   closeModalLabel: String!
+  projects: [WorkPageProjects]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input WorkPageProjectsFilter {
+  title: StringFilter
+  client: StringFilter
+  category: StringFilter
+  thumbnail: ImageFilter
+  videoUrl: StringFilter
 }
 
 input WorkPageFilter {
@@ -830,6 +844,7 @@ input WorkPageFilter {
   archiveHeading: StringFilter
   filterAllLabel: StringFilter
   closeModalLabel: StringFilter
+  projects: WorkPageProjectsFilter
 }
 
 type WorkPageConnectionEdges {
@@ -841,46 +856,6 @@ type WorkPageConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [WorkPageConnectionEdges]
-}
-
-type Project implements Node & Document {
-  order: String!
-  title: String!
-  client: String!
-  category: String!
-  runtime: String!
-  description: String!
-  backgroundStyle: String!
-  videoUrl: String!
-  thumbnail: String!
-  brightnessStyle: String!
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input ProjectFilter {
-  order: StringFilter
-  title: StringFilter
-  client: StringFilter
-  category: StringFilter
-  runtime: StringFilter
-  description: StringFilter
-  backgroundStyle: StringFilter
-  videoUrl: StringFilter
-  thumbnail: ImageFilter
-  brightnessStyle: StringFilter
-}
-
-type ProjectConnectionEdges {
-  cursor: String!
-  node: Project
-}
-
-type ProjectConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [ProjectConnectionEdges]
 }
 
 type AboutPageMilestones {
@@ -1457,8 +1432,6 @@ type Mutation {
   createService(relativePath: String!, params: ServiceMutation!): Service!
   updateWorkPage(relativePath: String!, params: WorkPageMutation!): WorkPage!
   createWorkPage(relativePath: String!, params: WorkPageMutation!): WorkPage!
-  updateProject(relativePath: String!, params: ProjectMutation!): Project!
-  createProject(relativePath: String!, params: ProjectMutation!): Project!
   updateAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
   createAboutPage(relativePath: String!, params: AboutPageMutation!): AboutPage!
   updateAboutSlider(relativePath: String!, params: AboutSliderMutation!): AboutSlider!
@@ -1486,7 +1459,6 @@ input DocumentUpdateMutation {
   servicesPage: ServicesPageMutation
   service: ServiceMutation
   workPage: WorkPageMutation
-  project: ProjectMutation
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
   contactPage: ContactPageMutation
@@ -1507,7 +1479,6 @@ input DocumentMutation {
   servicesPage: ServicesPageMutation
   service: ServiceMutation
   workPage: WorkPageMutation
-  project: ProjectMutation
   aboutPage: AboutPageMutation
   aboutSlider: AboutSliderMutation
   contactPage: ContactPageMutation
@@ -1788,6 +1759,14 @@ input ServiceMutation {
   ctaButtonLabel: String
 }
 
+input WorkPageProjectsMutation {
+  title: String
+  client: String
+  category: String
+  thumbnail: String
+  videoUrl: String
+}
+
 input WorkPageMutation {
   seoTitle: String
   seoDescription: String
@@ -1803,19 +1782,7 @@ input WorkPageMutation {
   archiveHeading: String
   filterAllLabel: String
   closeModalLabel: String
-}
-
-input ProjectMutation {
-  order: String
-  title: String
-  client: String
-  category: String
-  runtime: String
-  description: String
-  backgroundStyle: String
-  videoUrl: String
-  thumbnail: String
-  brightnessStyle: String
+  projects: [WorkPageProjectsMutation]
 }
 
 input AboutPageMilestonesMutation {

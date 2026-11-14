@@ -17,13 +17,9 @@ const featuredProject = projects[0] || {
   id: "featured",
   title: "Featured Production Reel",
   client: "FilmEditRun",
-  category: "Commercials",
-  runtime: "0:45",
-  description: "High-octane commercial production and cinematic visual storytelling.",
+  category: "Corporate & Brand Films",
   videoUrl: "https://player.vimeo.com/video/828757840",
   thumbnail: "/og-image.jpg",
-  backgroundStyle: "video",
-  brightnessStyle: "bright",
 };
 
 // Archive projects feed into the scalable Bento Grid
@@ -52,7 +48,7 @@ const workVideoSchema = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
   "name": featuredProject.title,
-  "description": featuredProject.description,
+  "description": workPage.seoDescription || workPage.description,
   "thumbnailUrl": [
     featuredProject.thumbnail.startsWith("http")
       ? featuredProject.thumbnail
@@ -397,6 +393,12 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
   }
 
   /* Dynamically style active pills for each category */
+  html:has(#filter-conferences-live-events:checked) #label-filter-conferences-live-events,
+  html:has(#filter-customer-case-studies:checked) #label-filter-customer-case-studies,
+  html:has(#filter-corporate-brand-films:checked) #label-filter-corporate-brand-films,
+  html:has(#filter-video-podcasts:checked) #label-filter-video-podcasts,
+  html:has(#filter-post-production:checked) #label-filter-post-production,
+  html:has(#filter-animation-motion-design:checked) #label-filter-animation-motion-design,
   html:has(#filter-commercials:checked) #label-filter-commercials,
   html:has(#filter-commercial-brand:checked) #label-filter-commercial-brand,
   html:has(#filter-conferences:checked) #label-filter-conferences,
@@ -423,6 +425,12 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
   }
 
   /* Pure CSS Filtering: Hide cards that don't match selected category */
+  html:has(#filter-conferences-live-events:checked) [data-project-card]:not([data-category="conferences-live-events"]),
+  html:has(#filter-customer-case-studies:checked) [data-project-card]:not([data-category="customer-case-studies"]),
+  html:has(#filter-corporate-brand-films:checked) [data-project-card]:not([data-category="corporate-brand-films"]),
+  html:has(#filter-video-podcasts:checked) [data-project-card]:not([data-category="video-podcasts"]),
+  html:has(#filter-post-production:checked) [data-project-card]:not([data-category="post-production"]),
+  html:has(#filter-animation-motion-design:checked) [data-project-card]:not([data-category="animation-motion-design"]),
   html:has(#filter-commercials:checked) [data-project-card]:not([data-category="commercials"]),
   html:has(#filter-commercial-brand:checked) [data-project-card]:not([data-category="commercial-brand"]),
   html:has(#filter-conferences:checked) [data-project-card]:not([data-category="conferences"]),

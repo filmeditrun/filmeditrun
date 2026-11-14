@@ -285,20 +285,14 @@ fragment WorkPageParts on WorkPage {
   archiveHeading
   filterAllLabel
   closeModalLabel
-}
-
-fragment ProjectParts on Project {
-  __typename
-  order
-  title
-  client
-  category
-  runtime
-  description
-  backgroundStyle
-  videoUrl
-  thumbnail
-  brightnessStyle
+  projects {
+    __typename
+    title
+    client
+    category
+    thumbnail
+    videoUrl
+  }
 }
 
 fragment AboutPageParts on AboutPage {
