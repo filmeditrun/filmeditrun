@@ -3388,6 +3388,12 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "tradeMarkNumber",
+            label: "Section 1: UK IPO Trade Mark Number",
+            description: "Registered trade mark number (e.g. UK00004427732)",
+          },
+          {
+            type: "string",
             name: "telephone",
             label: "Section 1: Contact Telephone Number (Optional)",
             description: "Leave empty to prevent cold calls and phone spam. Google Schema does NOT require a phone number.",

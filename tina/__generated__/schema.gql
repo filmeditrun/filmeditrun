@@ -1197,6 +1197,7 @@ type SeoSettings implements Node & Document {
   legalName: String
   companyNumber: String
   companyRegistration: String
+  tradeMarkNumber: String
   telephone: String
   email: String
   priceRange: String
@@ -1234,6 +1235,7 @@ input SeoSettingsFilter {
   legalName: StringFilter
   companyNumber: StringFilter
   companyRegistration: StringFilter
+  tradeMarkNumber: StringFilter
   telephone: StringFilter
   email: StringFilter
   priceRange: StringFilter
@@ -1899,6 +1901,7 @@ input SeoSettingsMutation {
   legalName: String
   companyNumber: String
   companyRegistration: String
+  tradeMarkNumber: String
   telephone: String
   email: String
   priceRange: String

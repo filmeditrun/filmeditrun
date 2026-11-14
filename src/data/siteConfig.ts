@@ -33,6 +33,8 @@ export interface SiteConfig {
   legalName?: string;
   companyNumber?: string;
   companyRegistration?: string;
+  tradeMarkNumber?: string;
+  tradeMarkUrl?: string;
   telephone?: string;
   email?: string;
   priceRange?: string;

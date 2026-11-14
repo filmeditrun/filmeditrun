@@ -430,6 +430,7 @@ fragment SeoSettingsParts on SeoSettings {
   legalName
   companyNumber
   companyRegistration
+  tradeMarkNumber
   telephone
   email
   priceRange

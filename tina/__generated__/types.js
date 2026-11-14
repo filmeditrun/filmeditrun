@@ -451,6 +451,7 @@ export const SeoSettingsPartsFragmentDoc = gql`
   legalName
   companyNumber
   companyRegistration
+  tradeMarkNumber
   telephone
   email
   priceRange

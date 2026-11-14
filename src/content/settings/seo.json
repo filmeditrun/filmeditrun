@@ -2,6 +2,8 @@
   "legalName": "FilmEditRun Ltd",
   "companyNumber": "17576533",
   "companyRegistration": "Registered in England & Wales (No. 17576533)",
+  "tradeMarkNumber": "UK00004427732",
+  "tradeMarkUrl": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004427732",
   "telephone": "",
   "email": "",
   "priceRange": "££-£££",
@@ -35,6 +37,12 @@
       "name": "LinkedIn",
       "url": "https://www.linkedin.com/company/filmeditrun",
       "badgeText": "Company",
+      "showInFooter": true
+    },
+    {
+      "name": "UK Intellectual Property Office",
+      "url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004427732",
+      "badgeText": "Registered TM",
       "showInFooter": true
     }
   ]
