@@ -38,7 +38,6 @@ console.log('🔄 Compiling FilmEditRun Proofreading v1 (A4 Compact Edition)...'
 // 1. Ingest content sources
 const home = readJson('src/content/pages/home.json');
 const about = readJson('src/content/pages/about.json');
-const slider = readJson('src/content/pages/slider.json');
 const servicesPage = readJson('src/content/pages/services.json');
 const cambridge = readJson('src/content/pages/cambridge.json');
 const london = readJson('src/content/pages/london.json');
@@ -102,8 +101,6 @@ ${(home.telemetryMetrics || []).map(m => `  - **${m.value} ${m.label}:** ${m.des
 * **Hero Headline:** ${clean(about.headline)}
 * **Manifesto Lead:** ${about.manifestoLead}
 * **Featured Quote:** "${about.manifestoQuote}" — ${about.manifestoAuthor}
-* **Team Bios:**
-${(slider.slides || []).map(sl => `  - **${sl.name}:** ${sl.bio}`).join('\n')}
 * **Our Approach:** ${about.approachHeading}  
   ${about.approachBody}
 * **Studio Timeline:** ${about.timelineHeading}  
