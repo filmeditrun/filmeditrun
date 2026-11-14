@@ -43,7 +43,7 @@
       "name": "UK Intellectual Property Office",
       "url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004427732",
       "badgeText": "Registered TM",
-      "showInFooter": true
+      "showInFooter": false
     }
   ]
 }
