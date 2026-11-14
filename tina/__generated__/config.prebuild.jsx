@@ -675,6 +675,7 @@ var config_default = defineConfig({
             type: "string",
             name: "introHeading",
             label: "Section 4: Statement 1 Heading",
+            description: "Default: A dedicated *on-location partner.* Wrap words in *asterisks* to highlight with amber gradient.",
             required: true
           },
           {
@@ -703,7 +704,7 @@ var config_default = defineConfig({
             type: "string",
             name: "workSpotlightHeading",
             label: "Section 5: Featured Work Heading",
-            description: "Default: Selected Films & *Client Highlights*."
+            description: "Default: Stories *that connect.* Wrap words in *asterisks* to highlight with amber gradient."
           },
           {
             type: "string",
@@ -728,7 +729,7 @@ var config_default = defineConfig({
             type: "string",
             name: "scaleHeading",
             label: "Section 6: Statement 2 Heading",
-            description: "Default: Low-profile crews. *Plenary-scale capture.*"
+            description: "Default: Driven by the task. *Not the tool.* Wrap words in *asterisks* to highlight with amber gradient."
           },
           {
             type: "string",
@@ -753,7 +754,7 @@ var config_default = defineConfig({
             type: "string",
             name: "bentoHeading",
             label: "Section 7: Services Overview Heading",
-            description: "Default: Engineered for *Impact & Engagement*."
+            description: "Default: Services *engineered to deliver.* Wrap words in *asterisks* for the animated underline accent."
           },
           {
             type: "string",
@@ -784,7 +785,7 @@ var config_default = defineConfig({
             type: "string",
             name: "pipelineHeading",
             label: "Section 8: Methodology Heading",
-            description: "Default: Calm execution. *Predictable excellence.*"
+            description: "Default: Clear collaboration *creates results.* Wrap words in *asterisks* for the animated underline accent."
           },
           {
             type: "string",
@@ -815,7 +816,7 @@ var config_default = defineConfig({
             type: "string",
             name: "hubsHeading",
             label: "Section 9: Regional Hubs Heading",
-            description: "Default: Rooted in Cambridge. *On-location across London.*"
+            description: "Default: Based in *Cambridge.* On-location across *London.* Wrap words in *asterisks* for the animated underline accent."
           },
           {
             type: "string",
@@ -834,7 +835,7 @@ var config_default = defineConfig({
             type: "string",
             name: "ctaHeading",
             label: "Section 10: Call to Action Heading",
-            description: "Default: Ready to film your next *conference or brand story*?"
+            description: "Default: Have an upcoming project *or live event?* Wrap words in *asterisks* to highlight with amber gradient."
           },
           {
             type: "string",
@@ -1102,6 +1103,7 @@ var config_default = defineConfig({
             type: "string",
             name: "bottomCtaHeading",
             label: "Section 5: Call to Action Heading",
+            description: "Default: Planning a shoot or event in *Cambridge?* Wrap words in *asterisks* to highlight with amber gradient.",
             required: true
           },
           {
@@ -1363,6 +1365,7 @@ var config_default = defineConfig({
             type: "string",
             name: "bottomCtaHeading",
             label: "Section 5: Call to Action Heading",
+            description: "Default: Planning a conference or shoot in *London?* Wrap words in *asterisks* to highlight with amber gradient.",
             required: true
           },
           {
@@ -1899,7 +1902,7 @@ var config_default = defineConfig({
             type: "string",
             name: "processHeading",
             label: "Section 2: Methodology Heading",
-            description: "Default: Designed for clarity. *Delivered with confidence.* Use _underscores_ (or *asterisks*) for animated underline."
+            description: "Default: Designed for clarity. *Delivered with confidence.* Wrap words in *asterisks* for the animated underline accent."
           },
           {
             type: "string",
@@ -2091,7 +2094,7 @@ var config_default = defineConfig({
             type: "string",
             name: "breakdownHeading",
             label: "Section 2: Overview Heading",
-            description: "Subheading explaining the service approach. Use _underscores_ (or *asterisks*) for animated underline."
+            description: "Subheading explaining the service approach. Wrap words in *asterisks* for the animated underline accent."
           },
           {
             type: "string",
@@ -2435,7 +2438,7 @@ var config_default = defineConfig({
             type: "string",
             name: "archiveHeading",
             label: "Section 2: Archive Heading",
-            description: "Default: Explore our *work.* Use _underscores_ (or *asterisks*) for animated underline.",
+            description: "Default: Explore our *work.* Wrap words in *asterisks* for the animated underline accent.",
             required: true
           },
           {
@@ -2719,7 +2722,7 @@ var config_default = defineConfig({
             type: "string",
             name: "timelineHeading",
             label: "Section 4: Timeline Heading",
-            description: "Default: Ten years behind the lens. *Built for today.* Use _underscores_ (or *asterisks*) for animated underline.",
+            description: "Default: Ten years behind the lens. *Built for today.* Wrap words in *asterisks* for the animated underline accent.",
             required: true
           },
           {
@@ -2997,7 +3000,7 @@ var config_default = defineConfig({
             type: "string",
             name: "step1Title",
             label: "Section 2: Step 1 Question Title",
-            description: "e.g. What is your *name* and *company* or organisation? * (asterisks add amber underline)",
+            description: "e.g. What is your *name* and *company* or organisation? * (Wrap words in *asterisks* for the animated underline accent)",
             required: true
           },
           {
