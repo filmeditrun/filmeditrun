@@ -96,7 +96,7 @@ const formSteps = [
   }
 ];
 
-const headerTag = (contact as any).headerTag || "Start A Brief";
+const headerTag = (contact as any).headerTag || "Live Help Desk: Enquiries Reviewed Within 2 Hours";
 const heading = (contact as any).heading || "Let's discuss your next *production.*";
 const description = (contact as any).description || "Tell us about your upcoming dates, venue location, or visual goals. We deliver a clear technical production scope and transparent quote within 24 hours.";
 const trustSignals = (contact as any).trustSignals || [
@@ -222,10 +222,13 @@ const gradientStyle = isRadial
     <!-- Main Banner Content (Centered Optical Alignment) -->
     <div class="relative z-20 max-w-4xl mx-auto px-6 text-center">
       
-      <!-- Studio Category Eyebrow Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono tracking-widest text-amber-400 uppercase mb-6 backdrop-blur-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-        <span>{headerTag || "Start A Brief"}</span>
+      <!-- Live Help Desk Status Eyebrow Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs font-mono tracking-wide text-emerald-400 mb-6 backdrop-blur-md shadow-sm shadow-emerald-500/10 select-none">
+        <span class="relative flex h-2 w-2 shrink-0">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+        </span>
+        <span class="font-medium">{headerTag || "Live Help Desk: Enquiries Reviewed Within 2 Hours"}</span>
       </div>
 
       <!-- Large Title with Asterisk Gradient Support -->

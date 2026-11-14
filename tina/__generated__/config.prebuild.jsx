@@ -2717,8 +2717,8 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "headerTag",
-            label: "Section 1: Hero Tag",
-            description: "e.g. Start A Brief"
+            label: "Section 1: Hero Live Status Badge",
+            description: "Default: Live Help Desk: Enquiries Reviewed Within 2 Hours"
           },
           {
             type: "string",
