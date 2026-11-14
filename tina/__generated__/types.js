@@ -243,35 +243,20 @@ export const ServicePartsFragmentDoc = gql`
   order
   title
   tag
-  description
   slug
-  link
   seoTitle
   seoDescription
-  heroTag
-  heroHeading
-  heroLead
-  breakdownHeading
-  breakdownBody
   cardDisplayAs
   cardImage
   cardVideoPath
-  cardSolidColor
-  cardGradientDirection
-  cardGradientColor1
-  cardGradientColor2
-  cardTextContrast
+  heroTag
+  heroHeading
+  heroLead
   heroDisplayAs
-  heroImage
   heroVideoPath
-  heroSolidColor
-  heroGradientDirection
-  heroGradientColor1
-  heroGradientColor2
-  heroTextContrast
-  displayAs
-  imagePath
-  localVideoPath
+  heroImage
+  breakdownHeading
+  breakdownBody
   deliverables {
     __typename
     tag

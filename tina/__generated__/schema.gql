@@ -698,35 +698,20 @@ type Service implements Node & Document {
   order: String!
   title: String!
   tag: String
-  description: String!
   slug: String!
-  link: String!
   seoTitle: String!
   seoDescription: String!
-  heroTag: String!
-  heroHeading: String!
-  heroLead: String!
-  breakdownHeading: String
-  breakdownBody: String
   cardDisplayAs: String
   cardImage: String
   cardVideoPath: String
-  cardSolidColor: String
-  cardGradientDirection: String
-  cardGradientColor1: String
-  cardGradientColor2: String
-  cardTextContrast: String
+  heroTag: String!
+  heroHeading: String!
+  heroLead: String!
   heroDisplayAs: String
-  heroImage: String
   heroVideoPath: String
-  heroSolidColor: String
-  heroGradientDirection: String
-  heroGradientColor1: String
-  heroGradientColor2: String
-  heroTextContrast: String
-  displayAs: String
-  imagePath: String
-  localVideoPath: String
+  heroImage: String
+  breakdownHeading: String
+  breakdownBody: String
   deliverables: [ServiceDeliverables]
   ctaHeading: String!
   ctaDescription: String!
@@ -746,35 +731,20 @@ input ServiceFilter {
   order: StringFilter
   title: StringFilter
   tag: StringFilter
-  description: StringFilter
   slug: StringFilter
-  link: StringFilter
   seoTitle: StringFilter
   seoDescription: StringFilter
-  heroTag: StringFilter
-  heroHeading: StringFilter
-  heroLead: StringFilter
-  breakdownHeading: StringFilter
-  breakdownBody: StringFilter
   cardDisplayAs: StringFilter
   cardImage: ImageFilter
   cardVideoPath: StringFilter
-  cardSolidColor: StringFilter
-  cardGradientDirection: StringFilter
-  cardGradientColor1: StringFilter
-  cardGradientColor2: StringFilter
-  cardTextContrast: StringFilter
+  heroTag: StringFilter
+  heroHeading: StringFilter
+  heroLead: StringFilter
   heroDisplayAs: StringFilter
-  heroImage: ImageFilter
   heroVideoPath: StringFilter
-  heroSolidColor: StringFilter
-  heroGradientDirection: StringFilter
-  heroGradientColor1: StringFilter
-  heroGradientColor2: StringFilter
-  heroTextContrast: StringFilter
-  displayAs: StringFilter
-  imagePath: ImageFilter
-  localVideoPath: StringFilter
+  heroImage: ImageFilter
+  breakdownHeading: StringFilter
+  breakdownBody: StringFilter
   deliverables: ServiceDeliverablesFilter
   ctaHeading: StringFilter
   ctaDescription: StringFilter
@@ -1724,35 +1694,20 @@ input ServiceMutation {
   order: String
   title: String
   tag: String
-  description: String
   slug: String
-  link: String
   seoTitle: String
   seoDescription: String
-  heroTag: String
-  heroHeading: String
-  heroLead: String
-  breakdownHeading: String
-  breakdownBody: String
   cardDisplayAs: String
   cardImage: String
   cardVideoPath: String
-  cardSolidColor: String
-  cardGradientDirection: String
-  cardGradientColor1: String
-  cardGradientColor2: String
-  cardTextContrast: String
+  heroTag: String
+  heroHeading: String
+  heroLead: String
   heroDisplayAs: String
-  heroImage: String
   heroVideoPath: String
-  heroSolidColor: String
-  heroGradientDirection: String
-  heroGradientColor1: String
-  heroGradientColor2: String
-  heroTextContrast: String
-  displayAs: String
-  imagePath: String
-  localVideoPath: String
+  heroImage: String
+  breakdownHeading: String
+  breakdownBody: String
   deliverables: [ServiceDeliverablesMutation]
   ctaHeading: String
   ctaDescription: String

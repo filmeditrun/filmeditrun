@@ -8,7 +8,7 @@ export interface ServiceData {
   slug: string;
   title: string;
   tag: string;
-  link: string;
+  link?: string;
   // Subpage Hero Visuals
   heroDisplayAs?: "image" | "video" | "gradient" | "solid" | "none" | string;
   heroImage?: string;
@@ -32,7 +32,7 @@ export interface ServiceData {
   localVideoPath?: string;
   cloudVideoUrl?: string;
   imagePath?: string;
-  description: string;
+  description?: string;
   seoTitle: string;
   seoDescription: string;
   heroTag: string;
@@ -83,14 +83,20 @@ const siteUrl = "https://filmeditrun.co.uk";
 const rawLink = service.link || `/services/${service.slug}`;
 const normalizedPath = rawLink.endsWith("/") ? rawLink : `${rawLink}/`;
 const canonicalUrl = `${siteUrl}${normalizedPath}`;
-const ogImage = service.imagePath?.startsWith("http") ? service.imagePath : `${siteUrl}${service.imagePath || "/og-image.jpg"}`;
+const ogImage = service.heroImage?.startsWith("http")
+  ? service.heroImage
+  : service.heroImage
+    ? `${siteUrl}${service.heroImage}`
+    : service.cardImage?.startsWith("http")
+      ? service.cardImage
+      : `${siteUrl}${service.cardImage || "/og-image.jpg"}`;
 
 // Structured JSON-LD Service & Breadcrumb Schema (Google Rich Results Optimized)
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": service.title,
-  "description": service.description,
+  "description": service.seoDescription || service.description || service.heroLead,
   "url": canonicalUrl,
   "provider": {
     "@type": "ProfessionalService",

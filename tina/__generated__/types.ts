@@ -1025,35 +1025,20 @@ export type Service = Node & Document & {
   order: Scalars['String']['output'];
   title: Scalars['String']['output'];
   tag?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
   slug: Scalars['String']['output'];
-  link: Scalars['String']['output'];
   seoTitle: Scalars['String']['output'];
   seoDescription: Scalars['String']['output'];
-  heroTag: Scalars['String']['output'];
-  heroHeading: Scalars['String']['output'];
-  heroLead: Scalars['String']['output'];
-  breakdownHeading?: Maybe<Scalars['String']['output']>;
-  breakdownBody?: Maybe<Scalars['String']['output']>;
   cardDisplayAs?: Maybe<Scalars['String']['output']>;
   cardImage?: Maybe<Scalars['String']['output']>;
   cardVideoPath?: Maybe<Scalars['String']['output']>;
-  cardSolidColor?: Maybe<Scalars['String']['output']>;
-  cardGradientDirection?: Maybe<Scalars['String']['output']>;
-  cardGradientColor1?: Maybe<Scalars['String']['output']>;
-  cardGradientColor2?: Maybe<Scalars['String']['output']>;
-  cardTextContrast?: Maybe<Scalars['String']['output']>;
+  heroTag: Scalars['String']['output'];
+  heroHeading: Scalars['String']['output'];
+  heroLead: Scalars['String']['output'];
   heroDisplayAs?: Maybe<Scalars['String']['output']>;
-  heroImage?: Maybe<Scalars['String']['output']>;
   heroVideoPath?: Maybe<Scalars['String']['output']>;
-  heroSolidColor?: Maybe<Scalars['String']['output']>;
-  heroGradientDirection?: Maybe<Scalars['String']['output']>;
-  heroGradientColor1?: Maybe<Scalars['String']['output']>;
-  heroGradientColor2?: Maybe<Scalars['String']['output']>;
-  heroTextContrast?: Maybe<Scalars['String']['output']>;
-  displayAs?: Maybe<Scalars['String']['output']>;
-  imagePath?: Maybe<Scalars['String']['output']>;
-  localVideoPath?: Maybe<Scalars['String']['output']>;
+  heroImage?: Maybe<Scalars['String']['output']>;
+  breakdownHeading?: Maybe<Scalars['String']['output']>;
+  breakdownBody?: Maybe<Scalars['String']['output']>;
   deliverables?: Maybe<Array<Maybe<ServiceDeliverables>>>;
   ctaHeading: Scalars['String']['output'];
   ctaDescription: Scalars['String']['output'];
@@ -1073,35 +1058,20 @@ export type ServiceFilter = {
   order?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   tag?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
   slug?: InputMaybe<StringFilter>;
-  link?: InputMaybe<StringFilter>;
   seoTitle?: InputMaybe<StringFilter>;
   seoDescription?: InputMaybe<StringFilter>;
-  heroTag?: InputMaybe<StringFilter>;
-  heroHeading?: InputMaybe<StringFilter>;
-  heroLead?: InputMaybe<StringFilter>;
-  breakdownHeading?: InputMaybe<StringFilter>;
-  breakdownBody?: InputMaybe<StringFilter>;
   cardDisplayAs?: InputMaybe<StringFilter>;
   cardImage?: InputMaybe<ImageFilter>;
   cardVideoPath?: InputMaybe<StringFilter>;
-  cardSolidColor?: InputMaybe<StringFilter>;
-  cardGradientDirection?: InputMaybe<StringFilter>;
-  cardGradientColor1?: InputMaybe<StringFilter>;
-  cardGradientColor2?: InputMaybe<StringFilter>;
-  cardTextContrast?: InputMaybe<StringFilter>;
+  heroTag?: InputMaybe<StringFilter>;
+  heroHeading?: InputMaybe<StringFilter>;
+  heroLead?: InputMaybe<StringFilter>;
   heroDisplayAs?: InputMaybe<StringFilter>;
-  heroImage?: InputMaybe<ImageFilter>;
   heroVideoPath?: InputMaybe<StringFilter>;
-  heroSolidColor?: InputMaybe<StringFilter>;
-  heroGradientDirection?: InputMaybe<StringFilter>;
-  heroGradientColor1?: InputMaybe<StringFilter>;
-  heroGradientColor2?: InputMaybe<StringFilter>;
-  heroTextContrast?: InputMaybe<StringFilter>;
-  displayAs?: InputMaybe<StringFilter>;
-  imagePath?: InputMaybe<ImageFilter>;
-  localVideoPath?: InputMaybe<StringFilter>;
+  heroImage?: InputMaybe<ImageFilter>;
+  breakdownHeading?: InputMaybe<StringFilter>;
+  breakdownBody?: InputMaybe<StringFilter>;
   deliverables?: InputMaybe<ServiceDeliverablesFilter>;
   ctaHeading?: InputMaybe<StringFilter>;
   ctaDescription?: InputMaybe<StringFilter>;
@@ -2313,35 +2283,20 @@ export type ServiceMutation = {
   order?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   tag?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
-  link?: InputMaybe<Scalars['String']['input']>;
   seoTitle?: InputMaybe<Scalars['String']['input']>;
   seoDescription?: InputMaybe<Scalars['String']['input']>;
-  heroTag?: InputMaybe<Scalars['String']['input']>;
-  heroHeading?: InputMaybe<Scalars['String']['input']>;
-  heroLead?: InputMaybe<Scalars['String']['input']>;
-  breakdownHeading?: InputMaybe<Scalars['String']['input']>;
-  breakdownBody?: InputMaybe<Scalars['String']['input']>;
   cardDisplayAs?: InputMaybe<Scalars['String']['input']>;
   cardImage?: InputMaybe<Scalars['String']['input']>;
   cardVideoPath?: InputMaybe<Scalars['String']['input']>;
-  cardSolidColor?: InputMaybe<Scalars['String']['input']>;
-  cardGradientDirection?: InputMaybe<Scalars['String']['input']>;
-  cardGradientColor1?: InputMaybe<Scalars['String']['input']>;
-  cardGradientColor2?: InputMaybe<Scalars['String']['input']>;
-  cardTextContrast?: InputMaybe<Scalars['String']['input']>;
+  heroTag?: InputMaybe<Scalars['String']['input']>;
+  heroHeading?: InputMaybe<Scalars['String']['input']>;
+  heroLead?: InputMaybe<Scalars['String']['input']>;
   heroDisplayAs?: InputMaybe<Scalars['String']['input']>;
-  heroImage?: InputMaybe<Scalars['String']['input']>;
   heroVideoPath?: InputMaybe<Scalars['String']['input']>;
-  heroSolidColor?: InputMaybe<Scalars['String']['input']>;
-  heroGradientDirection?: InputMaybe<Scalars['String']['input']>;
-  heroGradientColor1?: InputMaybe<Scalars['String']['input']>;
-  heroGradientColor2?: InputMaybe<Scalars['String']['input']>;
-  heroTextContrast?: InputMaybe<Scalars['String']['input']>;
-  displayAs?: InputMaybe<Scalars['String']['input']>;
-  imagePath?: InputMaybe<Scalars['String']['input']>;
-  localVideoPath?: InputMaybe<Scalars['String']['input']>;
+  heroImage?: InputMaybe<Scalars['String']['input']>;
+  breakdownHeading?: InputMaybe<Scalars['String']['input']>;
+  breakdownBody?: InputMaybe<Scalars['String']['input']>;
   deliverables?: InputMaybe<Array<InputMaybe<ServiceDeliverablesMutation>>>;
   ctaHeading?: InputMaybe<Scalars['String']['input']>;
   ctaDescription?: InputMaybe<Scalars['String']['input']>;
@@ -2843,35 +2798,20 @@ export type ServiceFilter = {
   order?: StringFilter | null | undefined;
   title?: StringFilter | null | undefined;
   tag?: StringFilter | null | undefined;
-  description?: StringFilter | null | undefined;
   slug?: StringFilter | null | undefined;
-  link?: StringFilter | null | undefined;
   seoTitle?: StringFilter | null | undefined;
   seoDescription?: StringFilter | null | undefined;
-  heroTag?: StringFilter | null | undefined;
-  heroHeading?: StringFilter | null | undefined;
-  heroLead?: StringFilter | null | undefined;
-  breakdownHeading?: StringFilter | null | undefined;
-  breakdownBody?: StringFilter | null | undefined;
   cardDisplayAs?: StringFilter | null | undefined;
   cardImage?: ImageFilter | null | undefined;
   cardVideoPath?: StringFilter | null | undefined;
-  cardSolidColor?: StringFilter | null | undefined;
-  cardGradientDirection?: StringFilter | null | undefined;
-  cardGradientColor1?: StringFilter | null | undefined;
-  cardGradientColor2?: StringFilter | null | undefined;
-  cardTextContrast?: StringFilter | null | undefined;
+  heroTag?: StringFilter | null | undefined;
+  heroHeading?: StringFilter | null | undefined;
+  heroLead?: StringFilter | null | undefined;
   heroDisplayAs?: StringFilter | null | undefined;
-  heroImage?: ImageFilter | null | undefined;
   heroVideoPath?: StringFilter | null | undefined;
-  heroSolidColor?: StringFilter | null | undefined;
-  heroGradientDirection?: StringFilter | null | undefined;
-  heroGradientColor1?: StringFilter | null | undefined;
-  heroGradientColor2?: StringFilter | null | undefined;
-  heroTextContrast?: StringFilter | null | undefined;
-  displayAs?: StringFilter | null | undefined;
-  imagePath?: ImageFilter | null | undefined;
-  localVideoPath?: StringFilter | null | undefined;
+  heroImage?: ImageFilter | null | undefined;
+  breakdownHeading?: StringFilter | null | undefined;
+  breakdownBody?: StringFilter | null | undefined;
   deliverables?: ServiceDeliverablesFilter | null | undefined;
   ctaHeading?: StringFilter | null | undefined;
   ctaDescription?: StringFilter | null | undefined;
@@ -3141,7 +3081,7 @@ export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: 
 
 export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: string, seoDescription: string | null, headerTag: string, heading: string, description: string, displayAs: string | null, imagePath: string | null, localVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null };
 
-export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string | null, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, cardSolidColor: string | null, cardGradientDirection: string | null, cardGradientColor1: string | null, cardGradientColor2: string | null, cardTextContrast: string | null, heroDisplayAs: string | null, heroImage: string | null, heroVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroTextContrast: string | null, displayAs: string | null, imagePath: string | null, localVideoPath: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
+export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
 
 export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, videoButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, filterAllLabel: string, closeModalLabel: string, projects: Array<{ __typename: 'WorkPageProjects', title: string, client: string, category: string, thumbnail: string, videoUrl: string } | null> | null };
 
@@ -3280,7 +3220,7 @@ export type ServiceQueryVariables = Exact<{
 }>;
 
 
-export type ServiceQuery = { service: { __typename: 'Service', id: string, order: string, title: string, tag: string | null, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, cardSolidColor: string | null, cardGradientDirection: string | null, cardGradientColor1: string | null, cardGradientColor2: string | null, cardTextContrast: string | null, heroDisplayAs: string | null, heroImage: string | null, heroVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroTextContrast: string | null, displayAs: string | null, imagePath: string | null, localVideoPath: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } };
+export type ServiceQuery = { service: { __typename: 'Service', id: string, order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } };
 
 export type ServiceConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3292,7 +3232,7 @@ export type ServiceConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ServiceConnectionQuery = { serviceConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Service', id: string, order: string, title: string, tag: string | null, description: string, slug: string, link: string, seoTitle: string, seoDescription: string, heroTag: string, heroHeading: string, heroLead: string, breakdownHeading: string | null, breakdownBody: string | null, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, cardSolidColor: string | null, cardGradientDirection: string | null, cardGradientColor1: string | null, cardGradientColor2: string | null, cardTextContrast: string | null, heroDisplayAs: string | null, heroImage: string | null, heroVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroTextContrast: string | null, displayAs: string | null, imagePath: string | null, localVideoPath: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } | null } | null> | null } };
+export type ServiceConnectionQuery = { serviceConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Service', id: string, order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } | null } | null> | null } };
 
 export type WorkPageQueryVariables = Exact<{
   relativePath: string;
@@ -3703,35 +3643,20 @@ export const ServicePartsFragmentDoc = gql`
   order
   title
   tag
-  description
   slug
-  link
   seoTitle
   seoDescription
-  heroTag
-  heroHeading
-  heroLead
-  breakdownHeading
-  breakdownBody
   cardDisplayAs
   cardImage
   cardVideoPath
-  cardSolidColor
-  cardGradientDirection
-  cardGradientColor1
-  cardGradientColor2
-  cardTextContrast
+  heroTag
+  heroHeading
+  heroLead
   heroDisplayAs
-  heroImage
   heroVideoPath
-  heroSolidColor
-  heroGradientDirection
-  heroGradientColor1
-  heroGradientColor2
-  heroTextContrast
-  displayAs
-  imagePath
-  localVideoPath
+  heroImage
+  breakdownHeading
+  breakdownBody
   deliverables {
     __typename
     tag

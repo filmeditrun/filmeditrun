@@ -2079,30 +2079,14 @@ export default defineConfig({
           {
             type: "string",
             name: "tag",
-            label: "🏷️ Category Badge (e.g. Multi-Camera Filming)",
-            description: "Used in Schema.org metadata and subpage scope header",
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "Service Description",
-            ui: {
-              component: "textarea",
-            },
-            required: true,
+            label: "🏷️ Category Badge (e.g. Conference & Event Filming)",
+            description: "Category badge displayed on cards and Schema.org metadata",
           },
           {
             type: "string",
             name: "slug",
             label: "URL Slug",
-            description: "e.g. event-coverage, conference-production",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "link",
-            label: "Target Page Link",
-            description: "e.g. /services/event-coverage",
+            description: "e.g. conference-event-filming, post-production",
             required: true,
           },
           {
@@ -2120,7 +2104,33 @@ export default defineConfig({
             },
             required: true,
           },
-          // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
+
+          // ─── 📌 SERVICE CARD DISPLAY (Overview Grid & Homepage) ──────
+          {
+            type: "string",
+            name: "cardDisplayAs",
+            label: "Card Media Type",
+            description: "Choose how this card displays in the 6-service grid on /services and homepage",
+            options: [
+              { label: "Studio Spotlight (Signature Dark Obsidian Stage)", value: "gradient" },
+              { label: "Static Photograph / Image", value: "image" },
+              { label: "Video Loop", value: "video" },
+            ],
+          },
+          {
+            type: "image",
+            name: "cardImage",
+            label: "Card Photo",
+            description: "Photograph displayed on this service card when Image mode is active (or as video poster)",
+          },
+          {
+            type: "string",
+            name: "cardVideoPath",
+            label: "Card Video Path",
+            description: "e.g. /showreel.mp4",
+          },
+
+          // ─── 🎬 SECTION 1: HERO (Service Subpage Banner) ─────────────
           {
             type: "string",
             name: "heroTag",
@@ -2148,7 +2158,30 @@ export default defineConfig({
             },
             required: true,
           },
-          // ─── 📄 SECTION 2: OVERVIEW ──────────────────────────────────────
+          {
+            type: "string",
+            name: "heroDisplayAs",
+            label: "Hero Media Type",
+            description: "Choose how the full-width Hero banner displays on this service's own page",
+            options: [
+              { label: "Video Loop", value: "video" },
+              { label: "Static Photograph / Image", value: "image" },
+            ],
+          },
+          {
+            type: "string",
+            name: "heroVideoPath",
+            label: "🎬 Hero Video Path (When Video selected)",
+            description: "e.g. /showreel.mp4",
+          },
+          {
+            type: "image",
+            name: "heroImage",
+            label: "🎬 Hero Photo",
+            description: "Photograph displayed in the Hero banner when Image mode is active (or as video poster)",
+          },
+
+          // ─── 📄 SECTION 2: OVERVIEW ──────────────────────────────────
           {
             type: "string",
             name: "breakdownHeading",
@@ -2164,179 +2197,8 @@ export default defineConfig({
               component: "textarea",
             },
           },
-          // ─── 📌 SERVICE CARD DISPLAY (Overview Grid) ─────────────────────
-          {
-            type: "string",
-            name: "cardDisplayAs",
-            label: "Card Media Type",
-            description: "Choose how this card displays in the 6-service grid on /services and homepage",
-            options: [
-              { label: "Static Photograph / Image", value: "image" },
-              { label: "Video Loop", value: "video" },
-              { label: "Duo-Tone Gradient Spotlight", value: "gradient" },
-              { label: "Solid Background Color", value: "solid" },
-            ],
-          },
-          {
-            type: "image",
-            name: "cardImage",
-            label: "Card Photo",
-            description: "Photograph displayed on this service card when Image mode is active (or as video poster)",
-          },
-          {
-            type: "string",
-            name: "cardVideoPath",
-            label: "Card Video Path",
-            description: "e.g. /showreel.mp4",
-          },
-          {
-            type: "string",
-            name: "cardSolidColor",
-            label: "Card Solid Background Color (Hex)",
-            description: "Hex color when Solid mode is selected (e.g. #0a0a0c)",
-            ui: {
-              component: "color",
-            },
-          },
-          {
-            type: "string",
-            name: "cardGradientDirection",
-            label: "Card Gradient Direction",
-            options: [
-              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
-              { value: "to bottom", label: "Vertical (Top to Bottom)" },
-              { value: "to right", label: "Horizontal (Left to Right)" },
-              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
-              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
-              { value: "radial", label: "Center Spotlight (Radial)" },
-            ],
-          },
-          {
-            type: "string",
-            name: "cardGradientColor1",
-            label: "Card Gradient First Color (Hex)",
-            description: "Start color or spotlight center",
-            ui: {
-              component: "color",
-            },
-          },
-          {
-            type: "string",
-            name: "cardGradientColor2",
-            label: "Card Gradient Second Color (Hex)",
-            description: "End color or gradient base",
-            ui: {
-              component: "color",
-            },
-          },
-          {
-            type: "string",
-            name: "cardTextContrast",
-            label: "Card Text Contrast Mode",
-            description: "Controls text color on this card. Auto automatically adapts text to background lightness across all visual grades.",
-            options: [
-              { label: "Auto (Adapts text to background color)", value: "auto" },
-              { label: "Light / White Text (For dark photos, videos, or dark colors)", value: "light" },
-              { label: "Dark / Black Text (For white, cream, or light pastel colors)", value: "dark" },
-            ],
-          },
 
-          // ─── 📌 SERVICE PAGE HERO MEDIA ──────────────────────────────────
-          {
-            type: "string",
-            name: "heroDisplayAs",
-            label: "Hero Media Type",
-            description: "Choose how the full-width Hero banner displays on this service's own page",
-            options: [
-              { label: "Video Loop", value: "video" },
-              { label: "Static Photograph / Image", value: "image" },
-              { label: "Duo-Tone Gradient Background", value: "gradient" },
-              { label: "Solid Background Color", value: "solid" },
-              { label: "Solid Background (No Media)", value: "none" },
-            ],
-          },
-          {
-            type: "image",
-            name: "heroImage",
-            label: "🎬 Hero Photo",
-            description: "Photograph displayed in the Hero banner when Image mode is active (or as video poster)",
-          },
-          {
-            type: "string",
-            name: "heroVideoPath",
-            label: "🎬 Hero Video Path (When Video selected)",
-            description: "e.g. /showreel.mp4",
-          },
-          {
-            type: "string",
-            name: "heroSolidColor",
-            label: "🎬 Hero Solid Background Color (Hex)",
-            description: "Hex color code when Solid option is selected (e.g. #0a0a0c)",
-            ui: {
-              component: "color",
-            },
-          },
-          {
-            type: "string",
-            name: "heroGradientDirection",
-            label: "🎬 Hero Gradient Direction",
-            options: [
-              { value: "to bottom right", label: "Diagonal (Top-Left to Bottom-Right)" },
-              { value: "to bottom", label: "Vertical (Top to Bottom)" },
-              { value: "to right", label: "Horizontal (Left to Right)" },
-              { value: "to top right", label: "Reverse Diagonal (Bottom-Left to Top-Right)" },
-              { value: "to bottom left", label: "Opposite Diagonal (Top-Right to Bottom-Left)" },
-              { value: "radial", label: "Center Spotlight (Radial)" },
-            ],
-          },
-          {
-            type: "string",
-            name: "heroGradientColor1",
-            label: "🎬 Hero Gradient First Color (Hex)",
-            description: "Start color or spotlight center",
-            ui: {
-              component: "color",
-            },
-          },
-          {
-            type: "string",
-            name: "heroGradientColor2",
-            label: "🎬 Hero Gradient Second Color (Hex)",
-            description: "End color or gradient base",
-            ui: {
-              component: "color",
-            },
-          },
-          {
-            type: "string",
-            name: "heroTextContrast",
-            label: "🎬 Hero Text Contrast Mode",
-            description: "Controls text color in the Hero banner. Auto automatically adapts text to background lightness across all visual grades.",
-            options: [
-              { label: "⚡ Auto (Adapts text to background color)", value: "auto" },
-              { label: "⚪ Light / White Text (For dark photos, videos, or dark colors)", value: "light" },
-              { label: "⚫ Dark / Black Text (For white, cream, or light pastel colors)", value: "dark" },
-            ],
-          },
-
-          // ─── 🔄 LEGACY COMPATIBILITY FIELDS (Hidden Fallbacks) ────────
-          {
-            type: "string",
-            name: "displayAs",
-            label: "Legacy Media Type Fallback",
-            description: "Used automatically if specific Card or Hero type is not set",
-          },
-          {
-            type: "image",
-            name: "imagePath",
-            label: "Legacy Image Fallback",
-          },
-          {
-            type: "string",
-            name: "localVideoPath",
-            label: "Legacy Video Fallback",
-          },
-          // ─── 📦 SECTION 3: DELIVERABLES ──────────────────────────────────
+          // ─── 📦 SECTION 3: DELIVERABLES ──────────────────────────────
           {
             type: "object",
             list: true,
@@ -2371,7 +2233,8 @@ export default defineConfig({
               },
             ],
           },
-          // ─── 🎯 SECTION 4: CALL TO ACTION ────────────────────────────────
+
+          // ─── 🎯 SECTION 4: CALL TO ACTION ────────────────────────────
           {
             type: "string",
             name: "ctaHeading",
