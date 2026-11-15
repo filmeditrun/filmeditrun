@@ -132,11 +132,11 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
       <p class="text-neutral-300 max-w-xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed tracking-[-0.01em] mb-10 keep-white">
         {home.tagline}
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href={home.primaryCtaLink} class="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-8 py-4 rounded-xl text-base transition-all shadow-xl shadow-amber-500/10 hover:scale-[1.02]">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+        <a href={home.primaryCtaLink} class="inline-flex items-center justify-center bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-neutral-950 font-bold px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl text-sm sm:text-base transition-all shadow-xl shadow-amber-500/10 hover:scale-[1.02]">
           {home.primaryCtaLabel}
         </a>
-        <a href={home.secondaryCtaLink} class="w-full sm:w-auto border border-white/20 bg-black/40 hover:bg-white/10 hover:border-white/40 backdrop-blur-md text-white font-medium px-8 py-4 rounded-xl text-base transition-all keep-white">
+        <a href={home.secondaryCtaLink} class="inline-flex items-center justify-center border border-white/20 bg-black/40 hover:bg-white/10 hover:border-white/40 backdrop-blur-md text-white font-medium px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl text-sm sm:text-base transition-all keep-white">
           {home.secondaryCtaLabel}
         </a>
       </div>

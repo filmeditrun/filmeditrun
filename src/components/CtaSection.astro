@@ -95,13 +95,13 @@ const displaySecondaryLink = secondaryButtonLink;
 
     <!-- Action Buttons Row -->
     <div class:list={[
-      "flex flex-col sm:flex-row items-center justify-center gap-4",
+      "flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4",
       trustSignals && trustSignals.length > 0 ? "mb-12" : ""
     ]}>
       <!-- Primary High-Contrast Conversion Button -->
       <a
         href={displayPrimaryLink}
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold text-sm tracking-wide shadow-xl shadow-amber-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+        class="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold text-sm sm:text-base tracking-wide shadow-xl shadow-amber-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
       >
         <span>{displayPrimaryLabel}</span>
       </a>
@@ -110,7 +110,7 @@ const displaySecondaryLink = secondaryButtonLink;
       {displaySecondaryLabel && displaySecondaryLink && (
         <a
           href={displaySecondaryLink}
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/5 border border-white/15 hover:border-amber-500/50 hover:bg-white/10 text-sm font-medium text-white keep-white transition-all shadow-lg"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl bg-white/5 border border-white/15 hover:border-amber-500/50 hover:bg-white/10 text-sm sm:text-base font-medium text-white keep-white transition-all shadow-lg"
         >
           <span>{displaySecondaryLabel}</span>
         </a>
