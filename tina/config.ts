@@ -1482,6 +1482,12 @@ export default defineConfig({
             label: "🔍 Canonical URL (Optional)",
             description: "Defaults to https://filmeditrun.co.uk/{slug}",
           },
+          {
+            type: "boolean",
+            name: "noindex",
+            label: "🔒 Private Page (Hide from Google / Noindex)",
+            description: "Toggle ON for private client pitches, proposals, or unlisted pages so Google and search engines never index them.",
+          },
 
           // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
