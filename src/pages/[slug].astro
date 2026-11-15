@@ -136,8 +136,8 @@ const isNoIndex = page.noindex === true || page.privacyStatus === "private" || (
       
       <!-- Video / Photo Media Backdrop Layer -->
       <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
-        <!-- Master Cinematic ND Filter (Guaranteed AA Contrast Across Themes) -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
+        <!-- Master Cinematic Eased ND Filter (Guaranteed Contrast & Vibrant Footage) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none" aria-hidden="true"></div>
 
         {/* Video Background (Local or Cloud) */}
         {(displayAs === "local-video" || displayAs === "link-video" || displayAs === "video") && (
@@ -148,7 +148,7 @@ const isNoIndex = page.noindex === true || page.privacyStatus === "private" || (
             playsinline
             preload="metadata"
             poster={imagePath}
-            class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
+            class="absolute inset-0 w-full h-full object-cover opacity-90 sm:opacity-95 z-0"
           >
             <source
               src={displayAs === "link-video" ? cloudVideoUrl : localVideoPath}
@@ -165,7 +165,7 @@ const isNoIndex = page.noindex === true || page.privacyStatus === "private" || (
             loading="eager"
             fetchpriority="high"
             decoding="async"
-            class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-85 z-0"
+            class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
           />
         )}
 

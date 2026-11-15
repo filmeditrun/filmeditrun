@@ -167,11 +167,8 @@ const gradientStyle = isRadial
     
     <!-- Media Backdrop Layer -->
     <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
-      <!-- Master Cinematic ND Filter -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90 z-10 pointer-events-none" aria-hidden="true"></div>
-
-      <!-- Ambient Amber Spotlight Glow at Top Center -->
-      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] sm:w-[56rem] h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none z-10" aria-hidden="true"></div>
+      <!-- Master Cinematic Eased ND Filter (Guaranteed Contrast & Vibrant Footage) -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none" aria-hidden="true"></div>
 
       {/* Video Background */}
       {(displayAs === "local-video" || displayAs === "video") && (
@@ -196,7 +193,7 @@ const gradientStyle = isRadial
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          class="absolute inset-0 w-full h-full object-cover opacity-80 sm:opacity-85 z-0"
+          class="absolute inset-0 w-full h-full object-cover opacity-85 sm:opacity-90 z-0"
         />
       )}
 
