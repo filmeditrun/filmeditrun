@@ -7,6 +7,7 @@
 import Layout from '../layouts/Layout.astro';
 import CtaSection from '../components/CtaSection.astro';
 import { parseHeroHeading, parseSectionHeading } from '../utils/headingParser';
+import { getHeroOverlayConfig } from '../utils/heroOverlay';
 
 export interface CustomPageData {
   slug: string;
@@ -24,6 +25,8 @@ export interface CustomPageData {
   heroSubtitle: string;
   heroCtaLabel?: string;
   heroCtaLink?: string;
+  heroOverlay?: string;
+  heroOverlayAmount?: number | string;
   displayAs?: "local-video" | "link-video" | "image" | "gradient" | "none" | string;
   localVideoPath?: string;
   cloudVideoUrl?: string;
@@ -111,6 +114,11 @@ const gradientStyle = isRadial
   ? `background: radial-gradient(circle at center, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`
   : `background: linear-gradient(${heroGradientDirection}, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`;
 
+const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOverlayConfig(
+  page.heroOverlay,
+  page.heroOverlayAmount
+);
+
 const siteUrl = "https://filmeditrun.co.uk";
 const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
 
@@ -136,8 +144,14 @@ const isNoIndex = page.noindex === true || page.privacyStatus === "private" || (
       
       <!-- Video / Photo Media Backdrop Layer -->
       <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
-        <!-- Master Cinematic Eased ND Filter (Guaranteed Contrast & Vibrant Footage) -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none" aria-hidden="true"></div>
+        <!-- Hero Background Darkening Overlay (Configurable via Tina CMS) -->
+        {isHeroOverlayVisible && (
+          <div 
+            class="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300"
+            style={heroOverlayStyle}
+            aria-hidden="true"
+          ></div>
+        )}
 
         {/* Video Background (Local or Cloud) */}
         {(displayAs === "local-video" || displayAs === "link-video" || displayAs === "video") && (

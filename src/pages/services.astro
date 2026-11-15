@@ -8,6 +8,7 @@ import ServiceCard from '../components/ServiceCard.astro';
 import CtaSection from '../components/CtaSection.astro';
 import servicesPage from '../content/pages/services.json';
 import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../utils/headingParser';
+import { getHeroOverlayConfig } from '../utils/heroOverlay';
 
 interface ServiceCard {
   order: string;
@@ -88,6 +89,11 @@ const isRadial = heroGradientDirection === "radial";
 const gradientStyle = isRadial
   ? `background: radial-gradient(circle at center, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`
   : `background: linear-gradient(${heroGradientDirection}, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`;
+
+const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOverlayConfig(
+  (servicesPage as any).heroOverlay,
+  (servicesPage as any).heroOverlayAmount
+);
 // =====================================================================
 ---
 
@@ -104,8 +110,10 @@ const gradientStyle = isRadial
     
     <!-- Video / Photo Media Backdrop Layer (Clear, vibrant background) -->
     <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
-      <!-- Master Cinematic Eased ND Filter (Guaranteed Contrast & Vibrant Footage) -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none" aria-hidden="true"></div>
+      <!-- Master Eased Background Darkening (Controlled via Tina CMS) -->
+      {isHeroOverlayVisible && (
+        <div class="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300" style={heroOverlayStyle} aria-hidden="true"></div>
+      )}
 
       {/* Video Background */}
       {isVideo && (

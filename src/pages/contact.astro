@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import contact from '../content/pages/contact.json';
 import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../utils/headingParser';
+import { getHeroOverlayConfig } from '../utils/heroOverlay';
 
 const seoTitle = contact.seoTitle || "Start Your Project | FilmEditRun";
 const seoDescription = contact.seoDescription || "Tell us about your upcoming filming, editing, or creative project across Cambridge, London, or nationwide. We deliver a clear technical proposal within 24 hours.";
@@ -146,6 +147,11 @@ const isRadial = heroGradientDirection === "radial";
 const gradientStyle = isRadial
   ? `background: radial-gradient(circle at center, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`
   : `background: linear-gradient(${heroGradientDirection}, ${heroGradientColor1} 0%, ${heroGradientColor2} 100%);`;
+
+const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOverlayConfig(
+  (contact as any).heroOverlay,
+  (contact as any).heroOverlayAmount
+);
 ---
 
 <Layout 
@@ -167,8 +173,14 @@ const gradientStyle = isRadial
     
     <!-- Media Backdrop Layer -->
     <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
-      <!-- Master Cinematic Eased ND Filter (Guaranteed Contrast & Vibrant Footage) -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none" aria-hidden="true"></div>
+      <!-- Hero Background Darkening Overlay (Configurable via Tina CMS) -->
+      {isHeroOverlayVisible && (
+        <div 
+          class="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300"
+          style={heroOverlayStyle}
+          aria-hidden="true"
+        ></div>
+      )}
 
       {/* Video Background */}
       {(displayAs === "local-video" || displayAs === "video") && (

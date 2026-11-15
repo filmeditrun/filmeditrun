@@ -1,4 +1,27 @@
-import { defineConfig } from "tinacms";
+import React from "react";
+import { defineConfig, wrapFieldsWithMeta } from "tinacms";
+
+const RangeSlider = wrapFieldsWithMeta(({ input }: any) => {
+  const val = input.value !== undefined && input.value !== null && input.value !== "" ? Number(input.value) : 50;
+  return React.createElement(
+    "div",
+    { className: "flex items-center gap-3 py-1" },
+    React.createElement("input", {
+      type: "range",
+      min: 0,
+      max: 100,
+      step: 5,
+      value: val,
+      onChange: (e: any) => input.onChange(Number(e.target.value)),
+      className: "w-full accent-amber-500 cursor-pointer h-2 bg-neutral-700 rounded-lg",
+    }),
+    React.createElement(
+      "span",
+      { className: "font-mono text-sm font-semibold w-12 text-right text-amber-400" },
+      `${val}%`
+    )
+  );
+});
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -653,6 +676,29 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "heroOverlay",
+            label: "Section 1: Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Section 1: Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
+          },
+          {
+            type: "string",
             name: "primaryCtaLabel",
             label: "Section 1: Primary Button Text",
             required: true,
@@ -1016,6 +1062,29 @@ export default defineConfig({
             name: "imagePath",
             label: "Hero Background Image / Fallback Poster",
           },
+          {
+            type: "string",
+            name: "heroOverlay",
+            label: "Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
+          },
 
           // ─── 📄 SECTION 2: OVERVIEW ──────────────────────────────────────
           {
@@ -1282,6 +1351,29 @@ export default defineConfig({
             name: "imagePath",
             label: "Static Background Image / Fallback Poster",
             description: "High-resolution photo used as background or video poster",
+          },
+          {
+            type: "string",
+            name: "heroOverlay",
+            label: "Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
           },
 
           // ─── 📄 SECTION 2: OVERVIEW ──────────────────────────────────────
@@ -1557,6 +1649,29 @@ export default defineConfig({
             type: "image",
             name: "imagePath",
             label: "Hero Background Photo / Video Fallback Poster",
+          },
+          {
+            type: "string",
+            name: "heroOverlay",
+            label: "Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
           },
           {
             type: "string",
@@ -1915,6 +2030,29 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "heroOverlay",
+            label: "Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
+          },
+          {
+            type: "string",
             name: "localVideoPath",
             label: "Local Video Path",
             description: "e.g. /showreel.mp4",
@@ -2190,6 +2328,29 @@ export default defineConfig({
             label: "🎬 Hero Photo",
             description: "Photograph displayed in the Hero banner when Image mode is active (or as video poster)",
           },
+          {
+            type: "string",
+            name: "heroOverlay",
+            label: "Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
+          },
 
           // ─── 📄 SECTION 2: OVERVIEW ──────────────────────────────────
           {
@@ -2340,6 +2501,29 @@ export default defineConfig({
             name: "heroPosterPath",
             label: "Section 1: Hero Fallback Poster Frame",
             description: "Image displayed while video loads (e.g. /og-image.jpg)",
+          },
+          {
+            type: "string",
+            name: "heroOverlay",
+            label: "Section 1: Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Section 1: Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
           },
           {
             type: "string",
@@ -2559,16 +2743,26 @@ export default defineConfig({
           },
           {
             type: "string",
-            name: "heroFrostedGlass",
-            label: "Hero Background Solid Tint / ND Filter",
-            description: "Solid opacity tint over the background (subtle is recommended)",
+            name: "heroOverlay",
+            label: "Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
             options: [
-              { value: "none", label: "None (Full Raw Clarity)" },
-              { value: "very-subtle", label: "Very Subtle (Light 30% ND Tint)" },
-              { value: "subtle", label: "Subtle (Balanced 50% ND Tint, Recommended)" },
-              { value: "medium", label: "Medium (Strong 70% ND Tint)" },
-              { value: "strong", label: "Strong (Heavy 85% ND Tint)" },
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
             ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
           },
           // ─── 📄 SECTION 3: OVERVIEW & APPROACH ──────────────────────────
           {
@@ -2844,6 +3038,29 @@ export default defineConfig({
             type: "image",
             name: "imagePath",
             label: "Poster / Background Image",
+          },
+          {
+            type: "string",
+            name: "heroOverlay",
+            label: "Hero Background Darkening",
+            description: "Turn the darkening gradient overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "heroOverlayAmount",
+            label: "Darkening Amount",
+            description: "Slide to adjust darkness (Default: 50% - Light / Eased).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
           },
           {
             type: "string",

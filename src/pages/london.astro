@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro';
 import CtaSection from '../components/CtaSection.astro';
 import rawLondon from '../content/pages/london.json';
 import { parseHeroHeading, parseSectionHeading } from '../utils/headingParser';
+import { getHeroOverlayConfig } from '../utils/heroOverlay';
 
 interface LondonData {
   seoTitle: string;
@@ -131,6 +132,11 @@ if (faqs.length > 0) {
     }))
   });
 }
+
+const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOverlayConfig(
+  (london as any).heroOverlay,
+  (london as any).heroOverlayAmount
+);
 ---
 
 <Layout
@@ -151,8 +157,10 @@ if (faqs.length > 0) {
       
       <!-- Video / Photo Media Backdrop Layer (Clear, vibrant background) -->
       <div class="absolute inset-0 z-0 bg-neutral-950 pointer-events-none overflow-hidden">
-        <!-- Master Cinematic Eased ND Filter (Guaranteed Contrast & Vibrant Footage) -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none" aria-hidden="true"></div>
+        <!-- Master Eased Background Darkening (Controlled via Tina CMS) -->
+        {isHeroOverlayVisible && (
+          <div class="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300" style={heroOverlayStyle} aria-hidden="true"></div>
+        )}
 
         {/* Video Background (Local or Cloud) */}
         {(displayAs === "local-video" || displayAs === "link-video") && (

@@ -149,6 +149,8 @@ type Homepage implements Node & Document {
   tagline: String!
   heroVideoPath: String!
   heroPosterPath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   primaryCtaLabel: String!
   primaryCtaLink: String!
   secondaryCtaLabel: String!
@@ -206,6 +208,16 @@ input ImageFilter {
   in: [String]
 }
 
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
 input HomepageTelemetryMetricsFilter {
   value: StringFilter
   label: StringFilter
@@ -220,6 +232,8 @@ input HomepageFilter {
   tagline: StringFilter
   heroVideoPath: StringFilter
   heroPosterPath: ImageFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   primaryCtaLabel: StringFilter
   primaryCtaLink: StringFilter
   secondaryCtaLabel: StringFilter
@@ -289,6 +303,8 @@ type CambridgePage implements Node & Document {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   expertiseTag: String!
   expertiseHeading: String!
   expertiseDescription: String!
@@ -333,6 +349,8 @@ input CambridgePageFilter {
   localVideoPath: StringFilter
   cloudVideoUrl: StringFilter
   imagePath: ImageFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   expertiseTag: StringFilter
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
@@ -385,6 +403,8 @@ type LondonPage implements Node & Document {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   expertiseTag: String!
   expertiseHeading: String!
   expertiseDescription: String!
@@ -429,6 +449,8 @@ input LondonPageFilter {
   localVideoPath: StringFilter
   cloudVideoUrl: StringFilter
   imagePath: ImageFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   expertiseTag: StringFilter
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
@@ -478,6 +500,8 @@ type CustomPages implements Node & Document {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   heroGradientDirection: String
   heroGradientColor1: String
   heroGradientColor2: String
@@ -527,6 +551,8 @@ input CustomPagesFilter {
   localVideoPath: StringFilter
   cloudVideoUrl: StringFilter
   imagePath: ImageFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   heroGradientDirection: StringFilter
   heroGradientColor1: StringFilter
   heroGradientColor2: StringFilter
@@ -629,6 +655,8 @@ type ServicesPage implements Node & Document {
   description: String!
   displayAs: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   localVideoPath: String
   heroSolidColor: String
   heroGradientDirection: String
@@ -663,6 +691,8 @@ input ServicesPageFilter {
   description: StringFilter
   displayAs: StringFilter
   imagePath: ImageFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   localVideoPath: StringFilter
   heroSolidColor: StringFilter
   heroGradientDirection: StringFilter
@@ -712,6 +742,8 @@ type Service implements Node & Document {
   heroDisplayAs: String
   heroVideoPath: String
   heroImage: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   breakdownHeading: String
   breakdownBody: String
   deliverables: [ServiceDeliverables]
@@ -745,6 +777,8 @@ input ServiceFilter {
   heroDisplayAs: StringFilter
   heroVideoPath: StringFilter
   heroImage: ImageFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   breakdownHeading: StringFilter
   breakdownBody: StringFilter
   deliverables: ServiceDeliverablesFilter
@@ -780,6 +814,8 @@ type WorkPage implements Node & Document {
   description: String!
   heroVideoPath: String
   heroPosterPath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   videoButtonLabel: String!
   scrollIndicatorText: String!
   showArchive: Boolean
@@ -809,6 +845,8 @@ input WorkPageFilter {
   description: StringFilter
   heroVideoPath: StringFilter
   heroPosterPath: ImageFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   videoButtonLabel: StringFilter
   scrollIndicatorText: StringFilter
   showArchive: BooleanFilter
@@ -850,7 +888,8 @@ type AboutPage implements Node & Document {
   heroGradientDirection: String
   heroGradientColor1: String
   heroGradientColor2: String
-  heroFrostedGlass: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   approachTag: String
   approachHeading: String!
   approachBody: String!
@@ -895,7 +934,8 @@ input AboutPageFilter {
   heroGradientDirection: StringFilter
   heroGradientColor1: StringFilter
   heroGradientColor2: StringFilter
-  heroFrostedGlass: StringFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   approachTag: StringFilter
   approachHeading: StringFilter
   approachBody: StringFilter
@@ -985,6 +1025,8 @@ type ContactPage implements Node & Document {
   displayAs: String
   localVideoPath: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   heroSolidColor: String
   heroGradientDirection: String
   heroGradientColor1: String
@@ -1032,6 +1074,8 @@ input ContactPageFilter {
   displayAs: StringFilter
   localVideoPath: StringFilter
   imagePath: ImageFilter
+  heroOverlay: StringFilter
+  heroOverlayAmount: NumberFilter
   heroSolidColor: StringFilter
   heroGradientDirection: StringFilter
   heroGradientColor1: StringFilter
@@ -1214,16 +1258,6 @@ type SeoSettings implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input NumberFilter {
-  lt: Float
-  lte: Float
-  gte: Float
-  gt: Float
-  eq: Float
-  exists: Boolean
-  in: [Float]
 }
 
 input SeoSettingsBacklinkProfilesFilter {
@@ -1481,6 +1515,8 @@ input HomepageMutation {
   tagline: String
   heroVideoPath: String
   heroPosterPath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   primaryCtaLabel: String
   primaryCtaLink: String
   secondaryCtaLabel: String
@@ -1539,6 +1575,8 @@ input CambridgePageMutation {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   expertiseTag: String
   expertiseHeading: String
   expertiseDescription: String
@@ -1580,6 +1618,8 @@ input LondonPageMutation {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   expertiseTag: String
   expertiseHeading: String
   expertiseDescription: String
@@ -1618,6 +1658,8 @@ input CustomPagesMutation {
   localVideoPath: String
   cloudVideoUrl: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   heroGradientDirection: String
   heroGradientColor1: String
   heroGradientColor2: String
@@ -1677,6 +1719,8 @@ input ServicesPageMutation {
   description: String
   displayAs: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   localVideoPath: String
   heroSolidColor: String
   heroGradientDirection: String
@@ -1715,6 +1759,8 @@ input ServiceMutation {
   heroDisplayAs: String
   heroVideoPath: String
   heroImage: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   breakdownHeading: String
   breakdownBody: String
   deliverables: [ServiceDeliverablesMutation]
@@ -1739,6 +1785,8 @@ input WorkPageMutation {
   description: String
   heroVideoPath: String
   heroPosterPath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   videoButtonLabel: String
   scrollIndicatorText: String
   showArchive: Boolean
@@ -1769,7 +1817,8 @@ input AboutPageMutation {
   heroGradientDirection: String
   heroGradientColor1: String
   heroGradientColor2: String
-  heroFrostedGlass: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   approachTag: String
   approachHeading: String
   approachBody: String
@@ -1820,6 +1869,8 @@ input ContactPageMutation {
   displayAs: String
   localVideoPath: String
   imagePath: String
+  heroOverlay: String
+  heroOverlayAmount: Float
   heroSolidColor: String
   heroGradientDirection: String
   heroGradientColor1: String

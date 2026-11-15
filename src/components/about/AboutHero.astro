@@ -1,5 +1,6 @@
 ---
 import { parseHeroHeading } from '../../utils/headingParser';
+import { getHeroOverlayConfig } from '../../utils/heroOverlay';
 
 interface Props {
   tag?: string;
@@ -11,7 +12,9 @@ interface Props {
   heroGradientDirection?: string;
   heroGradientColor1?: string;
   heroGradientColor2?: string;
-  heroFrostedGlass?: "none" | "very-subtle" | "subtle" | "medium" | "strong" | string;
+  heroFrostedGlass?: string;
+  heroOverlay?: string;
+  heroOverlayAmount?: number | string;
 }
 
 const {
@@ -24,17 +27,15 @@ const {
   heroGradientDirection = "to bottom right",
   heroGradientColor1 = "#180d2b",
   heroGradientColor2 = "#09090c",
-  heroFrostedGlass = "very-subtle",
+  heroFrostedGlass,
+  heroOverlay,
+  heroOverlayAmount,
 } = Astro.props;
 
-const ndDensityMap: Record<string, string> = {
-  none: "opacity-0",
-  "very-subtle": "opacity-60",
-  subtle: "opacity-75",
-  medium: "opacity-85",
-  strong: "opacity-95",
-};
-const ndDensityClass = ndDensityMap[heroFrostedGlass] ?? "opacity-80";
+const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOverlayConfig(
+  heroOverlay ?? (heroFrostedGlass === "none" ? "off" : "on"),
+  heroOverlayAmount ?? (heroFrostedGlass === "very-subtle" ? 35 : heroFrostedGlass === "subtle" ? 50 : heroFrostedGlass === "medium" ? 70 : heroFrostedGlass === "strong" ? 85 : 50)
+);
 
 // Fallback logic for background type
 const bgType = heroBackgroundType || (heroVideoPath ? "video" : "gradient");
@@ -47,14 +48,14 @@ const gradientStyle = isRadial
 <header data-cinema-darkroom class="relative w-full pt-28 pb-14 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 sm:min-h-[600px] lg:min-h-[640px] flex flex-col justify-center overflow-hidden border-b border-white/10 select-none">
   <!-- Media Backdrop Layer (Video, Image, or Dual-Tone Gradient) -->
   <div class="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden bg-neutral-950">
-    <!-- Master Cinematic Directional ND Filter (Unified Site-Wide Standard) -->
-    <div 
-      class:list={[
-        "absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none transition-opacity duration-500",
-        ndDensityClass
-      ]} 
-      aria-hidden="true"
-    />
+    <!-- Master Eased Background Darkening (Controlled via Tina CMS) -->
+    {isHeroOverlayVisible && (
+      <div 
+        class="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300"
+        style={heroOverlayStyle}
+        aria-hidden="true"
+      />
+    )}
 
     {/* 1. Video Background */}
     {bgType === "video" && heroVideoPath && (

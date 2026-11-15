@@ -7,6 +7,7 @@ import servicesPage from '../content/pages/services.json';
 import cambridgePage from '../content/pages/cambridge.json';
 import londonPage from '../content/pages/london.json';
 import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../utils/headingParser';
+import { getHeroOverlayConfig } from '../utils/heroOverlay';
 
 // 1. Dynamically import all 6 services from TinaCMS for the Capabilities Bento Grid
 interface ServiceEntry {
@@ -88,6 +89,11 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
         description: "Widescreen masters for your site alongside vertical cutdowns for social, complete with titled and untitled masters, plus subtitles."
       }
     ];
+
+const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOverlayConfig(
+  (home as any).heroOverlay,
+  (home as any).heroOverlayAmount
+);
 ---
 
 <Layout
@@ -103,8 +109,10 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
     
     <!-- Video Container Wrapper (Guaranteed dark cinema contrast) -->
     <div class="absolute inset-0 w-full h-full z-0 bg-neutral-950 pointer-events-none overflow-hidden" aria-hidden="true">
-      <!-- Master Cinematic Eased ND Filter (Guaranteed Contrast & Vibrant Footage) -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none"></div>
+      <!-- Master Eased Background Darkening (Controlled via Tina CMS) -->
+      {isHeroOverlayVisible && (
+        <div class="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300" style={heroOverlayStyle} aria-hidden="true"></div>
+      )}
       
       <!-- Native HTML5 Video Element with High-Contrast Fallback Poster -->
       <video 

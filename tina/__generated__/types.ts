@@ -453,6 +453,8 @@ export type Homepage = Node & Document & {
   tagline: Scalars['String']['output'];
   heroVideoPath: Scalars['String']['output'];
   heroPosterPath?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   primaryCtaLabel: Scalars['String']['output'];
   primaryCtaLink: Scalars['String']['output'];
   secondaryCtaLabel: Scalars['String']['output'];
@@ -510,6 +512,16 @@ export type ImageFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type NumberFilter = {
+  lt?: InputMaybe<Scalars['Float']['input']>;
+  lte?: InputMaybe<Scalars['Float']['input']>;
+  gte?: InputMaybe<Scalars['Float']['input']>;
+  gt?: InputMaybe<Scalars['Float']['input']>;
+  eq?: InputMaybe<Scalars['Float']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+};
+
 export type HomepageTelemetryMetricsFilter = {
   value?: InputMaybe<StringFilter>;
   label?: InputMaybe<StringFilter>;
@@ -524,6 +536,8 @@ export type HomepageFilter = {
   tagline?: InputMaybe<StringFilter>;
   heroVideoPath?: InputMaybe<StringFilter>;
   heroPosterPath?: InputMaybe<ImageFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   primaryCtaLabel?: InputMaybe<StringFilter>;
   primaryCtaLink?: InputMaybe<StringFilter>;
   secondaryCtaLabel?: InputMaybe<StringFilter>;
@@ -597,6 +611,8 @@ export type CambridgePage = Node & Document & {
   localVideoPath?: Maybe<Scalars['String']['output']>;
   cloudVideoUrl?: Maybe<Scalars['String']['output']>;
   imagePath?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   expertiseTag: Scalars['String']['output'];
   expertiseHeading: Scalars['String']['output'];
   expertiseDescription: Scalars['String']['output'];
@@ -641,6 +657,8 @@ export type CambridgePageFilter = {
   localVideoPath?: InputMaybe<StringFilter>;
   cloudVideoUrl?: InputMaybe<StringFilter>;
   imagePath?: InputMaybe<ImageFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   expertiseTag?: InputMaybe<StringFilter>;
   expertiseHeading?: InputMaybe<StringFilter>;
   expertiseDescription?: InputMaybe<StringFilter>;
@@ -697,6 +715,8 @@ export type LondonPage = Node & Document & {
   localVideoPath?: Maybe<Scalars['String']['output']>;
   cloudVideoUrl?: Maybe<Scalars['String']['output']>;
   imagePath?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   expertiseTag: Scalars['String']['output'];
   expertiseHeading: Scalars['String']['output'];
   expertiseDescription: Scalars['String']['output'];
@@ -741,6 +761,8 @@ export type LondonPageFilter = {
   localVideoPath?: InputMaybe<StringFilter>;
   cloudVideoUrl?: InputMaybe<StringFilter>;
   imagePath?: InputMaybe<ImageFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   expertiseTag?: InputMaybe<StringFilter>;
   expertiseHeading?: InputMaybe<StringFilter>;
   expertiseDescription?: InputMaybe<StringFilter>;
@@ -793,6 +815,8 @@ export type CustomPages = Node & Document & {
   localVideoPath?: Maybe<Scalars['String']['output']>;
   cloudVideoUrl?: Maybe<Scalars['String']['output']>;
   imagePath?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   heroGradientDirection?: Maybe<Scalars['String']['output']>;
   heroGradientColor1?: Maybe<Scalars['String']['output']>;
   heroGradientColor2?: Maybe<Scalars['String']['output']>;
@@ -842,6 +866,8 @@ export type CustomPagesFilter = {
   localVideoPath?: InputMaybe<StringFilter>;
   cloudVideoUrl?: InputMaybe<StringFilter>;
   imagePath?: InputMaybe<ImageFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   heroGradientDirection?: InputMaybe<StringFilter>;
   heroGradientColor1?: InputMaybe<StringFilter>;
   heroGradientColor2?: InputMaybe<StringFilter>;
@@ -952,6 +978,8 @@ export type ServicesPage = Node & Document & {
   description: Scalars['String']['output'];
   displayAs?: Maybe<Scalars['String']['output']>;
   imagePath?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   localVideoPath?: Maybe<Scalars['String']['output']>;
   heroSolidColor?: Maybe<Scalars['String']['output']>;
   heroGradientDirection?: Maybe<Scalars['String']['output']>;
@@ -986,6 +1014,8 @@ export type ServicesPageFilter = {
   description?: InputMaybe<StringFilter>;
   displayAs?: InputMaybe<StringFilter>;
   imagePath?: InputMaybe<ImageFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   localVideoPath?: InputMaybe<StringFilter>;
   heroSolidColor?: InputMaybe<StringFilter>;
   heroGradientDirection?: InputMaybe<StringFilter>;
@@ -1039,6 +1069,8 @@ export type Service = Node & Document & {
   heroDisplayAs?: Maybe<Scalars['String']['output']>;
   heroVideoPath?: Maybe<Scalars['String']['output']>;
   heroImage?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   breakdownHeading?: Maybe<Scalars['String']['output']>;
   breakdownBody?: Maybe<Scalars['String']['output']>;
   deliverables?: Maybe<Array<Maybe<ServiceDeliverables>>>;
@@ -1072,6 +1104,8 @@ export type ServiceFilter = {
   heroDisplayAs?: InputMaybe<StringFilter>;
   heroVideoPath?: InputMaybe<StringFilter>;
   heroImage?: InputMaybe<ImageFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   breakdownHeading?: InputMaybe<StringFilter>;
   breakdownBody?: InputMaybe<StringFilter>;
   deliverables?: InputMaybe<ServiceDeliverablesFilter>;
@@ -1111,6 +1145,8 @@ export type WorkPage = Node & Document & {
   description: Scalars['String']['output'];
   heroVideoPath?: Maybe<Scalars['String']['output']>;
   heroPosterPath?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   videoButtonLabel: Scalars['String']['output'];
   scrollIndicatorText: Scalars['String']['output'];
   showArchive?: Maybe<Scalars['Boolean']['output']>;
@@ -1140,6 +1176,8 @@ export type WorkPageFilter = {
   description?: InputMaybe<StringFilter>;
   heroVideoPath?: InputMaybe<StringFilter>;
   heroPosterPath?: InputMaybe<ImageFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   videoButtonLabel?: InputMaybe<StringFilter>;
   scrollIndicatorText?: InputMaybe<StringFilter>;
   showArchive?: InputMaybe<BooleanFilter>;
@@ -1185,7 +1223,8 @@ export type AboutPage = Node & Document & {
   heroGradientDirection?: Maybe<Scalars['String']['output']>;
   heroGradientColor1?: Maybe<Scalars['String']['output']>;
   heroGradientColor2?: Maybe<Scalars['String']['output']>;
-  heroFrostedGlass?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   approachTag?: Maybe<Scalars['String']['output']>;
   approachHeading: Scalars['String']['output'];
   approachBody: Scalars['String']['output'];
@@ -1230,7 +1269,8 @@ export type AboutPageFilter = {
   heroGradientDirection?: InputMaybe<StringFilter>;
   heroGradientColor1?: InputMaybe<StringFilter>;
   heroGradientColor2?: InputMaybe<StringFilter>;
-  heroFrostedGlass?: InputMaybe<StringFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   approachTag?: InputMaybe<StringFilter>;
   approachHeading?: InputMaybe<StringFilter>;
   approachBody?: InputMaybe<StringFilter>;
@@ -1328,6 +1368,8 @@ export type ContactPage = Node & Document & {
   displayAs?: Maybe<Scalars['String']['output']>;
   localVideoPath?: Maybe<Scalars['String']['output']>;
   imagePath?: Maybe<Scalars['String']['output']>;
+  heroOverlay?: Maybe<Scalars['String']['output']>;
+  heroOverlayAmount?: Maybe<Scalars['Float']['output']>;
   heroSolidColor?: Maybe<Scalars['String']['output']>;
   heroGradientDirection?: Maybe<Scalars['String']['output']>;
   heroGradientColor1?: Maybe<Scalars['String']['output']>;
@@ -1375,6 +1417,8 @@ export type ContactPageFilter = {
   displayAs?: InputMaybe<StringFilter>;
   localVideoPath?: InputMaybe<StringFilter>;
   imagePath?: InputMaybe<ImageFilter>;
+  heroOverlay?: InputMaybe<StringFilter>;
+  heroOverlayAmount?: InputMaybe<NumberFilter>;
   heroSolidColor?: InputMaybe<StringFilter>;
   heroGradientDirection?: InputMaybe<StringFilter>;
   heroGradientColor1?: InputMaybe<StringFilter>;
@@ -1568,16 +1612,6 @@ export type SeoSettings = Node & Document & {
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
-};
-
-export type NumberFilter = {
-  lt?: InputMaybe<Scalars['Float']['input']>;
-  lte?: InputMaybe<Scalars['Float']['input']>;
-  gte?: InputMaybe<Scalars['Float']['input']>;
-  gt?: InputMaybe<Scalars['Float']['input']>;
-  eq?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 export type SeoSettingsBacklinkProfilesFilter = {
@@ -2070,6 +2104,8 @@ export type HomepageMutation = {
   tagline?: InputMaybe<Scalars['String']['input']>;
   heroVideoPath?: InputMaybe<Scalars['String']['input']>;
   heroPosterPath?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   primaryCtaLabel?: InputMaybe<Scalars['String']['input']>;
   primaryCtaLink?: InputMaybe<Scalars['String']['input']>;
   secondaryCtaLabel?: InputMaybe<Scalars['String']['input']>;
@@ -2128,6 +2164,8 @@ export type CambridgePageMutation = {
   localVideoPath?: InputMaybe<Scalars['String']['input']>;
   cloudVideoUrl?: InputMaybe<Scalars['String']['input']>;
   imagePath?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   expertiseTag?: InputMaybe<Scalars['String']['input']>;
   expertiseHeading?: InputMaybe<Scalars['String']['input']>;
   expertiseDescription?: InputMaybe<Scalars['String']['input']>;
@@ -2169,6 +2207,8 @@ export type LondonPageMutation = {
   localVideoPath?: InputMaybe<Scalars['String']['input']>;
   cloudVideoUrl?: InputMaybe<Scalars['String']['input']>;
   imagePath?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   expertiseTag?: InputMaybe<Scalars['String']['input']>;
   expertiseHeading?: InputMaybe<Scalars['String']['input']>;
   expertiseDescription?: InputMaybe<Scalars['String']['input']>;
@@ -2207,6 +2247,8 @@ export type CustomPagesMutation = {
   localVideoPath?: InputMaybe<Scalars['String']['input']>;
   cloudVideoUrl?: InputMaybe<Scalars['String']['input']>;
   imagePath?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   heroGradientDirection?: InputMaybe<Scalars['String']['input']>;
   heroGradientColor1?: InputMaybe<Scalars['String']['input']>;
   heroGradientColor2?: InputMaybe<Scalars['String']['input']>;
@@ -2266,6 +2308,8 @@ export type ServicesPageMutation = {
   description?: InputMaybe<Scalars['String']['input']>;
   displayAs?: InputMaybe<Scalars['String']['input']>;
   imagePath?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   localVideoPath?: InputMaybe<Scalars['String']['input']>;
   heroSolidColor?: InputMaybe<Scalars['String']['input']>;
   heroGradientDirection?: InputMaybe<Scalars['String']['input']>;
@@ -2304,6 +2348,8 @@ export type ServiceMutation = {
   heroDisplayAs?: InputMaybe<Scalars['String']['input']>;
   heroVideoPath?: InputMaybe<Scalars['String']['input']>;
   heroImage?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   breakdownHeading?: InputMaybe<Scalars['String']['input']>;
   breakdownBody?: InputMaybe<Scalars['String']['input']>;
   deliverables?: InputMaybe<Array<InputMaybe<ServiceDeliverablesMutation>>>;
@@ -2328,6 +2374,8 @@ export type WorkPageMutation = {
   description?: InputMaybe<Scalars['String']['input']>;
   heroVideoPath?: InputMaybe<Scalars['String']['input']>;
   heroPosterPath?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   videoButtonLabel?: InputMaybe<Scalars['String']['input']>;
   scrollIndicatorText?: InputMaybe<Scalars['String']['input']>;
   showArchive?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2358,7 +2406,8 @@ export type AboutPageMutation = {
   heroGradientDirection?: InputMaybe<Scalars['String']['input']>;
   heroGradientColor1?: InputMaybe<Scalars['String']['input']>;
   heroGradientColor2?: InputMaybe<Scalars['String']['input']>;
-  heroFrostedGlass?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   approachTag?: InputMaybe<Scalars['String']['input']>;
   approachHeading?: InputMaybe<Scalars['String']['input']>;
   approachBody?: InputMaybe<Scalars['String']['input']>;
@@ -2409,6 +2458,8 @@ export type ContactPageMutation = {
   displayAs?: InputMaybe<Scalars['String']['input']>;
   localVideoPath?: InputMaybe<Scalars['String']['input']>;
   imagePath?: InputMaybe<Scalars['String']['input']>;
+  heroOverlay?: InputMaybe<Scalars['String']['input']>;
+  heroOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   heroSolidColor?: InputMaybe<Scalars['String']['input']>;
   heroGradientDirection?: InputMaybe<Scalars['String']['input']>;
   heroGradientColor1?: InputMaybe<Scalars['String']['input']>;
@@ -2570,6 +2621,16 @@ export type ImageFilter = {
   in?: Array<string | null | undefined> | null | undefined;
 };
 
+export type NumberFilter = {
+  lt?: number | null | undefined;
+  lte?: number | null | undefined;
+  gte?: number | null | undefined;
+  gt?: number | null | undefined;
+  eq?: number | null | undefined;
+  exists?: boolean | null | undefined;
+  in?: Array<number | null | undefined> | null | undefined;
+};
+
 export type HomepageTelemetryMetricsFilter = {
   value?: StringFilter | null | undefined;
   label?: StringFilter | null | undefined;
@@ -2584,6 +2645,8 @@ export type HomepageFilter = {
   tagline?: StringFilter | null | undefined;
   heroVideoPath?: StringFilter | null | undefined;
   heroPosterPath?: ImageFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   primaryCtaLabel?: StringFilter | null | undefined;
   primaryCtaLink?: StringFilter | null | undefined;
   secondaryCtaLabel?: StringFilter | null | undefined;
@@ -2642,6 +2705,8 @@ export type CambridgePageFilter = {
   localVideoPath?: StringFilter | null | undefined;
   cloudVideoUrl?: StringFilter | null | undefined;
   imagePath?: ImageFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   expertiseTag?: StringFilter | null | undefined;
   expertiseHeading?: StringFilter | null | undefined;
   expertiseDescription?: StringFilter | null | undefined;
@@ -2683,6 +2748,8 @@ export type LondonPageFilter = {
   localVideoPath?: StringFilter | null | undefined;
   cloudVideoUrl?: StringFilter | null | undefined;
   imagePath?: ImageFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   expertiseTag?: StringFilter | null | undefined;
   expertiseHeading?: StringFilter | null | undefined;
   expertiseDescription?: StringFilter | null | undefined;
@@ -2721,6 +2788,8 @@ export type CustomPagesFilter = {
   localVideoPath?: StringFilter | null | undefined;
   cloudVideoUrl?: StringFilter | null | undefined;
   imagePath?: ImageFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   heroGradientDirection?: StringFilter | null | undefined;
   heroGradientColor1?: StringFilter | null | undefined;
   heroGradientColor2?: StringFilter | null | undefined;
@@ -2785,6 +2854,8 @@ export type ServicesPageFilter = {
   description?: StringFilter | null | undefined;
   displayAs?: StringFilter | null | undefined;
   imagePath?: ImageFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   localVideoPath?: StringFilter | null | undefined;
   heroSolidColor?: StringFilter | null | undefined;
   heroGradientDirection?: StringFilter | null | undefined;
@@ -2823,6 +2894,8 @@ export type ServiceFilter = {
   heroDisplayAs?: StringFilter | null | undefined;
   heroVideoPath?: StringFilter | null | undefined;
   heroImage?: ImageFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   breakdownHeading?: StringFilter | null | undefined;
   breakdownBody?: StringFilter | null | undefined;
   deliverables?: ServiceDeliverablesFilter | null | undefined;
@@ -2847,6 +2920,8 @@ export type WorkPageFilter = {
   description?: StringFilter | null | undefined;
   heroVideoPath?: StringFilter | null | undefined;
   heroPosterPath?: ImageFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   videoButtonLabel?: StringFilter | null | undefined;
   scrollIndicatorText?: StringFilter | null | undefined;
   showArchive?: BooleanFilter | null | undefined;
@@ -2877,7 +2952,8 @@ export type AboutPageFilter = {
   heroGradientDirection?: StringFilter | null | undefined;
   heroGradientColor1?: StringFilter | null | undefined;
   heroGradientColor2?: StringFilter | null | undefined;
-  heroFrostedGlass?: StringFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   approachTag?: StringFilter | null | undefined;
   approachHeading?: StringFilter | null | undefined;
   approachBody?: StringFilter | null | undefined;
@@ -2928,6 +3004,8 @@ export type ContactPageFilter = {
   displayAs?: StringFilter | null | undefined;
   localVideoPath?: StringFilter | null | undefined;
   imagePath?: ImageFilter | null | undefined;
+  heroOverlay?: StringFilter | null | undefined;
+  heroOverlayAmount?: NumberFilter | null | undefined;
   heroSolidColor?: StringFilter | null | undefined;
   heroGradientDirection?: StringFilter | null | undefined;
   heroGradientColor1?: StringFilter | null | undefined;
@@ -2999,16 +3077,6 @@ export type PrivacyPageFilter = {
   deskEmailLabel?: StringFilter | null | undefined;
   deskCustomEmail?: StringFilter | null | undefined;
   deskCustomPhone?: StringFilter | null | undefined;
-};
-
-export type NumberFilter = {
-  lt?: number | null | undefined;
-  lte?: number | null | undefined;
-  gte?: number | null | undefined;
-  gt?: number | null | undefined;
-  eq?: number | null | undefined;
-  exists?: boolean | null | undefined;
-  in?: Array<number | null | undefined> | null | undefined;
 };
 
 export type SeoSettingsBacklinkProfilesFilter = {
@@ -3085,27 +3153,27 @@ export type FooterSettingsFilter = {
   backToTopLabel?: StringFilter | null | undefined;
 };
 
-export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null };
+export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null };
 
-export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
+export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
 
-export type LondonPagePartsFragment = { __typename: 'LondonPage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null };
+export type LondonPagePartsFragment = { __typename: 'LondonPage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null };
 
-export type CustomPagesPartsFragment = { __typename: 'CustomPages', slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, privacyStatus: string | null, heroTag: string | null, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null };
+export type CustomPagesPartsFragment = { __typename: 'CustomPages', slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, privacyStatus: string | null, heroTag: string | null, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null };
 
 export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', siteName: string, logoText: string, useImageLogo: boolean | null, logoImagePath: string | null, navLinks: Array<{ __typename: 'SiteSettingsNavLinks', label: string, href: string } | null> | null };
 
-export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: string, seoDescription: string | null, headerTag: string, heading: string, description: string, displayAs: string | null, imagePath: string | null, localVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null };
+export type ServicesPagePartsFragment = { __typename: 'ServicesPage', seoTitle: string, seoDescription: string | null, headerTag: string, heading: string, description: string, displayAs: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, localVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null };
 
-export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
+export type ServicePartsFragment = { __typename: 'Service', order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null };
 
-export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, videoButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, filterAllLabel: string, closeModalLabel: string, projects: Array<{ __typename: 'WorkPageProjects', title: string, client: string, category: string, thumbnail: string, videoUrl: string } | null> | null };
+export type WorkPagePartsFragment = { __typename: 'WorkPage', seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, videoButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, filterAllLabel: string, closeModalLabel: string, projects: Array<{ __typename: 'WorkPageProjects', title: string, client: string, category: string, thumbnail: string, videoUrl: string } | null> | null };
 
-export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null };
+export type AboutPagePartsFragment = { __typename: 'AboutPage', seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null };
 
 export type AboutSliderPartsFragment = { __typename: 'AboutSlider', heading: string, tag: string | null, description: string | null, slides: Array<{ __typename: 'AboutSliderSlides', name: string, badge: string | null, avatar: string | null, videoLoop: string | null } | null> | null };
 
-export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
+export type ContactPagePartsFragment = { __typename: 'ContactPage', seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null };
 
 export type ThankYouPagePartsFragment = { __typename: 'ThankYouPage', seoTitle: string, seoDescription: string, statusBadge: string | null, heading: string, description: string | null, phase1Tag: string | null, phase1Title: string | null, phase1Desc: string | null, phase2Tag: string | null, phase2Title: string | null, phase2Desc: string | null, phase3Tag: string | null, phase3Title: string | null, phase3Desc: string | null, primaryBtnLabel: string | null, primaryBtnLink: string | null, secondaryBtnLabel: string | null, secondaryBtnLink: string | null };
 
@@ -3122,7 +3190,7 @@ export type HomepageQueryVariables = Exact<{
 }>;
 
 
-export type HomepageQuery = { homepage: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null } };
+export type HomepageQuery = { homepage: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null } };
 
 export type HomepageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3134,14 +3202,14 @@ export type HomepageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type HomepageConnectionQuery = { homepageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null } | null } | null> | null } };
+export type HomepageConnectionQuery = { homepageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null } | null } | null> | null } };
 
 export type CambridgePageQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type CambridgePageQuery = { cambridgePage: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } };
+export type CambridgePageQuery = { cambridgePage: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } };
 
 export type CambridgePageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3153,14 +3221,14 @@ export type CambridgePageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type CambridgePageConnectionQuery = { cambridgePageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
+export type CambridgePageConnectionQuery = { cambridgePageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CambridgePage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
 
 export type LondonPageQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type LondonPageQuery = { londonPage: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } };
+export type LondonPageQuery = { londonPage: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } };
 
 export type LondonPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3172,14 +3240,14 @@ export type LondonPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type LondonPageConnectionQuery = { londonPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
+export type LondonPageConnectionQuery = { londonPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'LondonPage', id: string, seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, cardTitle: string, cardBody: string, cardLinkLabel: string, cardLinkHref: string, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, faqs: Array<{ __typename: 'LondonPageFaqs', question: string, answer: string } | null> | null } | null } | null> | null } };
 
 export type CustomPagesQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type CustomPagesQuery = { customPages: { __typename: 'CustomPages', id: string, slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, privacyStatus: string | null, heroTag: string | null, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type CustomPagesQuery = { customPages: { __typename: 'CustomPages', id: string, slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, privacyStatus: string | null, heroTag: string | null, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type CustomPagesConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3191,7 +3259,7 @@ export type CustomPagesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type CustomPagesConnectionQuery = { customPagesConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CustomPages', id: string, slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, privacyStatus: string | null, heroTag: string | null, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type CustomPagesConnectionQuery = { customPagesConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'CustomPages', id: string, slug: string, seoTitle: string, seoDescription: string, canonicalURL: string | null, privacyStatus: string | null, heroTag: string | null, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string | null, heroCtaLink: string | null, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, section1Tag: string | null, section1Heading: string, section1Description: string, section1Bullets: Array<string | null> | null, section1RightType: string | null, section1CardTitle: string | null, section1CardBody: string | null, section1CardLinkLabel: string | null, section1CardLinkHref: string | null, section1CardImage: string | null, section1CardImageCaption: string | null, section2Tag: string | null, section2Heading: string | null, section2Description: string | null, section2Bullets: Array<string | null> | null, section2LeftType: string | null, section2CardTitle: string | null, section2CardBody: string | null, section2CardLinkLabel: string | null, section2CardLinkHref: string | null, section2CardImage: string | null, section2CardImageCaption: string | null, bottomCtaHeading: string | null, bottomCtaBody: string | null, bottomCtaLabel: string | null, bottomCtaLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type SiteSettingsQueryVariables = Exact<{
   relativePath: string;
@@ -3217,7 +3285,7 @@ export type ServicesPageQueryVariables = Exact<{
 }>;
 
 
-export type ServicesPageQuery = { servicesPage: { __typename: 'ServicesPage', id: string, seoTitle: string, seoDescription: string | null, headerTag: string, heading: string, description: string, displayAs: string | null, imagePath: string | null, localVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null } };
+export type ServicesPageQuery = { servicesPage: { __typename: 'ServicesPage', id: string, seoTitle: string, seoDescription: string | null, headerTag: string, heading: string, description: string, displayAs: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, localVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null } };
 
 export type ServicesPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3229,14 +3297,14 @@ export type ServicesPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ServicesPageConnectionQuery = { servicesPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ServicesPage', id: string, seoTitle: string, seoDescription: string | null, headerTag: string, heading: string, description: string, displayAs: string | null, imagePath: string | null, localVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null } | null } | null> | null } };
+export type ServicesPageConnectionQuery = { servicesPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ServicesPage', id: string, seoTitle: string, seoDescription: string | null, headerTag: string, heading: string, description: string, displayAs: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, localVideoPath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, processTag: string | null, processHeading: string | null, processDescription: string | null, ctaTag: string | null, ctaHeading: string | null, ctaText: string | null, ctaButtonLabel: string | null, ctaButtonLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, processSteps: Array<{ __typename: 'ServicesPageProcessSteps', step: string, title: string, tag: string, description: string } | null> | null } | null } | null> | null } };
 
 export type ServiceQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type ServiceQuery = { service: { __typename: 'Service', id: string, order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } };
+export type ServiceQuery = { service: { __typename: 'Service', id: string, order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } };
 
 export type ServiceConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3248,14 +3316,14 @@ export type ServiceConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ServiceConnectionQuery = { serviceConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Service', id: string, order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } | null } | null> | null } };
+export type ServiceConnectionQuery = { serviceConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Service', id: string, order: string, title: string, tag: string | null, slug: string, seoTitle: string, seoDescription: string, cardDisplayAs: string | null, cardImage: string | null, cardVideoPath: string | null, heroTag: string, heroHeading: string, heroLead: string, heroDisplayAs: string | null, heroVideoPath: string | null, heroImage: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, breakdownHeading: string | null, breakdownBody: string | null, ctaHeading: string, ctaDescription: string, ctaButtonLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, deliverables: Array<{ __typename: 'ServiceDeliverables', tag: string, title: string, description: string } | null> | null } | null } | null> | null } };
 
 export type WorkPageQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type WorkPageQuery = { workPage: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, videoButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, projects: Array<{ __typename: 'WorkPageProjects', title: string, client: string, category: string, thumbnail: string, videoUrl: string } | null> | null } };
+export type WorkPageQuery = { workPage: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, videoButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, projects: Array<{ __typename: 'WorkPageProjects', title: string, client: string, category: string, thumbnail: string, videoUrl: string } | null> | null } };
 
 export type WorkPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3267,14 +3335,14 @@ export type WorkPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type WorkPageConnectionQuery = { workPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, videoButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, projects: Array<{ __typename: 'WorkPageProjects', title: string, client: string, category: string, thumbnail: string, videoUrl: string } | null> | null } | null } | null> | null } };
+export type WorkPageConnectionQuery = { workPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'WorkPage', id: string, seoTitle: string, seoDescription: string, headerTag: string, heading: string, description: string, heroVideoPath: string | null, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, videoButtonLabel: string, scrollIndicatorText: string, showArchive: boolean | null, archiveTag: string, archiveHeading: string, filterAllLabel: string, closeModalLabel: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, projects: Array<{ __typename: 'WorkPageProjects', title: string, client: string, category: string, thumbnail: string, videoUrl: string } | null> | null } | null } | null> | null } };
 
 export type AboutPageQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type AboutPageQuery = { aboutPage: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null } };
+export type AboutPageQuery = { aboutPage: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null } };
 
 export type AboutPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3286,7 +3354,7 @@ export type AboutPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AboutPageConnectionQuery = { aboutPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroFrostedGlass: string | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null } | null } | null> | null } };
+export type AboutPageConnectionQuery = { aboutPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'AboutPage', id: string, seoTitle: string, seoDescription: string, headline: string, manifestoLead: string, heroBackgroundType: string | null, heroVideoPath: string | null, heroImagePath: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, approachTag: string | null, approachHeading: string, approachBody: string, approachPrimaryLinkLabel: string | null, approachPrimaryLinkHref: string | null, approachSecondaryLinkLabel: string | null, approachSecondaryLinkHref: string | null, timelineHeading: string, timelineTag: string | null, timelineDescription: string | null, ctaTag: string | null, ctaHeading: string, ctaText: string, ctaButtonLabel: string, ctaButtonLink: string, ctaSecondaryButtonLabel: string | null, ctaSecondaryButtonLink: string | null, ctaTrustSignals: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, milestones: Array<{ __typename: 'AboutPageMilestones', year: string, title: string, description: string, draftLabel: string | null, takeNumber: string | null, badge: string | null } | null> | null } | null } | null> | null } };
 
 export type AboutSliderQueryVariables = Exact<{
   relativePath: string;
@@ -3312,7 +3380,7 @@ export type ContactPageQueryVariables = Exact<{
 }>;
 
 
-export type ContactPageQuery = { contactPage: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } };
+export type ContactPageQuery = { contactPage: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } };
 
 export type ContactPageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3324,7 +3392,7 @@ export type ContactPageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ContactPageConnectionQuery = { contactPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } | null } | null> | null } };
+export type ContactPageConnectionQuery = { contactPageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'ContactPage', id: string, seoTitle: string, seoDescription: string, headerTag: string | null, heading: string | null, description: string | null, trustSignals: Array<string | null> | null, displayAs: string | null, localVideoPath: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, heroSolidColor: string | null, heroGradientDirection: string | null, heroGradientColor1: string | null, heroGradientColor2: string | null, step1Tag: string | null, step1Title: string, step1Placeholder: string | null, step1CompanyPlaceholder: string | null, step2Tag: string | null, step2Title: string, step3Tag: string | null, step3Title: string, step3Placeholder: string | null, step3HelpText: string | null, step4Tag: string | null, step4Title: string, step4Placeholder: string | null, step4HelpText: string | null, step5Tag: string | null, step5Title: string | null, gdprText: string, submitButtonLabel: string, formEndpoint: string, redirectUrl: string | null, enableTurnstile: boolean | null, turnstileSiteKey: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, serviceOptions: Array<{ __typename: 'ContactPageServiceOptions', label: string, value: string } | null> | null } | null } | null> | null } };
 
 export type ThankYouPageQueryVariables = Exact<{
   relativePath: string;
@@ -3431,6 +3499,8 @@ export const HomepagePartsFragmentDoc = gql`
   tagline
   heroVideoPath
   heroPosterPath
+  heroOverlay
+  heroOverlayAmount
   primaryCtaLabel
   primaryCtaLink
   secondaryCtaLabel
@@ -3491,6 +3561,8 @@ export const CambridgePagePartsFragmentDoc = gql`
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroOverlay
+  heroOverlayAmount
   expertiseTag
   expertiseHeading
   expertiseDescription
@@ -3533,6 +3605,8 @@ export const LondonPagePartsFragmentDoc = gql`
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroOverlay
+  heroOverlayAmount
   expertiseTag
   expertiseHeading
   expertiseDescription
@@ -3577,6 +3651,8 @@ export const CustomPagesPartsFragmentDoc = gql`
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroOverlay
+  heroOverlayAmount
   heroGradientDirection
   heroGradientColor1
   heroGradientColor2
@@ -3632,6 +3708,8 @@ export const ServicesPagePartsFragmentDoc = gql`
   description
   displayAs
   imagePath
+  heroOverlay
+  heroOverlayAmount
   localVideoPath
   heroSolidColor
   heroGradientDirection
@@ -3672,6 +3750,8 @@ export const ServicePartsFragmentDoc = gql`
   heroDisplayAs
   heroVideoPath
   heroImage
+  heroOverlay
+  heroOverlayAmount
   breakdownHeading
   breakdownBody
   deliverables {
@@ -3695,6 +3775,8 @@ export const WorkPagePartsFragmentDoc = gql`
   description
   heroVideoPath
   heroPosterPath
+  heroOverlay
+  heroOverlayAmount
   videoButtonLabel
   scrollIndicatorText
   showArchive
@@ -3725,7 +3807,8 @@ export const AboutPagePartsFragmentDoc = gql`
   heroGradientDirection
   heroGradientColor1
   heroGradientColor2
-  heroFrostedGlass
+  heroOverlay
+  heroOverlayAmount
   approachTag
   approachHeading
   approachBody
@@ -3782,6 +3865,8 @@ export const ContactPagePartsFragmentDoc = gql`
   displayAs
   localVideoPath
   imagePath
+  heroOverlay
+  heroOverlayAmount
   heroSolidColor
   heroGradientDirection
   heroGradientColor1

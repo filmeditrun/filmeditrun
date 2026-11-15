@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import CtaSection from '../../components/CtaSection.astro';
 import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../../utils/headingParser';
+import { getHeroOverlayConfig } from '../../utils/heroOverlay';
 
 export interface ServiceData {
   order: string;
@@ -194,6 +195,11 @@ if (service.heroTextContrast === "dark") {
     isHeroLight = isColorLight(heroGrad1) && isColorLight(heroGrad2);
   }
 }
+
+const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOverlayConfig(
+  (service as any).heroOverlay,
+  (service as any).heroOverlayAmount
+);
 ---
 
 <Layout
@@ -223,9 +229,9 @@ if (service.heroTextContrast === "dark") {
       <div class:list={["absolute inset-0 z-0 pointer-events-none overflow-hidden", isHeroLight ? "bg-white" : "bg-[#0c0c11]"]}>
         {isHeroLight ? (
           <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white/60 z-10 pointer-events-none" aria-hidden="true"></div>
-        ) : (
-          <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none" aria-hidden="true"></div>
-        )}
+        ) : isHeroOverlayVisible ? (
+          <div class="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300" style={heroOverlayStyle} aria-hidden="true"></div>
+        ) : null}
 
         {/* Video Background (High visibility, matching work page opacity) */}
         {isVideo && (

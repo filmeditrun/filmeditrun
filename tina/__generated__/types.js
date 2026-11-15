@@ -15,6 +15,8 @@ export const HomepagePartsFragmentDoc = gql`
   tagline
   heroVideoPath
   heroPosterPath
+  heroOverlay
+  heroOverlayAmount
   primaryCtaLabel
   primaryCtaLink
   secondaryCtaLabel
@@ -75,6 +77,8 @@ export const CambridgePagePartsFragmentDoc = gql`
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroOverlay
+  heroOverlayAmount
   expertiseTag
   expertiseHeading
   expertiseDescription
@@ -117,6 +121,8 @@ export const LondonPagePartsFragmentDoc = gql`
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroOverlay
+  heroOverlayAmount
   expertiseTag
   expertiseHeading
   expertiseDescription
@@ -161,6 +167,8 @@ export const CustomPagesPartsFragmentDoc = gql`
   localVideoPath
   cloudVideoUrl
   imagePath
+  heroOverlay
+  heroOverlayAmount
   heroGradientDirection
   heroGradientColor1
   heroGradientColor2
@@ -216,6 +224,8 @@ export const ServicesPagePartsFragmentDoc = gql`
   description
   displayAs
   imagePath
+  heroOverlay
+  heroOverlayAmount
   localVideoPath
   heroSolidColor
   heroGradientDirection
@@ -256,6 +266,8 @@ export const ServicePartsFragmentDoc = gql`
   heroDisplayAs
   heroVideoPath
   heroImage
+  heroOverlay
+  heroOverlayAmount
   breakdownHeading
   breakdownBody
   deliverables {
@@ -279,6 +291,8 @@ export const WorkPagePartsFragmentDoc = gql`
   description
   heroVideoPath
   heroPosterPath
+  heroOverlay
+  heroOverlayAmount
   videoButtonLabel
   scrollIndicatorText
   showArchive
@@ -309,7 +323,8 @@ export const AboutPagePartsFragmentDoc = gql`
   heroGradientDirection
   heroGradientColor1
   heroGradientColor2
-  heroFrostedGlass
+  heroOverlay
+  heroOverlayAmount
   approachTag
   approachHeading
   approachBody
@@ -366,6 +381,8 @@ export const ContactPagePartsFragmentDoc = gql`
   displayAs
   localVideoPath
   imagePath
+  heroOverlay
+  heroOverlayAmount
   heroSolidColor
   heroGradientDirection
   heroGradientColor1

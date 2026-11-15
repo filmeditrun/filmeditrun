@@ -4,6 +4,7 @@ import CtaSection from '../components/CtaSection.astro';
 import { projects } from '../data/projects';
 import workPage from '../content/pages/work.json';
 import { parseHeroHeading, parseSectionHeading, parseHeading, parseHeadingWithLine } from '../utils/headingParser';
+import { getHeroOverlayConfig } from '../utils/heroOverlay';
 
 const isEmbeddableVideo = (url: string) => url.includes('player.vimeo.com/video/');
 
@@ -79,6 +80,11 @@ const breadcrumbSchema = {
 };
 
 const workSchemas = [workVideoSchema, breadcrumbSchema];
+
+const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOverlayConfig(
+  (workPage as any).heroOverlay,
+  (workPage as any).heroOverlayAmount
+);
 ---
 
 <Layout
@@ -109,8 +115,10 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
     >
       <!-- Media Backdrop Layer (Full-bleed, Zero White Flash) -->
       <div class="absolute inset-0 z-0 bg-[#0a0a0c] pointer-events-none w-full h-full overflow-hidden">
-        <!-- Master Cinematic Eased ND Filter (Guaranteed Contrast & Vibrant Footage) -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/80 z-10 pointer-events-none" aria-hidden="true"></div>
+        <!-- Master Eased Background Darkening (Controlled via Tina CMS) -->
+        {isHeroOverlayVisible && (
+          <div class="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300" style={heroOverlayStyle} aria-hidden="true"></div>
+        )}
 
         <!-- 1. Permanent Dark Baseline Poster -->
         <img 
