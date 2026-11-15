@@ -619,6 +619,7 @@ const gradientStyle = isRadial
 
     form.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && (e.target as HTMLElement).tagName !== 'TEXTAREA' && currentStep < steps.length - 1) {
+        if (e.isComposing || (e as KeyboardEvent).keyCode === 229) return;
         e.preventDefault();
         nextBtn?.click();
       }

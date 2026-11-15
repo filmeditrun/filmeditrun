@@ -16,6 +16,32 @@
 }
 
 /* ===================================================================
+   MODERN WEB GUIDANCE: NATIVE PLATFORM BEST PRACTICES
+   =================================================================== */
+
+/* Cross-Document View Transitions (Progressive Enhancement - Chrome 126+, Safari 18.2+) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+/* Typographic Legibility: Eliminate orphaned words ("runts") across body copy */
+p, blockquote, li {
+  text-wrap: pretty;
+}
+
+/* Map meta[name="color-scheme"] presentational hint to CSS cascade */
+:root {
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+  }
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+  }
+}
+
+/* ===================================================================
    CINEMATIC THEME ENGINE: MASTER COLOR SCIENCE & AESTHETIC GRADES
    =================================================================== */
 

@@ -47,6 +47,7 @@ const supernovaSecondary = siteConfig.supernovaSecondaryColor || "#0377FF";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content={defaultTheme === "high-key" ? "light" : "dark"} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -101,15 +102,22 @@ const supernovaSecondary = siteConfig.supernovaSecondaryColor || "#0377FF";
           var stored = localStorage.getItem("antigravity_theme");
           var activeTheme = stored || defaultTheme || "dark-noir";
           document.documentElement.setAttribute("data-theme", activeTheme);
+          var metaCs = document.querySelector('meta[name="color-scheme"]');
           if (activeTheme === "high-key") {
             document.documentElement.classList.remove("dark");
             document.documentElement.classList.add("light");
+            if (metaCs) metaCs.content = "light";
           } else {
             document.documentElement.classList.remove("light");
             document.documentElement.classList.add("dark");
+            if (metaCs) metaCs.content = "dark";
           }
         } catch (e) {
           document.documentElement.setAttribute("data-theme", defaultTheme || "dark-noir");
+          var fallbackMetaCs = document.querySelector('meta[name="color-scheme"]');
+          if (fallbackMetaCs) {
+            fallbackMetaCs.content = (defaultTheme || "dark-noir") === "high-key" ? "light" : "dark";
+          }
         }
       })();
     </script>

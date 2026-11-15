@@ -123,6 +123,10 @@ const hasMultipleSlides = totalSlides > 1;
                 muted
                 playsinline
                 autoplay
+                loading="lazy"
+                preload="metadata"
+                width="1280"
+                height="720"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
               >
                 <source src={member.videoLoop} type="video/mp4" />
@@ -178,6 +182,10 @@ const hasMultipleSlides = totalSlides > 1;
             muted
             playsinline
             autoplay
+            loading="lazy"
+            preload="metadata"
+            width="1280"
+            height="720"
             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus:scale-105"
           >
             <source src={teamMembers[0].videoLoop} type="video/mp4" />

@@ -320,6 +320,13 @@ const themes = [
      ========================================================================= -->
 <script is:inline>
   (function () {
+    function updateColorSchemeMeta(themeName) {
+      var metaCs = document.querySelector('meta[name="color-scheme"]');
+      if (metaCs) {
+        metaCs.content = themeName === "high-key" ? "light" : "dark";
+      }
+    }
+
     function syncTheme() {
       try {
         var theme = localStorage.getItem("antigravity_theme");
@@ -334,6 +341,7 @@ const themes = [
             document.documentElement.classList.remove("light");
             document.documentElement.classList.add("dark");
           }
+          updateColorSchemeMeta(theme);
         }
         var toggle = document.getElementById("theme-deck-toggle");
         if (toggle) toggle.checked = false;
@@ -354,6 +362,7 @@ const themes = [
           document.documentElement.classList.remove("light");
           document.documentElement.classList.add("dark");
         }
+        updateColorSchemeMeta(val);
         try {
           localStorage.setItem("antigravity_theme", val);
         } catch (e) {}
@@ -377,6 +386,7 @@ const themes = [
           document.documentElement.classList.remove("light");
           document.documentElement.classList.add("dark");
         }
+        updateColorSchemeMeta(def);
       });
     }
 

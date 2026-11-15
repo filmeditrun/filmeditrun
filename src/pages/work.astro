@@ -348,6 +348,8 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
     {modalProjects.map((project) => (
       <dialog 
         id={`dialog-modal-${project.id}`} 
+        closedby="any"
+        aria-label={`${project.title} video player`}
         class="fixed inset-0 m-auto w-full max-w-5xl bg-transparent p-4 sm:p-6 backdrop:bg-neutral-950/95 border-0 outline-none overflow-visible open:animate-theater-in z-50 focus:outline-none focus-visible:outline-none"
       >
         <div class="relative w-full max-w-5xl mx-auto flex flex-col">
@@ -479,5 +481,22 @@ const workSchemas = [workVideoSchema, breadcrumbSchema];
       const iframe = dialog.querySelector('iframe');
       if (iframe) iframe.removeAttribute('src');
     });
+
+    // Fallback backdrop click-to-dismiss for browsers without native closedby support
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      dialog.addEventListener('click', (event) => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (!isDialogContent) {
+          dialog.close();
+        }
+      });
+    }
   });
 </script>
