@@ -1483,10 +1483,14 @@ export default defineConfig({
             description: "Defaults to https://filmeditrun.co.uk/{slug}",
           },
           {
-            type: "boolean",
-            name: "noindex",
-            label: "🔒 Private Page (Hide from Google / Noindex)",
-            description: "Toggle ON for private client pitches, proposals, or unlisted pages so Google and search engines never index them.",
+            type: "string",
+            name: "privacyStatus",
+            label: "🔒 Privacy & Google Search Indexing",
+            description: "Choose whether this page is a private client proposal (hidden from Google) or a public webpage.",
+            options: [
+              { label: "🔒 Private Proposal (Hidden from Google / Noindex)", value: "private" },
+              { label: "🌍 Public Page (Indexed by Google & Search Engines)", value: "public" },
+            ],
           },
 
           // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────

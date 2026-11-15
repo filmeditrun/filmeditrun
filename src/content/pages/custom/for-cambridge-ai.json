@@ -1,13 +1,14 @@
 {
+  "heroHeadingPrefix": "Capturing the Room for",
+  "heroHeadingHighlight": "Cambridge AI.",
+  "noindex": true,
   "slug": "for-cambridge-ai",
   "seoTitle": "FilmEditRun × Cambridge AI | Private Production Scope",
   "seoDescription": "Tailored video production proposal and scope for Cambridge AI. Multi-camera summit filming, executive storytelling, and same-day social cutdowns.",
   "canonicalURL": "https://filmeditrun.co.uk/for-cambridge-ai/",
-  "noindex": true,
+  "privacyStatus": "private",
   "heroTag": "Private Proposal & Scope",
   "heroHeading": "Capturing the Room for\n*Cambridge AI.*",
-  "heroHeadingPrefix": "Capturing the Room for",
-  "heroHeadingHighlight": "Cambridge AI.",
   "heroSubtitle": "A dedicated multi-camera production and post-production workflow engineered for Cambridge AI's upcoming global summit, flagship keynotes, and product announcements.",
   "heroCtaLabel": "Review Production Deliverables ↓",
   "heroCtaLink": "#scope",
@@ -18,7 +19,6 @@
   "heroGradientDirection": "to bottom right",
   "heroGradientColor1": "#0d1b2a",
   "heroGradientColor2": "#09090c",
-  
   "section1Tag": "Phase 1: On-Location Filming",
   "section1Heading": "Discreet 4K Multi-Camera Production",
   "section1Description": "High-stakes technology announcements require zero distractions on-stage. Our low-footprint cinema camera packages capture every keynote angle, live slide deck, and audience reaction in pristine 4K with redundant broadcast audio.",
@@ -35,7 +35,6 @@
   "section1CardLinkHref": "/services/conference-event-filming",
   "section1CardImage": "/og-image.jpg",
   "section1CardImageCaption": "Discreet, broadcast-grade multi-camera coverage",
-
   "section2Tag": "Phase 2: Post-Production & Delivery",
   "section2Heading": "Rapid Turnaround for Immediate Global Reach",
   "section2Description": "Momentum matters. While the summit is still underway, our editors cut and deliver titled, captioned social cutdowns so your marketing team can publish keynote highlights to LinkedIn and X before the day concludes.",
@@ -52,7 +51,6 @@
   "section2CardLinkHref": "/work",
   "section2CardImage": "/og-image.jpg",
   "section2CardImageCaption": "Precision editing & rapid turnaround suite",
-
   "bottomCtaHeading": "Ready to Lock in Your Production Dates?",
   "bottomCtaBody": "We would love to collaborate on Cambridge AI's flagship summit. Schedule a 15-minute production alignment call with Scott to confirm dates and technical requirements.",
   "bottomCtaLabel": "Confirm Production Scope With Scott",

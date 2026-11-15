@@ -14,6 +14,7 @@ export interface CustomPageData {
   seoDescription: string;
   canonicalURL?: string;
   noindex?: boolean;
+  privacyStatus?: "private" | "public" | string;
   
   // Hero
   heroTag?: string;
@@ -115,6 +116,7 @@ const ogImage = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePat
 
 const section1Bullets = page.section1Bullets ?? [];
 const section2Bullets = page.section2Bullets ?? [];
+const isNoIndex = page.noindex === true || page.privacyStatus === "private" || (page.noindex as any) === "private";
 ---
 
 <Layout
@@ -122,7 +124,7 @@ const section2Bullets = page.section2Bullets ?? [];
   description={page.seoDescription}
   canonical={page.canonicalURL || `${siteUrl}/${page.slug}/`}
   ogImage={ogImage}
-  noindex={page.noindex}
+  noindex={isNoIndex}
   fullBleed={true}
 >
   <div class="w-full relative z-10 bg-ink min-h-screen">
