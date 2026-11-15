@@ -411,3 +411,19 @@ const gradientStyle = isRadial
     display: inline-flex;
   }
 </style>
+
+<!-- Progressive Light-Dismiss: Closes dropdown on outside click or Escape -->
+<script is:inline>
+  document.addEventListener('click', function (e) {
+    var dropdown = document.querySelector('details.group\\/dropdown');
+    if (dropdown && dropdown.open && !dropdown.contains(e.target)) {
+      dropdown.open = false;
+    }
+  });
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var dropdown = document.querySelector('details.group\\/dropdown');
+      if (dropdown && dropdown.open) dropdown.open = false;
+    }
+  });
+</script>

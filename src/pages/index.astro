@@ -96,6 +96,7 @@ const telemetryMetrics = (home as any).telemetryMetrics && (home as any).telemet
   ogImage={home.heroPosterPath || "/og-image.jpg"}
   fullBleed={true}
 >
+  <link rel="preload" as="image" href={home.heroPosterPath || "/og-image.jpg"} fetchpriority="high" slot="head" />
 
   <!-- Cinematic Hero Section with Native Autoplay Video Background -->
   <header data-cinema-darkroom class="relative w-full min-h-[100dvh] pt-20 flex flex-col justify-between overflow-hidden">

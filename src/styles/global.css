@@ -31,8 +31,10 @@ p, blockquote, li {
   text-wrap: pretty;
 }
 
-/* Map meta[name="color-scheme"] presentational hint to CSS cascade */
+/* Map meta[name="color-scheme"] presentational hint to CSS cascade & set brand accent color */
 :root {
+  accent-color: var(--color-accent);
+
   &:has(> head > meta[name="color-scheme"][content="dark"]) {
     color-scheme: dark;
   }

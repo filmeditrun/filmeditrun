@@ -65,6 +65,24 @@ const supernovaSecondary = siteConfig.supernovaSecondaryColor || "#0377FF";
       jsonLd={jsonLd}
     />
 
+    <!-- NATIVE SPECULATIVE LOADING (Speculation Rules API - Instant 0ms Navigations on Hover/Tap) -->
+    <script type="speculationrules">
+      {
+        "prerender": [
+          {
+            "where": {
+              "and": [
+                { "href_matches": "/*" },
+                { "not": { "href_matches": "/admin/*" } },
+                { "not": { "selector_matches": "[rel~=nofollow]" } }
+              ]
+            },
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>
+
     <!-- DYNAMIC CMS THEME COLOR TOKENS INJECTION -->
     <style define:vars={{ darkNoirAccent, highKeyAccent, highKeyBg, supernovaAccent, supernovaSecondary }}>
       :root,
