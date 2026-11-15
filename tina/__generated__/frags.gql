@@ -140,6 +140,7 @@ fragment CustomPagesParts on CustomPages {
   seoTitle
   seoDescription
   canonicalURL
+  privacyStatus
   heroTag
   heroHeading
   heroSubtitle

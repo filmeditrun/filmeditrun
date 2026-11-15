@@ -468,6 +468,7 @@ type CustomPages implements Node & Document {
   seoTitle: String!
   seoDescription: String!
   canonicalURL: String
+  privacyStatus: String
   heroTag: String
   heroHeading: String
   heroSubtitle: String!
@@ -516,6 +517,7 @@ input CustomPagesFilter {
   seoTitle: StringFilter
   seoDescription: StringFilter
   canonicalURL: StringFilter
+  privacyStatus: StringFilter
   heroTag: StringFilter
   heroHeading: StringFilter
   heroSubtitle: StringFilter
@@ -1606,6 +1608,7 @@ input CustomPagesMutation {
   seoTitle: String
   seoDescription: String
   canonicalURL: String
+  privacyStatus: String
   heroTag: String
   heroHeading: String
   heroSubtitle: String

@@ -151,6 +151,7 @@ export const CustomPagesPartsFragmentDoc = gql`
   seoTitle
   seoDescription
   canonicalURL
+  privacyStatus
   heroTag
   heroHeading
   heroSubtitle

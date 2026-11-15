@@ -1429,6 +1429,16 @@ var config_default = defineConfig({
             label: "\u{1F50D} Canonical URL (Optional)",
             description: "Defaults to https://filmeditrun.co.uk/{slug}"
           },
+          {
+            type: "string",
+            name: "privacyStatus",
+            label: "\u{1F512} Privacy & Google Search Indexing",
+            description: "Choose whether this page is a private client proposal (hidden from Google) or a public webpage.",
+            options: [
+              { label: "\u{1F512} Private Proposal (Hidden from Google / Noindex)", value: "private" },
+              { label: "\u{1F30D} Public Page (Indexed by Google & Search Engines)", value: "public" }
+            ]
+          },
           // ─── 📌 SECTION 1: HERO ──────────────────────────────────────────
           {
             type: "string",
