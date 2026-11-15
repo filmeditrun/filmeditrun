@@ -13,6 +13,7 @@ export interface CustomPageData {
   seoTitle: string;
   seoDescription: string;
   canonicalURL?: string;
+  noindex?: boolean;
   
   // Hero
   heroTag?: string;
@@ -121,6 +122,7 @@ const section2Bullets = page.section2Bullets ?? [];
   description={page.seoDescription}
   canonical={page.canonicalURL || `${siteUrl}/${page.slug}/`}
   ogImage={ogImage}
+  noindex={page.noindex}
   fullBleed={true}
 >
   <div class="w-full relative z-10 bg-ink min-h-screen">
@@ -218,7 +220,7 @@ const section2Bullets = page.section2Bullets ?? [];
     <!-- ============================================================== -->
     <!-- 2. NARRATIVE STORY 1 (Left: Copy, Right: Card or Photo)        -->
     <!-- ============================================================== -->
-    <section class="max-w-6xl mx-auto px-6 py-24 sm:py-32">
+    <section id="scope" class="max-w-6xl mx-auto px-6 py-24 sm:py-32 scroll-mt-20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         <!-- Left: Story & Bullet Points -->
