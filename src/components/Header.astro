@@ -57,7 +57,7 @@ const isActive = (href: string) =>
     <!-- 3. Accessible Label Button (Acts as Toggle for #mobile-nav-toggle) -->
     <label
       for="mobile-nav-toggle"
-      class="group md:hidden relative p-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 active:scale-95 transition-all cursor-pointer touch-manipulation select-none"
+      class="group md:hidden relative min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 active:scale-95 transition-all cursor-pointer touch-manipulation select-none"
       aria-label="Toggle Navigation Menu"
     >
       <!-- Hamburger Icon (Visible by default, hidden when checked) -->
@@ -86,7 +86,7 @@ const isActive = (href: string) =>
     <!-- 4. Navigation Links: Hidden by default on mobile, revealed when #mobile-nav-toggle is checked -->
     <nav 
       id="nav-links"
-      class="hidden absolute top-full left-0 right-0 bg-ink/95 backdrop-blur-2xl border-b border-line p-6 flex-col gap-1.5 text-base tracking-wide shadow-2xl overscroll-contain md:static md:flex md:flex-row md:items-center md:gap-2 md:text-[13px] md:border-none md:p-0 md:bg-transparent md:shadow-none transition-all duration-300 select-none" 
+      class="hidden absolute top-full left-0 right-0 bg-ink/95 backdrop-blur-2xl border-b border-line p-6 flex-col gap-1.5 text-base tracking-wide shadow-2xl overscroll-contain max-h-[calc(100dvh-5rem)] overflow-y-auto md:max-h-none md:overflow-visible md:static md:flex md:flex-row md:items-center md:gap-2 md:text-[13px] md:border-none md:p-0 md:bg-transparent md:shadow-none transition-all duration-300 select-none" 
       aria-label="Primary"
     >
       {
