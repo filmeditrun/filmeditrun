@@ -12,10 +12,11 @@
   "heroHeading": "Put *ideas* in motion.",
   "heroLead": "Not every concept can be captured through a camera lens. We design bespoke 2D and 3D motion graphics that illustrate complex ideas directly—bypassing narrative clutter to make intricate technologies immediately obvious and engaging.",
   "heroDisplayAs": "image",
-  "heroImage": "/work/handheld.webp",
   "heroVideoPath": "/showreel.mp4",
+  "heroImage": "/work/handheld.webp",
   "breakdownHeading": "Clarity through *animated motion.*",
   "breakdownBody": "Great animation should illuminate your message. We translate your ideas into bespoke 2D and 3D motion graphics tailored to your brand, bypassing visual clutter to turn intricate technologies into clear, engaging stories.",
+  "breakdownImage": "/work/onlocation.webp",
   "deliverables": [
     {
       "tag": "Explainers",
@@ -25,12 +26,12 @@
     {
       "tag": "Event Visuals",
       "title": "Summit Openers & Stage Graphics",
-      "description": "High-impact title sequences, speaker introduction stingers, and stage animations designed to command attention at live corporate summits."
+      "description": "High-impact title sequences, speaker intros, and stage animations designed to command attention at live corporate summits."
     },
     {
       "tag": "Brand Systems",
       "title": "Modular Motion Toolkits",
-      "description": "Reusable animated logo reveals, lower-third straps, and transitions delivered with transparent alphas for your in-house video team."
+      "description": "Reusable animated logo reveals, lower-third straps, and transitions delivered for your in-house video team."
     }
   ],
   "ctaHeading": "Have an idea you want to bring *to life?*",

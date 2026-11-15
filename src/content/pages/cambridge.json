@@ -1,11 +1,11 @@
 {
+  "heroHeadingPrefix": "Corporate Video Production",
+  "heroHeadingHighlight": "in Cambridge.",
   "seoTitle": "Video Production & Event Filming Cambridge | FilmEditRun",
   "seoDescription": "Independent corporate video production and multi-camera event filming across University of Cambridge Colleges, Cambridge Science Park & tech hubs. Fast local turnaround.",
   "canonicalURL": "https://filmeditrun.co.uk/cambridge/",
   "heroTag": "Cambridge Production Hub",
   "heroHeading": "Corporate Video Production\nin *Cambridge.*",
-  "heroHeadingPrefix": "Corporate Video Production",
-  "heroHeadingHighlight": "in Cambridge.",
   "heroSubtitle": "On-location filming for Cambridge’s technology, science, and academic leaders. We capture conferences, research stories, and executive interviews with calm focus and technical precision.",
   "heroCtaLabel": "Discuss Your Cambridge Project",
   "heroCtaLink": "/contact",
@@ -15,16 +15,13 @@
   "imagePath": "/og-image.jpg",
   "expertiseTag": "Local Expertise",
   "expertiseHeading": "Filming Across Cambridge’s Research & Innovation Hubs",
-  "expertiseDescription": "Whether documenting academic symposia in historic college settings or profiling breakthrough technologies on the science parks, we ensure your speakers, researchers, and venue teams experience a calm, well-planned production with minimal demand on their time.",
+  "expertiseDescription": "Whether documenting academic symposia in historic College settings or profiling breakthrough technologies on the science parks, we ensure your speakers, researchers, and venue teams experience a calm, well-planned production with minimal demand on their time.",
   "expertiseBullets": [
     "Multi-camera conference & keynote capture",
     "Executive interviews & research case studies",
     "Clean presentation slide & audio integration"
   ],
-  "cardTitle": "Clarity for Complex Ideas",
-  "cardBody": "Cambridge innovation demands technical understanding without dry presentation. Working directly with our lead filmmakers, you get articulate on-camera interviews, clear sound in challenging rooms, and polished films that resonate with global partners and investors.",
-  "cardLinkLabel": "View Selected Works →",
-  "cardLinkHref": "/work",
+  "expertiseImage": "/cambridge/stage-wide.webp",
   "lookbookTag": "Field Dispatches // Cambridge",
   "lookbookHeroImage": "/cambridge/stage-wide.webp",
   "lookbookHeroBadge": "Cambridge Corn Exchange • Multi-Cam Keynote",
@@ -48,7 +45,7 @@
     }
   ],
   "bottomCtaHeading": "Planning a shoot or event in *Cambridge?*",
-  "bottomCtaBody": "Calm, low-profile filming configured around your venue and schedule, from historic college halls to science park campuses.",
+  "bottomCtaBody": "Calm, low-profile filming configured around your venue and schedule, from historic College halls to science park campuses.",
   "bottomCtaLabel": "Discuss Your Cambridge Project →",
   "bottomCtaLink": "/contact"
 }

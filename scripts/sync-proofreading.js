@@ -149,8 +149,7 @@ md += `## 10. Cambridge Regional Hub (\`/cambridge\`)
 * **Overview:** ${cambridge.expertiseHeading}  
   ${cambridge.expertiseDescription}
   - *Key Capabilities:* ${(cambridge.expertiseBullets || []).join(' • ')}
-* **Feature Focus (${cambridge.cardTitle}):** ${cambridge.cardBody}
-* **Frequently Asked Questions:** ${cambridge.faqHeading}
+${cambridge.cardTitle ? `* **Feature Focus (${cambridge.cardTitle}):** ${cambridge.cardBody}\n` : ''}* **Frequently Asked Questions:** ${cambridge.faqHeading}
 ${(cambridge.faqs || []).map((f, i) => `  ${i + 1}. **Q: ${f.question}**  \n     A: ${f.answer}`).join('\n')}
 * **Call to Action:** ${cambridge.bottomCtaHeading}  
   ${cambridge.bottomCtaBody}
@@ -164,8 +163,7 @@ ${(cambridge.faqs || []).map((f, i) => `  ${i + 1}. **Q: ${f.question}**  \n    
 * **Overview:** ${london.expertiseHeading}  
   ${london.expertiseDescription}
   - *Key Capabilities:* ${(london.expertiseBullets || []).join(' • ')}
-* **Feature Focus (${london.cardTitle}):** ${london.cardBody}
-* **Frequently Asked Questions:** ${london.faqHeading}
+${london.cardTitle ? `* **Feature Focus (${london.cardTitle}):** ${london.cardBody}\n` : ''}* **Frequently Asked Questions:** ${london.faqHeading}
 ${(london.faqs || []).map((f, i) => `  ${i + 1}. **Q: ${f.question}**  \n     A: ${f.answer}`).join('\n')}
 * **Call to Action:** ${london.bottomCtaHeading}  
   ${london.bottomCtaBody}

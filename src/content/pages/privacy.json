@@ -22,7 +22,7 @@
       "id": "lawful-basis",
       "number": "03",
       "title": "Lawful Basis for Processing",
-      "content": "Under Article 6 of the UK GDPR and the Data (Use and Access) Act 2025 (DUAA), we rely on the following lawful grounds:\n\n* **Steps Prior to Entering into a Contract (Article 6(1)(b)):** When you submit a project brief via our website, processing your contact details and requirements is necessary for us to review your scope and provide a tailored commercial proposal.\n* **Performance of a Contract (Article 6(1)(b)):** If you commission FilmEditRun, processing your information is necessary to deliver our video production, cinematography, editing, and mastering services.\n* **Recognised Legitimate Interests (Article 6(1)(f) & DUAA 2025):** We have a legitimate commercial interest in responding to incoming business inquiries, preventing fraud, maintaining website security, and communicating with commercial clients about our production capabilities."
+      "content": "Under Article 6 of the UK GDPR and the Data (Use and Access) Act 2025 (DUAA), we rely on the following lawful grounds:\n\n* **Steps Prior to Entering into a Contract (Article 6(1)(b)):** When you submit a project brief via our website, processing your contact details and requirements is necessary for us to review your scope and provide a tailored commercial proposal.\n* **Performance of a Contract (Article 6(1)(b)):** If you commission FilmEditRun, processing your information is necessary to deliver our video production, cinematography, editing, and mastering services.\n* **Recognised Legitimate Interests (Article 6(1)(f) & DUAA 2025):** We have a legitimate commercial interest in responding to incoming business enquiries, preventing fraud, maintaining website security, and communicating with commercial clients about our production capabilities."
     },
     {
       "id": "processors",
@@ -40,7 +40,7 @@
       "id": "retention",
       "number": "06",
       "title": "Data Retention Periods",
-      "content": "We only retain personal data for as long as is necessary to fulfil the purposes for which it was collected:\n\n* **Uncommissioned Inquiries:** If you submit a brief that does not proceed to a commission, your inquiry data is securely archived and deleted within 12 months.\n* **Commissioned Projects:** For active production clients, contractual agreements, project communications, and invoices are retained for 6 years in accordance with UK statutory financial and tax obligations.\n* **Raw Footage & Rushes:** Video rushes and working project files are archived according to individual commercial production agreements."
+      "content": "We only retain personal data for as long as is necessary to fulfil the purposes for which it was collected:\n\n* **Uncommissioned Enquiries:** If you submit a brief that does not proceed to a commission, your enquiry data is securely archived and deleted within 12 months.\n* **Commissioned Projects:** For active production clients, contractual agreements, project communications, and invoices are retained for 6 years in accordance with UK statutory financial and tax obligations.\n* **Raw Footage & Rushes:** Video rushes and working project files are archived according to individual commercial production agreements."
     },
     {
       "id": "rights",

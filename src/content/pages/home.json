@@ -1,13 +1,14 @@
 {
+  "heroHeadingPrefix": "Capture the room.",
+  "heroHeadingHighlight": "Deliver the story.",
   "seoTitle": "FilmEditRun | Corporate Video Production Cambridge & London",
   "seoDescription": "From conference stages to corporate spaces. We film live events, executive interviews, and brand stories across Cambridge, London, and the UK.",
   "locations": "Cambridge • London • UK-Wide",
   "heroHeading": "Capture the room.\nDeliver the *story.*",
-  "heroHeadingPrefix": "Capture the room.",
-  "heroHeadingHighlight": "Deliver the story.",
   "tagline": "From conference stages to corporate spaces. We film live events, executive interviews, and brand stories across Cambridge, London, and the UK.",
   "heroVideoPath": "/showreel.mp4",
   "heroPosterPath": "/og-image.jpg",
+  "heroOverlayAmount": 20,
   "primaryCtaLabel": "Start a Project Brief",
   "primaryCtaLink": "/contact",
   "secondaryCtaLabel": "Watch Selected Work",
@@ -21,9 +22,6 @@
     "Motion Design",
     "Post-Production"
   ],
-  "introHeading": "A dedicated *on-location partner.*",
-  "introBody": "Working alongside corporate brands, event organisers, and creative agencies, we produce films that feel authentic and alive. Putting speakers at ease so they communicate naturally, we turn complex ideas into films that connect.",
-  "introImage": "/cambridge/stage-wide.webp",
   "telemetryMetrics": [
     {
       "value": "10+",
@@ -46,6 +44,9 @@
       "description": "Full-length masters for your website, plus captioned vertical and square cutdowns built for social feeds."
     }
   ],
+  "introHeading": "A dedicated *on-location partner.*",
+  "introBody": "Working alongside corporate brands, event organisers, and creative agencies, we produce films that feel authentic and alive. Putting speakers at ease so they communicate naturally, we turn complex ideas into films that connect.",
+  "introImage": "/cambridge/stage-wide.webp",
   "workSpotlightTag": "Archive",
   "workSpotlightHeading": "Stories *that connect.*",
   "workSpotlightDescription": "Watch our archive of recent conference keynotes, brand stories, and fast-turnaround social edits delivered across the UK.",

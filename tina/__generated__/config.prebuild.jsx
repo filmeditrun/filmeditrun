@@ -1069,31 +1069,10 @@ var config_default = defineConfig({
             list: true
           },
           {
-            type: "string",
-            name: "cardTitle",
-            label: "Section 2: Feature Card Title",
-            required: true
-          },
-          {
-            type: "string",
-            name: "cardBody",
-            label: "Section 2: Feature Card Body",
-            ui: {
-              component: "textarea"
-            },
-            required: true
-          },
-          {
-            type: "string",
-            name: "cardLinkLabel",
-            label: "Section 2: Feature Card Link Text",
-            required: true
-          },
-          {
-            type: "string",
-            name: "cardLinkHref",
-            label: "Section 2: Feature Card Link URL",
-            required: true
+            type: "image",
+            name: "expertiseImage",
+            label: "Section 2: Production Still / Showcase Image",
+            description: "16:10 production photograph displayed on the right of the overview"
           },
           // ─── 🖼️ SECTION 3: SHOWCASE ────────────────────────────────────
           {
@@ -1354,31 +1333,10 @@ var config_default = defineConfig({
             list: true
           },
           {
-            type: "string",
-            name: "cardTitle",
-            label: "Section 2: Feature Card Title",
-            required: true
-          },
-          {
-            type: "string",
-            name: "cardBody",
-            label: "Section 2: Feature Card Body",
-            ui: {
-              component: "textarea"
-            },
-            required: true
-          },
-          {
-            type: "string",
-            name: "cardLinkLabel",
-            label: "Section 2: Feature Card Link Text",
-            required: true
-          },
-          {
-            type: "string",
-            name: "cardLinkHref",
-            label: "Section 2: Feature Card Link URL",
-            required: true
+            type: "image",
+            name: "expertiseImage",
+            label: "Section 2: Production Still / Showcase Image",
+            description: "16:10 production photograph displayed on the right of the overview"
           },
           // ─── 🖼️ SECTION 3: SHOWCASE ────────────────────────────────────
           {
@@ -1681,45 +1639,10 @@ var config_default = defineConfig({
             list: true
           },
           {
-            type: "string",
-            name: "section1RightType",
-            label: "Section 2: Right Column Display Mode",
-            description: "Choose whether to display an informative plaque card or a featured photograph",
-            options: [
-              { label: "Informative Plaque Card (Title, Text & Link)", value: "card" },
-              { label: "Featured Photograph / Showcase Image", value: "image" }
-            ]
-          },
-          {
-            type: "string",
-            name: "section1CardTitle",
-            label: "Section 2: Plaque Card Title",
-            description: "e.g. Why Clients Choose Us"
-          },
-          {
-            type: "string",
-            name: "section1CardBody",
-            label: "Section 2: Plaque Card Body Copy",
-            ui: {
-              component: "textarea"
-            }
-          },
-          {
-            type: "string",
-            name: "section1CardLinkLabel",
-            label: "Section 2: Plaque Card Link Text",
-            description: "e.g. Explore Selected Work \u2192"
-          },
-          {
-            type: "string",
-            name: "section1CardLinkHref",
-            label: "Section 2: Plaque Card Link URL",
-            description: "e.g. /work or /contact"
-          },
-          {
             type: "image",
             name: "section1CardImage",
-            label: "Section 2: Showcase Photograph (When Display Mode is Image)"
+            label: "Section 2: Production Still / Showcase Image",
+            description: "16:10 production photograph displayed on the right of the story"
           },
           {
             type: "string",
@@ -1756,42 +1679,10 @@ var config_default = defineConfig({
             list: true
           },
           {
-            type: "string",
-            name: "section2LeftType",
-            label: "Section 3: Left Column Display Mode",
-            description: "Choose whether to display a featured photograph or an informative plaque card",
-            options: [
-              { label: "Featured Photograph / Showcase Image", value: "image" },
-              { label: "Informative Plaque Card (Title, Text & Link)", value: "card" }
-            ]
-          },
-          {
-            type: "string",
-            name: "section2CardTitle",
-            label: "Section 3: Plaque Card Title"
-          },
-          {
-            type: "string",
-            name: "section2CardBody",
-            label: "Section 3: Plaque Card Body Copy",
-            ui: {
-              component: "textarea"
-            }
-          },
-          {
-            type: "string",
-            name: "section2CardLinkLabel",
-            label: "Section 3: Plaque Card Link Text"
-          },
-          {
-            type: "string",
-            name: "section2CardLinkHref",
-            label: "Section 3: Plaque Card Link URL"
-          },
-          {
             type: "image",
             name: "section2CardImage",
-            label: "Section 3: Showcase Photograph (When Display Mode is Image)"
+            label: "Section 3: Production Still / Showcase Image",
+            description: "16:10 production photograph displayed on the left of the story (flipped)"
           },
           {
             type: "string",
@@ -2304,6 +2195,12 @@ var config_default = defineConfig({
             ui: {
               component: "textarea"
             }
+          },
+          {
+            type: "image",
+            name: "breakdownImage",
+            label: "Section 2: Production Still / Showcase Image",
+            description: "16:10 production photograph displayed on the right of the service approach"
           },
           // ─── 📦 SECTION 3: DELIVERABLES ──────────────────────────────
           {

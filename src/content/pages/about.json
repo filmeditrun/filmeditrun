@@ -1,4 +1,5 @@
 {
+  "heroFrostedGlass": "very-subtle",
   "seoTitle": "About FilmEditRun | Video Production Cambridge & London",
   "seoDescription": "Meet FilmEditRun: an independent video production studio and post-house based in Cambridge. Filming conferences, brand stories, and podcasts across the UK.",
   "headline": "Films crafted with care,\nclarity, and *purpose*.",
@@ -9,10 +10,9 @@
   "heroGradientDirection": "to bottom right",
   "heroGradientColor1": "#180d2b",
   "heroGradientColor2": "#09090c",
-  "heroFrostedGlass": "very-subtle",
   "approachTag": "OUR APPROACH",
   "approachHeading": "Calm leadership. *Direct collaboration.*",
-  "approachBody": "With FilmEditRun, we listen to your brief, direct the narrative, and cut the story. Direct communication & honest guidance.",
+  "approachBody": "With FilmEditRun, we listen to your brief, direct the narrative, and edit the story. Direct communication & honest guidance.",
   "approachPrimaryLinkLabel": "Explore Work →",
   "approachPrimaryLinkHref": "/work",
   "approachSecondaryLinkLabel": "Explore Services →",

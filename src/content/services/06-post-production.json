@@ -12,10 +12,11 @@
   "heroHeading": "Create the timeline. \nShape the *story.*",
   "heroLead": "We take your rushes and extract the narrative core: refining dialogue pacing, integrating on-brand motion assets, and mastering sound to deliver finished films that work across your audience.",
   "heroDisplayAs": "video",
-  "heroImage": "/work/onlocation.webp",
   "heroVideoPath": "/showreel.mp4",
+  "heroImage": "/work/onlocation.webp",
   "breakdownHeading": "Engineered for clarity. *Direct collaboration.*",
-  "breakdownBody": "Post-production is where raw material becomes a corporate asset. Working directly with our editors, your team gets transparent turnaround with faster collaborative reviews. From multi-camera synchronization to colour grading and brand asset integration, we eliminate production friction so your stakeholders can review and approve with complete confidence.",
+  "breakdownBody": "Post-production is where raw material becomes a corporate asset. Working directly with our editors, your team gets transparent turnaround with faster collaborative reviews. From multi-camera edits to colour grading and brand asset integration, so your stakeholders can review and approve with complete confidence.",
+  "breakdownImage": "/work/onlocation.webp",
   "deliverables": [
     {
       "tag": "THE PROCESS",
@@ -34,6 +35,6 @@
     }
   ],
   "ctaHeading": "Looking for a dedicated *editorial partner?*",
-  "ctaDescription": "From high-energy sizzle reels and investor pitch films to rapid conference wrap-ups and executive keynotes. We craft on-brand films ready for upload.",
+  "ctaDescription": "From high-energy sizzle reels and investor pitch films to rapid conference wrap-ups and executive keynotes. We create on-brand films ready for upload.",
   "ctaButtonLabel": "Start Your Edit →"
 }

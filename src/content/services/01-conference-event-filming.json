@@ -12,10 +12,11 @@
   "heroHeading": "Capture the keynote. \nDeliver *momentum.*",
   "heroLead": "Conferences spark ideas. We help you share them. Operating with agile crews across Cambridge and London, we capture every keynote and panel, delivering edited sessions and fast-turnaround social films while event momentum is at its peak.",
   "heroDisplayAs": "video",
-  "heroImage": "/cambridge/stage-wide.webp",
   "heroVideoPath": "/showreel.mp4",
+  "heroImage": "/cambridge/stage-wide.webp",
   "breakdownHeading": "Cinema rigs & remote PTZ. *Live vision mixing.*",
   "breakdownBody": "We combine manned cinema rigs for dynamic speaker tracking with discreet remote PTZ cameras operated from a single control desk. This captures multiple high-definition stage angles without crowding the room or blocking delegate sightlines, while on-site vision mixing integrates presentation slides with camera feeds in real time.",
+  "breakdownImage": "/cambridge/stage-wide.webp",
   "deliverables": [
     {
       "tag": "Roaming Coverage",

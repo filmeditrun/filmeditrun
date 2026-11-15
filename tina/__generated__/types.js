@@ -83,10 +83,7 @@ export const CambridgePagePartsFragmentDoc = gql`
   expertiseHeading
   expertiseDescription
   expertiseBullets
-  cardTitle
-  cardBody
-  cardLinkLabel
-  cardLinkHref
+  expertiseImage
   lookbookTag
   lookbookHeroImage
   lookbookHeroBadge
@@ -127,10 +124,7 @@ export const LondonPagePartsFragmentDoc = gql`
   expertiseHeading
   expertiseDescription
   expertiseBullets
-  cardTitle
-  cardBody
-  cardLinkLabel
-  cardLinkHref
+  expertiseImage
   lookbookTag
   lookbookHeroImage
   lookbookHeroBadge
@@ -176,22 +170,12 @@ export const CustomPagesPartsFragmentDoc = gql`
   section1Heading
   section1Description
   section1Bullets
-  section1RightType
-  section1CardTitle
-  section1CardBody
-  section1CardLinkLabel
-  section1CardLinkHref
   section1CardImage
   section1CardImageCaption
   section2Tag
   section2Heading
   section2Description
   section2Bullets
-  section2LeftType
-  section2CardTitle
-  section2CardBody
-  section2CardLinkLabel
-  section2CardLinkHref
   section2CardImage
   section2CardImageCaption
   bottomCtaHeading
@@ -270,6 +254,7 @@ export const ServicePartsFragmentDoc = gql`
   heroOverlayAmount
   breakdownHeading
   breakdownBody
+  breakdownImage
   deliverables {
     __typename
     tag

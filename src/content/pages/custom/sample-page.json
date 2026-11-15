@@ -29,12 +29,7 @@
     "Fast turnaround editorial and social media highlights",
     "Clear upfront scope, timelines, and communication"
   ],
-  "section1RightType": "card",
-  "section1CardTitle": "Why Clients Choose Us",
-  "section1CardBody": "We understand that corporate schedules are tight and events are high-stakes. Our streamlined production pipelines ensure prompt delivery without sacrificing craft, audio clarity, or cinematic polish.",
-  "section1CardLinkLabel": "Explore Selected Work →",
-  "section1CardLinkHref": "/work",
-  "section1CardImage": "/og-image.jpg",
+  "section1CardImage": "/cambridge/stage-wide.webp",
   "section1CardImageCaption": "On-location multi-camera production setup",
 
   "section2Tag": "Production Standards",
@@ -46,12 +41,7 @@
     "Flexible aspect ratios formatted for digital, broadcast, and social",
     "Transparent review cycles with frame-accurate client feedback"
   ],
-  "section2LeftType": "image",
-  "section2CardTitle": "Reliable Delivery Every Time",
-  "section2CardBody": "Every project is backed by direct communication with your dedicated editor and director, ensuring your creative vision translates cleanly to screen.",
-  "section2CardLinkLabel": "Get in touch to discuss details →",
-  "section2CardLinkHref": "/contact",
-  "section2CardImage": "/og-image.jpg",
+  "section2CardImage": "/work/onlocation.webp",
   "section2CardImageCaption": "Precision colour grading and sound design suite",
 
   "bottomCtaHeading": "Ready to Start Your Project?",

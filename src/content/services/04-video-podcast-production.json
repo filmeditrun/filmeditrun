@@ -12,15 +12,16 @@
   "heroHeading": "One conversation. \nMultiply your *reach.*",
   "heroLead": "The most powerful thought leadership starts with a conversation. We can design and build a modular, acoustically controlled set inside your workspace, turning one half-day recording into full master episodes and a month of high-reach LinkedIn cutdowns.",
   "heroDisplayAs": "video",
-  "heroImage": "/work/handheld.webp",
   "heroVideoPath": "/showreel.mp4",
+  "heroImage": "/work/handheld.webp",
   "breakdownHeading": "One recording session. *An ongoing content engine.*",
-  "breakdownBody": "We turn a single morning of conversation into weeks of multi-platform reach. Full-length master episodes, vertical cutdowns for LinkedIn, and calibrated audio deliver continuous thought leadership without recurring time drain.",
+  "breakdownBody": "We turn a single morning of conversation into weeks of multi-platform reach. Full-length master episodes, vertical cutdowns for LinkedIn, and calibrated audio deliver continuous thought leadership.",
+  "breakdownImage": "/work/handheld.webp",
   "deliverables": [
     {
       "tag": "Visual Identity",
       "title": "Show Identity & Bespoke Staging",
-      "description": "We design the complete aesthetic for your series: reusable set styling, cinematic camera angles, studio lighting, and on-brand graphics that command immediate visual authority."
+      "description": "We design the complete aesthetic for your series: reusable set styling, cinematic camera angles, studio lighting, and on-brand graphics."
     },
     {
       "tag": "Social Cutdowns",

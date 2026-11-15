@@ -309,10 +309,7 @@ type CambridgePage implements Node & Document {
   expertiseHeading: String!
   expertiseDescription: String!
   expertiseBullets: [String]
-  cardTitle: String!
-  cardBody: String!
-  cardLinkLabel: String!
-  cardLinkHref: String!
+  expertiseImage: String
   lookbookTag: String
   lookbookHeroImage: String
   lookbookHeroBadge: String
@@ -355,10 +352,7 @@ input CambridgePageFilter {
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
   expertiseBullets: StringFilter
-  cardTitle: StringFilter
-  cardBody: StringFilter
-  cardLinkLabel: StringFilter
-  cardLinkHref: StringFilter
+  expertiseImage: ImageFilter
   lookbookTag: StringFilter
   lookbookHeroImage: ImageFilter
   lookbookHeroBadge: StringFilter
@@ -409,10 +403,7 @@ type LondonPage implements Node & Document {
   expertiseHeading: String!
   expertiseDescription: String!
   expertiseBullets: [String]
-  cardTitle: String!
-  cardBody: String!
-  cardLinkLabel: String!
-  cardLinkHref: String!
+  expertiseImage: String
   lookbookTag: String
   lookbookHeroImage: String
   lookbookHeroBadge: String
@@ -455,10 +446,7 @@ input LondonPageFilter {
   expertiseHeading: StringFilter
   expertiseDescription: StringFilter
   expertiseBullets: StringFilter
-  cardTitle: StringFilter
-  cardBody: StringFilter
-  cardLinkLabel: StringFilter
-  cardLinkHref: StringFilter
+  expertiseImage: ImageFilter
   lookbookTag: StringFilter
   lookbookHeroImage: ImageFilter
   lookbookHeroBadge: StringFilter
@@ -509,22 +497,12 @@ type CustomPages implements Node & Document {
   section1Heading: String!
   section1Description: String!
   section1Bullets: [String]
-  section1RightType: String
-  section1CardTitle: String
-  section1CardBody: String
-  section1CardLinkLabel: String
-  section1CardLinkHref: String
   section1CardImage: String
   section1CardImageCaption: String
   section2Tag: String
   section2Heading: String
   section2Description: String
   section2Bullets: [String]
-  section2LeftType: String
-  section2CardTitle: String
-  section2CardBody: String
-  section2CardLinkLabel: String
-  section2CardLinkHref: String
   section2CardImage: String
   section2CardImageCaption: String
   bottomCtaHeading: String
@@ -560,22 +538,12 @@ input CustomPagesFilter {
   section1Heading: StringFilter
   section1Description: StringFilter
   section1Bullets: StringFilter
-  section1RightType: StringFilter
-  section1CardTitle: StringFilter
-  section1CardBody: StringFilter
-  section1CardLinkLabel: StringFilter
-  section1CardLinkHref: StringFilter
   section1CardImage: ImageFilter
   section1CardImageCaption: StringFilter
   section2Tag: StringFilter
   section2Heading: StringFilter
   section2Description: StringFilter
   section2Bullets: StringFilter
-  section2LeftType: StringFilter
-  section2CardTitle: StringFilter
-  section2CardBody: StringFilter
-  section2CardLinkLabel: StringFilter
-  section2CardLinkHref: StringFilter
   section2CardImage: ImageFilter
   section2CardImageCaption: StringFilter
   bottomCtaHeading: StringFilter
@@ -746,6 +714,7 @@ type Service implements Node & Document {
   heroOverlayAmount: Float
   breakdownHeading: String
   breakdownBody: String
+  breakdownImage: String
   deliverables: [ServiceDeliverables]
   ctaHeading: String!
   ctaDescription: String!
@@ -781,6 +750,7 @@ input ServiceFilter {
   heroOverlayAmount: NumberFilter
   breakdownHeading: StringFilter
   breakdownBody: StringFilter
+  breakdownImage: ImageFilter
   deliverables: ServiceDeliverablesFilter
   ctaHeading: StringFilter
   ctaDescription: StringFilter
@@ -1581,10 +1551,7 @@ input CambridgePageMutation {
   expertiseHeading: String
   expertiseDescription: String
   expertiseBullets: [String]
-  cardTitle: String
-  cardBody: String
-  cardLinkLabel: String
-  cardLinkHref: String
+  expertiseImage: String
   lookbookTag: String
   lookbookHeroImage: String
   lookbookHeroBadge: String
@@ -1624,10 +1591,7 @@ input LondonPageMutation {
   expertiseHeading: String
   expertiseDescription: String
   expertiseBullets: [String]
-  cardTitle: String
-  cardBody: String
-  cardLinkLabel: String
-  cardLinkHref: String
+  expertiseImage: String
   lookbookTag: String
   lookbookHeroImage: String
   lookbookHeroBadge: String
@@ -1667,22 +1631,12 @@ input CustomPagesMutation {
   section1Heading: String
   section1Description: String
   section1Bullets: [String]
-  section1RightType: String
-  section1CardTitle: String
-  section1CardBody: String
-  section1CardLinkLabel: String
-  section1CardLinkHref: String
   section1CardImage: String
   section1CardImageCaption: String
   section2Tag: String
   section2Heading: String
   section2Description: String
   section2Bullets: [String]
-  section2LeftType: String
-  section2CardTitle: String
-  section2CardBody: String
-  section2CardLinkLabel: String
-  section2CardLinkHref: String
   section2CardImage: String
   section2CardImageCaption: String
   bottomCtaHeading: String
@@ -1763,6 +1717,7 @@ input ServiceMutation {
   heroOverlayAmount: Float
   breakdownHeading: String
   breakdownBody: String
+  breakdownImage: String
   deliverables: [ServiceDeliverablesMutation]
   ctaHeading: String
   ctaDescription: String
