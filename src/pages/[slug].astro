@@ -255,7 +255,7 @@ const isNoIndex = page.noindex === true || page.privacyStatus === "private" || (
             <ul class="space-y-3 text-neutral-300 text-sm sm:text-base font-light leading-relaxed">
               {section1Bullets.map((bullet) => (
                 <li class="flex items-start gap-3">
-                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-2.5"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-2"></span>
                   <span class="flex-1" set:html={formatRichText(bullet)} />
                 </li>
               ))}
@@ -324,7 +324,7 @@ const isNoIndex = page.noindex === true || page.privacyStatus === "private" || (
                 <ul class="space-y-3 text-neutral-300 text-sm sm:text-base font-light leading-relaxed">
                   {section2Bullets.map((bullet) => (
                     <li class="flex items-start gap-3">
-                      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-2.5"></span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-2"></span>
                       <span class="flex-1" set:html={formatRichText(bullet)} />
                     </li>
                   ))}

@@ -1634,8 +1634,8 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "section1Bullets",
-            label: "Section 2: Checkmark Bullet Points",
-            description: "Key deliverables or assurances (\u2713 rendered automatically)",
+            label: "Section 2: Key Deliverable / Bullet Point",
+            description: "Key deliverable or assurance with studio amber dot (1 bullet recommended)",
             list: true
           },
           {
@@ -1674,8 +1674,8 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "section2Bullets",
-            label: "Section 3: Checkmark Bullet Points",
-            description: "Key deliverables or assurances (\u2713 rendered automatically)",
+            label: "Section 3: Key Deliverable / Bullet Point",
+            description: "Key deliverable or assurance with studio amber dot (1 bullet recommended)",
             list: true
           },
           {
