@@ -465,6 +465,8 @@ export type Homepage = Node & Document & {
   introHeading: Scalars['String']['output'];
   introBody: Scalars['String']['output'];
   introImage?: Maybe<Scalars['String']['output']>;
+  introOverlay?: Maybe<Scalars['String']['output']>;
+  introOverlayAmount?: Maybe<Scalars['Float']['output']>;
   workSpotlightTag?: Maybe<Scalars['String']['output']>;
   workSpotlightHeading?: Maybe<Scalars['String']['output']>;
   workSpotlightDescription?: Maybe<Scalars['String']['output']>;
@@ -473,6 +475,8 @@ export type Homepage = Node & Document & {
   scaleHeading?: Maybe<Scalars['String']['output']>;
   scaleDescription?: Maybe<Scalars['String']['output']>;
   scaleImage?: Maybe<Scalars['String']['output']>;
+  scaleOverlay?: Maybe<Scalars['String']['output']>;
+  scaleOverlayAmount?: Maybe<Scalars['Float']['output']>;
   bentoTag?: Maybe<Scalars['String']['output']>;
   bentoHeading?: Maybe<Scalars['String']['output']>;
   bentoDescription?: Maybe<Scalars['String']['output']>;
@@ -548,6 +552,8 @@ export type HomepageFilter = {
   introHeading?: InputMaybe<StringFilter>;
   introBody?: InputMaybe<StringFilter>;
   introImage?: InputMaybe<ImageFilter>;
+  introOverlay?: InputMaybe<StringFilter>;
+  introOverlayAmount?: InputMaybe<NumberFilter>;
   workSpotlightTag?: InputMaybe<StringFilter>;
   workSpotlightHeading?: InputMaybe<StringFilter>;
   workSpotlightDescription?: InputMaybe<StringFilter>;
@@ -556,6 +562,8 @@ export type HomepageFilter = {
   scaleHeading?: InputMaybe<StringFilter>;
   scaleDescription?: InputMaybe<StringFilter>;
   scaleImage?: InputMaybe<ImageFilter>;
+  scaleOverlay?: InputMaybe<StringFilter>;
+  scaleOverlayAmount?: InputMaybe<NumberFilter>;
   bentoTag?: InputMaybe<StringFilter>;
   bentoHeading?: InputMaybe<StringFilter>;
   bentoDescription?: InputMaybe<StringFilter>;
@@ -2086,6 +2094,8 @@ export type HomepageMutation = {
   introHeading?: InputMaybe<Scalars['String']['input']>;
   introBody?: InputMaybe<Scalars['String']['input']>;
   introImage?: InputMaybe<Scalars['String']['input']>;
+  introOverlay?: InputMaybe<Scalars['String']['input']>;
+  introOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   workSpotlightTag?: InputMaybe<Scalars['String']['input']>;
   workSpotlightHeading?: InputMaybe<Scalars['String']['input']>;
   workSpotlightDescription?: InputMaybe<Scalars['String']['input']>;
@@ -2094,6 +2104,8 @@ export type HomepageMutation = {
   scaleHeading?: InputMaybe<Scalars['String']['input']>;
   scaleDescription?: InputMaybe<Scalars['String']['input']>;
   scaleImage?: InputMaybe<Scalars['String']['input']>;
+  scaleOverlay?: InputMaybe<Scalars['String']['input']>;
+  scaleOverlayAmount?: InputMaybe<Scalars['Float']['input']>;
   bentoTag?: InputMaybe<Scalars['String']['input']>;
   bentoHeading?: InputMaybe<Scalars['String']['input']>;
   bentoDescription?: InputMaybe<Scalars['String']['input']>;
@@ -2612,6 +2624,8 @@ export type HomepageFilter = {
   introHeading?: StringFilter | null | undefined;
   introBody?: StringFilter | null | undefined;
   introImage?: ImageFilter | null | undefined;
+  introOverlay?: StringFilter | null | undefined;
+  introOverlayAmount?: NumberFilter | null | undefined;
   workSpotlightTag?: StringFilter | null | undefined;
   workSpotlightHeading?: StringFilter | null | undefined;
   workSpotlightDescription?: StringFilter | null | undefined;
@@ -2620,6 +2634,8 @@ export type HomepageFilter = {
   scaleHeading?: StringFilter | null | undefined;
   scaleDescription?: StringFilter | null | undefined;
   scaleImage?: ImageFilter | null | undefined;
+  scaleOverlay?: StringFilter | null | undefined;
+  scaleOverlayAmount?: NumberFilter | null | undefined;
   bentoTag?: StringFilter | null | undefined;
   bentoHeading?: StringFilter | null | undefined;
   bentoDescription?: StringFilter | null | undefined;
@@ -3093,7 +3109,7 @@ export type FooterSettingsFilter = {
   backToTopLabel?: StringFilter | null | undefined;
 };
 
-export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null };
+export type HomepagePartsFragment = { __typename: 'Homepage', seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, introOverlay: string | null, introOverlayAmount: number | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, scaleOverlay: string | null, scaleOverlayAmount: number | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null };
 
 export type CambridgePagePartsFragment = { __typename: 'CambridgePage', seoTitle: string, seoDescription: string, canonicalURL: string, heroTag: string, heroHeading: string | null, heroSubtitle: string, heroCtaLabel: string, heroCtaLink: string, displayAs: string | null, localVideoPath: string | null, cloudVideoUrl: string | null, imagePath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, expertiseTag: string, expertiseHeading: string, expertiseDescription: string, expertiseBullets: Array<string | null> | null, expertiseImage: string | null, lookbookTag: string | null, lookbookHeroImage: string | null, lookbookHeroBadge: string | null, lookbookDetail1Image: string | null, lookbookDetail1Badge: string | null, lookbookDetail2Image: string | null, lookbookDetail2Badge: string | null, faqHeading: string, bottomCtaHeading: string, bottomCtaBody: string, bottomCtaLabel: string, bottomCtaLink: string, faqs: Array<{ __typename: 'CambridgePageFaqs', question: string, answer: string } | null> | null };
 
@@ -3130,7 +3146,7 @@ export type HomepageQueryVariables = Exact<{
 }>;
 
 
-export type HomepageQuery = { homepage: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null } };
+export type HomepageQuery = { homepage: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, introOverlay: string | null, introOverlayAmount: number | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, scaleOverlay: string | null, scaleOverlayAmount: number | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null } };
 
 export type HomepageConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -3142,7 +3158,7 @@ export type HomepageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type HomepageConnectionQuery = { homepageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null } | null } | null> | null } };
+export type HomepageConnectionQuery = { homepageConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Homepage', id: string, seoTitle: string, seoDescription: string, locations: string, heroHeading: string | null, tagline: string, heroVideoPath: string, heroPosterPath: string | null, heroOverlay: string | null, heroOverlayAmount: number | null, primaryCtaLabel: string, primaryCtaLink: string, secondaryCtaLabel: string, secondaryCtaLink: string, brandName: string, expertiseList: Array<string | null> | null, introHeading: string, introBody: string, introImage: string | null, introOverlay: string | null, introOverlayAmount: number | null, workSpotlightTag: string | null, workSpotlightHeading: string | null, workSpotlightDescription: string | null, workSpotlightLinkLabel: string | null, workSpotlightLinkHref: string | null, scaleHeading: string | null, scaleDescription: string | null, scaleImage: string | null, scaleOverlay: string | null, scaleOverlayAmount: number | null, bentoTag: string | null, bentoHeading: string | null, bentoDescription: string | null, bentoLinkLabel: string | null, bentoLinkHref: string | null, pipelineTag: string | null, pipelineHeading: string | null, pipelineDescription: string | null, pipelineLinkLabel: string | null, pipelineLinkHref: string | null, hubsTag: string | null, hubsHeading: string | null, hubsDescription: string | null, ctaBadge: string | null, ctaHeading: string | null, ctaDescription: string | null, ctaPrimaryLabel: string | null, ctaPrimaryLink: string | null, ctaSecondaryLabel: string | null, ctaSecondaryLink: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, telemetryMetrics: Array<{ __typename: 'HomepageTelemetryMetrics', value: string, label: string, description: string } | null> | null } | null } | null> | null } };
 
 export type CambridgePageQueryVariables = Exact<{
   relativePath: string;
@@ -3456,6 +3472,8 @@ export const HomepagePartsFragmentDoc = gql`
   introHeading
   introBody
   introImage
+  introOverlay
+  introOverlayAmount
   workSpotlightTag
   workSpotlightHeading
   workSpotlightDescription
@@ -3464,6 +3482,8 @@ export const HomepagePartsFragmentDoc = gql`
   scaleHeading
   scaleDescription
   scaleImage
+  scaleOverlay
+  scaleOverlayAmount
   bentoTag
   bentoHeading
   bentoDescription

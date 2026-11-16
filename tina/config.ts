@@ -776,6 +776,29 @@ export default defineConfig({
             label: "Section 4: Statement 1 Background Image",
             description: "Default: /work/onlocation.webp",
           },
+          {
+            type: "string",
+            name: "introOverlay",
+            label: "Section 4: Background Darkening",
+            description: "Turn the background darkening overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "introOverlayAmount",
+            label: "Section 4: Darkening Amount",
+            description: "Slide to adjust darkness over the background image (Default: 50%).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
+          },
 
           // ─── 🎬 SECTION 5: FEATURED WORK ─────────────────────────────────
           {
@@ -827,6 +850,29 @@ export default defineConfig({
             name: "scaleImage",
             label: "Section 6: Statement 2 Background Image",
             description: "Default: /cambridge/stage-wide.webp",
+          },
+          {
+            type: "string",
+            name: "scaleOverlay",
+            label: "Section 6: Background Darkening",
+            description: "Turn the background darkening overlay on or off.",
+            options: [
+              { value: "on", label: "On (Enabled - Default)" },
+              { value: "off", label: "Off (Disabled)" },
+            ],
+            ui: {
+              defaultValue: "on",
+            },
+          },
+          {
+            type: "number",
+            name: "scaleOverlayAmount",
+            label: "Section 6: Darkening Amount",
+            description: "Slide to adjust darkness over the background image (Default: 50%).",
+            ui: {
+              component: RangeSlider,
+              defaultValue: 50,
+            },
           },
 
           // ─── 🍱 SECTION 7: SERVICES OVERVIEW ─────────────────────────────

@@ -32,6 +32,8 @@ export const HomepagePartsFragmentDoc = gql`
   introHeading
   introBody
   introImage
+  introOverlay
+  introOverlayAmount
   workSpotlightTag
   workSpotlightHeading
   workSpotlightDescription
@@ -40,6 +42,8 @@ export const HomepagePartsFragmentDoc = gql`
   scaleHeading
   scaleDescription
   scaleImage
+  scaleOverlay
+  scaleOverlayAmount
   bentoTag
   bentoHeading
   bentoDescription

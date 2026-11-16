@@ -24,6 +24,8 @@ fragment HomepageParts on Homepage {
   introHeading
   introBody
   introImage
+  introOverlay
+  introOverlayAmount
   workSpotlightTag
   workSpotlightHeading
   workSpotlightDescription
@@ -32,6 +34,8 @@ fragment HomepageParts on Homepage {
   scaleHeading
   scaleDescription
   scaleImage
+  scaleOverlay
+  scaleOverlayAmount
   bentoTag
   bentoHeading
   bentoDescription
