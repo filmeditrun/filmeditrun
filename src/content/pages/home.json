@@ -57,6 +57,7 @@
   "scaleHeading": "Driven by the task. *Not the tool.*",
   "scaleDescription": "High-spec production technology is only as effective as the intention behind it. From multi-camera live coverage to cinema optics, we configure our setup around the specific demands of your brief, ensuring the technology serves the task and delivers the right result.",
   "scaleImage": "/cambridge/stage-wide.webp",
+  "scaleFraming": "natural",
   "scaleOverlay": "on",
   "scaleOverlayAmount": 50,
   "bentoTag": "Services",

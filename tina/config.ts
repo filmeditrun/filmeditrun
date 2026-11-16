@@ -778,6 +778,19 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "introFraming",
+            label: "Section 4: Framing Style",
+            description: "Choose between desktop parallax scrolling (cinematic depth, crops top/bottom) or natural framing (preserves full image scale without zoom).",
+            options: [
+              { value: "parallax", label: "Parallax (Cinematic Depth)" },
+              { value: "natural", label: "Natural Framing (Standard Scroll - No Zoom)" },
+            ],
+            ui: {
+              defaultValue: "parallax",
+            },
+          },
+          {
+            type: "string",
             name: "introOverlay",
             label: "Section 4: Background Darkening",
             description: "Turn the background darkening overlay on or off.",
@@ -850,6 +863,19 @@ export default defineConfig({
             name: "scaleImage",
             label: "Section 6: Statement 2 Background Image",
             description: "Default: /cambridge/stage-wide.webp",
+          },
+          {
+            type: "string",
+            name: "scaleFraming",
+            label: "Section 6: Framing Style",
+            description: "Choose between desktop parallax scrolling (cinematic depth, crops top/bottom) or natural framing (preserves full image scale without zoom).",
+            options: [
+              { value: "parallax", label: "Parallax (Cinematic Depth)" },
+              { value: "natural", label: "Natural Framing (Standard Scroll - No Zoom)" },
+            ],
+            ui: {
+              defaultValue: "natural",
+            },
           },
           {
             type: "string",

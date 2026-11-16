@@ -161,6 +161,7 @@ type Homepage implements Node & Document {
   introHeading: String!
   introBody: String!
   introImage: String
+  introFraming: String
   introOverlay: String
   introOverlayAmount: Float
   workSpotlightTag: String
@@ -171,6 +172,7 @@ type Homepage implements Node & Document {
   scaleHeading: String
   scaleDescription: String
   scaleImage: String
+  scaleFraming: String
   scaleOverlay: String
   scaleOverlayAmount: Float
   bentoTag: String
@@ -248,6 +250,7 @@ input HomepageFilter {
   introHeading: StringFilter
   introBody: StringFilter
   introImage: ImageFilter
+  introFraming: StringFilter
   introOverlay: StringFilter
   introOverlayAmount: NumberFilter
   workSpotlightTag: StringFilter
@@ -258,6 +261,7 @@ input HomepageFilter {
   scaleHeading: StringFilter
   scaleDescription: StringFilter
   scaleImage: ImageFilter
+  scaleFraming: StringFilter
   scaleOverlay: StringFilter
   scaleOverlayAmount: NumberFilter
   bentoTag: StringFilter
@@ -1505,6 +1509,7 @@ input HomepageMutation {
   introHeading: String
   introBody: String
   introImage: String
+  introFraming: String
   introOverlay: String
   introOverlayAmount: Float
   workSpotlightTag: String
@@ -1515,6 +1520,7 @@ input HomepageMutation {
   scaleHeading: String
   scaleDescription: String
   scaleImage: String
+  scaleFraming: String
   scaleOverlay: String
   scaleOverlayAmount: Float
   bentoTag: String

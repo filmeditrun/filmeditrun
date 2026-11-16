@@ -98,10 +98,12 @@ const { isVisible: isHeroOverlayVisible, style: heroOverlayStyle } = getHeroOver
 const isIntroOverlayVisible = (home as any).introOverlay !== "off";
 const introOverlayAmount = typeof (home as any).introOverlayAmount === "number" ? Number((home as any).introOverlayAmount) : 50;
 const introOpacity = isIntroOverlayVisible ? introOverlayAmount / 100 : 0;
+const introFraming = (home as any).introFraming || "parallax";
 
 const isScaleOverlayVisible = (home as any).scaleOverlay !== "off";
 const scaleOverlayAmount = typeof (home as any).scaleOverlayAmount === "number" ? Number((home as any).scaleOverlayAmount) : 50;
 const scaleOpacity = isScaleOverlayVisible ? scaleOverlayAmount / 100 : 0;
+const scaleFraming = (home as any).scaleFraming || "natural";
 ---
 
 <Layout
@@ -212,7 +214,10 @@ const scaleOpacity = isScaleOverlayVisible ? scaleOverlayAmount / 100 : 0;
   <!-- ================================================================= -->
   <section 
     data-cinema-darkroom
-    class="relative w-full py-20 sm:py-28 lg:py-36 bg-scroll lg:bg-fixed bg-center bg-cover select-none text-white overflow-hidden" 
+    class:list={[
+      "relative w-full py-20 sm:py-28 lg:py-36 bg-center bg-cover select-none text-white overflow-hidden",
+      introFraming === "natural" ? "bg-scroll" : "bg-scroll lg:bg-fixed"
+    ]} 
     style={`background-image: url('${(home as any).introImage || "/work/onlocation.webp"}');`}
   >
     <!-- Background Darkening Scrim (Configurable via Tina CMS) -->
@@ -454,7 +459,10 @@ const scaleOpacity = isScaleOverlayVisible ? scaleOverlayAmount / 100 : 0;
   <!-- ================================================================= -->
   <section 
     data-cinema-darkroom
-    class="relative w-full py-20 sm:py-28 lg:py-40 bg-scroll lg:bg-fixed bg-center bg-cover select-none text-white overflow-hidden" 
+    class:list={[
+      "relative w-full py-20 sm:py-28 lg:py-40 bg-center bg-cover select-none text-white overflow-hidden",
+      scaleFraming === "natural" ? "bg-scroll" : "bg-scroll lg:bg-fixed"
+    ]} 
     style={`background-image: url('${(home as any).scaleImage || "/cambridge/stage-wide.webp"}');`}
   >
     <!-- Background Darkening Scrim (Configurable via Tina CMS) -->
